@@ -78,7 +78,7 @@ $SourceAppCreateDto = @"{
 # Create source app
 
 try {
-    $Result = ConvertFrom-JsonToSourceAppCreateDto -Json $SourceAppCreateDto
+    $Result = ConvertFrom-BetaJsonToSourceAppCreateDto -Json $SourceAppCreateDto
     New-BetaSourceApp -SourceAppCreateDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -130,7 +130,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 # Bulk remove access profiles from the specified source app
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-BetaJsonToRequestBody -Json $RequestBody
     Remove-BetaAccessProfilesFromSourceAppByBulk -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters

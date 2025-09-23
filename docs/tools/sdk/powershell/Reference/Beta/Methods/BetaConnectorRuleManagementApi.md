@@ -91,7 +91,7 @@ $ConnectorRuleCreateRequest = @"{
 # Create connector rule
 
 try {
-    $Result = ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
+    $Result = ConvertFrom-BetaJsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
     New-BetaConnectorRule -ConnectorRuleCreateRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -354,7 +354,7 @@ $SourceCode = @"{
 # Validate connector rule
 
 try {
-    $Result = ConvertFrom-JsonToSourceCode -Json $SourceCode
+    $Result = ConvertFrom-BetaJsonToSourceCode -Json $SourceCode
     Confirm-BetaConnectorRule -SourceCode $Result 
     
     # Below is a request that includes all optional parameters

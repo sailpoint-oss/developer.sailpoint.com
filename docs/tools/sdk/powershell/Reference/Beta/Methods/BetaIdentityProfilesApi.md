@@ -124,7 +124,7 @@ $IdentityProfile = @"{
 # Create identity profile
 
 try {
-    $Result = ConvertFrom-JsonToIdentityProfile -Json $IdentityProfile
+    $Result = ConvertFrom-BetaJsonToIdentityProfile -Json $IdentityProfile
     New-BetaIdentityProfile -IdentityProfile $Result 
     
     # Below is a request that includes all optional parameters
@@ -226,7 +226,7 @@ $RequestBody = "MyRequestBody" # String[] | Identity Profile bulk delete request
 # Delete identity profiles
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-BetaJsonToRequestBody -Json $RequestBody
     Remove-BetaIdentityProfiles -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -482,7 +482,7 @@ Code | Description  | Data Type
 # Import identity profiles
 
 try {
-    $Result = ConvertFrom-JsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
+    $Result = ConvertFrom-BetaJsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
     Import-BetaIdentityProfiles -IdentityProfileExportedObject $Result 
     
     # Below is a request that includes all optional parameters
@@ -610,7 +610,7 @@ $IdentityPreviewRequest = @"{
 # Generate identity profile preview
 
 try {
-    $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
+    $Result = ConvertFrom-BetaJsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
     Show-BetaGenerateIdentityPreview -IdentityPreviewRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -723,7 +723,7 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity prof
 # Update identity profile
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaIdentityProfile -IdentityProfileId $IdentityProfileId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

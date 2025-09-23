@@ -274,7 +274,7 @@ $EntitlementAttributeBulkUpdateFilterRequest = @"{
 # Metadata Attribute update by filter
 
 try {
-    $Result = ConvertFrom-JsonToEntitlementAttributeBulkUpdateFilterRequest -Json $EntitlementAttributeBulkUpdateFilterRequest
+    $Result = ConvertFrom-V2025JsonToEntitlementAttributeBulkUpdateFilterRequest -Json $EntitlementAttributeBulkUpdateFilterRequest
     Update-V2025AccessModelMetadataByFilter -EntitlementAttributeBulkUpdateFilterRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -328,7 +328,7 @@ $EntitlementAttributeBulkUpdateIdsRequest = @"{
 # Metadata Attribute update by ids
 
 try {
-    $Result = ConvertFrom-JsonToEntitlementAttributeBulkUpdateIdsRequest -Json $EntitlementAttributeBulkUpdateIdsRequest
+    $Result = ConvertFrom-V2025JsonToEntitlementAttributeBulkUpdateIdsRequest -Json $EntitlementAttributeBulkUpdateIdsRequest
     Update-V2025AccessModelMetadataByIds -EntitlementAttributeBulkUpdateIdsRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -498,7 +498,7 @@ $EntitlementAttributeBulkUpdateQueryRequest = @"{
 # Metadata Attribute update by query
 
 try {
-    $Result = ConvertFrom-JsonToEntitlementAttributeBulkUpdateQueryRequest -Json $EntitlementAttributeBulkUpdateQueryRequest
+    $Result = ConvertFrom-V2025JsonToEntitlementAttributeBulkUpdateQueryRequest -Json $EntitlementAttributeBulkUpdateQueryRequest
     Update-V2025AccessModelMetadataByQuery -EntitlementAttributeBulkUpdateQueryRequest $Result 
     
     # Below is a request that includes all optional parameters

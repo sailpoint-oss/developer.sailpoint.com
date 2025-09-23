@@ -91,7 +91,7 @@ $ConnectorRuleCreateRequest = @"{
 # Create connector rule
 
 try {
-    $Result = ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
+    $Result = ConvertFrom-V2025JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
     New-V2025ConnectorRule -ConnectorRuleCreateRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -355,7 +355,7 @@ $SourceCode = @"{
 # Validate connector rule
 
 try {
-    $Result = ConvertFrom-JsonToSourceCode -Json $SourceCode
+    $Result = ConvertFrom-V2025JsonToSourceCode -Json $SourceCode
     Test-V2025ConnectorRule -SourceCode $Result 
     
     # Below is a request that includes all optional parameters

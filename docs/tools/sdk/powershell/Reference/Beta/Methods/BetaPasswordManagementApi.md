@@ -85,7 +85,7 @@ $PasswordDigitTokenReset = @"{
 # Generate a digit token
 
 try {
-    $Result = ConvertFrom-JsonToPasswordDigitTokenReset -Json $PasswordDigitTokenReset
+    $Result = ConvertFrom-BetaJsonToPasswordDigitTokenReset -Json $PasswordDigitTokenReset
     New-BetaDigitToken -PasswordDigitTokenReset $Result 
     
     # Below is a request that includes all optional parameters
@@ -187,7 +187,7 @@ $PasswordInfoQueryDTO = @"{
 # Query password info
 
 try {
-    $Result = ConvertFrom-JsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
+    $Result = ConvertFrom-BetaJsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
     Search-BetaPasswordInfo -PasswordInfoQueryDTO $Result 
     
     # Below is a request that includes all optional parameters
@@ -282,7 +282,7 @@ $PasswordChangeRequest = @"{
 # Set identity's password
 
 try {
-    $Result = ConvertFrom-JsonToPasswordChangeRequest -Json $PasswordChangeRequest
+    $Result = ConvertFrom-BetaJsonToPasswordChangeRequest -Json $PasswordChangeRequest
     Set-BetaIdentityPassword -PasswordChangeRequest $Result 
     
     # Below is a request that includes all optional parameters

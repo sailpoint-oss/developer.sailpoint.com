@@ -202,7 +202,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Perform a search query aggregation
 
 try {
-    $Result = ConvertFrom-JsonToSearch -Json $Search
+    $Result = ConvertFrom-V2024JsonToSearch -Json $Search
     Search-V2024Aggregate -Search $Result 
     
     # Below is a request that includes all optional parameters
@@ -364,7 +364,7 @@ $Search = @"{
 # Count documents satisfying a query
 
 try {
-    $Result = ConvertFrom-JsonToSearch -Json $Search
+    $Result = ConvertFrom-V2024JsonToSearch -Json $Search
     Search-V2024Count -Search $Result 
     
     # Below is a request that includes all optional parameters
@@ -580,7 +580,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Perform search
 
 try {
-    $Result = ConvertFrom-JsonToSearch -Json $Search
+    $Result = ConvertFrom-V2024JsonToSearch -Json $Search
     Search-V2024Post -Search $Result 
     
     # Below is a request that includes all optional parameters

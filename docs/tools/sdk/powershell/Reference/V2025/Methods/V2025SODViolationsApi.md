@@ -83,7 +83,7 @@ $IdentityWithNewAccess = @"{
 # Predict sod violations for identity.
 
 try {
-    $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
+    $Result = ConvertFrom-V2025JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
     Start-V2025PredictSodViolations -IdentityWithNewAccess $Result 
     
     # Below is a request that includes all optional parameters
@@ -139,7 +139,7 @@ $IdentityWithNewAccess = @"{
 # Check sod violations
 
 try {
-    $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
+    $Result = ConvertFrom-V2025JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
     Start-V2025ViolationCheck -IdentityWithNewAccess $Result 
     
     # Below is a request that includes all optional parameters

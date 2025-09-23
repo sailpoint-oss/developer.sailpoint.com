@@ -74,7 +74,7 @@ $RecommendationRequestDto = @"{
 # Returns recommendation based on object
 
 try {
-    $Result = ConvertFrom-JsonToRecommendationRequestDto -Json $RecommendationRequestDto
+    $Result = ConvertFrom-BetaJsonToRecommendationRequestDto -Json $RecommendationRequestDto
     Get-BetaRecommendations -RecommendationRequestDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -168,7 +168,7 @@ $RecommendationConfigDto = @"{
 # Update certification recommendation config values
 
 try {
-    $Result = ConvertFrom-JsonToRecommendationConfigDto -Json $RecommendationConfigDto
+    $Result = ConvertFrom-BetaJsonToRecommendationConfigDto -Json $RecommendationConfigDto
     Update-BetaRecommendationsConfig -RecommendationConfigDto $Result 
     
     # Below is a request that includes all optional parameters

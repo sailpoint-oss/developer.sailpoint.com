@@ -107,7 +107,7 @@ $TenantUiMetadataItemUpdateRequest = @"{
 # Update tenant ui metadata
 
 try {
-    $Result = ConvertFrom-JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
+    $Result = ConvertFrom-BetaJsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
     Set-BetaTenantUiMetadata -TenantUiMetadataItemUpdateRequest $Result 
     
     # Below is a request that includes all optional parameters

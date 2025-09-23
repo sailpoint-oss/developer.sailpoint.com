@@ -73,7 +73,7 @@ $Tag = @"{
 # Create tag
 
 try {
-    $Result = ConvertFrom-JsonToTag -Json $Tag
+    $Result = ConvertFrom-V2025JsonToTag -Json $Tag
     New-V2025Tag -Tag $Result 
     
     # Below is a request that includes all optional parameters

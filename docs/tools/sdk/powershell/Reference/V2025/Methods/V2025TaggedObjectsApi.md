@@ -172,7 +172,7 @@ $BulkRemoveTaggedObject = @"{
 # Remove tags from multiple objects
 
 try {
-    $Result = ConvertFrom-JsonToBulkRemoveTaggedObject -Json $BulkRemoveTaggedObject
+    $Result = ConvertFrom-V2025JsonToBulkRemoveTaggedObject -Json $BulkRemoveTaggedObject
     Remove-V2025TagsToManyObject -BulkRemoveTaggedObject $Result 
     
     # Below is a request that includes all optional parameters
@@ -384,7 +384,7 @@ $TaggedObject = @"{
 # Update tagged object
 
 try {
-    $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
+    $Result = ConvertFrom-V2025JsonToTaggedObject -Json $TaggedObject
     Send-V2025TaggedObject -Type $Type -Id $Id -TaggedObject $Result 
     
     # Below is a request that includes all optional parameters
@@ -439,7 +439,7 @@ $TaggedObject = @"{
 # Add tag to object
 
 try {
-    $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
+    $Result = ConvertFrom-V2025JsonToTaggedObject -Json $TaggedObject
     Set-V2025TagToObject -TaggedObject $Result 
     
     # Below is a request that includes all optional parameters
@@ -497,7 +497,7 @@ $BulkAddTaggedObject = @"{
 # Tag multiple objects
 
 try {
-    $Result = ConvertFrom-JsonToBulkAddTaggedObject -Json $BulkAddTaggedObject
+    $Result = ConvertFrom-V2025JsonToBulkAddTaggedObject -Json $BulkAddTaggedObject
     Set-V2025TagsToManyObjects -BulkAddTaggedObject $Result 
     
     # Below is a request that includes all optional parameters

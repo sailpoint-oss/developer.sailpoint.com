@@ -69,7 +69,7 @@ $CustomPasswordInstruction = @"{
 # Create custom password instructions
 
 try {
-    $Result = ConvertFrom-JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
+    $Result = ConvertFrom-BetaJsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
     New-BetaCustomPasswordInstructions -CustomPasswordInstruction $Result 
     
     # Below is a request that includes all optional parameters

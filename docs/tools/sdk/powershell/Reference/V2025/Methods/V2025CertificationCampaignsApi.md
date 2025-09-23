@@ -74,7 +74,7 @@ In this situation, the certification campaign completes once all the remediation
 
 The end of a certification campaign is determined by its deadline, its completion status, or by an administrator&#39;s decision. 
 
-For more information about certifications and certification campaigns, refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certs/reviewing/index.html).
+For more information about certifications and certification campaigns, refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html).
  
   
 
@@ -310,7 +310,7 @@ $Campaign = @"{
 # Create a campaign
 
 try {
-    $Result = ConvertFrom-JsonToCampaign -Json $Campaign
+    $Result = ConvertFrom-V2025JsonToCampaign -Json $Campaign
     New-V2025Campaign -Campaign $Result 
     
     # Below is a request that includes all optional parameters
@@ -481,7 +481,7 @@ $CampaignTemplate = @"{
 # Create a campaign template
 
 try {
-    $Result = ConvertFrom-JsonToCampaignTemplate -Json $CampaignTemplate
+    $Result = ConvertFrom-V2025JsonToCampaignTemplate -Json $CampaignTemplate
     New-V2025CampaignTemplate -CampaignTemplate $Result 
     
     # Below is a request that includes all optional parameters
@@ -625,7 +625,7 @@ $CampaignsDeleteRequest = @"{
 # Delete campaigns
 
 try {
-    $Result = ConvertFrom-JsonToCampaignsDeleteRequest -Json $CampaignsDeleteRequest
+    $Result = ConvertFrom-V2025JsonToCampaignsDeleteRequest -Json $CampaignsDeleteRequest
     Remove-V2025Campaigns -CampaignsDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -1028,7 +1028,7 @@ $AdminReviewReassign = @"{
 # Reassign certifications
 
 try {
-    $Result = ConvertFrom-JsonToAdminReviewReassign -Json $AdminReviewReassign
+    $Result = ConvertFrom-V2025JsonToAdminReviewReassign -Json $AdminReviewReassign
     Move-V2025 -Id $Id -AdminReviewReassign $Result 
     
     # Below is a request that includes all optional parameters
@@ -1083,7 +1083,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 # Update a campaign template
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2025CampaignTemplate -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -1132,7 +1132,7 @@ $CampaignReportsConfig = @"{
 # Set campaign reports configuration
 
 try {
-    $Result = ConvertFrom-JsonToCampaignReportsConfig -Json $CampaignReportsConfig
+    $Result = ConvertFrom-V2025JsonToCampaignReportsConfig -Json $CampaignReportsConfig
     Set-V2025CampaignReportsConfig -CampaignReportsConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -1458,7 +1458,7 @@ $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign template 
 # Update a campaign
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2025Campaign -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

@@ -83,7 +83,7 @@ $ConfigurationItemRequest = @"{
 # Create a reassignment configuration
 
 try {
-    $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
+    $Result = ConvertFrom-V2024JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
     New-V2024ReassignmentConfiguration -XSailPointExperimental $XSailPointExperimental -ConfigurationItemRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -447,7 +447,7 @@ $ConfigurationItemRequest = @"{
 # Update reassignment configuration
 
 try {
-    $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
+    $Result = ConvertFrom-V2024JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
     Send-V2024ReassignmentConfig -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental -ConfigurationItemRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -502,7 +502,7 @@ $TenantConfigurationRequest = @"{
 # Update tenant-wide reassignment configuration settings
 
 try {
-    $Result = ConvertFrom-JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
+    $Result = ConvertFrom-V2024JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
     Send-V2024TenantConfiguration -XSailPointExperimental $XSailPointExperimental -TenantConfigurationRequest $Result 
     
     # Below is a request that includes all optional parameters

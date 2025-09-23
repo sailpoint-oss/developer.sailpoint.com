@@ -74,7 +74,7 @@ In this situation, the certification campaign completes once all the remediation
 
 The end of a certification campaign is determined by its deadline, its completion status, or by an administrator&#39;s decision.
 
-For more information about certifications and certification campaigns, refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certs/reviewing/index.html).
+For more information about certifications and certification campaigns, refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html).
  
   
 
@@ -319,7 +319,7 @@ $Campaign = @"{
 # Create campaign
 
 try {
-    $Result = ConvertFrom-JsonToCampaign -Json $Campaign
+    $Result = ConvertFrom-BetaJsonToCampaign -Json $Campaign
     New-BetaCampaign -Campaign $Result 
     
     # Below is a request that includes all optional parameters
@@ -494,7 +494,7 @@ $CampaignTemplate = @"{
 # Create a campaign template
 
 try {
-    $Result = ConvertFrom-JsonToCampaignTemplate -Json $CampaignTemplate
+    $Result = ConvertFrom-BetaJsonToCampaignTemplate -Json $CampaignTemplate
     New-BetaCampaignTemplate -CampaignTemplate $Result 
     
     # Below is a request that includes all optional parameters
@@ -653,7 +653,7 @@ $DeleteCampaignsRequest = @"{
 # Delete campaigns
 
 try {
-    $Result = ConvertFrom-JsonToDeleteCampaignsRequest -Json $DeleteCampaignsRequest
+    $Result = ConvertFrom-BetaJsonToDeleteCampaignsRequest -Json $DeleteCampaignsRequest
     Remove-BetaCampaigns -DeleteCampaignsRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -987,7 +987,7 @@ try {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-templates).
+Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/list-campaign-templates).
 
 The endpoint returns all campaign templates matching the query parameters.
 
@@ -1094,7 +1094,7 @@ $AdminReviewReassign = @"{
 # Reassign certifications
 
 try {
-    $Result = ConvertFrom-JsonToAdminReviewReassign -Json $AdminReviewReassign
+    $Result = ConvertFrom-BetaJsonToAdminReviewReassign -Json $AdminReviewReassign
     Move-Beta -Id $Id -AdminReviewReassign $Result 
     
     # Below is a request that includes all optional parameters
@@ -1154,7 +1154,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 # Update a campaign template
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaCampaignTemplate -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -1208,7 +1208,7 @@ $CampaignReportsConfig = @"{
 # Set campaign reports configuration
 
 try {
-    $Result = ConvertFrom-JsonToCampaignReportsConfig -Json $CampaignReportsConfig
+    $Result = ConvertFrom-BetaJsonToCampaignReportsConfig -Json $CampaignReportsConfig
     Set-BetaCampaignReportsConfig -CampaignReportsConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -1564,7 +1564,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of campaign update opera
 # Update a campaign
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-BetaJsonToRequestBody -Json $RequestBody
     Update-BetaCampaign -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters

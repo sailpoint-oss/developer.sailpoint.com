@@ -99,7 +99,7 @@ $PasswordPolicyV3Dto = @"{
 # Create password policy
 
 try {
-    $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
+    $Result = ConvertFrom-V2024JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
     New-V2024PasswordPolicy -PasswordPolicyV3Dto $Result 
     
     # Below is a request that includes all optional parameters
@@ -322,7 +322,7 @@ $PasswordPolicyV3Dto = @"{
 # Update password policy by id
 
 try {
-    $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
+    $Result = ConvertFrom-V2024JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
     Set-V2024PasswordPolicy -Id $Id -PasswordPolicyV3Dto $Result 
     
     # Below is a request that includes all optional parameters

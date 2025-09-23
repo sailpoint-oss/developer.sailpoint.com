@@ -166,7 +166,7 @@ $CreateWorkflowRequest = @"{name=Send Email, owner={type=IDENTITY, id=2c91808568
 # Create workflow
 
 try {
-    $Result = ConvertFrom-JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
+    $Result = ConvertFrom-V2025JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
     New-V2025Workflow -CreateWorkflowRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -409,7 +409,7 @@ try {
 ## get-workflow-execution-history-v2
 Gets a workflow execution history, trigger input, and workflow definition of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-workflow-execution-history-v-2)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-workflow-execution-history-v2)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -786,7 +786,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 # Patch workflow
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2025Workflow -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -873,7 +873,7 @@ $WorkflowBody = @"{
 # Update workflow
 
 try {
-    $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
+    $Result = ConvertFrom-V2025JsonToWorkflowBody -Json $WorkflowBody
     Send-V2025Workflow -Id $Id -WorkflowBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -939,7 +939,7 @@ Workflow must be disabled in order to use this endpoint.
 
 :::
 
-Test a workflow with the provided input data.  The input data should resemble the input that the trigger will send the workflow.  See the [event trigger documentation](https://developer.sailpoint.com/docs/extensibility/event-triggers/available) for an example input for the trigger that initiates this workflow.
+Test a workflow with the provided input data.  The input data should resemble the input that the trigger will send the workflow.  See the [event trigger documentation](https://developer.sailpoint.com/idn/docs/event-triggers/available) for an example input for the trigger that initiates this workflow.
 
 This endpoint will return an execution ID, which can be used to lookup more information about the execution using the `Get a Workflow Execution` endpoint.
 
@@ -979,7 +979,7 @@ $TestWorkflowRequest = @"{input={identity={id=ee769173319b41d19ccec6cea52f237b, 
 # Test workflow by id
 
 try {
-    $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest
+    $Result = ConvertFrom-V2025JsonToTestWorkflowRequest -Json $TestWorkflowRequest
     Test-V2025Workflow -Id $Id -TestWorkflowRequest $Result 
     
     # Below is a request that includes all optional parameters

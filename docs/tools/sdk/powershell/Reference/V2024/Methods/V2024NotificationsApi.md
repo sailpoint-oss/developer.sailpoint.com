@@ -76,7 +76,7 @@ $DomainAddress = @"{
 # Verify domain address via dkim
 
 try {
-    $Result = ConvertFrom-JsonToDomainAddress -Json $DomainAddress
+    $Result = ConvertFrom-V2024JsonToDomainAddress -Json $DomainAddress
     New-V2024DomainDkim -XSailPointExperimental $XSailPointExperimental -DomainAddress $Result 
     
     # Below is a request that includes all optional parameters
@@ -147,7 +147,7 @@ $TemplateDto = @"{
 # Create notification template
 
 try {
-    $Result = ConvertFrom-JsonToTemplateDto -Json $TemplateDto
+    $Result = ConvertFrom-V2024JsonToTemplateDto -Json $TemplateDto
     New-V2024NotificationTemplate -XSailPointExperimental $XSailPointExperimental -TemplateDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -203,7 +203,7 @@ $EmailStatusDto = @"{
 # Create verified from address
 
 try {
-    $Result = ConvertFrom-JsonToEmailStatusDto -Json $EmailStatusDto
+    $Result = ConvertFrom-V2024JsonToEmailStatusDto -Json $EmailStatusDto
     New-V2024VerifiedFromAddress -XSailPointExperimental $XSailPointExperimental -EmailStatusDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -259,7 +259,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Bulk delete notification templates
 
 try {
-    $Result = ConvertFrom-JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
+    $Result = ConvertFrom-V2024JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
     Remove-V2024NotificationTemplatesInBulk -XSailPointExperimental $XSailPointExperimental -TemplateBulkDeleteDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -778,7 +778,7 @@ $MailFromAttributesDto = @"{
 # Change mail from domain
 
 try {
-    $Result = ConvertFrom-JsonToMailFromAttributesDto -Json $MailFromAttributesDto
+    $Result = ConvertFrom-V2024JsonToMailFromAttributesDto -Json $MailFromAttributesDto
     Send-V2024MailFromAttributes -XSailPointExperimental $XSailPointExperimental -MailFromAttributesDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -834,7 +834,7 @@ $SendTestNotificationRequestDto = @"{
 # Send test notification
 
 try {
-    $Result = ConvertFrom-JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
+    $Result = ConvertFrom-V2024JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
     Send-V2024TestNotification -XSailPointExperimental $XSailPointExperimental -SendTestNotificationRequestDto $Result 
     
     # Below is a request that includes all optional parameters

@@ -174,7 +174,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Patch a specified auth profile
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024ProfileConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

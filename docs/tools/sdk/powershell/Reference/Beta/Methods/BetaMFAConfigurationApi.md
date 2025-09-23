@@ -247,7 +247,7 @@ $MfaDuoConfig = @"{
 # Set duo mfa configuration
 
 try {
-    $Result = ConvertFrom-JsonToMfaDuoConfig -Json $MfaDuoConfig
+    $Result = ConvertFrom-BetaJsonToMfaDuoConfig -Json $MfaDuoConfig
     Set-BetaMFADuoConfig -MfaDuoConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -297,7 +297,7 @@ Code | Description  | Data Type
 # Set mfa kba configuration
 
 try {
-    $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
+    $Result = ConvertFrom-BetaJsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
     Set-BetaMFAKBAConfig -KbaAnswerRequestItem $Result 
     
     # Below is a request that includes all optional parameters
@@ -349,7 +349,7 @@ $MfaOktaConfig = @"{
 # Set okta mfa configuration
 
 try {
-    $Result = ConvertFrom-JsonToMfaOktaConfig -Json $MfaOktaConfig
+    $Result = ConvertFrom-BetaJsonToMfaOktaConfig -Json $MfaOktaConfig
     Set-BetaMFAOktaConfig -MfaOktaConfig $Result 
     
     # Below is a request that includes all optional parameters

@@ -88,7 +88,7 @@ $WorkgroupDto = @"{
 # Create a new governance group.
 
 try {
-    $Result = ConvertFrom-JsonToWorkgroupDto -Json $WorkgroupDto
+    $Result = ConvertFrom-V2025JsonToWorkgroupDto -Json $WorkgroupDto
     New-V2025Workgroup -XSailPointExperimental $XSailPointExperimental -WorkgroupDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -195,7 +195,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Remove members from governance group
 
 try {
-    $Result = ConvertFrom-JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
+    $Result = ConvertFrom-V2025JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
     Remove-V2025WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -IdentityPreviewResponseIdentity $Result 
     
     # Below is a request that includes all optional parameters
@@ -259,7 +259,7 @@ $WorkgroupBulkDeleteRequest = @"{
 # Delete governance group(s)
 
 try {
-    $Result = ConvertFrom-JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
+    $Result = ConvertFrom-V2025JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
     Remove-V2025WorkgroupsInBulk -XSailPointExperimental $XSailPointExperimental -WorkgroupBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -601,7 +601,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Add members to governance group
 
 try {
-    $Result = ConvertFrom-JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
+    $Result = ConvertFrom-V2025JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
     Update-V2025WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -IdentityPreviewResponseIdentity $Result 
     
     # Below is a request that includes all optional parameters

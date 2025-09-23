@@ -97,7 +97,7 @@ $MultiHostIntegrationsCreate = @"{
 # Create multi-host integration
 
 try {
-    $Result = ConvertFrom-JsonToMultiHostIntegrationsCreate -Json $MultiHostIntegrationsCreate
+    $Result = ConvertFrom-BetaJsonToMultiHostIntegrationsCreate -Json $MultiHostIntegrationsCreate
     New-BetaMultiHostIntegration -MultiHostIntegrationsCreate $Result 
     
     # Below is a request that includes all optional parameters
@@ -160,7 +160,7 @@ $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Hos
 # Create sources within multi-host integration
 
 try {
-    $Result = ConvertFrom-JsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
+    $Result = ConvertFrom-BetaJsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
     New-BetaSourcesWithinMultiHost -MultihostId $MultihostId -MultiHostIntegrationsCreateSources $Result 
     
     # Below is a request that includes all optional parameters
@@ -712,7 +712,7 @@ $MultihostId = "anId" # String | ID of the Multi-Host Integration to update.
 # Update multi-host integration
 
 try {
-    $Result = ConvertFrom-JsonToUpdateMultiHostSourcesRequestInner -Json $UpdateMultiHostSourcesRequestInner
+    $Result = ConvertFrom-BetaJsonToUpdateMultiHostSourcesRequestInner -Json $UpdateMultiHostSourcesRequestInner
     Update-BetaMultiHostSources -MultihostId $MultihostId -UpdateMultiHostSourcesRequestInner $Result 
     
     # Below is a request that includes all optional parameters

@@ -122,7 +122,7 @@ $IdentityProfile = @"{
 # Create identity profile
 
 try {
-    $Result = ConvertFrom-JsonToIdentityProfile -Json $IdentityProfile
+    $Result = ConvertFrom-V2025JsonToIdentityProfile -Json $IdentityProfile
     New-V2025IdentityProfile -IdentityProfile $Result 
     
     # Below is a request that includes all optional parameters
@@ -221,7 +221,7 @@ $RequestBody = "MyRequestBody" # String[] | Identity Profile bulk delete request
 # Delete identity profiles
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
     Remove-V2025IdentityProfiles -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -346,7 +346,7 @@ $IdentityPreviewRequest = @"{
 # Generate identity profile preview
 
 try {
-    $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
+    $Result = ConvertFrom-V2025JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
     New-V2025IdentityPreview -IdentityPreviewRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -546,7 +546,7 @@ Code | Description  | Data Type
 # Import identity profiles
 
 try {
-    $Result = ConvertFrom-JsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
+    $Result = ConvertFrom-V2025JsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
     Import-V2025IdentityProfiles -IdentityProfileExportedObject $Result 
     
     # Below is a request that includes all optional parameters
@@ -711,7 +711,7 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity prof
 # Update identity profile
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2025IdentityProfile -IdentityProfileId $IdentityProfileId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

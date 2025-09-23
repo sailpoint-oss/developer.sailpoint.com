@@ -168,7 +168,7 @@ $RoleMiningSessionDto = @"{
 # Create a role mining session
 
 try {
-    $Result = ConvertFrom-JsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
+    $Result = ConvertFrom-BetaJsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
     New-BetaRoleMiningSessions -RoleMiningSessionDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -1203,7 +1203,7 @@ $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potenti
 # Update a potential role in session
 
 try {
-    $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
+    $Result = ConvertFrom-BetaJsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
     Update-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result 
     
     # Below is a request that includes all optional parameters
@@ -1265,7 +1265,7 @@ $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potenti
 # Update a potential role
 
 try {
-    $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
+    $Result = ConvertFrom-BetaJsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
     Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result 
     
     # Below is a request that includes all optional parameters
@@ -1319,7 +1319,7 @@ $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining s
 # Patch a role mining session
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaRoleMiningSession -SessionId $SessionId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -1371,7 +1371,7 @@ $RoleMiningPotentialRoleEditEntitlements = @"{
 # Edit entitlements for a potential role to exclude some entitlements
 
 try {
-    $Result = ConvertFrom-JsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
+    $Result = ConvertFrom-BetaJsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
     Update-BetaEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -RoleMiningPotentialRoleEditEntitlements $Result 
     
     # Below is a request that includes all optional parameters

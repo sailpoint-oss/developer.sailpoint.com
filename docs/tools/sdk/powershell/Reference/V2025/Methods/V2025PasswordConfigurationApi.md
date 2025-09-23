@@ -69,7 +69,7 @@ $PasswordOrgConfig = @"{
 # Create password org config
 
 try {
-    $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
+    $Result = ConvertFrom-V2025JsonToPasswordOrgConfig -Json $PasswordOrgConfig
     New-V2025PasswordOrgConfig -PasswordOrgConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -165,7 +165,7 @@ $PasswordOrgConfig = @"{
 # Update password org config
 
 try {
-    $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
+    $Result = ConvertFrom-V2025JsonToPasswordOrgConfig -Json $PasswordOrgConfig
     Send-V2025PasswordOrgConfig -PasswordOrgConfig $Result 
     
     # Below is a request that includes all optional parameters

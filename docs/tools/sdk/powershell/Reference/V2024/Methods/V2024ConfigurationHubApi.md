@@ -86,7 +86,7 @@ $DeployRequest = @"{
 # Create a deploy
 
 try {
-    $Result = ConvertFrom-JsonToDeployRequest -Json $DeployRequest
+    $Result = ConvertFrom-V2024JsonToDeployRequest -Json $DeployRequest
     New-V2024Deploy -DeployRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -144,7 +144,7 @@ $ObjectMappingRequest = @"{
 # Creates an object mapping
 
 try {
-    $Result = ConvertFrom-JsonToObjectMappingRequest -Json $ObjectMappingRequest
+    $Result = ConvertFrom-V2024JsonToObjectMappingRequest -Json $ObjectMappingRequest
     New-V2024ObjectMapping -SourceOrg $SourceOrg -ObjectMappingRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -210,7 +210,7 @@ $ObjectMappingBulkCreateRequest = @"{
 # Bulk creates object mappings
 
 try {
-    $Result = ConvertFrom-JsonToObjectMappingBulkCreateRequest -Json $ObjectMappingBulkCreateRequest
+    $Result = ConvertFrom-V2024JsonToObjectMappingBulkCreateRequest -Json $ObjectMappingBulkCreateRequest
     New-V2024ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkCreateRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -278,7 +278,7 @@ $ScheduledActionPayload = @"{
 # Create scheduled action
 
 try {
-    $Result = ConvertFrom-JsonToScheduledActionPayload -Json $ScheduledActionPayload
+    $Result = ConvertFrom-V2024JsonToScheduledActionPayload -Json $ScheduledActionPayload
     New-V2024ScheduledAction -ScheduledActionPayload $Result 
     
     # Below is a request that includes all optional parameters
@@ -295,7 +295,7 @@ This API uploads a JSON configuration file into a tenant.
 
 Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.
 
-Refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects) for more information about supported objects.
+Refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects) for more information about supported objects.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-uploaded-configuration)
 
@@ -1004,7 +1004,7 @@ $ObjectMappingBulkPatchRequest = @"{
 # Bulk updates object mappings
 
 try {
-    $Result = ConvertFrom-JsonToObjectMappingBulkPatchRequest -Json $ObjectMappingBulkPatchRequest
+    $Result = ConvertFrom-V2024JsonToObjectMappingBulkPatchRequest -Json $ObjectMappingBulkPatchRequest
     Update-V2024ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkPatchRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -1063,7 +1063,7 @@ $JsonPatch = @"{
 # Update scheduled action
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+    $Result = ConvertFrom-V2024JsonToJsonPatch -Json $JsonPatch
     Update-V2024ScheduledAction -ScheduledActionId $ScheduledActionId -JsonPatch $Result 
     
     # Below is a request that includes all optional parameters

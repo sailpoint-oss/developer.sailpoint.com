@@ -74,7 +74,7 @@ $CustomPasswordInstruction = @"{
 # Create custom password instructions
 
 try {
-    $Result = ConvertFrom-JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
+    $Result = ConvertFrom-V2025JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
     New-V2025CustomPasswordInstructions -XSailPointExperimental $XSailPointExperimental -CustomPasswordInstruction $Result 
     
     # Below is a request that includes all optional parameters

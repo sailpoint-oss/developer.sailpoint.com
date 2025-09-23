@@ -152,7 +152,7 @@ $SodPolicy = @"{
 # Create sod policy
 
 try {
-    $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
+    $Result = ConvertFrom-V2025JsonToSodPolicy -Json $SodPolicy
     New-V2025SodPolicy -SodPolicy $Result 
     
     # Below is a request that includes all optional parameters
@@ -678,7 +678,7 @@ $Id = "2c918083-5d19-1a86-015d-28455b4a2329" # String | The ID of the SOD policy
 # Patch sod policy by id
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2025SodPolicy -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -811,7 +811,7 @@ $SodPolicySchedule = @"{
 # Update sod policy schedule
 
 try {
-    $Result = ConvertFrom-JsonToSodPolicySchedule -Json $SodPolicySchedule
+    $Result = ConvertFrom-V2025JsonToSodPolicySchedule -Json $SodPolicySchedule
     Send-V2025PolicySchedule -Id $Id -SodPolicySchedule $Result 
     
     # Below is a request that includes all optional parameters
@@ -916,7 +916,7 @@ $SodPolicy = @"{
 # Update sod policy by id
 
 try {
-    $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
+    $Result = ConvertFrom-V2025JsonToSodPolicy -Json $SodPolicy
     Send-V2025SodPolicy -Id $Id -SodPolicy $Result 
     
     # Below is a request that includes all optional parameters

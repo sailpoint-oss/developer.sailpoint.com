@@ -483,7 +483,7 @@ $SendAccountVerificationRequest = @"{
 # Send password reset email
 
 try {
-    $Result = ConvertFrom-JsonToSendAccountVerificationRequest -Json $SendAccountVerificationRequest
+    $Result = ConvertFrom-V2024JsonToSendAccountVerificationRequest -Json $SendAccountVerificationRequest
     Send-V2024IdentityVerificationAccountToken -XSailPointExperimental $XSailPointExperimental -Id $Id -SendAccountVerificationRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -543,7 +543,7 @@ $InviteIdentitiesRequest = @"{
 # Invite identities to register
 
 try {
-    $Result = ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
+    $Result = ConvertFrom-V2024JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
     Start-V2024IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -InviteIdentitiesRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -604,7 +604,7 @@ $ProcessIdentitiesRequest = @"{
 # Process a list of identityids
 
 try {
-    $Result = ConvertFrom-JsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest
+    $Result = ConvertFrom-V2024JsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest
     Start-V2024IdentityProcessing -XSailPointExperimental $XSailPointExperimental -ProcessIdentitiesRequest $Result 
     
     # Below is a request that includes all optional parameters

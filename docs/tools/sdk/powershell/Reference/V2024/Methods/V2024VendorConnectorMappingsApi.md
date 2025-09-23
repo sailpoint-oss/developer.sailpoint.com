@@ -84,7 +84,7 @@ $VendorConnectorMapping = @"{
 # Create vendor connector mapping
 
 try {
-    $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
+    $Result = ConvertFrom-V2024JsonToVendorConnectorMapping -Json $VendorConnectorMapping
     New-V2024VendorConnectorMapping -VendorConnectorMapping $Result 
     
     # Below is a request that includes all optional parameters
@@ -154,7 +154,7 @@ $VendorConnectorMapping = @"{
 # Delete vendor connector mapping
 
 try {
-    $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
+    $Result = ConvertFrom-V2024JsonToVendorConnectorMapping -Json $VendorConnectorMapping
     Remove-V2024VendorConnectorMapping -VendorConnectorMapping $Result 
     
     # Below is a request that includes all optional parameters

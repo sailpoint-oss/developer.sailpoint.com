@@ -79,7 +79,7 @@ $RecommendationRequestDto = @"{
 # Returns recommendation based on object
 
 try {
-    $Result = ConvertFrom-JsonToRecommendationRequestDto -Json $RecommendationRequestDto
+    $Result = ConvertFrom-V2025JsonToRecommendationRequestDto -Json $RecommendationRequestDto
     Get-V2025Recommendations -XSailPointExperimental $XSailPointExperimental -RecommendationRequestDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -183,7 +183,7 @@ $RecommendationConfigDto = @"{
 # Update certification recommendation config values
 
 try {
-    $Result = ConvertFrom-JsonToRecommendationConfigDto -Json $RecommendationConfigDto
+    $Result = ConvertFrom-V2025JsonToRecommendationConfigDto -Json $RecommendationConfigDto
     Update-V2025RecommendationsConfig -XSailPointExperimental $XSailPointExperimental -RecommendationConfigDto $Result 
     
     # Below is a request that includes all optional parameters

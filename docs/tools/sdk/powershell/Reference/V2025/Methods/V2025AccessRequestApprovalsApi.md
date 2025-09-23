@@ -139,7 +139,7 @@ $ForwardApprovalDto = @"{
 # Forward access request approval
 
 try {
-    $Result = ConvertFrom-JsonToForwardApprovalDto -Json $ForwardApprovalDto
+    $Result = ConvertFrom-V2025JsonToForwardApprovalDto -Json $ForwardApprovalDto
     Invoke-V2025ForwardAccessRequest -ApprovalId $ApprovalId -ForwardApprovalDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -406,7 +406,7 @@ $CommentDto = @"{
 # Reject access request approval
 
 try {
-    $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
+    $Result = ConvertFrom-V2025JsonToCommentDto -Json $CommentDto
     Deny-V2025AccessRequest -ApprovalId $ApprovalId -CommentDto $Result 
     
     # Below is a request that includes all optional parameters

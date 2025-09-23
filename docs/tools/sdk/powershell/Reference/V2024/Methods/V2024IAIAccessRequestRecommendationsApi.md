@@ -74,7 +74,7 @@ $AccessRequestRecommendationActionItemDto = @"{
 # Ignore access request recommendation
 
 try {
-    $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+    $Result = ConvertFrom-V2024JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
     Add-V2024AccessRequestRecommendationsIgnoredItem -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -131,7 +131,7 @@ $AccessRequestRecommendationActionItemDto = @"{
 # Accept access request recommendation
 
 try {
-    $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+    $Result = ConvertFrom-V2024JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
     Add-V2024AccessRequestRecommendationsRequestedItem -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -188,7 +188,7 @@ $AccessRequestRecommendationActionItemDto = @"{
 # Mark viewed access request recommendations
 
 try {
-    $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+    $Result = ConvertFrom-V2024JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
     Add-V2024AccessRequestRecommendationsViewedItem -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -246,7 +246,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Bulk mark viewed access request recommendations
 
 try {
-    $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+    $Result = ConvertFrom-V2024JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
     Add-V2024AccessRequestRecommendationsViewedItems -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -588,7 +588,7 @@ $AccessRequestRecommendationConfigDto = @"{
 # Update access request recommendations config
 
 try {
-    $Result = ConvertFrom-JsonToAccessRequestRecommendationConfigDto -Json $AccessRequestRecommendationConfigDto
+    $Result = ConvertFrom-V2024JsonToAccessRequestRecommendationConfigDto -Json $AccessRequestRecommendationConfigDto
     Set-V2024AccessRequestRecommendationsConfig -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationConfigDto $Result 
     
     # Below is a request that includes all optional parameters

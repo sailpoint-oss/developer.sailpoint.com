@@ -70,7 +70,7 @@ $CreateSavedSearchRequest = @""@
 # Create a saved search
 
 try {
-    $Result = ConvertFrom-JsonToCreateSavedSearchRequest -Json $CreateSavedSearchRequest
+    $Result = ConvertFrom-V2024JsonToCreateSavedSearchRequest -Json $CreateSavedSearchRequest
     New-V2024SavedSearch -CreateSavedSearchRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -177,7 +177,7 @@ $SearchArguments = @"{
 # Execute a saved search by id
 
 try {
-    $Result = ConvertFrom-JsonToSearchArguments -Json $SearchArguments
+    $Result = ConvertFrom-V2024JsonToSearchArguments -Json $SearchArguments
     Invoke-V2024ExecuteSavedSearch -Id $Id -SearchArguments $Result 
     
     # Below is a request that includes all optional parameters
@@ -371,7 +371,7 @@ $SavedSearch = @"{
 # Updates an existing saved search 
 
 try {
-    $Result = ConvertFrom-JsonToSavedSearch -Json $SavedSearch
+    $Result = ConvertFrom-V2024JsonToSavedSearch -Json $SavedSearch
     Send-V2024SavedSearch -Id $Id -SavedSearch $Result 
     
     # Below is a request that includes all optional parameters

@@ -71,7 +71,7 @@ $CommonAccessItemRequest = @"{
 # Create common access items
 
 try {
-    $Result = ConvertFrom-JsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
+    $Result = ConvertFrom-V2024JsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
     New-V2024CommonAccess -XSailPointExperimental $XSailPointExperimental -CommonAccessItemRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -183,7 +183,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Bulk update common access status
 
 try {
-    $Result = ConvertFrom-JsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
+    $Result = ConvertFrom-V2024JsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
     Update-V2024CommonAccessStatusInBulk -XSailPointExperimental $XSailPointExperimental -CommonAccessIDStatus $Result 
     
     # Below is a request that includes all optional parameters

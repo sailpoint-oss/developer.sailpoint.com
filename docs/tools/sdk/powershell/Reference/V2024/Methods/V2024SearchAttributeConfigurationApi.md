@@ -90,7 +90,7 @@ $SearchAttributeConfig = @"{
 # Create extended search attributes
 
 try {
-    $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
+    $Result = ConvertFrom-V2024JsonToSearchAttributeConfig -Json $SearchAttributeConfig
     New-V2024SearchAttributeConfig -XSailPointExperimental $XSailPointExperimental -SearchAttributeConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -304,7 +304,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Update extended search attribute
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024SearchAttributeConfig -Name $Name -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

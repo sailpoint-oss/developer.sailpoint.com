@@ -85,7 +85,7 @@ $SearchAttributeConfig = @"{
 # Create extended search attributes
 
 try {
-    $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
+    $Result = ConvertFrom-BetaJsonToSearchAttributeConfig -Json $SearchAttributeConfig
     New-BetaSearchAttributeConfig -SearchAttributeConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -280,7 +280,7 @@ $Name = "promotedMailAttribute" # String | Name of the extended search attribute
 # Update extended search attribute
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaSearchAttributeConfig -Name $Name -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

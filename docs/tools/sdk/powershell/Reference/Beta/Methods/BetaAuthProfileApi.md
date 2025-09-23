@@ -159,7 +159,7 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to pa
 # Patch a specified auth profile
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaProfileConfig -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

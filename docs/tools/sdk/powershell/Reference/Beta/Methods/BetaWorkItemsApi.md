@@ -649,7 +649,7 @@ $RequestBody = @{ key_example =  } # System.Collections.Hashtable | Account Sele
 # Submit account selections
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-BetaJsonToRequestBody -Json $RequestBody
     Submit-BetaAccountSelection -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -704,7 +704,7 @@ $WorkItemForward = @"{
 # Forward a work item
 
 try {
-    $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
+    $Result = ConvertFrom-BetaJsonToWorkItemForward -Json $WorkItemForward
     Submit-BetaForwardWorkItem -Id $Id -WorkItemForward $Result 
     
     # Below is a request that includes all optional parameters

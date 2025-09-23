@@ -123,7 +123,7 @@ $NonEmployeeApprovalDecision = @"{
 # Approve a non-employee request
 
 try {
-    $Result = ConvertFrom-JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
+    $Result = ConvertFrom-BetaJsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
     Approve-BetaNonEmployeeRequest -Id $Id -NonEmployeeApprovalDecision $Result 
     
     # Below is a request that includes all optional parameters
@@ -187,7 +187,7 @@ $NonEmployeeRequestBody = @"{
 # Create non-employee record
 
 try {
-    $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
+    $Result = ConvertFrom-BetaJsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
     New-BetaNonEmployeeRecord -NonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -249,7 +249,7 @@ $NonEmployeeRequestBody = @"{
 # Create non-employee request
 
 try {
-    $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
+    $Result = ConvertFrom-BetaJsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
     New-BetaNonEmployeeRequest -NonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -323,7 +323,7 @@ $NonEmployeeSourceRequestBody = @"{
 # Create non-employee source
 
 try {
-    $Result = ConvertFrom-JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
+    $Result = ConvertFrom-BetaJsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
     New-BetaNonEmployeeSource -NonEmployeeSourceRequestBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -381,7 +381,7 @@ $NonEmployeeSchemaAttributeBody = @"{
 # Create non-employee source schema attribute
 
 try {
-    $Result = ConvertFrom-JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
+    $Result = ConvertFrom-BetaJsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
     New-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId -NonEmployeeSchemaAttributeBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -480,7 +480,7 @@ $DeleteNonEmployeeRecordInBulkRequest = @""@
 # Delete multiple non-employee records
 
 try {
-    $Result = ConvertFrom-JsonToDeleteNonEmployeeRecordInBulkRequest -Json $DeleteNonEmployeeRecordInBulkRequest
+    $Result = ConvertFrom-BetaJsonToDeleteNonEmployeeRecordInBulkRequest -Json $DeleteNonEmployeeRecordInBulkRequest
     Remove-BetaNonEmployeeRecordInBulk -DeleteNonEmployeeRecordInBulkRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -1561,7 +1561,7 @@ $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-employee record id (UUID
 # Patch non-employee record
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaNonEmployeeRecord -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -1621,7 +1621,7 @@ $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
 # Patch non-employee source's schema attribute
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -1677,7 +1677,7 @@ $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | Source Id
 # Patch a non-employee source
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaNonEmployeeSource -SourceId $SourceId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -1742,7 +1742,7 @@ $NonEmployeeRequestBody = @"{
 # Update non-employee record
 
 try {
-    $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
+    $Result = ConvertFrom-BetaJsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
     Send-BetaNonEmployeeRecord -Id $Id -NonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -1795,7 +1795,7 @@ $NonEmployeeRejectApprovalDecision = @"{
 # Reject a non-employee request
 
 try {
-    $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
+    $Result = ConvertFrom-BetaJsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
     Deny-BetaNonEmployeeRequest -Id $Id -NonEmployeeRejectApprovalDecision $Result 
     
     # Below is a request that includes all optional parameters

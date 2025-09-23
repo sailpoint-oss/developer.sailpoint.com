@@ -207,7 +207,7 @@ $MachineClassificationConfig = @"{
 # Update source's classification config
 
 try {
-    $Result = ConvertFrom-JsonToMachineClassificationConfig -Json $MachineClassificationConfig
+    $Result = ConvertFrom-V2025JsonToMachineClassificationConfig -Json $MachineClassificationConfig
     Set-V2025MachineClassificationConfig -Id $Id -MachineClassificationConfig $Result 
     
     # Below is a request that includes all optional parameters

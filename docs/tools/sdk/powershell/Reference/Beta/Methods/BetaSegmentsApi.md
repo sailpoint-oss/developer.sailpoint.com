@@ -100,7 +100,7 @@ $Segment = @"{
 # Create segment
 
 try {
-    $Result = ConvertFrom-JsonToSegment -Json $Segment
+    $Result = ConvertFrom-BetaJsonToSegment -Json $Segment
     New-BetaSegment -Segment $Result 
     
     # Below is a request that includes all optional parameters
@@ -298,7 +298,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operat
 # Update segment
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-BetaJsonToRequestBody -Json $RequestBody
     Update-BetaSegment -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters

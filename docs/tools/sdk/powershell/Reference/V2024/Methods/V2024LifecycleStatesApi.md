@@ -123,7 +123,7 @@ $LifecycleState = @"{
 # Create lifecycle state
 
 try {
-    $Result = ConvertFrom-JsonToLifecycleState -Json $LifecycleState
+    $Result = ConvertFrom-V2024JsonToLifecycleState -Json $LifecycleState
     New-V2024LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleState $Result 
     
     # Below is a request that includes all optional parameters
@@ -321,7 +321,7 @@ $SetLifecycleStateRequest = @""@
 # Set lifecycle state
 
 try {
-    $Result = ConvertFrom-JsonToSetLifecycleStateRequest -Json $SetLifecycleStateRequest
+    $Result = ConvertFrom-V2024JsonToSetLifecycleStateRequest -Json $SetLifecycleStateRequest
     Set-V2024LifecycleState -IdentityId $IdentityId -SetLifecycleStateRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -377,7 +377,7 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle stat
 # Update lifecycle state
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024LifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

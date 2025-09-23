@@ -210,7 +210,7 @@ $ReportDetails = @"{
 # Run report
 
 try {
-    $Result = ConvertFrom-JsonToReportDetails -Json $ReportDetails
+    $Result = ConvertFrom-V2025JsonToReportDetails -Json $ReportDetails
     Start-V2025Report -ReportDetails $Result 
     
     # Below is a request that includes all optional parameters

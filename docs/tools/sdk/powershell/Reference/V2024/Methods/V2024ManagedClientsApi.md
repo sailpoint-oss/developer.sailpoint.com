@@ -67,7 +67,7 @@ $ManagedClientRequest = @"{
 # Create managed client
 
 try {
-    $Result = ConvertFrom-JsonToManagedClientRequest -Json $ManagedClientRequest
+    $Result = ConvertFrom-V2024JsonToManagedClientRequest -Json $ManagedClientRequest
     New-V2024ManagedClient -ManagedClientRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -311,7 +311,7 @@ $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 # Update managed client
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024ManagedClient -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

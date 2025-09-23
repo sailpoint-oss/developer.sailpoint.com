@@ -270,7 +270,7 @@ $Role = @"{
 # Create a role
 
 try {
-    $Result = ConvertFrom-JsonToRole -Json $Role
+    $Result = ConvertFrom-V2024JsonToRole -Json $Role
     New-V2024Role -Role $Result 
     
     # Below is a request that includes all optional parameters
@@ -321,7 +321,7 @@ $RoleBulkDeleteRequest = @"{
 # Delete role(s)
 
 try {
-    $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
+    $Result = ConvertFrom-V2024JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
     Remove-V2024BulkRoles -RoleBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -803,7 +803,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
 # Patch a specified role
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024Role -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -975,7 +975,7 @@ $RoleMetadataBulkUpdateByFilterRequest = @"{
 # Bulk-update roles' metadata by filters
 
 try {
-    $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByFilterRequest -Json $RoleMetadataBulkUpdateByFilterRequest
+    $Result = ConvertFrom-V2024JsonToRoleMetadataBulkUpdateByFilterRequest -Json $RoleMetadataBulkUpdateByFilterRequest
     Update-V2024RolesMetadataByFilter -RoleMetadataBulkUpdateByFilterRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -1032,7 +1032,7 @@ $RoleMetadataBulkUpdateByIdRequest = @"{
 # Bulk-update roles' metadata by id
 
 try {
-    $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByIdRequest -Json $RoleMetadataBulkUpdateByIdRequest
+    $Result = ConvertFrom-V2024JsonToRoleMetadataBulkUpdateByIdRequest -Json $RoleMetadataBulkUpdateByIdRequest
     Update-V2024RolesMetadataByIds -RoleMetadataBulkUpdateByIdRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -1104,7 +1104,7 @@ $RoleMetadataBulkUpdateByQueryRequest = @"{
 # Bulk-update roles' metadata by query
 
 try {
-    $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByQueryRequest -Json $RoleMetadataBulkUpdateByQueryRequest
+    $Result = ConvertFrom-V2024JsonToRoleMetadataBulkUpdateByQueryRequest -Json $RoleMetadataBulkUpdateByQueryRequest
     Update-V2024RolesMetadataByQuery -RoleMetadataBulkUpdateByQueryRequest $Result 
     
     # Below is a request that includes all optional parameters

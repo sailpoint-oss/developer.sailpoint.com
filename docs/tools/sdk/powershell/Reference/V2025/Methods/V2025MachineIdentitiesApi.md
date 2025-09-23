@@ -98,7 +98,7 @@ $MachineIdentityRequest = @"{
 # Create machine identities
 
 try {
-    $Result = ConvertFrom-JsonToMachineIdentityRequest -Json $MachineIdentityRequest
+    $Result = ConvertFrom-V2025JsonToMachineIdentityRequest -Json $MachineIdentityRequest
     New-V2025MachineIdentity -XSailPointExperimental $XSailPointExperimental -MachineIdentityRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -372,7 +372,7 @@ $MachineIdentityAggregationRequest = @"{
 # Start Machine Identity (AI Agent) Aggregation
 
 try {
-    $Result = ConvertFrom-JsonToMachineIdentityAggregationRequest -Json $MachineIdentityAggregationRequest
+    $Result = ConvertFrom-V2025JsonToMachineIdentityAggregationRequest -Json $MachineIdentityAggregationRequest
     Start-V2025MachineIdentityAggregation -XSailPointExperimental $XSailPointExperimental -MachineIdentityAggregationRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -429,7 +429,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON 
 # Update a machine identity
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
     Update-V2025MachineIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
     # Below is a request that includes all optional parameters

@@ -121,7 +121,7 @@ $JsonPatchOperation = @"{
 # Update tenant context
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024TenantContext -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

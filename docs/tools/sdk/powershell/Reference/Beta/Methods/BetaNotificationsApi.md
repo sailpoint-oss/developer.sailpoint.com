@@ -71,7 +71,7 @@ $DomainAddress = @"{
 # Verify domain address via dkim
 
 try {
-    $Result = ConvertFrom-JsonToDomainAddress -Json $DomainAddress
+    $Result = ConvertFrom-BetaJsonToDomainAddress -Json $DomainAddress
     New-BetaDomainDkim -DomainAddress $Result 
     
     # Below is a request that includes all optional parameters
@@ -137,7 +137,7 @@ $TemplateDto = @"{
 # Create notification template
 
 try {
-    $Result = ConvertFrom-JsonToTemplateDto -Json $TemplateDto
+    $Result = ConvertFrom-BetaJsonToTemplateDto -Json $TemplateDto
     New-BetaNotificationTemplate -TemplateDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -188,7 +188,7 @@ $EmailStatusDto = @"{
 # Create verified from address
 
 try {
-    $Result = ConvertFrom-JsonToEmailStatusDto -Json $EmailStatusDto
+    $Result = ConvertFrom-BetaJsonToEmailStatusDto -Json $EmailStatusDto
     New-BetaVerifiedFromAddress -EmailStatusDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -239,7 +239,7 @@ Code | Description  | Data Type
 # Bulk delete notification templates
 
 try {
-    $Result = ConvertFrom-JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
+    $Result = ConvertFrom-BetaJsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
     Remove-BetaNotificationTemplatesInBulk -TemplateBulkDeleteDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -709,7 +709,7 @@ $MailFromAttributesDto = @"{
 # Change mail from domain
 
 try {
-    $Result = ConvertFrom-JsonToMailFromAttributesDto -Json $MailFromAttributesDto
+    $Result = ConvertFrom-BetaJsonToMailFromAttributesDto -Json $MailFromAttributesDto
     Send-BetaMailFromAttributes -MailFromAttributesDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -760,7 +760,7 @@ $SendTestNotificationRequestDto = @"{
 # Send test notification
 
 try {
-    $Result = ConvertFrom-JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
+    $Result = ConvertFrom-BetaJsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
     Send-BetaTestNotification -SendTestNotificationRequestDto $Result 
     
     # Below is a request that includes all optional parameters

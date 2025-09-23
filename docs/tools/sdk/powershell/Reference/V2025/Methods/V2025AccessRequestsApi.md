@@ -24,7 +24,7 @@ Users can use My Requests to track and/or cancel the requests.
 In My Team on the Identity Security Cloud Home, managers can submit requests to revoke their team members&#39; access. 
 They can use the My Requests tab under Request Center to track and/or cancel the requests.
 
-Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/) for more information about access requests.
+Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html) for more information about access requests.
  
   
 
@@ -83,7 +83,7 @@ $BulkApproveAccessRequest = @"{
 # Bulk approve access request
 
 try {
-    $Result = ConvertFrom-JsonToBulkApproveAccessRequest -Json $BulkApproveAccessRequest
+    $Result = ConvertFrom-V2025JsonToBulkApproveAccessRequest -Json $BulkApproveAccessRequest
     Approve-V2025BulkAccessRequest -BulkApproveAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -134,7 +134,7 @@ $CancelAccessRequest = @"{
 # Cancel access request
 
 try {
-    $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
+    $Result = ConvertFrom-V2025JsonToCancelAccessRequest -Json $CancelAccessRequest
     Suspend-V2025AccessRequest -CancelAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -185,7 +185,7 @@ $BulkCancelAccessRequest = @"{
 # Bulk cancel access request
 
 try {
-    $Result = ConvertFrom-JsonToBulkCancelAccessRequest -Json $BulkCancelAccessRequest
+    $Result = ConvertFrom-V2025JsonToBulkCancelAccessRequest -Json $BulkCancelAccessRequest
     Suspend-V2025AccessRequestInBulk -BulkCancelAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -208,7 +208,7 @@ Input the IDs from either source.
 
 To track the status of endpoint requests, navigate to Search and use this query: name:"Close Identity Requests". Search will include "Close Identity Requests Started" audits when requests are initiated and "Close Identity Requests Completed" audits when requests are completed. The completion audit will list the identity request IDs that finished in error.
 
-This API triggers the [Provisioning Completed event trigger](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/provisioning-completed) for each access request that is closed.
+This API triggers the [Provisioning Completed event trigger](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-completed/) for each access request that is closed.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/close-access-request)
@@ -247,7 +247,7 @@ $CloseAccessRequest = @"{
 # Close access request
 
 try {
-    $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
+    $Result = ConvertFrom-V2025JsonToCloseAccessRequest -Json $CloseAccessRequest
     Close-V2025AccessRequest -CloseAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -487,7 +487,7 @@ $AccessRequest = @"{
 # Submit access request
 
 try {
-    $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
+    $Result = ConvertFrom-V2025JsonToAccessRequest -Json $AccessRequest
     New-V2025AccessRequest -AccessRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -834,7 +834,7 @@ $AccountsSelectionRequest = @"{
 # Get accounts selections for identity
 
 try {
-    $Result = ConvertFrom-JsonToAccountsSelectionRequest -Json $AccountsSelectionRequest
+    $Result = ConvertFrom-V2025JsonToAccountsSelectionRequest -Json $AccountsSelectionRequest
     Invoke-V2025LoadAccountSelections -XSailPointExperimental $XSailPointExperimental -AccountsSelectionRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -922,7 +922,7 @@ $AccessRequestConfig = @"{
 # Update access request configuration
 
 try {
-    $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
+    $Result = ConvertFrom-V2025JsonToAccessRequestConfig -Json $AccessRequestConfig
     Set-V2025AccessRequestConfig -AccessRequestConfig $Result 
     
     # Below is a request that includes all optional parameters

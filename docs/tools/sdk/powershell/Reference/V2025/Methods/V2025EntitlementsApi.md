@@ -617,7 +617,7 @@ $EntitlementRequestConfig = @"{
 # Replace entitlement request config
 
 try {
-    $Result = ConvertFrom-JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
+    $Result = ConvertFrom-V2025JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
     Send-V2025EntitlementRequestConfig -Id $Id -EntitlementRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -732,7 +732,7 @@ $EntitlementBulkUpdateRequest = @"{
 # Bulk update an entitlement list
 
 try {
-    $Result = ConvertFrom-JsonToEntitlementBulkUpdateRequest -Json $EntitlementBulkUpdateRequest
+    $Result = ConvertFrom-V2025JsonToEntitlementBulkUpdateRequest -Json $EntitlementBulkUpdateRequest
     Update-V2025EntitlementsInBulk -EntitlementBulkUpdateRequest $Result 
     
     # Below is a request that includes all optional parameters

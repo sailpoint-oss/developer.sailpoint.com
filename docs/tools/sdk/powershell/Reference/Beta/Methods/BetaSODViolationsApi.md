@@ -87,7 +87,7 @@ $IdentityWithNewAccess = @"{
 # Predict sod violations for identity.
 
 try {
-    $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
+    $Result = ConvertFrom-BetaJsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
     Start-BetaPredictSodViolations -IdentityWithNewAccess $Result 
     
     # Below is a request that includes all optional parameters

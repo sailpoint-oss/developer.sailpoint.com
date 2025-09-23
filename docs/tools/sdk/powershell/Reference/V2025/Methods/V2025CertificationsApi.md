@@ -477,7 +477,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the identity campa
 # Decide on a certification item
 
 try {
-    $Result = ConvertFrom-JsonToReviewDecision -Json $ReviewDecision
+    $Result = ConvertFrom-V2025JsonToReviewDecision -Json $ReviewDecision
     Select-V2025IdentityDecision -Id $Id -ReviewDecision $Result 
     
     # Below is a request that includes all optional parameters
@@ -536,7 +536,7 @@ $ReviewReassign = @"{
 # Reassign identities or items
 
 try {
-    $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
+    $Result = ConvertFrom-V2025JsonToReviewReassign -Json $ReviewReassign
     Invoke-V2025ReassignIdentityCertifications -Id $Id -ReviewReassign $Result 
     
     # Below is a request that includes all optional parameters
@@ -646,7 +646,7 @@ $ReviewReassign = @"{
 # Reassign certifications asynchronously
 
 try {
-    $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
+    $Result = ConvertFrom-V2025JsonToReviewReassign -Json $ReviewReassign
     Submit-V2025ReassignCertsAsync -Id $Id -ReviewReassign $Result 
     
     # Below is a request that includes all optional parameters

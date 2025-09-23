@@ -85,7 +85,7 @@ $SimIntegrationDetails = @"{
 # Create new sim integration
 
 try {
-    $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
+    $Result = ConvertFrom-BetaJsonToSimIntegrationDetails -Json $SimIntegrationDetails
     New-BetaSIMIntegration -SimIntegrationDetails $Result 
     
     # Below is a request that includes all optional parameters
@@ -270,7 +270,7 @@ $JsonPatch = @""[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\"
 # Patch a sim beforeprovisioningrule attribute.
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+    $Result = ConvertFrom-BetaJsonToJsonPatch -Json $JsonPatch
     Update-BetaBeforeProvisioningRule -Id $Id -JsonPatch $Result 
     
     # Below is a request that includes all optional parameters
@@ -319,7 +319,7 @@ $JsonPatch = @""[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\"
 # Patch a sim attribute.
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+    $Result = ConvertFrom-BetaJsonToJsonPatch -Json $JsonPatch
     Update-BetaSIMAttributes -Id $Id -JsonPatch $Result 
     
     # Below is a request that includes all optional parameters
@@ -385,7 +385,7 @@ $SimIntegrationDetails = @"{
 # Update an existing sim integration
 
 try {
-    $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
+    $Result = ConvertFrom-BetaJsonToSimIntegrationDetails -Json $SimIntegrationDetails
     Send-BetaSIMIntegration -Id $Id -SimIntegrationDetails $Result 
     
     # Below is a request that includes all optional parameters

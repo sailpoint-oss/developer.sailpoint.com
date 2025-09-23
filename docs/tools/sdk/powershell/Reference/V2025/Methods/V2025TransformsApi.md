@@ -84,7 +84,7 @@ $Transform = @"{
 # Create transform
 
 try {
-    $Result = ConvertFrom-JsonToTransform -Json $Transform
+    $Result = ConvertFrom-V2025JsonToTransform -Json $Transform
     New-V2025Transform -Transform $Result 
     
     # Below is a request that includes all optional parameters

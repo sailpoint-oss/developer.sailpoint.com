@@ -81,7 +81,7 @@ $IdentityAttribute = @"{
 # Create identity attribute
 
 try {
-    $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
+    $Result = ConvertFrom-V2024JsonToIdentityAttribute -Json $IdentityAttribute
     New-V2024IdentityAttribute -IdentityAttribute $Result 
     
     # Below is a request that includes all optional parameters
@@ -176,7 +176,7 @@ $IdentityAttributeNames = @"{
 # Bulk delete identity attributes
 
 try {
-    $Result = ConvertFrom-JsonToIdentityAttributeNames -Json $IdentityAttributeNames
+    $Result = ConvertFrom-V2024JsonToIdentityAttributeNames -Json $IdentityAttributeNames
     Remove-V2024IdentityAttributesInBulk -IdentityAttributeNames $Result 
     
     # Below is a request that includes all optional parameters
@@ -343,7 +343,7 @@ $IdentityAttribute = @"{
 # Update identity attribute
 
 try {
-    $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
+    $Result = ConvertFrom-V2024JsonToIdentityAttribute -Json $IdentityAttribute
     Send-V2024IdentityAttribute -Name $Name -IdentityAttribute $Result 
     
     # Below is a request that includes all optional parameters

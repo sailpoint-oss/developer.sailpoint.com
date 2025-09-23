@@ -99,7 +99,7 @@ $Segment = @"{
 # Create segment
 
 try {
-    $Result = ConvertFrom-JsonToSegment -Json $Segment
+    $Result = ConvertFrom-V2025JsonToSegment -Json $Segment
     New-V2025Segment -Segment $Result 
     
     # Below is a request that includes all optional parameters
@@ -293,7 +293,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operat
 # Update segment
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
     Update-V2025Segment -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters

@@ -162,7 +162,7 @@ Code | Description  | Data Type
 # Patch org config
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2025OrgConfig -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

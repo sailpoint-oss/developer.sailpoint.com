@@ -73,7 +73,7 @@ $CreatePersonalAccessTokenRequest = @"{
 # Create personal access token
 
 try {
-    $Result = ConvertFrom-JsonToCreatePersonalAccessTokenRequest -Json $CreatePersonalAccessTokenRequest
+    $Result = ConvertFrom-BetaJsonToCreatePersonalAccessTokenRequest -Json $CreatePersonalAccessTokenRequest
     New-BetaPersonalAccessToken -CreatePersonalAccessTokenRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -220,7 +220,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The Personal Access Token id
 # Patch personal access token
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaPersonalAccessToken -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

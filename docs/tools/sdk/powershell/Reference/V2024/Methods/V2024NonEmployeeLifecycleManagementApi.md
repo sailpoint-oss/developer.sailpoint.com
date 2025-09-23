@@ -120,7 +120,7 @@ $NonEmployeeApprovalDecision = @"{
 # Approve a non-employee request
 
 try {
-    $Result = ConvertFrom-JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
+    $Result = ConvertFrom-V2024JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
     Approve-V2024NonEmployeeRequest -Id $Id -NonEmployeeApprovalDecision $Result 
     
     # Below is a request that includes all optional parameters
@@ -180,7 +180,7 @@ $NonEmployeeRequestBody = @"{
 # Create non-employee record
 
 try {
-    $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
+    $Result = ConvertFrom-V2024JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
     New-V2024NonEmployeeRecord -NonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -239,7 +239,7 @@ $NonEmployeeRequestBody = @"{
 # Create non-employee request
 
 try {
-    $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
+    $Result = ConvertFrom-V2024JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
     New-V2024NonEmployeeRequest -NonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -310,7 +310,7 @@ $NonEmployeeSourceRequestBody = @"{
 # Create non-employee source
 
 try {
-    $Result = ConvertFrom-JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
+    $Result = ConvertFrom-V2024JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
     New-V2024NonEmployeeSource -NonEmployeeSourceRequestBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -366,7 +366,7 @@ $NonEmployeeSchemaAttributeBody = @"{
 # Create a new schema attribute for non-employee source
 
 try {
-    $Result = ConvertFrom-JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
+    $Result = ConvertFrom-V2024JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
     New-V2024NonEmployeeSourceSchemaAttributes -SourceId $SourceId -NonEmployeeSchemaAttributeBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -458,7 +458,7 @@ $DeleteNonEmployeeRecordsInBulkRequest = @""@
 # Delete multiple non-employee records
 
 try {
-    $Result = ConvertFrom-JsonToDeleteNonEmployeeRecordsInBulkRequest -Json $DeleteNonEmployeeRecordsInBulkRequest
+    $Result = ConvertFrom-V2024JsonToDeleteNonEmployeeRecordsInBulkRequest -Json $DeleteNonEmployeeRecordsInBulkRequest
     Remove-V2024NonEmployeeRecordsInBulk -DeleteNonEmployeeRecordsInBulkRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -1506,7 +1506,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-employee record id (UUID
 # Patch non-employee record
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024NonEmployeeRecord -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -1564,7 +1564,7 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 # Patch a schema attribute for non-employee source
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024NonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -1617,7 +1617,7 @@ $SourceId = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id
 # Patch a non-employee source
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024NonEmployeeSource -SourceId $SourceId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -1667,7 +1667,7 @@ $NonEmployeeRejectApprovalDecision = @"{
 # Reject a non-employee request
 
 try {
-    $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
+    $Result = ConvertFrom-V2024JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
     Deny-V2024NonEmployeeRequest -Id $Id -NonEmployeeRejectApprovalDecision $Result 
     
     # Below is a request that includes all optional parameters
@@ -1733,7 +1733,7 @@ $NonEmployeeRequestBody = @"{
 # Update non-employee record
 
 try {
-    $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
+    $Result = ConvertFrom-V2024JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
     Update-V2024NonEmployeeRecord -Id $Id -NonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters

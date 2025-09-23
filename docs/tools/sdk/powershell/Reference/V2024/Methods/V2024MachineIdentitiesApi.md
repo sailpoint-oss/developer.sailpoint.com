@@ -74,7 +74,7 @@ $MachineIdentity = @"{
 # Create machine identities
 
 try {
-    $Result = ConvertFrom-JsonToMachineIdentity -Json $MachineIdentity
+    $Result = ConvertFrom-V2024JsonToMachineIdentity -Json $MachineIdentity
     New-V2024MachineIdentity -XSailPointExperimental $XSailPointExperimental -MachineIdentity $Result 
     
     # Below is a request that includes all optional parameters
@@ -292,7 +292,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON 
 # Update a machine identity
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-V2024JsonToRequestBody -Json $RequestBody
     Update-V2024MachineIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
     # Below is a request that includes all optional parameters

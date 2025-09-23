@@ -25,7 +25,7 @@ The following are required for administrators to create a password sync group in
 
 - Each authentication source in a sync group must have at least one application. Refer to [Adding and Resetting Application Passwords](https://documentation.sailpoint.com/saas/help/pwd/adv_config.html#adding-and-resetting-application-passwords) for more information about adding applications to sources.
 
-- At least one password policy. Refer to [Managing Password Policies](https://documentation.sailpoint.com/saas/help/pwd/) for more information about password policies.
+- At least one password policy. Refer to [Managing Password Policies](https://documentation.sailpoint.com/saas/help/pwd/policies.html) for more information about password policies.
 
 In the Admin panel in Identity Security Cloud, administrators can use the Password Mgmt dropdown menu to select Sync Groups.
 To create a sync group, administrators must provide a name, choose a password policy to be enforced across the sources in the sync group, and select the sources to include in the sync group.
@@ -97,7 +97,7 @@ $PasswordSyncGroup = @"{
 # Create password sync group
 
 try {
-    $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
+    $Result = ConvertFrom-BetaJsonToPasswordSyncGroup -Json $PasswordSyncGroup
     New-BetaPasswordSyncGroup -PasswordSyncGroup $Result 
     
     # Below is a request that includes all optional parameters
@@ -293,7 +293,7 @@ $PasswordSyncGroup = @"{
 # Update password sync group by id
 
 try {
-    $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
+    $Result = ConvertFrom-BetaJsonToPasswordSyncGroup -Json $PasswordSyncGroup
     Update-BetaPasswordSyncGroup -Id $Id -PasswordSyncGroup $Result 
     
     # Below is a request that includes all optional parameters

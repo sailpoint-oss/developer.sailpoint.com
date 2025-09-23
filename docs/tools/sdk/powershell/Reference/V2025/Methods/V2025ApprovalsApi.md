@@ -307,7 +307,7 @@ $ApprovalAttributesRequest = @"{
 # Post Approvals Attributes
 
 try {
-    $Result = ConvertFrom-JsonToApprovalAttributesRequest -Json $ApprovalAttributesRequest
+    $Result = ConvertFrom-V2025JsonToApprovalAttributesRequest -Json $ApprovalAttributesRequest
     Update-V2025ApprovalsAttributes -Id $Id -ApprovalAttributesRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -359,7 +359,7 @@ $ApprovalCommentsRequest = @"{
 # Post Approvals Comments
 
 try {
-    $Result = ConvertFrom-JsonToApprovalCommentsRequest -Json $ApprovalCommentsRequest
+    $Result = ConvertFrom-V2025JsonToApprovalCommentsRequest -Json $ApprovalCommentsRequest
     Update-V2025ApprovalsComments -Id $Id -ApprovalCommentsRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -413,7 +413,7 @@ $ApprovalReassignRequest = @"{
 # Post Approvals Reassign
 
 try {
-    $Result = ConvertFrom-JsonToApprovalReassignRequest -Json $ApprovalReassignRequest
+    $Result = ConvertFrom-V2025JsonToApprovalReassignRequest -Json $ApprovalReassignRequest
     Update-V2025ApprovalsReassign -Id $Id -ApprovalReassignRequest $Result 
     
     # Below is a request that includes all optional parameters

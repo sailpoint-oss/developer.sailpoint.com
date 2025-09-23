@@ -70,7 +70,7 @@ $LauncherRequest = @"{
 # Create launcher
 
 try {
-    $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
+    $Result = ConvertFrom-V2025JsonToLauncherRequest -Json $LauncherRequest
     New-V2025Launcher -LauncherRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -271,7 +271,7 @@ $LauncherRequest = @"{
 # Replace launcher
 
 try {
-    $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
+    $Result = ConvertFrom-V2025JsonToLauncherRequest -Json $LauncherRequest
     Send-V2025Launcher -LauncherID $LauncherID -LauncherRequest $Result 
     
     # Below is a request that includes all optional parameters

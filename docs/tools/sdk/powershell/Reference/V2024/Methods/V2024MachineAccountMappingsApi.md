@@ -80,7 +80,7 @@ $AttributeMappings = @"{
 # Create machine account mappings
 
 try {
-    $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings
+    $Result = ConvertFrom-V2024JsonToAttributeMappings -Json $AttributeMappings
     New-V2024MachineAccountMappings -Id $Id -AttributeMappings $Result 
     
     # Below is a request that includes all optional parameters
@@ -246,7 +246,7 @@ $AttributeMappings = @"{
 # Update Source's Machine Account Mappings
 
 try {
-    $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings
+    $Result = ConvertFrom-V2024JsonToAttributeMappings -Json $AttributeMappings
     Set-V2024MachineAccountMappings -Id $Id -AttributeMappings $Result 
     
     # Below is a request that includes all optional parameters

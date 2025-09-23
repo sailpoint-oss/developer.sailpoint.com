@@ -410,7 +410,7 @@ $RequestBody = "MyRequestBody" # String[] |
 # Iai identity outliers ignore
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
     Invoke-V2025IgnoreIdentityOutliers -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -529,7 +529,7 @@ $RequestBody = "MyRequestBody" # String[] |
 # Iai identity outliers unignore
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
     Invoke-V2025UnIgnoreIdentityOutliers -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
     # Below is a request that includes all optional parameters

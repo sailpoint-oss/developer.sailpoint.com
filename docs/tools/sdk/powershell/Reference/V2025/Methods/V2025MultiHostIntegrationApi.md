@@ -98,7 +98,7 @@ $MultiHostIntegrationsCreate = @"{
 # Create multi-host integration
 
 try {
-    $Result = ConvertFrom-JsonToMultiHostIntegrationsCreate -Json $MultiHostIntegrationsCreate
+    $Result = ConvertFrom-V2025JsonToMultiHostIntegrationsCreate -Json $MultiHostIntegrationsCreate
     New-V2025MultiHostIntegration -MultiHostIntegrationsCreate $Result 
     
     # Below is a request that includes all optional parameters
@@ -161,7 +161,7 @@ $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Hos
 # Create sources within multi-host integration
 
 try {
-    $Result = ConvertFrom-JsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
+    $Result = ConvertFrom-V2025JsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
     New-V2025SourcesWithinMultiHost -MultihostId $MultihostId -MultiHostIntegrationsCreateSources $Result 
     
     # Below is a request that includes all optional parameters
@@ -262,7 +262,7 @@ $RequestBody = "MyRequestBody" # String[] | The delete bulk sources within multi
 # Delete sources within multi-host integration
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
     Remove-V2025MultiHostSources -MultiHostId $MultiHostId -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -773,7 +773,7 @@ $MultihostId = "anId" # String | ID of the Multi-Host Integration to update.
 # Update multi-host integration
 
 try {
-    $Result = ConvertFrom-JsonToUpdateMultiHostSourcesRequestInner -Json $UpdateMultiHostSourcesRequestInner
+    $Result = ConvertFrom-V2025JsonToUpdateMultiHostSourcesRequestInner -Json $UpdateMultiHostSourcesRequestInner
     Update-V2025MultiHostSources -MultihostId $MultihostId -UpdateMultiHostSourcesRequestInner $Result 
     
     # Below is a request that includes all optional parameters

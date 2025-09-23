@@ -115,7 +115,7 @@ $TenantUiMetadataItemUpdateRequest = @"{
 # Update tenant ui metadata
 
 try {
-    $Result = ConvertFrom-JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
+    $Result = ConvertFrom-V2025JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
     Set-V2025TenantUiMetadata -XSailPointExperimental $XSailPointExperimental -TenantUiMetadataItemUpdateRequest $Result 
     
     # Below is a request that includes all optional parameters

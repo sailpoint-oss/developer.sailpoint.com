@@ -24,7 +24,7 @@ Users can use My Requests to track and/or cancel the requests.
 In My Team on the Identity Security Cloud Home, managers can submit requests to revoke their team members&#39; access.
 They can use the My Requests tab under Request Center to track and/or cancel the requests.
 
-Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/) for more information about access requests.
+Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html) for more information about access requests.
  
   
 
@@ -79,7 +79,7 @@ $CancelAccessRequest = @"{
 # Cancel access request
 
 try {
-    $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
+    $Result = ConvertFrom-BetaJsonToCancelAccessRequest -Json $CancelAccessRequest
     Suspend-BetaAccessRequest -CancelAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -102,7 +102,7 @@ Input the IDs from either source.
 
 To track the status of endpoint requests, navigate to Search and use this query: name:"Close Identity Requests". Search will include "Close Identity Requests Started" audits when requests are initiated and "Close Identity Requests Completed" audits when requests are completed. The completion audit will list the identity request IDs that finished in error.
 
-This API triggers the [Provisioning Completed event trigger](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/provisioning-completed) for each access request that is closed.
+This API triggers the [Provisioning Completed event trigger](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-completed/) for each access request that is closed.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/close-access-request)
@@ -141,7 +141,7 @@ $CloseAccessRequest = @"{
 # Close access request
 
 try {
-    $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
+    $Result = ConvertFrom-BetaJsonToCloseAccessRequest -Json $CloseAccessRequest
     Close-BetaAccessRequest -CloseAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -381,7 +381,7 @@ $AccessRequest = @"{
 # Submit access request
 
 try {
-    $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
+    $Result = ConvertFrom-BetaJsonToAccessRequest -Json $AccessRequest
     New-BetaAccessRequest -AccessRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -560,7 +560,7 @@ $AccessRequestConfig = @"{
 # Update access request configuration
 
 try {
-    $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
+    $Result = ConvertFrom-BetaJsonToAccessRequestConfig -Json $AccessRequestConfig
     Set-BetaAccessRequestConfig -AccessRequestConfig $Result 
     
     # Below is a request that includes all optional parameters

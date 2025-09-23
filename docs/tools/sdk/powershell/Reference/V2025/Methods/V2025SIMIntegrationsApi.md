@@ -90,7 +90,7 @@ $SimIntegrationDetails = @"{
 # Create new sim integration
 
 try {
-    $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
+    $Result = ConvertFrom-V2025JsonToSimIntegrationDetails -Json $SimIntegrationDetails
     New-V2025SIMIntegration -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result 
     
     # Below is a request that includes all optional parameters
@@ -305,7 +305,7 @@ $JsonPatch = @"{
 # Patch a sim beforeprovisioningrule attribute.
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+    $Result = ConvertFrom-V2025JsonToJsonPatch -Json $JsonPatch
     Update-V2025BeforeProvisioningRule -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result 
     
     # Below is a request that includes all optional parameters
@@ -369,7 +369,7 @@ $JsonPatch = @"{
 # Patch a sim attribute.
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+    $Result = ConvertFrom-V2025JsonToJsonPatch -Json $JsonPatch
     Update-V2025SIMAttributes -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result 
     
     # Below is a request that includes all optional parameters
@@ -440,7 +440,7 @@ $SimIntegrationDetails = @"{
 # Update an existing sim integration
 
 try {
-    $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
+    $Result = ConvertFrom-V2025JsonToSimIntegrationDetails -Json $SimIntegrationDetails
     Send-V2025SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result 
     
     # Below is a request that includes all optional parameters

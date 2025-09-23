@@ -36,7 +36,7 @@ Accounts can have the following statuses:
 
 Administrators can select the source account to view its attributes, entitlements, and the last time the account&#39;s password was changed.
 
-Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/) for more information about accounts.
+Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
  
   
 
@@ -116,7 +116,7 @@ $AccountAttributesCreate = @"{
 # Create account
 
 try {
-    $Result = ConvertFrom-JsonToAccountAttributesCreate -Json $AccountAttributesCreate
+    $Result = ConvertFrom-V2024JsonToAccountAttributesCreate -Json $AccountAttributesCreate
     New-V2024Account -AccountAttributesCreate $Result 
     
     # Below is a request that includes all optional parameters
@@ -268,7 +268,7 @@ $AccountToggleRequest = @"{
 # Disable account
 
 try {
-    $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
+    $Result = ConvertFrom-V2024JsonToAccountToggleRequest -Json $AccountToggleRequest
     Disable-V2024Account -Id $Id -AccountToggleRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -362,7 +362,7 @@ $IdentitiesAccountsBulkRequest = @"{
 # Disable idn accounts for identities
 
 try {
-    $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
+    $Result = ConvertFrom-V2024JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
     Disable-V2024AccountsForIdentities -IdentitiesAccountsBulkRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -414,7 +414,7 @@ $AccountToggleRequest = @"{
 # Enable account
 
 try {
-    $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
+    $Result = ConvertFrom-V2024JsonToAccountToggleRequest -Json $AccountToggleRequest
     Enable-V2024Account -Id $Id -AccountToggleRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -508,7 +508,7 @@ $IdentitiesAccountsBulkRequest = @"{
 # Enable idn accounts for identities
 
 try {
-    $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
+    $Result = ConvertFrom-V2024JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
     Enable-V2024AccountsForIdentities -IdentitiesAccountsBulkRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -723,7 +723,7 @@ $AccountAttributes = @"{
 # Update account
 
 try {
-    $Result = ConvertFrom-JsonToAccountAttributes -Json $AccountAttributes
+    $Result = ConvertFrom-V2024JsonToAccountAttributes -Json $AccountAttributes
     Send-V2024Account -Id $Id -AccountAttributes $Result 
     
     # Below is a request that includes all optional parameters
@@ -823,7 +823,7 @@ $AccountUnlockRequest = @"{
 # Unlock account
 
 try {
-    $Result = ConvertFrom-JsonToAccountUnlockRequest -Json $AccountUnlockRequest
+    $Result = ConvertFrom-V2024JsonToAccountUnlockRequest -Json $AccountUnlockRequest
     Unlock-V2024Account -Id $Id -AccountUnlockRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -884,7 +884,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of account update operat
 # Update account
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-V2024JsonToRequestBody -Json $RequestBody
     Update-V2024Account -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters

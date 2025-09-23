@@ -153,7 +153,7 @@ $Dimension = @"{
 # Create a dimension
 
 try {
-    $Result = ConvertFrom-JsonToDimension -Json $Dimension
+    $Result = ConvertFrom-V2024JsonToDimension -Json $Dimension
     New-V2024Dimension -RoleId $RoleId -Dimension $Result 
     
     # Below is a request that includes all optional parameters
@@ -206,7 +206,7 @@ $DimensionBulkDeleteRequest = @"{
 # Delete dimension(s)
 
 try {
-    $Result = ConvertFrom-JsonToDimensionBulkDeleteRequest -Json $DimensionBulkDeleteRequest
+    $Result = ConvertFrom-V2024JsonToDimensionBulkDeleteRequest -Json $DimensionBulkDeleteRequest
     Remove-V2024BulkDimensions -RoleId $RoleId -DimensionBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -540,7 +540,7 @@ $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
 # Patch a specified dimension
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024Dimension -RoleId $RoleId -DimensionId $DimensionId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

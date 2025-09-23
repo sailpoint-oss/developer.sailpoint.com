@@ -175,7 +175,7 @@ $BulkTaggedObject = @"{
 # Remove tags from multiple objects
 
 try {
-    $Result = ConvertFrom-JsonToBulkTaggedObject -Json $BulkTaggedObject
+    $Result = ConvertFrom-BetaJsonToBulkTaggedObject -Json $BulkTaggedObject
     Remove-BetaTagsToManyObject -BulkTaggedObject $Result 
     
     # Below is a request that includes all optional parameters
@@ -387,7 +387,7 @@ $TaggedObject = @"{
 # Update tagged object
 
 try {
-    $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
+    $Result = ConvertFrom-BetaJsonToTaggedObject -Json $TaggedObject
     Send-BetaTaggedObject -Type $Type -Id $Id -TaggedObject $Result 
     
     # Below is a request that includes all optional parameters
@@ -442,7 +442,7 @@ $TaggedObject = @"{
 # Add tag to object
 
 try {
-    $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
+    $Result = ConvertFrom-BetaJsonToTaggedObject -Json $TaggedObject
     Set-BetaTagToObject -TaggedObject $Result 
     
     # Below is a request that includes all optional parameters
@@ -502,7 +502,7 @@ $BulkTaggedObject = @"{
 # Tag multiple objects
 
 try {
-    $Result = ConvertFrom-JsonToBulkTaggedObject -Json $BulkTaggedObject
+    $Result = ConvertFrom-BetaJsonToBulkTaggedObject -Json $BulkTaggedObject
     Set-BetaTagsToManyObjects -BulkTaggedObject $Result 
     
     # Below is a request that includes all optional parameters

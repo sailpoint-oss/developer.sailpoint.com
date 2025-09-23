@@ -248,7 +248,7 @@ $Id = "ebab396f-0af1-4050-89b7-dafc63ec70e7" # String | id is sed id
 # Patch suggested entitlement description
 
 try {
-    $Result = ConvertFrom-JsonToSedPatch -Json $SedPatch
+    $Result = ConvertFrom-BetaJsonToSedPatch -Json $SedPatch
     Update-BetaSed -Id $Id -SedPatch $Result 
     
     # Below is a request that includes all optional parameters
@@ -299,7 +299,7 @@ Code | Description  | Data Type
 # Submit bulk approval request
 
 try {
-    $Result = ConvertFrom-JsonToSedApproval -Json $SedApproval
+    $Result = ConvertFrom-BetaJsonToSedApproval -Json $SedApproval
     Submit-BetaSedApproval -SedApproval $Result 
     
     # Below is a request that includes all optional parameters
@@ -353,7 +353,7 @@ $SedAssignment = @"{
 # Submit sed assignment request
 
 try {
-    $Result = ConvertFrom-JsonToSedAssignment -Json $SedAssignment
+    $Result = ConvertFrom-BetaJsonToSedAssignment -Json $SedAssignment
     Submit-BetaSedAssignment -SedAssignment $Result 
     
     # Below is a request that includes all optional parameters

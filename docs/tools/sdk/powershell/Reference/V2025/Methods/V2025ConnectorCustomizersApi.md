@@ -64,7 +64,7 @@ $ConnectorCustomizerCreateRequest = @"{
 # Create connector customizer
 
 try {
-    $Result = ConvertFrom-JsonToConnectorCustomizerCreateRequest -Json $ConnectorCustomizerCreateRequest
+    $Result = ConvertFrom-V2025JsonToConnectorCustomizerCreateRequest -Json $ConnectorCustomizerCreateRequest
     New-V2025ConnectorCustomizer -ConnectorCustomizerCreateRequest $Result 
     
     # Below is a request that includes all optional parameters

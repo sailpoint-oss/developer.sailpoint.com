@@ -425,7 +425,7 @@ $SendAccountVerificationRequest = @"{
 # Send password reset email
 
 try {
-    $Result = ConvertFrom-JsonToSendAccountVerificationRequest -Json $SendAccountVerificationRequest
+    $Result = ConvertFrom-BetaJsonToSendAccountVerificationRequest -Json $SendAccountVerificationRequest
     Send-BetaIdentityVerificationAccountToken -Id $Id -SendAccountVerificationRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -480,7 +480,7 @@ $InviteIdentitiesRequest = @"{
 # Invite identities to register
 
 try {
-    $Result = ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
+    $Result = ConvertFrom-BetaJsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
     Start-BetaIdentitiesInvite -InviteIdentitiesRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -539,7 +539,7 @@ $ProcessIdentitiesRequest = @"{
 # Process a list of identityids
 
 try {
-    $Result = ConvertFrom-JsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest
+    $Result = ConvertFrom-BetaJsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest
     Start-BetaIdentityProcessing -ProcessIdentitiesRequest $Result 
     
     # Below is a request that includes all optional parameters

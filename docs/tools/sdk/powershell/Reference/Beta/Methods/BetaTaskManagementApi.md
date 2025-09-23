@@ -267,7 +267,7 @@ $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
 # Update task status by id
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaTaskStatus -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

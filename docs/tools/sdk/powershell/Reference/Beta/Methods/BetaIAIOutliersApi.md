@@ -375,7 +375,7 @@ $RequestBody = "MyRequestBody" # String[] |
 # Iai identity outliers ignore
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-BetaJsonToRequestBody -Json $RequestBody
     Invoke-BetaIgnoreIdentityOutliers -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -484,7 +484,7 @@ $RequestBody = "MyRequestBody" # String[] |
 # Iai identity outliers unignore
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-BetaJsonToRequestBody -Json $RequestBody
     Invoke-BetaUnIgnoreIdentityOutliers -RequestBody $Result 
     
     # Below is a request that includes all optional parameters

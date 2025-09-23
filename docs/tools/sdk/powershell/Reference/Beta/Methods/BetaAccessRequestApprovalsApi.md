@@ -87,7 +87,7 @@ $CommentDto = @"{
 # Approve access request approval
 
 try {
-    $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
+    $Result = ConvertFrom-BetaJsonToCommentDto -Json $CommentDto
     Approve-BetaAccessRequest -ApprovalId $ApprovalId -CommentDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -139,7 +139,7 @@ $ForwardApprovalDto = @"{
 # Forward access request approval
 
 try {
-    $Result = ConvertFrom-JsonToForwardApprovalDto -Json $ForwardApprovalDto
+    $Result = ConvertFrom-BetaJsonToForwardApprovalDto -Json $ForwardApprovalDto
     Invoke-BetaForwardAccessRequest -ApprovalId $ApprovalId -ForwardApprovalDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -351,7 +351,7 @@ $CommentDto = @"{
 # Reject access request approval
 
 try {
-    $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
+    $Result = ConvertFrom-BetaJsonToCommentDto -Json $CommentDto
     Deny-BetaAccessRequest -ApprovalId $ApprovalId -CommentDto $Result 
     
     # Below is a request that includes all optional parameters

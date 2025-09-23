@@ -70,7 +70,7 @@ $NetworkConfiguration = @"{
 # Create security network configuration.
 
 try {
-    $Result = ConvertFrom-JsonToNetworkConfiguration -Json $NetworkConfiguration
+    $Result = ConvertFrom-V2024JsonToNetworkConfiguration -Json $NetworkConfiguration
     New-V2024AuthOrgNetworkConfig -NetworkConfiguration $Result 
     
     # Below is a request that includes all optional parameters
@@ -299,7 +299,7 @@ Code | Description  | Data Type
 # Update auth org lockout configuration
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024AuthOrgLockoutConfig -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -352,7 +352,7 @@ Code | Description  | Data Type
 # Update security network configuration.
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024AuthOrgNetworkConfig -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -404,7 +404,7 @@ Code | Description  | Data Type
 # Update service provider configuration
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024AuthOrgServiceProviderConfig -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -456,7 +456,7 @@ Code | Description  | Data Type
 # Update auth org session configuration
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024AuthOrgSessionConfig -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

@@ -233,7 +233,7 @@ $WorkItemForward = @"{
 # Forward a work item
 
 try {
-    $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
+    $Result = ConvertFrom-V2024JsonToWorkItemForward -Json $WorkItemForward
     Invoke-V2024ForwardWorkItem -Id $Id -XSailPointExperimental $XSailPointExperimental -WorkItemForward $Result 
     
     # Below is a request that includes all optional parameters
@@ -661,7 +661,7 @@ $RequestBody = @{ key_example =  } # System.Collections.Hashtable | Account Sele
 # Submit account selections
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-V2024JsonToRequestBody -Json $RequestBody
     Submit-V2024AccountSelection -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters

@@ -121,7 +121,7 @@ $ServiceDeskIntegrationDto = @"{
 # Create new service desk integration
 
 try {
-    $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
+    $Result = ConvertFrom-V2025JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
     New-V2025ServiceDeskIntegration -ServiceDeskIntegrationDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -455,7 +455,7 @@ $Id = "anId" # String | ID of the Service Desk integration to update
 # Patch a service desk integration
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2025ServiceDeskIntegration -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -537,7 +537,7 @@ $ServiceDeskIntegrationDto = @"{
 # Update a service desk integration
 
 try {
-    $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
+    $Result = ConvertFrom-V2025JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
     Send-V2025ServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -587,7 +587,7 @@ $QueuedCheckConfigDetails = @"{
 # Update the time check configuration
 
 try {
-    $Result = ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
+    $Result = ConvertFrom-V2025JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
     Update-V2025StatusCheckDetails -QueuedCheckConfigDetails $Result 
     
     # Below is a request that includes all optional parameters

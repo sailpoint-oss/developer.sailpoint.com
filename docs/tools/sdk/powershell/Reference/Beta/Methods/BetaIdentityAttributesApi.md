@@ -81,7 +81,7 @@ $IdentityAttribute = @"{
 # Create identity attribute
 
 try {
-    $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
+    $Result = ConvertFrom-BetaJsonToIdentityAttribute -Json $IdentityAttribute
     New-BetaIdentityAttribute -IdentityAttribute $Result 
     
     # Below is a request that includes all optional parameters
@@ -176,7 +176,7 @@ $IdentityAttributeNames = @"{
 # Bulk delete identity attributes
 
 try {
-    $Result = ConvertFrom-JsonToIdentityAttributeNames -Json $IdentityAttributeNames
+    $Result = ConvertFrom-BetaJsonToIdentityAttributeNames -Json $IdentityAttributeNames
     Remove-BetaIdentityAttributesInBulk -IdentityAttributeNames $Result 
     
     # Below is a request that includes all optional parameters
@@ -343,7 +343,7 @@ $IdentityAttribute = @"{
 # Update identity attribute
 
 try {
-    $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
+    $Result = ConvertFrom-BetaJsonToIdentityAttribute -Json $IdentityAttribute
     Send-BetaIdentityAttribute -Name $Name -IdentityAttribute $Result 
     
     # Below is a request that includes all optional parameters

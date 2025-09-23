@@ -183,7 +183,7 @@ $AccessProfile = @"{
 # Create access profile
 
 try {
-    $Result = ConvertFrom-JsonToAccessProfile -Json $AccessProfile
+    $Result = ConvertFrom-BetaJsonToAccessProfile -Json $AccessProfile
     New-BetaAccessProfile -AccessProfile $Result 
     
     # Below is a request that includes all optional parameters
@@ -285,7 +285,7 @@ $AccessProfileBulkDeleteRequest = @"{
 # Delete access profile(s)
 
 try {
-    $Result = ConvertFrom-JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
+    $Result = ConvertFrom-BetaJsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
     Remove-BetaAccessProfilesInBulk -AccessProfileBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -504,7 +504,7 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to 
 # Patch a specified access profile
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaAccessProfile -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -558,7 +558,7 @@ Code | Description  | Data Type
 # Update access profile(s) requestable field.
 
 try {
-    $Result = ConvertFrom-JsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
+    $Result = ConvertFrom-BetaJsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
     Update-BetaAccessProfilesInBulk -AccessProfileBulkUpdateRequestInner $Result 
     
     # Below is a request that includes all optional parameters

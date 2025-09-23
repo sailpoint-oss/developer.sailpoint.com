@@ -104,7 +104,7 @@ $PasswordPolicyV3Dto = @"{
 # Create password policy
 
 try {
-    $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
+    $Result = ConvertFrom-V2025JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
     New-V2025PasswordPolicy -XSailPointExperimental $XSailPointExperimental -PasswordPolicyV3Dto $Result 
     
     # Below is a request that includes all optional parameters
@@ -347,7 +347,7 @@ $PasswordPolicyV3Dto = @"{
 # Update password policy by id
 
 try {
-    $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
+    $Result = ConvertFrom-V2025JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
     Set-V2025PasswordPolicy -Id $Id -XSailPointExperimental $XSailPointExperimental -PasswordPolicyV3Dto $Result 
     
     # Below is a request that includes all optional parameters

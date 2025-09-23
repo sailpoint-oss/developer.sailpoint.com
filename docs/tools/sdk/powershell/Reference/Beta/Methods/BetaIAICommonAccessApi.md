@@ -66,7 +66,7 @@ $CommonAccessItemRequest = @"{
 # Create common access items
 
 try {
-    $Result = ConvertFrom-JsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
+    $Result = ConvertFrom-BetaJsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
     New-BetaCommonAccess -CommonAccessItemRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -168,7 +168,7 @@ Code | Description  | Data Type
 # Bulk update common access status
 
 try {
-    $Result = ConvertFrom-JsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
+    $Result = ConvertFrom-BetaJsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
     Update-BetaCommonAccessStatusInBulk -CommonAccessIDStatus $Result 
     
     # Below is a request that includes all optional parameters

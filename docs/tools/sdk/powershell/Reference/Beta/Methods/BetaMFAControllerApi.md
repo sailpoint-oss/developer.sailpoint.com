@@ -62,7 +62,7 @@ $SendTokenRequest = @"{
 # Create and send user token
 
 try {
-    $Result = ConvertFrom-JsonToSendTokenRequest -Json $SendTokenRequest
+    $Result = ConvertFrom-BetaJsonToSendTokenRequest -Json $SendTokenRequest
     New-BetaSendToken -SendTokenRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -112,7 +112,7 @@ $VerificationPollRequest = @"{
 # Polling mfa method by verificationpollrequest
 
 try {
-    $Result = ConvertFrom-JsonToVerificationPollRequest -Json $VerificationPollRequest
+    $Result = ConvertFrom-BetaJsonToVerificationPollRequest -Json $VerificationPollRequest
     Ping-BetaVerificationStatus -Method $Method -VerificationPollRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -161,7 +161,7 @@ $DuoVerificationRequest = @"{
 # Verifying authentication via duo method
 
 try {
-    $Result = ConvertFrom-JsonToDuoVerificationRequest -Json $DuoVerificationRequest
+    $Result = ConvertFrom-BetaJsonToDuoVerificationRequest -Json $DuoVerificationRequest
     Send-BetaDuoVerifyRequest -DuoVerificationRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -211,7 +211,7 @@ Code | Description  | Data Type
 # Authenticate kba provided mfa method
 
 try {
-    $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
+    $Result = ConvertFrom-BetaJsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
     Send-BetaKbaAnswers -KbaAnswerRequestItem $Result 
     
     # Below is a request that includes all optional parameters
@@ -259,7 +259,7 @@ $OktaVerificationRequest = @"{
 # Verifying authentication via okta method
 
 try {
-    $Result = ConvertFrom-JsonToOktaVerificationRequest -Json $OktaVerificationRequest
+    $Result = ConvertFrom-BetaJsonToOktaVerificationRequest -Json $OktaVerificationRequest
     Send-BetaOktaVerifyRequest -OktaVerificationRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -309,7 +309,7 @@ $TokenAuthRequest = @"{
 # Authenticate token provided mfa method
 
 try {
-    $Result = ConvertFrom-JsonToTokenAuthRequest -Json $TokenAuthRequest
+    $Result = ConvertFrom-BetaJsonToTokenAuthRequest -Json $TokenAuthRequest
     Send-BetaTokenAuthRequest -TokenAuthRequest $Result 
     
     # Below is a request that includes all optional parameters

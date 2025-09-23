@@ -103,7 +103,7 @@
         # Metadata Attribute update by filter
         
         try {
-            $Result = ConvertFrom-JsonToEntitlementAttributeBulkUpdateFilterRequest -Json $EntitlementAttributeBulkUpdateFilterRequest
+            $Result = ConvertFrom-V2025JsonToEntitlementAttributeBulkUpdateFilterRequest -Json $EntitlementAttributeBulkUpdateFilterRequest
             Update-V2025AccessModelMetadataByFilter -EntitlementAttributeBulkUpdateFilterRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -133,7 +133,7 @@
         # Metadata Attribute update by ids
         
         try {
-            $Result = ConvertFrom-JsonToEntitlementAttributeBulkUpdateIdsRequest -Json $EntitlementAttributeBulkUpdateIdsRequest
+            $Result = ConvertFrom-V2025JsonToEntitlementAttributeBulkUpdateIdsRequest -Json $EntitlementAttributeBulkUpdateIdsRequest
             Update-V2025AccessModelMetadataByIds -EntitlementAttributeBulkUpdateIdsRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -279,7 +279,7 @@
         # Metadata Attribute update by query
         
         try {
-            $Result = ConvertFrom-JsonToEntitlementAttributeBulkUpdateQueryRequest -Json $EntitlementAttributeBulkUpdateQueryRequest
+            $Result = ConvertFrom-V2025JsonToEntitlementAttributeBulkUpdateQueryRequest -Json $EntitlementAttributeBulkUpdateQueryRequest
             Update-V2025AccessModelMetadataByQuery -EntitlementAttributeBulkUpdateQueryRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -386,7 +386,7 @@
         # Create access profile
         
         try {
-            $Result = ConvertFrom-JsonToAccessProfile -Json $AccessProfile
+            $Result = ConvertFrom-V2025JsonToAccessProfile -Json $AccessProfile
             New-V2025AccessProfile -AccessProfile $Result 
     
             # Below is a request that includes all optional parameters
@@ -430,7 +430,7 @@
         # Delete access profile(s)
         
         try {
-            $Result = ConvertFrom-JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
+            $Result = ConvertFrom-V2025JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
             Remove-V2025AccessProfilesInBulk -AccessProfileBulkDeleteRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -525,7 +525,7 @@
         # Patch a specified access profile
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025AccessProfile -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -547,7 +547,7 @@
         # Update access profile(s) requestable field.
         
         try {
-            $Result = ConvertFrom-JsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
+            $Result = ConvertFrom-V2025JsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
             Update-V2025AccessProfilesInBulk -XSailPointExperimental $XSailPointExperimental -AccessProfileBulkUpdateRequestInner $Result 
     
             # Below is a request that includes all optional parameters
@@ -603,7 +603,7 @@
         # Forward access request approval
         
         try {
-            $Result = ConvertFrom-JsonToForwardApprovalDto -Json $ForwardApprovalDto
+            $Result = ConvertFrom-V2025JsonToForwardApprovalDto -Json $ForwardApprovalDto
             Invoke-V2025ForwardAccessRequest -ApprovalId $ApprovalId -ForwardApprovalDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -724,7 +724,7 @@
         # Reject access request approval
         
         try {
-            $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
+            $Result = ConvertFrom-V2025JsonToCommentDto -Json $CommentDto
             Deny-V2025AccessRequest -ApprovalId $ApprovalId -CommentDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -770,7 +770,7 @@
         # Bulk approve access request
         
         try {
-            $Result = ConvertFrom-JsonToBulkApproveAccessRequest -Json $BulkApproveAccessRequest
+            $Result = ConvertFrom-V2025JsonToBulkApproveAccessRequest -Json $BulkApproveAccessRequest
             Approve-V2025BulkAccessRequest -BulkApproveAccessRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -795,7 +795,7 @@
         # Cancel access request
         
         try {
-            $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
+            $Result = ConvertFrom-V2025JsonToCancelAccessRequest -Json $CancelAccessRequest
             Suspend-V2025AccessRequest -CancelAccessRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -820,7 +820,7 @@
         # Bulk cancel access request
         
         try {
-            $Result = ConvertFrom-JsonToBulkCancelAccessRequest -Json $BulkCancelAccessRequest
+            $Result = ConvertFrom-V2025JsonToBulkCancelAccessRequest -Json $BulkCancelAccessRequest
             Suspend-V2025AccessRequestInBulk -BulkCancelAccessRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -847,7 +847,7 @@
         # Close access request
         
         try {
-            $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
+            $Result = ConvertFrom-V2025JsonToCloseAccessRequest -Json $CloseAccessRequest
             Close-V2025AccessRequest -CloseAccessRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -1018,7 +1018,7 @@
         # Submit access request
         
         try {
-            $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
+            $Result = ConvertFrom-V2025JsonToAccessRequest -Json $AccessRequest
             New-V2025AccessRequest -AccessRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -1200,7 +1200,7 @@
         # Get accounts selections for identity
         
         try {
-            $Result = ConvertFrom-JsonToAccountsSelectionRequest -Json $AccountsSelectionRequest
+            $Result = ConvertFrom-V2025JsonToAccountsSelectionRequest -Json $AccountsSelectionRequest
             Invoke-V2025LoadAccountSelections -XSailPointExperimental $XSailPointExperimental -AccountsSelectionRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -1264,7 +1264,7 @@
         # Update access request configuration
         
         try {
-            $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
+            $Result = ConvertFrom-V2025JsonToAccessRequestConfig -Json $AccessRequestConfig
             Set-V2025AccessRequestConfig -AccessRequestConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -1382,7 +1382,7 @@
         # Create account
         
         try {
-            $Result = ConvertFrom-JsonToAccountAttributesCreate -Json $AccountAttributesCreate
+            $Result = ConvertFrom-V2025JsonToAccountAttributesCreate -Json $AccountAttributesCreate
             New-V2025Account -AccountAttributesCreate $Result 
     
             # Below is a request that includes all optional parameters
@@ -1446,7 +1446,7 @@
         # Disable account
         
         try {
-            $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
+            $Result = ConvertFrom-V2025JsonToAccountToggleRequest -Json $AccountToggleRequest
             Disable-V2025Account -Id $Id -AccountToggleRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -1489,7 +1489,7 @@
         # Disable idn accounts for identities
         
         try {
-            $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
+            $Result = ConvertFrom-V2025JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
             Disable-V2025AccountsForIdentities -IdentitiesAccountsBulkRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -1515,7 +1515,7 @@
         # Enable account
         
         try {
-            $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
+            $Result = ConvertFrom-V2025JsonToAccountToggleRequest -Json $AccountToggleRequest
             Enable-V2025Account -Id $Id -AccountToggleRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -1558,7 +1558,7 @@
         # Enable idn accounts for identities
         
         try {
-            $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
+            $Result = ConvertFrom-V2025JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
             Enable-V2025AccountsForIdentities -IdentitiesAccountsBulkRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -1654,7 +1654,7 @@
         # Update account
         
         try {
-            $Result = ConvertFrom-JsonToAccountAttributes -Json $AccountAttributes
+            $Result = ConvertFrom-V2025JsonToAccountAttributes -Json $AccountAttributes
             Send-V2025Account -Id $Id -AccountAttributes $Result 
     
             # Below is a request that includes all optional parameters
@@ -1700,7 +1700,7 @@
         # Unlock account
         
         try {
-            $Result = ConvertFrom-JsonToAccountUnlockRequest -Json $AccountUnlockRequest
+            $Result = ConvertFrom-V2025JsonToAccountUnlockRequest -Json $AccountUnlockRequest
             Unlock-V2025Account -Id $Id -AccountUnlockRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -1723,7 +1723,7 @@
         # Update account
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
             Update-V2025Account -Id $Id -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -1918,7 +1918,7 @@
         # Post Approvals Attributes
         
         try {
-            $Result = ConvertFrom-JsonToApprovalAttributesRequest -Json $ApprovalAttributesRequest
+            $Result = ConvertFrom-V2025JsonToApprovalAttributesRequest -Json $ApprovalAttributesRequest
             Update-V2025ApprovalsAttributes -Id $Id -ApprovalAttributesRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -1943,7 +1943,7 @@
         # Post Approvals Comments
         
         try {
-            $Result = ConvertFrom-JsonToApprovalCommentsRequest -Json $ApprovalCommentsRequest
+            $Result = ConvertFrom-V2025JsonToApprovalCommentsRequest -Json $ApprovalCommentsRequest
             Update-V2025ApprovalsComments -Id $Id -ApprovalCommentsRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -1970,7 +1970,7 @@
         # Post Approvals Reassign
         
         try {
-            $Result = ConvertFrom-JsonToApprovalReassignRequest -Json $ApprovalReassignRequest
+            $Result = ConvertFrom-V2025JsonToApprovalReassignRequest -Json $ApprovalReassignRequest
             Update-V2025ApprovalsReassign -Id $Id -ApprovalReassignRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -2002,7 +2002,7 @@
         # Create source app
         
         try {
-            $Result = ConvertFrom-JsonToSourceAppCreateDto -Json $SourceAppCreateDto
+            $Result = ConvertFrom-V2025JsonToSourceAppCreateDto -Json $SourceAppCreateDto
             New-V2025SourceApp -XSailPointExperimental $XSailPointExperimental -SourceAppCreateDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -2027,7 +2027,7 @@
         # Bulk remove access profiles from the specified source app
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
             Remove-V2025AccessProfilesFromSourceAppByBulk -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -2381,7 +2381,7 @@
         # Patch a specified auth profile
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025ProfileConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -2426,7 +2426,7 @@
         # Auth user update
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025AuthUser -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -2574,7 +2574,7 @@
         # Create campaign filter
         
         try {
-            $Result = ConvertFrom-JsonToCampaignFilterDetails -Json $CampaignFilterDetails
+            $Result = ConvertFrom-V2025JsonToCampaignFilterDetails -Json $CampaignFilterDetails
             New-V2025CampaignFilter -CampaignFilterDetails $Result 
     
             # Below is a request that includes all optional parameters
@@ -2596,7 +2596,7 @@
         # Deletes campaign filters
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
             Remove-V2025CampaignFilters -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -2676,7 +2676,7 @@
         # Updates a campaign filter
         
         try {
-            $Result = ConvertFrom-JsonToCampaignFilterDetails -Json $CampaignFilterDetails
+            $Result = ConvertFrom-V2025JsonToCampaignFilterDetails -Json $CampaignFilterDetails
             Update-V2025CampaignFilter -FilterId $FilterId -CampaignFilterDetails $Result 
     
             # Below is a request that includes all optional parameters
@@ -2831,7 +2831,7 @@
         # Create a campaign
         
         try {
-            $Result = ConvertFrom-JsonToCampaign -Json $Campaign
+            $Result = ConvertFrom-V2025JsonToCampaign -Json $Campaign
             New-V2025Campaign -Campaign $Result 
     
             # Below is a request that includes all optional parameters
@@ -2977,7 +2977,7 @@
         # Create a campaign template
         
         try {
-            $Result = ConvertFrom-JsonToCampaignTemplate -Json $CampaignTemplate
+            $Result = ConvertFrom-V2025JsonToCampaignTemplate -Json $CampaignTemplate
             New-V2025CampaignTemplate -CampaignTemplate $Result 
     
             # Below is a request that includes all optional parameters
@@ -3039,7 +3039,7 @@
         # Delete campaigns
         
         try {
-            $Result = ConvertFrom-JsonToCampaignsDeleteRequest -Json $CampaignsDeleteRequest
+            $Result = ConvertFrom-V2025JsonToCampaignsDeleteRequest -Json $CampaignsDeleteRequest
             Remove-V2025Campaigns -CampaignsDeleteRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -3211,7 +3211,7 @@
         # Reassign certifications
         
         try {
-            $Result = ConvertFrom-JsonToAdminReviewReassign -Json $AdminReviewReassign
+            $Result = ConvertFrom-V2025JsonToAdminReviewReassign -Json $AdminReviewReassign
             Move-V2025 -Id $Id -AdminReviewReassign $Result 
     
             # Below is a request that includes all optional parameters
@@ -3237,7 +3237,7 @@
         # Update a campaign template
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025CampaignTemplate -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -3261,7 +3261,7 @@
         # Set campaign reports configuration
         
         try {
-            $Result = ConvertFrom-JsonToCampaignReportsConfig -Json $CampaignReportsConfig
+            $Result = ConvertFrom-V2025JsonToCampaignReportsConfig -Json $CampaignReportsConfig
             Set-V2025CampaignReportsConfig -CampaignReportsConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -3410,7 +3410,7 @@
         # Update a campaign
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025Campaign -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -3692,7 +3692,7 @@
         # Decide on a certification item
         
         try {
-            $Result = ConvertFrom-JsonToReviewDecision -Json $ReviewDecision
+            $Result = ConvertFrom-V2025JsonToReviewDecision -Json $ReviewDecision
             Select-V2025IdentityDecision -Id $Id -ReviewDecision $Result 
     
             # Below is a request that includes all optional parameters
@@ -3725,7 +3725,7 @@
         # Reassign identities or items
         
         try {
-            $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
+            $Result = ConvertFrom-V2025JsonToReviewReassign -Json $ReviewReassign
             Invoke-V2025ReassignIdentityCertifications -Id $Id -ReviewReassign $Result 
     
             # Below is a request that includes all optional parameters
@@ -3777,7 +3777,7 @@
         # Reassign certifications asynchronously
         
         try {
-            $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
+            $Result = ConvertFrom-V2025JsonToReviewReassign -Json $ReviewReassign
             Submit-V2025ReassignCertsAsync -Id $Id -ReviewReassign $Result 
     
             # Below is a request that includes all optional parameters
@@ -3858,7 +3858,7 @@
         # Create a deploy
         
         try {
-            $Result = ConvertFrom-JsonToDeployRequest -Json $DeployRequest
+            $Result = ConvertFrom-V2025JsonToDeployRequest -Json $DeployRequest
             New-V2025Deploy -DeployRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -3887,7 +3887,7 @@
         # Creates an object mapping
         
         try {
-            $Result = ConvertFrom-JsonToObjectMappingRequest -Json $ObjectMappingRequest
+            $Result = ConvertFrom-V2025JsonToObjectMappingRequest -Json $ObjectMappingRequest
             New-V2025ObjectMapping -SourceOrg $SourceOrg -ObjectMappingRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -3924,7 +3924,7 @@
         # Bulk creates object mappings
         
         try {
-            $Result = ConvertFrom-JsonToObjectMappingBulkCreateRequest -Json $ObjectMappingBulkCreateRequest
+            $Result = ConvertFrom-V2025JsonToObjectMappingBulkCreateRequest -Json $ObjectMappingBulkCreateRequest
             New-V2025ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkCreateRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -3968,7 +3968,7 @@
         # Create scheduled action
         
         try {
-            $Result = ConvertFrom-JsonToScheduledActionPayload -Json $ScheduledActionPayload
+            $Result = ConvertFrom-V2025JsonToScheduledActionPayload -Json $ScheduledActionPayload
             New-V2025ScheduledAction -ScheduledActionPayload $Result 
     
             # Below is a request that includes all optional parameters
@@ -4270,7 +4270,7 @@
         # Bulk updates object mappings
         
         try {
-            $Result = ConvertFrom-JsonToObjectMappingBulkPatchRequest -Json $ObjectMappingBulkPatchRequest
+            $Result = ConvertFrom-V2025JsonToObjectMappingBulkPatchRequest -Json $ObjectMappingBulkPatchRequest
             Update-V2025ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkPatchRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -4303,7 +4303,7 @@
         # Update scheduled action
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+            $Result = ConvertFrom-V2025JsonToJsonPatch -Json $JsonPatch
             Update-V2025ScheduledAction -ScheduledActionId $ScheduledActionId -JsonPatch $Result 
     
             # Below is a request that includes all optional parameters
@@ -4327,7 +4327,7 @@
         # Create connector customizer
         
         try {
-            $Result = ConvertFrom-JsonToConnectorCustomizerCreateRequest -Json $ConnectorCustomizerCreateRequest
+            $Result = ConvertFrom-V2025JsonToConnectorCustomizerCreateRequest -Json $ConnectorCustomizerCreateRequest
             New-V2025ConnectorCustomizer -ConnectorCustomizerCreateRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -4475,7 +4475,7 @@
         # Create connector rule
         
         try {
-            $Result = ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
+            $Result = ConvertFrom-V2025JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
             New-V2025ConnectorRule -ConnectorRuleCreateRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -4607,7 +4607,7 @@
         # Validate connector rule
         
         try {
-            $Result = ConvertFrom-JsonToSourceCode -Json $SourceCode
+            $Result = ConvertFrom-V2025JsonToSourceCode -Json $SourceCode
             Test-V2025ConnectorRule -SourceCode $Result 
     
             # Below is a request that includes all optional parameters
@@ -4635,7 +4635,7 @@
         # Create custom connector
         
         try {
-            $Result = ConvertFrom-JsonToV3CreateConnectorDto -Json $V3CreateConnectorDto
+            $Result = ConvertFrom-V2025JsonToV3CreateConnectorDto -Json $V3CreateConnectorDto
             New-V2025CustomConnector -V3CreateConnectorDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -4880,7 +4880,7 @@
         # Update connector by script name
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025Connector -ScriptName $ScriptName -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -5433,7 +5433,7 @@
         # Create custom password instructions
         
         try {
-            $Result = ConvertFrom-JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
+            $Result = ConvertFrom-V2025JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
             New-V2025CustomPasswordInstructions -XSailPointExperimental $XSailPointExperimental -CustomPasswordInstruction $Result 
     
             # Below is a request that includes all optional parameters
@@ -5507,7 +5507,7 @@
         # Create a custom user level
         
         try {
-            $Result = ConvertFrom-JsonToUserLevelRequest -Json $UserLevelRequest
+            $Result = ConvertFrom-V2025JsonToUserLevelRequest -Json $UserLevelRequest
             New-V2025CustomUserLevel -XSailPointExperimental $XSailPointExperimental -UserLevelRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -5648,7 +5648,7 @@
         # Update a user level
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+            $Result = ConvertFrom-V2025JsonToJsonPatch -Json $JsonPatch
             Update-V2025UserLevel -XSailPointExperimental $XSailPointExperimental -Id $Id -JsonPatch $Result 
     
             # Below is a request that includes all optional parameters
@@ -5670,7 +5670,7 @@
         # Create segment
         
         try {
-            $Result = ConvertFrom-JsonToDataSegment -Json $DataSegment
+            $Result = ConvertFrom-V2025JsonToDataSegment -Json $DataSegment
             New-V2025DataSegment -DataSegment $Result 
     
             # Below is a request that includes all optional parameters
@@ -5801,7 +5801,7 @@
         # Update segment
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
             Update-V2025DataSegment -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -5825,7 +5825,7 @@
         # Publish segment by id
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
             Publish-V2025DataSegment -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -5934,7 +5934,7 @@
         # Create a dimension
         
         try {
-            $Result = ConvertFrom-JsonToDimension -Json $Dimension
+            $Result = ConvertFrom-V2025JsonToDimension -Json $Dimension
             New-V2025Dimension -RoleId $RoleId -Dimension $Result 
     
             # Below is a request that includes all optional parameters
@@ -5959,7 +5959,7 @@
         # Delete dimension(s)
         
         try {
-            $Result = ConvertFrom-JsonToDimensionBulkDeleteRequest -Json $DimensionBulkDeleteRequest
+            $Result = ConvertFrom-V2025JsonToDimensionBulkDeleteRequest -Json $DimensionBulkDeleteRequest
             Remove-V2025BulkDimensions -RoleId $RoleId -DimensionBulkDeleteRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -6101,7 +6101,7 @@
         # Patch a specified dimension
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025Dimension -RoleId $RoleId -DimensionId $DimensionId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -6346,7 +6346,7 @@
         # Replace entitlement request config
         
         try {
-            $Result = ConvertFrom-JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
+            $Result = ConvertFrom-V2025JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
             Send-V2025EntitlementRequestConfig -Id $Id -EntitlementRequestConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -6398,7 +6398,7 @@
         # Bulk update an entitlement list
         
         try {
-            $Result = ConvertFrom-JsonToEntitlementBulkUpdateRequest -Json $EntitlementBulkUpdateRequest
+            $Result = ConvertFrom-V2025JsonToEntitlementBulkUpdateRequest -Json $EntitlementBulkUpdateRequest
             Update-V2025EntitlementsInBulk -EntitlementBulkUpdateRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -6424,7 +6424,7 @@
         # Create security network configuration.
         
         try {
-            $Result = ConvertFrom-JsonToNetworkConfiguration -Json $NetworkConfiguration
+            $Result = ConvertFrom-V2025JsonToNetworkConfiguration -Json $NetworkConfiguration
             New-V2025AuthOrgNetworkConfig -NetworkConfiguration $Result 
     
             # Below is a request that includes all optional parameters
@@ -6521,7 +6521,7 @@
         # Update auth org lockout configuration
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025AuthOrgLockoutConfig -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -6546,7 +6546,7 @@
         # Update security network configuration.
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025AuthOrgNetworkConfig -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -6571,7 +6571,7 @@
         # Update service provider configuration
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025AuthOrgServiceProviderConfig -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -6596,7 +6596,7 @@
         # Update auth org session configuration
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025AuthOrgSessionConfig -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -6634,7 +6634,7 @@
         # Create a new governance group.
         
         try {
-            $Result = ConvertFrom-JsonToWorkgroupDto -Json $WorkgroupDto
+            $Result = ConvertFrom-V2025JsonToWorkgroupDto -Json $WorkgroupDto
             New-V2025Workgroup -XSailPointExperimental $XSailPointExperimental -WorkgroupDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -6677,7 +6677,7 @@
         # Remove members from governance group
         
         try {
-            $Result = ConvertFrom-JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
+            $Result = ConvertFrom-V2025JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
             Remove-V2025WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -IdentityPreviewResponseIdentity $Result 
     
             # Below is a request that includes all optional parameters
@@ -6702,7 +6702,7 @@
         # Delete governance group(s)
         
         try {
-            $Result = ConvertFrom-JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
+            $Result = ConvertFrom-V2025JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
             Remove-V2025WorkgroupsInBulk -XSailPointExperimental $XSailPointExperimental -WorkgroupBulkDeleteRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -6843,7 +6843,7 @@
         # Add members to governance group
         
         try {
-            $Result = ConvertFrom-JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
+            $Result = ConvertFrom-V2025JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
             Update-V2025WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -IdentityPreviewResponseIdentity $Result 
     
             # Below is a request that includes all optional parameters
@@ -6872,7 +6872,7 @@
         # Ignore access request recommendation
         
         try {
-            $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+            $Result = ConvertFrom-V2025JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
             Add-V2025AccessRequestRecommendationsIgnoredItem -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -6901,7 +6901,7 @@
         # Accept access request recommendation
         
         try {
-            $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+            $Result = ConvertFrom-V2025JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
             Add-V2025AccessRequestRecommendationsRequestedItem -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -6930,7 +6930,7 @@
         # Mark viewed access request recommendations
         
         try {
-            $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+            $Result = ConvertFrom-V2025JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
             Add-V2025AccessRequestRecommendationsViewedItem -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -6958,7 +6958,7 @@
         # Bulk mark viewed access request recommendations
         
         try {
-            $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+            $Result = ConvertFrom-V2025JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
             Add-V2025AccessRequestRecommendationsViewedItems -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -7105,7 +7105,7 @@
         # Update access request recommendations config
         
         try {
-            $Result = ConvertFrom-JsonToAccessRequestRecommendationConfigDto -Json $AccessRequestRecommendationConfigDto
+            $Result = ConvertFrom-V2025JsonToAccessRequestRecommendationConfigDto -Json $AccessRequestRecommendationConfigDto
             Set-V2025AccessRequestRecommendationsConfig -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationConfigDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -7138,7 +7138,7 @@
         # Create common access items
         
         try {
-            $Result = ConvertFrom-JsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
+            $Result = ConvertFrom-V2025JsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
             New-V2025CommonAccess -XSailPointExperimental $XSailPointExperimental -CommonAccessItemRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -7187,7 +7187,7 @@
         # Bulk update common access status
         
         try {
-            $Result = ConvertFrom-JsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
+            $Result = ConvertFrom-V2025JsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
             Update-V2025CommonAccessStatusInBulk -XSailPointExperimental $XSailPointExperimental -CommonAccessIDStatus $Result 
     
             # Below is a request that includes all optional parameters
@@ -7344,7 +7344,7 @@
         # Iai identity outliers ignore
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
             Invoke-V2025IgnoreIdentityOutliers -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -7393,7 +7393,7 @@
         # Iai identity outliers unignore
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
             Invoke-V2025UnIgnoreIdentityOutliers -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -7457,7 +7457,7 @@
         # Returns recommendation based on object
         
         try {
-            $Result = ConvertFrom-JsonToRecommendationRequestDto -Json $RecommendationRequestDto
+            $Result = ConvertFrom-V2025JsonToRecommendationRequestDto -Json $RecommendationRequestDto
             Get-V2025Recommendations -XSailPointExperimental $XSailPointExperimental -RecommendationRequestDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -7504,7 +7504,7 @@
         # Update certification recommendation config values
         
         try {
-            $Result = ConvertFrom-JsonToRecommendationConfigDto -Json $RecommendationConfigDto
+            $Result = ConvertFrom-V2025JsonToRecommendationConfigDto -Json $RecommendationConfigDto
             Update-V2025RecommendationsConfig -XSailPointExperimental $XSailPointExperimental -RecommendationConfigDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -7590,7 +7590,7 @@
         # Create a role mining session
         
         try {
-            $Result = ConvertFrom-JsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
+            $Result = ConvertFrom-V2025JsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
             New-V2025RoleMiningSessions -XSailPointExperimental $XSailPointExperimental -RoleMiningSessionDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -8059,7 +8059,7 @@
         # Update a potential role
         
         try {
-            $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
+            $Result = ConvertFrom-V2025JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
             Update-V2025PotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -PatchPotentialRoleRequestInner $Result 
     
             # Below is a request that includes all optional parameters
@@ -8083,7 +8083,7 @@
         # Update a potential role
         
         try {
-            $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
+            $Result = ConvertFrom-V2025JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
             Update-V2025PotentialRole0 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -PatchPotentialRoleRequestInner $Result 
     
             # Below is a request that includes all optional parameters
@@ -8110,7 +8110,7 @@
         # Patch a role mining session
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025RoleMiningSession -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -8138,7 +8138,7 @@
         # Edit entitlements for a potential role to exclude some entitlements
         
         try {
-            $Result = ConvertFrom-JsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
+            $Result = ConvertFrom-V2025JsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
             Update-V2025EntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -RoleMiningPotentialRoleEditEntitlements $Result 
     
             # Below is a request that includes all optional parameters
@@ -8372,7 +8372,7 @@
         # Send password reset email
         
         try {
-            $Result = ConvertFrom-JsonToSendAccountVerificationRequest -Json $SendAccountVerificationRequest
+            $Result = ConvertFrom-V2025JsonToSendAccountVerificationRequest -Json $SendAccountVerificationRequest
             Send-V2025IdentityVerificationAccountToken -XSailPointExperimental $XSailPointExperimental -Id $Id -SendAccountVerificationRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -8398,7 +8398,7 @@
         # Invite identities to register
         
         try {
-            $Result = ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
+            $Result = ConvertFrom-V2025JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
             Start-V2025IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -InviteIdentitiesRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -8423,7 +8423,7 @@
         # Process a list of identityids
         
         try {
-            $Result = ConvertFrom-JsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest
+            $Result = ConvertFrom-V2025JsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest
             Start-V2025IdentityProcessing -XSailPointExperimental $XSailPointExperimental -ProcessIdentitiesRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -8486,7 +8486,7 @@
         # Create identity attribute
         
         try {
-            $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
+            $Result = ConvertFrom-V2025JsonToIdentityAttribute -Json $IdentityAttribute
             New-V2025IdentityAttribute -IdentityAttribute $Result 
     
             # Below is a request that includes all optional parameters
@@ -8529,7 +8529,7 @@
         # Bulk delete identity attributes
         
         try {
-            $Result = ConvertFrom-JsonToIdentityAttributeNames -Json $IdentityAttributeNames
+            $Result = ConvertFrom-V2025JsonToIdentityAttributeNames -Json $IdentityAttributeNames
             Remove-V2025IdentityAttributesInBulk -IdentityAttributeNames $Result 
     
             # Below is a request that includes all optional parameters
@@ -8614,7 +8614,7 @@
         # Update identity attribute
         
         try {
-            $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
+            $Result = ConvertFrom-V2025JsonToIdentityAttribute -Json $IdentityAttribute
             Send-V2025IdentityAttribute -Name $Name -IdentityAttribute $Result 
     
             # Below is a request that includes all optional parameters
@@ -8951,7 +8951,7 @@
         # Create identity profile
         
         try {
-            $Result = ConvertFrom-JsonToIdentityProfile -Json $IdentityProfile
+            $Result = ConvertFrom-V2025JsonToIdentityProfile -Json $IdentityProfile
             New-V2025IdentityProfile -IdentityProfile $Result 
     
             # Below is a request that includes all optional parameters
@@ -8992,7 +8992,7 @@
         # Delete identity profiles
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
             Remove-V2025IdentityProfiles -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -9063,7 +9063,7 @@
         # Generate identity profile preview
         
         try {
-            $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
+            $Result = ConvertFrom-V2025JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
             New-V2025IdentityPreview -IdentityPreviewRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -9183,7 +9183,7 @@
         # Import identity profiles
         
         try {
-            $Result = ConvertFrom-JsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
+            $Result = ConvertFrom-V2025JsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
             Import-V2025IdentityProfiles -IdentityProfileExportedObject $Result 
     
             # Below is a request that includes all optional parameters
@@ -9251,7 +9251,7 @@
         # Update identity profile
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025IdentityProfile -IdentityProfileId $IdentityProfileId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -9283,7 +9283,7 @@
         # Create launcher
         
         try {
-            $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
+            $Result = ConvertFrom-V2025JsonToLauncherRequest -Json $LauncherRequest
             New-V2025Launcher -LauncherRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -9375,7 +9375,7 @@
         # Replace launcher
         
         try {
-            $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
+            $Result = ConvertFrom-V2025JsonToLauncherRequest -Json $LauncherRequest
             Send-V2025Launcher -LauncherID $LauncherID -LauncherRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -9449,7 +9449,7 @@
         # Create lifecycle state
         
         try {
-            $Result = ConvertFrom-JsonToLifecycleState -Json $LifecycleState
+            $Result = ConvertFrom-V2025JsonToLifecycleState -Json $LifecycleState
             New-V2025LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleState $Result 
     
             # Below is a request that includes all optional parameters
@@ -9535,7 +9535,7 @@
         # Set lifecycle state
         
         try {
-            $Result = ConvertFrom-JsonToSetLifecycleStateRequest -Json $SetLifecycleStateRequest
+            $Result = ConvertFrom-V2025JsonToSetLifecycleStateRequest -Json $SetLifecycleStateRequest
             Set-V2025LifecycleState -IdentityId $IdentityId -SetLifecycleStateRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -9562,7 +9562,7 @@
         # Update lifecycle state
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025LifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -9649,7 +9649,7 @@
         # Set duo mfa configuration
         
         try {
-            $Result = ConvertFrom-JsonToMfaDuoConfig -Json $MfaDuoConfig
+            $Result = ConvertFrom-V2025JsonToMfaDuoConfig -Json $MfaDuoConfig
             Set-V2025MFADuoConfig -MfaDuoConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -9673,7 +9673,7 @@
         # Set mfa kba configuration
         
         try {
-            $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
+            $Result = ConvertFrom-V2025JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
             Set-V2025MFAKBAConfig -KbaAnswerRequestItem $Result 
     
             # Below is a request that includes all optional parameters
@@ -9701,7 +9701,7 @@
         # Set okta mfa configuration
         
         try {
-            $Result = ConvertFrom-JsonToMfaOktaConfig -Json $MfaOktaConfig
+            $Result = ConvertFrom-V2025JsonToMfaOktaConfig -Json $MfaOktaConfig
             Set-V2025MFAOktaConfig -MfaOktaConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -9783,7 +9783,7 @@
         # Create machine account mappings
         
         try {
-            $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings
+            $Result = ConvertFrom-V2025JsonToAttributeMappings -Json $AttributeMappings
             New-V2025MachineAccountMappings -Id $Id -AttributeMappings $Result 
     
             # Below is a request that includes all optional parameters
@@ -9866,7 +9866,7 @@
         # Update Source's Machine Account Mappings
         
         try {
-            $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings
+            $Result = ConvertFrom-V2025JsonToAttributeMappings -Json $AttributeMappings
             Set-V2025MachineAccountMappings -Id $Id -AttributeMappings $Result 
     
             # Below is a request that includes all optional parameters
@@ -9898,7 +9898,7 @@
         # Create subtype
         
         try {
-            $Result = ConvertFrom-JsonToSourceSubtype -Json $SourceSubtype
+            $Result = ConvertFrom-V2025JsonToSourceSubtype -Json $SourceSubtype
             New-V2025MachineAccountSubtype -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -SourceSubtype $Result 
     
             # Below is a request that includes all optional parameters
@@ -10062,7 +10062,7 @@
         # Patch subtype
         
         try {
-            $Result = ConvertFrom-JsonToSourceSubtype -Json $SourceSubtype
+            $Result = ConvertFrom-V2025JsonToSourceSubtype -Json $SourceSubtype
             Update-V2025MachineAccountSubtype -SubtypeId $SubtypeId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental -SourceSubtype $Result 
     
             # Below is a request that includes all optional parameters
@@ -10086,7 +10086,7 @@
         # Update a machine account
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
             Update-V2025MachineAccount -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -10202,7 +10202,7 @@
         # Update source's classification config
         
         try {
-            $Result = ConvertFrom-JsonToMachineClassificationConfig -Json $MachineClassificationConfig
+            $Result = ConvertFrom-V2025JsonToMachineClassificationConfig -Json $MachineClassificationConfig
             Set-V2025MachineClassificationConfig -Id $Id -MachineClassificationConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -10256,7 +10256,7 @@
         # Create machine identities
         
         try {
-            $Result = ConvertFrom-JsonToMachineIdentityRequest -Json $MachineIdentityRequest
+            $Result = ConvertFrom-V2025JsonToMachineIdentityRequest -Json $MachineIdentityRequest
             New-V2025MachineIdentity -XSailPointExperimental $XSailPointExperimental -MachineIdentityRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -10369,7 +10369,7 @@
         # Start Machine Identity (AI Agent) Aggregation
         
         try {
-            $Result = ConvertFrom-JsonToMachineIdentityAggregationRequest -Json $MachineIdentityAggregationRequest
+            $Result = ConvertFrom-V2025JsonToMachineIdentityAggregationRequest -Json $MachineIdentityAggregationRequest
             Start-V2025MachineIdentityAggregation -XSailPointExperimental $XSailPointExperimental -MachineIdentityAggregationRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -10393,7 +10393,7 @@
         # Update a machine identity
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
             Update-V2025MachineIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -10420,7 +10420,7 @@
         # Create managed client
         
         try {
-            $Result = ConvertFrom-JsonToManagedClientRequest -Json $ManagedClientRequest
+            $Result = ConvertFrom-V2025JsonToManagedClientRequest -Json $ManagedClientRequest
             New-V2025ManagedClient -ManagedClientRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -10545,7 +10545,7 @@
         # Update managed client
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025ManagedClient -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -10573,7 +10573,7 @@
         # Create new managed cluster type
         
         try {
-            $Result = ConvertFrom-JsonToManagedClusterType -Json $ManagedClusterType
+            $Result = ConvertFrom-V2025JsonToManagedClusterType -Json $ManagedClusterType
             New-V2025ManagedClusterType -ManagedClusterType $Result 
     
             # Below is a request that includes all optional parameters
@@ -10667,7 +10667,7 @@
         # Update a managed cluster type
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+            $Result = ConvertFrom-V2025JsonToJsonPatch -Json $JsonPatch
             Update-V2025ManagedClusterType -Id $Id -JsonPatch $Result 
     
             # Below is a request that includes all optional parameters
@@ -10697,7 +10697,7 @@
         # Create create managed cluster
         
         try {
-            $Result = ConvertFrom-JsonToManagedClusterRequest -Json $ManagedClusterRequest
+            $Result = ConvertFrom-V2025JsonToManagedClusterRequest -Json $ManagedClusterRequest
             New-V2025ManagedCluster -ManagedClusterRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -10800,7 +10800,7 @@
         # Update managed cluster log configuration
         
         try {
-            $Result = ConvertFrom-JsonToPutClientLogConfigurationRequest -Json $PutClientLogConfigurationRequest
+            $Result = ConvertFrom-V2025JsonToPutClientLogConfigurationRequest -Json $PutClientLogConfigurationRequest
             Send-V2025ClientLogConfiguration -Id $Id -PutClientLogConfigurationRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -10845,7 +10845,7 @@
         # Update managed cluster
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025ManagedCluster -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -10892,7 +10892,7 @@
         # Create multi-host integration
         
         try {
-            $Result = ConvertFrom-JsonToMultiHostIntegrationsCreate -Json $MultiHostIntegrationsCreate
+            $Result = ConvertFrom-V2025JsonToMultiHostIntegrationsCreate -Json $MultiHostIntegrationsCreate
             New-V2025MultiHostIntegration -MultiHostIntegrationsCreate $Result 
     
             # Below is a request that includes all optional parameters
@@ -10925,7 +10925,7 @@
         # Create sources within multi-host integration
         
         try {
-            $Result = ConvertFrom-JsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
+            $Result = ConvertFrom-V2025JsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
             New-V2025SourcesWithinMultiHost -MultihostId $MultihostId -MultiHostIntegrationsCreateSources $Result 
     
             # Below is a request that includes all optional parameters
@@ -10967,7 +10967,7 @@
         # Delete sources within multi-host integration
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
             Remove-V2025MultiHostSources -MultiHostId $MultiHostId -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -11174,7 +11174,7 @@
         # Update multi-host integration
         
         try {
-            $Result = ConvertFrom-JsonToUpdateMultiHostSourcesRequestInner -Json $UpdateMultiHostSourcesRequestInner
+            $Result = ConvertFrom-V2025JsonToUpdateMultiHostSourcesRequestInner -Json $UpdateMultiHostSourcesRequestInner
             Update-V2025MultiHostSources -MultihostId $MultihostId -UpdateMultiHostSourcesRequestInner $Result 
     
             # Below is a request that includes all optional parameters
@@ -11199,7 +11199,7 @@
         # Approve a non-employee request
         
         try {
-            $Result = ConvertFrom-JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
+            $Result = ConvertFrom-V2025JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
             Approve-V2025NonEmployeeRequest -Id $Id -NonEmployeeApprovalDecision $Result 
     
             # Below is a request that includes all optional parameters
@@ -11234,7 +11234,7 @@
         # Create non-employee record
         
         try {
-            $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
+            $Result = ConvertFrom-V2025JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
             New-V2025NonEmployeeRecord -NonEmployeeRequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -11269,7 +11269,7 @@
         # Create non-employee request
         
         try {
-            $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
+            $Result = ConvertFrom-V2025JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
             New-V2025NonEmployeeRequest -NonEmployeeRequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -11316,7 +11316,7 @@
         # Create non-employee source
         
         try {
-            $Result = ConvertFrom-JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
+            $Result = ConvertFrom-V2025JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
             New-V2025NonEmployeeSource -NonEmployeeSourceRequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -11346,7 +11346,7 @@
         # Create a new schema attribute for non-employee source
         
         try {
-            $Result = ConvertFrom-JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
+            $Result = ConvertFrom-V2025JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
             New-V2025NonEmployeeSourceSchemaAttributes -SourceId $SourceId -NonEmployeeSchemaAttributeBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -11387,7 +11387,7 @@
         # Delete multiple non-employee records
         
         try {
-            $Result = ConvertFrom-JsonToDeleteNonEmployeeRecordsInBulkRequest -Json $DeleteNonEmployeeRecordsInBulkRequest
+            $Result = ConvertFrom-V2025JsonToDeleteNonEmployeeRecordsInBulkRequest -Json $DeleteNonEmployeeRecordsInBulkRequest
             Remove-V2025NonEmployeeRecordsInBulk -DeleteNonEmployeeRecordsInBulkRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -11816,7 +11816,7 @@
         # Patch non-employee record
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025NonEmployeeRecord -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -11843,7 +11843,7 @@
         # Patch a schema attribute for non-employee source
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025NonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -11869,7 +11869,7 @@
         # Patch a non-employee source
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025NonEmployeeSource -SourceId $SourceId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -11894,7 +11894,7 @@
         # Reject a non-employee request
         
         try {
-            $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
+            $Result = ConvertFrom-V2025JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
             Deny-V2025NonEmployeeRequest -Id $Id -NonEmployeeRejectApprovalDecision $Result 
     
             # Below is a request that includes all optional parameters
@@ -11930,7 +11930,7 @@
         # Update non-employee record
         
         try {
-            $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
+            $Result = ConvertFrom-V2025JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
             Update-V2025NonEmployeeRecord -Id $Id -NonEmployeeRequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -11955,7 +11955,7 @@
         # Verify domain address via dkim
         
         try {
-            $Result = ConvertFrom-JsonToDomainAddress -Json $DomainAddress
+            $Result = ConvertFrom-V2025JsonToDomainAddress -Json $DomainAddress
             New-V2025DomainDkim -XSailPointExperimental $XSailPointExperimental -DomainAddress $Result 
     
             # Below is a request that includes all optional parameters
@@ -11995,7 +11995,7 @@
         # Create notification template
         
         try {
-            $Result = ConvertFrom-JsonToTemplateDto -Json $TemplateDto
+            $Result = ConvertFrom-V2025JsonToTemplateDto -Json $TemplateDto
             New-V2025NotificationTemplate -XSailPointExperimental $XSailPointExperimental -TemplateDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -12023,7 +12023,7 @@
         # Create verified from address
         
         try {
-            $Result = ConvertFrom-JsonToEmailStatusDto -Json $EmailStatusDto
+            $Result = ConvertFrom-V2025JsonToEmailStatusDto -Json $EmailStatusDto
             New-V2025VerifiedFromAddress -XSailPointExperimental $XSailPointExperimental -EmailStatusDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -12049,7 +12049,7 @@
         # Bulk delete notification templates
         
         try {
-            $Result = ConvertFrom-JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
+            $Result = ConvertFrom-V2025JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
             Remove-V2025NotificationTemplatesInBulk -XSailPointExperimental $XSailPointExperimental -TemplateBulkDeleteDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -12261,7 +12261,7 @@
         # Change mail from domain
         
         try {
-            $Result = ConvertFrom-JsonToMailFromAttributesDto -Json $MailFromAttributesDto
+            $Result = ConvertFrom-V2025JsonToMailFromAttributesDto -Json $MailFromAttributesDto
             Send-V2025MailFromAttributes -XSailPointExperimental $XSailPointExperimental -MailFromAttributesDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -12288,7 +12288,7 @@
         # Send test notification
         
         try {
-            $Result = ConvertFrom-JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
+            $Result = ConvertFrom-V2025JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
             Send-V2025TestNotification -XSailPointExperimental $XSailPointExperimental -SendTestNotificationRequestDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -12326,7 +12326,7 @@
         # Create oauth client
         
         try {
-            $Result = ConvertFrom-JsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
+            $Result = ConvertFrom-V2025JsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
             New-V2025OauthClient -CreateOAuthClientRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -12409,7 +12409,7 @@
         # Patch oauth client
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025OauthClient -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -12474,7 +12474,7 @@
         # Patch org config
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025OrgConfig -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -12501,7 +12501,7 @@
         # Create password org config
         
         try {
-            $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
+            $Result = ConvertFrom-V2025JsonToPasswordOrgConfig -Json $PasswordOrgConfig
             New-V2025PasswordOrgConfig -PasswordOrgConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -12546,7 +12546,7 @@
         # Update password org config
         
         try {
-            $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
+            $Result = ConvertFrom-V2025JsonToPasswordOrgConfig -Json $PasswordOrgConfig
             Send-V2025PasswordOrgConfig -PasswordOrgConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -12610,7 +12610,7 @@
         # Generate a digit token
         
         try {
-            $Result = ConvertFrom-JsonToPasswordDigitTokenReset -Json $PasswordDigitTokenReset
+            $Result = ConvertFrom-V2025JsonToPasswordDigitTokenReset -Json $PasswordDigitTokenReset
             New-V2025DigitToken -XSailPointExperimental $XSailPointExperimental -PasswordDigitTokenReset $Result 
     
             # Below is a request that includes all optional parameters
@@ -12654,7 +12654,7 @@
         # Query password info
         
         try {
-            $Result = ConvertFrom-JsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
+            $Result = ConvertFrom-V2025JsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
             Search-V2025PasswordInfo -PasswordInfoQueryDTO $Result 
     
             # Below is a request that includes all optional parameters
@@ -12682,7 +12682,7 @@
         # Set identity's password
         
         try {
-            $Result = ConvertFrom-JsonToPasswordChangeRequest -Json $PasswordChangeRequest
+            $Result = ConvertFrom-V2025JsonToPasswordChangeRequest -Json $PasswordChangeRequest
             Set-V2025Password -PasswordChangeRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -12737,7 +12737,7 @@
         # Create password policy
         
         try {
-            $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
+            $Result = ConvertFrom-V2025JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
             New-V2025PasswordPolicy -XSailPointExperimental $XSailPointExperimental -PasswordPolicyV3Dto $Result 
     
             # Below is a request that includes all optional parameters
@@ -12855,7 +12855,7 @@
         # Update password policy by id
         
         try {
-            $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
+            $Result = ConvertFrom-V2025JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
             Set-V2025PasswordPolicy -Id $Id -XSailPointExperimental $XSailPointExperimental -PasswordPolicyV3Dto $Result 
     
             # Below is a request that includes all optional parameters
@@ -12884,7 +12884,7 @@
         # Create password sync group
         
         try {
-            $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
+            $Result = ConvertFrom-V2025JsonToPasswordSyncGroup -Json $PasswordSyncGroup
             New-V2025PasswordSyncGroup -PasswordSyncGroup $Result 
     
             # Below is a request that includes all optional parameters
@@ -12973,7 +12973,7 @@
         # Update password sync group by id
         
         try {
-            $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
+            $Result = ConvertFrom-V2025JsonToPasswordSyncGroup -Json $PasswordSyncGroup
             Update-V2025PasswordSyncGroup -Id $Id -PasswordSyncGroup $Result 
     
             # Below is a request that includes all optional parameters
@@ -13000,7 +13000,7 @@
         # Create personal access token
         
         try {
-            $Result = ConvertFrom-JsonToCreatePersonalAccessTokenRequest -Json $CreatePersonalAccessTokenRequest
+            $Result = ConvertFrom-V2025JsonToCreatePersonalAccessTokenRequest -Json $CreatePersonalAccessTokenRequest
             New-V2025PersonalAccessToken -CreatePersonalAccessTokenRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -13065,7 +13065,7 @@
         # Patch personal access token
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025PersonalAccessToken -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -13143,7 +13143,7 @@
         # Update the public identities configuration
         
         try {
-            $Result = ConvertFrom-JsonToPublicIdentityConfig -Json $PublicIdentityConfig
+            $Result = ConvertFrom-V2025JsonToPublicIdentityConfig -Json $PublicIdentityConfig
             Update-V2025PublicIdentityConfig -PublicIdentityConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -13232,7 +13232,7 @@
         # Run report
         
         try {
-            $Result = ConvertFrom-JsonToReportDetails -Json $ReportDetails
+            $Result = ConvertFrom-V2025JsonToReportDetails -Json $ReportDetails
             Start-V2025Report -ReportDetails $Result 
     
             # Below is a request that includes all optional parameters
@@ -13648,7 +13648,7 @@
         # Create a role
         
         try {
-            $Result = ConvertFrom-JsonToRole -Json $Role
+            $Result = ConvertFrom-V2025JsonToRole -Json $Role
             New-V2025Role -Role $Result 
     
             # Below is a request that includes all optional parameters
@@ -13672,7 +13672,7 @@
         # Delete role(s)
         
         try {
-            $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
+            $Result = ConvertFrom-V2025JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
             Remove-V2025BulkRoles -RoleBulkDeleteRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -13869,7 +13869,7 @@
         # Patch a specified role
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025Role -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -13954,7 +13954,7 @@
         # Bulk-update roles' metadata by filters
         
         try {
-            $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByFilterRequest -Json $RoleMetadataBulkUpdateByFilterRequest
+            $Result = ConvertFrom-V2025JsonToRoleMetadataBulkUpdateByFilterRequest -Json $RoleMetadataBulkUpdateByFilterRequest
             Update-V2025RolesMetadataByFilter -RoleMetadataBulkUpdateByFilterRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -13984,7 +13984,7 @@
         # Bulk-update roles' metadata by id
         
         try {
-            $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByIdRequest -Json $RoleMetadataBulkUpdateByIdRequest
+            $Result = ConvertFrom-V2025JsonToRoleMetadataBulkUpdateByIdRequest -Json $RoleMetadataBulkUpdateByIdRequest
             Update-V2025RolesMetadataByIds -RoleMetadataBulkUpdateByIdRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -14029,7 +14029,7 @@
         # Bulk-update roles' metadata by query
         
         try {
-            $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByQueryRequest -Json $RoleMetadataBulkUpdateByQueryRequest
+            $Result = ConvertFrom-V2025JsonToRoleMetadataBulkUpdateByQueryRequest -Json $RoleMetadataBulkUpdateByQueryRequest
             Update-V2025RolesMetadataByQuery -RoleMetadataBulkUpdateByQueryRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -14069,7 +14069,7 @@
         # Create new sim integration
         
         try {
-            $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
+            $Result = ConvertFrom-V2025JsonToSimIntegrationDetails -Json $SimIntegrationDetails
             New-V2025SIMIntegration -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result 
     
             # Below is a request that includes all optional parameters
@@ -14162,7 +14162,7 @@
         # Patch a sim beforeprovisioningrule attribute.
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+            $Result = ConvertFrom-V2025JsonToJsonPatch -Json $JsonPatch
             Update-V2025BeforeProvisioningRule -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result 
     
             # Below is a request that includes all optional parameters
@@ -14196,7 +14196,7 @@
         # Patch a sim attribute.
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+            $Result = ConvertFrom-V2025JsonToJsonPatch -Json $JsonPatch
             Update-V2025SIMAttributes -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result 
     
             # Below is a request that includes all optional parameters
@@ -14237,7 +14237,7 @@
         # Update an existing sim integration
         
         try {
-            $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
+            $Result = ConvertFrom-V2025JsonToSimIntegrationDetails -Json $SimIntegrationDetails
             Send-V2025SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result 
     
             # Below is a request that includes all optional parameters
@@ -14314,7 +14314,7 @@
         # Create sod policy
         
         try {
-            $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
+            $Result = ConvertFrom-V2025JsonToSodPolicy -Json $SodPolicy
             New-V2025SodPolicy -SodPolicy $Result 
     
             # Below is a request that includes all optional parameters
@@ -14535,7 +14535,7 @@
         # Patch sod policy by id
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025SodPolicy -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -14643,7 +14643,7 @@
         # Update sod policy schedule
         
         try {
-            $Result = ConvertFrom-JsonToSodPolicySchedule -Json $SodPolicySchedule
+            $Result = ConvertFrom-V2025JsonToSodPolicySchedule -Json $SodPolicySchedule
             Send-V2025PolicySchedule -Id $Id -SodPolicySchedule $Result 
     
             # Below is a request that includes all optional parameters
@@ -14721,7 +14721,7 @@
         # Update sod policy by id
         
         try {
-            $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
+            $Result = ConvertFrom-V2025JsonToSodPolicy -Json $SodPolicy
             Send-V2025SodPolicy -Id $Id -SodPolicy $Result 
     
             # Below is a request that includes all optional parameters
@@ -14813,7 +14813,7 @@
         # Predict sod violations for identity.
         
         try {
-            $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
+            $Result = ConvertFrom-V2025JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
             Start-V2025PredictSodViolations -IdentityWithNewAccess $Result 
     
             # Below is a request that includes all optional parameters
@@ -14844,7 +14844,7 @@
         # Check sod violations
         
         try {
-            $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
+            $Result = ConvertFrom-V2025JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
             Start-V2025ViolationCheck -IdentityWithNewAccess $Result 
     
             # Below is a request that includes all optional parameters
@@ -14868,7 +14868,7 @@
         # Initiates configuration objects export job
         
         try {
-            $Result = ConvertFrom-JsonToExportPayload -Json $ExportPayload
+            $Result = ConvertFrom-V2025JsonToExportPayload -Json $ExportPayload
             Export-V2025SpConfig -ExportPayload $Result 
     
             # Below is a request that includes all optional parameters
@@ -15006,7 +15006,7 @@
         # Create a saved search
         
         try {
-            $Result = ConvertFrom-JsonToCreateSavedSearchRequest -Json $CreateSavedSearchRequest
+            $Result = ConvertFrom-V2025JsonToCreateSavedSearchRequest -Json $CreateSavedSearchRequest
             New-V2025SavedSearch -CreateSavedSearchRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -15058,7 +15058,7 @@
         # Execute a saved search by id
         
         try {
-            $Result = ConvertFrom-JsonToSearchArguments -Json $SearchArguments
+            $Result = ConvertFrom-V2025JsonToSearchArguments -Json $SearchArguments
             Invoke-V2025ExecuteSavedSearch -Id $Id -SearchArguments $Result 
     
             # Below is a request that includes all optional parameters
@@ -15166,7 +15166,7 @@
         # Updates an existing saved search 
         
         try {
-            $Result = ConvertFrom-JsonToSavedSearch -Json $SavedSearch
+            $Result = ConvertFrom-V2025JsonToSavedSearch -Json $SavedSearch
             Send-V2025SavedSearch -Id $Id -SavedSearch $Result 
     
             # Below is a request that includes all optional parameters
@@ -15188,7 +15188,7 @@
         # Create a new scheduled search
         
         try {
-            $Result = ConvertFrom-JsonToCreateScheduledSearchRequest -Json $CreateScheduledSearchRequest
+            $Result = ConvertFrom-V2025JsonToCreateScheduledSearchRequest -Json $CreateScheduledSearchRequest
             New-V2025ScheduledSearch -CreateScheduledSearchRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -15274,7 +15274,7 @@
         # Unsubscribe a recipient from scheduled search
         
         try {
-            $Result = ConvertFrom-JsonToTypedReference -Json $TypedReference
+            $Result = ConvertFrom-V2025JsonToTypedReference -Json $TypedReference
             Invoke-V2025UnsubscribeScheduledSearch -Id $Id -TypedReference $Result 
     
             # Below is a request that includes all optional parameters
@@ -15387,7 +15387,7 @@
         # Update an existing scheduled search
         
         try {
-            $Result = ConvertFrom-JsonToScheduledSearch -Json $ScheduledSearch
+            $Result = ConvertFrom-V2025JsonToScheduledSearch -Json $ScheduledSearch
             Update-V2025ScheduledSearch -Id $Id -ScheduledSearch $Result 
     
             # Below is a request that includes all optional parameters
@@ -15528,7 +15528,7 @@
         # Perform a search query aggregation
         
         try {
-            $Result = ConvertFrom-JsonToSearch -Json $Search
+            $Result = ConvertFrom-V2025JsonToSearch -Json $Search
             Search-V2025Aggregate -Search $Result 
     
             # Below is a request that includes all optional parameters
@@ -15666,7 +15666,7 @@
         # Count documents satisfying a query
         
         try {
-            $Result = ConvertFrom-JsonToSearch -Json $Search
+            $Result = ConvertFrom-V2025JsonToSearch -Json $Search
             Search-V2025Count -Search $Result 
     
             # Below is a request that includes all optional parameters
@@ -15827,7 +15827,7 @@
         # Perform search
         
         try {
-            $Result = ConvertFrom-JsonToSearch -Json $Search
+            $Result = ConvertFrom-V2025JsonToSearch -Json $Search
             Search-V2025Post -Search $Result 
     
             # Below is a request that includes all optional parameters
@@ -15857,7 +15857,7 @@
         # Create extended search attributes
         
         try {
-            $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
+            $Result = ConvertFrom-V2025JsonToSearchAttributeConfig -Json $SearchAttributeConfig
             New-V2025SearchAttributeConfig -XSailPointExperimental $XSailPointExperimental -SearchAttributeConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -15945,7 +15945,7 @@
         # Update extended search attribute
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025SearchAttributeConfig -Name $Name -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -15990,7 +15990,7 @@
         # Create segment
         
         try {
-            $Result = ConvertFrom-JsonToSegment -Json $Segment
+            $Result = ConvertFrom-V2025JsonToSegment -Json $Segment
             New-V2025Segment -Segment $Result 
     
             # Below is a request that includes all optional parameters
@@ -16072,7 +16072,7 @@
         # Update segment
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
             Update-V2025Segment -Id $Id -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -16127,7 +16127,7 @@
         # Create new service desk integration
         
         try {
-            $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
+            $Result = ConvertFrom-V2025JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
             New-V2025ServiceDeskIntegration -ServiceDeskIntegrationDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -16269,7 +16269,7 @@
         # Patch a service desk integration
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025ServiceDeskIntegration -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -16325,7 +16325,7 @@
         # Update a service desk integration
         
         try {
-            $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
+            $Result = ConvertFrom-V2025JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
             Send-V2025ServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -16350,7 +16350,7 @@
         # Update the time check configuration
         
         try {
-            $Result = ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
+            $Result = ConvertFrom-V2025JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
             Update-V2025StatusCheckDetails -QueuedCheckConfigDetails $Result 
     
             # Below is a request that includes all optional parameters
@@ -16454,7 +16454,7 @@
         # Create provisioning policy
         
         try {
-            $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
+            $Result = ConvertFrom-V2025JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
             New-V2025ProvisioningPolicy -SourceId $SourceId -ProvisioningPolicyDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -16559,7 +16559,7 @@
         # Creates a source in identitynow.
         
         try {
-            $Result = ConvertFrom-JsonToSource -Json $Source
+            $Result = ConvertFrom-V2025JsonToSource -Json $Source
             New-V2025Source -Source $Result 
     
             # Below is a request that includes all optional parameters
@@ -16582,7 +16582,7 @@
         # Create schedule on source
         
         try {
-            $Result = ConvertFrom-JsonToSchedule1 -Json $Schedule1
+            $Result = ConvertFrom-V2025JsonToSchedule1 -Json $Schedule1
             New-V2025SourceSchedule -SourceId $SourceId -Schedule1 $Result 
     
             # Below is a request that includes all optional parameters
@@ -16638,7 +16638,7 @@
         # Create schema on source
         
         try {
-            $Result = ConvertFrom-JsonToSchema -Json $Schema
+            $Result = ConvertFrom-V2025JsonToSchema -Json $Schema
             New-V2025SourceSchema -SourceId $SourceId -Schema $Result 
     
             # Below is a request that includes all optional parameters
@@ -17276,7 +17276,7 @@
         # Update source correlation configuration
         
         try {
-            $Result = ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
+            $Result = ConvertFrom-V2025JsonToCorrelationConfig -Json $CorrelationConfig
             Send-V2025CorrelationConfig -Id $Id -CorrelationConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -17306,7 +17306,7 @@
         # Update native change detection configuration
         
         try {
-            $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
+            $Result = ConvertFrom-V2025JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
             Send-V2025NativeChangeDetectionConfig -Id $Id -NativeChangeDetectionConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -17369,7 +17369,7 @@
         # Update provisioning policy by usagetype
         
         try {
-            $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
+            $Result = ConvertFrom-V2025JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
             Send-V2025ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -17474,7 +17474,7 @@
         # Update source (full)
         
         try {
-            $Result = ConvertFrom-JsonToSource -Json $Source
+            $Result = ConvertFrom-V2025JsonToSource -Json $Source
             Send-V2025Source -Id $Id -Source $Result 
     
             # Below is a request that includes all optional parameters
@@ -17515,7 +17515,7 @@
         # Update attribute sync config
         
         try {
-            $Result = ConvertFrom-JsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
+            $Result = ConvertFrom-V2025JsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
             Send-V2025SourceAttrSyncConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -AttrSyncSourceConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -17572,7 +17572,7 @@
         # Update source schema (full)
         
         try {
-            $Result = ConvertFrom-JsonToSchema -Json $Schema
+            $Result = ConvertFrom-V2025JsonToSchema -Json $Schema
             Send-V2025SourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Result 
     
             # Below is a request that includes all optional parameters
@@ -17598,7 +17598,7 @@
         # Peek source connector's resource objects
         
         try {
-            $Result = ConvertFrom-JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
+            $Result = ConvertFrom-V2025JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
             Search-V2025ResourceObjects -SourceId $SourceId -ResourceObjectsRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -17678,7 +17678,7 @@
         # Update password policy
         
         try {
-            $Result = ConvertFrom-JsonToPasswordPolicyHoldersDtoInner -Json $PasswordPolicyHoldersDtoInner
+            $Result = ConvertFrom-V2025JsonToPasswordPolicyHoldersDtoInner -Json $PasswordPolicyHoldersDtoInner
             Update-V2025PasswordPolicyHolders -SourceId $SourceId -PasswordPolicyHoldersDtoInner $Result 
     
             # Below is a request that includes all optional parameters
@@ -17739,7 +17739,7 @@
         # Bulk update provisioning policies
         
         try {
-            $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
+            $Result = ConvertFrom-V2025JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
             Update-V2025ProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -17766,7 +17766,7 @@
         # Partial update of provisioning policy
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -17792,7 +17792,7 @@
         # Update source (partial)
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025Source -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -17837,7 +17837,7 @@
         # Update source entitlement request configuration
         
         try {
-            $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
+            $Result = ConvertFrom-V2025JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
             Update-V2025SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -17864,7 +17864,7 @@
         # Update source schedule (partial)
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -17891,7 +17891,7 @@
         # Update source schema (partial)
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025SourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -17985,7 +17985,7 @@
         # Patch suggested entitlement description
         
         try {
-            $Result = ConvertFrom-JsonToSedPatch -Json $SedPatch
+            $Result = ConvertFrom-V2025JsonToSedPatch -Json $SedPatch
             Update-V2025Sed -Id $Id -SedPatch $Result 
     
             # Below is a request that includes all optional parameters
@@ -18008,7 +18008,7 @@
         # Submit bulk approval request
         
         try {
-            $Result = ConvertFrom-JsonToSedApproval -Json $SedApproval
+            $Result = ConvertFrom-V2025JsonToSedApproval -Json $SedApproval
             Submit-V2025SedApproval -SedApproval $Result 
     
             # Below is a request that includes all optional parameters
@@ -18036,7 +18036,7 @@
         # Submit sed assignment request
         
         try {
-            $Result = ConvertFrom-JsonToSedAssignment -Json $SedAssignment
+            $Result = ConvertFrom-V2025JsonToSedAssignment -Json $SedAssignment
             Submit-V2025SedAssignment -SedAssignment $Result 
     
             # Below is a request that includes all optional parameters
@@ -18136,7 +18136,7 @@
         # Remove tags from multiple objects
         
         try {
-            $Result = ConvertFrom-JsonToBulkRemoveTaggedObject -Json $BulkRemoveTaggedObject
+            $Result = ConvertFrom-V2025JsonToBulkRemoveTaggedObject -Json $BulkRemoveTaggedObject
             Remove-V2025TagsToManyObject -BulkRemoveTaggedObject $Result 
     
             # Below is a request that includes all optional parameters
@@ -18232,7 +18232,7 @@
         # Update tagged object
         
         try {
-            $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
+            $Result = ConvertFrom-V2025JsonToTaggedObject -Json $TaggedObject
             Send-V2025TaggedObject -Type $Type -Id $Id -TaggedObject $Result 
     
             # Below is a request that includes all optional parameters
@@ -18261,7 +18261,7 @@
         # Add tag to object
         
         try {
-            $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
+            $Result = ConvertFrom-V2025JsonToTaggedObject -Json $TaggedObject
             Set-V2025TagToObject -TaggedObject $Result 
     
             # Below is a request that includes all optional parameters
@@ -18295,7 +18295,7 @@
         # Tag multiple objects
         
         try {
-            $Result = ConvertFrom-JsonToBulkAddTaggedObject -Json $BulkAddTaggedObject
+            $Result = ConvertFrom-V2025JsonToBulkAddTaggedObject -Json $BulkAddTaggedObject
             Set-V2025TagsToManyObjects -BulkAddTaggedObject $Result 
     
             # Below is a request that includes all optional parameters
@@ -18331,7 +18331,7 @@
         # Create tag
         
         try {
-            $Result = ConvertFrom-JsonToTag -Json $Tag
+            $Result = ConvertFrom-V2025JsonToTag -Json $Tag
             New-V2025Tag -Tag $Result 
     
             # Below is a request that includes all optional parameters
@@ -18502,7 +18502,7 @@
         # Update task status by id
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025TaskStatus -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -18566,7 +18566,7 @@
         # Update tenant context
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025TenantContext -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -18608,7 +18608,7 @@
         # Create transform
         
         try {
-            $Result = ConvertFrom-JsonToTransform -Json $Transform
+            $Result = ConvertFrom-V2025JsonToTransform -Json $Transform
             New-V2025Transform -Transform $Result 
     
             # Below is a request that includes all optional parameters
@@ -18741,7 +18741,7 @@
         # Complete trigger invocation
         
         try {
-            $Result = ConvertFrom-JsonToCompleteInvocation -Json $CompleteInvocation
+            $Result = ConvertFrom-V2025JsonToCompleteInvocation -Json $CompleteInvocation
             Complete-V2025TriggerInvocation -Id $Id -XSailPointExperimental $XSailPointExperimental -CompleteInvocation $Result 
     
             # Below is a request that includes all optional parameters
@@ -18788,7 +18788,7 @@
         # Create a subscription
         
         try {
-            $Result = ConvertFrom-JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
+            $Result = ConvertFrom-V2025JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
             New-V2025Subscription -XSailPointExperimental $XSailPointExperimental -SubscriptionPostRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -18903,7 +18903,7 @@
         # Patch a subscription
         
         try {
-            $Result = ConvertFrom-JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
+            $Result = ConvertFrom-V2025JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
             Update-V2025Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -SubscriptionPatchRequestInner $Result 
     
             # Below is a request that includes all optional parameters
@@ -18935,7 +18935,7 @@
         # Start a test invocation
         
         try {
-            $Result = ConvertFrom-JsonToTestInvocation -Json $TestInvocation
+            $Result = ConvertFrom-V2025JsonToTestInvocation -Json $TestInvocation
             Start-V2025TestTriggerInvocation -XSailPointExperimental $XSailPointExperimental -TestInvocation $Result 
     
             # Below is a request that includes all optional parameters
@@ -18963,7 +18963,7 @@
         # Validate a subscription filter
         
         try {
-            $Result = ConvertFrom-JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
+            $Result = ConvertFrom-V2025JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
             Test-V2025SubscriptionFilter -XSailPointExperimental $XSailPointExperimental -ValidateFilterInputDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -19010,7 +19010,7 @@
         # Update a subscription
         
         try {
-            $Result = ConvertFrom-JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
+            $Result = ConvertFrom-V2025JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
             Update-V2025Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -SubscriptionPutRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -19056,7 +19056,7 @@
         # Update tenant ui metadata
         
         try {
-            $Result = ConvertFrom-JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
+            $Result = ConvertFrom-V2025JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
             Set-V2025TenantUiMetadata -XSailPointExperimental $XSailPointExperimental -TenantUiMetadataItemUpdateRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -19100,7 +19100,7 @@
         # Create vendor connector mapping
         
         try {
-            $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
+            $Result = ConvertFrom-V2025JsonToVendorConnectorMapping -Json $VendorConnectorMapping
             New-V2025VendorConnectorMapping -VendorConnectorMapping $Result 
     
             # Below is a request that includes all optional parameters
@@ -19144,7 +19144,7 @@
         # Delete vendor connector mapping
         
         try {
-            $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
+            $Result = ConvertFrom-V2025JsonToVendorConnectorMapping -Json $VendorConnectorMapping
             Remove-V2025VendorConnectorMapping -VendorConnectorMapping $Result 
     
             # Below is a request that includes all optional parameters
@@ -19249,7 +19249,7 @@
         # Forward a work item
         
         try {
-            $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
+            $Result = ConvertFrom-V2025JsonToWorkItemForward -Json $WorkItemForward
             Invoke-V2025ForwardWorkItem -Id $Id -XSailPointExperimental $XSailPointExperimental -WorkItemForward $Result 
     
             # Below is a request that includes all optional parameters
@@ -19430,7 +19430,7 @@
         # Submit account selections
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
             Submit-V2025AccountSelection -Id $Id -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -19459,7 +19459,7 @@
         # Create a reassignment configuration
         
         try {
-            $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
+            $Result = ConvertFrom-V2025JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
             New-V2025ReassignmentConfiguration -XSailPointExperimental $XSailPointExperimental -ConfigurationItemRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -19611,7 +19611,7 @@
         # Update reassignment configuration
         
         try {
-            $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
+            $Result = ConvertFrom-V2025JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
             Send-V2025ReassignmentConfig -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental -ConfigurationItemRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -19638,7 +19638,7 @@
         # Update tenant-wide reassignment configuration settings
         
         try {
-            $Result = ConvertFrom-JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
+            $Result = ConvertFrom-V2025JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
             Send-V2025TenantConfiguration -XSailPointExperimental $XSailPointExperimental -TenantConfigurationRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -19701,7 +19701,7 @@
         # Create workflow
         
         try {
-            $Result = ConvertFrom-JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
+            $Result = ConvertFrom-V2025JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
             New-V2025Workflow -CreateWorkflowRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -19961,7 +19961,7 @@
         # Patch workflow
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-V2025Workflow -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -20023,7 +20023,7 @@
         # Update workflow
         
         try {
-            $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
+            $Result = ConvertFrom-V2025JsonToWorkflowBody -Json $WorkflowBody
             Send-V2025Workflow -Id $Id -WorkflowBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -20068,7 +20068,7 @@
         # Test workflow by id
         
         try {
-            $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest
+            $Result = ConvertFrom-V2025JsonToTestWorkflowRequest -Json $TestWorkflowRequest
             Test-V2025Workflow -Id $Id -TestWorkflowRequest $Result 
     
             # Below is a request that includes all optional parameters

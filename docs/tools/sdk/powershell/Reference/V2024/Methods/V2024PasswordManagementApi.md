@@ -90,7 +90,7 @@ $PasswordDigitTokenReset = @"{
 # Generate a digit token
 
 try {
-    $Result = ConvertFrom-JsonToPasswordDigitTokenReset -Json $PasswordDigitTokenReset
+    $Result = ConvertFrom-V2024JsonToPasswordDigitTokenReset -Json $PasswordDigitTokenReset
     New-V2024DigitToken -XSailPointExperimental $XSailPointExperimental -PasswordDigitTokenReset $Result 
     
     # Below is a request that includes all optional parameters
@@ -186,7 +186,7 @@ $PasswordInfoQueryDTO = @"{
 # Query password info
 
 try {
-    $Result = ConvertFrom-JsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
+    $Result = ConvertFrom-V2024JsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
     Search-V2024PasswordInfo -PasswordInfoQueryDTO $Result 
     
     # Below is a request that includes all optional parameters
@@ -257,7 +257,7 @@ $PasswordChangeRequest = @"{
 # Set identity's password
 
 try {
-    $Result = ConvertFrom-JsonToPasswordChangeRequest -Json $PasswordChangeRequest
+    $Result = ConvertFrom-V2024JsonToPasswordChangeRequest -Json $PasswordChangeRequest
     Set-V2024Password -PasswordChangeRequest $Result 
     
     # Below is a request that includes all optional parameters

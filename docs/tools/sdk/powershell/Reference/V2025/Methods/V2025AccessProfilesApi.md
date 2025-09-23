@@ -183,7 +183,7 @@ $AccessProfile = @"{
 # Create access profile
 
 try {
-    $Result = ConvertFrom-JsonToAccessProfile -Json $AccessProfile
+    $Result = ConvertFrom-V2025JsonToAccessProfile -Json $AccessProfile
     New-V2025AccessProfile -AccessProfile $Result 
     
     # Below is a request that includes all optional parameters
@@ -286,7 +286,7 @@ $AccessProfileBulkDeleteRequest = @"{
 # Delete access profile(s)
 
 try {
-    $Result = ConvertFrom-JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
+    $Result = ConvertFrom-V2025JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
     Remove-V2025AccessProfilesInBulk -AccessProfileBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -530,7 +530,7 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to 
 # Patch a specified access profile
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2025AccessProfile -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -589,7 +589,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Update access profile(s) requestable field.
 
 try {
-    $Result = ConvertFrom-JsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
+    $Result = ConvertFrom-V2025JsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
     Update-V2025AccessProfilesInBulk -XSailPointExperimental $XSailPointExperimental -AccessProfileBulkUpdateRequestInner $Result 
     
     # Below is a request that includes all optional parameters

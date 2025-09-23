@@ -72,7 +72,7 @@ $ManagedClusterRequest = @"{
 # Create create managed cluster
 
 try {
-    $Result = ConvertFrom-JsonToManagedClusterRequest -Json $ManagedClusterRequest
+    $Result = ConvertFrom-V2024JsonToManagedClusterRequest -Json $ManagedClusterRequest
     New-V2024ManagedCluster -ManagedClusterRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -312,7 +312,7 @@ $PutClientLogConfigurationRequest = @""@
 # Update managed cluster log configuration
 
 try {
-    $Result = ConvertFrom-JsonToPutClientLogConfigurationRequest -Json $PutClientLogConfigurationRequest
+    $Result = ConvertFrom-V2024JsonToPutClientLogConfigurationRequest -Json $PutClientLogConfigurationRequest
     Send-V2024ClientLogConfiguration -Id $Id -PutClientLogConfigurationRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -413,7 +413,7 @@ $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
 # Update managed cluster
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024ManagedCluster -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

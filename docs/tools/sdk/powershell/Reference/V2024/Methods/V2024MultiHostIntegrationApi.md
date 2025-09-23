@@ -97,7 +97,7 @@ $MultiHostIntegrationsCreate = @"{
 # Create multi-host integration
 
 try {
-    $Result = ConvertFrom-JsonToMultiHostIntegrationsCreate -Json $MultiHostIntegrationsCreate
+    $Result = ConvertFrom-V2024JsonToMultiHostIntegrationsCreate -Json $MultiHostIntegrationsCreate
     New-V2024MultiHostIntegration -MultiHostIntegrationsCreate $Result 
     
     # Below is a request that includes all optional parameters
@@ -160,7 +160,7 @@ $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Hos
 # Create sources within multi-host integration
 
 try {
-    $Result = ConvertFrom-JsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
+    $Result = ConvertFrom-V2024JsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
     New-V2024SourcesWithinMultiHost -MultihostId $MultihostId -MultiHostIntegrationsCreateSources $Result 
     
     # Below is a request that includes all optional parameters
@@ -719,7 +719,7 @@ $MultihostId = "anId" # String | ID of the Multi-Host Integration to update.
 # Update multi-host integration
 
 try {
-    $Result = ConvertFrom-JsonToUpdateMultiHostSourcesRequestInner -Json $UpdateMultiHostSourcesRequestInner
+    $Result = ConvertFrom-V2024JsonToUpdateMultiHostSourcesRequestInner -Json $UpdateMultiHostSourcesRequestInner
     Update-V2024MultiHostSources -MultihostId $MultihostId -UpdateMultiHostSourcesRequestInner $Result 
     
     # Below is a request that includes all optional parameters

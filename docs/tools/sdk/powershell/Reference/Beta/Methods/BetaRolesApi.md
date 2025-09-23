@@ -262,7 +262,7 @@ $Role = @"{
 # Create a role
 
 try {
-    $Result = ConvertFrom-JsonToRole -Json $Role
+    $Result = ConvertFrom-BetaJsonToRole -Json $Role
     New-BetaRole -Role $Result 
     
     # Below is a request that includes all optional parameters
@@ -313,7 +313,7 @@ $RoleBulkDeleteRequest = @"{
 # Delete role(s)
 
 try {
-    $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
+    $Result = ConvertFrom-BetaJsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
     Remove-BetaBulkRoles -RoleBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -651,7 +651,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
 # Patch a specified role
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaRole -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

@@ -64,7 +64,7 @@ $DataSegment = @""@
 # Create segment
 
 try {
-    $Result = ConvertFrom-JsonToDataSegment -Json $DataSegment
+    $Result = ConvertFrom-V2025JsonToDataSegment -Json $DataSegment
     New-V2025DataSegment -DataSegment $Result 
     
     # Below is a request that includes all optional parameters
@@ -389,7 +389,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operat
 # Update segment
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
     Update-V2025DataSegment -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -445,7 +445,7 @@ $PublishAll = $true # Boolean | This flag decides whether you want to publish al
 # Publish segment by id
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
     Publish-V2025DataSegment -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
     # Below is a request that includes all optional parameters

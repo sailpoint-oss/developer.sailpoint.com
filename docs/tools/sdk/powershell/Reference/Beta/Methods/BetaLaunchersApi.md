@@ -73,7 +73,7 @@ $LauncherRequest = @"{
 # Create launcher
 
 try {
-    $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
+    $Result = ConvertFrom-BetaJsonToLauncherRequest -Json $LauncherRequest
     New-BetaLauncher -LauncherRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -274,7 +274,7 @@ $LauncherRequest = @"{
 # Replace launcher
 
 try {
-    $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
+    $Result = ConvertFrom-BetaJsonToLauncherRequest -Json $LauncherRequest
     Send-BetaLauncher -LauncherID $LauncherID -LauncherRequest $Result 
     
     # Below is a request that includes all optional parameters

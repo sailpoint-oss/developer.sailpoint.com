@@ -102,7 +102,7 @@ $CampaignFilterDetails = @"{
 # Create campaign filter
 
 try {
-    $Result = ConvertFrom-JsonToCampaignFilterDetails -Json $CampaignFilterDetails
+    $Result = ConvertFrom-V2025JsonToCampaignFilterDetails -Json $CampaignFilterDetails
     New-V2025CampaignFilter -CampaignFilterDetails $Result 
     
     # Below is a request that includes all optional parameters
@@ -151,7 +151,7 @@ $RequestBody = "MyRequestBody" # String[] | A json list of IDs of campaign filte
 # Deletes campaign filters
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
     Remove-V2025CampaignFilters -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -311,7 +311,7 @@ $CampaignFilterDetails = @"{
 # Updates a campaign filter
 
 try {
-    $Result = ConvertFrom-JsonToCampaignFilterDetails -Json $CampaignFilterDetails
+    $Result = ConvertFrom-V2025JsonToCampaignFilterDetails -Json $CampaignFilterDetails
     Update-V2025CampaignFilter -FilterId $FilterId -CampaignFilterDetails $Result 
     
     # Below is a request that includes all optional parameters

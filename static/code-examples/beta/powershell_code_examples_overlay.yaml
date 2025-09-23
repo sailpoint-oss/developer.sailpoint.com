@@ -180,7 +180,7 @@
         # Create access profile
         
         try {
-            $Result = ConvertFrom-JsonToAccessProfile -Json $AccessProfile
+            $Result = ConvertFrom-BetaJsonToAccessProfile -Json $AccessProfile
             New-BetaAccessProfile -AccessProfile $Result 
     
             # Below is a request that includes all optional parameters
@@ -224,7 +224,7 @@
         # Delete access profile(s)
         
         try {
-            $Result = ConvertFrom-JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
+            $Result = ConvertFrom-BetaJsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
             Remove-BetaAccessProfilesInBulk -AccessProfileBulkDeleteRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -319,7 +319,7 @@
         # Patch a specified access profile
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaAccessProfile -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -340,7 +340,7 @@
         # Update access profile(s) requestable field.
         
         try {
-            $Result = ConvertFrom-JsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
+            $Result = ConvertFrom-BetaJsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
             Update-BetaAccessProfilesInBulk -AccessProfileBulkUpdateRequestInner $Result 
     
             # Below is a request that includes all optional parameters
@@ -371,7 +371,7 @@
         # Approve access request approval
         
         try {
-            $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
+            $Result = ConvertFrom-BetaJsonToCommentDto -Json $CommentDto
             Approve-BetaAccessRequest -ApprovalId $ApprovalId -CommentDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -397,7 +397,7 @@
         # Forward access request approval
         
         try {
-            $Result = ConvertFrom-JsonToForwardApprovalDto -Json $ForwardApprovalDto
+            $Result = ConvertFrom-BetaJsonToForwardApprovalDto -Json $ForwardApprovalDto
             Invoke-BetaForwardAccessRequest -ApprovalId $ApprovalId -ForwardApprovalDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -496,7 +496,7 @@
         # Reject access request approval
         
         try {
-            $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
+            $Result = ConvertFrom-BetaJsonToCommentDto -Json $CommentDto
             Deny-BetaAccessRequest -ApprovalId $ApprovalId -CommentDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -542,7 +542,7 @@
         # Cancel access request
         
         try {
-            $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
+            $Result = ConvertFrom-BetaJsonToCancelAccessRequest -Json $CancelAccessRequest
             Suspend-BetaAccessRequest -CancelAccessRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -569,7 +569,7 @@
         # Close access request
         
         try {
-            $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
+            $Result = ConvertFrom-BetaJsonToCloseAccessRequest -Json $CloseAccessRequest
             Close-BetaAccessRequest -CloseAccessRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -740,7 +740,7 @@
         # Submit access request
         
         try {
-            $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
+            $Result = ConvertFrom-BetaJsonToAccessRequest -Json $AccessRequest
             New-BetaAccessRequest -AccessRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -833,7 +833,7 @@
         # Update access request configuration
         
         try {
-            $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
+            $Result = ConvertFrom-BetaJsonToAccessRequestConfig -Json $AccessRequestConfig
             Set-BetaAccessRequestConfig -AccessRequestConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -952,7 +952,7 @@
         # Create account
         
         try {
-            $Result = ConvertFrom-JsonToAccountAttributesCreate -Json $AccountAttributesCreate
+            $Result = ConvertFrom-BetaJsonToAccountAttributesCreate -Json $AccountAttributesCreate
             New-BetaAccount -AccountAttributesCreate $Result 
     
             # Below is a request that includes all optional parameters
@@ -1016,7 +1016,7 @@
         # Disable account
         
         try {
-            $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
+            $Result = ConvertFrom-BetaJsonToAccountToggleRequest -Json $AccountToggleRequest
             Disable-BetaAccount -Id $Id -AccountToggleRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -1059,7 +1059,7 @@
         # Disable idn accounts for identities
         
         try {
-            $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
+            $Result = ConvertFrom-BetaJsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
             Disable-BetaAccountsForIdentities -IdentitiesAccountsBulkRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -1085,7 +1085,7 @@
         # Enable account
         
         try {
-            $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
+            $Result = ConvertFrom-BetaJsonToAccountToggleRequest -Json $AccountToggleRequest
             Enable-BetaAccount -Id $Id -AccountToggleRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -1128,7 +1128,7 @@
         # Enable idn accounts for identities
         
         try {
-            $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
+            $Result = ConvertFrom-BetaJsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
             Enable-BetaAccountsForIdentities -IdentitiesAccountsBulkRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -1224,7 +1224,7 @@
         # Update account
         
         try {
-            $Result = ConvertFrom-JsonToAccountAttributes -Json $AccountAttributes
+            $Result = ConvertFrom-BetaJsonToAccountAttributes -Json $AccountAttributes
             Send-BetaAccount -Id $Id -AccountAttributes $Result 
     
             # Below is a request that includes all optional parameters
@@ -1270,7 +1270,7 @@
         # Unlock account
         
         try {
-            $Result = ConvertFrom-JsonToAccountUnlockRequest -Json $AccountUnlockRequest
+            $Result = ConvertFrom-BetaJsonToAccountUnlockRequest -Json $AccountUnlockRequest
             Unlock-BetaAccount -Id $Id -AccountUnlockRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -1293,7 +1293,7 @@
         # Update account
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-BetaJsonToRequestBody -Json $RequestBody
             Update-BetaAccount -Id $Id -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -1428,7 +1428,7 @@
         # Create source app
         
         try {
-            $Result = ConvertFrom-JsonToSourceAppCreateDto -Json $SourceAppCreateDto
+            $Result = ConvertFrom-BetaJsonToSourceAppCreateDto -Json $SourceAppCreateDto
             New-BetaSourceApp -SourceAppCreateDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -1452,7 +1452,7 @@
         # Bulk remove access profiles from the specified source app
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-BetaJsonToRequestBody -Json $RequestBody
             Remove-BetaAccessProfilesFromSourceAppByBulk -Id $Id -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -1792,7 +1792,7 @@
         # Patch a specified auth profile
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaProfileConfig -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -1946,7 +1946,7 @@
         # Create campaign
         
         try {
-            $Result = ConvertFrom-JsonToCampaign -Json $Campaign
+            $Result = ConvertFrom-BetaJsonToCampaign -Json $Campaign
             New-BetaCampaign -Campaign $Result 
     
             # Below is a request that includes all optional parameters
@@ -2091,7 +2091,7 @@
         # Create a campaign template
         
         try {
-            $Result = ConvertFrom-JsonToCampaignTemplate -Json $CampaignTemplate
+            $Result = ConvertFrom-BetaJsonToCampaignTemplate -Json $CampaignTemplate
             New-BetaCampaignTemplate -CampaignTemplate $Result 
     
             # Below is a request that includes all optional parameters
@@ -2153,7 +2153,7 @@
         # Delete campaigns
         
         try {
-            $Result = ConvertFrom-JsonToDeleteCampaignsRequest -Json $DeleteCampaignsRequest
+            $Result = ConvertFrom-BetaJsonToDeleteCampaignsRequest -Json $DeleteCampaignsRequest
             Remove-BetaCampaigns -DeleteCampaignsRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -2324,7 +2324,7 @@
         # Reassign certifications
         
         try {
-            $Result = ConvertFrom-JsonToAdminReviewReassign -Json $AdminReviewReassign
+            $Result = ConvertFrom-BetaJsonToAdminReviewReassign -Json $AdminReviewReassign
             Move-Beta -Id $Id -AdminReviewReassign $Result 
     
             # Below is a request that includes all optional parameters
@@ -2350,7 +2350,7 @@
         # Update a campaign template
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaCampaignTemplate -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -2374,7 +2374,7 @@
         # Set campaign reports configuration
         
         try {
-            $Result = ConvertFrom-JsonToCampaignReportsConfig -Json $CampaignReportsConfig
+            $Result = ConvertFrom-BetaJsonToCampaignReportsConfig -Json $CampaignReportsConfig
             Set-BetaCampaignReportsConfig -CampaignReportsConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -2520,7 +2520,7 @@
         # Update a campaign
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-BetaJsonToRequestBody -Json $RequestBody
             Update-BetaCampaign -Id $Id -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -2664,7 +2664,7 @@
         # Reassign certifications asynchronously
         
         try {
-            $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
+            $Result = ConvertFrom-BetaJsonToReviewReassign -Json $ReviewReassign
             Submit-BetaReassignCertsAsync -Id $Id -ReviewReassign $Result 
     
             # Below is a request that includes all optional parameters
@@ -2711,7 +2711,7 @@
         # Create connector rule
         
         try {
-            $Result = ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
+            $Result = ConvertFrom-BetaJsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
             New-BetaConnectorRule -ConnectorRuleCreateRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -2840,7 +2840,7 @@
         # Validate connector rule
         
         try {
-            $Result = ConvertFrom-JsonToSourceCode -Json $SourceCode
+            $Result = ConvertFrom-BetaJsonToSourceCode -Json $SourceCode
             Confirm-BetaConnectorRule -SourceCode $Result 
     
             # Below is a request that includes all optional parameters
@@ -3546,7 +3546,7 @@
         # Create custom password instructions
         
         try {
-            $Result = ConvertFrom-JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
+            $Result = ConvertFrom-BetaJsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
             New-BetaCustomPasswordInstructions -CustomPasswordInstruction $Result 
     
             # Below is a request that includes all optional parameters
@@ -3749,7 +3749,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/entitlements#list-entitlements
       source: |
-        $AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). This parameter is deprecated. Please use [Account Entitlements API](https://developer.sailpoint.com/docs/api/beta/get-account-entitlements) to get account entitlements. (optional)
+        $AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). This parameter is deprecated. Please use [Account Entitlements API](https://developer.sailpoint.com/apis/beta/#operation/getAccountEntitlements) to get account entitlements. (optional)
         $SegmentedForIdentity = "e554098913544630b5985e9042f5e44b" # String | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID.  Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional)
         $ForSegmentIds = "041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649" # String | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s). (optional)
         $IncludeUnsegmented = $true # Boolean | Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error. (optional) (default to $true)
@@ -3831,7 +3831,7 @@
         # Replace entitlement request config
         
         try {
-            $Result = ConvertFrom-JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
+            $Result = ConvertFrom-BetaJsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
             Send-BetaEntitlementRequestConfig -Id $Id -EntitlementRequestConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -3883,7 +3883,7 @@
         # Bulk update an entitlement list
         
         try {
-            $Result = ConvertFrom-JsonToEntitlementBulkUpdateRequest -Json $EntitlementBulkUpdateRequest
+            $Result = ConvertFrom-BetaJsonToEntitlementBulkUpdateRequest -Json $EntitlementBulkUpdateRequest
             Update-BetaEntitlementsInBulk -EntitlementBulkUpdateRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -3920,7 +3920,7 @@
         # Create a new governance group.
         
         try {
-            $Result = ConvertFrom-JsonToWorkgroupDto -Json $WorkgroupDto
+            $Result = ConvertFrom-BetaJsonToWorkgroupDto -Json $WorkgroupDto
             New-BetaWorkgroup -WorkgroupDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -3961,7 +3961,7 @@
         # Remove members from governance group
         
         try {
-            $Result = ConvertFrom-JsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
+            $Result = ConvertFrom-BetaJsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
             Remove-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result 
     
             # Below is a request that includes all optional parameters
@@ -3985,7 +3985,7 @@
         # Delete governance group(s)
         
         try {
-            $Result = ConvertFrom-JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
+            $Result = ConvertFrom-BetaJsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
             Remove-BetaWorkgroupsInBulk -WorkgroupBulkDeleteRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -4120,7 +4120,7 @@
         # Add members to governance group
         
         try {
-            $Result = ConvertFrom-JsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
+            $Result = ConvertFrom-BetaJsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
             Update-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result 
     
             # Below is a request that includes all optional parameters
@@ -4148,7 +4148,7 @@
         # Ignore access request recommendation
         
         try {
-            $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+            $Result = ConvertFrom-BetaJsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
             Add-BetaAccessRequestRecommendationsIgnoredItem -AccessRequestRecommendationActionItemDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -4176,7 +4176,7 @@
         # Accept access request recommendation
         
         try {
-            $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+            $Result = ConvertFrom-BetaJsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
             Add-BetaAccessRequestRecommendationsRequestedItem -AccessRequestRecommendationActionItemDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -4204,7 +4204,7 @@
         # Mark viewed access request recommendations
         
         try {
-            $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+            $Result = ConvertFrom-BetaJsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
             Add-BetaAccessRequestRecommendationsViewedItem -AccessRequestRecommendationActionItemDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -4231,7 +4231,7 @@
         # Bulk mark viewed access request recommendations
         
         try {
-            $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+            $Result = ConvertFrom-BetaJsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
             Add-BetaAccessRequestRecommendationsViewedItems -AccessRequestRecommendationActionItemDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -4357,7 +4357,7 @@
         # Create common access items
         
         try {
-            $Result = ConvertFrom-JsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
+            $Result = ConvertFrom-BetaJsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
             New-BetaCommonAccess -CommonAccessItemRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -4404,7 +4404,7 @@
         # Bulk update common access status
         
         try {
-            $Result = ConvertFrom-JsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
+            $Result = ConvertFrom-BetaJsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
             Update-BetaCommonAccessStatusInBulk -CommonAccessIDStatus $Result 
     
             # Below is a request that includes all optional parameters
@@ -4573,7 +4573,7 @@
         # Iai identity outliers ignore
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-BetaJsonToRequestBody -Json $RequestBody
             Invoke-BetaIgnoreIdentityOutliers -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -4620,7 +4620,7 @@
         # Iai identity outliers unignore
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-BetaJsonToRequestBody -Json $RequestBody
             Invoke-BetaUnIgnoreIdentityOutliers -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -4682,7 +4682,7 @@
         # Returns recommendation based on object
         
         try {
-            $Result = ConvertFrom-JsonToRecommendationRequestDto -Json $RecommendationRequestDto
+            $Result = ConvertFrom-BetaJsonToRecommendationRequestDto -Json $RecommendationRequestDto
             Get-BetaRecommendations -RecommendationRequestDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -4727,7 +4727,7 @@
         # Update certification recommendation config values
         
         try {
-            $Result = ConvertFrom-JsonToRecommendationConfigDto -Json $RecommendationConfigDto
+            $Result = ConvertFrom-BetaJsonToRecommendationConfigDto -Json $RecommendationConfigDto
             Update-BetaRecommendationsConfig -RecommendationConfigDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -4811,7 +4811,7 @@
         # Create a role mining session
         
         try {
-            $Result = ConvertFrom-JsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
+            $Result = ConvertFrom-BetaJsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
             New-BetaRoleMiningSessions -RoleMiningSessionDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -5260,7 +5260,7 @@
         # Update a potential role in session
         
         try {
-            $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
+            $Result = ConvertFrom-BetaJsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
             Update-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result 
     
             # Below is a request that includes all optional parameters
@@ -5282,7 +5282,7 @@
         # Update a potential role
         
         try {
-            $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
+            $Result = ConvertFrom-BetaJsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
             Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result 
     
             # Below is a request that includes all optional parameters
@@ -5308,7 +5308,7 @@
         # Patch a role mining session
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaRoleMiningSession -SessionId $SessionId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -5335,7 +5335,7 @@
         # Edit entitlements for a potential role to exclude some entitlements
         
         try {
-            $Result = ConvertFrom-JsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
+            $Result = ConvertFrom-BetaJsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
             Update-BetaEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -RoleMiningPotentialRoleEditEntitlements $Result 
     
             # Below is a request that includes all optional parameters
@@ -5543,7 +5543,7 @@
         # Send password reset email
         
         try {
-            $Result = ConvertFrom-JsonToSendAccountVerificationRequest -Json $SendAccountVerificationRequest
+            $Result = ConvertFrom-BetaJsonToSendAccountVerificationRequest -Json $SendAccountVerificationRequest
             Send-BetaIdentityVerificationAccountToken -Id $Id -SendAccountVerificationRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -5568,7 +5568,7 @@
         # Invite identities to register
         
         try {
-            $Result = ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
+            $Result = ConvertFrom-BetaJsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
             Start-BetaIdentitiesInvite -InviteIdentitiesRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -5592,7 +5592,7 @@
         # Process a list of identityids
         
         try {
-            $Result = ConvertFrom-JsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest
+            $Result = ConvertFrom-BetaJsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest
             Start-BetaIdentityProcessing -ProcessIdentitiesRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -5654,7 +5654,7 @@
         # Create identity attribute
         
         try {
-            $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
+            $Result = ConvertFrom-BetaJsonToIdentityAttribute -Json $IdentityAttribute
             New-BetaIdentityAttribute -IdentityAttribute $Result 
     
             # Below is a request that includes all optional parameters
@@ -5697,7 +5697,7 @@
         # Bulk delete identity attributes
         
         try {
-            $Result = ConvertFrom-JsonToIdentityAttributeNames -Json $IdentityAttributeNames
+            $Result = ConvertFrom-BetaJsonToIdentityAttributeNames -Json $IdentityAttributeNames
             Remove-BetaIdentityAttributesInBulk -IdentityAttributeNames $Result 
     
             # Below is a request that includes all optional parameters
@@ -5782,7 +5782,7 @@
         # Update identity attribute
         
         try {
-            $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
+            $Result = ConvertFrom-BetaJsonToIdentityAttribute -Json $IdentityAttribute
             Send-BetaIdentityAttribute -Name $Name -IdentityAttribute $Result 
     
             # Below is a request that includes all optional parameters
@@ -6111,7 +6111,7 @@
         # Create identity profile
         
         try {
-            $Result = ConvertFrom-JsonToIdentityProfile -Json $IdentityProfile
+            $Result = ConvertFrom-BetaJsonToIdentityProfile -Json $IdentityProfile
             New-BetaIdentityProfile -IdentityProfile $Result 
     
             # Below is a request that includes all optional parameters
@@ -6152,7 +6152,7 @@
         # Delete identity profiles
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-BetaJsonToRequestBody -Json $RequestBody
             Remove-BetaIdentityProfiles -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -6295,7 +6295,7 @@
         # Import identity profiles
         
         try {
-            $Result = ConvertFrom-JsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
+            $Result = ConvertFrom-BetaJsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
             Import-BetaIdentityProfiles -IdentityProfileExportedObject $Result 
     
             # Below is a request that includes all optional parameters
@@ -6366,7 +6366,7 @@
         # Generate identity profile preview
         
         try {
-            $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
+            $Result = ConvertFrom-BetaJsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
             Show-BetaGenerateIdentityPreview -IdentityPreviewRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -6411,7 +6411,7 @@
         # Update identity profile
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaIdentityProfile -IdentityProfileId $IdentityProfileId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -6443,7 +6443,7 @@
         # Create launcher
         
         try {
-            $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
+            $Result = ConvertFrom-BetaJsonToLauncherRequest -Json $LauncherRequest
             New-BetaLauncher -LauncherRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -6535,7 +6535,7 @@
         # Replace launcher
         
         try {
-            $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
+            $Result = ConvertFrom-BetaJsonToLauncherRequest -Json $LauncherRequest
             Send-BetaLauncher -LauncherID $LauncherID -LauncherRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -6601,7 +6601,7 @@
         # Update lifecycle state
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaLifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -6707,7 +6707,7 @@
         # Set duo mfa configuration
         
         try {
-            $Result = ConvertFrom-JsonToMfaDuoConfig -Json $MfaDuoConfig
+            $Result = ConvertFrom-BetaJsonToMfaDuoConfig -Json $MfaDuoConfig
             Set-BetaMFADuoConfig -MfaDuoConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -6731,7 +6731,7 @@
         # Set mfa kba configuration
         
         try {
-            $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
+            $Result = ConvertFrom-BetaJsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
             Set-BetaMFAKBAConfig -KbaAnswerRequestItem $Result 
     
             # Below is a request that includes all optional parameters
@@ -6759,7 +6759,7 @@
         # Set okta mfa configuration
         
         try {
-            $Result = ConvertFrom-JsonToMfaOktaConfig -Json $MfaOktaConfig
+            $Result = ConvertFrom-BetaJsonToMfaOktaConfig -Json $MfaOktaConfig
             Set-BetaMFAOktaConfig -MfaOktaConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -6803,7 +6803,7 @@
         # Create and send user token
         
         try {
-            $Result = ConvertFrom-JsonToSendTokenRequest -Json $SendTokenRequest
+            $Result = ConvertFrom-BetaJsonToSendTokenRequest -Json $SendTokenRequest
             New-BetaSendToken -SendTokenRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -6828,7 +6828,7 @@
         # Polling mfa method by verificationpollrequest
         
         try {
-            $Result = ConvertFrom-JsonToVerificationPollRequest -Json $VerificationPollRequest
+            $Result = ConvertFrom-BetaJsonToVerificationPollRequest -Json $VerificationPollRequest
             Ping-BetaVerificationStatus -Method $Method -VerificationPollRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -6853,7 +6853,7 @@
         # Verifying authentication via duo method
         
         try {
-            $Result = ConvertFrom-JsonToDuoVerificationRequest -Json $DuoVerificationRequest
+            $Result = ConvertFrom-BetaJsonToDuoVerificationRequest -Json $DuoVerificationRequest
             Send-BetaDuoVerifyRequest -DuoVerificationRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -6877,7 +6877,7 @@
         # Authenticate kba provided mfa method
         
         try {
-            $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
+            $Result = ConvertFrom-BetaJsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
             Send-BetaKbaAnswers -KbaAnswerRequestItem $Result 
     
             # Below is a request that includes all optional parameters
@@ -6901,7 +6901,7 @@
         # Verifying authentication via okta method
         
         try {
-            $Result = ConvertFrom-JsonToOktaVerificationRequest -Json $OktaVerificationRequest
+            $Result = ConvertFrom-BetaJsonToOktaVerificationRequest -Json $OktaVerificationRequest
             Send-BetaOktaVerifyRequest -OktaVerificationRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -6927,7 +6927,7 @@
         # Authenticate token provided mfa method
         
         try {
-            $Result = ConvertFrom-JsonToTokenAuthRequest -Json $TokenAuthRequest
+            $Result = ConvertFrom-BetaJsonToTokenAuthRequest -Json $TokenAuthRequest
             Send-BetaTokenAuthRequest -TokenAuthRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -6995,7 +6995,7 @@
         # Handle status request from client
         
         try {
-            $Result = ConvertFrom-JsonToManagedClientStatus -Json $ManagedClientStatus
+            $Result = ConvertFrom-BetaJsonToManagedClientStatus -Json $ManagedClientStatus
             Update-BetaManagedClientStatus -Id $Id -ManagedClientStatus $Result 
     
             # Below is a request that includes all optional parameters
@@ -7130,7 +7130,7 @@
         # Create multi-host integration
         
         try {
-            $Result = ConvertFrom-JsonToMultiHostIntegrationsCreate -Json $MultiHostIntegrationsCreate
+            $Result = ConvertFrom-BetaJsonToMultiHostIntegrationsCreate -Json $MultiHostIntegrationsCreate
             New-BetaMultiHostIntegration -MultiHostIntegrationsCreate $Result 
     
             # Below is a request that includes all optional parameters
@@ -7163,7 +7163,7 @@
         # Create sources within multi-host integration
         
         try {
-            $Result = ConvertFrom-JsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
+            $Result = ConvertFrom-BetaJsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
             New-BetaSourcesWithinMultiHost -MultihostId $MultihostId -MultiHostIntegrationsCreateSources $Result 
     
             # Below is a request that includes all optional parameters
@@ -7385,7 +7385,7 @@
         # Update multi-host integration
         
         try {
-            $Result = ConvertFrom-JsonToUpdateMultiHostSourcesRequestInner -Json $UpdateMultiHostSourcesRequestInner
+            $Result = ConvertFrom-BetaJsonToUpdateMultiHostSourcesRequestInner -Json $UpdateMultiHostSourcesRequestInner
             Update-BetaMultiHostSources -MultihostId $MultihostId -UpdateMultiHostSourcesRequestInner $Result 
     
             # Below is a request that includes all optional parameters
@@ -7410,7 +7410,7 @@
         # Approve a non-employee request
         
         try {
-            $Result = ConvertFrom-JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
+            $Result = ConvertFrom-BetaJsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
             Approve-BetaNonEmployeeRequest -Id $Id -NonEmployeeApprovalDecision $Result 
     
             # Below is a request that includes all optional parameters
@@ -7445,7 +7445,7 @@
         # Create non-employee record
         
         try {
-            $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
+            $Result = ConvertFrom-BetaJsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
             New-BetaNonEmployeeRecord -NonEmployeeRequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -7480,7 +7480,7 @@
         # Create non-employee request
         
         try {
-            $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
+            $Result = ConvertFrom-BetaJsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
             New-BetaNonEmployeeRequest -NonEmployeeRequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -7527,7 +7527,7 @@
         # Create non-employee source
         
         try {
-            $Result = ConvertFrom-JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
+            $Result = ConvertFrom-BetaJsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
             New-BetaNonEmployeeSource -NonEmployeeSourceRequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -7557,7 +7557,7 @@
         # Create non-employee source schema attribute
         
         try {
-            $Result = ConvertFrom-JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
+            $Result = ConvertFrom-BetaJsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
             New-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId -NonEmployeeSchemaAttributeBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -7598,7 +7598,7 @@
         # Delete multiple non-employee records
         
         try {
-            $Result = ConvertFrom-JsonToDeleteNonEmployeeRecordInBulkRequest -Json $DeleteNonEmployeeRecordInBulkRequest
+            $Result = ConvertFrom-BetaJsonToDeleteNonEmployeeRecordInBulkRequest -Json $DeleteNonEmployeeRecordInBulkRequest
             Remove-BetaNonEmployeeRecordInBulk -DeleteNonEmployeeRecordInBulkRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -8029,7 +8029,7 @@
         # Patch non-employee record
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaNonEmployeeRecord -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -8056,7 +8056,7 @@
         # Patch non-employee source's schema attribute
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -8082,7 +8082,7 @@
         # Patch a non-employee source
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaNonEmployeeSource -SourceId $SourceId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -8118,7 +8118,7 @@
         # Update non-employee record
         
         try {
-            $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
+            $Result = ConvertFrom-BetaJsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
             Send-BetaNonEmployeeRecord -Id $Id -NonEmployeeRequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -8143,7 +8143,7 @@
         # Reject a non-employee request
         
         try {
-            $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
+            $Result = ConvertFrom-BetaJsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
             Deny-BetaNonEmployeeRequest -Id $Id -NonEmployeeRejectApprovalDecision $Result 
     
             # Below is a request that includes all optional parameters
@@ -8167,7 +8167,7 @@
         # Verify domain address via dkim
         
         try {
-            $Result = ConvertFrom-JsonToDomainAddress -Json $DomainAddress
+            $Result = ConvertFrom-BetaJsonToDomainAddress -Json $DomainAddress
             New-BetaDomainDkim -DomainAddress $Result 
     
             # Below is a request that includes all optional parameters
@@ -8206,7 +8206,7 @@
         # Create notification template
         
         try {
-            $Result = ConvertFrom-JsonToTemplateDto -Json $TemplateDto
+            $Result = ConvertFrom-BetaJsonToTemplateDto -Json $TemplateDto
             New-BetaNotificationTemplate -TemplateDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -8233,7 +8233,7 @@
         # Create verified from address
         
         try {
-            $Result = ConvertFrom-JsonToEmailStatusDto -Json $EmailStatusDto
+            $Result = ConvertFrom-BetaJsonToEmailStatusDto -Json $EmailStatusDto
             New-BetaVerifiedFromAddress -EmailStatusDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -8258,7 +8258,7 @@
         # Bulk delete notification templates
         
         try {
-            $Result = ConvertFrom-JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
+            $Result = ConvertFrom-BetaJsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
             Remove-BetaNotificationTemplatesInBulk -TemplateBulkDeleteDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -8461,7 +8461,7 @@
         # Change mail from domain
         
         try {
-            $Result = ConvertFrom-JsonToMailFromAttributesDto -Json $MailFromAttributesDto
+            $Result = ConvertFrom-BetaJsonToMailFromAttributesDto -Json $MailFromAttributesDto
             Send-BetaMailFromAttributes -MailFromAttributesDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -8487,7 +8487,7 @@
         # Send test notification
         
         try {
-            $Result = ConvertFrom-JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
+            $Result = ConvertFrom-BetaJsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
             Send-BetaTestNotification -SendTestNotificationRequestDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -8525,7 +8525,7 @@
         # Create oauth client
         
         try {
-            $Result = ConvertFrom-JsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
+            $Result = ConvertFrom-BetaJsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
             New-BetaOauthClient -CreateOAuthClientRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -8608,7 +8608,7 @@
         # Patch oauth client
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaOauthClient -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -8669,7 +8669,7 @@
         # Patch an org configuration property
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaOrgConfig -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -8696,7 +8696,7 @@
         # Create password org config
         
         try {
-            $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
+            $Result = ConvertFrom-BetaJsonToPasswordOrgConfig -Json $PasswordOrgConfig
             New-BetaPasswordOrgConfig -PasswordOrgConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -8741,7 +8741,7 @@
         # Update password org config
         
         try {
-            $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
+            $Result = ConvertFrom-BetaJsonToPasswordOrgConfig -Json $PasswordOrgConfig
             Send-BetaPasswordOrgConfig -PasswordOrgConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -8804,7 +8804,7 @@
         # Generate a digit token
         
         try {
-            $Result = ConvertFrom-JsonToPasswordDigitTokenReset -Json $PasswordDigitTokenReset
+            $Result = ConvertFrom-BetaJsonToPasswordDigitTokenReset -Json $PasswordDigitTokenReset
             New-BetaDigitToken -PasswordDigitTokenReset $Result 
     
             # Below is a request that includes all optional parameters
@@ -8848,7 +8848,7 @@
         # Query password info
         
         try {
-            $Result = ConvertFrom-JsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
+            $Result = ConvertFrom-BetaJsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
             Search-BetaPasswordInfo -PasswordInfoQueryDTO $Result 
     
             # Below is a request that includes all optional parameters
@@ -8876,7 +8876,7 @@
         # Set identity's password
         
         try {
-            $Result = ConvertFrom-JsonToPasswordChangeRequest -Json $PasswordChangeRequest
+            $Result = ConvertFrom-BetaJsonToPasswordChangeRequest -Json $PasswordChangeRequest
             Set-BetaIdentityPassword -PasswordChangeRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -8930,7 +8930,7 @@
         # Create password policy
         
         try {
-            $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
+            $Result = ConvertFrom-BetaJsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
             New-BetaPasswordPolicy -PasswordPolicyV3Dto $Result 
     
             # Below is a request that includes all optional parameters
@@ -9044,7 +9044,7 @@
         # Update password policy by id
         
         try {
-            $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
+            $Result = ConvertFrom-BetaJsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
             Set-BetaPasswordPolicy -Id $Id -PasswordPolicyV3Dto $Result 
     
             # Below is a request that includes all optional parameters
@@ -9073,7 +9073,7 @@
         # Create password sync group
         
         try {
-            $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
+            $Result = ConvertFrom-BetaJsonToPasswordSyncGroup -Json $PasswordSyncGroup
             New-BetaPasswordSyncGroup -PasswordSyncGroup $Result 
     
             # Below is a request that includes all optional parameters
@@ -9162,7 +9162,7 @@
         # Update password sync group by id
         
         try {
-            $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
+            $Result = ConvertFrom-BetaJsonToPasswordSyncGroup -Json $PasswordSyncGroup
             Update-BetaPasswordSyncGroup -Id $Id -PasswordSyncGroup $Result 
     
             # Below is a request that includes all optional parameters
@@ -9189,7 +9189,7 @@
         # Create personal access token
         
         try {
-            $Result = ConvertFrom-JsonToCreatePersonalAccessTokenRequest -Json $CreatePersonalAccessTokenRequest
+            $Result = ConvertFrom-BetaJsonToCreatePersonalAccessTokenRequest -Json $CreatePersonalAccessTokenRequest
             New-BetaPersonalAccessToken -CreatePersonalAccessTokenRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -9254,7 +9254,7 @@
         # Patch personal access token
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaPersonalAccessToken -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -9308,7 +9308,7 @@
         # Update public identity config
         
         try {
-            $Result = ConvertFrom-JsonToPublicIdentityConfig -Json $PublicIdentityConfig
+            $Result = ConvertFrom-BetaJsonToPublicIdentityConfig -Json $PublicIdentityConfig
             Update-BetaPublicIdentityConfig -PublicIdentityConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -9704,7 +9704,7 @@
         # Create a role
         
         try {
-            $Result = ConvertFrom-JsonToRole -Json $Role
+            $Result = ConvertFrom-BetaJsonToRole -Json $Role
             New-BetaRole -Role $Result 
     
             # Below is a request that includes all optional parameters
@@ -9728,7 +9728,7 @@
         # Delete role(s)
         
         try {
-            $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
+            $Result = ConvertFrom-BetaJsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
             Remove-BetaBulkRoles -RoleBulkDeleteRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -9866,7 +9866,7 @@
         # Patch a specified role
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaRole -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -9905,7 +9905,7 @@
         # Create new sim integration
         
         try {
-            $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
+            $Result = ConvertFrom-BetaJsonToSimIntegrationDetails -Json $SimIntegrationDetails
             New-BetaSIMIntegration -SimIntegrationDetails $Result 
     
             # Below is a request that includes all optional parameters
@@ -9984,7 +9984,7 @@
         # Patch a sim beforeprovisioningrule attribute.
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+            $Result = ConvertFrom-BetaJsonToJsonPatch -Json $JsonPatch
             Update-BetaBeforeProvisioningRule -Id $Id -JsonPatch $Result 
     
             # Below is a request that includes all optional parameters
@@ -10007,7 +10007,7 @@
         # Patch a sim attribute.
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+            $Result = ConvertFrom-BetaJsonToJsonPatch -Json $JsonPatch
             Update-BetaSIMAttributes -Id $Id -JsonPatch $Result 
     
             # Below is a request that includes all optional parameters
@@ -10047,7 +10047,7 @@
         # Update an existing sim integration
         
         try {
-            $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
+            $Result = ConvertFrom-BetaJsonToSimIntegrationDetails -Json $SimIntegrationDetails
             Send-BetaSIMIntegration -Id $Id -SimIntegrationDetails $Result 
     
             # Below is a request that includes all optional parameters
@@ -10124,7 +10124,7 @@
         # Create sod policy
         
         try {
-            $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
+            $Result = ConvertFrom-BetaJsonToSodPolicy -Json $SodPolicy
             New-BetaSodPolicy -SodPolicy $Result 
     
             # Below is a request that includes all optional parameters
@@ -10342,7 +10342,7 @@
         # Patch a sod policy
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-BetaJsonToRequestBody -Json $RequestBody
             Update-BetaSodPolicy -Id $Id -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -10450,7 +10450,7 @@
         # Update sod policy schedule
         
         try {
-            $Result = ConvertFrom-JsonToSodPolicySchedule -Json $SodPolicySchedule
+            $Result = ConvertFrom-BetaJsonToSodPolicySchedule -Json $SodPolicySchedule
             Send-BetaPolicySchedule -Id $Id -SodPolicySchedule $Result 
     
             # Below is a request that includes all optional parameters
@@ -10528,7 +10528,7 @@
         # Update sod policy by id
         
         try {
-            $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
+            $Result = ConvertFrom-BetaJsonToSodPolicy -Json $SodPolicy
             Send-BetaSodPolicy -Id $Id -SodPolicy $Result 
     
             # Below is a request that includes all optional parameters
@@ -10601,7 +10601,7 @@
         # Predict sod violations for identity.
         
         try {
-            $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
+            $Result = ConvertFrom-BetaJsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
             Start-BetaPredictSodViolations -IdentityWithNewAccess $Result 
     
             # Below is a request that includes all optional parameters
@@ -10625,7 +10625,7 @@
         # Initiates configuration objects export job
         
         try {
-            $Result = ConvertFrom-JsonToExportPayload -Json $ExportPayload
+            $Result = ConvertFrom-BetaJsonToExportPayload -Json $ExportPayload
             Export-BetaSpConfig -ExportPayload $Result 
     
             # Below is a request that includes all optional parameters
@@ -10770,7 +10770,7 @@
         # Create extended search attributes
         
         try {
-            $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
+            $Result = ConvertFrom-BetaJsonToSearchAttributeConfig -Json $SearchAttributeConfig
             New-BetaSearchAttributeConfig -SearchAttributeConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -10854,7 +10854,7 @@
         # Update extended search attribute
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaSearchAttributeConfig -Name $Name -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -10899,7 +10899,7 @@
         # Create segment
         
         try {
-            $Result = ConvertFrom-JsonToSegment -Json $Segment
+            $Result = ConvertFrom-BetaJsonToSegment -Json $Segment
             New-BetaSegment -Segment $Result 
     
             # Below is a request that includes all optional parameters
@@ -10981,7 +10981,7 @@
         # Update segment
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-BetaJsonToRequestBody -Json $RequestBody
             Update-BetaSegment -Id $Id -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -11033,7 +11033,7 @@
         # Create new service desk integration
         
         try {
-            $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
+            $Result = ConvertFrom-BetaJsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
             New-BetaServiceDeskIntegration -ServiceDeskIntegrationDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -11175,7 +11175,7 @@
         # Patch a service desk integration
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaServiceDeskIntegration -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -11228,7 +11228,7 @@
         # Update a service desk integration
         
         try {
-            $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
+            $Result = ConvertFrom-BetaJsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
             Send-BetaServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -11253,7 +11253,7 @@
         # Update the time check configuration
         
         try {
-            $Result = ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
+            $Result = ConvertFrom-BetaJsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
             Update-BetaStatusCheckDetails -QueuedCheckConfigDetails $Result 
     
             # Below is a request that includes all optional parameters
@@ -11357,7 +11357,7 @@
         # Create provisioning policy
         
         try {
-            $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
+            $Result = ConvertFrom-BetaJsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
             New-BetaProvisioningPolicy -SourceId $SourceId -ProvisioningPolicyDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -11462,7 +11462,7 @@
         # Creates a source in identitynow.
         
         try {
-            $Result = ConvertFrom-JsonToSource -Json $Source
+            $Result = ConvertFrom-BetaJsonToSource -Json $Source
             New-BetaSource -Source $Result 
     
             # Below is a request that includes all optional parameters
@@ -11518,7 +11518,7 @@
         # Create schema on source
         
         try {
-            $Result = ConvertFrom-JsonToSchema -Json $Schema
+            $Result = ConvertFrom-BetaJsonToSchema -Json $Schema
             New-BetaSourceSchema -SourceId $SourceId -Schema $Result 
     
             # Below is a request that includes all optional parameters
@@ -12022,7 +12022,7 @@
         # Peek source connector's resource objects
         
         try {
-            $Result = ConvertFrom-JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
+            $Result = ConvertFrom-BetaJsonToResourceObjectsRequest -Json $ResourceObjectsRequest
             Receive-BetaResourceObjects -SourceId $SourceId -ResourceObjectsRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -12086,7 +12086,7 @@
         # Update source correlation configuration
         
         try {
-            $Result = ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
+            $Result = ConvertFrom-BetaJsonToCorrelationConfig -Json $CorrelationConfig
             Send-BetaCorrelationConfig -SourceId $SourceId -CorrelationConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -12116,7 +12116,7 @@
         # Update native change detection configuration
         
         try {
-            $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
+            $Result = ConvertFrom-BetaJsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
             Send-BetaNativeChangeDetectionConfig -SourceId $SourceId -NativeChangeDetectionConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -12179,7 +12179,7 @@
         # Update provisioning policy by usagetype
         
         try {
-            $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
+            $Result = ConvertFrom-BetaJsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
             Send-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -12284,7 +12284,7 @@
         # Update source (full)
         
         try {
-            $Result = ConvertFrom-JsonToSource -Json $Source
+            $Result = ConvertFrom-BetaJsonToSource -Json $Source
             Send-BetaSource -Id $Id -Source $Result 
     
             # Below is a request that includes all optional parameters
@@ -12324,7 +12324,7 @@
         # Update attribute sync config
         
         try {
-            $Result = ConvertFrom-JsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
+            $Result = ConvertFrom-BetaJsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
             Send-BetaSourceAttrSyncConfig -Id $Id -AttrSyncSourceConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -12381,7 +12381,7 @@
         # Update source schema (full)
         
         try {
-            $Result = ConvertFrom-JsonToSchema -Json $Schema
+            $Result = ConvertFrom-BetaJsonToSchema -Json $Schema
             Send-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Result 
     
             # Below is a request that includes all optional parameters
@@ -12499,7 +12499,7 @@
         # Bulk update provisioning policies
         
         try {
-            $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
+            $Result = ConvertFrom-BetaJsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
             Update-BetaProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -12526,7 +12526,7 @@
         # Partial update of provisioning policy
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -12552,7 +12552,7 @@
         # Update source (partial)
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaSource -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -12597,7 +12597,7 @@
         # Update source entitlement request configuration
         
         try {
-            $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
+            $Result = ConvertFrom-BetaJsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
             Update-BetaSourceEntitlementRequestConfig -SourceId $SourceId -SourceEntitlementRequestConfig $Result 
     
             # Below is a request that includes all optional parameters
@@ -12624,7 +12624,7 @@
         # Update source schema (partial)
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -12717,7 +12717,7 @@
         # Patch suggested entitlement description
         
         try {
-            $Result = ConvertFrom-JsonToSedPatch -Json $SedPatch
+            $Result = ConvertFrom-BetaJsonToSedPatch -Json $SedPatch
             Update-BetaSed -Id $Id -SedPatch $Result 
     
             # Below is a request that includes all optional parameters
@@ -12740,7 +12740,7 @@
         # Submit bulk approval request
         
         try {
-            $Result = ConvertFrom-JsonToSedApproval -Json $SedApproval
+            $Result = ConvertFrom-BetaJsonToSedApproval -Json $SedApproval
             Submit-BetaSedApproval -SedApproval $Result 
     
             # Below is a request that includes all optional parameters
@@ -12768,7 +12768,7 @@
         # Submit sed assignment request
         
         try {
-            $Result = ConvertFrom-JsonToSedAssignment -Json $SedAssignment
+            $Result = ConvertFrom-BetaJsonToSedAssignment -Json $SedAssignment
             Submit-BetaSedAssignment -SedAssignment $Result 
     
             # Below is a request that includes all optional parameters
@@ -12869,7 +12869,7 @@
         # Remove tags from multiple objects
         
         try {
-            $Result = ConvertFrom-JsonToBulkTaggedObject -Json $BulkTaggedObject
+            $Result = ConvertFrom-BetaJsonToBulkTaggedObject -Json $BulkTaggedObject
             Remove-BetaTagsToManyObject -BulkTaggedObject $Result 
     
             # Below is a request that includes all optional parameters
@@ -12965,7 +12965,7 @@
         # Update tagged object
         
         try {
-            $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
+            $Result = ConvertFrom-BetaJsonToTaggedObject -Json $TaggedObject
             Send-BetaTaggedObject -Type $Type -Id $Id -TaggedObject $Result 
     
             # Below is a request that includes all optional parameters
@@ -12994,7 +12994,7 @@
         # Add tag to object
         
         try {
-            $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
+            $Result = ConvertFrom-BetaJsonToTaggedObject -Json $TaggedObject
             Set-BetaTagToObject -TaggedObject $Result 
     
             # Below is a request that includes all optional parameters
@@ -13028,7 +13028,7 @@
         # Tag multiple objects
         
         try {
-            $Result = ConvertFrom-JsonToBulkTaggedObject -Json $BulkTaggedObject
+            $Result = ConvertFrom-BetaJsonToBulkTaggedObject -Json $BulkTaggedObject
             Set-BetaTagsToManyObjects -BulkTaggedObject $Result 
     
             # Below is a request that includes all optional parameters
@@ -13064,7 +13064,7 @@
         # Create tag
         
         try {
-            $Result = ConvertFrom-JsonToTag -Json $Tag
+            $Result = ConvertFrom-BetaJsonToTag -Json $Tag
             New-BetaTag -Tag $Result 
     
             # Below is a request that includes all optional parameters
@@ -13235,7 +13235,7 @@
         # Update task status by id
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaTaskStatus -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -13295,7 +13295,7 @@
         # Create transform
         
         try {
-            $Result = ConvertFrom-JsonToTransform -Json $Transform
+            $Result = ConvertFrom-BetaJsonToTransform -Json $Transform
             New-BetaTransform -Transform $Result 
     
             # Below is a request that includes all optional parameters
@@ -13427,7 +13427,7 @@
         # Complete trigger invocation
         
         try {
-            $Result = ConvertFrom-JsonToCompleteInvocation -Json $CompleteInvocation
+            $Result = ConvertFrom-BetaJsonToCompleteInvocation -Json $CompleteInvocation
             Complete-BetaTriggerInvocation -Id $Id -CompleteInvocation $Result 
     
             # Below is a request that includes all optional parameters
@@ -13473,7 +13473,7 @@
         # Create a subscription
         
         try {
-            $Result = ConvertFrom-JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
+            $Result = ConvertFrom-BetaJsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
             New-BetaSubscription -SubscriptionPostRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -13583,7 +13583,7 @@
         # Patch a subscription
         
         try {
-            $Result = ConvertFrom-JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
+            $Result = ConvertFrom-BetaJsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
             Update-BetaSubscription -Id $Id -SubscriptionPatchRequestInner $Result 
     
             # Below is a request that includes all optional parameters
@@ -13614,7 +13614,7 @@
         # Start a test invocation
         
         try {
-            $Result = ConvertFrom-JsonToTestInvocation -Json $TestInvocation
+            $Result = ConvertFrom-BetaJsonToTestInvocation -Json $TestInvocation
             Start-BetaTestTriggerInvocation -TestInvocation $Result 
     
             # Below is a request that includes all optional parameters
@@ -13641,7 +13641,7 @@
         # Validate a subscription filter
         
         try {
-            $Result = ConvertFrom-JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
+            $Result = ConvertFrom-BetaJsonToValidateFilterInputDto -Json $ValidateFilterInputDto
             Test-BetaSubscriptionFilter -ValidateFilterInputDto $Result 
     
             # Below is a request that includes all optional parameters
@@ -13687,7 +13687,7 @@
         # Update a subscription
         
         try {
-            $Result = ConvertFrom-JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
+            $Result = ConvertFrom-BetaJsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
             Update-BetaSubscription -Id $Id -SubscriptionPutRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -13731,7 +13731,7 @@
         # Update tenant ui metadata
         
         try {
-            $Result = ConvertFrom-JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
+            $Result = ConvertFrom-BetaJsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
             Set-BetaTenantUiMetadata -TenantUiMetadataItemUpdateRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -13775,7 +13775,7 @@
         # Create vendor connector mapping
         
         try {
-            $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
+            $Result = ConvertFrom-BetaJsonToVendorConnectorMapping -Json $VendorConnectorMapping
             New-BetaVendorConnectorMapping -VendorConnectorMapping $Result 
     
             # Below is a request that includes all optional parameters
@@ -13819,7 +13819,7 @@
         # Delete vendor connector mapping
         
         try {
-            $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
+            $Result = ConvertFrom-BetaJsonToVendorConnectorMapping -Json $VendorConnectorMapping
             Remove-BetaVendorConnectorMapping -VendorConnectorMapping $Result 
     
             # Below is a request that includes all optional parameters
@@ -14079,7 +14079,7 @@
         # Submit account selections
         
         try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            $Result = ConvertFrom-BetaJsonToRequestBody -Json $RequestBody
             Submit-BetaAccountSelection -Id $Id -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -14106,7 +14106,7 @@
         # Forward a work item
         
         try {
-            $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
+            $Result = ConvertFrom-BetaJsonToWorkItemForward -Json $WorkItemForward
             Submit-BetaForwardWorkItem -Id $Id -WorkItemForward $Result 
     
             # Below is a request that includes all optional parameters
@@ -14134,7 +14134,7 @@
         # Create a reassignment configuration
         
         try {
-            $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
+            $Result = ConvertFrom-BetaJsonToConfigurationItemRequest -Json $ConfigurationItemRequest
             New-BetaReassignmentConfiguration -ConfigurationItemRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -14281,7 +14281,7 @@
         # Update reassignment configuration
         
         try {
-            $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
+            $Result = ConvertFrom-BetaJsonToConfigurationItemRequest -Json $ConfigurationItemRequest
             Send-BetaReassignmentConfig -IdentityId $IdentityId -ConfigurationItemRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -14307,7 +14307,7 @@
         # Update tenant-wide reassignment configuration settings
         
         try {
-            $Result = ConvertFrom-JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
+            $Result = ConvertFrom-BetaJsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
             Send-BetaTenantConfiguration -TenantConfigurationRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -14348,7 +14348,7 @@
         # Create workflow
         
         try {
-            $Result = ConvertFrom-JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
+            $Result = ConvertFrom-BetaJsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
             New-BetaWorkflow -CreateWorkflowRequest $Result 
     
             # Below is a request that includes all optional parameters
@@ -14575,7 +14575,7 @@
         # Patch workflow
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
             Update-BetaWorkflow -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
@@ -14678,7 +14678,7 @@
         # Update workflow
         
         try {
-            $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
+            $Result = ConvertFrom-BetaJsonToWorkflowBody -Json $WorkflowBody
             Send-BetaWorkflow -Id $Id -WorkflowBody $Result 
     
             # Below is a request that includes all optional parameters
@@ -14723,7 +14723,7 @@
         # Test workflow by id
         
         try {
-            $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest
+            $Result = ConvertFrom-BetaJsonToTestWorkflowRequest -Json $TestWorkflowRequest
             Test-BetaWorkflow -Id $Id -TestWorkflowRequest $Result 
     
             # Below is a request that includes all optional parameters

@@ -83,7 +83,7 @@ $WorkgroupDto = @"{
 # Create a new governance group.
 
 try {
-    $Result = ConvertFrom-JsonToWorkgroupDto -Json $WorkgroupDto
+    $Result = ConvertFrom-BetaJsonToWorkgroupDto -Json $WorkgroupDto
     New-BetaWorkgroup -WorkgroupDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -181,7 +181,7 @@ $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governanc
 # Remove members from governance group
 
 try {
-    $Result = ConvertFrom-JsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
+    $Result = ConvertFrom-BetaJsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
     Remove-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result 
     
     # Below is a request that includes all optional parameters
@@ -240,7 +240,7 @@ $WorkgroupBulkDeleteRequest = @"{
 # Delete governance group(s)
 
 try {
-    $Result = ConvertFrom-JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
+    $Result = ConvertFrom-BetaJsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
     Remove-BetaWorkgroupsInBulk -WorkgroupBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -555,7 +555,7 @@ $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governanc
 # Add members to governance group
 
 try {
-    $Result = ConvertFrom-JsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
+    $Result = ConvertFrom-BetaJsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
     Update-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result 
     
     # Below is a request that includes all optional parameters

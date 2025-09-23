@@ -81,7 +81,7 @@ $UserLevelRequest = @"{
 # Create a custom user level
 
 try {
-    $Result = ConvertFrom-JsonToUserLevelRequest -Json $UserLevelRequest
+    $Result = ConvertFrom-V2025JsonToUserLevelRequest -Json $UserLevelRequest
     New-V2025CustomUserLevel -XSailPointExperimental $XSailPointExperimental -UserLevelRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -414,7 +414,7 @@ $JsonPatch = @"{
 # Update a user level
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+    $Result = ConvertFrom-V2025JsonToJsonPatch -Json $JsonPatch
     Update-V2025UserLevel -XSailPointExperimental $XSailPointExperimental -Id $Id -JsonPatch $Result 
     
     # Below is a request that includes all optional parameters

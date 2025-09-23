@@ -83,7 +83,7 @@ $SourceAppCreateDto = @"{
 # Create source app
 
 try {
-    $Result = ConvertFrom-JsonToSourceAppCreateDto -Json $SourceAppCreateDto
+    $Result = ConvertFrom-V2025JsonToSourceAppCreateDto -Json $SourceAppCreateDto
     New-V2025SourceApp -XSailPointExperimental $XSailPointExperimental -SourceAppCreateDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -140,7 +140,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 # Bulk remove access profiles from the specified source app
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
     Remove-V2025AccessProfilesFromSourceAppByBulk -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
     # Below is a request that includes all optional parameters

@@ -77,7 +77,7 @@ $CreateOAuthClientRequest = @"{
 # Create oauth client
 
 try {
-    $Result = ConvertFrom-JsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
+    $Result = ConvertFrom-V2025JsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
     New-V2025OauthClient -CreateOAuthClientRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -268,7 +268,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 # Patch oauth client
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2025OauthClient -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

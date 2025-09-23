@@ -67,7 +67,7 @@ $AccessRequestRecommendationActionItemDto = @"{
 # Ignore access request recommendation
 
 try {
-    $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+    $Result = ConvertFrom-BetaJsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
     Add-BetaAccessRequestRecommendationsIgnoredItem -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -119,7 +119,7 @@ $AccessRequestRecommendationActionItemDto = @"{
 # Accept access request recommendation
 
 try {
-    $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+    $Result = ConvertFrom-BetaJsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
     Add-BetaAccessRequestRecommendationsRequestedItem -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -171,7 +171,7 @@ $AccessRequestRecommendationActionItemDto = @"{
 # Mark viewed access request recommendations
 
 try {
-    $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+    $Result = ConvertFrom-BetaJsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
     Add-BetaAccessRequestRecommendationsViewedItem -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -224,7 +224,7 @@ Code | Description  | Data Type
 # Bulk mark viewed access request recommendations
 
 try {
-    $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
+    $Result = ConvertFrom-BetaJsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
     Add-BetaAccessRequestRecommendationsViewedItems -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters

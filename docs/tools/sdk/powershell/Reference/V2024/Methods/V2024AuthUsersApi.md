@@ -118,7 +118,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
 # Auth user update
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024AuthUser -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

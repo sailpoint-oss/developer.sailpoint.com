@@ -77,7 +77,7 @@ $SourceSubtype = @"{
 # Create subtype
 
 try {
-    $Result = ConvertFrom-JsonToSourceSubtype -Json $SourceSubtype
+    $Result = ConvertFrom-V2025JsonToSourceSubtype -Json $SourceSubtype
     New-V2025MachineAccountSubtype -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -SourceSubtype $Result 
     
     # Below is a request that includes all optional parameters
@@ -465,7 +465,7 @@ $SourceSubtype = @"{
 # Patch subtype
 
 try {
-    $Result = ConvertFrom-JsonToSourceSubtype -Json $SourceSubtype
+    $Result = ConvertFrom-V2025JsonToSourceSubtype -Json $SourceSubtype
     Update-V2025MachineAccountSubtype -SubtypeId $SubtypeId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental -SourceSubtype $Result 
     
     # Below is a request that includes all optional parameters
@@ -522,7 +522,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON 
 # Update a machine account
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
     Update-V2025MachineAccount -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
     # Below is a request that includes all optional parameters

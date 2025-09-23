@@ -177,7 +177,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON 
 # Update a machine account
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-V2024JsonToRequestBody -Json $RequestBody
     Update-V2024MachineAccount -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
     # Below is a request that includes all optional parameters

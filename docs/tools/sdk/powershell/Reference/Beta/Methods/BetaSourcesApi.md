@@ -13,7 +13,7 @@ tags: ['SDK', 'Software Development Kit', 'Sources', 'BetaSources']
   Use this API to implement and customize source functionality.
 With source functionality in place, organizations can use Identity Security Cloud to connect their various sources and user data sets and manage access across all those different sources in a secure, scalable way.
 
-[Sources](https://documentation.sailpoint.com/saas/help/sources/index.html) refer to the Identity Security Cloud representations for external applications, databases, and directory management systems that maintain their own sets of users, like Dropbox, GitHub, and Workday, for example.
+[Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) refer to the Identity Security Cloud representations for external applications, databases, and directory management systems that maintain their own sets of users, like Dropbox, GitHub, and Workday, for example.
 Organizations may use hundreds, if not thousands, of different source systems, and any one employee within an organization likely has a different user record on each source, often with different permissions on many of those records.
 Connecting these sources to Identity Security Cloud makes it possible to manage user access across them all.
 Then, if a new hire starts at an organization, Identity Security Cloud can grant the new hire access to all the sources they need.
@@ -63,10 +63,10 @@ To define the mapping between the source account attributes and their correlatin
 Refer to [Assigning Source Accounts to Identities](https://documentation.sailpoint.com/saas/help/accounts/correlation.html) for more information about this correlation process between source accounts and identities.
 
 Admins can also delete sources, but they must first ensure that the sources no longer have any active connections: the source must not be associated with any identity profile or any app, and it must not be referenced by any transform.
-Refer to [Deleting Sources](https://documentation.sailpoint.com/saas/help/sources/index.html#deleting-sources) for more information about deleting sources.
+Refer to [Deleting Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html#deleting-sources) for more information about deleting sources.
 
 Well organized, mapped out connections between sources and Identity Security Cloud are essential to achieving comprehensive identity access governance across all the source systems organizations need.
-Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/index.html) for more information about all the different things admins can do with sources once they are connected.
+Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about all the different things admins can do with sources once they are connected.
  
   
 
@@ -122,7 +122,7 @@ Method | HTTP request | Description
 ## create-provisioning-policy
 This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
-Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-provisioning-policy)
 
@@ -197,7 +197,7 @@ $ProvisioningPolicyDto = @"{
 # Create provisioning policy
 
 try {
-    $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
+    $Result = ConvertFrom-BetaJsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
     New-BetaProvisioningPolicy -SourceId $SourceId -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -328,7 +328,7 @@ $ProvisionAsCsv = $false # Boolean | If this parameter is `true`, it configures 
 # Creates a source in identitynow.
 
 try {
-    $Result = ConvertFrom-JsonToSource -Json $Source
+    $Result = ConvertFrom-BetaJsonToSource -Json $Source
     New-BetaSource -Source $Result 
     
     # Below is a request that includes all optional parameters
@@ -409,7 +409,7 @@ $Schema = @"{
 # Create schema on source
 
 try {
-    $Result = ConvertFrom-JsonToSchema -Json $Schema
+    $Result = ConvertFrom-BetaJsonToSchema -Json $Schema
     New-BetaSourceSchema -SourceId $SourceId -Schema $Result 
     
     # Below is a request that includes all optional parameters
@@ -1630,7 +1630,7 @@ $ResourceObjectsRequest = @"{
 # Peek source connector's resource objects
 
 try {
-    $Result = ConvertFrom-JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
+    $Result = ConvertFrom-BetaJsonToResourceObjectsRequest -Json $ResourceObjectsRequest
     Receive-BetaResourceObjects -SourceId $SourceId -ResourceObjectsRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -1748,7 +1748,7 @@ $CorrelationConfig = @"{
 # Update source correlation configuration
 
 try {
-    $Result = ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
+    $Result = ConvertFrom-BetaJsonToCorrelationConfig -Json $CorrelationConfig
     Send-BetaCorrelationConfig -SourceId $SourceId -CorrelationConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -1806,7 +1806,7 @@ $NativeChangeDetectionConfig = @"{
 # Update native change detection configuration
 
 try {
-    $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
+    $Result = ConvertFrom-BetaJsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
     Send-BetaNativeChangeDetectionConfig -SourceId $SourceId -NativeChangeDetectionConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -1821,7 +1821,7 @@ try {
 ## put-provisioning-policy
 This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
-Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-provisioning-policy)
 
@@ -1898,7 +1898,7 @@ $ProvisioningPolicyDto = @"{
 # Update provisioning policy by usagetype
 
 try {
-    $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
+    $Result = ConvertFrom-BetaJsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
     Send-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -2043,7 +2043,7 @@ $Source = @"{
 # Update source (full)
 
 try {
-    $Result = ConvertFrom-JsonToSource -Json $Source
+    $Result = ConvertFrom-BetaJsonToSource -Json $Source
     Send-BetaSource -Id $Id -Source $Result 
     
     # Below is a request that includes all optional parameters
@@ -2111,7 +2111,7 @@ $AttrSyncSourceConfig = @"{
 # Update attribute sync config
 
 try {
-    $Result = ConvertFrom-JsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
+    $Result = ConvertFrom-BetaJsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
     Send-BetaSourceAttrSyncConfig -Id $Id -AttrSyncSourceConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -2200,7 +2200,7 @@ $Schema = @"{
 # Update source schema (full)
 
 try {
-    $Result = ConvertFrom-JsonToSchema -Json $Schema
+    $Result = ConvertFrom-BetaJsonToSchema -Json $Schema
     Send-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Result 
     
     # Below is a request that includes all optional parameters
@@ -2430,7 +2430,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 # Bulk update provisioning policies
 
 try {
-    $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
+    $Result = ConvertFrom-BetaJsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
     Update-BetaProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -2445,7 +2445,7 @@ try {
 ## update-provisioning-policy
 This API selectively updates an existing Provisioning Policy using a JSONPatch payload.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
-Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-provisioning-policy)
 
@@ -2488,7 +2488,7 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 # Partial update of provisioning policy
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -2558,7 +2558,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 # Update source (partial)
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaSource -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -2634,7 +2634,7 @@ $SourceEntitlementRequestConfig = @"{
 # Update source entitlement request configuration
 
 try {
-    $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
+    $Result = ConvertFrom-BetaJsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
     Update-BetaSourceEntitlementRequestConfig -SourceId $SourceId -SourceEntitlementRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -2719,7 +2719,7 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 # Update source schema (partial)
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

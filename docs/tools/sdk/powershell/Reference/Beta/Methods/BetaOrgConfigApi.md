@@ -151,7 +151,7 @@ Code | Description  | Data Type
 # Patch an org configuration property
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaOrgConfig -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

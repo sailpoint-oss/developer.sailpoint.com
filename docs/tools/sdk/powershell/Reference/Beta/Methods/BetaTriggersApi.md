@@ -48,7 +48,9 @@ Triggers that are in-development and not ready for production use.  Please conta
 | Name | ID | Type | Trigger condition |
 |-|-|-|-|
 | [Identity Deleted](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/identity-deleted/) | idn:identity-deleted | FIRE_AND_FORGET | After an identity is deleted. |
-|
+| [Source Account Created](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/source-account-created/) | idn:source-account-created | FIRE_AND_FORGET | After a source account is created. |
+| [Source Account Deleted](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/source-account-deleted/) | idn:source-account-deleted | FIRE_AND_FORGET | After a source account is deleted. |
+| [Source Account Updated](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/source-account-updated/) | idn:source-account-updated | FIRE_AND_FORGET | After a source account is changed. |
  
   
 
@@ -110,7 +112,7 @@ $CompleteInvocation = @"{
 # Complete trigger invocation
 
 try {
-    $Result = ConvertFrom-JsonToCompleteInvocation -Json $CompleteInvocation
+    $Result = ConvertFrom-BetaJsonToCompleteInvocation -Json $CompleteInvocation
     Complete-BetaTriggerInvocation -Id $Id -CompleteInvocation $Result 
     
     # Below is a request that includes all optional parameters
@@ -182,7 +184,7 @@ $SubscriptionPostRequest = @"{
 # Create a subscription
 
 try {
-    $Result = ConvertFrom-JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
+    $Result = ConvertFrom-BetaJsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
     New-BetaSubscription -SubscriptionPostRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -441,7 +443,7 @@ $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | ID of the Subscription t
 # Patch a subscription
 
 try {
-    $Result = ConvertFrom-JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
+    $Result = ConvertFrom-BetaJsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
     Update-BetaSubscription -Id $Id -SubscriptionPatchRequestInner $Result 
     
     # Below is a request that includes all optional parameters
@@ -497,7 +499,7 @@ $TestInvocation = @"{
 # Start a test invocation
 
 try {
-    $Result = ConvertFrom-JsonToTestInvocation -Json $TestInvocation
+    $Result = ConvertFrom-BetaJsonToTestInvocation -Json $TestInvocation
     Start-BetaTestTriggerInvocation -TestInvocation $Result 
     
     # Below is a request that includes all optional parameters
@@ -549,7 +551,7 @@ $ValidateFilterInputDto = @"{
 # Validate a subscription filter
 
 try {
-    $Result = ConvertFrom-JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
+    $Result = ConvertFrom-BetaJsonToValidateFilterInputDto -Json $ValidateFilterInputDto
     Test-BetaSubscriptionFilter -ValidateFilterInputDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -630,7 +632,7 @@ $SubscriptionPutRequest = @"{
 # Update a subscription
 
 try {
-    $Result = ConvertFrom-JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
+    $Result = ConvertFrom-BetaJsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
     Update-BetaSubscription -Id $Id -SubscriptionPutRequest $Result 
     
     # Below is a request that includes all optional parameters

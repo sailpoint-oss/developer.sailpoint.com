@@ -69,7 +69,7 @@ $ManagedClusterType = @"{
 # Create new managed cluster type
 
 try {
-    $Result = ConvertFrom-JsonToManagedClusterType -Json $ManagedClusterType
+    $Result = ConvertFrom-V2024JsonToManagedClusterType -Json $ManagedClusterType
     New-V2024ManagedClusterType -ManagedClusterType $Result 
     
     # Below is a request that includes all optional parameters
@@ -277,7 +277,7 @@ $JsonPatch = @"{
 # Update a managed cluster type
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+    $Result = ConvertFrom-V2024JsonToJsonPatch -Json $JsonPatch
     Update-V2024ManagedClusterType -Id $Id -JsonPatch $Result 
     
     # Below is a request that includes all optional parameters

@@ -118,7 +118,7 @@ $ServiceDeskIntegrationDto = @"{
 # Create new service desk integration
 
 try {
-    $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
+    $Result = ConvertFrom-BetaJsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
     New-BetaServiceDeskIntegration -ServiceDeskIntegrationDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -452,7 +452,7 @@ $Id = "anId" # String | ID of the Service Desk integration to update
 # Patch a service desk integration
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaServiceDeskIntegration -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -531,7 +531,7 @@ $ServiceDeskIntegrationDto = @"{
 # Update a service desk integration
 
 try {
-    $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
+    $Result = ConvertFrom-BetaJsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
     Send-BetaServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -581,7 +581,7 @@ $QueuedCheckConfigDetails = @"{
 # Update the time check configuration
 
 try {
-    $Result = ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
+    $Result = ConvertFrom-BetaJsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
     Update-BetaStatusCheckDetails -QueuedCheckConfigDetails $Result 
     
     # Below is a request that includes all optional parameters

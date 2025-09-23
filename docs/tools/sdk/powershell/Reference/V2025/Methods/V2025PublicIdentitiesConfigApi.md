@@ -122,7 +122,7 @@ $PublicIdentityConfig = @"{
 # Update the public identities configuration
 
 try {
-    $Result = ConvertFrom-JsonToPublicIdentityConfig -Json $PublicIdentityConfig
+    $Result = ConvertFrom-V2025JsonToPublicIdentityConfig -Json $PublicIdentityConfig
     Update-V2025PublicIdentityConfig -PublicIdentityConfig $Result 
     
     # Below is a request that includes all optional parameters

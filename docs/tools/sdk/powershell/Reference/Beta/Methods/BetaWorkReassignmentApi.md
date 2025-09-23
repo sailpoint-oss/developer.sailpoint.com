@@ -78,7 +78,7 @@ $ConfigurationItemRequest = @"{
 # Create a reassignment configuration
 
 try {
-    $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
+    $Result = ConvertFrom-BetaJsonToConfigurationItemRequest -Json $ConfigurationItemRequest
     New-BetaReassignmentConfiguration -ConfigurationItemRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -411,7 +411,7 @@ $ConfigurationItemRequest = @"{
 # Update reassignment configuration
 
 try {
-    $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
+    $Result = ConvertFrom-BetaJsonToConfigurationItemRequest -Json $ConfigurationItemRequest
     Send-BetaReassignmentConfig -IdentityId $IdentityId -ConfigurationItemRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -461,7 +461,7 @@ $TenantConfigurationRequest = @"{
 # Update tenant-wide reassignment configuration settings
 
 try {
-    $Result = ConvertFrom-JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
+    $Result = ConvertFrom-BetaJsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
     Send-BetaTenantConfiguration -TenantConfigurationRequest $Result 
     
     # Below is a request that includes all optional parameters

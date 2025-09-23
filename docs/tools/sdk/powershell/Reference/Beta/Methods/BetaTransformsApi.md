@@ -84,7 +84,7 @@ $Transform = @"{
 # Create transform
 
 try {
-    $Result = ConvertFrom-JsonToTransform -Json $Transform
+    $Result = ConvertFrom-BetaJsonToTransform -Json $Transform
     New-BetaTransform -Transform $Result 
     
     # Below is a request that includes all optional parameters

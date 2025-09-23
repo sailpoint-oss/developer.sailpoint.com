@@ -139,7 +139,7 @@ $ManagedClientStatus = @"{
 # Handle status request from client
 
 try {
-    $Result = ConvertFrom-JsonToManagedClientStatus -Json $ManagedClientStatus
+    $Result = ConvertFrom-BetaJsonToManagedClientStatus -Json $ManagedClientStatus
     Update-BetaManagedClientStatus -Id $Id -ManagedClientStatus $Result 
     
     # Below is a request that includes all optional parameters

@@ -87,7 +87,7 @@ $CreateScheduledSearchRequest = @"{savedSearchId=9c620e13-cd33-4804-a13d-403bd7b
 # Create a new scheduled search
 
 try {
-    $Result = ConvertFrom-JsonToCreateScheduledSearchRequest -Json $CreateScheduledSearchRequest
+    $Result = ConvertFrom-V2025JsonToCreateScheduledSearchRequest -Json $CreateScheduledSearchRequest
     New-V2025ScheduledSearch -CreateScheduledSearchRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -283,7 +283,7 @@ $TypedReference = @"{
 # Unsubscribe a recipient from scheduled search
 
 try {
-    $Result = ConvertFrom-JsonToTypedReference -Json $TypedReference
+    $Result = ConvertFrom-V2025JsonToTypedReference -Json $TypedReference
     Invoke-V2025UnsubscribeScheduledSearch -Id $Id -TypedReference $Result 
     
     # Below is a request that includes all optional parameters
@@ -423,7 +423,7 @@ $ScheduledSearch = @"{
 # Update an existing scheduled search
 
 try {
-    $Result = ConvertFrom-JsonToScheduledSearch -Json $ScheduledSearch
+    $Result = ConvertFrom-V2025JsonToScheduledSearch -Json $ScheduledSearch
     Update-V2025ScheduledSearch -Id $Id -ScheduledSearch $Result 
     
     # Below is a request that includes all optional parameters

@@ -154,7 +154,7 @@ $SodPolicy = @"{
 # Create sod policy
 
 try {
-    $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
+    $Result = ConvertFrom-BetaJsonToSodPolicy -Json $SodPolicy
     New-BetaSodPolicy -SodPolicy $Result 
     
     # Below is a request that includes all optional parameters
@@ -717,7 +717,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of SOD Policy update ope
 # Patch a sod policy
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-BetaJsonToRequestBody -Json $RequestBody
     Update-BetaSodPolicy -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -854,7 +854,7 @@ $SodPolicySchedule = @"{
 # Update sod policy schedule
 
 try {
-    $Result = ConvertFrom-JsonToSodPolicySchedule -Json $SodPolicySchedule
+    $Result = ConvertFrom-BetaJsonToSodPolicySchedule -Json $SodPolicySchedule
     Send-BetaPolicySchedule -Id $Id -SodPolicySchedule $Result 
     
     # Below is a request that includes all optional parameters
@@ -962,7 +962,7 @@ $SodPolicy = @"{
 # Update sod policy by id
 
 try {
-    $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
+    $Result = ConvertFrom-BetaJsonToSodPolicy -Json $SodPolicy
     Send-BetaSodPolicy -Id $Id -SodPolicy $Result 
     
     # Below is a request that includes all optional parameters

@@ -23,7 +23,7 @@ Refer to [Identity Security Cloud Connectors](https://documentation.sailpoint.co
 
 Refer to [SaaS Connectivity](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/) for more information about the SaaS custom connectors that do not need VAs (virtual appliances) to communicate with their sources.
 
-Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/index.html) for more information about using connectors in Identity Security Cloud.
+Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about using connectors in Identity Security Cloud.
  
   
 
@@ -87,7 +87,7 @@ $V3CreateConnectorDto = @"{
 # Create custom connector
 
 try {
-    $Result = ConvertFrom-JsonToV3CreateConnectorDto -Json $V3CreateConnectorDto
+    $Result = ConvertFrom-V2025JsonToV3CreateConnectorDto -Json $V3CreateConnectorDto
     New-V2025CustomConnector -V3CreateConnectorDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -679,7 +679,7 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 # Update connector by script name
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2025Connector -ScriptName $ScriptName -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

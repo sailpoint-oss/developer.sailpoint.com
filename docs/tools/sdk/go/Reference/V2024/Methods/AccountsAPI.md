@@ -36,7 +36,7 @@ Accounts can have the following statuses:
 
 Administrators can select the source account to view its attributes, entitlements, and the last time the account&#39;s password was changed.
 
-Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
+Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/accounts/identities.html?h&#x3D;disabling+identities#managing-access) for more information about accounts.
  
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

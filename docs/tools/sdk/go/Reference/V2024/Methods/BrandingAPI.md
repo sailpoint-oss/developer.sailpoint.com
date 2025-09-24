@@ -14,7 +14,7 @@ tags: ['SDK', 'Software Development Kit', 'Branding', 'V2024Branding']
 With this functionality in place, administrators can get and manage existing branding items, and they can also create new branding items and configure them for use throughout Identity Security Cloud. 
 The Branding APIs provide administrators with a way to customize branding items. 
 This customization includes details like their colors, logos, and other information. 
-Refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html) for more information about certifications.
+Refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certs/reviewing/index.html) for more information about certifications.
  
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

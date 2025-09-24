@@ -27,7 +27,7 @@ get:
         If specified, returns only entitlements associated with the given Account.
         Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or
         **include-unsegmented** param(s).
-        This parameter is deprecated. Please use [Account Entitlements API](https://developer.sailpoint.com/apis/beta/#operation/getAccountEntitlements) to get account entitlements.
+        This parameter is deprecated. Please use [Account Entitlements API](https://developer.sailpoint.com/docs/api/v2025/get-account-entitlements/) to get account entitlements.
       deprecated: true
       example: ef38f94347e94562b5bb8424a56397d8
       required: false

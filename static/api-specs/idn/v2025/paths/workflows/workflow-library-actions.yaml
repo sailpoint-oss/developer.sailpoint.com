@@ -7,7 +7,7 @@ get:
     This lists the workflow actions available to you.
   externalDocs:
     description: Additional documentation for each action
-    url: https://documentation.sailpoint.com/saas/help/workflows/workflow-steps.html#actions
+    url: https://documentation.sailpoint.com/saas/help/workflows/index.html#actions
   parameters:
     - $ref: '../../parameters/limit.yaml'
     - $ref: '../../parameters/offset.yaml'

@@ -57,7 +57,7 @@ properties:
     example: dateFormat
     externalDocs:
       description: Transform Operations
-      url: https://developer.sailpoint.com/idn/docs/transforms/operations
+      url: https://developer.sailpoint.com/docs/extensibility/transforms/operations
   attributes:
     description: >-
       Meta-data about the transform. Values in this list are specific to the type of transform to be executed.

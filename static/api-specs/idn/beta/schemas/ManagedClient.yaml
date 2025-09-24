@@ -21,7 +21,7 @@ properties:
     description: ManagedClient gateway base url
     readOnly: true
     type: string
-    example: https://denali-xxx.api.cloud.sailpoint.com
+    example: https://example-tenant.api.identitynow.com
   ccId:
     description: Previous CC ID to be used in data migration. (This field will be deleted after CC migration!)
     type: integer

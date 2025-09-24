@@ -45,4 +45,4 @@ properties:
     example: '$[?($.identityId == "201327fda1c44704ac01181e963d463c")]'
     externalDocs:
       description: JSONPath filter documentation
-      url: https://developer.sailpoint.com/idn/docs/event-triggers/filtering-events
+      url: https://developer.sailpoint.com/docs/extensibility/event-triggers/filtering-events

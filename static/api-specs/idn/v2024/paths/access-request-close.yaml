@@ -32,7 +32,7 @@ post:
     IDs that finished in error.
 
 
-    This API triggers the [Provisioning Completed event trigger](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-completed/)
+    This API triggers the [Provisioning Completed event trigger](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/provisioning-completed/)
     for each access request that is closed.
 
     '

@@ -7,7 +7,7 @@ post:
     in the request body.
   externalDocs:
     description: Learn more about enabling identities here
-    url: https://documentation.sailpoint.com/saas/help/common/users/user_access.html#enabling-user-identities
+    url: https://documentation.sailpoint.com/saas/help/accounts/identities.html?h=disabling+identities#enabling-identities
   security:
   - userAuth:
     - idn:accounts-state:manage

@@ -213,7 +213,7 @@ components:
           description: Optional URL associated with the issue
           type: string
           nullable: true
-          example: "https://sample.com:80/"
+          example: "https://example.com:80/"
         timestamp:
           description: Time when the event occurred
           type: string

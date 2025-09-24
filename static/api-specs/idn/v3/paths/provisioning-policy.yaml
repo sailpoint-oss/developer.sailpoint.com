@@ -74,7 +74,7 @@ put:
 
     Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
     
-    Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
+    Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
   security:
     - userAuth: [idn:provisioning-policy:manage, idn:provisioning-policy-source-admin-operations:manage]
     - applicationAuth: [idn:provisioning-policy:manage, idn:provisioning-policy-source-admin-operations:manage]
@@ -150,7 +150,7 @@ patch:
 
     Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
     
-    Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
+    Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
   security:
     - userAuth: [idn:provisioning-policy:update]
     - applicationAuth: [idn:provisioning-policy:update]

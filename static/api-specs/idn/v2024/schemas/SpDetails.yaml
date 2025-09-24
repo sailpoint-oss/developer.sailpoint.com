@@ -10,7 +10,7 @@ allOf:
       callbackUrl:
         type: string
         description: The allowed callback URL where users will be redirected to after authentication. Used with SP configurations.
-        example: https://stradbroke-sso.identitysoon.com/sso/Consumer/metaAlias/cdov-saml/sp
+        example: https://example-tenant.identitynow.com/sso/Consumer/metaAlias/example-tenant-sp
       legacyAcsUrl:
         type: string
         description: The legacy ACS URL used for SAML authentication. Used with SP configurations.

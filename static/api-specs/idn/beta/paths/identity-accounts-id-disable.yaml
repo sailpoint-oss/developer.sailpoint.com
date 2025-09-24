@@ -10,7 +10,7 @@ post:
     This API has been deprecated, please refer to [Disable IDN Account for Identity](https://developer.sailpoint.com/docs/api/v2025/disable-account-for-identity) for latest API.
   externalDocs:
     description: 'Learn more about disabling identities here'
-    url: 'https://documentation.sailpoint.com/saas/help/common/users/user_access.html#disabling-user-identities'
+    url: 'https://documentation.sailpoint.com/saas/help/accounts/identities.html?h=disabling+identities#disabling-identities'
   security:
     - userAuth: [idn:accounts-state:manage]
   x-sailpoint-userLevels:

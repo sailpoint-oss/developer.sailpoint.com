@@ -18,7 +18,7 @@ properties:
   externalReference:
     type: string
     description: URL to "what if" details in ARM
-    example: https://webui-dev.erpmaestro.com/home/what-if-report/100000
+    example: https://documentation.sailpoint.com/access-risk-mgmt/help/whatif/index.html
   rating:
     type: string
     description: Risk Rating

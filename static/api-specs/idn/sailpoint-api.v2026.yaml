@@ -51,13 +51,13 @@ components:
         See [Identity Security Cloud REST API Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information.
       flows:
         clientCredentials:
-          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          tokenUrl: https://example-tenant.api.identitynow.com/oauth/token
           scopes:
             "sp:scopes:default": "default scope"
             "sp:scopes:all": "access to all scopes"
         authorizationCode:
-          authorizationUrl: https://tenant.login.sailpoint.com/oauth/authorize
-          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          authorizationUrl: https://example-tenant.login.sailpoint.com/oauth/authorize
+          tokenUrl: https://example-tenant.api.identitynow.com/oauth/token
           scopes:
             "sp:scopes:default": "default scope"
             "sp:scopes:all": "access to all scopes"
@@ -72,7 +72,7 @@ components:
         See [Identity Security Cloud REST API Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information.
       flows:
         clientCredentials:
-          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          tokenUrl: https://example-tenant.api.identitynow.com/oauth/token
           scopes:
             "sp:scopes:default": "default scope"
             "sp:scopes:all": "access to all scopes"

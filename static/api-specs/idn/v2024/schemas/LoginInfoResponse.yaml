@@ -12,7 +12,7 @@ properties:
   loginUrl:
     type: string
     description: the login endpoint for the associated tenant.
-    example: "https://some-org.identitynow.com/login/login"
+    example: "https://example-tenant.identitynow.com/login/login"
 required:
   - id
   - publicKey

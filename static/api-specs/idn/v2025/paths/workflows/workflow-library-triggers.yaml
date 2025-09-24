@@ -7,7 +7,7 @@ get:
     This lists the workflow triggers available to you
   externalDocs:
     description: Additional documentation for each trigger
-    url: https://documentation.sailpoint.com/saas/help/workflows/workflow-steps.html#triggers
+    url: https://documentation.sailpoint.com/saas/help/workflows/index.html#triggers
   parameters:
     - $ref: '../../parameters/limit.yaml'
     - $ref: '../../parameters/offset.yaml'

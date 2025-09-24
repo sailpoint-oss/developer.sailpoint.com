@@ -7,7 +7,7 @@ get:
     This lists all triggers, actions, and operators in the library
   externalDocs:
     description: Additional documentation for workflows
-    url: https://documentation.sailpoint.com/saas/help/workflows/workflow-steps.html
+    url: https://documentation.sailpoint.com/saas/help/workflows/index.html
   parameters:
     - $ref: '../../parameters/limit.yaml'
     - $ref: '../../parameters/offset.yaml'

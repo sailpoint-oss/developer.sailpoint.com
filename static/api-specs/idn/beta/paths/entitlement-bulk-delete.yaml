@@ -7,7 +7,7 @@ post:
     This endpoint initiates a bulk deletion of one or more entitlements.
 
     When the request is successful, the endpoint returns the bulk delete's task result ID. 
-    To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/internal/entitlements/bulk-delete-status), which will return the task result's status and information. 
+    To follow the task, you can use Get Task Status by ID, which will return the task result's status and information. 
 
     This endpoint can only bulk delete up to a limit of 50 entitlements per request.
   security:

@@ -59,7 +59,7 @@ mapping_attribute='email',
 certificate_expiration_date='Fri Mar 08 08:54:24 UTC 2013',
 certificate_name='OU=Conext, O=Surfnet, L=Utrecht, ST=Utrecht, C=NL',
 alias='acme-sp',
-callback_url='https://stradbroke-sso.identitysoon.com/sso/Consumer/metaAlias/cdov-saml/sp',
+callback_url='https://example-tenant.identitynow.com/sso/Consumer/metaAlias/example-tenant-sp',
 legacy_acs_url='https://megapod-useast1-sso.identitysoon.com/sso/Consumer/metaAlias/acme/sp'
 )
 

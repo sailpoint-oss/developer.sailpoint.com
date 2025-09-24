@@ -32,7 +32,7 @@ external_attributes = ExternalAttributes(
 name='search-and-notify',
 description='Run a search and notify the results',
 client_id='87e239b2-b85b-4bde-b9a7-55bf304ddcdc',
-url='https://tenant.api.identitynow.com/beta/workflows/execute/external/c79e0079-562c-4df5-aa73-60a9e25c916d'
+url='https://example-tenant.api.identitynow.com/beta/workflows/execute/external/c79e0079-562c-4df5-aa73-60a9e25c916d'
 )
 
 ```

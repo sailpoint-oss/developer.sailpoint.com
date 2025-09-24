@@ -20,7 +20,7 @@ In Identity Security Cloud, users can do the following to create and manage thei
 They must then provide a description about the token&#39;s purpose.
 They can then select &#39;Create Token&#39; at the bottom of the page to generate and view the Secret and Client ID.
 
-Refer to [Managing Personal Access Tokens](https://documentation.sailpoint.com/saas/help/common/generate_tokens.html) for more information about PATs.
+Refer to [Managing Personal Access Tokens](https://documentation.sailpoint.com/saas/help/common/api_keys.html?h&#x3D;token#generating-a-personal-access-token) for more information about PATs.
  
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

@@ -74,7 +74,7 @@ In this situation, the certification campaign completes once all the remediation
 
 The end of a certification campaign is determined by its deadline, its completion status, or by an administrator&#39;s decision.
 
-For more information about certifications and certification campaigns, refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html).
+For more information about certifications and certification campaigns, refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certs/reviewing/index.html).
  
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -1133,7 +1133,7 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 List campaign templates
-Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/list-campaign-templates).
+Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v2025/get-campaign-templates).
 
 The endpoint returns all campaign templates matching the query parameters.
 

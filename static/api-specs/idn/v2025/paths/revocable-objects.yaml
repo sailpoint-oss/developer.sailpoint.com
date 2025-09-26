@@ -11,14 +11,6 @@ get:
     - ORG_ADMIN
     - USER
   parameters:
-    - name: X-SailPoint-Experimental
-      in: header
-      description: Use this header to enable this experimental API.
-      example: true
-      schema:
-        type: string
-        default: true
-      required: true
     - in: path
       name: identityId
       schema:

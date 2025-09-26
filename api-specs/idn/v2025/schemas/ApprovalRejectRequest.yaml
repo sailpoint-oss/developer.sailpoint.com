@@ -1,0 +1,8 @@
+type: object
+properties:
+  comment:
+    type: string
+    description: Comment associated with the reject request.
+    example: "string"
+description: >-
+  Request body for rejecting an approval request.

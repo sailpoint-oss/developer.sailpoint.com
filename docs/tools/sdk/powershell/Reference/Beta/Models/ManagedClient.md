@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 ```powershell
 $ManagedClient = Initialize-BetaManagedClient  -Id aClientId `
  -AlertKey anAlertKey `
- -ApiGatewayBaseUrl https://denali-xxx.api.cloud.sailpoint.com `
+ -ApiGatewayBaseUrl https://example-tenant.api.identitynow.com `
  -CcId 2248 `
  -ClientId aClientApiId `
  -ClusterId aClusterId `

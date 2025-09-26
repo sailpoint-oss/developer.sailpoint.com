@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 $SpDetails = Initialize-SpDetails  -Role SAML_IDP `
  -EntityId http://www.okta.com/exkdaruy8Ln5Ry7C54x6 `
  -Alias acme-sp `
- -CallbackUrl https://stradbroke-sso.identitysoon.com/sso/Consumer/metaAlias/cdov-saml/sp `
+ -CallbackUrl https://example-tenant.identitynow.com/sso/Consumer/metaAlias/example-tenant-sp `
  -LegacyAcsUrl https://megapod-useast1-sso.identitysoon.com/sso/Consumer/metaAlias/acme/sp
 ```
 

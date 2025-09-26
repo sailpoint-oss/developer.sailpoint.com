@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 ```powershell
 $HealthEvent = Initialize-V2025HealthEvent  -DetailedMessage CPU utilization is high `
  -Uuid 5 `
- -Url https://sample.com:80/ `
+ -Url https://example.com:80/ `
  -Timestamp 2025-03-25T14:46:58.605Z `
  -LastNotifiedTimeStamp 2025-08-06T06:53:22.206956Z `
  -CpuUtilizationPercentage 80 `

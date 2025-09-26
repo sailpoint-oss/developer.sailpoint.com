@@ -1051,17 +1051,16 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/access-requests#get-entitlement-details-for-identity
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $IdentityId = "7025c863c2704ba6beeaedf3cb091573" # String | The identity ID.
         $EntitlementId = "ef38f94347e94562b5bb8424a56397d8" # String | The entitlement ID
         
         # Identity entitlement details
         
         try {
-            Get-V2025EntitlementDetailsForIdentity -XSailPointExperimental $XSailPointExperimental -IdentityId $IdentityId -EntitlementId $EntitlementId 
+            Get-V2025EntitlementDetailsForIdentity -IdentityId $IdentityId -EntitlementId $EntitlementId 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025EntitlementDetailsForIdentity -XSailPointExperimental $XSailPointExperimental -IdentityId $IdentityId -EntitlementId $EntitlementId   
+            # Get-V2025EntitlementDetailsForIdentity -IdentityId $IdentityId -EntitlementId $EntitlementId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025EntitlementDetailsForIdentity"
             Write-Host $_.ErrorDetails

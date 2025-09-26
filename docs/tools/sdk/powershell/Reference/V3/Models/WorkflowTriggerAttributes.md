@@ -42,7 +42,7 @@ $WorkflowTriggerAttributes = Initialize-WorkflowTriggerAttributes  -Id idn:ident
  -FormDefinitionId Admin_Access_Request_Form `
  -Name search-and-notify `
  -ClientId 87e239b2-b85b-4bde-b9a7-55bf304ddcdc `
- -Url https://tenant.api.identitynow.com/beta/workflows/execute/external/c79e0079-562c-4df5-aa73-60a9e25c916d `
+ -Url https://example-tenant.api.identitynow.com/beta/workflows/execute/external/c79e0079-562c-4df5-aa73-60a9e25c916d `
  -Frequency daily `
  -TimeZone America/Chicago `
  -CronString 0 9 * * 1 `

@@ -24,7 +24,7 @@ Users can use My Requests to track and/or cancel the requests.
 In My Team on the Identity Security Cloud Home, managers can submit requests to revoke their team members&#39; access. 
 They can use the My Requests tab under Request Center to track and/or cancel the requests.
 
-Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html) for more information about access requests.
+Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/request_center.html) for more information about access requests.
  
   
 
@@ -208,7 +208,7 @@ Input the IDs from either source.
 
 To track the status of endpoint requests, navigate to Search and use this query: name:"Close Identity Requests". Search will include "Close Identity Requests Started" audits when requests are initiated and "Close Identity Requests Completed" audits when requests are completed. The completion audit will list the identity request IDs that finished in error.
 
-This API triggers the [Provisioning Completed event trigger](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-completed/) for each access request that is closed.
+This API triggers the [Provisioning Completed event trigger](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/provisioning-completed/) for each access request that is closed.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/close-access-request)
@@ -543,9 +543,6 @@ try {
 [[Back to top]](#) 
 
 ## get-entitlement-details-for-identity
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Use this API to return the details for a entitlement on an identity including specific data relating to remove date and the ability to revoke the identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-entitlement-details-for-identity)
@@ -553,7 +550,6 @@ Use this API to return the details for a entitlement on an identity including sp
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 Path   | IdentityId | **String** | True  | The identity ID.
 Path   | EntitlementId | **String** | True  | The entitlement ID
 
@@ -577,17 +573,16 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $IdentityId = "7025c863c2704ba6beeaedf3cb091573" # String | The identity ID.
 $EntitlementId = "ef38f94347e94562b5bb8424a56397d8" # String | The entitlement ID
 
 # Identity entitlement details
 
 try {
-    Get-V2025EntitlementDetailsForIdentity -XSailPointExperimental $XSailPointExperimental -IdentityId $IdentityId -EntitlementId $EntitlementId 
+    Get-V2025EntitlementDetailsForIdentity -IdentityId $IdentityId -EntitlementId $EntitlementId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025EntitlementDetailsForIdentity -XSailPointExperimental $XSailPointExperimental -IdentityId $IdentityId -EntitlementId $EntitlementId  
+    # Get-V2025EntitlementDetailsForIdentity -IdentityId $IdentityId -EntitlementId $EntitlementId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025EntitlementDetailsForIdentity"
     Write-Host $_.ErrorDetails

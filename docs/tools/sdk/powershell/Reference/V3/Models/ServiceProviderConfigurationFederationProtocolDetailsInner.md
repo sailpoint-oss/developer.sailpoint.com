@@ -53,7 +53,7 @@ $ServiceProviderConfigurationFederationProtocolDetailsInner = Initialize-Service
  -CertificateExpirationDate Fri Mar 08 08:54:24 UTC 2013 `
  -CertificateName OU=Conext, O=Surfnet, L=Utrecht, ST=Utrecht, C=NL `
  -Alias acme-sp `
- -CallbackUrl https://stradbroke-sso.identitysoon.com/sso/Consumer/metaAlias/cdov-saml/sp `
+ -CallbackUrl https://example-tenant.identitynow.com/sso/Consumer/metaAlias/example-tenant-sp `
  -LegacyAcsUrl https://megapod-useast1-sso.identitysoon.com/sso/Consumer/metaAlias/acme/sp
 ```
 

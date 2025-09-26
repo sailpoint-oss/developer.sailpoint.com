@@ -1197,18 +1197,16 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           identity_id = '7025c863c2704ba6beeaedf3cb091573' # str | The identity ID. # str | The identity ID.
           entitlement_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The entitlement ID # str | The entitlement ID
           try:
               # Identity entitlement details
               
-              results = AccessRequestsApi(api_client).get_entitlement_details_for_identity(x_sail_point_experimental=x_sail_point_experimental, identity_id=identity_id, entitlement_id=entitlement_id)
+              results = AccessRequestsApi(api_client).get_entitlement_details_for_identity(identity_id=identity_id, entitlement_id=entitlement_id)
               # Below is a request that includes all optional parameters
-              # results = AccessRequestsApi(api_client).get_entitlement_details_for_identity(x_sail_point_experimental, identity_id, entitlement_id)
+              # results = AccessRequestsApi(api_client).get_entitlement_details_for_identity(identity_id, entitlement_id)
               print("The response of AccessRequestsApi->get_entitlement_details_for_identity:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:

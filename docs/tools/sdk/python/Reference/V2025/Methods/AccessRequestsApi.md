@@ -613,17 +613,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-entitlement-details-for-identity
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Identity entitlement details
 Use this API to return the details for a entitlement on an identity including specific data relating to remove date and the ability to revoke the identity.
 
@@ -633,7 +622,6 @@ Use this API to return the details for a entitlement on an identity including sp
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 Path   | identity_id | **str** | True  | The identity ID.
 Path   | entitlement_id | **str** | True  | The entitlement ID
 
@@ -664,19 +652,17 @@ from sailpoint.v2025.models.identity_entitlement_details import IdentityEntitlem
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     identity_id = '7025c863c2704ba6beeaedf3cb091573' # str | The identity ID. # str | The identity ID.
     entitlement_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The entitlement ID # str | The entitlement ID
 
     try:
         # Identity entitlement details
         
-        results = AccessRequestsApi(api_client).get_entitlement_details_for_identity(x_sail_point_experimental=x_sail_point_experimental, identity_id=identity_id, entitlement_id=entitlement_id)
+        results = AccessRequestsApi(api_client).get_entitlement_details_for_identity(identity_id=identity_id, entitlement_id=entitlement_id)
         # Below is a request that includes all optional parameters
-        # results = AccessRequestsApi(api_client).get_entitlement_details_for_identity(x_sail_point_experimental, identity_id, entitlement_id)
+        # results = AccessRequestsApi(api_client).get_entitlement_details_for_identity(identity_id, entitlement_id)
         print("The response of AccessRequestsApi->get_entitlement_details_for_identity:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:

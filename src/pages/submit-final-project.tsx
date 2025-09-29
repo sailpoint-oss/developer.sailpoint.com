@@ -108,9 +108,6 @@ export default function SubmitFinalProject() {
         </h1>
       ) : (
         <>
-          <h1 style={{ fontSize: '2.5rem', marginBottom: '2rem', color: '#1a202c' }}>
-            Submit Your Final Project!
-          </h1>
           <button
             onClick={handleCelebrate}
             style={{
@@ -125,7 +122,7 @@ export default function SubmitFinalProject() {
               transition: 'background 0.2s',
             }}
           >
-            🎉 Submit & Celebrate!
+            Celebrate!
           </button>
         </>
       )}

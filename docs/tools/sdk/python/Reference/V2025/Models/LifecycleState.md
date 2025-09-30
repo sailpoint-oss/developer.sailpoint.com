@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **access_profile_ids** | **[]str** | List of unique access-profile IDs that are associated with the lifecycle state. | [optional] 
 **identity_state** |  **Enum** [  'ACTIVE',    'INACTIVE_SHORT_TERM',    'INACTIVE_LONG_TERM' ] | The lifecycle state's associated identity state. This field is generally 'null'. | [optional] 
 **access_action_configuration** | [**AccessActionConfiguration**](access-action-configuration) |  | [optional] 
-**priority** | **int** | Priority level used to determine which profile to assign when a user exists in multiple profiles. Lower numeric values have higher priority.  By default, new profiles are assigned the lowest priority. The assigned profile also controls access granted or removed during provisioning based on lifecycle state changes. | [optional] 
+**priority** | **int** | Used to control the order of lifecycle states when listing with `?sorters=priority`. Lower numbers appear first (ascending order). Out-of-the-box lifecycle states are assigned priorities in increments of 10. | [optional] 
 }
 
 ## Example

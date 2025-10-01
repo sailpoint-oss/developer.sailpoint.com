@@ -50,7 +50,7 @@ properties:
     example: Remove Message
     nullable: true
   owner:
-    $ref: '../../../v2025/schemas/BaseReferenceDto.yaml'
+    $ref: '../../../v2025/schemas/PublicIdentity.yaml'
     description: The owner of the UserLevel.
   status:
     type: string

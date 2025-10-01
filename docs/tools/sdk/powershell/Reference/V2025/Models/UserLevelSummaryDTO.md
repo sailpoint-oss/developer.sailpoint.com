@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **TranslatedName** | **String** | The translated name of the UserLevel. | [optional] 
 **TranslatedGrant** | **String** | The translated grant message for the UserLevel. | [optional] 
 **TranslatedRemove** | **String** | The translated remove message for the UserLevel. | [optional] 
-**Owner** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
+**Owner** | [**PublicIdentity**](public-identity) |  | [optional] 
 **Status** |  **Enum** [  "ACTIVE",    "DRAFT" ] | The status of the UserLevel. | [optional] 
 **Created** | **System.DateTime** | The creation timestamp of the UserLevel. | [optional] 
 **Modified** | **System.DateTime** | The last modification timestamp of the UserLevel. | [optional] 

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** | The name of the user level. | [required]
 **Description** | **String** | A brief description of the user level. | [required]
-**Owner** | [**BaseReferenceDto**](base-reference-dto) |  | [required]
+**Owner** | [**PublicIdentity**](public-identity) |  | [required]
 **RightSets** | **[]String** | A list of rights associated with the user level. | [optional] 
 
 ## Examples

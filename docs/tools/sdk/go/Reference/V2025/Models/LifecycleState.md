@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **AccessProfileIds** | Pointer to **[]string** | List of unique access-profile IDs that are associated with the lifecycle state. | [optional] 
 **IdentityState** | Pointer to **NullableString** | The lifecycle state's associated identity state. This field is generally 'null'. | [optional] 
 **AccessActionConfiguration** | Pointer to [**AccessActionConfiguration**](access-action-configuration) |  | [optional] 
-**Priority** | Pointer to **NullableInt32** | Priority level used to determine which profile to assign when a user exists in multiple profiles. Lower numeric values have higher priority.  By default, new profiles are assigned the lowest priority. The assigned profile also controls access granted or removed during provisioning based on lifecycle state changes. | [optional] 
+**Priority** | Pointer to **NullableInt32** | Used to control the order of lifecycle states when listing with `?sorters=priority`. Lower numbers appear first (ascending order). Out-of-the-box lifecycle states are assigned priorities in increments of 10. | [optional] 
 
 ## Methods
 

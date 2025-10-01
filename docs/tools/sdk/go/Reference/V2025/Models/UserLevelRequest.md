@@ -17,14 +17,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | The name of the user level. | 
 **Description** | **string** | A brief description of the user level. | 
-**Owner** | [**BaseReferenceDto**](base-reference-dto) |  | 
+**Owner** | [**PublicIdentity**](public-identity) |  | 
 **RightSets** | Pointer to **[]string** | A list of rights associated with the user level. | [optional] 
 
 ## Methods
 
 ### NewUserLevelRequest
 
-`func NewUserLevelRequest(name string, description string, owner BaseReferenceDto, ) *UserLevelRequest`
+`func NewUserLevelRequest(name string, description string, owner PublicIdentity, ) *UserLevelRequest`
 
 NewUserLevelRequest instantiates a new UserLevelRequest object
 This constructor will assign default values to properties that have it defined,
@@ -81,20 +81,20 @@ SetDescription sets Description field to given value.
 
 ### GetOwner
 
-`func (o *UserLevelRequest) GetOwner() BaseReferenceDto`
+`func (o *UserLevelRequest) GetOwner() PublicIdentity`
 
 GetOwner returns the Owner field if non-nil, zero value otherwise.
 
 ### GetOwnerOk
 
-`func (o *UserLevelRequest) GetOwnerOk() (*BaseReferenceDto, bool)`
+`func (o *UserLevelRequest) GetOwnerOk() (*PublicIdentity, bool)`
 
 GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOwner
 
-`func (o *UserLevelRequest) SetOwner(v BaseReferenceDto)`
+`func (o *UserLevelRequest) SetOwner(v PublicIdentity)`
 
 SetOwner sets Owner field to given value.
 

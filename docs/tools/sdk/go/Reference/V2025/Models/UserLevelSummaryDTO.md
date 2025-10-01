@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **TranslatedName** | Pointer to **NullableString** | The translated name of the UserLevel. | [optional] 
 **TranslatedGrant** | Pointer to **NullableString** | The translated grant message for the UserLevel. | [optional] 
 **TranslatedRemove** | Pointer to **NullableString** | The translated remove message for the UserLevel. | [optional] 
-**Owner** | Pointer to [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
+**Owner** | Pointer to [**PublicIdentity**](public-identity) |  | [optional] 
 **Status** | Pointer to **string** | The status of the UserLevel. | [optional] 
 **Created** | Pointer to **SailPointTime** | The creation timestamp of the UserLevel. | [optional] 
 **Modified** | Pointer to **SailPointTime** | The last modification timestamp of the UserLevel. | [optional] 
@@ -352,20 +352,20 @@ HasTranslatedRemove returns a boolean if a field has been set.
 UnsetTranslatedRemove ensures that no value is present for TranslatedRemove, not even an explicit nil
 ### GetOwner
 
-`func (o *UserLevelSummaryDTO) GetOwner() BaseReferenceDto`
+`func (o *UserLevelSummaryDTO) GetOwner() PublicIdentity`
 
 GetOwner returns the Owner field if non-nil, zero value otherwise.
 
 ### GetOwnerOk
 
-`func (o *UserLevelSummaryDTO) GetOwnerOk() (*BaseReferenceDto, bool)`
+`func (o *UserLevelSummaryDTO) GetOwnerOk() (*PublicIdentity, bool)`
 
 GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOwner
 
-`func (o *UserLevelSummaryDTO) SetOwner(v BaseReferenceDto)`
+`func (o *UserLevelSummaryDTO) SetOwner(v PublicIdentity)`
 
 SetOwner sets Owner field to given value.
 

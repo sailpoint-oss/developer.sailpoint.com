@@ -1,0 +1,29 @@
+description: List of discovered applications
+value:
+  - id: "app-123"
+    name: "Example App"
+    discoverySource: "csv"
+    discoveredVendor: "Example Vendor"
+    description: "An application for managing examples."
+    recommendedConnectors: ["ConnectorA", "ConnectorB"]
+    discoveredAt: "2023-07-01T12:00:00Z"
+    createdAt: "2024-06-01T12:00:00Z"
+    status: "ACTIVE"
+  - id: "app-456"
+    name: "Sample Tracker"
+    discoverySource: "Okta SaaS"
+    discoveredVendor: "Sample Vendor"
+    description: "A tool for monitoring and managing samples."
+    recommendedConnectors: ["ConnectorC", "ConnectorD"]
+    discoveredAt: "2023-08-15T08:00:00Z"
+    createdAt: "2024-05-20T08:00:00Z"
+    status: "ACTIVE"
+  - id: "app-789"
+    name: "Demo Manager"
+    discoverySource: "Okta SaaS"
+    discoveredVendor: "Demo Provider"
+    description: "Software to demonstrate basic functionalities."
+    recommendedConnectors: ["ConnectorE", "ConnectorF"]
+    discoveredAt: "2023-09-10T15:00:00Z"
+    createdAt: "2024-07-03T15:00:00Z"
+    status: "ACTIVE"

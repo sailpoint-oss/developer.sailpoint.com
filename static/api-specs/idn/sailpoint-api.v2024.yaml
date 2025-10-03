@@ -1247,12 +1247,6 @@ tags:
       Use this API to manage metadata about your User Interface.
       
       For example you can set the iFrameWhitelist parameter to permit another domain to encapsulate IDN within an iframe or set the usernameEmptyText to change the placeholder text for Username on your tenant's login screen.
-  - name: Vendor Connector Mappings
-    description: |
-      Vendors use ISC connectors to connect their source data to ISC, but the data in their source and the data in ISC may be stored in different formats. 
-      Connector mappings allow vendors to match their data on both sides of the connection. 
-      The vendors can then track and manage access across their sources from ISC. 
-      This API allows you to create and manage these vendor connector mappings. 
   - name: Work Items
     description: |
       Use this API to implement work item functionality. 
@@ -2272,8 +2266,6 @@ paths:
     $ref: "./v2024/paths/manual-discover-applications-template.yaml"
   /manual-discover-applications:
     $ref: "./v2024/paths/manual-discover-applications.yaml"
-  /vendor-connector-mappings:
-    $ref: "./v2024/paths/vendor-connector-mappings.yaml"
   /source-apps/{id}:
     $ref: './v2024/paths/ears-source-app.yaml'
   /source-apps/bulk-update:

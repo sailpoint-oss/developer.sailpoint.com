@@ -1447,8 +1447,7 @@ paths:
     $ref: "./v3/paths/manual-discover-applications.yaml"
   /discovered-applications:
     $ref: "./v3/paths/discovered-applications.yaml"
-  /vendor-connector-mappings:
-    $ref: "./v3/paths/vendor-connector-mappings.yaml"
+
 
 security:
 - userAuth:

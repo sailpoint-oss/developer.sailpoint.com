@@ -81,6 +81,25 @@ import (
 
 func main() {
     identitywithnewaccess := []byte(`{
+          "sourceIdAndNativeIdToEntitlementIdsMappings" : [ {
+            "sourceId" : "2c91809773dee32014e13e122092014e",
+            "nativeIdToEntitlementIdsMappings" : [ {
+              "entitlementIds" : [ "2c91809773dee32014e13e122092014e", "2c91809773dee32014e13e122092014e" ],
+              "nativeId" : "jdoe"
+            }, {
+              "entitlementIds" : [ "2c91809773dee32014e13e122092014e", "2c91809773dee32014e13e122092014e" ],
+              "nativeId" : "jdoe"
+            } ]
+          }, {
+            "sourceId" : "2c91809773dee32014e13e122092014e",
+            "nativeIdToEntitlementIdsMappings" : [ {
+              "entitlementIds" : [ "2c91809773dee32014e13e122092014e", "2c91809773dee32014e13e122092014e" ],
+              "nativeId" : "jdoe"
+            }, {
+              "entitlementIds" : [ "2c91809773dee32014e13e122092014e", "2c91809773dee32014e13e122092014e" ],
+              "nativeId" : "jdoe"
+            } ]
+          } ],
           "identityId" : "2c91808568c529c60168cca6f90c1313",
           "accessRefs" : [ {
             "type" : "ENTITLEMENT",
@@ -157,6 +176,25 @@ import (
 
 func main() {
     identitywithnewaccess := []byte(`{
+          "sourceIdAndNativeIdToEntitlementIdsMappings" : [ {
+            "sourceId" : "2c91809773dee32014e13e122092014e",
+            "nativeIdToEntitlementIdsMappings" : [ {
+              "entitlementIds" : [ "2c91809773dee32014e13e122092014e", "2c91809773dee32014e13e122092014e" ],
+              "nativeId" : "jdoe"
+            }, {
+              "entitlementIds" : [ "2c91809773dee32014e13e122092014e", "2c91809773dee32014e13e122092014e" ],
+              "nativeId" : "jdoe"
+            } ]
+          }, {
+            "sourceId" : "2c91809773dee32014e13e122092014e",
+            "nativeIdToEntitlementIdsMappings" : [ {
+              "entitlementIds" : [ "2c91809773dee32014e13e122092014e", "2c91809773dee32014e13e122092014e" ],
+              "nativeId" : "jdoe"
+            }, {
+              "entitlementIds" : [ "2c91809773dee32014e13e122092014e", "2c91809773dee32014e13e122092014e" ],
+              "nativeId" : "jdoe"
+            } ]
+          } ],
           "identityId" : "2c91808568c529c60168cca6f90c1313",
           "accessRefs" : [ {
             "type" : "ENTITLEMENT",

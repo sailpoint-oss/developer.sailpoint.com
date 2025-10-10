@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Transform** | Pointer to **map[string]interface{}** | The transform to apply to the field | [optional] [default to {}]
 **Attributes** | Pointer to **map[string]interface{}** | Attributes required for the transform | [optional] 
 **IsRequired** | Pointer to **bool** | Flag indicating whether or not the attribute is required. | [optional] [readonly] [default to false]
-**Type** | Pointer to **string** | The type of the attribute. | [optional] 
+**Type** | Pointer to **string** | The type of the attribute.  string: For text-based data.  int: For whole numbers.  long: For larger whole numbers.  date: For date and time values.  boolean: For true/false values.  secret: For sensitive data like passwords, which will be masked and encrypted.  | [optional] 
 **IsMultiValued** | Pointer to **bool** | Flag indicating whether or not the attribute is multi-valued. | [optional] [default to false]
 
 ## Methods

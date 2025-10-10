@@ -1,0 +1,18 @@
+type: object
+properties:
+  delegation:
+    type: object
+    properties:
+      delegator_id:
+        type: string
+        description: The ID of the delegator
+        example: ac4aae0b-4140-49a4-a84c-126762fd0c8f
+      delegatee_id:
+        type: string
+        description: The ID of the delegatee
+        example: 12345678-1234-5678-1234-567812345678
+      expiration_date:
+        type: string
+        format: date-time
+        description: The date and time when the delegation expires
+        example: "2023-12-31T23:59:59Z"

@@ -1,0 +1,62 @@
+type: object
+description: Discovered applications with their respective associated sources
+title: Discovered Application
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Unique identifier for the discovered application.
+    example: 2d9180835d2e5168015d32f890ca1581
+  name:
+    type: string
+    description: Name of the discovered application.
+    example: "ExampleApp"
+  discoverySource:
+    type: string
+    description: Source from which the application was discovered.
+    example: "csv"
+  discoveredVendor:
+    type: string
+    description: The vendor associated with the discovered application.
+    example: "ExampleVendor"
+  description:
+    type: string
+    description: A brief description of the discovered application.
+    example: "An application for managing examples."
+  recommendedConnectors:
+    type: array
+    items:
+      type: string
+    description: List of recommended connectors for the application.
+    example: ["ConnectorA", "ConnectorB"]
+  discoveredAt:
+    type: string
+    format: date-time
+    description: >-
+      The timestamp when the application was last received via an entitlement aggregation invocation 
+      or a manual csv upload, in ISO 8601 format.
+    example: "2023-01-01T12:00:00Z"
+  createdAt:
+    type: string
+    format: date-time
+    description: The timestamp when the application was first discovered, in ISO 8601 format.
+    example: "2023-01-01T12:00:00Z"
+  status:
+    type: string
+    description: >-
+      The status of an application within the discovery source.
+      
+      
+      By default this field is set to "ACTIVE" when the application is discovered.
+      
+      
+      If an application has been deleted from within the discovery source, the status will be
+      set to "INACTIVE".
+    example: "ACTIVE"
+  associatedSources:
+    type: array
+    items:
+      type: string
+      format: uuid
+    description: List of associated sources related to this discovered application.
+    example: [ "e0cc5d7d-bf7f-4f81-b2af-8885b09d9923", "a0303682-5e4a-44f7-bdc2-6ce6112549c1" ]

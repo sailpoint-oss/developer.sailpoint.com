@@ -1,0 +1,50 @@
+post:
+  security:
+  - userAuth: [ sp:approvals:write ]
+  x-sailpoint-userLevels:
+  - APPROVAL_OWNER
+  operationId: approveApproval
+  tags:
+  - Approvals
+  summary: Post Approvals Approve
+  description: >-
+    Currently this endpoint only supports Entitlement Description Approvals.
+    
+    Approves a specified approval request on behalf of the caller. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and does not include access-request-approvals. The approval request must be in a state that allows it to be approved.
+    
+    If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user.
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+    description: >-
+      Approval ID that correlates to an existing approval request that a user wants to approve
+    example: 38453251-6be2-5f8f-df93-5ce19e295837
+    x-sailpoint-resource-operation-id: approveApproval
+  requestBody:
+    required: false
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ApprovalApproveRequest.yaml'
+  responses:
+    '200':
+      description: Approval object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Approval.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

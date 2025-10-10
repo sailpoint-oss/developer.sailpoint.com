@@ -1,0 +1,37 @@
+get:
+  operationId: getAttestationDocument
+  summary: Get an attestation document.
+  tags:
+    - Parameter Storage
+  description: Get an attestation document, and perform x25519 handshake to enabled end-to-end encrypted transport of parameter private fields.
+  parameters:
+    - name: key
+      in: query
+      required: true
+      description: Base64Url encoded public key
+      example: cHVibGljIGtleSBnb2VzIGhlcmU=
+      schema:
+        type: string
+  security:
+    - userAuth: [sp:parameter-storage:read, sp:parameter-storage:create, sp:parameter-storage:update, sp:parameter-storage:delete]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  x-audience:
+    - external-public
+  responses:
+    "200":
+      description: "Returns the attestation document. This contains the public key needed to add a parameter to the store."
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/ParameterStorageAttestationDocument.yaml"
+    "400":
+      $ref: '../responses/400.yaml'
+    "401":
+      $ref: '../responses/401.yaml'
+    "403":
+      $ref: '../responses/403.yaml'
+    "429":
+      $ref: '../responses/429.yaml'
+    "500":
+      $ref: '../responses/500.yaml'

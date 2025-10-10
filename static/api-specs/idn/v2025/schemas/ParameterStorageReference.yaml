@@ -1,0 +1,28 @@
+description: Reference information returned in response to a request.
+type: object
+required:
+  - id
+  - consumerId
+  - parameterId
+  - name
+properties:
+  id:
+    type: string
+    description: The ID of the reference
+    example: 4018c3ec-2714-42b5-92e8-232b17333b52
+  consumerId:
+    type: string
+    description: The ID of the consumer holding the reference
+    example: sp-workflow-config
+  parameterId:
+    type: string
+    description: The ID of the parameter that the reference is pointing to.
+    example: 58de858b-83d9-4563-9e15-7393594c684a
+  name:
+    type: string
+    description: The human-readable name of the reference
+    example: Workflow 6d3d0677-b6fb-470c-b931-89195bedcebe
+  usageHint:
+    type: string
+    description: The hint string used to validate the reference
+    example: '{"workflowId": "6d3d0677-b6fb-470c-b931-89195bedcebe"}'

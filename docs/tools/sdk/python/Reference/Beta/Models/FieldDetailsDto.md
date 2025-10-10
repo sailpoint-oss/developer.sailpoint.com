@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **transform** | **object** | The transform to apply to the field | [optional] 
 **attributes** | **object** | Attributes required for the transform | [optional] 
 **is_required** | **bool** | Flag indicating whether or not the attribute is required. | [optional] [readonly] [default to False]
-**type** | **str** | The type of the attribute. | [optional] 
+**type** |  **Enum** [  'string',    'int',    'long',    'date',    'boolean',    'secret' ] | The type of the attribute.  string: For text-based data.  int: For whole numbers.  long: For larger whole numbers.  date: For date and time values.  boolean: For true/false values.  secret: For sensitive data like passwords, which will be masked and encrypted.  | [optional] 
 **is_multi_valued** | **bool** | Flag indicating whether or not the attribute is multi-valued. | [optional] [default to False]
 }
 

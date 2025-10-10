@@ -88,9 +88,26 @@ with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     user_level_request = '''{
           "owner" : {
-            "name" : "William Wilson",
-            "id" : "2c91808568c529c60168cca6f90c1313",
-            "type" : "IDENTITY"
+            "manager" : {
+              "name" : "Thomas Edison",
+              "id" : "2c9180a46faadee4016fb4e018c20639",
+              "type" : "IDENTITY"
+            },
+            "name" : "Alison Ferguso",
+            "alias" : "alison.ferguso",
+            "attributes" : [ {
+              "name" : "Country",
+              "value" : "US",
+              "key" : "country"
+            }, {
+              "name" : "Country",
+              "value" : "US",
+              "key" : "country"
+            } ],
+            "id" : "2c9180857182305e0171993735622948",
+            "identityState" : "ACTIVE",
+            "email" : "alison.ferguso@acme-solar.com",
+            "status" : "Active"
           },
           "rightSets" : [ "idn:ui-right-set-list-read-example", "idn:ui-right-set-write-example" ],
           "name" : "Custom User Level Name",

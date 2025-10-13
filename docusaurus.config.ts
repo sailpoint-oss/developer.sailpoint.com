@@ -1,7 +1,7 @@
-import {ThemeConfig} from '@docusaurus/preset-classic';
-import {Config} from '@docusaurus/types';
+import { ThemeConfig } from '@docusaurus/preset-classic';
+import { Config } from '@docusaurus/types';
 import 'dotenv/config';
-import {themes} from 'prism-react-renderer';
+import { themes } from 'prism-react-renderer';
 
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
@@ -30,6 +30,10 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  clientModules: [
+    require.resolve('./src/clientModules/gtmDataLayer.ts'),
+  ],
 
   scripts: [
     {

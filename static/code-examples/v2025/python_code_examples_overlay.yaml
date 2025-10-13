@@ -6505,9 +6505,26 @@
           x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           user_level_request = '''{
           "owner" : {
-            "name" : "William Wilson",
-            "id" : "2c91808568c529c60168cca6f90c1313",
-            "type" : "IDENTITY"
+            "manager" : {
+              "name" : "Thomas Edison",
+              "id" : "2c9180a46faadee4016fb4e018c20639",
+              "type" : "IDENTITY"
+            },
+            "name" : "Alison Ferguso",
+            "alias" : "alison.ferguso",
+            "attributes" : [ {
+              "name" : "Country",
+              "value" : "US",
+              "key" : "country"
+            }, {
+              "name" : "Country",
+              "value" : "US",
+              "key" : "country"
+            } ],
+            "id" : "2c9180857182305e0171993735622948",
+            "identityState" : "ACTIVE",
+            "email" : "alison.ferguso@acme-solar.com",
+            "status" : "Active"
           },
           "rightSets" : [ "idn:ui-right-set-list-read-example", "idn:ui-right-set-write-example" ],
           "name" : "Custom User Level Name",
@@ -14878,6 +14895,231 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling OrgConfigApi->patch_org_config: %s\n" % e)
+- path: /parameter-storage/parameters
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/parameter-storage#create-parameter
+      source: |
+        from sailpoint.v2025.api.parameter_storage_api import ParameterStorageApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.parameter_storage_new_parameter import ParameterStorageNewParameter
+        from sailpoint.v2025.models.parameter_storage_parameter import ParameterStorageParameter
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          parameter_storage_new_parameter = '''{
+          "privateFields" : "ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu",
+          "name" : "Credentials for server.",
+          "description" : "Credentials for server.",
+          "publicFields" : "{\"username\": \"username\"}",
+          "ownerId" : "c0b4568a4fe7458c434ee77d1fbt156b",
+          "type" : "1.1"
+        }''' # ParameterStorageNewParameter | The parameter to add to the store. (optional)
+          try:
+              # Add a new parameter.
+              
+              results = ParameterStorageApi(api_client).create_parameter()
+              # Below is a request that includes all optional parameters
+              # results = ParameterStorageApi(api_client).create_parameter(new_parameter_storage_new_parameter)
+              print("The response of ParameterStorageApi->create_parameter:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling ParameterStorageApi->create_parameter: %s\n" % e)
+- path: /parameter-storage/parameters/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/parameter-storage#delete-parameter
+      source: |
+        from sailpoint.v2025.api.parameter_storage_api import ParameterStorageApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = '58de858b-83d9-4563-9e15-7393594c684a' # str | The ID of the parameter to be deleted. # str | The ID of the parameter to be deleted.
+          try:
+              # Delete a parameter.
+              
+              ParameterStorageApi(api_client).delete_parameter(id=id)
+              # Below is a request that includes all optional parameters
+              # ParameterStorageApi(api_client).delete_parameter(id)
+          except Exception as e:
+              print("Exception when calling ParameterStorageApi->delete_parameter: %s\n" % e)
+- path: /parameter-storage/attestation
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/parameter-storage#get-attestation-document
+      source: |
+        from sailpoint.v2025.api.parameter_storage_api import ParameterStorageApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.parameter_storage_attestation_document import ParameterStorageAttestationDocument
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          key = 'cHVibGljIGtleSBnb2VzIGhlcmU=' # str | Base64Url encoded public key # str | Base64Url encoded public key
+          try:
+              # Get an attestation document.
+              
+              results = ParameterStorageApi(api_client).get_attestation_document(key=key)
+              # Below is a request that includes all optional parameters
+              # results = ParameterStorageApi(api_client).get_attestation_document(key)
+              print("The response of ParameterStorageApi->get_attestation_document:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling ParameterStorageApi->get_attestation_document: %s\n" % e)
+- path: /parameter-storage/parameters/{id}
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/parameter-storage#get-parameter
+      source: |
+        from sailpoint.v2025.api.parameter_storage_api import ParameterStorageApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.parameter_storage_parameter import ParameterStorageParameter
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = '58de858b-83d9-4563-9e15-7393594c684a' # str | The ID of the parameter to be fetched # str | The ID of the parameter to be fetched
+          try:
+              # Get a specific parameter.
+              
+              results = ParameterStorageApi(api_client).get_parameter(id=id)
+              # Below is a request that includes all optional parameters
+              # results = ParameterStorageApi(api_client).get_parameter(id)
+              print("The response of ParameterStorageApi->get_parameter:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling ParameterStorageApi->get_parameter: %s\n" % e)
+- path: /parameter-storage/parameters/{id}/references
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/parameter-storage#get-parameter-references
+      source: |
+        from sailpoint.v2025.api.parameter_storage_api import ParameterStorageApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.parameter_storage_reference import ParameterStorageReference
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = '58de858b-83d9-4563-9e15-7393594c684a' # str | The ID of the parameter which you want to fetch the references for. # str | The ID of the parameter which you want to fetch the references for.
+          sorters = 'consumerId,name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, consumerId, parameterId, name, usageHint** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, consumerId, parameterId, name, usageHint** (optional)
+          limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+          try:
+              # Get parameter references.
+              
+              results = ParameterStorageApi(api_client).get_parameter_references(id=id)
+              # Below is a request that includes all optional parameters
+              # results = ParameterStorageApi(api_client).get_parameter_references(id, sorters, limit, offset)
+              print("The response of ParameterStorageApi->get_parameter_references:\n")
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling ParameterStorageApi->get_parameter_references: %s\n" % e)
+- path: /parameter-storage/specification
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/parameter-storage#get-parameter-storage-specification
+      source: |
+        from sailpoint.v2025.api.parameter_storage_api import ParameterStorageApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+        configuration.experimental = True
+
+        with ApiClient(configuration) as api_client:
+          accept_language = 'en' # str | The i18n internationalization code for the language that the spec is in. Defaults to english. (optional) (default to 'en') # str | The i18n internationalization code for the language that the spec is in. Defaults to english. (optional) (default to 'en')
+          try:
+              # Get specifications for parameter types.
+              
+              ParameterStorageApi(api_client).get_parameter_storage_specification()
+              # Below is a request that includes all optional parameters
+              # ParameterStorageApi(api_client).get_parameter_storage_specification(accept_language)
+          except Exception as e:
+              print("Exception when calling ParameterStorageApi->get_parameter_storage_specification: %s\n" % e)
+- path: /parameter-storage/parameters
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/parameter-storage#search-parameters
+      source: |
+        from sailpoint.v2025.api.parameter_storage_api import ParameterStorageApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.parameter_storage_parameter import ParameterStorageParameter
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          filters = 'id eq 550e8400-e29b-41d4-a716-446655440000' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, in, co*  **description**: *co*  **ownerId**: *eq*  **type**: *eq, sw* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, in, co*  **description**: *co*  **ownerId**: *eq*  **type**: *eq, sw* (optional)
+          sorters = 'type,name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, ownerId, type, description, lastModifiedAt, lastModifiedBy, privateFieldsLastModifiedAt, privateFieldsLastModifiedAt** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, ownerId, type, description, lastModifiedAt, lastModifiedBy, privateFieldsLastModifiedAt, privateFieldsLastModifiedAt** (optional)
+          offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+          limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          try:
+              # Query stored parameters.
+              
+              results = ParameterStorageApi(api_client).search_parameters()
+              # Below is a request that includes all optional parameters
+              # results = ParameterStorageApi(api_client).search_parameters(filters, sorters, offset, limit)
+              print("The response of ParameterStorageApi->search_parameters:\n")
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling ParameterStorageApi->search_parameters: %s\n" % e)
+- path: /parameter-storage/parameters/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/parameter-storage#update-parameter
+      source: |
+        from sailpoint.v2025.api.parameter_storage_api import ParameterStorageApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.parameter_storage_parameter import ParameterStorageParameter
+        from sailpoint.v2025.models.parameter_storage_update_parameter import ParameterStorageUpdateParameter
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = '58de858b-83d9-4563-9e15-7393594c684a' # str | The ID of the parameter to be updated. # str | The ID of the parameter to be updated.
+          parameter_storage_update_parameter = '''{
+          "privateFields" : "ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu",
+          "name" : "Credentials for server.",
+          "description" : "Credentials for server.",
+          "publicFields" : "{\"username\": \"username\"}",
+          "ownerId" : "c0b4568a4fe7458c434ee77d1fbt156b"
+        }{
+          "privateFields" : "ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu",
+          "name" : "Credentials for server.",
+          "description" : "Credentials for server.",
+          "publicFields" : "{\"username\": \"username\"}",
+          "ownerId" : "c0b4568a4fe7458c434ee77d1fbt156b"
+        }''' # ParameterStorageUpdateParameter | The updated parameter. Supports both full and RFC 6902 JSON Patch updates. For RFC 6902 JSON Patch updates, move and copy operations are not supported for privateField updates. (optional)
+          try:
+              # Update a parameter.
+              
+              results = ParameterStorageApi(api_client).update_parameter(id=id)
+              # Below is a request that includes all optional parameters
+              # results = ParameterStorageApi(api_client).update_parameter(id, new_parameter_storage_update_parameter)
+              print("The response of ParameterStorageApi->update_parameter:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling ParameterStorageApi->update_parameter: %s\n" % e)
 - path: /password-org-config
   method: POST
   xCodeSample:
@@ -22407,126 +22649,6 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling UIMetadataApi->set_tenant_ui_metadata: %s\n" % e)
-- path: /vendor-connector-mappings
-  method: POST
-  xCodeSample:
-    - lang: Python
-      label: SDK_tools/sdk/python/v2025/methods/vendor-connector-mappings#create-vendor-connector-mapping
-      source: |
-        from sailpoint.v2025.api.vendor_connector_mappings_api import VendorConnectorMappingsApi
-        from sailpoint.v2025.api_client import ApiClient
-        from sailpoint.v2025.models.vendor_connector_mapping import VendorConnectorMapping
-        from sailpoint.configuration import Configuration
-        configuration = Configuration()
-
-
-        with ApiClient(configuration) as api_client:
-          vendor_connector_mapping = '''{
-          "createdAt" : "2024-03-13T12:56:19.391294Z",
-          "deletedAt" : {
-            "Valid" : false,
-            "Time" : "0001-01-01T00:00:00Z"
-          },
-          "updatedBy" : {
-            "Valid" : true,
-            "String" : "user-67891"
-          },
-          "connector" : "Example connector",
-          "createdBy" : "admin",
-          "vendor" : "Example vendor",
-          "id" : "78733556-9ea3-4f59-bf69-e5cd92b011b4",
-          "deletedBy" : {
-            "Valid" : false,
-            "String" : ""
-          },
-          "updatedAt" : {
-            "Valid" : true,
-            "Time" : "2024-03-14T12:56:19.391294Z"
-          }
-        }''' # VendorConnectorMapping | 
-          try:
-              # Create vendor connector mapping
-              new_vendor_connector_mapping = VendorConnectorMapping.from_json(vendor_connector_mapping)
-              results = VendorConnectorMappingsApi(api_client).create_vendor_connector_mapping(vendor_connector_mapping=new_vendor_connector_mapping)
-              # Below is a request that includes all optional parameters
-              # results = VendorConnectorMappingsApi(api_client).create_vendor_connector_mapping(new_vendor_connector_mapping)
-              print("The response of VendorConnectorMappingsApi->create_vendor_connector_mapping:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
-          except Exception as e:
-              print("Exception when calling VendorConnectorMappingsApi->create_vendor_connector_mapping: %s\n" % e)
-- path: /vendor-connector-mappings
-  method: DELETE
-  xCodeSample:
-    - lang: Python
-      label: SDK_tools/sdk/python/v2025/methods/vendor-connector-mappings#delete-vendor-connector-mapping
-      source: |
-        from sailpoint.v2025.api.vendor_connector_mappings_api import VendorConnectorMappingsApi
-        from sailpoint.v2025.api_client import ApiClient
-        from sailpoint.v2025.models.delete_vendor_connector_mapping200_response import DeleteVendorConnectorMapping200Response
-        from sailpoint.v2025.models.vendor_connector_mapping import VendorConnectorMapping
-        from sailpoint.configuration import Configuration
-        configuration = Configuration()
-
-
-        with ApiClient(configuration) as api_client:
-          vendor_connector_mapping = '''{
-          "createdAt" : "2024-03-13T12:56:19.391294Z",
-          "deletedAt" : {
-            "Valid" : false,
-            "Time" : "0001-01-01T00:00:00Z"
-          },
-          "updatedBy" : {
-            "Valid" : true,
-            "String" : "user-67891"
-          },
-          "connector" : "Example connector",
-          "createdBy" : "admin",
-          "vendor" : "Example vendor",
-          "id" : "78733556-9ea3-4f59-bf69-e5cd92b011b4",
-          "deletedBy" : {
-            "Valid" : false,
-            "String" : ""
-          },
-          "updatedAt" : {
-            "Valid" : true,
-            "Time" : "2024-03-14T12:56:19.391294Z"
-          }
-        }''' # VendorConnectorMapping | 
-          try:
-              # Delete vendor connector mapping
-              new_vendor_connector_mapping = VendorConnectorMapping.from_json(vendor_connector_mapping)
-              results = VendorConnectorMappingsApi(api_client).delete_vendor_connector_mapping(vendor_connector_mapping=new_vendor_connector_mapping)
-              # Below is a request that includes all optional parameters
-              # results = VendorConnectorMappingsApi(api_client).delete_vendor_connector_mapping(new_vendor_connector_mapping)
-              print("The response of VendorConnectorMappingsApi->delete_vendor_connector_mapping:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
-          except Exception as e:
-              print("Exception when calling VendorConnectorMappingsApi->delete_vendor_connector_mapping: %s\n" % e)
-- path: /vendor-connector-mappings
-  method: GET
-  xCodeSample:
-    - lang: Python
-      label: SDK_tools/sdk/python/v2025/methods/vendor-connector-mappings#get-vendor-connector-mappings
-      source: |
-        from sailpoint.v2025.api.vendor_connector_mappings_api import VendorConnectorMappingsApi
-        from sailpoint.v2025.api_client import ApiClient
-        from sailpoint.v2025.models.vendor_connector_mapping import VendorConnectorMapping
-        from sailpoint.configuration import Configuration
-        configuration = Configuration()
-
-
-        with ApiClient(configuration) as api_client:
-          try:
-              # List vendor connector mappings
-              
-              results = VendorConnectorMappingsApi(api_client).get_vendor_connector_mappings()
-              # Below is a request that includes all optional parameters
-              # results = VendorConnectorMappingsApi(api_client).get_vendor_connector_mappings()
-              print("The response of VendorConnectorMappingsApi->get_vendor_connector_mappings:\n")
-              for item in results:
-                  print(item.model_dump_json(by_alias=True, indent=4))
-          except Exception as e:
-              print("Exception when calling VendorConnectorMappingsApi->get_vendor_connector_mappings: %s\n" % e)
 - path: /work-items/{id}/approve/{approvalItemId}
   method: POST
   xCodeSample:

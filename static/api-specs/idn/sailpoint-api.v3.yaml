@@ -749,7 +749,7 @@ tags:
       For example, the query "attributes.location:austin AND NOT manager.name:amanda.ross" returns all results associated with the Austin location, but it excludes those associated with the manager Amanda Ross.
       Refer to [Building a Search Query](https://documentation.sailpoint.com/saas/help/search/building-query.html) for more information about how to construct specific search queries. 
 
-      Refer to [Using Search](https://documentation.sailpoint.com/saas/help/search/index.html) for more information about ISC's search and its different possibilities. 
+      Refer to [Search Attribute Configuration](https://developer.sailpoint.com/docs/extensibility/rules/rule-utility/#configuration-of-search-attributes-within-identity-security-cloud) for more information about ISC's search and its different possibilities. 
 
       With Search Attribute Configuration, administrators can create, manage, and run searches based on the attributes they want to search. 
   - name: Segments

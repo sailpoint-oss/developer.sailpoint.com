@@ -10,7 +10,7 @@ properties:
     description: The name of the feature
     example: 'entitlement_count'
   valueType:
-    $ref: './OutlierValueType'
+    $ref: "./OutlierValueType.yaml"
   value:
     type: number
     format: float

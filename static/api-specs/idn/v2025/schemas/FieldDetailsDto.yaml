@@ -28,7 +28,27 @@ properties:
     example: false
   type:
     type: string
-    description: The type of the attribute.
+    description: | 
+      The type of the attribute.
+
+      string: For text-based data.
+
+      int: For whole numbers.
+
+      long: For larger whole numbers.
+
+      date: For date and time values.
+      
+      boolean: For true/false values.
+
+      secret: For sensitive data like passwords, which will be masked and encrypted.
+    enum:
+      - string
+      - int
+      - long
+      - date
+      - boolean
+      - secret
     example: string
   isMultiValued:
     type: boolean

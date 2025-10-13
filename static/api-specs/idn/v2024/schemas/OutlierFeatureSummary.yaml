@@ -23,7 +23,7 @@ properties:
           example: 55
           description: value
         valueType:
-          $ref: './OutlierValueType'
+          $ref: "./OutlierValueType.yaml"
   featureDefinition:
     type: string
     description: Definition of the feature

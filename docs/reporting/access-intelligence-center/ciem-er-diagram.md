@@ -83,7 +83,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar ACCOUNT_DISPLAY_NAME "Display name of account as configured in Identity Security Cloud"
         varchar ACCOUNT_STATUS "Status of account (Enabled|Disabled|Locked)"
         varchar OWNER_ID "Account owners ID"
-        varchar ACCOUNT_SYNC_DATE "Timestamp of latest sync of record to source tables"
+        timestamp ACCOUNT_SYNC_DATE "Timestamp of latest sync of record to source tables"
     }
     IDENTITY ||--o{ ACCOUNT : "associated to"
     ACCOUNT ||--o{ "Resource Access" : "associated to"

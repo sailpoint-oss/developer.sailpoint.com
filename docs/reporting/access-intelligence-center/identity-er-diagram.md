@@ -298,7 +298,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar IDENTITY_REQUEST_ITEM_ROLE_NAME "This is the name of the Identity Request Item role"
         varchar IDENTITY_REQUEST_ITEM_ROLE_DISPLAY_NAME "This is the name of the Identity Request Item role display"
     } 
-    IDENTITY_ITEM_APPROVER_IDENTITY {
+    IDENTITY_ITEM_APPROVER {
         varchar IDENTITY_REQUEST_ITEM_APPROVER_ID "This is the unique Identity ID of the Identity Request Approver"
         timestamp APPROVER_IDENTITY_CREATED "This is the date that the Identity Item Approver was created"
         timestamp APPROVER_IDENTITY_UPDATED "This is the date that the Identity Item Approver was updated"
@@ -313,7 +313,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar APPROVER_DEPARTMENT "The department of the Identity Item Approver"   
         timestamp APPROVER_SYNC_DATE "This is the date the data was synced to the table"
     }
-    IDENTITY_ITEM_REQUESTER_IDENTITY {
+    IDENTITY_ITEM_REQUESTER {
         varchar IDENTITY_REQUEST_ITEM_REQUESTER_ID "This is the unique Identity ID of the Identity Item Requester"
         timestamp REQUESTER_IDENTITY_CREATED "This is the date that the Identity Item Requester was created"
         timestamp REQUESTER_IDENTITY_UPDATED "This is the date that the Identity Item Requester was updated"
@@ -384,22 +384,21 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     }
     IDENTITY ||--o{ IDENTITY_ATTRIBUTE : "associated to and owns"
     IDENTITY ||--o{ IDENTITY_ROLES_FULL : "associated to and owns"
-    IDENTITY ||--o{ ACCESS_PROFILES_FULL: "associated to and owns"
-    IDENTITY ||--o{ IDENTITY_ACCOUNTS_FULL : "associated to and owns"
-    IDENTITY ||--o{ IDENTITY_APPS_FULL : "associated to and owns"
+    IDENTITY ||--o{ ACCESS_PROFILE: "associated to and owns"
+    IDENTITY ||--o{ ACCOUNT : "associated to and owns"
+    IDENTITY ||--o{ IDENTITY_APP : "associated to and owns"
     IDENTITY ||--o{ IDENTITY_ENTITLEMENTS_FULL : "associated to and owns"
     IDENTITY ||--o{ CERTIFICATION_ITEM : "associated to and owns"
-    IDENTITY ||--o{ IDENTITY_REQUEST_IDENTITY_REQUEST_ITEM_FULL : "associated to and owns"
+    IDENTITY ||--o{ IDENTITY_REQUEST_ITEM : "associated to and owns"
     IDENTITY ||--o{ ACCESS_REQUEST_DURATION : "associated to and owns"
-    ACCESS_PROFILES_FULL ||--o{ ACCESS_PROFILES_SOURCE : "associated to and owns"
-    IDENTITY_ACCOUNTS_FULL ||--o{ ACCOUNT_SOURCE : "associated to and owns"
+    ACCESS_PROFILE ||--o{ ACCESS_PROFILES_SOURCE : "associated to and owns"
+    ACCOUNT ||--o{ ACCOUNT_SOURCE : "associated to and owns"
     IDENTITY_ENTITLEMENTS_FULL ||--o{ IDENTITY_ENTITLEMENT_SOURCE: "associated to and owns"
     CERTIFICATION_ITEM ||--o{ CERTIFICATION_STATS : "associated to and owns"
-    CERTIFICATION_ITEM ||--o{ CERTIFICATION_ITEM_REVIEWER : "associated to and owns"
-    CERTIFICATION_ITEM ||--o{ CERTIFICATION_IDENTITY_FULL : "associated to and owns"
-    CERTIFICATION_IDENTITY_FULL ||--o{ CERTIFICATION_CERTIFIER  : "associated to and owns"
-    CERTIFICATION_IDENTITY_FULL ||--o{ CERTIFICATION_MANAGER  : "associated to and owns"
-    CERTIFICATION_IDENTITY_FULL ||--o{ CERTIFICATION_SIGNER  : "associated to and owns"
+    CERTIFICATION_ITEM ||--o{ CERTIFICATION_ITEM_REVIEWER_IDENTITY : "associated to and owns"
+    CERTIFICATION_ITEM ||--o{ CERTIFICATION : "associated to and owns"
+    CERTIFICATION ||--o{ CERTIFICATION_CERTIFIER_IDENTITY  : "associated to and owns"
+    CERTIFICATION ||--o{ CERTIFICATION_SIGNER_IDENTITY  : "associated to and owns"
     IDENTITY_REQUEST_ITEM ||--o{ ACCESS_REQUEST : "associated to and owns"
     IDENTITY_REQUEST_ITEM ||--o{ IDENTITY_ITEM_APPROVER : "associated to and owns"
     IDENTITY_REQUEST_ITEM ||--o{ IDENTITY_ITEM_REQUESTER : "associated to and owns"

@@ -33,7 +33,7 @@ if (typeof window !== 'undefined') {
   };
   
   window.dataLayer.push({
-    event: 'pageview',
+    event: 'page_view',
     page: {
       path: initialPath,
       title: initialTitle,

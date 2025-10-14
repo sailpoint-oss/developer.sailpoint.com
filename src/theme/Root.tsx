@@ -43,7 +43,7 @@ function getPageType(path: string): string {
 function pushPageView(path: string, title: string) {
   if (typeof window !== 'undefined' && window.dataLayer) {
     window.dataLayer.push({
-      event: 'pageview',
+      event: 'page_view',
       page: {
         path,
         title,

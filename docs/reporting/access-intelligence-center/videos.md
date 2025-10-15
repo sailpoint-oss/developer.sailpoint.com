@@ -3,7 +3,7 @@ id: access-intelligence-center-videos
 title: Access Intelligence Center Videos
 pagination_label: Access Intelligence Center Videos
 sidebar_label: Videos
-sidebar_position: 3
+sidebar_position: 7
 sidebar_class_name: AccessIntelligenceCenter
 keywords: ['data listing', 'data share', 'secure data sharing']
 description: Access Intelligence Center Videos

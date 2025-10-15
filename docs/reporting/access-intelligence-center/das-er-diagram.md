@@ -114,7 +114,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar BAM_NAME "This is the name of the BAM"
         timestamp BAM_SYNC_DATE "This is the date the BAM data was synced to the table"
     }
-    Sensitive Files {
+    SENSITIVE_FILES {
         int BR_ID FK "This is the unique identifier for the BR"
         int DC_ID_S "This is the unique identifier for the DC"
         varchar FILE_NAME_S "This is the name of the file"
@@ -129,10 +129,10 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     }
     POLICY {
         int POLICY_ID PK "This is the unique identifier for the policy"
-        varcahr POLICY_NAME "This is the name of the policy"
+        varchar POLICY_NAME "This is the name of the policy"
         boolean POLICY_IS_ACTIVE "This shows if the policy is active or not"
         boolean POLICY_IS_INTERNAL "This shows if the policy is internal or not"
-        POLICY_SYNC_DATE "This is the date the policy data was synced to the table"
+        timestamp POLICY_SYNC_DATE "This is the date the policy data was synced to the table"
         boolean POLICY_DELETED "This shows if the policy is deleted or not"
     }
     DATA_CLASS_FILES {
@@ -145,13 +145,13 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     DC_POLICY_RULE_CATEGORY {
         int CATEGORY_ID FK "This is the unique identifier for the category"
         int RULE_ID PK "This is the unique identifier for the DC rule"
-        POLICY_RULE_SYNC_DATE "This is the date the policy-rule data was synced to the table"
+        timestamp POLICY_RULE_SYNC_DATE "This is the date the policy-rule data was synced to the table"
     }
     DATA_CLASSIFICATION_CATEGORY {
         int CATEGORY_ID PK "This is the unique identifier for the category"
         varchar DATA_CLASSIFICATION_CATEGORY_NAME "This is the name od the DC category"
-        int SENSITIVITY_LEVEL "This is the senstivity level of the DC"
-        timestamp "This is the date the DC category data was synced to the table"
+        int SENSITIVITY_LEVEL "This is the sensitivity level of the DC"
+        timestamp DATA_CLASSIFICATION_SYNC_DATE "This is the date the DC category data was synced to the table"
     }
     ACCOUNTS ||--o{ USER_ACLS_WITH_HIERARCHY : "associated to and owns"
     USER_ACLS_WITH_HIERARCHY ||--o{ PERMISSION_TYPE_LIVE : "associated to and owns"
@@ -163,7 +163,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     USER_PERMISSION ||--o{ ROLE_BR_PERMISSION : "associated to and owns"
     USER_PERMISSION ||--o{ BUSINESS_SERVICE_LIVE : "associated to and owns"
     BUSINESS_SERVICE_LIVE ||--o{ BAM_LIVE : "associated to and owns"
-    BUSINESS_SERVICE_LIVE ||--o{ Sensitive Files : "associated to and owns"
+    BUSINESS_SERVICE_LIVE ||--o{ SENSITIVE_FILES : "associated to and owns"
     BUSINESS_SERVICE_LIVE ||--o{ DATA_CLASSIFICATION : "associated to and owns"
     DATA_CLASSIFICATION ||--o{ POLICY : "associated to and owns"
     DATA_CLASSIFICATION ||--o{ DATA_CLASS_FILES : "associated to and owns"

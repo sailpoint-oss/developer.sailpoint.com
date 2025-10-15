@@ -19,8 +19,8 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
 <!-- Identity Attributes are to be worked on later because there are no current default values -->
 
 <MermaidViewer diagram='erDiagram
-    "Assignment" {
-        varchar ASSIGNMENT_PK "This is the primary key for the assignment table"
+    ASSIGNMENT {
+        varchar ASSIGNMENT_PK PK "This is the primary key for the assignment table"
         varchar ASSIGNMENT_ID "This is the assignment id"
         timestamp ASSIGNMENT_CREATED_DATE "This is the assignment created date"
         timestamp ASSIGNMENT_HARD_DELETED "This shows if the assignment was hard deleted or not"
@@ -37,10 +37,10 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         timestamp ASSIGNMENT_SYNC_DATE "This is the assignment sync date"
         varchar DAYS_TO_EXPIRE "This is the number of days till the assignment expires"
     }
-    "Non Employee" {
-        varchar PK "This is the primary key for the non-employee table"
+    NON_EMPLOYEE {
+        varchar NON_EMPLOYEE_PK PK "This is the primary key for the non-employee table"
         varchar ASSIGNMENT_ID "This is the non-employee assignment id"
-        booloean HARD_DELETED "This shows if the non-employee was hard deleted or not"
+        boolean HARD_DELETED "This shows if the non-employee was hard deleted or not"
         varchar FIRST_NAME "This is the first name of the non-employee"
         varchar MIDDLE_NAME "This is the middle name of the non-employee"
         varchar LAST_NAME "This is the last name of the non-employee"
@@ -55,4 +55,4 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar SYNC_DATE "This is the non-employee sync date"
         varchar FULL_NAME "This is the non-employee full name"
     }
-    Assignment ||--o{ Non Employee : "associated to"'></MermaidViewer>
+    ASSIGNMENT ||--o{ NON_EMPLOYEE : "associated to"'></MermaidViewer>

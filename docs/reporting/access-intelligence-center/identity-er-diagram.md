@@ -114,7 +114,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar APP_DISPLAY_NAME "This is the user friendly label for the App"
         varchar APP_DESCRIPTION "This is a short description for the App"
         timestamp APP_SYNC_DATE "This is the date the data was synced to the table"
-    }        
+    }
     IDENTITY_ENTITLEMENTS_FULL {
         varchar IDENTITY_ID "This is the unique identifier for the Identity"
         varchar ENTITLEMENT_ID "This is the unique identifier for the Entitlement"
@@ -137,11 +137,11 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar ENTITLEMENT_SOURCE_CONNECTOR "This is the connector associated with the Entitlement Source"
         timestamp ENTITLEMENT_SOURCE_DELETED_DATE "This is the Entitlement Source deleted date" 
         timestamp ENTITLEMENT_SOURCE_SYNC_DATE "This is the date the data was synced to the table"
-    }      
+    }
     ACCESS_REQUEST_DURATION {
         varchar IDENTITY_ID "This is the unique identifier for the Identity"
         varchar DURATION_HOURS "This is the duration in hours from the create date to the end date of an Identity Access Request"
-    }   
+    }
     CERTIFICATION_ITEM {
         varchar CERTIFICATION_ID "This is the unique identifier for the Certification"
         varchar REVIEWER_ID "This is the Identity ID of the Certifier"
@@ -404,9 +404,3 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     IDENTITY_REQUEST_ITEM ||--o{ IDENTITY_ITEM_REQUESTER : "associated to and owns"
     ACCESS_REQUEST ||--o{ ACCESS_REQUEST_TARGET_IDENTITY : "associated to and owns"
     ACCESS_REQUEST ||--o{ ACCESS_REQUEST_REQUESTER_IDENTITY : "associated to and owns"'></MermaidViewer>
-
-
-
-
-
-

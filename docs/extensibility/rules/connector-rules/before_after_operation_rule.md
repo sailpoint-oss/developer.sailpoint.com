@@ -64,7 +64,7 @@ This example triggers on the BeforeCreate operation. If you want to use another 
    </Map>
   </Attributes>
   <Description>
-   This is an IQService afterScript - On a successful provisioning event, this after script should be used as the starting point to
+   This is an IQService afterScript - On a successful provisioning event, this before script should be used as the starting point to
             initiate a separate PowerShell script residing on the client's IQService server.
 
             Configuration tasks include the following:

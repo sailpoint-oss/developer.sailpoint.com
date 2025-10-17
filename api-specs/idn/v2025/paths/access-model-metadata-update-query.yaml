@@ -1,0 +1,35 @@
+post:
+  summary: Metadata Attribute update by query
+  description: Bulk update Access Model Metadata Attribute Values using a query
+  tags:
+  - Access Model Metadata
+  operationId: updateAccessModelMetadataByQuery
+  security:
+  - userAuth:
+    - idn:entitlement:update
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  requestBody:
+    description: Attribute metadata bulk update request body.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/gov-entitlement/EntitlementAttributeBulkUpdateQueryRequest.yaml'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/gov-entitlement/AccessModelMetadataBulkUpdateResponse.yaml"
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

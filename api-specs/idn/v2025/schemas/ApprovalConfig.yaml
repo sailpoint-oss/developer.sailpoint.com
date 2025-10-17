@@ -1,0 +1,159 @@
+type: object
+properties:
+  tenantId:
+    type: string
+    example: "d3c10266-1a31-4acc-b01e-44a3d1c56615"
+    description: Tenant ID of the approval configuration.
+  id:
+    type: string
+    example: "5804e7d6-e04b-400f-9fb8-dff894419a2f"
+    description: ID of the approval configuration.
+  scope:
+    type: string
+    example: "APPROVAL_REQUEST"
+    description: The type/scope of the configuration. Ie APPROVAL_REQUEST, DOMAIN_OBJECT, APPROVAL_TYPE, TENANT
+  reminderConfig:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+        example: false
+        description: Indicates if reminders are enabled.
+        default: false
+      daysUntilFirstReminder:
+        type: integer
+        example: 0
+        format: int64
+        description: Number of days until the first reminder.
+      reminderCronSchedule:
+        type: string
+        example: "1 1 1 1 1"
+        description: Cron schedule for reminders.
+      maxReminders:
+        type: integer
+        example: 5
+        format: int64
+        description: Maximum number of reminders. Max is 20.
+    description: Configuration for reminders.
+  escalationConfig:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+        example: true
+        description: Indicates if escalations are enabled.
+        default: false
+      daysUntilFirstEscalation:
+        type: integer
+        example: 2
+        format: int64
+        description: Number of days until the first escalation.
+      escalationCronSchedule:
+        type: string
+        example: "*/5 * * * *"
+        description: Cron schedule for escalations.
+      escalationChain:
+        type: array
+        items:
+          type: object
+          properties:
+            chainId:
+              type: string
+              example: "ef85d1a8-41ef-433a-8153-0b1f59e7b26a"
+              description: ID of the escalation chain.
+            tier:
+              type: integer
+              example: 1
+              format: int64
+              description: Starting at 1 defines the order in which the identities will get assigned
+            identityId:
+              type: string
+              example: "fdfda352157d4cc79bb749953131b457"
+              description: Identity ID in the escalation chain.
+            identityType:
+              type: string
+              example: "IDENTITY"
+              description: Type of identity in the escalation chain.
+        description: Escalation chain configuration.
+    description: Configuration for escalations.
+  timeoutConfig:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+        example: true
+        description: Indicates if timeout is enabled.
+        default: false
+      daysUntilTimeout:
+        type: integer
+        example: 2
+        format: int64
+        description: Number of days until approval request times out. Max value is 90.
+      timeoutResult:
+        type: string
+        enum:
+        - EXPIRED
+        - APPROVED
+        example: "EXPIRED"
+        description: Result of timeout.
+    description: TimeoutConfig contains configurations around when the approval request should expire.
+  cronTimezone:
+    type: object
+    properties:
+      location:
+        type: string
+        example: "America/New_York"
+        description: Timezone location for cron schedules.
+      offset:
+        type: string
+        example: ""
+        description: Timezone offset for cron schedules.
+    description: Timezone configuration for cron schedules.
+  serialChain:
+    type: array
+    items:
+      type: object
+      properties:
+        chainId:
+          type: string
+          example: "23dc206e-2a9e-4f98-93db-8d6e342cca18"
+          description: ID of the serial chain.
+        tier:
+          type: integer
+          example: 1
+          format: int64
+          description: Starting at 1 defines the order in which the identities will get assigned
+        identityId:
+          type: string
+          example: "2c9180858090ea8801809a0465e829da"
+          description: Identity ID in the serial chain.
+        identityType:
+          type: string
+          example: "IDENTITY"
+          description: Type of identity in the serial chain.
+    description: If the approval request has an approvalCriteria of SERIAL this chain will be used to determine the assignment order.
+  requiresComment:
+    type: string
+    enum:
+      - "APPROVAL"
+      - "REJECTION"
+      - "ALL"
+      - "OFF"
+    example: "ALL"
+    description: Determines whether a comment is required when approving or rejecting the approval request.
+  fallbackApprover:
+    type: object
+    $ref: '../schemas/ApprovalIdentity.yaml'
+    description: Configuration for fallback approver. Used if the user cannot be found for whatever reason and escalation config does not exist.
+  autoApprove:
+    type: string
+    enum:
+    - "OFF"
+    - "DIRECT"
+    - "INDIRECT"
+    description: OFF will prevent the approval request from being assigned to the requester or requestee by assigning it to their manager instead.
+      DIRECT will cause approval requests to be auto-approved when assigned directly and only to the requester.
+      INDIRECT will auto-approve when the requester appears anywhere in the list of approvers, including in a governance group.
+      This field will only be effective if requestedTarget.reauthRequired is set to false, otherwise the approval will have to be manually approved.
+    example: OFF
+description: Approval config Object

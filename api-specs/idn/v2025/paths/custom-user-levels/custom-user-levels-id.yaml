@@ -1,0 +1,267 @@
+get:
+  tags:
+    - Custom User Levels
+  summary: Retrieve a user level
+  description: Fetches the details of a specific user level by its ID.
+  operationId: getUserLevel
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  security:
+    - userAuth: [ idn:user-level:manage ]
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+    - name: id
+      in: path
+      required: true
+      description: The unique identifier of the user level.
+      x-sailpoint-resource-operation-id: listUserLevels
+      schema:
+        type: string
+      example: 6e110911-5984-491b-be74-2707980a46a7
+  responses:
+    '200':
+      description: Successfully retrieved the user level details.
+      headers:
+        accept-language:
+          description: The locale to use for translations for the response
+          schema:
+            type: string
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ams/UserLevelSummaryDTO.yaml'
+          example:
+            {
+              "owner": {
+                "type": "IDENTITY",
+                "id": "29b9da8273b441239238bc041c386817",
+                "name": "John Doe"
+              },
+              "status": "ACTIVE",
+              "created": "2023-01-01T12:00:00Z",
+              "modified": "2023-01-02T12:00:00Z",
+              "associatedIdentitiesCount": 10,
+              "id": "beb02a57-010f-4c29-a6d2-fae9628bda73",
+              "name": "Identity And Detail Management",
+              "description": "This is a description of the custom user level.",
+              "legacyGroup": null,
+              "rightSets": [
+                {
+                  "id": "idn:ui-identity-manage-example",
+                  "name": "Identity Management",
+                  "description": "Access to manage all identities.",
+                  "category": "identity",
+                  "rights": [
+                    "idn:ui-identity-example:read",
+                    "idn:ui-identity-example:write"
+                  ],
+                  "rightSetIds": [
+                    "idn:identity-management-example"
+                  ],
+                  "uiAssignableChildRightSetIds": [
+                    "idn:ui-identity-details-read-example",
+                    "idn:ui-identity-list-read-example"
+                  ],
+                  "uiAssignable": true,
+                  "translatedName": "Identity Management",
+                  "translatedDescription": "Access to manage all identities.",
+                  "parentId": null
+                },
+                {
+                  "id": "idn:ui-identity-details-read-example",
+                  "name": "Identity Details Read",
+                  "description": "Read only access for identity details.",
+                  "category": "identity",
+                  "rights": [
+                    "idn:ui-identity-details-example:read"
+                  ],
+                  "rightSetIds": [ ],
+                  "uiAssignableChildRightSetIds": [ ],
+                  "uiAssignable": true,
+                  "translatedName": "Identity Details Read",
+                  "translatedDescription": "Read only access for identity details.",
+                  "parentId": "idn:ui-identity-manage-example"
+                }
+              ],
+              "custom": true,
+              "adminAssignable": true,
+              "translatedName": null,
+              "translatedGrant": null,
+              "translatedRemove": null
+            }
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+
+delete:
+  tags:
+    - Custom User Levels
+  summary: Delete a user level
+  description: Deletes a specific user level by its ID.
+  operationId: deleteUserLevel
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  security:
+    - userAuth: [ idn:user-level:manage ]
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+    - name: id
+      in: path
+      required: true
+      description: The unique identifier of the user level.
+      x-sailpoint-resource-operation-id: listUserLevels
+      schema:
+        type: string
+      example: 6e110911-5984-491b-be74-2707980a46a7
+  responses:
+    '204':
+      $ref: '../../responses/204.yaml'
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+
+patch:
+  tags:
+    - Custom User Levels
+  summary: Update a user level
+  description: Updates the details of a specific user level using JSON Patch.
+  operationId: updateUserLevel
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  security:
+    - userAuth: [ idn:user-level:manage ]
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+    - name: id
+      in: path
+      required: true
+      description: The unique identifier of the user level.
+      x-sailpoint-resource-operation-id: listUserLevels
+      schema:
+        type: string
+      example: 6e110911-5984-491b-be74-2707980a46a7
+  requestBody:
+    description: JSON Patch payload for updating the user level.
+    required: true
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '../../schemas/JsonPatch.yaml'
+        example:
+          [
+            {
+              "op": "replace",
+              "path": "/rightSets",
+              "value": [
+                "idn:ui-identity-manage-example"
+              ]
+            }
+          ]
+  responses:
+    '200':
+      description: Successfully updated the user level.
+      headers:
+        accept-language:
+          description: The locale to use for translations for the response
+          schema:
+            type: string
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ams/UserLevelSummaryDTO.yaml'
+          example:
+            {
+              "owner": {
+                "type": "IDENTITY",
+                "id": "29b9da8273b441239238bc041c386817",
+                "name": "John Doe"
+              },
+              "status": "ACTIVE",
+              "created": "2023-01-01T12:00:00Z",
+              "modified": "2023-01-02T12:00:00Z",
+              "associatedIdentitiesCount": 10,
+              "id": "beb02a57-010f-4c29-a6d2-fae9628bda73",
+              "name": "Identity And Detail Management",
+              "description": "This is a description of the custom user level.",
+              "legacyGroup": null,
+              "rightSets": [
+                {
+                  "id": "idn:ui-identity-manage-example",
+                  "name": "Identity Management",
+                  "description": "Access to manage all identities.",
+                  "category": "identity",
+                  "rights": [
+                    "idn:ui-identity-example:read",
+                    "idn:ui-identity-example:write"
+                  ],
+                  "rightSetIds": [
+                    "idn:identity-management-example"
+                  ],
+                  "uiAssignableChildRightSetIds": [
+                    "idn:ui-identity-details-read-example",
+                    "idn:ui-identity-list-read-example"
+                  ],
+                  "uiAssignable": true,
+                  "translatedName": "Identity Management",
+                  "translatedDescription": "Access to manage all identities.",
+                  "parentId": null
+                }
+              ],
+              "custom": true,
+              "adminAssignable": true,
+              "translatedName": null,
+              "translatedGrant": null,
+              "translatedRemove": null
+            }
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+

@@ -1,0 +1,32 @@
+post:
+  operationId: commonAccessClassify
+  summary: Classify common access
+  tags:
+    - IAI Common Access
+  description: >-
+    This is an internal API that classifies common access. At this time there are no parameters.
+    Requires authorization scope of iai:access-modeling:create
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CommonAccessClassifyRequest.yaml'
+  responses:
+    '202':
+      description: Common access request accepted. Returns details of the common access classification request.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CommonAccessClassifyResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+

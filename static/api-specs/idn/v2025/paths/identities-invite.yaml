@@ -13,8 +13,8 @@ post:
     description: 'Learn more about inviting identities here'
     url: 'https://documentation.sailpoint.com/saas/help/common/users/inviting_users.html'
   security:
-    - userAuth:
-      - idn:identity:manage
+  - userAuth:
+    - idn:password-user-invite:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - HELPDESK

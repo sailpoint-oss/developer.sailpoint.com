@@ -12499,6 +12499,189 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025OrgConfig"
             Write-Host $_.ErrorDetails
         }
+- path: /parameter-storage/parameters
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/parameter-storage#create-parameter
+      source: |
+        $ParameterStorageNewParameter = @"
+        {
+          "privateFields" : "ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu",
+          "name" : "Credentials for server.",
+          "description" : "Credentials for server.",
+          "publicFields" : "{\"username\": \"username\"}",
+          "ownerId" : "c0b4568a4fe7458c434ee77d1fbt156b",
+          "type" : "1.1"
+        }
+        "@
+        
+        # Add a new parameter.
+        
+        try {
+            New-V2025Parameter 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2025Parameter -ParameterStorageNewParameter $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025Parameter"
+            Write-Host $_.ErrorDetails
+        }
+- path: /parameter-storage/parameters/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/parameter-storage#delete-parameter
+      source: |
+        $Id = "58de858b-83d9-4563-9e15-7393594c684a" # String | The ID of the parameter to be deleted.
+        
+        # Delete a parameter.
+        
+        try {
+            Remove-V2025Parameter -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2025Parameter -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025Parameter"
+            Write-Host $_.ErrorDetails
+        }
+- path: /parameter-storage/attestation
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/parameter-storage#get-attestation-document
+      source: |
+        $Key = "cHVibGljIGtleSBnb2VzIGhlcmU=" # String | Base64Url encoded public key
+        
+        # Get an attestation document.
+        
+        try {
+            Get-V2025AttestationDocument -Key $Key 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025AttestationDocument -Key $Key   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025AttestationDocument"
+            Write-Host $_.ErrorDetails
+        }
+- path: /parameter-storage/parameters/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/parameter-storage#get-parameter
+      source: |
+        $Id = "58de858b-83d9-4563-9e15-7393594c684a" # String | The ID of the parameter to be fetched
+        
+        # Get a specific parameter.
+        
+        try {
+            Get-V2025Parameter -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025Parameter -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Parameter"
+            Write-Host $_.ErrorDetails
+        }
+- path: /parameter-storage/parameters/{id}/references
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/parameter-storage#get-parameter-references
+      source: |
+        $Id = "58de858b-83d9-4563-9e15-7393594c684a" # String | The ID of the parameter which you want to fetch the references for.
+        $Sorters = "consumerId,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, consumerId, parameterId, name, usageHint** (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # Get parameter references.
+        
+        try {
+            Get-V2025ParameterReferences -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025ParameterReferences -Id $Id -Sorters $Sorters -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ParameterReferences"
+            Write-Host $_.ErrorDetails
+        }
+- path: /parameter-storage/specification
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/parameter-storage#get-parameter-storage-specification
+      source: |
+        $AcceptLanguage = "en" # String | The i18n internationalization code for the language that the spec is in. Defaults to english. (optional) (default to "en")
+        
+        # Get specifications for parameter types.
+        
+        try {
+            Get-V2025ParameterStorageSpecification 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025ParameterStorageSpecification -AcceptLanguage $AcceptLanguage   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ParameterStorageSpecification"
+            Write-Host $_.ErrorDetails
+        }
+- path: /parameter-storage/parameters
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/parameter-storage#search-parameters
+      source: |
+        $Filters = "id eq 550e8400-e29b-41d4-a716-446655440000" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, in, co*  **description**: *co*  **ownerId**: *eq*  **type**: *eq, sw* (optional)
+        $Sorters = "type,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, ownerId, type, description, lastModifiedAt, lastModifiedBy, privateFieldsLastModifiedAt, privateFieldsLastModifiedAt** (optional)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        
+        # Query stored parameters.
+        
+        try {
+            Search-V2025Parameters 
+    
+            # Below is a request that includes all optional parameters
+            # Search-V2025Parameters -Filters $Filters -Sorters $Sorters -Offset $Offset -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-V2025Parameters"
+            Write-Host $_.ErrorDetails
+        }
+- path: /parameter-storage/parameters/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/parameter-storage#update-parameter
+      source: |
+        $Id = "58de858b-83d9-4563-9e15-7393594c684a" # String | The ID of the parameter to be updated.
+        $ParameterStorageUpdateParameter = @"
+        {
+          "privateFields" : "ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu",
+          "name" : "Credentials for server.",
+          "description" : "Credentials for server.",
+          "publicFields" : "{\"username\": \"username\"}",
+          "ownerId" : "c0b4568a4fe7458c434ee77d1fbt156b"
+        }
+        {
+          "privateFields" : "ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu",
+          "name" : "Credentials for server.",
+          "description" : "Credentials for server.",
+          "publicFields" : "{\"username\": \"username\"}",
+          "ownerId" : "c0b4568a4fe7458c434ee77d1fbt156b"
+        }
+        "@
+        
+        # Update a parameter.
+        
+        try {
+            Update-V2025Parameter -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2025Parameter -Id $Id -ParameterStorageUpdateParameter $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025Parameter"
+            Write-Host $_.ErrorDetails
+        }
 - path: /password-org-config
   method: POST
   xCodeSample:
@@ -14815,25 +14998,6 @@
       source: |
         $IdentityWithNewAccess = @"
         {
-          "sourceIdAndNativeIdToEntitlementIdsMappings" : [ {
-            "sourceId" : "2c91809773dee32014e13e122092014e",
-            "nativeIdToEntitlementIdsMappings" : [ {
-              "entitlementIds" : [ "2c91809773dee32014e13e122092014e", "2c91809773dee32014e13e122092014e" ],
-              "nativeId" : "jdoe"
-            }, {
-              "entitlementIds" : [ "2c91809773dee32014e13e122092014e", "2c91809773dee32014e13e122092014e" ],
-              "nativeId" : "jdoe"
-            } ]
-          }, {
-            "sourceId" : "2c91809773dee32014e13e122092014e",
-            "nativeIdToEntitlementIdsMappings" : [ {
-              "entitlementIds" : [ "2c91809773dee32014e13e122092014e", "2c91809773dee32014e13e122092014e" ],
-              "nativeId" : "jdoe"
-            }, {
-              "entitlementIds" : [ "2c91809773dee32014e13e122092014e", "2c91809773dee32014e13e122092014e" ],
-              "nativeId" : "jdoe"
-            } ]
-          } ],
           "identityId" : "2c91808568c529c60168cca6f90c1313",
           "accessRefs" : [ {
             "type" : "ENTITLEMENT",
@@ -14865,25 +15029,6 @@
       source: |
         $IdentityWithNewAccess = @"
         {
-          "sourceIdAndNativeIdToEntitlementIdsMappings" : [ {
-            "sourceId" : "2c91809773dee32014e13e122092014e",
-            "nativeIdToEntitlementIdsMappings" : [ {
-              "entitlementIds" : [ "2c91809773dee32014e13e122092014e", "2c91809773dee32014e13e122092014e" ],
-              "nativeId" : "jdoe"
-            }, {
-              "entitlementIds" : [ "2c91809773dee32014e13e122092014e", "2c91809773dee32014e13e122092014e" ],
-              "nativeId" : "jdoe"
-            } ]
-          }, {
-            "sourceId" : "2c91809773dee32014e13e122092014e",
-            "nativeIdToEntitlementIdsMappings" : [ {
-              "entitlementIds" : [ "2c91809773dee32014e13e122092014e", "2c91809773dee32014e13e122092014e" ],
-              "nativeId" : "jdoe"
-            }, {
-              "entitlementIds" : [ "2c91809773dee32014e13e122092014e", "2c91809773dee32014e13e122092014e" ],
-              "nativeId" : "jdoe"
-            } ]
-          } ],
           "identityId" : "2c91808568c529c60168cca6f90c1313",
           "accessRefs" : [ {
             "type" : "ENTITLEMENT",

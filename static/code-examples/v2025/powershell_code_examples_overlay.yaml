@@ -1846,7 +1846,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/approvals#get-approvals
       source: |
-        $Mine = $true # Boolean | Returns the list of approvals for the current caller. (optional) (default to $false)
+        $Mine = $true # Boolean | Returns the list of approvals for the current caller. Defaults to false if admin, true otherwise. (optional) (default to $false)
         $RequesterId = "17e633e7d57e481569df76323169deb6a" # String | Returns the list of approvals for a given requester ID. Must match the calling user's identity ID unless they are an admin. (optional)
         $RequesteeId = "27e6334g757e481569df76323169db9sc" # String | Returns the list of approvals for a given requesteeId ID. Must match the calling user's identity ID unless they are an admin. (optional)
         $ApproverId = "37e6334g557e481569df7g2d3169db9sb" # String | Returns the list of approvals for a given approverId ID. Must match the calling user's identity ID unless they are an admin. (optional)
@@ -1855,8 +1855,7 @@
         $IncludeComments = $true # Boolean | If set to true in the query, the approval requests returned will include comments. (optional) (default to $false)
         $IncludeApprovers = $true # Boolean | If set to true in the query, the approval requests returned will include approvers. (optional) (default to $false)
         $IncludeBatchInfo = $true # Boolean | If set to true in the query, the approval requests returned will include batch information. (optional) (default to $false)
-        $IncludeBatchInfo2 = $true # Boolean | If set to true in the query, the approval requests returned will include batch information. (optional) (default to $false)
-        $Filters = "filters=status eq PENDING" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq*  **name**: *eq*  **priority**: *eq*  **type**: *eq*  **medium**: *eq*  **description**: *eq*  **batchId**: *eq*  **approvalId**: *eq*  **tenantId**: *eq*  **createdDate**: *eq*  **dueDate**: *eq*  **completedDate**: *eq*  **search**: *eq*  **referenceId**: *eq*  **referenceName**: *eq*  **requestedTargetType**: *eq*  **requestedTargetRequestType**: *eq*  **requestedTargetId**: *eq*  **modifiedDate**: *eq*  **requesterId**: *eq*  **requesteeId**: *eq*  **approverId**: *eq* (optional)
+        $Filters = "filters=status eq PENDING" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **approvalId**: *eq, ne, in, co, sw*  **tenantId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le* (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         
@@ -1866,9 +1865,127 @@
             Get-V2025Approvals 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025Approvals -Mine $Mine -RequesterId $RequesterId -RequesteeId $RequesteeId -ApproverId $ApproverId -Count $Count -CountOnly $CountOnly -IncludeComments $IncludeComments -IncludeApprovers $IncludeApprovers -IncludeBatchInfo $IncludeBatchInfo -IncludeBatchInfo2 $IncludeBatchInfo2 -Filters $Filters -Limit $Limit -Offset $Offset   
+            # Get-V2025Approvals -Mine $Mine -RequesterId $RequesterId -RequesteeId $RequesteeId -ApproverId $ApproverId -Count $Count -CountOnly $CountOnly -IncludeComments $IncludeComments -IncludeApprovers $IncludeApprovers -IncludeBatchInfo $IncludeBatchInfo -Filters $Filters -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Approvals"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#get-approvals-config-id-type
+      source: |
+        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid)
+        
+        # Get Approval Config Type
+        
+        try {
+            Get-V2025ApprovalsConfigIdType -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025ApprovalsConfigIdType -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ApprovalsConfigIdType"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/config
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#patch-approvals-config-type
+      source: |
+        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The ID defined by the scope field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
+        $Scope = "ROLE" # String | The scope of the field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
+        $ApprovalConfig = @"
+        {
+          "timeoutConfig" : {
+            "daysUntilTimeout" : 2,
+            "enabled" : true,
+            "timeoutResult" : "EXPIRED"
+          },
+          "requiresComment" : "ALL",
+          "cronTimezone" : {
+            "offset" : "",
+            "location" : "America/New_York"
+          },
+          "fallbackApprover" : {
+            "identityID" : "17e633e7d57e481569df76323169deb6a",
+            "members" : [ {
+              "name" : "Bob Neil",
+              "id" : "17e633e7d57e481569df76323169deb6a",
+              "type" : "IDENTITY",
+              "email" : "mail@mail.com"
+            }, {
+              "name" : "Bob Neil",
+              "id" : "17e633e7d57e481569df76323169deb6a",
+              "type" : "IDENTITY",
+              "email" : "mail@mail.com"
+            } ],
+            "name" : "Jim Bob",
+            "ownerOf" : [ {
+              "name" : "Access Request App",
+              "id" : "string",
+              "type" : "APPLICATION"
+            }, {
+              "name" : "Access Request App",
+              "id" : "string",
+              "type" : "APPLICATION"
+            } ],
+            "serialOrder" : 0,
+            "type" : "IDENTITY",
+            "email" : "mail@mail.com"
+          },
+          "reminderConfig" : {
+            "reminderCronSchedule" : "1 1 1 1 1",
+            "daysUntilFirstReminder" : 0,
+            "maxReminders" : 5,
+            "enabled" : false
+          },
+          "scope" : "APPROVAL_REQUEST",
+          "tenantId" : "d3c10266-1a31-4acc-b01e-44a3d1c56615",
+          "escalationConfig" : {
+            "escalationCronSchedule" : "*/5 * * * *",
+            "escalationChain" : [ {
+              "tier" : 1,
+              "chainId" : "ef85d1a8-41ef-433a-8153-0b1f59e7b26a",
+              "identityType" : "IDENTITY",
+              "identityId" : "fdfda352157d4cc79bb749953131b457"
+            }, {
+              "tier" : 1,
+              "chainId" : "ef85d1a8-41ef-433a-8153-0b1f59e7b26a",
+              "identityType" : "IDENTITY",
+              "identityId" : "fdfda352157d4cc79bb749953131b457"
+            } ],
+            "daysUntilFirstEscalation" : 2,
+            "enabled" : true
+          },
+          "id" : "5804e7d6-e04b-400f-9fb8-dff894419a2f",
+          "serialChain" : [ {
+            "tier" : 1,
+            "chainId" : "23dc206e-2a9e-4f98-93db-8d6e342cca18",
+            "identityType" : "IDENTITY",
+            "identityId" : "2c9180858090ea8801809a0465e829da"
+          }, {
+            "tier" : 1,
+            "chainId" : "23dc206e-2a9e-4f98-93db-8d6e342cca18",
+            "identityType" : "IDENTITY",
+            "identityId" : "2c9180858090ea8801809a0465e829da"
+          } ],
+          "autoApprove" : "false"
+        }
+        "@
+        
+        # Patch Approval Config Type
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToApprovalConfig -Json $ApprovalConfig
+            Update-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025ApprovalsConfigType"
             Write-Host $_.ErrorDetails
         }
 - path: /generic-approvals/{id}/reject

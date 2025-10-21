@@ -21,6 +21,8 @@ tags: ['SDK', 'Software Development Kit', 'ConfigTypeEnum', 'V2025ConfigTypeEnum
 
 * `MANUAL_TASKS` (value: `"MANUAL_TASKS"`)
 
+* `GENERIC_APPROVALS` (value: `"GENERIC_APPROVALS"`)
+
 
 [[Back to top]](#) 
 

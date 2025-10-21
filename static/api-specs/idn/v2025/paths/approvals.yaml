@@ -12,7 +12,7 @@ get:
     
     Get a list of approvals. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and does not include access-request-approvals. 
     
-    Absence of all query parameters for non admins will will default to mine=true.
+    Absence of all query parameters for non admins will will default to mine=true. Admin will default to mine=false.
     
     Absence of all query parameters for admins will return all approvals in the org.
   parameters:
@@ -23,7 +23,7 @@ get:
         type: boolean
         default: false
       description: >-
-        Returns the list of approvals for the current caller.
+        Returns the list of approvals for the current caller. Defaults to false if admin, true otherwise.
       example:
         "true"
     - in: query
@@ -64,7 +64,7 @@ get:
       example:
         "true"
     - in: query
-      name: countOnly
+      name: count-only
       required: false
       schema:
         type: boolean
@@ -98,14 +98,6 @@ get:
       description: If set to true in the query, the approval requests returned will include batch information.
       example: "true"
     - in: query
-      name: include-batch-info
-      required: false
-      schema:
-        type: boolean
-        default: false
-      description: If set to true in the query, the approval requests returned will include batch information.
-      example: "true"
-    - in: query
       name: filters
       required: false
       schema:
@@ -117,73 +109,76 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **status**: *eq*
+        **status**: *eq, ne, in, co, sw*
 
 
-        **referenceType**: *eq*
+        **referenceType**: *eq, ne, in, co, sw*
         
         
-        **name**: *eq*
+        **name**: *eq, ne, in, co, sw*
         
         
-        **priority**: *eq*
+        **priority**: *eq, ne, in, co, sw*
         
         
-        **type**: *eq*
+        **type**: *eq, ne, in, co, sw*
         
         
-        **medium**: *eq*
+        **medium**: *eq, ne, in, co, sw*
         
         
-        **description**: *eq*
+        **description**: *eq, ne, in, co, sw*
         
         
-        **batchId**: *eq*
+        **batchId**: *eq, ne, in, co, sw*
         
         
-        **approvalId**: *eq*
+        **approvalId**: *eq, ne, in, co, sw*
         
         
-        **tenantId**: *eq*
+        **tenantId**: *eq, ne, in, co, sw*
         
         
-        **createdDate**: *eq*
+        **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*
         
         
-        **dueDate**: *eq*
+        **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*
         
         
-        **completedDate**: *eq*
+        **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*
         
         
-        **search**: *eq*
+        **search**: *eq, ne, in, co, sw*
         
         
-        **referenceId**: *eq*
+        **referenceId**: *eq, ne, in, co, sw*
         
         
-        **referenceName**: *eq*
+        **referenceName**: *eq, ne, in, co, sw*
         
         
-        **requestedTargetType**: *eq*
+        **requestedTargetType**: *eq, ne, in, co, sw*
         
         
-        **requestedTargetRequestType**: *eq*
+        **requestedTargetRequestType**: *eq, ne, in, co, sw*
         
         
-        **requestedTargetId**: *eq*
+        **requestedTargetId**: *eq, ne, in, co, sw*
         
         
-        **modifiedDate**: *eq*
+        **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*
         
         
-        **requesterId**: *eq*
+        **requesterId**: *eq, ne, in, co, sw*
         
         
-        **requesteeId**: *eq*
+        **requesteeId**: *eq, ne, in, co, sw*
         
         
-        **approverId**: *eq*
+        **approverId**: *eq, ne, in, co, sw*
+        
+        
+        **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le*
       example:
         "filters=status eq PENDING"
     - $ref: '../parameters/limit.yaml'

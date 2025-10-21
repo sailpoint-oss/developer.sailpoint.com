@@ -2066,6 +2066,8 @@ paths:
     $ref: ./v2025/paths/approvals-id-reassign.yaml
   /generic-approvals/{id}/reject:
     $ref: ./v2025/paths/approvals-id-reject.yaml
+  /generic-approvals/config:
+    $ref: ./v2025/paths/approvals-config-id-type.yaml
   /machine-accounts:
     $ref: ./v2025/paths/machine-accounts.yaml
   /machine-accounts/{id}:

@@ -10,7 +10,7 @@ get:
   description: >-
     Currently this endpoint only supports Entitlement Description Approvals.
     
-    Retrieves a singular approval configuration that best matches the given configID and configType
+    Retrieves a singular approval configuration that matches the given ID
   parameters:
   - in: path
     name: id
@@ -20,15 +20,6 @@ get:
     description: >-
       ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid)
     example: 38453251-6be2-5f8f-df93-5ce19e295837
-    x-sailpoint-resource-operation-id: getApprovals
-  - in: path
-    name: type
-    required: true
-    schema:
-      type: string
-    description: >-
-      The type / scope of the above ID: APPROVAL_REQUEST, ROLE, APPLICATION, ACCESS_PROFILE, ENTITLEMENT, APPROVAL_TYPE, TENANT, SOURCE
-    example: APPROVAL_REQUEST
     x-sailpoint-resource-operation-id: getApprovals
   responses:
     '200':
@@ -57,24 +48,44 @@ patch:
   - Approvals
   summary: Patch Approval Config Type
   description: >-
-    Updates a singular approval configuration that best matches the given configID and configType
+    Updates a singular approval configuration that matches the given configID and configScope
   parameters:
-  - in: path
+  - in: query
     name: id
     required: true
     schema:
       type: string
     description: >-
-      ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid)
+      The ID defined by the scope field, where {id}:{scope} is the following:
+      {approvalID}:APPROVAL_REQUEST
+      {roleID}:ROLE
+      {entitlementID}:ENTITLEMENT
+      {accessProfileID}:ACCESS_PROFILE
+      {sourceID}:SOURCE
+      {applicationID}:APPLICATION
+      ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
+      CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
+      GENERIC_APPROVAL:APPROVAL_TYPE
+      {tenantID}:TENANT
     example: 38453251-6be2-5f8f-df93-5ce19e295837
     x-sailpoint-resource-operation-id: getApprovals
-  - in: path
-    name: type
+  - in: query
+    name: scope
     required: true
     schema:
       type: string
     description: >-
-      The type / scope of the above ID: ROLE, APPLICATION, ACCESS_PROFILE, ENTITLEMENT, APPROVAL_TYPE, TENANT
+      The scope of the field, where {id}:{scope} is the following:
+      {approvalID}:APPROVAL_REQUEST
+      {roleID}:ROLE
+      {entitlementID}:ENTITLEMENT
+      {accessProfileID}:ACCESS_PROFILE
+      {sourceID}:SOURCE
+      {applicationID}:APPLICATION
+      ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
+      CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
+      GENERIC_APPROVAL:APPROVAL_TYPE
+      {tenantID}:TENANT
     example: ROLE
     x-sailpoint-resource-operation-id: getApprovals
   requestBody:

@@ -19,11 +19,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**approve-approval**](#approve-approval) | **POST** `/generic-approvals/{id}/approve` | Post Approvals Approve
+[**approve-approval-0**](#approve-approval-0) | **POST** `/generic-approvals/bulk-approve` | Post Bulk Approve Approvals
+[**cancel-approval**](#cancel-approval) | **POST** `/generic-approvals/bulk-cancel` | Post Bulk Cancel Approvals
 [**get-approval**](#get-approval) | **GET** `/generic-approvals/{id}` | Get an approval
 [**get-approvals**](#get-approvals) | **GET** `/generic-approvals` | Get approvals
 [**get-approvals-config-id-type**](#get-approvals-config-id-type) | **GET** `/generic-approvals/config` | Get Approval Config Type
+[**move-approval**](#move-approval) | **POST** `/generic-approvals/bulk-reassign` | Post Bulk Reassign Approvals
 [**patch-approvals-config-type**](#patch-approvals-config-type) | **PATCH** `/generic-approvals/config` | Patch Approval Config Type
 [**reject-approval**](#reject-approval) | **POST** `/generic-approvals/{id}/reject` | Post Approvals Reject
+[**reject-approval-0**](#reject-approval-0) | **POST** `/generic-approvals/bulk-reject` | Post Bulk Reject Approvals
 [**update-approvals-attributes**](#update-approvals-attributes) | **POST** `/generic-approvals/{id}/attributes` | Post Approvals Attributes
 [**update-approvals-comments**](#update-approvals-comments) | **POST** `/generic-approvals/{id}/comments` | Post Approvals Comments
 [**update-approvals-reassign**](#update-approvals-reassign) | **POST** `/generic-approvals/{id}/reassign` | Post Approvals Reassign
@@ -94,6 +98,134 @@ with ApiClient(configuration) as api_client:
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ApprovalsApi->approve_approval: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## approve-approval-0
+Post Bulk Approve Approvals
+Bulk Approves specified approval requests on behalf of the caller
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-approval-0)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | bulk_approve_request_dto | [**BulkApproveRequestDTO**](../models/bulk-approve-request-dto) | True  | 
+
+### Return type
+**object**
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+202 | Accepted - Returned if the request was successfully accepted into the system. | object |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.v2025.api.approvals_api import ApprovalsApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.bulk_approve_request_dto import BulkApproveRequestDTO
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    bulk_approve_request_dto = '''{
+          "comment" : "Bulk approved by admin for monthly review",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ],
+          "additionalAttributes" : {
+            "source" : "automation",
+            "urgency" : "high"
+          }
+        }''' # BulkApproveRequestDTO | 
+
+    try:
+        # Post Bulk Approve Approvals
+        new_bulk_approve_request_dto = BulkApproveRequestDto.from_json(bulk_approve_request_dto)
+        results = ApprovalsApi(api_client).approve_approval_0(bulk_approve_request_dto=new_bulk_approve_request_dto)
+        # Below is a request that includes all optional parameters
+        # results = ApprovalsApi(api_client).approve_approval_0(new_bulk_approve_request_dto)
+        print("The response of ApprovalsApi->approve_approval_0:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ApprovalsApi->approve_approval_0: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## cancel-approval
+Post Bulk Cancel Approvals
+Bulk cancels specified approval requests on behalf of the caller
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/cancel-approval)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | bulk_cancel_request_dto | [**BulkCancelRequestDTO**](../models/bulk-cancel-request-dto) | True  | 
+
+### Return type
+**object**
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+202 | Accepted - Returned if the request was successfully accepted into the system. | object |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.v2025.api.approvals_api import ApprovalsApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.bulk_cancel_request_dto import BulkCancelRequestDTO
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    bulk_cancel_request_dto = '''{
+          "comment" : "Bulk cancellation by admin",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+        }''' # BulkCancelRequestDTO | 
+
+    try:
+        # Post Bulk Cancel Approvals
+        new_bulk_cancel_request_dto = BulkCancelRequestDto.from_json(bulk_cancel_request_dto)
+        results = ApprovalsApi(api_client).cancel_approval(bulk_cancel_request_dto=new_bulk_cancel_request_dto)
+        # Below is a request that includes all optional parameters
+        # results = ApprovalsApi(api_client).cancel_approval(new_bulk_cancel_request_dto)
+        print("The response of ApprovalsApi->cancel_approval:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ApprovalsApi->cancel_approval: %s\n" % e)
 ```
 
 
@@ -316,6 +448,70 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
+## move-approval
+Post Bulk Reassign Approvals
+Bulk reassigns specified approval requests on behalf of the caller
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/move-approval)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | bulk_reassign_request_dto | [**BulkReassignRequestDTO**](../models/bulk-reassign-request-dto) | True  | 
+
+### Return type
+**object**
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+202 | Accepted - Returned if the request was successfully accepted into the system. | object |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.v2025.api.approvals_api import ApprovalsApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.bulk_reassign_request_dto import BulkReassignRequestDTO
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    bulk_reassign_request_dto = '''{
+          "reassignTo" : "32454251-6ce2-5d8f-df93-5ce19e295238",
+          "comment" : "Bulk reassignment by admin",
+          "reassignFrom" : "12353251-6be2-5f8f-df93-5ce19b6e5837",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+        }''' # BulkReassignRequestDTO | 
+
+    try:
+        # Post Bulk Reassign Approvals
+        new_bulk_reassign_request_dto = BulkReassignRequestDto.from_json(bulk_reassign_request_dto)
+        results = ApprovalsApi(api_client).move_approval(bulk_reassign_request_dto=new_bulk_reassign_request_dto)
+        # Below is a request that includes all optional parameters
+        # results = ApprovalsApi(api_client).move_approval(new_bulk_reassign_request_dto)
+        print("The response of ApprovalsApi->move_approval:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ApprovalsApi->move_approval: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
 ## patch-approvals-config-type
 Patch Approval Config Type
 Updates a singular approval configuration that matches the given configID and configScope
@@ -511,6 +707,68 @@ with ApiClient(configuration) as api_client:
         # ApprovalsApi(api_client).reject_approval(id, new_approval_reject_request)
     except Exception as e:
         print("Exception when calling ApprovalsApi->reject_approval: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## reject-approval-0
+Post Bulk Reject Approvals
+Bulk reject specified approval requests on behalf of the caller
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/reject-approval-0)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | bulk_reject_request_dto | [**BulkRejectRequestDTO**](../models/bulk-reject-request-dto) | True  | 
+
+### Return type
+**object**
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+202 | Accepted - Returned if the request was successfully accepted into the system. | object |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.v2025.api.approvals_api import ApprovalsApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.bulk_reject_request_dto import BulkRejectRequestDTO
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    bulk_reject_request_dto = '''{
+          "comment" : "Bulk reject by admin",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+        }''' # BulkRejectRequestDTO | 
+
+    try:
+        # Post Bulk Reject Approvals
+        new_bulk_reject_request_dto = BulkRejectRequestDto.from_json(bulk_reject_request_dto)
+        results = ApprovalsApi(api_client).reject_approval_0(bulk_reject_request_dto=new_bulk_reject_request_dto)
+        # Below is a request that includes all optional parameters
+        # results = ApprovalsApi(api_client).reject_approval_0(new_bulk_reject_request_dto)
+        print("The response of ApprovalsApi->reject_approval_0:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ApprovalsApi->reject_approval_0: %s\n" % e)
 ```
 
 

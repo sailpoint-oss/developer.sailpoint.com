@@ -2116,6 +2116,66 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ApprovalsApi->approve_approval: %s\n" % e)
+- path: /generic-approvals/bulk-approve
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/approvals#approve-approval-0
+      source: |
+        from sailpoint.v2025.api.approvals_api import ApprovalsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.bulk_approve_request_dto import BulkApproveRequestDTO
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          bulk_approve_request_dto = '''{
+          "comment" : "Bulk approved by admin for monthly review",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ],
+          "additionalAttributes" : {
+            "source" : "automation",
+            "urgency" : "high"
+          }
+        }''' # BulkApproveRequestDTO | 
+          try:
+              # Post Bulk Approve Approvals
+              new_bulk_approve_request_dto = BulkApproveRequestDto.from_json(bulk_approve_request_dto)
+              results = ApprovalsApi(api_client).approve_approval_0(bulk_approve_request_dto=new_bulk_approve_request_dto)
+              # Below is a request that includes all optional parameters
+              # results = ApprovalsApi(api_client).approve_approval_0(new_bulk_approve_request_dto)
+              print("The response of ApprovalsApi->approve_approval_0:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling ApprovalsApi->approve_approval_0: %s\n" % e)
+- path: /generic-approvals/bulk-cancel
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/approvals#cancel-approval
+      source: |
+        from sailpoint.v2025.api.approvals_api import ApprovalsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.bulk_cancel_request_dto import BulkCancelRequestDTO
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          bulk_cancel_request_dto = '''{
+          "comment" : "Bulk cancellation by admin",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+        }''' # BulkCancelRequestDTO | 
+          try:
+              # Post Bulk Cancel Approvals
+              new_bulk_cancel_request_dto = BulkCancelRequestDto.from_json(bulk_cancel_request_dto)
+              results = ApprovalsApi(api_client).cancel_approval(bulk_cancel_request_dto=new_bulk_cancel_request_dto)
+              # Below is a request that includes all optional parameters
+              # results = ApprovalsApi(api_client).cancel_approval(new_bulk_cancel_request_dto)
+              print("The response of ApprovalsApi->cancel_approval:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling ApprovalsApi->cancel_approval: %s\n" % e)
 - path: /generic-approvals/{id}
   method: GET
   xCodeSample:
@@ -2205,6 +2265,36 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ApprovalsApi->get_approvals_config_id_type: %s\n" % e)
+- path: /generic-approvals/bulk-reassign
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/approvals#move-approval
+      source: |
+        from sailpoint.v2025.api.approvals_api import ApprovalsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.bulk_reassign_request_dto import BulkReassignRequestDTO
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          bulk_reassign_request_dto = '''{
+          "reassignTo" : "32454251-6ce2-5d8f-df93-5ce19e295238",
+          "comment" : "Bulk reassignment by admin",
+          "reassignFrom" : "12353251-6be2-5f8f-df93-5ce19b6e5837",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+        }''' # BulkReassignRequestDTO | 
+          try:
+              # Post Bulk Reassign Approvals
+              new_bulk_reassign_request_dto = BulkReassignRequestDto.from_json(bulk_reassign_request_dto)
+              results = ApprovalsApi(api_client).move_approval(bulk_reassign_request_dto=new_bulk_reassign_request_dto)
+              # Below is a request that includes all optional parameters
+              # results = ApprovalsApi(api_client).move_approval(new_bulk_reassign_request_dto)
+              print("The response of ApprovalsApi->move_approval:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling ApprovalsApi->move_approval: %s\n" % e)
 - path: /generic-approvals/config
   method: PATCH
   xCodeSample:
@@ -2333,6 +2423,34 @@
               # ApprovalsApi(api_client).reject_approval(id, new_approval_reject_request)
           except Exception as e:
               print("Exception when calling ApprovalsApi->reject_approval: %s\n" % e)
+- path: /generic-approvals/bulk-reject
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/approvals#reject-approval-0
+      source: |
+        from sailpoint.v2025.api.approvals_api import ApprovalsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.bulk_reject_request_dto import BulkRejectRequestDTO
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          bulk_reject_request_dto = '''{
+          "comment" : "Bulk reject by admin",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+        }''' # BulkRejectRequestDTO | 
+          try:
+              # Post Bulk Reject Approvals
+              new_bulk_reject_request_dto = BulkRejectRequestDto.from_json(bulk_reject_request_dto)
+              results = ApprovalsApi(api_client).reject_approval_0(bulk_reject_request_dto=new_bulk_reject_request_dto)
+              # Below is a request that includes all optional parameters
+              # results = ApprovalsApi(api_client).reject_approval_0(new_bulk_reject_request_dto)
+              print("The response of ApprovalsApi->reject_approval_0:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling ApprovalsApi->reject_approval_0: %s\n" % e)
 - path: /generic-approvals/{id}/attributes
   method: POST
   xCodeSample:
@@ -2994,6 +3112,66 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AuthUsersApi->patch_auth_user: %s\n" % e)
+- path: /authorization/user-levels/get-identity-count
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/authorization#list-user-level-counts
+      source: |
+        from sailpoint.v2025.api.authorization_api import AuthorizationApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.auth_user_levels_identity_count import AuthUserLevelsIdentityCount
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+        configuration.experimental = True
+
+        with ApiClient(configuration) as api_client:
+          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+          request_body = '''['request_body_example']''' # List[str] | List of user level ids. Max 50 identifiers can be passed in a single request.
+          try:
+              # Count user levels identities
+              new_request_body = RequestBody.from_json(request_body)
+              results = AuthorizationApi(api_client).list_user_level_counts(x_sail_point_experimental=x_sail_point_experimental, request_body=new_request_body)
+              # Below is a request that includes all optional parameters
+              # results = AuthorizationApi(api_client).list_user_level_counts(x_sail_point_experimental, new_request_body)
+              print("The response of AuthorizationApi->list_user_level_counts:\n")
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling AuthorizationApi->list_user_level_counts: %s\n" % e)
+- path: /authorization/user-levels/{id}/identities
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/authorization#list-user-level-identities
+      source: |
+        from sailpoint.v2025.api.authorization_api import AuthorizationApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.auth_user_slim_response import AuthUserSlimResponse
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+        configuration.experimental = True
+
+        with ApiClient(configuration) as api_client:
+          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+          id = 'idn:access-request-administrator' # str | The unique identifier of the user level. # str | The unique identifier of the user level.
+          count = False # bool | If true, X-Total-Count header with the the total number of identities for this user level will be included in the response. (optional) (default to False) # bool | If true, X-Total-Count header with the the total number of identities for this user level will be included in the response. (optional) (default to False)
+          sorters = 'displayName' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName** (optional)
+          limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+          try:
+              # List user level identities
+              
+              results = AuthorizationApi(api_client).list_user_level_identities(x_sail_point_experimental=x_sail_point_experimental, id=id)
+              # Below is a request that includes all optional parameters
+              # results = AuthorizationApi(api_client).list_user_level_identities(x_sail_point_experimental, id, count, sorters, limit, offset)
+              print("The response of AuthorizationApi->list_user_level_identities:\n")
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling AuthorizationApi->list_user_level_identities: %s\n" % e)
 - path: /brandings
   method: POST
   xCodeSample:

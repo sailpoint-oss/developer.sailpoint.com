@@ -2805,7 +2805,7 @@
         )
 
         func main() {
-          mine := true // bool | Returns the list of approvals for the current caller. (optional) (default to false) # bool | Returns the list of approvals for the current caller. (optional) (default to false)
+          mine := true // bool | Returns the list of approvals for the current caller. Defaults to false if admin, true otherwise. (optional) (default to false) # bool | Returns the list of approvals for the current caller. Defaults to false if admin, true otherwise. (optional) (default to false)
           requesterId := `17e633e7d57e481569df76323169deb6a` // string | Returns the list of approvals for a given requester ID. Must match the calling user's identity ID unless they are an admin. (optional) # string | Returns the list of approvals for a given requester ID. Must match the calling user's identity ID unless they are an admin. (optional)
           requesteeId := `27e6334g757e481569df76323169db9sc` // string | Returns the list of approvals for a given requesteeId ID. Must match the calling user's identity ID unless they are an admin. (optional) # string | Returns the list of approvals for a given requesteeId ID. Must match the calling user's identity ID unless they are an admin. (optional)
           approverId := `37e6334g557e481569df7g2d3169db9sb` // string | Returns the list of approvals for a given approverId ID. Must match the calling user's identity ID unless they are an admin. (optional) # string | Returns the list of approvals for a given approverId ID. Must match the calling user's identity ID unless they are an admin. (optional)
@@ -2814,8 +2814,7 @@
           includeComments := true // bool | If set to true in the query, the approval requests returned will include comments. (optional) (default to false) # bool | If set to true in the query, the approval requests returned will include comments. (optional) (default to false)
           includeApprovers := true // bool | If set to true in the query, the approval requests returned will include approvers. (optional) (default to false) # bool | If set to true in the query, the approval requests returned will include approvers. (optional) (default to false)
           includeBatchInfo := true // bool | If set to true in the query, the approval requests returned will include batch information. (optional) (default to false) # bool | If set to true in the query, the approval requests returned will include batch information. (optional) (default to false)
-          includeBatchInfo2 := true // bool | If set to true in the query, the approval requests returned will include batch information. (optional) (default to false) # bool | If set to true in the query, the approval requests returned will include batch information. (optional) (default to false)
-          filters := `filters=status eq PENDING` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq*  **name**: *eq*  **priority**: *eq*  **type**: *eq*  **medium**: *eq*  **description**: *eq*  **batchId**: *eq*  **approvalId**: *eq*  **tenantId**: *eq*  **createdDate**: *eq*  **dueDate**: *eq*  **completedDate**: *eq*  **search**: *eq*  **referenceId**: *eq*  **referenceName**: *eq*  **requestedTargetType**: *eq*  **requestedTargetRequestType**: *eq*  **requestedTargetId**: *eq*  **modifiedDate**: *eq*  **requesterId**: *eq*  **requesteeId**: *eq*  **approverId**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq*  **name**: *eq*  **priority**: *eq*  **type**: *eq*  **medium**: *eq*  **description**: *eq*  **batchId**: *eq*  **approvalId**: *eq*  **tenantId**: *eq*  **createdDate**: *eq*  **dueDate**: *eq*  **completedDate**: *eq*  **search**: *eq*  **referenceId**: *eq*  **referenceName**: *eq*  **requestedTargetType**: *eq*  **requestedTargetRequestType**: *eq*  **requestedTargetId**: *eq*  **modifiedDate**: *eq*  **requesterId**: *eq*  **requesteeId**: *eq*  **approverId**: *eq* (optional)
+          filters := `filters=status eq PENDING` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **approvalId**: *eq, ne, in, co, sw*  **tenantId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **approvalId**: *eq, ne, in, co, sw*  **tenantId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le* (optional)
           limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
           offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
@@ -2825,13 +2824,164 @@
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
           resp, r, err := apiClient.V2025.ApprovalsAPI.GetApprovals(context.Background()).Execute()
-          //resp, r, err := apiClient.V2025.ApprovalsAPI.GetApprovals(context.Background()).Mine(mine).RequesterId(requesterId).RequesteeId(requesteeId).ApproverId(approverId).Count(count).CountOnly(countOnly).IncludeComments(includeComments).IncludeApprovers(includeApprovers).IncludeBatchInfo(includeBatchInfo).IncludeBatchInfo2(includeBatchInfo2).Filters(filters).Limit(limit).Offset(offset).Execute()
+          //resp, r, err := apiClient.V2025.ApprovalsAPI.GetApprovals(context.Background()).Mine(mine).RequesterId(requesterId).RequesteeId(requesteeId).ApproverId(approverId).Count(count).CountOnly(countOnly).IncludeComments(includeComments).IncludeApprovers(includeApprovers).IncludeBatchInfo(includeBatchInfo).Filters(filters).Limit(limit).Offset(offset).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.GetApprovals``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
           }
           // response from `GetApprovals`: []Approval
           fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.GetApprovals`: %v\n", resp)
+        }
+- path: /generic-approvals/config
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/approvals#get-approvals-config-id-type
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := `38453251-6be2-5f8f-df93-5ce19e295837` // string | ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid) # string | ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.ApprovalsAPI.GetApprovalsConfigIdType(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2025.ApprovalsAPI.GetApprovalsConfigIdType(context.Background(), id).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.GetApprovalsConfigIdType``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetApprovalsConfigIdType`: ApprovalConfig
+          fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.GetApprovalsConfigIdType`: %v\n", resp)
+        }
+- path: /generic-approvals/config
+  method: Patch
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/approvals#patch-approvals-config-type
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := `38453251-6be2-5f8f-df93-5ce19e295837` // string | The ID defined by the scope field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT # string | The ID defined by the scope field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
+          scope := `ROLE` // string | The scope of the field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT # string | The scope of the field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
+           approvalconfig := []byte(`{
+          "timeoutConfig" : {
+            "daysUntilTimeout" : 2,
+            "enabled" : true,
+            "timeoutResult" : "EXPIRED"
+          },
+          "requiresComment" : "ALL",
+          "cronTimezone" : {
+            "offset" : "",
+            "location" : "America/New_York"
+          },
+          "fallbackApprover" : {
+            "identityID" : "17e633e7d57e481569df76323169deb6a",
+            "members" : [ {
+              "name" : "Bob Neil",
+              "id" : "17e633e7d57e481569df76323169deb6a",
+              "type" : "IDENTITY",
+              "email" : "mail@mail.com"
+            }, {
+              "name" : "Bob Neil",
+              "id" : "17e633e7d57e481569df76323169deb6a",
+              "type" : "IDENTITY",
+              "email" : "mail@mail.com"
+            } ],
+            "name" : "Jim Bob",
+            "ownerOf" : [ {
+              "name" : "Access Request App",
+              "id" : "string",
+              "type" : "APPLICATION"
+            }, {
+              "name" : "Access Request App",
+              "id" : "string",
+              "type" : "APPLICATION"
+            } ],
+            "serialOrder" : 0,
+            "type" : "IDENTITY",
+            "email" : "mail@mail.com"
+          },
+          "reminderConfig" : {
+            "reminderCronSchedule" : "1 1 1 1 1",
+            "daysUntilFirstReminder" : 0,
+            "maxReminders" : 5,
+            "enabled" : false
+          },
+          "scope" : "APPROVAL_REQUEST",
+          "tenantId" : "d3c10266-1a31-4acc-b01e-44a3d1c56615",
+          "escalationConfig" : {
+            "escalationCronSchedule" : "*/5 * * * *",
+            "escalationChain" : [ {
+              "tier" : 1,
+              "chainId" : "ef85d1a8-41ef-433a-8153-0b1f59e7b26a",
+              "identityType" : "IDENTITY",
+              "identityId" : "fdfda352157d4cc79bb749953131b457"
+            }, {
+              "tier" : 1,
+              "chainId" : "ef85d1a8-41ef-433a-8153-0b1f59e7b26a",
+              "identityType" : "IDENTITY",
+              "identityId" : "fdfda352157d4cc79bb749953131b457"
+            } ],
+            "daysUntilFirstEscalation" : 2,
+            "enabled" : true
+          },
+          "id" : "5804e7d6-e04b-400f-9fb8-dff894419a2f",
+          "serialChain" : [ {
+            "tier" : 1,
+            "chainId" : "23dc206e-2a9e-4f98-93db-8d6e342cca18",
+            "identityType" : "IDENTITY",
+            "identityId" : "2c9180858090ea8801809a0465e829da"
+          }, {
+            "tier" : 1,
+            "chainId" : "23dc206e-2a9e-4f98-93db-8d6e342cca18",
+            "identityType" : "IDENTITY",
+            "identityId" : "2c9180858090ea8801809a0465e829da"
+          } ],
+          "autoApprove" : "false"
+        }`) // ApprovalConfig | 
+
+          
+          var approvalConfig v2025.ApprovalConfig
+          if err := json.Unmarshal(approvalconfig, &approvalConfig); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.ApprovalsAPI.PatchApprovalsConfigType(context.Background()).Id(id).Scope(scope).ApprovalConfig(approvalConfig).Execute()
+          //resp, r, err := apiClient.V2025.ApprovalsAPI.PatchApprovalsConfigType(context.Background()).Id(id).Scope(scope).ApprovalConfig(approvalConfig).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.PatchApprovalsConfigType``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `PatchApprovalsConfigType`: ApprovalConfig
+          fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.PatchApprovalsConfigType`: %v\n", resp)
         }
 - path: /generic-approvals/{id}/reject
   method: Post
@@ -19786,6 +19936,300 @@
           }
           // response from `PatchOrgConfig`: OrgConfig
           fmt.Fprintf(os.Stdout, "Response from `OrgConfigAPI.PatchOrgConfig`: %v\n", resp)
+        }
+- path: /parameter-storage/parameters
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/parameter-storage#create-parameter
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+           parameterstoragenewparameter := []byte(`{
+          "privateFields" : "ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu",
+          "name" : "Credentials for server.",
+          "description" : "Credentials for server.",
+          "publicFields" : "{\"username\": \"username\"}",
+          "ownerId" : "c0b4568a4fe7458c434ee77d1fbt156b",
+          "type" : "1.1"
+        }`) // ParameterStorageNewParameter | The parameter to add to the store. (optional)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.ParameterStorageAPI.CreateParameter(context.Background()).Execute()
+          //resp, r, err := apiClient.V2025.ParameterStorageAPI.CreateParameter(context.Background()).ParameterStorageNewParameter(parameterStorageNewParameter).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `ParameterStorageAPI.CreateParameter``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `CreateParameter`: ParameterStorageParameter
+          fmt.Fprintf(os.Stdout, "Response from `ParameterStorageAPI.CreateParameter`: %v\n", resp)
+        }
+- path: /parameter-storage/parameters/{id}
+  method: Delete
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/parameter-storage#delete-parameter
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := `58de858b-83d9-4563-9e15-7393594c684a` // string | The ID of the parameter to be deleted. # string | The ID of the parameter to be deleted.
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          r, err := apiClient.V2025.ParameterStorageAPI.DeleteParameter(context.Background(), id).Execute()
+          //r, err := apiClient.V2025.ParameterStorageAPI.DeleteParameter(context.Background(), id).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `ParameterStorageAPI.DeleteParameter``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+        }
+- path: /parameter-storage/attestation
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/parameter-storage#get-attestation-document
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          key := `cHVibGljIGtleSBnb2VzIGhlcmU=` // string | Base64Url encoded public key # string | Base64Url encoded public key
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.ParameterStorageAPI.GetAttestationDocument(context.Background()).Key(key).Execute()
+          //resp, r, err := apiClient.V2025.ParameterStorageAPI.GetAttestationDocument(context.Background()).Key(key).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `ParameterStorageAPI.GetAttestationDocument``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetAttestationDocument`: ParameterStorageAttestationDocument
+          fmt.Fprintf(os.Stdout, "Response from `ParameterStorageAPI.GetAttestationDocument`: %v\n", resp)
+        }
+- path: /parameter-storage/parameters/{id}
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/parameter-storage#get-parameter
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := `58de858b-83d9-4563-9e15-7393594c684a` // string | The ID of the parameter to be fetched # string | The ID of the parameter to be fetched
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.ParameterStorageAPI.GetParameter(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2025.ParameterStorageAPI.GetParameter(context.Background(), id).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `ParameterStorageAPI.GetParameter``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetParameter`: ParameterStorageParameter
+          fmt.Fprintf(os.Stdout, "Response from `ParameterStorageAPI.GetParameter`: %v\n", resp)
+        }
+- path: /parameter-storage/parameters/{id}/references
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/parameter-storage#get-parameter-references
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := `58de858b-83d9-4563-9e15-7393594c684a` // string | The ID of the parameter which you want to fetch the references for. # string | The ID of the parameter which you want to fetch the references for.
+          sorters := `consumerId,name` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, consumerId, parameterId, name, usageHint** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, consumerId, parameterId, name, usageHint** (optional)
+          limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.ParameterStorageAPI.GetParameterReferences(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2025.ParameterStorageAPI.GetParameterReferences(context.Background(), id).Sorters(sorters).Limit(limit).Offset(offset).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `ParameterStorageAPI.GetParameterReferences``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetParameterReferences`: []ParameterStorageReference
+          fmt.Fprintf(os.Stdout, "Response from `ParameterStorageAPI.GetParameterReferences`: %v\n", resp)
+        }
+- path: /parameter-storage/specification
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/parameter-storage#get-parameter-storage-specification
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          acceptLanguage := `en` // string | The i18n internationalization code for the language that the spec is in. Defaults to english. (optional) (default to "en") # string | The i18n internationalization code for the language that the spec is in. Defaults to english. (optional) (default to "en")
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          r, err := apiClient.V2025.ParameterStorageAPI.GetParameterStorageSpecification(context.Background()).Execute()
+          //r, err := apiClient.V2025.ParameterStorageAPI.GetParameterStorageSpecification(context.Background()).AcceptLanguage(acceptLanguage).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `ParameterStorageAPI.GetParameterStorageSpecification``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+        }
+- path: /parameter-storage/parameters
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/parameter-storage#search-parameters
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          filters := `id eq 550e8400-e29b-41d4-a716-446655440000` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, in, co*  **description**: *co*  **ownerId**: *eq*  **type**: *eq, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, in, co*  **description**: *co*  **ownerId**: *eq*  **type**: *eq, sw* (optional)
+          sorters := `type,name` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, ownerId, type, description, lastModifiedAt, lastModifiedBy, privateFieldsLastModifiedAt, privateFieldsLastModifiedAt** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, ownerId, type, description, lastModifiedAt, lastModifiedBy, privateFieldsLastModifiedAt, privateFieldsLastModifiedAt** (optional)
+          offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+          limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.ParameterStorageAPI.SearchParameters(context.Background()).Execute()
+          //resp, r, err := apiClient.V2025.ParameterStorageAPI.SearchParameters(context.Background()).Filters(filters).Sorters(sorters).Offset(offset).Limit(limit).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `ParameterStorageAPI.SearchParameters``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `SearchParameters`: []ParameterStorageParameter
+          fmt.Fprintf(os.Stdout, "Response from `ParameterStorageAPI.SearchParameters`: %v\n", resp)
+        }
+- path: /parameter-storage/parameters/{id}
+  method: Patch
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/parameter-storage#update-parameter
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := `58de858b-83d9-4563-9e15-7393594c684a` // string | The ID of the parameter to be updated. # string | The ID of the parameter to be updated.
+           parameterstorageupdateparameter := []byte(`{
+          "privateFields" : "ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu",
+          "name" : "Credentials for server.",
+          "description" : "Credentials for server.",
+          "publicFields" : "{\"username\": \"username\"}",
+          "ownerId" : "c0b4568a4fe7458c434ee77d1fbt156b"
+        }{
+          "privateFields" : "ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu",
+          "name" : "Credentials for server.",
+          "description" : "Credentials for server.",
+          "publicFields" : "{\"username\": \"username\"}",
+          "ownerId" : "c0b4568a4fe7458c434ee77d1fbt156b"
+        }`) // ParameterStorageUpdateParameter | The updated parameter. Supports both full and RFC 6902 JSON Patch updates. For RFC 6902 JSON Patch updates, move and copy operations are not supported for privateField updates. (optional)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.ParameterStorageAPI.UpdateParameter(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2025.ParameterStorageAPI.UpdateParameter(context.Background(), id).ParameterStorageUpdateParameter(parameterStorageUpdateParameter).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `ParameterStorageAPI.UpdateParameter``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `UpdateParameter`: ParameterStorageParameter
+          fmt.Fprintf(os.Stdout, "Response from `ParameterStorageAPI.UpdateParameter`: %v\n", resp)
         }
 - path: /password-org-config
   method: Post

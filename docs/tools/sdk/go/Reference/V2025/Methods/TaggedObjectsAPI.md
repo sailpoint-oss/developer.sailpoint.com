@@ -296,8 +296,6 @@ func main() {
 List tagged objects
 This API returns a list of all tagged objects.
 
-Any authenticated token may be used to call this API.
-
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-tagged-objects)
 
 ### Path Parameters
@@ -365,8 +363,6 @@ func main() {
 ## list-tagged-objects-by-type
 List tagged objects by type
 This API returns a list of all tagged objects by type.
-
-Any authenticated token may be used to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-tagged-objects-by-type)
 
@@ -524,8 +520,6 @@ func main() {
 ## set-tag-to-object
 Add tag to object
 This adds a tag to an object.
-
-Any authenticated token may be used to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/set-tag-to-object)
 

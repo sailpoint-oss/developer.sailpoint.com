@@ -21,5 +21,7 @@ Enum list of valid work types that can be selected for a Reassignment Configurat
 
 * `MANUAL_TASKS` (value: `'MANUAL_TASKS'`)
 
+* `GENERIC_APPROVALS` (value: `'GENERIC_APPROVALS'`)
+
 [[Back to top]](#) 
 

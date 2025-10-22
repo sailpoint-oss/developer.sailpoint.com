@@ -237,8 +237,6 @@ try {
 ## list-tagged-objects
 This API returns a list of all tagged objects.
 
-Any authenticated token may be used to call this API.
-
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-tagged-objects)
 
 ### Parameters 
@@ -289,8 +287,6 @@ try {
 
 ## list-tagged-objects-by-type
 This API returns a list of all tagged objects by type.
-
-Any authenticated token may be used to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-tagged-objects-by-type)
 
@@ -401,8 +397,6 @@ try {
 
 ## set-tag-to-object
 This adds a tag to an object.
-
-Any authenticated token may be used to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/set-tag-to-object)
 

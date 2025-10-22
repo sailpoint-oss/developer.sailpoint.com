@@ -8,8 +8,6 @@ get:
   description: >-
     This API returns a list of all tagged objects.
 
-
-    Any authenticated token may be used to call this API.
   parameters:
     - $ref: '../parameters/limit.yaml'
     - $ref: '../parameters/offset.yaml'
@@ -62,9 +60,7 @@ post:
   summary: Add tag to object
   description: >-
     This adds a tag to an object.
-    
-
-    Any authenticated token may be used to call this API.
+  
   requestBody:
     required: true
     content:

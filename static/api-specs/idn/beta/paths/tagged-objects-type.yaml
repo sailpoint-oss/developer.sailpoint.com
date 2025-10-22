@@ -8,8 +8,6 @@ get:
   description: >-
     This API returns a list of all tagged objects by type.
 
-
-    Any authenticated token may be used to call this API.
   parameters:
     - in: path
       name: type

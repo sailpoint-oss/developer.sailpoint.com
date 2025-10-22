@@ -1,0 +1,93 @@
+get:
+  tags:
+    - Authorization
+  summary: List user level identities
+  description: List of identities associated with a user level.
+  operationId: listUserLevelIdentities
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  security:
+    - userAuth: [ idn:user-level:read, idn:user-level:manage ]
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+    - name: id
+      in: path
+      required: true
+      description: The unique identifier of the user level.
+      schema:
+        type: string
+      example: idn:access-request-administrator
+    - name: count
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: >-
+        If true, X-Total-Count header with the the total number of identities for this user level
+        will be included in the response.
+      example: true
+      required: false
+    - name: sorters
+      in: query
+      schema:
+        type: string
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **displayName**
+      example: displayName
+      required: false
+    - $ref: '../../../v2025/parameters/limit.yaml'
+    - $ref: '../../../v2025/parameters/offset.yaml'
+  responses:
+    '200':
+      description: List of identities associated with a user level.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/user-levels/AuthUserSlimResponse.yaml'
+          example:
+            [
+              {
+                "id": "eea1c52bc51c4f7d95565f4f8d6c1e41",
+                "uid": "john.doe@testmail.identitysoon.com",
+                "alias": "john.doe",
+                "displayName": "John Doe"
+              },
+              {
+                "id": "892af9e8c5a74ce1a73ffdfbfd248018",
+                "uid": "jane.doe@testmail.identitysoon.com",
+                "alias": "jane.doe",
+                "displayName": "Jane Doe"
+              }
+            ]
+      headers:
+        X-Total-Count:
+          description: >-
+            Total number of identities for this user level. This will be included only if it was
+            explicitly requested.
+          schema:
+            type: integer
+          example: 10
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

@@ -1,0 +1,76 @@
+post:
+  tags:
+    - Authorization
+  summary: Count user levels identities
+  description: List of user levels along with the number of identities associated to it.
+  operationId: listUserLevelCounts
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  security:
+    - userAuth: [ idn:user-level:read, idn:user-level:manage ]
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  requestBody:
+    description: List of user level ids. Max 50 identifiers can be passed in a single request.
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: string
+          example:
+            [
+              "HELPDESK",
+              "ORG_ADMIN",
+              "sp:ui-config-hub-admin"
+            ]
+  responses:
+    '200':
+      description: List of user levels along with the number of identities associated to it.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/user-levels/AuthUserLevelsIdentityCount.yaml'
+          example:
+            [
+              {
+                "id": "HELPDESK",
+                "count": 1
+              },
+              {
+                "id": "ORG_ADMIN",
+                "count": 1
+              },
+              {
+                "id": "sp:ui-config-hub-admin",
+                "count": 2
+              }
+            ]
+      headers:
+        X-Total-Count:
+          description: Total number of user levels assigned to identities for this tenant.
+          schema:
+            type: integer
+          example: 3
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

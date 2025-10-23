@@ -198,6 +198,10 @@ tags:
       Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
 
       Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/accounts/identities.html?h=disabling+identities#managing-access) for more information about accounts.
+  - name: Api Usage
+    description: |
+      Use this API to retrieve metrics about an org's API usage.
+      With this functionality in place, administrators can monitor the usage of APIs within a specified timespan, as well as a breakdown of commonly-used APIs sorted by number of requests.
   - name: Application Discovery
     description: |
       Use this API to implement application discovery functionality. 
@@ -1417,6 +1421,10 @@ paths:
     $ref: ./v2025/paths/account-activity-get-one.yaml
   /account-aggregations/{id}/status:
     $ref: ./v2025/paths/account-aggregation-status.yaml
+  /api-usage/count:
+    $ref: ./v2025/paths/api-usage/get-total-count.yaml
+  /api-usage/summary:
+    $ref: ./v2025/paths/api-usage/get-summary.yaml
   /auth-org/network-config:
     $ref: ./v2025/paths/auth-org-network-config.yaml
   /auth-org/lockout-config:

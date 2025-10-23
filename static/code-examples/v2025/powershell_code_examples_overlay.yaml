@@ -1731,6 +1731,48 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025Account"
             Write-Host $_.ErrorDetails
         }
+- path: /api-usage/count
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/api-usage#get-total-count
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Filters = "method eq "GET", startDate gt "2025-08-01"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional)
+        
+        # Total number of API requests
+        
+        try {
+            Get-V2025TotalCount -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025TotalCount -XSailPointExperimental $XSailPointExperimental -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025TotalCount"
+            Write-Host $_.ErrorDetails
+        }
+- path: /api-usage/summary
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/api-usage#list-api-summary
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Filters = "method eq "GET", startDate gt "2025-08-01"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional)
+        $Limit = 100 # Int32 | Max number of results to return. (optional) (default to 250)
+        $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
+        
+        # Get Api Summary
+        
+        try {
+            Get-V2025ApiSummary -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025ApiSummary -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ApiSummary"
+            Write-Host $_.ErrorDetails
+        }
 - path: /discovered-applications
   method: GET
   xCodeSample:

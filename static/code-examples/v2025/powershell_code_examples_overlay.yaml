@@ -1820,6 +1820,60 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2025Approval"
             Write-Host $_.ErrorDetails
         }
+- path: /generic-approvals/bulk-approve
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#approve-approval-0
+      source: |
+        $BulkApproveRequestDTO = @"
+        {
+          "comment" : "Bulk approved by admin for monthly review",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ],
+          "additionalAttributes" : {
+            "source" : "automation",
+            "urgency" : "high"
+          }
+        }
+        "@
+        
+        # Post Bulk Approve Approvals
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToBulkApproveRequestDTO -Json $BulkApproveRequestDTO
+            Approve-V2025Approval0 -BulkApproveRequestDTO $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Approve-V2025Approval0 -BulkApproveRequestDTO $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2025Approval0"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/bulk-cancel
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#cancel-approval
+      source: |
+        $BulkCancelRequestDTO = @"
+        {
+          "comment" : "Bulk cancellation by admin",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+        }
+        "@
+        
+        # Post Bulk Cancel Approvals
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToBulkCancelRequestDTO -Json $BulkCancelRequestDTO
+            Suspend-V2025Approval -BulkCancelRequestDTO $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Suspend-V2025Approval -BulkCancelRequestDTO $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-V2025Approval"
+            Write-Host $_.ErrorDetails
+        }
 - path: /generic-approvals/{id}
   method: GET
   xCodeSample:
@@ -1889,11 +1943,38 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ApprovalsConfigIdType"
             Write-Host $_.ErrorDetails
         }
-- path: /generic-approvals/config
-  method: PATCH
+- path: /generic-approvals/bulk-reassign
+  method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2025/methods/approvals#patch-approvals-config-type
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#move-approval
+      source: |
+        $BulkReassignRequestDTO = @"
+        {
+          "reassignTo" : "32454251-6ce2-5d8f-df93-5ce19e295238",
+          "comment" : "Bulk reassignment by admin",
+          "reassignFrom" : "12353251-6be2-5f8f-df93-5ce19b6e5837",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+        }
+        "@
+        
+        # Post Bulk Reassign Approvals
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToBulkReassignRequestDTO -Json $BulkReassignRequestDTO
+            Move-V2025Approval -BulkReassignRequestDTO $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Move-V2025Approval -BulkReassignRequestDTO $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Move-V2025Approval"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#put-approvals-config-type
       source: |
         $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The ID defined by the scope field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
         $Scope = "ROLE" # String | The scope of the field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
@@ -1976,16 +2057,16 @@
         }
         "@
         
-        # Patch Approval Config Type
+        # Put Approval Config Type
         
         try {
             $Result = ConvertFrom-V2025JsonToApprovalConfig -Json $ApprovalConfig
-            Update-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result 
+            Send-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result   
+            # Send-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025ApprovalsConfigType"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025ApprovalsConfigType"
             Write-Host $_.ErrorDetails
         }
 - path: /generic-approvals/{id}/reject
@@ -2010,6 +2091,31 @@
             # Deny-V2025Approval -Id $Id -ApprovalRejectRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-V2025Approval"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/bulk-reject
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#reject-approval-0
+      source: |
+        $BulkRejectRequestDTO = @"
+        {
+          "comment" : "Bulk reject by admin",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+        }
+        "@
+        
+        # Post Bulk Reject Approvals
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToBulkRejectRequestDTO -Json $BulkRejectRequestDTO
+            Deny-V2025Approval0 -BulkRejectRequestDTO $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Deny-V2025Approval0 -BulkRejectRequestDTO $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-V2025Approval0"
             Write-Host $_.ErrorDetails
         }
 - path: /generic-approvals/{id}/attributes

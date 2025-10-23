@@ -19,11 +19,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**approve-approval**](#approve-approval) | **Post** `/generic-approvals/{id}/approve` | Post Approvals Approve
+[**approve-approval-0**](#approve-approval-0) | **Post** `/generic-approvals/bulk-approve` | Post Bulk Approve Approvals
+[**cancel-approval**](#cancel-approval) | **Post** `/generic-approvals/bulk-cancel` | Post Bulk Cancel Approvals
 [**get-approval**](#get-approval) | **Get** `/generic-approvals/{id}` | Get an approval
 [**get-approvals**](#get-approvals) | **Get** `/generic-approvals` | Get approvals
 [**get-approvals-config-id-type**](#get-approvals-config-id-type) | **Get** `/generic-approvals/config` | Get Approval Config Type
-[**patch-approvals-config-type**](#patch-approvals-config-type) | **Patch** `/generic-approvals/config` | Patch Approval Config Type
+[**move-approval**](#move-approval) | **Post** `/generic-approvals/bulk-reassign` | Post Bulk Reassign Approvals
+[**put-approvals-config-type**](#put-approvals-config-type) | **Put** `/generic-approvals/config` | Put Approval Config Type
 [**reject-approval**](#reject-approval) | **Post** `/generic-approvals/{id}/reject` | Post Approvals Reject
+[**reject-approval-0**](#reject-approval-0) | **Post** `/generic-approvals/bulk-reject` | Post Bulk Reject Approvals
 [**update-approvals-attributes**](#update-approvals-attributes) | **Post** `/generic-approvals/{id}/attributes` | Post Approvals Attributes
 [**update-approvals-comments**](#update-approvals-comments) | **Post** `/generic-approvals/{id}/comments` | Post Approvals Comments
 [**update-approvals-reassign**](#update-approvals-reassign) | **Post** `/generic-approvals/{id}/reassign` | Post Approvals Reassign
@@ -101,6 +105,150 @@ func main() {
     }
     // response from `ApproveApproval`: Approval
     fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.ApproveApproval`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## approve-approval-0
+Post Bulk Approve Approvals
+Bulk Approves specified approval requests on behalf of the caller
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-approval-0)
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApproveApproval_1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bulkApproveRequestDTO** | [**BulkApproveRequestDTO**](../models/bulk-approve-request-dto) |  | 
+
+### Return type
+
+**map[string]interface{}**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    bulkapproverequestdto := []byte(`{
+          "comment" : "Bulk approved by admin for monthly review",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ],
+          "additionalAttributes" : {
+            "source" : "automation",
+            "urgency" : "high"
+          }
+        }`) // BulkApproveRequestDTO | 
+
+    var bulkApproveRequestDTO v2025.BulkApproveRequestDTO
+    if err := json.Unmarshal(bulkapproverequestdto, &bulkApproveRequestDTO); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.ApprovalsAPI.ApproveApproval_0(context.Background()).BulkApproveRequestDTO(bulkApproveRequestDTO).Execute()
+	  //resp, r, err := apiClient.V2025.ApprovalsAPI.ApproveApproval_0(context.Background()).BulkApproveRequestDTO(bulkApproveRequestDTO).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.ApproveApproval_0``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApproveApproval_0`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.ApproveApproval_0`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## cancel-approval
+Post Bulk Cancel Approvals
+Bulk cancels specified approval requests on behalf of the caller
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/cancel-approval)
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCancelApprovalRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bulkCancelRequestDTO** | [**BulkCancelRequestDTO**](../models/bulk-cancel-request-dto) |  | 
+
+### Return type
+
+**map[string]interface{}**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    bulkcancelrequestdto := []byte(`{
+          "comment" : "Bulk cancellation by admin",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+        }`) // BulkCancelRequestDTO | 
+
+    var bulkCancelRequestDTO v2025.BulkCancelRequestDTO
+    if err := json.Unmarshal(bulkcancelrequestdto, &bulkCancelRequestDTO); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.ApprovalsAPI.CancelApproval(context.Background()).BulkCancelRequestDTO(bulkCancelRequestDTO).Execute()
+	  //resp, r, err := apiClient.V2025.ApprovalsAPI.CancelApproval(context.Background()).BulkCancelRequestDTO(bulkCancelRequestDTO).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.CancelApproval``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CancelApproval`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.CancelApproval`: %v\n", resp)
 }
 ```
 
@@ -340,11 +488,11 @@ func main() {
 
 [[Back to top]](#)
 
-## patch-approvals-config-type
-Patch Approval Config Type
-Updates a singular approval configuration that matches the given configID and configScope
+## move-approval
+Post Bulk Reassign Approvals
+Bulk reassigns specified approval requests on behalf of the caller
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-approvals-config-type)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/move-approval)
 
 ### Path Parameters
 
@@ -352,7 +500,79 @@ Updates a singular approval configuration that matches the given configID and co
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPatchApprovalsConfigTypeRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiMoveApprovalRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bulkReassignRequestDTO** | [**BulkReassignRequestDTO**](../models/bulk-reassign-request-dto) |  | 
+
+### Return type
+
+**map[string]interface{}**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    bulkreassignrequestdto := []byte(`{
+          "reassignTo" : "32454251-6ce2-5d8f-df93-5ce19e295238",
+          "comment" : "Bulk reassignment by admin",
+          "reassignFrom" : "12353251-6be2-5f8f-df93-5ce19b6e5837",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+        }`) // BulkReassignRequestDTO | 
+
+    var bulkReassignRequestDTO v2025.BulkReassignRequestDTO
+    if err := json.Unmarshal(bulkreassignrequestdto, &bulkReassignRequestDTO); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.ApprovalsAPI.MoveApproval(context.Background()).BulkReassignRequestDTO(bulkReassignRequestDTO).Execute()
+	  //resp, r, err := apiClient.V2025.ApprovalsAPI.MoveApproval(context.Background()).BulkReassignRequestDTO(bulkReassignRequestDTO).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.MoveApproval``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `MoveApproval`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.MoveApproval`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## put-approvals-config-type
+Put Approval Config Type
+Upserts a singular approval configuration that matches the given configID and configScope
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-approvals-config-type)
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPutApprovalsConfigTypeRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -473,14 +693,14 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2025.ApprovalsAPI.PatchApprovalsConfigType(context.Background()).Id(id).Scope(scope).ApprovalConfig(approvalConfig).Execute()
-	  //resp, r, err := apiClient.V2025.ApprovalsAPI.PatchApprovalsConfigType(context.Background()).Id(id).Scope(scope).ApprovalConfig(approvalConfig).Execute()
+    resp, r, err := apiClient.V2025.ApprovalsAPI.PutApprovalsConfigType(context.Background()).Id(id).Scope(scope).ApprovalConfig(approvalConfig).Execute()
+	  //resp, r, err := apiClient.V2025.ApprovalsAPI.PutApprovalsConfigType(context.Background()).Id(id).Scope(scope).ApprovalConfig(approvalConfig).Execute()
     if err != nil {
-	    fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.PatchApprovalsConfigType``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.PutApprovalsConfigType``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PatchApprovalsConfigType`: ApprovalConfig
-    fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.PatchApprovalsConfigType`: %v\n", resp)
+    // response from `PutApprovalsConfigType`: ApprovalConfig
+    fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.PutApprovalsConfigType`: %v\n", resp)
 }
 ```
 
@@ -552,6 +772,76 @@ func main() {
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     
+}
+```
+
+[[Back to top]](#)
+
+## reject-approval-0
+Post Bulk Reject Approvals
+Bulk reject specified approval requests on behalf of the caller
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/reject-approval-0)
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRejectApproval_2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bulkRejectRequestDTO** | [**BulkRejectRequestDTO**](../models/bulk-reject-request-dto) |  | 
+
+### Return type
+
+**map[string]interface{}**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    bulkrejectrequestdto := []byte(`{
+          "comment" : "Bulk reject by admin",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+        }`) // BulkRejectRequestDTO | 
+
+    var bulkRejectRequestDTO v2025.BulkRejectRequestDTO
+    if err := json.Unmarshal(bulkrejectrequestdto, &bulkRejectRequestDTO); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.ApprovalsAPI.RejectApproval_0(context.Background()).BulkRejectRequestDTO(bulkRejectRequestDTO).Execute()
+	  //resp, r, err := apiClient.V2025.ApprovalsAPI.RejectApproval_0(context.Background()).BulkRejectRequestDTO(bulkRejectRequestDTO).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.RejectApproval_0``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RejectApproval_0`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.RejectApproval_0`: %v\n", resp)
 }
 ```
 

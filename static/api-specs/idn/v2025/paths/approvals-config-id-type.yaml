@@ -38,17 +38,17 @@ get:
       $ref: '../responses/429.yaml'
     '500':
       $ref: '../responses/500.yaml'
-patch:
+put:
   security:
   - userAuth: [ sp:approvals:write ]
   x-sailpoint-userLevels:
   - ORG_ADMIN
-  operationId: patchApprovalsConfigType
+  operationId: putApprovalsConfigType
   tags:
   - Approvals
-  summary: Patch Approval Config Type
+  summary: Put Approval Config Type
   description: >-
-    Updates a singular approval configuration that matches the given configID and configScope
+    Upserts a singular approval configuration that matches the given configID and configScope
   parameters:
   - in: query
     name: id

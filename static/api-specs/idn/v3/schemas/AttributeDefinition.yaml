@@ -5,6 +5,11 @@ properties:
     type: string
     description: The name of the attribute.
     example: sAMAccountName
+  nativeName:
+    type: string
+    nullable: true
+    description: Attribute name in the native system.
+    example: sAMAccountName
   type:
     $ref: "./AttributeDefinitionType.yaml"
     description: The type of the attribute.

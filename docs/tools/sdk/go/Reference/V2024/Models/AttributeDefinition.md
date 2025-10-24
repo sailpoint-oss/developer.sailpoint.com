@@ -16,6 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'AttributeDefinition', 'V2024Attribute
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** | The name of the attribute. | [optional] 
+**NativeName** | Pointer to **NullableString** | Attribute name in the native system. | [optional] 
 **Type** | Pointer to [**AttributeDefinitionType**](attribute-definition-type) |  | [optional] 
 **Schema** | Pointer to [**NullableAttributeDefinitionSchema**](attribute-definition-schema) |  | [optional] 
 **Description** | Pointer to **string** | A human-readable description of the attribute. | [optional] 
@@ -67,6 +68,41 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### GetNativeName
+
+`func (o *AttributeDefinition) GetNativeName() string`
+
+GetNativeName returns the NativeName field if non-nil, zero value otherwise.
+
+### GetNativeNameOk
+
+`func (o *AttributeDefinition) GetNativeNameOk() (*string, bool)`
+
+GetNativeNameOk returns a tuple with the NativeName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNativeName
+
+`func (o *AttributeDefinition) SetNativeName(v string)`
+
+SetNativeName sets NativeName field to given value.
+
+### HasNativeName
+
+`func (o *AttributeDefinition) HasNativeName() bool`
+
+HasNativeName returns a boolean if a field has been set.
+
+### SetNativeNameNil
+
+`func (o *AttributeDefinition) SetNativeNameNil(b bool)`
+
+ SetNativeNameNil sets the value for NativeName to be an explicit nil
+
+### UnsetNativeName
+`func (o *AttributeDefinition) UnsetNativeName()`
+
+UnsetNativeName ensures that no value is present for NativeName, not even an explicit nil
 ### GetType
 
 `func (o *AttributeDefinition) GetType() AttributeDefinitionType`

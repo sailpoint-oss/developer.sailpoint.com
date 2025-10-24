@@ -25,7 +25,7 @@ Method | HTTP request | Description
 [**get-approvals**](#get-approvals) | **GET** `/generic-approvals` | Get approvals
 [**get-approvals-config-id-type**](#get-approvals-config-id-type) | **GET** `/generic-approvals/config` | Get Approval Config Type
 [**move-approval**](#move-approval) | **POST** `/generic-approvals/bulk-reassign` | Post Bulk Reassign Approvals
-[**patch-approvals-config-type**](#patch-approvals-config-type) | **PATCH** `/generic-approvals/config` | Patch Approval Config Type
+[**put-approvals-config-type**](#put-approvals-config-type) | **PUT** `/generic-approvals/config` | Put Approval Config Type
 [**reject-approval**](#reject-approval) | **POST** `/generic-approvals/{id}/reject` | Post Approvals Reject
 [**reject-approval-0**](#reject-approval-0) | **POST** `/generic-approvals/bulk-reject` | Post Bulk Reject Approvals
 [**update-approvals-attributes**](#update-approvals-attributes) | **POST** `/generic-approvals/{id}/attributes` | Post Approvals Attributes
@@ -512,11 +512,11 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
-## patch-approvals-config-type
-Patch Approval Config Type
-Updates a singular approval configuration that matches the given configID and configScope
+## put-approvals-config-type
+Put Approval Config Type
+Upserts a singular approval configuration that matches the given configID and configScope
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-approvals-config-type)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-approvals-config-type)
 
 ### Parameters 
 
@@ -635,15 +635,15 @@ with ApiClient(configuration) as api_client:
         }''' # ApprovalConfig | 
 
     try:
-        # Patch Approval Config Type
+        # Put Approval Config Type
         new_approval_config = ApprovalConfig.from_json(approval_config)
-        results = ApprovalsApi(api_client).patch_approvals_config_type(id=id, scope=scope, approval_config=new_approval_config)
+        results = ApprovalsApi(api_client).put_approvals_config_type(id=id, scope=scope, approval_config=new_approval_config)
         # Below is a request that includes all optional parameters
-        # results = ApprovalsApi(api_client).patch_approvals_config_type(id, scope, new_approval_config)
-        print("The response of ApprovalsApi->patch_approvals_config_type:\n")
+        # results = ApprovalsApi(api_client).put_approvals_config_type(id, scope, new_approval_config)
+        print("The response of ApprovalsApi->put_approvals_config_type:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
-        print("Exception when calling ApprovalsApi->patch_approvals_config_type: %s\n" % e)
+        print("Exception when calling ApprovalsApi->put_approvals_config_type: %s\n" % e)
 ```
 
 

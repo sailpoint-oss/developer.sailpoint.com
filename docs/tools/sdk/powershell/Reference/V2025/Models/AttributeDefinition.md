@@ -17,6 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'AttributeDefinition', 'V2025Attribute
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** | The name of the attribute. | [optional] 
+**NativeName** | **String** | Attribute name in the native system. | [optional] 
 **Type** | [**AttributeDefinitionType**](attribute-definition-type) |  | [optional] 
 **Schema** | [**AttributeDefinitionSchema**](attribute-definition-schema) |  | [optional] 
 **Description** | **String** | A human-readable description of the attribute. | [optional] 
@@ -29,6 +30,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $AttributeDefinition = Initialize-V2025AttributeDefinition  -Name sAMAccountName `
+ -NativeName sAMAccountName `
  -Type null `
  -Schema null `
  -Description SAM Account Name `

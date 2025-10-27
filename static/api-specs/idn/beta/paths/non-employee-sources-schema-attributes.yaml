@@ -9,14 +9,15 @@ get:
   tags:
     - Non-Employee Lifecycle Management
   summary: List schema attributes non-employee source
-  description: This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8
-               mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can
-               add up to 10 custom attributes. This interface returns all the mandatory attributes followed by
-               any custom attributes. At most, a total of 18 attributes will be returned.
+  description: |
+    This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8
+    mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can
+    add up to 10 custom attributes. This interface returns all the mandatory attributes followed by
+    any custom attributes. At most, a total of 18 attributes will be returned.
   deprecated: true
   parameters:
-    - $ref: '../../v3/parameters/limit.yaml'
-    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: "../../v3/parameters/limit.yaml"
+    - $ref: "../../v3/parameters/offset.yaml"
     - in: path
       example: "2c918085842e69ae018432d22ccb212f"
       name: sourceId
@@ -26,35 +27,38 @@ get:
       x-sailpoint-resource-operation-id: listNonEmployeeSources
       description: The Source id
   responses:
-    '200':
+    "200":
       description: A list of Schema Attributes
       content:
         application/json:
           schema:
             type: array
-            example: [{
-              "type": "TEXT",
-              "label": "string",
-              "technicalName": "string",
-              "helpText": "string",
-              "placeholder": "string",
-              "required": true
-            }]
+            example:
+              [
+                {
+                  "type": "TEXT",
+                  "label": "string",
+                  "technicalName": "string",
+                  "helpText": "string",
+                  "placeholder": "string",
+                  "required": true,
+                },
+              ]
             items:
-              $ref: '../schemas/NonEmployeeSchemaAttribute.yaml'
+              $ref: "../schemas/NonEmployeeSchemaAttribute.yaml"
             maxItems: 18
-    '400':
-      $ref: '../../v3/responses/400.yaml'
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '404':
-      $ref: '../../v3/responses/404.yaml'
-    '429':
-      $ref: '../../v3/responses/429.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
 post:
   operationId: createNonEmployeeSourceSchemaAttributes
   security:
@@ -72,7 +76,6 @@ post:
     "400.1.409 Reference conflict" response. At most, 10 custom attributes can be created per schema. Attempts
     to create more than 10 will result in a "400.1.4 Limit violation" response.
   deprecated: true
-
   parameters:
     - in: path
       name: sourceId
@@ -87,25 +90,25 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/NonEmployeeSchemaAttributeBody.yaml'
+          $ref: "../schemas/NonEmployeeSchemaAttributeBody.yaml"
   responses:
-    '200':
+    "200":
       description: >-
         Schema Attribute created.
       content:
         application/json:
           schema:
-            $ref: '../schemas/NonEmployeeSchemaAttribute.yaml'
-    '400':
-      $ref: '../../v3/responses/400.yaml'
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '429':
-      $ref: '../../v3/responses/429.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
+            $ref: "../schemas/NonEmployeeSchemaAttribute.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
 delete:
   operationId: deleteNonEmployeeSourceSchemaAttributes
   security:
@@ -120,7 +123,6 @@ delete:
   description: >-
     This end-point deletes all custom schema attributes for a non-employee source.
   deprecated: true
-
   parameters:
     - in: path
       name: sourceId
@@ -131,16 +133,16 @@ delete:
       example: 2c91808b6ef1d43e016efba0ce470904
       description: The Source id
   responses:
-    '204':
-      $ref: '../../v3/responses/204.yaml'
+    "204":
+      $ref: "../../v3/responses/204.yaml"
       description: All custon Schema Attributes were successfully deleted.
-    '400':
-      $ref: '../../v3/responses/400.yaml'
-    '401':
-      $ref: '../../v3/responses/401.yaml'
-    '403':
-      $ref: '../../v3/responses/403.yaml'
-    '429':
-      $ref: '../../v3/responses/429.yaml'
-    '500':
-      $ref: '../../v3/responses/500.yaml'
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

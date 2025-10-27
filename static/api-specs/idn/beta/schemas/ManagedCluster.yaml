@@ -24,32 +24,32 @@ properties:
     example: denali
   type:
     description: The Type of Cluster
-    example: 'idn'
+    example: "idn"
     nullable: false
-    $ref: './ManagedClusterTypes.yaml'
+    $ref: "./ManagedClusterTypes.yaml"
   configuration:
     description: ManagedProcess configuration map
     type: object
     additionalProperties:
       type: string
       nullable: true
-    example: {"clusterExternalId":"externalId", "ccgVersion":"77.0.0"}
+    example: { "clusterExternalId": "externalId", "ccgVersion": "77.0.0" }
   keyPair:
     description: key pair for the ManagedCluster
-    $ref: './ManagedClusterKeyPair.yaml'
+    $ref: "./ManagedClusterKeyPair.yaml"
   attributes:
     description: Specific Attributes for Configuring a ManagedCluster by Type
-    $ref: './ManagedClusterAttributes.yaml'
+    $ref: "./ManagedClusterAttributes.yaml"
   description:
     description: ManagedCluster description
     type: string
     example: A short description of the managed cluster.
   redis:
     description: Redis configuration for the ManagedCluster
-    $ref: './ManagedClusterRedis.yaml'
+    $ref: "./ManagedClusterRedis.yaml"
   clientType:
     description: type of client for the ManagedCluster
-    $ref: './ManagedClientType.yaml'
+    $ref: "./ManagedClientType.yaml"
   ccgVersion:
     description: CCG version used by the ManagedCluster
     type: string
@@ -61,11 +61,8 @@ properties:
     example: false
   logConfiguration:
     description: client log configuration for the cluster
-    example: '{
-      "rootLevel": "WARN",
-      "logLevels": { "foobar": "WARN" }
-    }'
-    $ref: './ClientLogConfiguration.yaml'
+    example: { "rootLevel": "WARN", "logLevels": { "foobar": "WARN" } }
+    $ref: "./ClientLogConfiguration.yaml"
   operational:
     description: Whether or not the cluster is operational or not
     type: boolean
@@ -99,10 +96,7 @@ properties:
     description: List of clients in a cluster
     items:
       type: string
-    example: [
-      "1244",
-      "1245"
-    ]
+    example: ["1244", "1245"]
   serviceCount:
     description: Number of services bound to a cluster
     type: integer
@@ -116,13 +110,13 @@ properties:
     example: "1533"
   createdAt:
     description: The date/time this cluster was created
-    example: '2023-08-04T20:48:01.865Z'
+    example: "2023-08-04T20:48:01.865Z"
     nullable: true
     type: string
     format: date-time
   updatedAt:
     description: The date/time this cluster was last updated
-    example: '2023-08-04T20:48:01.865Z'
+    example: "2023-08-04T20:48:01.865Z"
     nullable: true
     type: string
     format: date-time

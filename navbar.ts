@@ -37,6 +37,7 @@ const navbarConfig = {
           { label: 'Rule Development Kit', to: '/docs/tools/rule-development-kit' },
           { label: 'UI Development Kit', to: '/docs/tools/ui-development-kit' },
           { label: 'Community Toolbox', to: '/docs/tools/community-toolbox' },
+          { label: 'Velocity PlayGround', to: '/tools/velocity-playground' },
         ],
       },
       {

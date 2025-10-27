@@ -18,7 +18,10 @@ post:
         default: true
       required: true
   requestBody:
-    description: Payload containing the details of the user level to be created.
+    description: |
+      Payload containing the details of the user level to be created.
+        - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.
+        - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case.
     required: true
     content:
       application/json:
@@ -34,7 +37,7 @@ post:
             },
             "rightSets": [
               "idn:ui-identity-manage-example",
-              "idn:ui-identity-details-read-example"
+              "idn:ui-identity-manage-child-one-example"
             ]
           }
   responses:
@@ -78,8 +81,8 @@ post:
                     "idn:identity-management-example"
                   ],
                   "uiAssignableChildRightSetIds": [
-                    "idn:ui-identity-details-read-example",
-                    "idn:ui-identity-list-read-example"
+                    "idn:ui-identity-manage-child-one-example",
+                    "idn:ui-identity-manage-child-two-example"
                   ],
                   "uiAssignable": true,
                   "translatedName": "Identity Management",
@@ -87,12 +90,12 @@ post:
                   "parentId": null
                 },
                 {
-                  "id": "idn:ui-identity-details-read-example",
+                  "id": "idn:ui-identity-manage-child-one-example",
                   "name": "Identity Details Read",
                   "description": "Read only access for identity details.",
                   "category": "identity",
                   "rights": [
-                    "idn:ui-identity-details-example:read"
+                    "idn:ui-identity-manage-child-one-example:read"
                   ],
                   "rightSetIds": [ ],
                   "uiAssignableChildRightSetIds": [ ],

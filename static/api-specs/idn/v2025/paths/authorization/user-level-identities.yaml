@@ -1,6 +1,6 @@
 get:
   tags:
-    - Authorization
+    - Custom User Levels
   summary: List user level identities
   description: List of identities associated with a user level.
   operationId: listUserLevelIdentities

@@ -55,18 +55,18 @@ put:
     required: true
     schema:
       type: string
-    description: >-
-      The ID defined by the scope field, where {id}:{scope} is the following:
-      {approvalID}:APPROVAL_REQUEST
-      {roleID}:ROLE
-      {entitlementID}:ENTITLEMENT
-      {accessProfileID}:ACCESS_PROFILE
-      {sourceID}:SOURCE
-      {applicationID}:APPLICATION
+    description: |
+      The ID defined by the scope field, where [[id]]:[[scope]] is the following:
+      [[approvalID]]:APPROVAL_REQUEST
+      [[roleID]]:ROLE
+      [[entitlementID]]:ENTITLEMENT
+      [[accessProfileID]]:ACCESS_PROFILE
+      [[sourceID]]:SOURCE
+      [[applicationID]]:APPLICATION
       ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
       CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
       GENERIC_APPROVAL:APPROVAL_TYPE
-      {tenantID}:TENANT
+      [[tenantID]]:TENANT
     example: 38453251-6be2-5f8f-df93-5ce19e295837
     x-sailpoint-resource-operation-id: getApprovals
   - in: query
@@ -74,18 +74,18 @@ put:
     required: true
     schema:
       type: string
-    description: >-
-      The scope of the field, where {id}:{scope} is the following:
-      {approvalID}:APPROVAL_REQUEST
-      {roleID}:ROLE
-      {entitlementID}:ENTITLEMENT
-      {accessProfileID}:ACCESS_PROFILE
-      {sourceID}:SOURCE
-      {applicationID}:APPLICATION
+    description: |
+      The scope of the field, where [[id]]:[[scope]] is the following:
+      [[approvalID]]:APPROVAL_REQUEST
+      [[roleID]]:ROLE
+      [[entitlementID]]:ENTITLEMENT
+      [[accessProfileID]]:ACCESS_PROFILE
+      [[sourceID]]:SOURCE
+      [[applicationID]]:APPLICATION
       ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
       CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
       GENERIC_APPROVAL:APPROVAL_TYPE
-      {tenantID}:TENANT
+      [[tenantID]]:TENANT
     example: ROLE
     x-sailpoint-resource-operation-id: getApprovals
   requestBody:

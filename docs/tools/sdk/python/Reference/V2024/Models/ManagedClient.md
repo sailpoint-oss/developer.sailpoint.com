@@ -68,7 +68,7 @@ secret='ef878e15eaa8c8d3e2fa52f41125e2a0eeadadc6a14f931a33ad3e1b62d56381',
 created_at='2023-08-04T20:48:01.865Z',
 updated_at='2023-08-04T20:48:01.865Z',
 provision_status='PROVISIONED',
-health_indicators={ "network": { "errors": [], "warnings": [] }, "memory": { "errors": [], "warnings": [] }, "cpu": { "errors": [], "warnings": [] } }
+health_indicators={network={errors=[], warnings=[]}, memory={errors=[], warnings=[]}, cpu={errors=[], warnings=[]}}
 )
 
 ```

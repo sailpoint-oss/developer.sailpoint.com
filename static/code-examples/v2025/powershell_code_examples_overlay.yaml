@@ -5860,29 +5860,6 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025AllAuthorizationRightSets"
             Write-Host $_.ErrorDetails
         }
-- path: /authorization/user-levels/get-identity-count
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2025/methods/custom-user-levels#list-user-level-counts
-      source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $RequestBody = "MyRequestBody" # String[] | List of user level ids. Max 50 identifiers can be passed in a single request.
-        $RequestBody = @""@ 
-        
-        
-        # Count user levels identities
-        
-        try {
-            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
-            Get-V2025UserLevelCounts -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2025UserLevelCounts -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025UserLevelCounts"
-            Write-Host $_.ErrorDetails
-        }
 - path: /authorization/user-levels/{id}/identities
   method: GET
   xCodeSample:
@@ -5949,6 +5926,29 @@
             # Publish-V2025CustomUserLevel -XSailPointExperimental $XSailPointExperimental -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Publish-V2025CustomUserLevel"
+            Write-Host $_.ErrorDetails
+        }
+- path: /authorization/user-levels/get-identity-count
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/custom-user-levels#show-user-level-counts
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $RequestBody = "MyRequestBody" # String[] | List of user level ids. Max 50 identifiers can be passed in a single request.
+        $RequestBody = @""@ 
+        
+        
+        # Count user levels identities
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
+            Show-V2025UserLevelCounts -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Show-V2025UserLevelCounts -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Show-V2025UserLevelCounts"
             Write-Host $_.ErrorDetails
         }
 - path: /authorization/custom-user-levels/{id}

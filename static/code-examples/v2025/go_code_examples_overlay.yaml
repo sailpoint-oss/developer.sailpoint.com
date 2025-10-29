@@ -4136,86 +4136,6 @@
           // response from `PatchAuthUser`: AuthUser
           fmt.Fprintf(os.Stdout, "Response from `AuthUsersAPI.PatchAuthUser`: %v\n", resp)
         }
-- path: /authorization/user-levels/get-identity-count
-  method: Post
-  xCodeSample:
-    - lang: Go
-      label: SDK_tools/sdk/go/v2025/methods/authorization#list-user-level-counts
-      source: |
-        package main
-
-        import (
-          "context"
-          "fmt"
-          "os"
-             "encoding/json"
-            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
-        )
-
-        func main() {
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-          requestbody := []byte(``) // []string | List of user level ids. Max 50 identifiers can be passed in a single request.
-
-          
-          var requestBody []v2025.RequestBody
-          if err := json.Unmarshal(requestbody, &requestBody); err != nil {
-            fmt.Println("Error:", err)
-            return
-          }
-          
-
-
-          configuration := sailpoint.NewDefaultConfiguration()
-          apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2025.AuthorizationAPI.ListUserLevelCounts(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
-          //resp, r, err := apiClient.V2025.AuthorizationAPI.ListUserLevelCounts(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
-          if err != nil {
-            fmt.Fprintf(os.Stderr, "Error when calling `AuthorizationAPI.ListUserLevelCounts``: %v\n", err)
-            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-          }
-          // response from `ListUserLevelCounts`: []AuthUserLevelsIdentityCount
-          fmt.Fprintf(os.Stdout, "Response from `AuthorizationAPI.ListUserLevelCounts`: %v\n", resp)
-        }
-- path: /authorization/user-levels/{id}/identities
-  method: Get
-  xCodeSample:
-    - lang: Go
-      label: SDK_tools/sdk/go/v2025/methods/authorization#list-user-level-identities
-      source: |
-        package main
-
-        import (
-          "context"
-          "fmt"
-          "os"
-            
-            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
-        )
-
-        func main() {
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-          id := `idn:access-request-administrator` // string | The unique identifier of the user level. # string | The unique identifier of the user level.
-          count := true // bool | If true, X-Total-Count header with the the total number of identities for this user level will be included in the response. (optional) (default to false) # bool | If true, X-Total-Count header with the the total number of identities for this user level will be included in the response. (optional) (default to false)
-          sorters := `displayName` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName** (optional)
-          limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-          offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-
-          
-
-
-          configuration := sailpoint.NewDefaultConfiguration()
-          apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2025.AuthorizationAPI.ListUserLevelIdentities(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2025.AuthorizationAPI.ListUserLevelIdentities(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Count(count).Sorters(sorters).Limit(limit).Offset(offset).Execute()
-          if err != nil {
-            fmt.Fprintf(os.Stderr, "Error when calling `AuthorizationAPI.ListUserLevelIdentities``: %v\n", err)
-            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-          }
-          // response from `ListUserLevelIdentities`: []AuthUserSlimResponse
-          fmt.Fprintf(os.Stdout, "Response from `AuthorizationAPI.ListUserLevelIdentities`: %v\n", resp)
-        }
 - path: /brandings
   method: Post
   xCodeSample:
@@ -9048,7 +8968,7 @@
           "rightSets" : [ "idn:ui-right-set-list-read-example", "idn:ui-right-set-write-example" ],
           "name" : "Custom User Level Name",
           "description" : "This is a description of the custom user level."
-        }`) // UserLevelRequest | Payload containing the details of the user level to be created.
+        }`) // UserLevelRequest | Payload containing the details of the user level to be created.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
 
           
           var userLevelRequest v2025.UserLevelRequest
@@ -9176,6 +9096,45 @@
           // response from `ListAllAuthorizationRightSets`: []HierarchicalRightSet
           fmt.Fprintf(os.Stdout, "Response from `CustomUserLevelsAPI.ListAllAuthorizationRightSets`: %v\n", resp)
         }
+- path: /authorization/user-levels/{id}/identities
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/custom-user-levels#list-user-level-identities
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+          id := `idn:access-request-administrator` // string | The unique identifier of the user level. # string | The unique identifier of the user level.
+          count := true // bool | If true, X-Total-Count header with the the total number of identities for this user level will be included in the response. (optional) (default to false) # bool | If true, X-Total-Count header with the the total number of identities for this user level will be included in the response. (optional) (default to false)
+          sorters := `displayName` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName** (optional)
+          limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.CustomUserLevelsAPI.ListUserLevelIdentities(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+          //resp, r, err := apiClient.V2025.CustomUserLevelsAPI.ListUserLevelIdentities(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Count(count).Sorters(sorters).Limit(limit).Offset(offset).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `CustomUserLevelsAPI.ListUserLevelIdentities``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `ListUserLevelIdentities`: []AuthUserSlimResponse
+          fmt.Fprintf(os.Stdout, "Response from `CustomUserLevelsAPI.ListUserLevelIdentities`: %v\n", resp)
+        }
 - path: /authorization/custom-user-levels
   method: Get
   xCodeSample:
@@ -9250,6 +9209,47 @@
           // response from `PublishCustomUserLevel`: UserLevelPublishSummary
           fmt.Fprintf(os.Stdout, "Response from `CustomUserLevelsAPI.PublishCustomUserLevel`: %v\n", resp)
         }
+- path: /authorization/user-levels/get-identity-count
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/custom-user-levels#show-user-level-counts
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+          requestbody := []byte(``) // []string | List of user level ids. Max 50 identifiers can be passed in a single request.
+
+          
+          var requestBody []v2025.RequestBody
+          if err := json.Unmarshal(requestbody, &requestBody); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.CustomUserLevelsAPI.ShowUserLevelCounts(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
+          //resp, r, err := apiClient.V2025.CustomUserLevelsAPI.ShowUserLevelCounts(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `CustomUserLevelsAPI.ShowUserLevelCounts``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `ShowUserLevelCounts`: []AuthUserLevelsIdentityCount
+          fmt.Fprintf(os.Stdout, "Response from `CustomUserLevelsAPI.ShowUserLevelCounts`: %v\n", resp)
+        }
 - path: /authorization/custom-user-levels/{id}
   method: Patch
   xCodeSample:
@@ -9280,7 +9280,7 @@
             "path" : "/description",
             "value" : "New description"
           } ]
-        }`) // JsonPatch | JSON Patch payload for updating the user level.
+        }`) // JsonPatch | JSON Patch payload for updating the user level.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
 
           
           var jsonPatch v2025.JsonPatch

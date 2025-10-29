@@ -12,7 +12,7 @@ tags: ['Event Triggers', 'Early Access Event Triggers', 'Fire and Forget']
 
 ## Event Context
 
-![Flow](./img/identity-deleted-path.png)
+![Flow](img/identity-deleted-path.png)
 
 Identity deleted event will occur when an identity meets all of the following requirements:
 

@@ -1,0 +1,38 @@
+get:
+  security:
+  - userAuth: [ sp:approvals:read ]
+  x-sailpoint-userLevels:
+  - APPROVAL_OWNER
+  operationId: getApprovalsConfig
+  tags:
+  - Approvals
+  summary: Get Approval Config
+  description: >-
+    Retrieves a singular approval configuration that matches the given ID
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+    description: >-
+      The id of the object the config applies to, for example one of the following: [{approvalID}, {roleID}, {entitlementID}, {accessProfileID}, {sourceID}, {applicationID}, "ENTITLEMENT_DESCRIPTIONS", "ACCESS_REQUEST_APPROVAL", {tenantID}]
+    example: 38453251-6be2-5f8f-df93-5ce19e295837
+    x-sailpoint-resource-operation-id: getApprovals
+  responses:
+    '200':
+      description: Approval object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ApprovalConfig.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

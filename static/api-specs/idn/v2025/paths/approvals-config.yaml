@@ -1,90 +1,62 @@
-get:
-  security:
-  - userAuth: [ sp:approvals:read ]
-  x-sailpoint-userLevels:
-  - APPROVAL_OWNER
-  operationId: getApprovalsConfigIdType
-  tags:
-  - Approvals
-  summary: Get Approval Config Type
-  description: >-
-    Currently this endpoint only supports Entitlement Description Approvals.
-    
-    Retrieves a singular approval configuration that matches the given ID
-  parameters:
-  - in: path
-    name: id
-    required: true
-    schema:
-      type: string
-    description: >-
-      ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid)
-    example: 38453251-6be2-5f8f-df93-5ce19e295837
-    x-sailpoint-resource-operation-id: getApprovals
-  responses:
-    '200':
-      description: Approval object
-      content:
-        application/json:
-          schema:
-            $ref: '../schemas/ApprovalConfig.yaml'
-    '400':
-      $ref: '../responses/400.yaml'
-    '401':
-      $ref: '../responses/401.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
-    '429':
-      $ref: '../responses/429.yaml'
-    '500':
-      $ref: '../responses/500.yaml'
 put:
   security:
   - userAuth: [ sp:approvals:write ]
   x-sailpoint-userLevels:
   - ORG_ADMIN
-  operationId: putApprovalsConfigType
+  operationId: putApprovalsConfig
   tags:
   - Approvals
-  summary: Put Approval Config Type
+  summary: Put Approval Config
   description: >-
-    Upserts a singular approval configuration that matches the given configID and configScope
+    Upserts a singular approval configuration that matches the given configID and configScope. If id and scope are not provided, it will default to setting the tenant config.
   parameters:
   - in: query
     name: id
-    required: true
+    required: false
     schema:
       type: string
     description: |
       The ID defined by the scope field, where [[id]]:[[scope]] is the following:
-      [[approvalID]]:APPROVAL_REQUEST
+    
       [[roleID]]:ROLE
+      
       [[entitlementID]]:ENTITLEMENT
+      
       [[accessProfileID]]:ACCESS_PROFILE
+      
       [[sourceID]]:SOURCE
+      
       [[applicationID]]:APPLICATION
+      
       ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
-      CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
-      GENERIC_APPROVAL:APPROVAL_TYPE
+      
+      ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
+      
       [[tenantID]]:TENANT
     example: 38453251-6be2-5f8f-df93-5ce19e295837
     x-sailpoint-resource-operation-id: getApprovals
   - in: query
     name: scope
-    required: true
+    required: false
     schema:
       type: string
     description: |
       The scope of the field, where [[id]]:[[scope]] is the following:
-      [[approvalID]]:APPROVAL_REQUEST
+      
       [[roleID]]:ROLE
+      
       [[entitlementID]]:ENTITLEMENT
+      
       [[accessProfileID]]:ACCESS_PROFILE
+      
       [[sourceID]]:SOURCE
+      
       [[applicationID]]:APPLICATION
+      
       ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
-      CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
-      GENERIC_APPROVAL:APPROVAL_TYPE
+      
+      ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
+      
       [[tenantID]]:TENANT
     example: ROLE
     x-sailpoint-resource-operation-id: getApprovals

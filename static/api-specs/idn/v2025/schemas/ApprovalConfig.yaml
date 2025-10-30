@@ -10,8 +10,8 @@ properties:
     description: ID of the approval configuration.
   scope:
     type: string
-    example: "APPROVAL_REQUEST"
-    description: The type/scope of the configuration. Ie APPROVAL_REQUEST, DOMAIN_OBJECT, APPROVAL_TYPE, TENANT
+    example: "DOMAIN_OBJECT"
+    description: The type/scope of the configuration. Ie DOMAIN_OBJECT, APPROVAL_TYPE, TENANT
   reminderConfig:
     type: object
     properties:

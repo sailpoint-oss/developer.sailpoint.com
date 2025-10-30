@@ -2078,8 +2078,10 @@ paths:
     $ref: ./v2025/paths/approvals-id-reassign.yaml
   /generic-approvals/{id}/reject:
     $ref: ./v2025/paths/approvals-id-reject.yaml
+  /generic-approvals/config/{id}:
+    $ref: ./v2025/paths/approvals-config-id.yaml
   /generic-approvals/config:
-    $ref: ./v2025/paths/approvals-config-id-type.yaml
+    $ref: ./v2025/paths/approvals-config.yaml
   /generic-approvals/bulk-approve:
     $ref: ./v2025/paths/approvals-bulk-approve.yaml
   /generic-approvals/bulk-reject:

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TenantId** | **String** | Tenant ID of the approval configuration. | [optional] 
 **Id** | **String** | ID of the approval configuration. | [optional] 
-**Scope** | **String** | The type/scope of the configuration. Ie APPROVAL_REQUEST, DOMAIN_OBJECT, APPROVAL_TYPE, TENANT | [optional] 
+**Scope** | **String** | The type/scope of the configuration. Ie DOMAIN_OBJECT, APPROVAL_TYPE, TENANT | [optional] 
 **ReminderConfig** | [**ApprovalConfigReminderConfig**](approval-config-reminder-config) |  | [optional] 
 **EscalationConfig** | [**ApprovalConfigEscalationConfig**](approval-config-escalation-config) |  | [optional] 
 **TimeoutConfig** | [**ApprovalConfigTimeoutConfig**](approval-config-timeout-config) |  | [optional] 
@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 ```powershell
 $ApprovalConfig = Initialize-V2025ApprovalConfig  -TenantId d3c10266-1a31-4acc-b01e-44a3d1c56615 `
  -Id 5804e7d6-e04b-400f-9fb8-dff894419a2f `
- -Scope APPROVAL_REQUEST `
+ -Scope DOMAIN_OBJECT `
  -ReminderConfig null `
  -EscalationConfig null `
  -TimeoutConfig null `

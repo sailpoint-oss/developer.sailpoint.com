@@ -1966,23 +1966,23 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Approvals"
             Write-Host $_.ErrorDetails
         }
-- path: /generic-approvals/config
+- path: /generic-approvals/config/{id}
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2025/methods/approvals#get-approvals-config-id-type
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#get-approvals-config
       source: |
-        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid)
+        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The id of the object the config applies to, for example one of the following: [{approvalID}, {roleID}, {entitlementID}, {accessProfileID}, {sourceID}, {applicationID}, ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", {tenantID}]
         
-        # Get Approval Config Type
+        # Get Approval Config
         
         try {
-            Get-V2025ApprovalsConfigIdType -Id $Id 
+            Get-V2025ApprovalsConfig -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025ApprovalsConfigIdType -Id $Id   
+            # Get-V2025ApprovalsConfig -Id $Id   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ApprovalsConfigIdType"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ApprovalsConfig"
             Write-Host $_.ErrorDetails
         }
 - path: /generic-approvals/bulk-reassign
@@ -2016,10 +2016,8 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2025/methods/approvals#put-approvals-config-type
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#put-approvals-config
       source: |
-        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following: [[approvalID]]:APPROVAL_REQUEST [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT 
-        $Scope = "ROLE" # String | The scope of the field, where [[id]]:[[scope]] is the following: [[approvalID]]:APPROVAL_REQUEST [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT 
         $ApprovalConfig = @"
         {
           "timeoutConfig" : {
@@ -2065,7 +2063,7 @@
             "maxReminders" : 5,
             "enabled" : false
           },
-          "scope" : "APPROVAL_REQUEST",
+          "scope" : "DOMAIN_OBJECT",
           "tenantId" : "d3c10266-1a31-4acc-b01e-44a3d1c56615",
           "escalationConfig" : {
             "escalationCronSchedule" : "*/5 * * * *",
@@ -2098,17 +2096,19 @@
           "autoApprove" : "false"
         }
         "@
+        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT  (optional)
+        $Scope = "ROLE" # String | The scope of the field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT  (optional)
         
-        # Put Approval Config Type
+        # Put Approval Config
         
         try {
             $Result = ConvertFrom-V2025JsonToApprovalConfig -Json $ApprovalConfig
-            Send-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result 
+            Send-V2025ApprovalsConfig -ApprovalConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result   
+            # Send-V2025ApprovalsConfig -ApprovalConfig $Result -Id $Id -Scope $Scope   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025ApprovalsConfigType"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025ApprovalsConfig"
             Write-Host $_.ErrorDetails
         }
 - path: /generic-approvals/{id}/reject

@@ -25,9 +25,9 @@ Method | HTTP request | Description
 [**Suspend-V2025Approval**](#cancel-approval) | **POST** `/generic-approvals/bulk-cancel` | Post Bulk Cancel Approvals
 [**Get-V2025Approval**](#get-approval) | **GET** `/generic-approvals/{id}` | Get an approval
 [**Get-V2025Approvals**](#get-approvals) | **GET** `/generic-approvals` | Get approvals
-[**Get-V2025ApprovalsConfigIdType**](#get-approvals-config-id-type) | **GET** `/generic-approvals/config` | Get Approval Config Type
+[**Get-V2025ApprovalsConfig**](#get-approvals-config) | **GET** `/generic-approvals/config/{id}` | Get Approval Config
 [**Move-V2025Approval**](#move-approval) | **POST** `/generic-approvals/bulk-reassign` | Post Bulk Reassign Approvals
-[**Send-V2025ApprovalsConfigType**](#put-approvals-config-type) | **PUT** `/generic-approvals/config` | Put Approval Config Type
+[**Send-V2025ApprovalsConfig**](#put-approvals-config) | **PUT** `/generic-approvals/config` | Put Approval Config
 [**Deny-V2025Approval**](#reject-approval) | **POST** `/generic-approvals/{id}/reject` | Post Approvals Reject
 [**Deny-V2025Approval0**](#reject-approval-0) | **POST** `/generic-approvals/bulk-reject` | Post Bulk Reject Approvals
 [**Update-V2025ApprovalsAttributes**](#update-approvals-attributes) | **POST** `/generic-approvals/{id}/attributes` | Post Approvals Attributes
@@ -317,16 +317,15 @@ try {
 ```
 [[Back to top]](#) 
 
-## get-approvals-config-id-type
-Currently this endpoint only supports Entitlement Description Approvals.
+## get-approvals-config
 Retrieves a singular approval configuration that matches the given ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-approvals-config-id-type)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-approvals-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid)
+Path   | Id | **String** | True  | The id of the object the config applies to, for example one of the following: [{approvalID}, {roleID}, {entitlementID}, {accessProfileID}, {sourceID}, {applicationID}, ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", {tenantID}]
 
 ### Return type
 [**ApprovalConfig**](../models/approval-config)
@@ -347,17 +346,17 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid)
+$Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The id of the object the config applies to, for example one of the following: [{approvalID}, {roleID}, {entitlementID}, {accessProfileID}, {sourceID}, {applicationID}, ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", {tenantID}]
 
-# Get Approval Config Type
+# Get Approval Config
 
 try {
-    Get-V2025ApprovalsConfigIdType -Id $Id 
+    Get-V2025ApprovalsConfig -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025ApprovalsConfigIdType -Id $Id  
+    # Get-V2025ApprovalsConfig -Id $Id  
 } catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ApprovalsConfigIdType"
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ApprovalsConfig"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -415,17 +414,17 @@ try {
 ```
 [[Back to top]](#) 
 
-## put-approvals-config-type
-Upserts a singular approval configuration that matches the given configID and configScope
+## put-approvals-config
+Upserts a singular approval configuration that matches the given configID and configScope. If id and scope are not provided, it will default to setting the tenant config.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-approvals-config-type)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-approvals-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | Id | **String** | True  | The ID defined by the scope field, where [[id]]:[[scope]] is the following: [[approvalID]]:APPROVAL_REQUEST [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT 
-  Query | Scope | **String** | True  | The scope of the field, where [[id]]:[[scope]] is the following: [[approvalID]]:APPROVAL_REQUEST [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT 
  Body  | ApprovalConfig | [**ApprovalConfig**](../models/approval-config) | True  | 
+  Query | Id | **String** |   (optional) | The ID defined by the scope field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT 
+  Query | Scope | **String** |   (optional) | The scope of the field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT 
 
 ### Return type
 [**ApprovalConfig**](../models/approval-config)
@@ -447,8 +446,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following: [[approvalID]]:APPROVAL_REQUEST [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT 
-$Scope = "ROLE" # String | The scope of the field, where [[id]]:[[scope]] is the following: [[approvalID]]:APPROVAL_REQUEST [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT 
 $ApprovalConfig = @"{
   "timeoutConfig" : {
     "daysUntilTimeout" : 2,
@@ -493,7 +490,7 @@ $ApprovalConfig = @"{
     "maxReminders" : 5,
     "enabled" : false
   },
-  "scope" : "APPROVAL_REQUEST",
+  "scope" : "DOMAIN_OBJECT",
   "tenantId" : "d3c10266-1a31-4acc-b01e-44a3d1c56615",
   "escalationConfig" : {
     "escalationCronSchedule" : "*/5 * * * *",
@@ -525,17 +522,19 @@ $ApprovalConfig = @"{
   } ],
   "autoApprove" : "false"
 }"@
+$Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT  (optional)
+$Scope = "ROLE" # String | The scope of the field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT  (optional)
 
-# Put Approval Config Type
+# Put Approval Config
 
 try {
     $Result = ConvertFrom-V2025JsonToApprovalConfig -Json $ApprovalConfig
-    Send-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result 
+    Send-V2025ApprovalsConfig -ApprovalConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result  
+    # Send-V2025ApprovalsConfig -ApprovalConfig $Result -Id $Id -Scope $Scope  
 } catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025ApprovalsConfigType"
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025ApprovalsConfig"
     Write-Host $_.ErrorDetails
 }
 ```

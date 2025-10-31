@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TenantId** | Pointer to **string** | Tenant ID of the approval configuration. | [optional] 
 **Id** | Pointer to **string** | ID of the approval configuration. | [optional] 
-**Scope** | Pointer to **string** | The type/scope of the configuration. Ie APPROVAL_REQUEST, DOMAIN_OBJECT, APPROVAL_TYPE, TENANT | [optional] 
+**Scope** | Pointer to **string** | The type/scope of the configuration. Ie DOMAIN_OBJECT, APPROVAL_TYPE, TENANT | [optional] 
 **ReminderConfig** | Pointer to [**ApprovalConfigReminderConfig**](approval-config-reminder-config) |  | [optional] 
 **EscalationConfig** | Pointer to [**ApprovalConfigEscalationConfig**](approval-config-escalation-config) |  | [optional] 
 **TimeoutConfig** | Pointer to [**ApprovalConfigTimeoutConfig**](approval-config-timeout-config) |  | [optional] 

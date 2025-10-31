@@ -4,15 +4,15 @@ title: Identity Deleted
 pagination_label: Identity Deleted
 sidebar_label: Identity Deleted
 sidebar_class_name: identityDeleted
-keywords: ['event', 'trigger', 'identity', 'deleted', 'early access']
+keywords: ['event', 'trigger', 'identity', 'deleted', 'available']
 description: Fires after an identity is deleted.
 slug: /extensibility/event-triggers/triggers/identity-deleted
-tags: ['Event Triggers', 'Early Access Event Triggers', 'Fire and Forget']
+tags: ['Event Triggers', 'Available Event Triggers','Fire and Forget']
 ---
 
 ## Event Context
 
-![Flow](./img/identity-deleted-path.png)
+![Flow](img/identity-deleted-path.png)
 
 Identity deleted event will occur when an identity meets all of the following requirements:
 

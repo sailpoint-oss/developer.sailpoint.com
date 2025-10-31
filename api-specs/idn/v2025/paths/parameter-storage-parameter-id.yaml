@@ -1,0 +1,137 @@
+get:
+  summary: Get a specific parameter.
+  description: Get a parameter by ID. This will only return the public fields for the parameter.
+  operationId: getParameter
+  parameters:
+    - name: id
+      in: path
+      required: true
+      example: 58de858b-83d9-4563-9e15-7393594c684a
+      x-sailpoint-resource-operation-id: searchParameters
+      description: The ID of the parameter to be fetched
+      schema:
+        type: string
+  tags:
+    - Parameter Storage
+  security:
+    - userAuth: [sp:parameter-storage:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  x-audience:
+    - external-public
+
+  responses:
+    "200":
+      description: Return Parameter.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ParameterStorageParameter.yaml'
+    "400":
+      $ref: '../responses/400.yaml'
+    "401":
+      $ref: '../responses/401.yaml'
+    "403":
+      $ref: '../responses/403.yaml'
+    "404":
+      $ref: '../responses/404.yaml'
+    "429":
+      $ref: '../responses/429.yaml'
+    "500":
+      $ref: '../responses/500.yaml'
+
+patch:
+  summary: Update a parameter.
+  description: Update a parameter. You cannot change a parameter's type once set. Only the name, owner, description, public fields, and private fields can be updated. Private field updates are made via JWE AES256 encrypted blobs.
+  operationId: updateParameter
+  parameters:
+    - name: id
+      in: path
+      required: true
+      example: 58de858b-83d9-4563-9e15-7393594c684a
+      x-sailpoint-resource-operation-id: searchParameters
+      description: The ID of the parameter to be updated.
+      schema:
+        type: string
+  tags:
+    - Parameter Storage
+  security:
+    - userAuth: [sp:parameter-storage:update]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  x-audience:
+    - external-public
+
+  requestBody:
+    description: The updated parameter. Supports both full and RFC 6902 JSON Patch updates. For RFC 6902 JSON Patch updates, move and copy operations are not supported for privateField updates.
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ParameterStorageUpdateParameter.yaml'
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/ParameterStorageJsonPatch.yaml'
+
+  responses:
+    "200":
+      description: Updated Parameter.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ParameterStorageParameter.yaml'
+    "400":
+      $ref: '../responses/400.yaml'
+    "401":
+      $ref: '../responses/401.yaml'
+    "403":
+      $ref: '../responses/403.yaml'
+    "404":
+      $ref: '../responses/404.yaml'
+    "409":
+      $ref: '../responses/409.yaml'
+    "429":
+      $ref: '../responses/429.yaml'
+    "500":
+      $ref: '../responses/500.yaml'
+
+delete:
+  summary: Delete a parameter.
+  description: Delete a parameter. Will only delete parameters without existing references.
+  operationId: deleteParameter
+  parameters:
+    - name: id
+      in: path
+      required: true
+      example: 58de858b-83d9-4563-9e15-7393594c684a
+      x-sailpoint-resource-operation-id: searchParameters
+      description: The ID of the parameter to be deleted.
+      schema:
+        type: string
+  tags:
+    - Parameter Storage
+  security:
+    - userAuth: [sp:parameter-storage:delete]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  x-audience:
+    - external-public
+
+  responses:
+    "200":
+      description: Parameter deleted.
+    "400":
+      $ref: '../responses/400.yaml'
+    "401":
+      $ref: '../responses/401.yaml'
+    "403":
+      $ref: '../responses/403.yaml'
+    "404":
+      $ref: '../responses/404.yaml'
+    "409":
+      $ref: '../responses/409.yaml'
+    "429":
+      $ref: '../responses/429.yaml'
+    "500":
+      $ref: '../responses/500.yaml'

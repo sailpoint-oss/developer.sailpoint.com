@@ -1,0 +1,56 @@
+get:
+  summary: Retrieve subtype by subtype id
+  description: Get a machine account subtype by its unique ID.
+  operationId: getMachineAccountSubtypeById
+  tags:
+    - Machine Accounts
+  parameters:
+    - in: path
+      name: subtypeId
+      required: true
+      schema:
+        type: string
+      example: 43bdd144-4b17-4fce-a744-17c7fd3e717b
+      description: The ID of the machine account subtype.
+      x-sailpoint-resource-operation-id: listMachineAccountSubtypes
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  responses:
+    '200':
+      description: Machine account subtype object.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SourceSubtype.yaml'
+          examples:
+            example:
+              value:
+                id: 43bdd144-4b17-4fce-a744-17c7fd3e717b
+                sourceId: 6d0458373bec4b4b80460992b76016da
+                technicalName: foo
+                displayName: Mr Foo
+                description: fighters
+                created: 2025-07-28T16:13:42.801300Z
+                modified: 2025-07-28T16:13:42.750850Z
+    "400":
+      $ref: "../responses/400.yaml"
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    "429":
+      $ref: "../responses/429.yaml"
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - userAuth: [idn:sources:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

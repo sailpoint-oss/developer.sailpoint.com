@@ -1,0 +1,48 @@
+post:
+  operationId: startSodAllPoliciesForOrg
+  tags:
+    - SOD Policies
+  summary: Runs all policies for org
+  deprecated: true
+  security:
+    - userAuth: [idn:sod-violation:write]
+  description: >-
+    Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy.
+    If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
+
+    Requires role of ORG_ADMIN.
+  requestBody:
+    required: false
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/MultiPolicyRequest.yaml'
+        example: {
+          "filteredPolicyList": [
+            "b868cd40-ffa4-4337-9c07-1a51846cfa94",
+            "63a07a7b-39a4-48aa-956d-50c827deba2a"
+          ]
+        }
+  responses:
+    '200':
+      description: Reference to the violation report run task.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ReportResultReference.yaml'
+          example: {
+            "status": "PENDING",
+            "type": "REPORT_RESULT",
+            "id": "37b3b32a-f394-46f8-acad-b5223969fa68",
+            "name": "Multi Query Report"
+          }
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

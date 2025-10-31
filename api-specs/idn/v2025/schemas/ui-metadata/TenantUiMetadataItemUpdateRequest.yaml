@@ -1,0 +1,17 @@
+type: object
+properties:
+  iframeWhiteList:
+    type: string
+    nullable: true
+    description: Parameter that organizational administrators can adjust to permit another domain to encapsulate IDN within an iframe. If you would like to reset the value use "null". It will only allow include into iframe non authenticated portions of the product, such as password reset.
+    example: 'http://example.com http://example2.com'
+  usernameLabel:
+    type: string
+    nullable: true
+    description: Descriptor for the username input field. If you would like to reset the value use "null".
+    example: 'Email'
+  usernameEmptyText:
+    type: string
+    nullable: true
+    description: Placeholder text displayed in the username input field. If you would like to reset the value use "null".
+    example: 'Please provide your work email address...'

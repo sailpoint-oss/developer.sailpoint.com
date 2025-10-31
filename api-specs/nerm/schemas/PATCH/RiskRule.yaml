@@ -1,0 +1,30 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  uid:
+    type: string
+    minLength: 32
+    maxLength: 32
+    readOnly: true
+  type:
+    type: string
+    required: true
+    enum: [RiskRule]
+  comparison_operator:
+    type: string
+    enum: ['==', '>', '<']
+  value:
+    type: string
+    summary: id of the Risk Level being compared against
+    required: true
+    format: uuid
+  secondary_value:
+    type: string
+    required: true
+    enum: [OverallRisk]
+  _destroy:
+    type: boolean
+    default: false

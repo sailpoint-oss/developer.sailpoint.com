@@ -1,0 +1,61 @@
+allOf:
+  - type: object
+    properties:
+      target:
+        description: Targeted Entity
+        type: object
+        properties:
+          type:
+            description: The type of target entity
+            type: string
+            enum:
+              - IDENTITY
+            example: IDENTITY
+          attributeName:
+            type: string
+            description: Name of the targeted attribute
+            example: businessApplication
+          sourceId:
+            type: string
+            example: 2c9180835d2e5168015d32f890ca1581
+            description: The ID of Source
+      transformDefinition:
+        type: object
+        properties:
+          type:
+            description: The type of transform
+            type: string
+            example: "reference"
+          attributes:
+            type: object
+            description: attributes object
+            properties:
+              input:
+                description: Input Object
+                type: object
+                properties:
+                  type:
+                    description: The Type of Attribute
+                    type: string
+                    example: "accountAttribute"
+                  attributes:
+                    description: Attibute Mapping Object
+                    type: object
+                    properties:
+                      attributeName:
+                        description: The name of attribute
+                        type: string
+                        example: "givenName"
+                      sourceName:
+                        type: string
+                        description: Name of the Source
+                        example: "delimited-src"
+                      name:
+                        type: string
+                        description: ID of the Source
+                        example: 8d3e0094e99445de98eef6c75e25jc04
+
+          id:
+            type: string
+            description: Transform Operation
+            example: "ToUpper"

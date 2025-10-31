@@ -16,7 +16,7 @@ get:
     schema:
       type: string
     description: >-
-      The id of the object the config applies to, for example one of the following: [{approvalID}, {roleID}, {entitlementID}, {accessProfileID}, {sourceID}, {applicationID}, "ENTITLEMENT_DESCRIPTIONS", "ACCESS_REQUEST_APPROVAL", {tenantID}]
+      The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), (sourceID), (applicationID), "ENTITLEMENT_DESCRIPTIONS", "ACCESS_REQUEST_APPROVAL", (tenantID)]
     example: 38453251-6be2-5f8f-df93-5ce19e295837
     x-sailpoint-resource-operation-id: getApprovals
   responses:

@@ -22,14 +22,14 @@ get:
         default: true
       required: true
   responses:
-    '200':
+    "200":
       description: Machine account subtype object.
       content:
         application/json:
           schema:
-            $ref: '../schemas/SourceSubtype.yaml'
+            $ref: "../schemas/SourceSubtype.yaml"
           examples:
-            example:
+            SourceSubType:
               value:
                 id: 43bdd144-4b17-4fce-a744-17c7fd3e717b
                 sourceId: 6d0458373bec4b4b80460992b76016da
@@ -40,14 +40,14 @@ get:
                 modified: 2025-07-28T16:13:42.750850Z
     "400":
       $ref: "../responses/400.yaml"
-    '401':
-      $ref: '../responses/401.yaml'
-    '403':
-      $ref: '../responses/403.yaml'
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
     "429":
       $ref: "../responses/429.yaml"
-    '500':
-      $ref: '../responses/500.yaml'
+    "500":
+      $ref: "../responses/500.yaml"
   security:
     - userAuth: [idn:sources:manage]
   x-sailpoint-userLevels:

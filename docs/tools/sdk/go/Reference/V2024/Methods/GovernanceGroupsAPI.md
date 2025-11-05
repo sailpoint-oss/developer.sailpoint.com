@@ -41,7 +41,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Create a new governance group.
@@ -136,7 +136,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Delete a governance group
@@ -214,7 +214,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Remove members from governance group
@@ -303,7 +303,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Delete governance group(s)
@@ -396,7 +396,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Get governance group by id
@@ -475,7 +475,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 List connections for governance group
@@ -562,7 +562,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 List governance group members
@@ -649,7 +649,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 List governance groups
@@ -732,7 +732,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Patch a governance group
@@ -816,7 +816,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Add members to governance group

@@ -40,7 +40,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Create new sim integration
@@ -137,7 +137,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Delete a sim integration
@@ -215,7 +215,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Get a sim integration details.
@@ -294,7 +294,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 List the existing sim integrations.
@@ -367,7 +367,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Patch a sim beforeprovisioningrule attribute.
@@ -463,7 +463,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Patch a sim attribute.
@@ -559,7 +559,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Update an existing sim integration

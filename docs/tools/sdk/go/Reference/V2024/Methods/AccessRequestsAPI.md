@@ -665,7 +665,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Identity entitlement details
@@ -829,7 +829,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Access request status for administrators
@@ -923,7 +923,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Get accounts selections for identity

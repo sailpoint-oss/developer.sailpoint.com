@@ -41,7 +41,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Verify domain address via dkim
@@ -123,7 +123,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Create notification template
@@ -223,7 +223,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Create verified from address
@@ -308,7 +308,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Bulk delete notification templates
@@ -387,7 +387,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Delete verified from address
@@ -465,7 +465,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Get dkim attributes
@@ -538,7 +538,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Get mail from attributes
@@ -613,7 +613,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Get notification template by id
@@ -692,7 +692,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Get notification template context
@@ -766,7 +766,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 List from addresses
@@ -849,7 +849,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 List notification preferences for tenant.
@@ -922,7 +922,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 List notification template defaults
@@ -1001,7 +1001,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 List notification templates
@@ -1082,7 +1082,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Change mail from domain
@@ -1165,7 +1165,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Send test notification

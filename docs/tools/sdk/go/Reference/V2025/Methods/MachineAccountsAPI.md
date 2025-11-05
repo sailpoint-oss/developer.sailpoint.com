@@ -35,7 +35,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Create subtype
@@ -129,7 +129,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Delete subtype
@@ -210,7 +210,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Machine account details
@@ -289,7 +289,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Retrieve subtype by subtype id
@@ -368,7 +368,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Retrieve subtype by source and technicalName
@@ -450,7 +450,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Retrieve all subtypes by source
@@ -539,7 +539,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Machine accounts list
@@ -622,7 +622,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Patch subtype
@@ -720,7 +720,7 @@ This API is currently in an experimental state. The API is subject to change bas
  Example:
  ```go
    configuration = Configuration()
-   configuration.experimental = True
+   configuration.Experimental = true
  ```
 :::
 Update a machine account

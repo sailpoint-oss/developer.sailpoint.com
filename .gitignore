@@ -40,6 +40,8 @@ yarn.lock
 /static/code-examples/v2024/merged_code_examples.yaml
 /static/code-examples/v2025/v2025.yaml
 /static/code-examples/v2025/merged_code_examples.yaml
+/static/code-examples/v2026/v2026.yaml
+/static/code-examples/v2026/merged_code_examples.yaml
 
 /docs/api/v3/*
 /docs/api/beta/*
@@ -48,6 +50,7 @@ yarn.lock
 /docs/api/nerm/v2025/*
 /docs/api/v2024/*
 /docs/api/v2025/*
+/docs/api/v2026/*
 !/docs/api/nerm/authentication.md
 !/docs/api/nerm/pagination-metadata-filtering.md
 !/docs/api/nerm/getting-started.md
@@ -94,6 +97,15 @@ yarn.lock
 !/docs/api/v2025/rate-limit.md
 !/docs/api/v2025/postman-collections.md
 !/docs/api/v2025/patch-requests.md
+
+!/docs/api/v2026/getting-started.md
+!/docs/api/v2026/authentication.md
+!/docs/api/v2026/authorization.md
+!/docs/api/v2026/api-versioning-strategy.md
+!/docs/api/v2026/standard-collection-parameters.md
+!/docs/api/v2026/rate-limit.md
+!/docs/api/v2026/postman-collections.md
+!/docs/api/v2026/patch-requests.md
 
 #Alogolia env file
 /algolia/.env

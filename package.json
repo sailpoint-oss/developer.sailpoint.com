@@ -33,13 +33,17 @@
     "v2025-merge-code-examples": "node src/components/mergeoverlayfiles.js static/code-examples/v2025/python_code_examples_overlay.yaml static/code-examples/v2025/powershell_code_examples_overlay.yaml static/code-examples/v2025/go_code_examples_overlay.yaml",
     "speecy-v2025-spec": "speccy resolve --quiet static/api-specs/idn/sailpoint-api.v2025.yaml -o static/code-examples/v2025/v2025.yaml",
     "overlay-code-examples-v2025": "node src/components/overlay.js static/code-examples/v2025/v2025.yaml  static/code-examples/v2025/merged_code_examples.yaml",
-    "gen-all-api-specs-code-examples": "npm run speecy-beta-spec && npm run overlay-code-examples-beta && npm run speecy-v3-spec && npm run overlay-code-examples-v3 && npm run speecy-v2024-spec && npm run overlay-code-examples-v2024 && npm run speecy-v2025-spec && npm run overlay-code-examples-v2025",
-    "merge-all-code-examples": "npm run beta-merge-code-examples && npm run v3-merge-code-examples && npm run v2024-merge-code-examples && npm run v2025-merge-code-examples",
+    "v2026-merge-code-examples": "node src/components/mergeoverlayfiles.js static/code-examples/v2026/python_code_examples_overlay.yaml static/code-examples/v2026/powershell_code_examples_overlay.yaml static/code-examples/v2026/go_code_examples_overlay.yaml",
+    "speecy-v2026-spec": "speccy resolve --quiet static/api-specs/idn/sailpoint-api.v2026.yaml -o static/code-examples/v2026/v2026.yaml",
+    "overlay-code-examples-v2026": "node src/components/overlay.js static/code-examples/v2026/v2026.yaml  static/code-examples/v2026/merged_code_examples.yaml",
+    "gen-all-api-specs-code-examples": "npm run speecy-beta-spec && npm run overlay-code-examples-beta && npm run speecy-v3-spec && npm run overlay-code-examples-v3 && npm run speecy-v2024-spec && npm run overlay-code-examples-v2024 && npm run speecy-v2025-spec && npm run overlay-code-examples-v2025 && npm run speecy-v2026-spec && npm run overlay-code-examples-v2026",
+    "merge-all-code-examples": "npm run beta-merge-code-examples && npm run v3-merge-code-examples && npm run v2024-merge-code-examples && npm run v2025-merge-code-examples && npm run v2026-merge-code-examples",
     "sentence-case-beta": "node src/components/updateSpecsSentenceCase.js static/code-examples/beta/beta.yaml",
     "sentence-case-v3": "node src/components/updateSpecsSentenceCase.js static/code-examples/v3/v3.yaml",
     "sentence-case-v2024": "node src/components/updateSpecsSentenceCase.js static/code-examples/v2024/v2024.yaml",
     "sentence-case-v2025": "node src/components/updateSpecsSentenceCase.js static/code-examples/v2025/v2025.yaml",
-    "sentence-case-all": "npm run sentence-case-beta && npm run sentence-case-v3 && npm run sentence-case-v2024 && npm run sentence-case-v2025"
+    "sentence-case-v2026": "node src/components/updateSpecsSentenceCase.js static/code-examples/v2026/v2026.yaml",
+    "sentence-case-all": "npm run sentence-case-beta && npm run sentence-case-v3 && npm run sentence-case-v2024 && npm run sentence-case-v2025 && npm run sentence-case-v2026"
   },
   "dependencies": {
     "@docusaurus/faster": "3.8.1",

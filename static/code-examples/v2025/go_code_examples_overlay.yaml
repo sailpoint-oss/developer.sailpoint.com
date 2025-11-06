@@ -2828,7 +2828,7 @@
   method: Post
   xCodeSample:
     - lang: Go
-      label: SDK_tools/sdk/go/v2025/methods/approvals#approve-approval-0
+      label: SDK_tools/sdk/go/v2025/methods/approvals#approve-approval-in-bulk
       source: |
         package main
 
@@ -2862,14 +2862,14 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2025.ApprovalsAPI.ApproveApproval_0(context.Background()).BulkApproveRequestDTO(bulkApproveRequestDTO).Execute()
-          //resp, r, err := apiClient.V2025.ApprovalsAPI.ApproveApproval_0(context.Background()).BulkApproveRequestDTO(bulkApproveRequestDTO).Execute()
+          resp, r, err := apiClient.V2025.ApprovalsAPI.ApproveApprovalInBulk(context.Background()).BulkApproveRequestDTO(bulkApproveRequestDTO).Execute()
+          //resp, r, err := apiClient.V2025.ApprovalsAPI.ApproveApprovalInBulk(context.Background()).BulkApproveRequestDTO(bulkApproveRequestDTO).Execute()
           if err != nil {
-            fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.ApproveApproval_0``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.ApproveApprovalInBulk``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
           }
-          // response from `ApproveApproval_0`: map[string]interface{}
-          fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.ApproveApproval_0`: %v\n", resp)
+          // response from `ApproveApprovalInBulk`: map[string]interface{}
+          fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.ApproveApprovalInBulk`: %v\n", resp)
         }
 - path: /generic-approvals/bulk-cancel
   method: Post
@@ -3229,7 +3229,7 @@
   method: Post
   xCodeSample:
     - lang: Go
-      label: SDK_tools/sdk/go/v2025/methods/approvals#reject-approval-0
+      label: SDK_tools/sdk/go/v2025/methods/approvals#reject-approval-in-bulk
       source: |
         package main
 
@@ -3259,14 +3259,14 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2025.ApprovalsAPI.RejectApproval_0(context.Background()).BulkRejectRequestDTO(bulkRejectRequestDTO).Execute()
-          //resp, r, err := apiClient.V2025.ApprovalsAPI.RejectApproval_0(context.Background()).BulkRejectRequestDTO(bulkRejectRequestDTO).Execute()
+          resp, r, err := apiClient.V2025.ApprovalsAPI.RejectApprovalInBulk(context.Background()).BulkRejectRequestDTO(bulkRejectRequestDTO).Execute()
+          //resp, r, err := apiClient.V2025.ApprovalsAPI.RejectApprovalInBulk(context.Background()).BulkRejectRequestDTO(bulkRejectRequestDTO).Execute()
           if err != nil {
-            fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.RejectApproval_0``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.RejectApprovalInBulk``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
           }
-          // response from `RejectApproval_0`: map[string]interface{}
-          fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.RejectApproval_0`: %v\n", resp)
+          // response from `RejectApprovalInBulk`: map[string]interface{}
+          fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.RejectApprovalInBulk`: %v\n", resp)
         }
 - path: /generic-approvals/{id}/attributes
   method: Post

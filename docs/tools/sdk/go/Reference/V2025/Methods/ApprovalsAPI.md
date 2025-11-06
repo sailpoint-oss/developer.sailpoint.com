@@ -19,7 +19,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**approve-approval**](#approve-approval) | **Post** `/generic-approvals/{id}/approve` | Post Approvals Approve
-[**approve-approval-0**](#approve-approval-0) | **Post** `/generic-approvals/bulk-approve` | Post Bulk Approve Approvals
+[**approve-approval-in-bulk**](#approve-approval-in-bulk) | **Post** `/generic-approvals/bulk-approve` | Post Bulk Approve Approvals
 [**cancel-approval**](#cancel-approval) | **Post** `/generic-approvals/bulk-cancel` | Post Bulk Cancel Approvals
 [**get-approval**](#get-approval) | **Get** `/generic-approvals/{id}` | Get an approval
 [**get-approvals**](#get-approvals) | **Get** `/generic-approvals` | Get approvals
@@ -27,7 +27,7 @@ Method | HTTP request | Description
 [**move-approval**](#move-approval) | **Post** `/generic-approvals/bulk-reassign` | Post Bulk Reassign Approvals
 [**put-approvals-config**](#put-approvals-config) | **Put** `/generic-approvals/config` | Put Approval Config
 [**reject-approval**](#reject-approval) | **Post** `/generic-approvals/{id}/reject` | Post Approvals Reject
-[**reject-approval-0**](#reject-approval-0) | **Post** `/generic-approvals/bulk-reject` | Post Bulk Reject Approvals
+[**reject-approval-in-bulk**](#reject-approval-in-bulk) | **Post** `/generic-approvals/bulk-reject` | Post Bulk Reject Approvals
 [**update-approvals-attributes**](#update-approvals-attributes) | **Post** `/generic-approvals/{id}/attributes` | Post Approvals Attributes
 [**update-approvals-comments**](#update-approvals-comments) | **Post** `/generic-approvals/{id}/comments` | Post Approvals Comments
 [**update-approvals-reassign**](#update-approvals-reassign) | **Post** `/generic-approvals/{id}/reassign` | Post Approvals Reassign
@@ -110,11 +110,11 @@ func main() {
 
 [[Back to top]](#)
 
-## approve-approval-0
+## approve-approval-in-bulk
 Post Bulk Approve Approvals
 Bulk Approves specified approval requests on behalf of the caller
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-approval-0)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-approval-in-bulk)
 
 ### Path Parameters
 
@@ -122,7 +122,7 @@ Bulk Approves specified approval requests on behalf of the caller
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApproveApproval_1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiApproveApprovalInBulkRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -171,14 +171,14 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2025.ApprovalsAPI.ApproveApproval_0(context.Background()).BulkApproveRequestDTO(bulkApproveRequestDTO).Execute()
-	  //resp, r, err := apiClient.V2025.ApprovalsAPI.ApproveApproval_0(context.Background()).BulkApproveRequestDTO(bulkApproveRequestDTO).Execute()
+    resp, r, err := apiClient.V2025.ApprovalsAPI.ApproveApprovalInBulk(context.Background()).BulkApproveRequestDTO(bulkApproveRequestDTO).Execute()
+	  //resp, r, err := apiClient.V2025.ApprovalsAPI.ApproveApprovalInBulk(context.Background()).BulkApproveRequestDTO(bulkApproveRequestDTO).Execute()
     if err != nil {
-	    fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.ApproveApproval_0``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.ApproveApprovalInBulk``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApproveApproval_0`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.ApproveApproval_0`: %v\n", resp)
+    // response from `ApproveApprovalInBulk`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.ApproveApprovalInBulk`: %v\n", resp)
 }
 ```
 
@@ -776,11 +776,11 @@ func main() {
 
 [[Back to top]](#)
 
-## reject-approval-0
+## reject-approval-in-bulk
 Post Bulk Reject Approvals
 Bulk reject specified approval requests on behalf of the caller
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/reject-approval-0)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/reject-approval-in-bulk)
 
 ### Path Parameters
 
@@ -788,7 +788,7 @@ Bulk reject specified approval requests on behalf of the caller
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiRejectApproval_2Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiRejectApprovalInBulkRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -833,14 +833,14 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2025.ApprovalsAPI.RejectApproval_0(context.Background()).BulkRejectRequestDTO(bulkRejectRequestDTO).Execute()
-	  //resp, r, err := apiClient.V2025.ApprovalsAPI.RejectApproval_0(context.Background()).BulkRejectRequestDTO(bulkRejectRequestDTO).Execute()
+    resp, r, err := apiClient.V2025.ApprovalsAPI.RejectApprovalInBulk(context.Background()).BulkRejectRequestDTO(bulkRejectRequestDTO).Execute()
+	  //resp, r, err := apiClient.V2025.ApprovalsAPI.RejectApprovalInBulk(context.Background()).BulkRejectRequestDTO(bulkRejectRequestDTO).Execute()
     if err != nil {
-	    fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.RejectApproval_0``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.RejectApprovalInBulk``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `RejectApproval_0`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.RejectApproval_0`: %v\n", resp)
+    // response from `RejectApprovalInBulk`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.RejectApprovalInBulk`: %v\n", resp)
 }
 ```
 

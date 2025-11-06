@@ -2176,7 +2176,7 @@
   method: POST
   xCodeSample:
     - lang: Python
-      label: SDK_tools/sdk/python/v2025/methods/approvals#approve-approval-0
+      label: SDK_tools/sdk/python/v2025/methods/approvals#approve-approval-in-bulk
       source: |
         from sailpoint.v2025.api.approvals_api import ApprovalsApi
         from sailpoint.v2025.api_client import ApiClient
@@ -2197,13 +2197,13 @@
           try:
               # Post Bulk Approve Approvals
               new_bulk_approve_request_dto = BulkApproveRequestDto.from_json(bulk_approve_request_dto)
-              results = ApprovalsApi(api_client).approve_approval_0(bulk_approve_request_dto=new_bulk_approve_request_dto)
+              results = ApprovalsApi(api_client).approve_approval_in_bulk(bulk_approve_request_dto=new_bulk_approve_request_dto)
               # Below is a request that includes all optional parameters
-              # results = ApprovalsApi(api_client).approve_approval_0(new_bulk_approve_request_dto)
-              print("The response of ApprovalsApi->approve_approval_0:\n")
+              # results = ApprovalsApi(api_client).approve_approval_in_bulk(new_bulk_approve_request_dto)
+              print("The response of ApprovalsApi->approve_approval_in_bulk:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
-              print("Exception when calling ApprovalsApi->approve_approval_0: %s\n" % e)
+              print("Exception when calling ApprovalsApi->approve_approval_in_bulk: %s\n" % e)
 - path: /generic-approvals/bulk-cancel
   method: POST
   xCodeSample:
@@ -2483,7 +2483,7 @@
   method: POST
   xCodeSample:
     - lang: Python
-      label: SDK_tools/sdk/python/v2025/methods/approvals#reject-approval-0
+      label: SDK_tools/sdk/python/v2025/methods/approvals#reject-approval-in-bulk
       source: |
         from sailpoint.v2025.api.approvals_api import ApprovalsApi
         from sailpoint.v2025.api_client import ApiClient
@@ -2500,13 +2500,13 @@
           try:
               # Post Bulk Reject Approvals
               new_bulk_reject_request_dto = BulkRejectRequestDto.from_json(bulk_reject_request_dto)
-              results = ApprovalsApi(api_client).reject_approval_0(bulk_reject_request_dto=new_bulk_reject_request_dto)
+              results = ApprovalsApi(api_client).reject_approval_in_bulk(bulk_reject_request_dto=new_bulk_reject_request_dto)
               # Below is a request that includes all optional parameters
-              # results = ApprovalsApi(api_client).reject_approval_0(new_bulk_reject_request_dto)
-              print("The response of ApprovalsApi->reject_approval_0:\n")
+              # results = ApprovalsApi(api_client).reject_approval_in_bulk(new_bulk_reject_request_dto)
+              print("The response of ApprovalsApi->reject_approval_in_bulk:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
-              print("Exception when calling ApprovalsApi->reject_approval_0: %s\n" % e)
+              print("Exception when calling ApprovalsApi->reject_approval_in_bulk: %s\n" % e)
 - path: /generic-approvals/{id}/attributes
   method: POST
   xCodeSample:

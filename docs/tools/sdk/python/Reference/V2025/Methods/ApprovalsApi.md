@@ -19,7 +19,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**approve-approval**](#approve-approval) | **POST** `/generic-approvals/{id}/approve` | Post Approvals Approve
-[**approve-approval-0**](#approve-approval-0) | **POST** `/generic-approvals/bulk-approve` | Post Bulk Approve Approvals
+[**approve-approval-in-bulk**](#approve-approval-in-bulk) | **POST** `/generic-approvals/bulk-approve` | Post Bulk Approve Approvals
 [**cancel-approval**](#cancel-approval) | **POST** `/generic-approvals/bulk-cancel` | Post Bulk Cancel Approvals
 [**get-approval**](#get-approval) | **GET** `/generic-approvals/{id}` | Get an approval
 [**get-approvals**](#get-approvals) | **GET** `/generic-approvals` | Get approvals
@@ -27,7 +27,7 @@ Method | HTTP request | Description
 [**move-approval**](#move-approval) | **POST** `/generic-approvals/bulk-reassign` | Post Bulk Reassign Approvals
 [**put-approvals-config**](#put-approvals-config) | **PUT** `/generic-approvals/config` | Put Approval Config
 [**reject-approval**](#reject-approval) | **POST** `/generic-approvals/{id}/reject` | Post Approvals Reject
-[**reject-approval-0**](#reject-approval-0) | **POST** `/generic-approvals/bulk-reject` | Post Bulk Reject Approvals
+[**reject-approval-in-bulk**](#reject-approval-in-bulk) | **POST** `/generic-approvals/bulk-reject` | Post Bulk Reject Approvals
 [**update-approvals-attributes**](#update-approvals-attributes) | **POST** `/generic-approvals/{id}/attributes` | Post Approvals Attributes
 [**update-approvals-comments**](#update-approvals-comments) | **POST** `/generic-approvals/{id}/comments` | Post Approvals Comments
 [**update-approvals-reassign**](#update-approvals-reassign) | **POST** `/generic-approvals/{id}/reassign` | Post Approvals Reassign
@@ -104,11 +104,11 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
-## approve-approval-0
+## approve-approval-in-bulk
 Post Bulk Approve Approvals
 Bulk Approves specified approval requests on behalf of the caller
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-approval-0)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-approval-in-bulk)
 
 ### Parameters 
 
@@ -157,13 +157,13 @@ with ApiClient(configuration) as api_client:
     try:
         # Post Bulk Approve Approvals
         new_bulk_approve_request_dto = BulkApproveRequestDto.from_json(bulk_approve_request_dto)
-        results = ApprovalsApi(api_client).approve_approval_0(bulk_approve_request_dto=new_bulk_approve_request_dto)
+        results = ApprovalsApi(api_client).approve_approval_in_bulk(bulk_approve_request_dto=new_bulk_approve_request_dto)
         # Below is a request that includes all optional parameters
-        # results = ApprovalsApi(api_client).approve_approval_0(new_bulk_approve_request_dto)
-        print("The response of ApprovalsApi->approve_approval_0:\n")
+        # results = ApprovalsApi(api_client).approve_approval_in_bulk(new_bulk_approve_request_dto)
+        print("The response of ApprovalsApi->approve_approval_in_bulk:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
-        print("Exception when calling ApprovalsApi->approve_approval_0: %s\n" % e)
+        print("Exception when calling ApprovalsApi->approve_approval_in_bulk: %s\n" % e)
 ```
 
 
@@ -712,11 +712,11 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
-## reject-approval-0
+## reject-approval-in-bulk
 Post Bulk Reject Approvals
 Bulk reject specified approval requests on behalf of the caller
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/reject-approval-0)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/reject-approval-in-bulk)
 
 ### Parameters 
 
@@ -761,13 +761,13 @@ with ApiClient(configuration) as api_client:
     try:
         # Post Bulk Reject Approvals
         new_bulk_reject_request_dto = BulkRejectRequestDto.from_json(bulk_reject_request_dto)
-        results = ApprovalsApi(api_client).reject_approval_0(bulk_reject_request_dto=new_bulk_reject_request_dto)
+        results = ApprovalsApi(api_client).reject_approval_in_bulk(bulk_reject_request_dto=new_bulk_reject_request_dto)
         # Below is a request that includes all optional parameters
-        # results = ApprovalsApi(api_client).reject_approval_0(new_bulk_reject_request_dto)
-        print("The response of ApprovalsApi->reject_approval_0:\n")
+        # results = ApprovalsApi(api_client).reject_approval_in_bulk(new_bulk_reject_request_dto)
+        print("The response of ApprovalsApi->reject_approval_in_bulk:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
-        print("Exception when calling ApprovalsApi->reject_approval_0: %s\n" % e)
+        print("Exception when calling ApprovalsApi->reject_approval_in_bulk: %s\n" % e)
 ```
 
 

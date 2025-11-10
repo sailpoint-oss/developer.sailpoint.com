@@ -1,4 +1,4 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -13,11 +13,11 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  Create as many sidebars as you want.
  */
 import {
-  versionSelector,
   versionCrumb,
+  versionSelector,
 } from 'docusaurus-plugin-openapi-docs/lib/sidebars/utils';
-import versions from './docs/api/v2025/versions.json';
 import nermVersions from './docs/api/nerm/v2025/versions.json';
+import versions from './docs/api/v2025/versions.json';
 
 const sidebars: SidebarsConfig = {
   openApiSidebar: [
@@ -175,6 +175,63 @@ const sidebars: SidebarsConfig = {
         slug: '/api/nerm/v1',
       },
       items: require('./docs/api/nerm/v1/sidebar.ts'),
+    },
+  ],
+  isc_2026_sidebar: [
+    {
+      type: 'html',
+      defaultStyle: true,
+      value: versionSelector(versions),
+      className: 'version-button',
+    },
+    {
+      type: 'html',
+      defaultStyle: true,
+      value: versionCrumb(`v2026`),
+    },
+    {
+      type: 'doc',
+      id: 'api/v2026/getting-started',
+    },
+    {
+      type: 'doc',
+      id: 'api/v2026/authentication',
+    },
+    {
+      type: 'doc',
+      id: 'api/v2026/authorization',
+    },
+    {
+      type: 'doc',
+      id: 'api/v2026/api-versioning-strategy',
+    },
+    {
+      type: 'doc',
+      id: 'api/v2026/standard-collection-parameters',
+    },
+    {
+      type: 'doc',
+      id: 'api/v2026/rate-limit',
+    },
+    {
+      type: 'doc',
+      id: 'api/v2026/postman-collections',
+    },
+    {
+      type: 'doc',
+      id: 'api/v2026/patch-requests',
+    },
+    {
+      type: 'category',
+      label: 'V2026 APIs',
+      link: {
+        type: 'generated-index',
+        title: 'v2026 APIs',
+        description:
+          'Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
+        slug: '/api/v2026',
+      },
+      items: require('./docs/api/v2026/sidebar.ts'),
     },
   ],
   isc_2025_sidebar: [

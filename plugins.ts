@@ -137,6 +137,14 @@ const pluginConfig = [
             createApiPageMD,
           },
           versions: {
+            v2026: {
+              specPath: 'static/code-examples/v2026/v2026.yaml',
+              outputDir: 'docs/api/v2026',
+              downloadUrl:
+                'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.v2026.yaml',
+              label: 'v2026',
+              baseUrl: '/docs/api/v2026',
+            },
             v2024: {
               specPath: 'static/code-examples/v2024/v2024.yaml',
               outputDir: 'docs/api/v2024',

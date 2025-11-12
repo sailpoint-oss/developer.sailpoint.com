@@ -1,42 +1,42 @@
 ---
-id: identity-deleted
-title: Identity Deleted
-pagination_label: Identity Deleted
-sidebar_label: Identity Deleted
-sidebar_class_name: identityDeleted
-keywords: ['event', 'trigger', 'identity', 'deleted', 'available']
-description: Fires after an identity is deleted.
-slug: /extensibility/event-triggers/triggers/identity-deleted
+id: machine-identity-deleted
+title: Machine Identity Deleted
+pagination_label: Machine Identity Deleted
+sidebar_label: Machine Identity Deleted
+sidebar_class_name: machineIdentityDeleted
+keywords: ['event', 'trigger', 'machine identity', 'deleted', 'available']
+description: Fires after a machine identity is deleted.
+slug: /extensibility/event-triggers/triggers/machine-identity-deleted
 tags: ['Event Triggers', 'Available Event Triggers','Fire and Forget']
 ---
 
 ## Event Context
 
-![Flow](img/identity-deleted-path.png)
+![Flow](img/machine-identity-deleted-path.png)
 
-Machine Identity deleted event will occur when an machine identity meets all the following requirements:
+Machine Identity Deleted event will occur when a machine identity meets all the following requirements:
 
-- No correlated accounts
+- No correlated machine accounts
 - Not an owner of a role, access profile, application, source, or taskResult
 - Not an owner or requester of a workItem
-- Not a protected account or manager
+- Not a protected machine account
 - No assigned capabilities (ex. not an assigned cert reviewer)
 - Not involved in any active certification as a target (its access is not being certified)
 
-After accounts are aggregated and the machine identity refresh process finds an machine identity that meets the above criteria, the associated machine identity is deleted from Identity Security Cloud. For more information, see [Configuring Correlation](https://community.sailpoint.com/t5/Connectors/Configuring-Correlation/ta-p/74045). The Machine Identity deleted event contains any identity attributes as they are configured in the identity profile. For more information, see [Mapping Identity Profiles](https://community.sailpoint.com/t5/Admin-Help/Mapping-Identity-Profiles/ta-p/77877).
+After machine accounts are aggregated and the machine identity refresh process finds a machine identity that meets the above criteria, the associated machine identity is deleted from Identity Security Cloud. For more information, see [Configuring Correlation](https://community.sailpoint.com/t5/Connectors/Configuring-Correlation/ta-p/74045). The Machine Identity Deleted event contains any identity attributes as they are configured in the identity profile. For more information, see [Mapping Identity Profiles](https://community.sailpoint.com/t5/Admin-Help/Mapping-Identity-Profiles/ta-p/77877).
 
 :::info
 
-Identity Security Cloud will **hide** an identity from the identity list in the UI when the authoritative account is removed. This does not necessarily mean that the identity has been deleted. The identity will only be deleted when the above criteria are met. The deletion task run each night, so there will be a delay from when the criteria are met to when the identity will actually be deleted.
+Identity Security Cloud will **hide** a machine identity from the identity list in the UI when the authoritative account is removed. This does not necessarily mean that the machine identity has been deleted. The machine identity will only be deleted when the above criteria are met. The deletion task run each night, so there will be a delay from when the criteria are met to when the machine identity will actually be deleted.
 
 :::
 
-This event trigger provides a flexible way to extend joiner-mover-leaver processes. This provides more proactive governance and ensures users can quickly get necessary access when they enter your organization.
+This event trigger provides a flexible way to extend joiner-mover-leaver processes. This provides more proactive governance and ensures identities can quickly get necessary access when they enter your organization.
 
 Some uses cases for this trigger include the following:
 
 - Notify an administrator or system to take the appropriate provisioning actions as part of the leaver workflow.
-- Notify a system to trigger another action (e.g. deactivate an employee’s badge upon termination).
+- Notify a system to trigger another action (e.g. removing the application from the available application section).
 
 This is an example input from this trigger:
 
@@ -45,7 +45,7 @@ This is an example input from this trigger:
   "eventType": "MACHINE_IDENTITY_DELETED",
   "machineIdentity": {
     "id": "8cd6c945-0057-4a6e-ad65-9cbf3b3c71b6",
-    "name": "ArushisTest",
+    "name": "TestName",
     "created": "2025-08-08T12:42:21.491666Z",
     "modified": "2025-09-01T06:36:54.401476Z",
     "businessApplication": "MyBusinessApplication2",
@@ -88,7 +88,7 @@ This is an example input from this trigger:
       {
         "sourceId": "7443d0ffb1304bbcbdf4c07b5c09d4f2",
         "entitlementId": "2509f650c20a3ab5956be70f6f136fbc",
-        "displayName": "CN=Engineering-arushi-org3,OU=megapod-useast1-arushi-org3,OU=org-data-service,DC=TestAutomationAD,DC=local",
+        "displayName": "CN=Engineering-test-org3,OU=megapod-useast1-test-org3,OU=org-data-service,DC=TestAutomationAD,DC=local",
         "source": {
           "type": "SOURCE",
           "id": "7443d0ffb1304bbcbdf4c07b5c09d4f2",

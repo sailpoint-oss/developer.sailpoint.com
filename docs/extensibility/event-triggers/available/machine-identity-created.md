@@ -12,11 +12,11 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 ## Event Context
 
-![Flow](./img/identity-created-path.png)
+![Flow](./img/machine-identity-created-path.png)
 
 Machine Identity Created events occur when a new machine identity is detected during an aggregation and refresh from an authoritative source. New machine identities are detected when an account from the authoritative source is not correlated to an existing machine identity. For more information, see [Configuring Correlation](https://community.sailpoint.com/t5/Connectors/Configuring-Correlation/ta-p/74045). The Machine Identity Created event contains all the identity attributes as they are configured in the identity profile. For more information, see [Mapping Identity Profiles](https://community.sailpoint.com/t5/Admin-Help/Mapping-Identity-Profiles/ta-p/77877).
 
-This event trigger provides a flexible way to extend Joiner-Mover-Leaver processes. This provides more proactive governance and ensures machines can quickly get necessary access when they enter your organization.
+This event trigger provides a flexible way to extend Joiner-Mover-Leaver processes. This provides more proactive governance and ensures identities can quickly get necessary access when they enter your organization.
 
 Some uses cases for this trigger include the following:
 
@@ -30,7 +30,7 @@ This is an example input from this trigger:
   "eventType": "MACHINE_IDENTITY_CREATED",
   "machineIdentity": {
     "id": "8cd6c945-0057-4a6e-ad65-9cbf3b3c71b6",
-    "name": "ArushisTest",
+    "name": "TestName",
     "created": "2025-08-08T12:42:21.491666Z",
     "modified": "2025-09-01T06:36:54.401476Z",
     "businessApplication": "MyBusinessApplication2",
@@ -73,7 +73,7 @@ This is an example input from this trigger:
       {
         "sourceId": "7443d0ffb1304bbcbdf4c07b5c09d4f2",
         "entitlementId": "2509f650c20a3ab5956be70f6f136fbc",
-        "displayName": "CN=Engineering-arushi-org3,OU=megapod-useast1-arushi-org3,OU=org-data-service,DC=TestAutomationAD,DC=local",
+        "displayName": "CN=Engineering-test-org3,OU=megapod-useast1-test-org3,OU=org-data-service,DC=TestAutomationAD,DC=local",
         "source": {
           "type": "SOURCE",
           "id": "7443d0ffb1304bbcbdf4c07b5c09d4f2",

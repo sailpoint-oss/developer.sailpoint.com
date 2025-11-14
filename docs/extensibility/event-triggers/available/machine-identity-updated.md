@@ -1,12 +1,12 @@
 ---
-id: machine-identity-created
-title: Machine Identity Created
-pagination_label: Machine Identity Created
-sidebar_label: Machine Identity Created
-sidebar_class_name: machineIdentityCreated
-keywords: ['event', 'trigger', 'machine identity', 'created', 'available']
-description: Fires after a machine identity is created.
-slug: /extensibility/event-triggers/triggers/machine-identity-created
+id: machine-identity-updated
+title: Machine Identity Updated
+pagination_label: Machine Identity Updated
+sidebar_label: Machine Identity Updated
+sidebar_class_name: machineIdentityUpdated
+keywords: ['event', 'trigger', 'identity', 'machine', 'updated', 'available']
+description: Fires after a machine identity is updated.
+slug: /extensibility/event-triggers/triggers/machine-identity-updated
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 ---
 

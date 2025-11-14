@@ -6,6 +6,7 @@ get:
   description: >-
     This API returns the status of a certification task. A token with ORG_ADMIN or CERT_ADMIN authority is required to
     call this API. Reviewers for this certification can also call this API.
+  deprecated: true
   parameters:
     - in: path
       name: id

@@ -6,6 +6,7 @@ get:
   description: >-
     This API returns a list of certifications that satisfy the given query parameters. Any authenticated token can call
     this API, but only certifications you are authorized to review will be returned.
+  deprecated: true
   parameters:
     - in: query
       name: reviewer-identitiy

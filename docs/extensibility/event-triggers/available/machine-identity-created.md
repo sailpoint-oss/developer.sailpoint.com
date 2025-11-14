@@ -4,7 +4,7 @@ title: Machine Identity Created
 pagination_label: Machine Identity Created
 sidebar_label: Machine Identity Created
 sidebar_class_name: machineIdentityCreated
-keywords: ['event', 'trigger', 'machine identity', 'created', 'available']
+keywords: ['event', 'trigger', 'machine', 'identity', 'created', 'available']
 description: Fires after a machine identity is created.
 slug: /extensibility/event-triggers/triggers/machine-identity-created
 tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']

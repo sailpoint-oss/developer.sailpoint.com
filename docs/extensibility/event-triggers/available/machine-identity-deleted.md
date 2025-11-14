@@ -4,7 +4,7 @@ title: Machine Identity Deleted
 pagination_label: Machine Identity Deleted
 sidebar_label: Machine Identity Deleted
 sidebar_class_name: machineIdentityDeleted
-keywords: ['event', 'trigger', 'machine identity', 'deleted', 'available']
+keywords: ['event', 'trigger', 'machine', 'identity', 'deleted', 'available']
 description: Fires after a machine identity is deleted.
 slug: /extensibility/event-triggers/triggers/machine-identity-deleted
 tags: ['Event Triggers', 'Available Event Triggers','Fire and Forget']

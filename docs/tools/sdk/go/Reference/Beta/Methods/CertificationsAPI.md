@@ -119,6 +119,9 @@ func main() {
 [[Back to top]](#)
 
 ## get-identity-certification-pending-tasks
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Pending certification tasks
 This API returns the status of all pending (`QUEUED` or `IN_PROGRESS`) tasks for an identity campaign certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
@@ -185,6 +188,9 @@ func main() {
 [[Back to top]](#)
 
 ## get-identity-certification-task-status
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Certification task status
 This API returns the status of a certification task. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
@@ -333,6 +339,9 @@ func main() {
 [[Back to top]](#)
 
 ## list-certifications
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Certifications by ids
 This API returns a list of certifications that satisfy the given query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned.
 

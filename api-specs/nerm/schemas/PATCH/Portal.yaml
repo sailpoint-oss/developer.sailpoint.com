@@ -1,0 +1,164 @@
+type: object
+properties:
+  id:
+    description: the Portal ID
+    example: b62638c4-755d-4cbc-8e57-f7ca03529749
+    type: string
+    format: uuid
+    readonly: true
+  uid:
+    description: the Portal ID set by the user
+    example: "portal_uid"
+    type: string
+    minLength: 32
+    maxLength: 32
+    readonly: true
+  inactivity_timeout:
+    description: the amount of time, in minutes, that a user can be inactive before its logged out
+    example: 30
+    type: integer
+    format: int32
+  jit_provisioning:
+    description: describes if JIT is enabled or not, JIT allows to skip registration and login with SSO
+    example: true
+    type: boolean
+  login_workflow_id:
+    description: login workflow ID for the portal
+    example: 435133ec-67ec-481d-826f-5449b2462894
+    type: string
+    format: uuid
+  password_reset_workflow_id:
+    description: password Reset workflow ID for the portal
+    example: 927091d4-00db-459d-84c2-4288be4a5263
+    type: string
+    format: uuid
+  profile_attribute_id:
+    description: profile Attribute ID for the portal
+    example: c035f79a-2352-4a55-b533-a752b1a63921
+    type: string
+    format: uuid
+  profile_type_id:
+    description: profile Type ID for the portal
+    example: 43faef7a-5ce9-45c0-8ced-5f8bf45d25bf
+    type: string
+    format: uuid
+  retries:
+    description: the number of retries a user will get for authentication actions like security questions, email verifications, etc
+    example: 1
+    type: integer
+    format: int32
+  name:
+    description: name of the portal
+    example: "Super Portal"
+    type: string
+  url:
+    description: relative portal url for accessing
+    example: "collaborate"
+    type: string
+    format: url
+  created_at:
+    description: portal creation date
+    example: "2024-04-01T12:00:09.344-04:00"
+    type: string
+    format: date-time
+    readOnly: true
+  updated_at:
+    description: portal update date
+    example: "2024-04-01T17:07:01.192-04:00"
+    type: string
+    format: date-time
+    readOnly: true
+  saml_configuration:
+    type: object
+    properties:
+      id:
+        description: the ID of the saml configuration
+        example: 113e95cb-a6b7-405e-961b-63b4336ea57c
+        type: string
+        format: uuid
+        readonly: true
+      cert:
+        description: saml configuration certificate
+        example: "<CERTIFICATE EXAMPLE>"
+        type: string
+      cert_fingerprint:
+        description: the certificate fingerprint
+        example: "EE:F2:CC:4F:4A:BC:BF:F6:3F:45:8F:7F:08:12:94:4C:A2:E9:20:4A"
+        type: string
+      collaboration_login:
+        description: displays or not the Collaboration login page
+        example: true
+        type: boolean
+      email_attribute:
+        description: the attribute that maps to user email
+        example: user_email
+        type: string
+      enabled:
+        description: the configuration is enabled or not
+        example: false
+        type: boolean
+      entity_id:
+        description: the entity ID that maps to the user
+        example: 113e95cb-a6b7-405e-961b-63b4336ea57c
+        type: string
+      fingerprint_algorithm:
+        description: the certificate fingerprint algorithm
+        example: SHA-1
+        type: string
+      groups_attribute:
+        description: from the Service Provider, the attribute that maps to groups
+        example: user_groups
+        type: string
+      hide_local_login_form:
+        description: when enabled, username and password fill form will not appear on login page
+        example: false
+        type: boolean
+      idp_mapping_attribute:
+        description: for the Identity Provider, the user mapping attribute
+        example: email
+        type: string
+      legacy_id:
+        description: legacy ID for this portal
+        example: 1
+        format: int32
+        readonly: true
+        type: integer
+      login_url:
+        description: for the Identity Provider, the URL that directs to the login page
+        example: https://superidp.com/login
+        type: string
+      logout_url:
+        description: for the Identity Provider, the URL that logouts the user
+        example: https://superidp.com/logout
+        type: string
+      name:
+        description: the name of the SAML configuration
+        example: SAML-SSO
+        type: string
+      name_attribute:
+        description: from the Service Provider, the attribute that maps to the user name
+        example: user_name
+        type: string
+      neaccess_domain:
+        description: from the Service Proivder, the domain for Collaboration
+        example: neaccess
+        type: string
+      neprofile_domain:
+        description: from the Service Provider, the domain for LifeCycle
+        example: neprofile
+        type: string
+      portal_id:
+        description: the Portal ID that belongs this configuration
+        example: 113e95cb-a6b7-405e-961b-63b4336ea57c
+        format: uuid
+        readonly: true
+        type: string
+      profile_creation:
+        description: allows portal to create profiles
+        example: true
+        type: boolean
+      sp_entity_id:
+        description: from the Service Provider, the entity ID
+        default: SecZetta
+        example: SecZetta
+        type: string

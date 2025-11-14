@@ -1,0 +1,17 @@
+patch:
+  summary: Update a language by locale
+  operationId: patchLanguage
+  description: Update a language by locale
+  tags:
+    - languages
+  parameters:
+    - $ref: "../parameters/path/languages_locale.yaml"
+  requestBody:
+    $ref: "../requestBodies/PATCH/Language.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Language.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

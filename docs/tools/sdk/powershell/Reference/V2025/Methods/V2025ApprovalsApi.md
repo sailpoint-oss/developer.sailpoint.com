@@ -21,7 +21,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Approve-V2025Approval**](#approve-approval) | **POST** `/generic-approvals/{id}/approve` | Post Approvals Approve
-[**Approve-V2025Approval0**](#approve-approval-0) | **POST** `/generic-approvals/bulk-approve` | Post Bulk Approve Approvals
+[**Approve-V2025ApprovalInBulk**](#approve-approval-in-bulk) | **POST** `/generic-approvals/bulk-approve` | Post Bulk Approve Approvals
 [**Suspend-V2025Approval**](#cancel-approval) | **POST** `/generic-approvals/bulk-cancel` | Post Bulk Cancel Approvals
 [**Get-V2025Approval**](#get-approval) | **GET** `/generic-approvals/{id}` | Get an approval
 [**Get-V2025Approvals**](#get-approvals) | **GET** `/generic-approvals` | Get approvals
@@ -29,7 +29,7 @@ Method | HTTP request | Description
 [**Move-V2025Approval**](#move-approval) | **POST** `/generic-approvals/bulk-reassign` | Post Bulk Reassign Approvals
 [**Send-V2025ApprovalsConfig**](#put-approvals-config) | **PUT** `/generic-approvals/config` | Put Approval Config
 [**Deny-V2025Approval**](#reject-approval) | **POST** `/generic-approvals/{id}/reject` | Post Approvals Reject
-[**Deny-V2025Approval0**](#reject-approval-0) | **POST** `/generic-approvals/bulk-reject` | Post Bulk Reject Approvals
+[**Deny-V2025ApprovalInBulk**](#reject-approval-in-bulk) | **POST** `/generic-approvals/bulk-reject` | Post Bulk Reject Approvals
 [**Update-V2025ApprovalsAttributes**](#update-approvals-attributes) | **POST** `/generic-approvals/{id}/attributes` | Post Approvals Attributes
 [**Update-V2025ApprovalsComments**](#update-approvals-comments) | **POST** `/generic-approvals/{id}/comments` | Post Approvals Comments
 [**Update-V2025ApprovalsReassign**](#update-approvals-reassign) | **POST** `/generic-approvals/{id}/reassign` | Post Approvals Reassign
@@ -92,10 +92,10 @@ try {
 ```
 [[Back to top]](#) 
 
-## approve-approval-0
+## approve-approval-in-bulk
 Bulk Approves specified approval requests on behalf of the caller
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-approval-0)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-approval-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -135,12 +135,12 @@ $BulkApproveRequestDTO = @"{
 
 try {
     $Result = ConvertFrom-V2025JsonToBulkApproveRequestDTO -Json $BulkApproveRequestDTO
-    Approve-V2025Approval0 -BulkApproveRequestDTO $Result 
+    Approve-V2025ApprovalInBulk -BulkApproveRequestDTO $Result 
     
     # Below is a request that includes all optional parameters
-    # Approve-V2025Approval0 -BulkApproveRequestDTO $Result  
+    # Approve-V2025ApprovalInBulk -BulkApproveRequestDTO $Result  
 } catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2025Approval0"
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2025ApprovalInBulk"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -592,10 +592,10 @@ try {
 ```
 [[Back to top]](#) 
 
-## reject-approval-0
+## reject-approval-in-bulk
 Bulk reject specified approval requests on behalf of the caller
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/reject-approval-0)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/reject-approval-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -631,12 +631,12 @@ $BulkRejectRequestDTO = @"{
 
 try {
     $Result = ConvertFrom-V2025JsonToBulkRejectRequestDTO -Json $BulkRejectRequestDTO
-    Deny-V2025Approval0 -BulkRejectRequestDTO $Result 
+    Deny-V2025ApprovalInBulk -BulkRejectRequestDTO $Result 
     
     # Below is a request that includes all optional parameters
-    # Deny-V2025Approval0 -BulkRejectRequestDTO $Result  
+    # Deny-V2025ApprovalInBulk -BulkRejectRequestDTO $Result  
 } catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-V2025Approval0"
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-V2025ApprovalInBulk"
     Write-Host $_.ErrorDetails
 }
 ```

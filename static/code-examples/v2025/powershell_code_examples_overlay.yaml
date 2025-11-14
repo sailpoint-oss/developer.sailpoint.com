@@ -1866,7 +1866,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2025/methods/approvals#approve-approval-0
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#approve-approval-in-bulk
       source: |
         $BulkApproveRequestDTO = @"
         {
@@ -1883,12 +1883,12 @@
         
         try {
             $Result = ConvertFrom-V2025JsonToBulkApproveRequestDTO -Json $BulkApproveRequestDTO
-            Approve-V2025Approval0 -BulkApproveRequestDTO $Result 
+            Approve-V2025ApprovalInBulk -BulkApproveRequestDTO $Result 
     
             # Below is a request that includes all optional parameters
-            # Approve-V2025Approval0 -BulkApproveRequestDTO $Result   
+            # Approve-V2025ApprovalInBulk -BulkApproveRequestDTO $Result   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2025Approval0"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2025ApprovalInBulk"
             Write-Host $_.ErrorDetails
         }
 - path: /generic-approvals/bulk-cancel
@@ -2139,7 +2139,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2025/methods/approvals#reject-approval-0
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#reject-approval-in-bulk
       source: |
         $BulkRejectRequestDTO = @"
         {
@@ -2152,12 +2152,12 @@
         
         try {
             $Result = ConvertFrom-V2025JsonToBulkRejectRequestDTO -Json $BulkRejectRequestDTO
-            Deny-V2025Approval0 -BulkRejectRequestDTO $Result 
+            Deny-V2025ApprovalInBulk -BulkRejectRequestDTO $Result 
     
             # Below is a request that includes all optional parameters
-            # Deny-V2025Approval0 -BulkRejectRequestDTO $Result   
+            # Deny-V2025ApprovalInBulk -BulkRejectRequestDTO $Result   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-V2025Approval0"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-V2025ApprovalInBulk"
             Write-Host $_.ErrorDetails
         }
 - path: /generic-approvals/{id}/attributes

@@ -11,6 +11,7 @@ post:
   security:
   - userAuth:
     - idn:accounts-state:manage
+    - idn:accounts-provisioning:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   requestBody:

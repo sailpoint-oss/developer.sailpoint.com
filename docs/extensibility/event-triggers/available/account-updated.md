@@ -12,14 +12,13 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 ## Event Context
 
-Account Updated events occur whenever one or more account attributes change on a single account during an account aggregation operation. The trigger cannot determine whether the account update happened on a source or in Identity Security Cloud. It omits events related to Identity Security Cloud accounts, such as the Identity Security Cloud Admin. The following actions are considered updates:
+This event trigger fires when an account is updated in Identity Security Cloud.
 
-- Update account attributes
-- Enable or disable an account
-- Lock or unlock source accounts
-- Change source account password
+Accounts can be updated via aggregations or provisioning, including when entitlements are added or removed.
 
-Use this event trigger to watch for updates to accounts that add highly privileged access, such as an account that is granted privileged access on a sensitive source.
+You could use this event trigger to fire a Workflow that takes additional actions after a new entitlement has been provisioned to a privileged account.
+
+See [Aggregating Accounts](https://documentation.sailpoint.com/saas/help/accounts/index.html#aggregating-accounts) and [Configuring Source Account Provisioning](https://documentation.sailpoint.com/saas/help/provisioning/create_profile.html) for more information about the scenarios that lead to account updates.
 
 This is an example input from this trigger:
 

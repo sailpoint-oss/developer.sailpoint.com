@@ -34,6 +34,17 @@ The transform for identity attributes requires the desired identity attribute's 
 }
 ```
 
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `identityAttribute`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
 ## Attributes
 
 The identity attribute transform uses the following structure:
@@ -47,18 +58,6 @@ The identity attribute transform uses the following structure:
   }
 }
 ```
-
-### Top-level properties (required)
-
-- **type** `string` _(required)_  
-  Must be set to `identityAttribute`.
-
-- **name** `string` _(required)_  
-  The name of the transform as it will appear in the UI's dropdown menus.
-
-- **requiresPeriodicRefresh** `boolean` _(optional)_  
-  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
-
 ---
 
 ### `attributes` (required)

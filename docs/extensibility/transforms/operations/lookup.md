@@ -39,6 +39,17 @@ In addition to the `type` and `name` attributes, the structure of a lookup trans
 }
 ```
 
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `lookup`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
 ## Attributes
 
 The lookup transform uses the following structure:
@@ -56,17 +67,6 @@ The lookup transform uses the following structure:
   }
 }
 ```
-
-### Top-level properties (required)
-
-- **type** `string` _(required)_  
-  Must be set to `lookup`.
-
-- **name** `string` _(required)_  
-  The name of the transform as it will appear in the UI's dropdown menus.
-
-- **requiresPeriodicRefresh** `boolean` _(optional)_  
-  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
 
 ---
 

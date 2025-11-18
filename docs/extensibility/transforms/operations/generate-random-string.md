@@ -38,6 +38,17 @@ The structure of a generate random string transform requires the `name` of the r
 }
 ```
 
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `rule`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
 ## Attributes
 
 The generate random string transform uses the following structure:
@@ -55,17 +66,6 @@ The generate random string transform uses the following structure:
   }
 }
 ```
-
-### Top-level properties (required)
-
-- **type** `string` _(required)_  
-  Must be set to `rule`.
-
-- **name** `string` _(required)_  
-  The name of the transform as it will appear in the UI's dropdown menus.
-
-- **requiresPeriodicRefresh** `boolean` _(optional)_  
-  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
 
 ---
 

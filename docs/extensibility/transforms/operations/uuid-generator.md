@@ -31,17 +31,6 @@ The UUID generator transform only requires the transform's `type` and `name` att
 }
 ```
 
-## Attributes
-
-The UUID generator transform only requires top-level properties:
-
-```json
-{
-  "type": "uuid",
-  "name": "Transform Name"
-}
-```
-
 ### Top-level properties (required)
 
 - **type** `string` _(required)_  
@@ -52,6 +41,17 @@ The UUID generator transform only requires top-level properties:
 
 - **requiresPeriodicRefresh** `boolean` _(optional)_  
   Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
+## Attributes
+
+The UUID generator transform only requires top-level properties:
+
+```json
+{
+  "type": "uuid",
+  "name": "Transform Name"
+}
+```
 
 ## Examples
 

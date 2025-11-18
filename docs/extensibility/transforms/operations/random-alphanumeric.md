@@ -25,6 +25,17 @@ The random alphanumeric transform only requires the standard `type` and `name` a
 }
 ```
 
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `randomAlphaNumeric`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
 ## Attributes
 
 The random alphanumeric transform uses the following structure:
@@ -38,17 +49,6 @@ The random alphanumeric transform uses the following structure:
   }
 }
 ```
-
-### Top-level properties (required)
-
-- **type** `string` _(required)_  
-  Must be set to `randomAlphaNumeric`.
-
-- **name** `string` _(required)_  
-  The name of the transform as it will appear in the UI's dropdown menus.
-
-- **requiresPeriodicRefresh** `boolean` _(optional)_  
-  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
 
 ---
 

@@ -31,6 +31,17 @@ The E.164 phone transform only requires the transform's `type` and `name` attrib
 }
 ```
 
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `e164phone`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
 ## Attributes
 
 The E.164 phone transform only requires top-level properties:
@@ -42,16 +53,11 @@ The E.164 phone transform only requires top-level properties:
 }
 ```
 
-### Top-level properties (required)
+### `attributes` (required)
 
-- **type** `string` _(required)_  
-  Must be set to `e164phone`.
+The `attributes` object contains the E.164 phone configuration.
 
-- **name** `string` _(required)_  
-  The name of the transform as it will appear in the UI's dropdown menus.
-
-- **requiresPeriodicRefresh** `boolean` _(optional)_  
-  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+#### Optional
 
 - **defaultRegion** `string` _(optional)_  
   The phone number region to format into. Must be in [ISO 3166-1 alpha-2 format](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Default is `US`.

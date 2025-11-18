@@ -40,6 +40,17 @@ The name normalizer transform only requires the transform's `type` and `name` at
 }
 ```
 
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `normalizeNames`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
 ## Attributes
 
 The name normalizer transform only requires top-level properties:
@@ -51,16 +62,11 @@ The name normalizer transform only requires top-level properties:
 }
 ```
 
-### Top-level properties (required)
+### `attributes` (required)
 
-- **type** `string` _(required)_  
-  Must be set to `normalizeNames`.
+The `attributes` object contains the configuration for the normalizer transform.
 
-- **name** `string` _(required)_  
-  The name of the transform as it will appear in the UI's dropdown menus.
-
-- **requiresPeriodicRefresh** `boolean` _(optional)_  
-  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+#### Optional
 
 - **input** `object` _(optional)_  
   Explicitly defines the input data passed into the transform. If not provided, the transform uses input from the source and attribute combination configured in the UI.

@@ -45,6 +45,17 @@ The date compare transform takes as an input the two dates to compare, denoted a
 }
 ```
 
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `dateCompare`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
 ## Attributes
 
 The date compare transform uses the following structure:
@@ -62,17 +73,6 @@ The date compare transform uses the following structure:
   }
 }
 ```
-
-### Top-level properties (required)
-
-- **type** `string` _(required)_  
-  Must be set to `dateCompare`.
-
-- **name** `string` _(required)_  
-  The name of the transform as it will appear in the UI's dropdown menus.
-
-- **requiresPeriodicRefresh** `boolean` _(optional)_  
-  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
 
 ---
 

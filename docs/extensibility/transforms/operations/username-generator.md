@@ -92,6 +92,11 @@ Provide the username generator transform itself in the create profile attribute 
 }
 ```
 
+### Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `usernameGenerator`.
+
 ## Attributes
 
 The username generator transform uses the following structure:
@@ -108,11 +113,6 @@ The username generator transform uses the following structure:
   }
 }
 ```
-
-### Top-level properties (required)
-
-- **type** `string` _(required)_  
-  Must be set to `usernameGenerator`.
 
 ---
 

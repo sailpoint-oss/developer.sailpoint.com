@@ -28,6 +28,14 @@ The displayName generator transform is intended for using Preferred Name over Gi
 }
 ```
 
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `displayName`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
 ## Attributes
 
 The displayName transform uses the following structure:
@@ -41,14 +49,6 @@ The displayName transform uses the following structure:
   }
 }
 ```
-
-### Top-level properties (required)
-
-- **type** `string` _(required)_  
-  Must be set to `displayName`.
-
-- **name** `string` _(required)_  
-  The name of the transform as it will appear in the UI's dropdown menus.
 
 ---
 

@@ -14,14 +14,19 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 ![Flow](./img/machine-identity-created-path.png)
 
-Machine Identity Created events occur when a new machine identity is detected during an aggregation and refresh from an authoritative source. New machine identities are detected when an account from the authoritative source is not correlated to an existing machine identity. For more information, see [Configuring Correlation](https://community.sailpoint.com/t5/Connectors/Configuring-Correlation/ta-p/74045). The Machine Identity Created event contains all the identity attributes as they are configured in the identity profile. For more information, see [Mapping Identity Profiles](https://community.sailpoint.com/t5/Admin-Help/Mapping-Identity-Profiles/ta-p/77877).
+This event trigger fires when a new machine identity is created in Identity Security Cloud.
 
-This event trigger provides a flexible way to extend Joiner-Mover-Leaver processes. This provides more proactive governance and ensures identities can quickly get necessary access when they enter your organization.
+Machine identities can be created via the UI, endpoint, or aggregated. Machine identities can also be created via machine account to machine account mappings.
 
-Some uses cases for this trigger include the following:
+You could use this event trigger to fire a Workflow that discovers machine identity owners when a machine identity is created.
 
-- Notify an administrator or system to take the appropriate birthright provisioning actions as part of the Joiner workflow.
-- Notify a third party system to trigger another action (e.g. create an onboarding experience for a new agent).
+For more information about the scenarios that lead to machine identity creation, refer
+- [Managing Application Identities](https://developer.sailpoint.com/docs/identity-security-cloud/machine-identities/machine-identity-lifecycle).
+- [Managing AI Agents](https://documentation.sailpoint.com/saas/help/agent/agent_mgmt.html#updating-ai-agents).
+- [Aggregating AI Agents](https://documentation.sailpoint.com/saas/help/agent/agent_aggregations.html).
+- [Mapping Machine Account Attributes](https://documentation.sailpoint.com/saas/help/machine/account_configuration.html#mapping-machine-account-attributes).
+
+Customers that have licensed Machine Identity Security or Agent Identity Security will receive this event trigger.
 
 This is an example input from this trigger:
 
@@ -89,4 +94,3 @@ This is an example input from this trigger:
 ## Additional Information and Links
 
 - **Trigger Type**: [FIRE_AND_FORGET](../trigger-types.md#fire-and-forget)
-<!-- [Input schema](https://developer.sailpoint.com/apis/beta/#section/Identity-Created-Event-Trigger-Input) -->

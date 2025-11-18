@@ -1,52 +1,51 @@
 get:
   operationId: getSourceConfig
   tags:
-  - Sources
+    - Sources
   summary: Gets source config with language-translations
   security:
-    - userAuth: []
+    - userAuth:
+        - idn:connector-config:read
+        - idn:connector-config:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
-  description: >-
-    Looks up and returns the source config for the requested source id
-    after populating the source config values and applying language translations.
+  description: Looks up and returns the source config for the requested source id after populating the source config values and applying language translations.
   parameters:
-  - in: path
-    name: id
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: listSources
-    description: The Source id
-    example: cef3ee201db947c5912551015ba0c679
-  - in: query
-    name: locale
-    schema:
-      type: string
-      enum:
-      - de
-      - false
-      - fi
-      - sv
-      - ru
-      - pt
-      - ko
-      - zh-TW
-      - en
-      - it
-      - fr
-      - zh-CN
-      - hu
-      - es
-      - cs
-      - ja
-      - pl
-      - da
-      - nl
-    description: The locale to apply to the config. If no viable locale is given,
-      it will default to "en"
-    example: en
-    required: false
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      description: The Source id
+      example: cef3ee201db947c5912551015ba0c679
+    - in: query
+      name: locale
+      schema:
+        type: string
+        enum:
+          - de
+          - false
+          - fi
+          - sv
+          - ru
+          - pt
+          - ko
+          - zh-TW
+          - en
+          - it
+          - fr
+          - zh-CN
+          - hu
+          - es
+          - cs
+          - ja
+          - pl
+          - da
+          - nl
+      description: The locale to apply to the config. If no viable locale is given, it will default to "en"
+      example: en
+      required: false
   responses:
     '200':
       description: A Connector Detail object

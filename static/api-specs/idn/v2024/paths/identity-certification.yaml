@@ -4,12 +4,12 @@ get:
     - Certifications
   summary: Identity certification by id
   security:
-    - userAuth: []
+    - userAuth:
+        - idn:campaign:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - CERT_ADMIN
-  description: >-
-    This API returns a single identity campaign certification by its ID. Reviewers for this certification can also call this API.
+  description: This API returns a single identity campaign certification by its ID. Reviewers for this certification can also call this API.
   parameters:
     - in: path
       name: id
@@ -25,18 +25,16 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/IdentityCertificationDto.yaml'
+            $ref: ../schemas/IdentityCertificationDto.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
-
-
+      $ref: ../responses/500.yaml

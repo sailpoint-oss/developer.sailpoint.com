@@ -3,12 +3,12 @@ put:
   tags:
     - Machine Account Mappings
   summary: Update Source's Machine Account Mappings
-  description:
-    Use this API to update Machine Account Attribute Mapping for a Source.
-    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+  description: Use this API to update Machine Account Attribute Mapping for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   security:
     - userAuth:
-        - "idn:sources:update"
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -27,25 +27,25 @@ put:
     content:
       application/json:
         schema:
-          $ref: "../schemas/AttributeMappings.yaml"
+          $ref: ../schemas/AttributeMappings.yaml
   responses:
-    "200":
+    '200':
       description: Updated Machine Account Attributes for a Source.
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: "../schemas/AttributeMappings.yaml"
-    "400":
-      $ref: "../responses/400.yaml"
-    "401":
-      $ref: "../responses/401.yaml"
-    "403":
-      $ref: "../responses/403.yaml"
-    "404":
-      $ref: "../responses/404.yaml"
-    "429":
-      $ref: "../responses/429.yaml"
-    "500":
-      $ref: "../responses/500.yaml"
+              $ref: ../schemas/AttributeMappings.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

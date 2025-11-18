@@ -2,8 +2,7 @@ get:
   tags:
     - Access Request Identity Metrics
   summary: Return access request identity metrics
-  description: >-
-    Use this API to return information access metrics.
+  description: Use this API to return information access metrics.
   operationId: getAccessRequestIdentityMetrics
   parameters:
     - name: identityId
@@ -12,7 +11,7 @@ get:
       required: true
       schema:
         type: string
-      example: '7025c863-c270-4ba6-beea-edf3cb091573'
+      example: 7025c863-c270-4ba6-beea-edf3cb091573
       x-sailpoint-resource-operation-id: listIdentities
     - name: requestedObjectId
       in: path
@@ -20,11 +19,11 @@ get:
       required: true
       schema:
         type: string
-      example: '2db501be-f0fb-4cc5-a695-334133c52891'
+      example: 2db501be-f0fb-4cc5-a695-334133c52891
       x-sailpoint-resource-operation-id: listRequestableObjects
     - name: type
       in: path
-      description: Requested access item's type. 
+      description: Requested access item's type.
       required: true
       schema:
         type: string
@@ -36,7 +35,9 @@ get:
           - ROLE
       example: ENTITLEMENT
   security:
-    - userAuth: [idn:access-request-approvals:read]
+    - userAuth:
+        - idn:access-request-approvals:read
+        - idn:access-request-approvals:manage
   responses:
     '200':
       description: Summary of the resource access and source activity for the direct reports of the provided manager.
@@ -45,14 +46,14 @@ get:
           schema:
             type: object
             items:
-              $ref: '../schemas/AccessRequestIdentityMetrics.yaml'
+              $ref: ../schemas/AccessRequestIdentityMetrics.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

@@ -3,10 +3,14 @@ get:
   summary: Retrieves all saved potential roles
   tags:
     - IAI Role Mining
-  description: >-
-    This method returns all saved potential roles (draft roles).
+  description: This method returns all saved potential roles (draft roles).
   security:
-    - userAuth: []
+    - userAuth:
+        - iai:access-modeling:read
+        - iai:access-modeling:manage
+    - applicationAuth:
+        - iai:access-modeling:read
+        - iai:access-modeling:manage
   parameters:
     - in: query
       name: sorters
@@ -16,13 +20,11 @@ get:
       schema:
         type: string
         format: comma-separated
-      description: >-
-        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/)
-        Sorting is supported for the following fields: **modified**
-      example: 'modified'
-    - $ref: '../../v3/parameters/offset.yaml'
-    - $ref: '../../v3/parameters/limit.yaml'
-    - $ref: '../../v3/parameters/count.yaml'
+      description: 'Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Sorting is supported for the following fields: **modified**'
+      example: modified
+    - $ref: ../../v3/parameters/offset.yaml
+    - $ref: ../../v3/parameters/limit.yaml
+    - $ref: ../../v3/parameters/count.yaml
   responses:
     '200':
       description: Succeeded. Returns a list of draft roles for a role mining session.
@@ -31,14 +33,14 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/RoleMiningSessionDraftRoleDto.yaml'
+              $ref: ../schemas/RoleMiningSessionDraftRoleDto.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

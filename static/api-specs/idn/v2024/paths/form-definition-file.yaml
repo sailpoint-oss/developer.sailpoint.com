@@ -1,39 +1,38 @@
 get:
   tags:
-  - Custom Forms
+    - Custom Forms
   summary: Download definition file by fileid.
   operationId: getFileFromS3
   parameters:
-  - name: formDefinitionID
-    in: path
-    description: 'FormDefinitionID
+    - name: formDefinitionID
+      in: path
+      description: |-
+        FormDefinitionID
 
-
-      Form definition ID'
-    required: true
-    x-sailpoint-resource-operation-id: searchFormDefinitionsByTenant
-    example: 00000000-0000-0000-0000-000000000000
-    schema:
-      type: string
+        Form definition ID
+      required: true
+      x-sailpoint-resource-operation-id: searchFormDefinitionsByTenant
+      example: 00000000-0000-0000-0000-000000000000
+      schema:
+        type: string
+        x-go-name: FormDefinitionID
       x-go-name: FormDefinitionID
-    x-go-name: FormDefinitionID
-  - name: fileID
-    in: path
-    description: 'FileID
+    - name: fileID
+      in: path
+      description: |-
+        FileID
 
-
-      String specifying the hashed name of the uploaded file we are retrieving.'
-    required: true
-    x-sailpoint-resource-operation-id: createFormDefinitionFileRequest
-    example: 00000031N0J7R2B57M8YG73J7M.png
-    schema:
-      type: string
+        String specifying the hashed name of the uploaded file we are retrieving.
+      required: true
+      x-sailpoint-resource-operation-id: createFormDefinitionFileRequest
+      example: 00000031N0J7R2B57M8YG73J7M.png
+      schema:
+        type: string
+        x-go-name: FileID
       x-go-name: FileID
-    x-go-name: FileID
   responses:
     '200':
-      description: Returns a file that is referred to by fileID and associated with
-        the formDefinitionID
+      description: Returns a file that is referred to by fileID and associated with the formDefinitionID
       content:
         application/json:
           schema:
@@ -532,6 +531,7 @@ get:
                 type: string
                 x-go-name: TrackingID
   security:
-  - userAuth:
-    - sp:forms:manage
+    - userAuth:
+        - sp:forms:read
+        - sp:forms:manage
   x-codegen-request-body-name: Body

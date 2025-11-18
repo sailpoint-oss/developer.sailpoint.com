@@ -1,6 +1,6 @@
 get:
   tags:
-  - Custom Forms
+    - Custom Forms
   summary: List form instances by tenant.
   description: No parameters required.
   operationId: searchFormInstancesByTenant
@@ -108,11 +108,12 @@ get:
                 type: string
                 x-go-name: TrackingID
   security:
-  - userAuth:
-    - sp:forms:manage
+    - userAuth:
+        - sp:forms:read
+        - sp:forms:manage
 post:
   tags:
-  - Custom Forms
+    - Custom Forms
   summary: Creates a form instance.
   operationId: createFormInstance
   requestBody:
@@ -125,8 +126,8 @@ post:
           expire: '2023-06-20T15:57:55.332882Z'
           formDefinitionId: 00000000-0000-0000-0000-000000000000
           recipients:
-          - type: IDENTITY
-            id: an-identity-id
+            - type: IDENTITY
+              id: an-identity-id
           createdBy:
             type: WORKFLOW_EXECUTION
             id: a-workflow-execution-id
@@ -233,6 +234,6 @@ post:
                 type: string
                 x-go-name: TrackingID
   security:
-  - userAuth:
-    - sp:forms:manage
+    - userAuth:
+        - sp:forms:manage
   x-codegen-request-body-name: Body

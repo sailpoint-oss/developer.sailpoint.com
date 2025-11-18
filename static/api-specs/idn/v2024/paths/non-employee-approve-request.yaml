@@ -1,18 +1,16 @@
 post:
   operationId: approveNonEmployeeRequest
   security:
-    - userAuth: []
+    - userAuth:
+        - idn:nelm:manage
   tags:
     - Non-Employee Lifecycle Management
   summary: Approve a non-employee request
-  description: >-
-    Approves a non-employee approval request and notifies the next approver. The
-    current user must be the requested approver.
+  description: Approves a non-employee approval request and notifies the next approver. The current user must be the requested approver.
   parameters:
     - in: path
       name: id
-      description: >-
-        Non-Employee approval item id (UUID)
+      description: Non-Employee approval item id (UUID)
       required: true
       x-sailpoint-resource-operation-id: listNonEmployeeApprovals
       schema:
@@ -23,21 +21,21 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../schemas/non-employee/NonEmployeeApprovalDecision.yaml"
+          $ref: ../schemas/non-employee/NonEmployeeApprovalDecision.yaml
   responses:
-    "200":
+    '200':
       description: Non-Employee approval item object.
       content:
         application/json:
           schema:
-            $ref: "../schemas/non-employee/NonEmployeeApprovalItem.yaml"
-    "400":
-      $ref: "../responses/400.yaml"
-    "401":
-      $ref: "../responses/401.yaml"
-    "403":
-      $ref: "../responses/403.yaml"
-    "429":
-      $ref: "../responses/429.yaml"
-    "500":
-      $ref: "../responses/500.yaml"
+            $ref: ../schemas/non-employee/NonEmployeeApprovalItem.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

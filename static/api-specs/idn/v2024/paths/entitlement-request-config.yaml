@@ -1,26 +1,26 @@
 get:
   operationId: getEntitlementRequestConfig
   tags:
-  - Entitlements
+    - Entitlements
   summary: Get entitlement request config
   description: This API returns the entitlement request config for a specified entitlement.
   security:
-  - userAuth:
-    - idn:entitlement:read
-    - idn:entitlement:manage
+    - userAuth:
+        - idn:entitlement:read
+        - idn:entitlement:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_SUBADMIN
     - SOURCE_ADMIN
   parameters:
-  - in: path
-    name: id
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: listEntitlements
-    description: Entitlement Id
-    example: 2c91808874ff91550175097daaec161c
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listEntitlements
+      description: Entitlement Id
+      example: 2c91808874ff91550175097daaec161c
   responses:
     '200':
       description: An Entitlement Request Config
@@ -34,24 +34,24 @@ get:
               denialCommentRequired: true
               reauthorizationRequired: false
               approvalSchemes:
-              - approverType: ENTITLEMENT_OWNER
-                approverId: null
-              - approverType: SOURCE_OWNER
-                approverId: null
-              - approverType: MANAGER
-                approverId: null
-              - approverType: GOVERNANCE_GROUP
-                approverId: 46c79819-a69f-49a2-becb-12c971ae66c6
+                - approverType: ENTITLEMENT_OWNER
+                  approverId: null
+                - approverType: SOURCE_OWNER
+                  approverId: null
+                - approverType: MANAGER
+                  approverId: null
+                - approverType: GOVERNANCE_GROUP
+                  approverId: 46c79819-a69f-49a2-becb-12c971ae66c6
             revocationRequestConfig:
               approvalSchemes:
-              - approverType: ENTITLEMENT_OWNER
-                approverId: null
-              - approverType: SOURCE_OWNER
-                approverId: null
-              - approverType: MANAGER
-                approverId: null
-              - approverType: GOVERNANCE_GROUP
-                approverId: 46c79819-a69f-49a2-becb-12c971ae66c6
+                - approverType: ENTITLEMENT_OWNER
+                  approverId: null
+                - approverType: SOURCE_OWNER
+                  approverId: null
+                - approverType: MANAGER
+                  approverId: null
+                - approverType: GOVERNANCE_GROUP
+                  approverId: 46c79819-a69f-49a2-becb-12c971ae66c6
     '400':
       $ref: ../responses/400.yaml
     '401':
@@ -67,26 +67,25 @@ get:
 put:
   operationId: putEntitlementRequestConfig
   tags:
-  - Entitlements
+    - Entitlements
   summary: Replace entitlement request config
   description: This API replaces the entitlement request config for a specified entitlement.
   security:
-  - userAuth:
-    - idn:entitlement:update
-    - idn:entitlement:manage
+    - userAuth:
+        - idn:entitlement:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_SUBADMIN
     - SOURCE_ADMIN
   parameters:
-  - name: id
-    in: path
-    description: Entitlement ID
-    required: true
-    x-sailpoint-resource-operation-id: listEntitlements
-    schema:
-      type: string
-      example: 2c91808a7813090a017814121e121518
+    - name: id
+      in: path
+      description: Entitlement ID
+      required: true
+      x-sailpoint-resource-operation-id: listEntitlements
+      schema:
+        type: string
+        example: 2c91808a7813090a017814121e121518
   requestBody:
     required: true
     content:
@@ -105,24 +104,24 @@ put:
               requestCommentRequired: true
               denialCommentRequired: true
               approvalSchemes:
-              - approverType: ENTITLEMENT_OWNER
-                approverId: null
-              - approverType: SOURCE_OWNER
-                approverId: null
-              - approverType: MANAGER
-                approverId: null
-              - approverType: GOVERNANCE_GROUP
-                approverId: 46c79819-a69f-49a2-becb-12c971ae66c6
+                - approverType: ENTITLEMENT_OWNER
+                  approverId: null
+                - approverType: SOURCE_OWNER
+                  approverId: null
+                - approverType: MANAGER
+                  approverId: null
+                - approverType: GOVERNANCE_GROUP
+                  approverId: 46c79819-a69f-49a2-becb-12c971ae66c6
             revocationRequestConfig:
               approvalSchemes:
-              - approverType: ENTITLEMENT_OWNER
-                approverId: null
-              - approverType: SOURCE_OWNER
-                approverId: null
-              - approverType: MANAGER
-                approverId: null
-              - approverType: GOVERNANCE_GROUP
-                approverId: 46c79819-a69f-49a2-becb-12c971ae66c6
+                - approverType: ENTITLEMENT_OWNER
+                  approverId: null
+                - approverType: SOURCE_OWNER
+                  approverId: null
+                - approverType: MANAGER
+                  approverId: null
+                - approverType: GOVERNANCE_GROUP
+                  approverId: 46c79819-a69f-49a2-becb-12c971ae66c6
     '400':
       $ref: ../responses/400.yaml
     '401':

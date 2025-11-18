@@ -2,8 +2,7 @@ get:
   tags:
     - Source Usages
   summary: Finds status of source usage
-  description: >-
-    This API returns the status of the source usage insights setup by IDN source ID.
+  description: This API returns the status of the source usage insights setup by IDN source ID.
   operationId: getStatusBySourceId
   parameters:
     - name: sourceId
@@ -13,23 +12,26 @@ get:
       x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
-      example: '2c9180835d191a86015d28455b4a2329'
+      example: 2c9180835d191a86015d28455b4a2329
   security:
-    - userAuth: [ idn:accounts:read ]
+    - userAuth:
+        - idn:identity-history:manage
+    - applicationAuth:
+        - idn:identity-history:manage
   responses:
     '200':
       description: Status of the source usage insights setup by IDN source ID.
       content:
         application/json:
           schema:
-            $ref: '../schemas/SourceUsageStatus.yaml'
+            $ref: ../schemas/SourceUsageStatus.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

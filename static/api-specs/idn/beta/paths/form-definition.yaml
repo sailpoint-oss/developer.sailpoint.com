@@ -16,13 +16,13 @@ get:
       example: 00000000-0000-0000-0000-000000000000
       x-go-name: FormDefinitionID
   responses:
-    "200":
+    '200':
       description: Returns a form definition
       content:
         application/json:
           schema:
-            $ref: '../schemas/forms/FormDefinitionResponse.yaml'
-    "400":
+            $ref: ../schemas/forms/FormDefinitionResponse.yaml
+    '400':
       description: An error with the request occurred
       content:
         application/json:
@@ -35,7 +35,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -44,7 +44,7 @@ get:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "401":
+    '401':
       description: An error with the authorization occurred
       content:
         application/json:
@@ -57,7 +57,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -66,7 +66,7 @@ get:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "403":
+    '403':
       description: An error with the user permissions occurred
       content:
         application/json:
@@ -79,7 +79,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -88,7 +88,7 @@ get:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "404":
+    '404':
       description: An error with the item not found
       content:
         application/json:
@@ -101,7 +101,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -110,13 +110,13 @@ get:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "429":
+    '429':
       description: Too many requests
       content:
         application/json:
           schema:
-            $ref: '../schemas/forms/Error.yaml'
-    "500":
+            $ref: ../schemas/forms/Error.yaml
+    '500':
       description: An internal server error occurred
       content:
         application/json:
@@ -129,7 +129,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -140,6 +140,7 @@ get:
                 x-go-name: TrackingID
   security:
     - userAuth:
+        - sp:forms:read
         - sp:forms:manage
 delete:
   tags:
@@ -159,13 +160,13 @@ delete:
       example: 00000000-0000-0000-0000-000000000000
       x-go-name: FormDefinitionID
   responses:
-    "204":
+    '204':
       description: Returns an empty body
       content:
         application/json:
           schema:
-            $ref: '../schemas/forms/Nil.yaml'
-    "400":
+            $ref: ../schemas/forms/Nil.yaml
+    '400':
       description: An error with the request occurred
       content:
         application/json:
@@ -178,7 +179,7 @@ delete:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -187,7 +188,7 @@ delete:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "401":
+    '401':
       description: An error with the authorization occurred
       content:
         application/json:
@@ -200,7 +201,7 @@ delete:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -209,7 +210,7 @@ delete:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "403":
+    '403':
       description: An error with the user permissions occurred
       content:
         application/json:
@@ -222,7 +223,7 @@ delete:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -231,7 +232,7 @@ delete:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "404":
+    '404':
       description: An error with the item not found
       content:
         application/json:
@@ -244,7 +245,7 @@ delete:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -253,13 +254,13 @@ delete:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "429":
+    '429':
       description: Too many requests
       content:
         application/json:
           schema:
-            $ref: '../schemas/forms/Error.yaml'
-    "500":
+            $ref: ../schemas/forms/Error.yaml
+    '500':
       description: An internal server error occurred
       content:
         application/json:
@@ -272,7 +273,7 @@ delete:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -302,24 +303,24 @@ patch:
       example: 00000000-0000-0000-0000-000000000000
       x-go-name: FormDefinitionID
   requestBody:
-    description: 'Body is the request payload to patch a form definition, check:
-          https://jsonpatch.com'
+    description: 'Body is the request payload to patch a form definition, check: https://jsonpatch.com'
     content:
       application/json:
         schema:
-          $ref: '../schemas/forms/Patch.yaml'
-        example: [
-          { "op": "replace", "path": "/description", "value": "test-description" },
-        ]
+          $ref: ../schemas/forms/Patch.yaml
+        example:
+          - op: replace
+            path: /description
+            value: test-description
     required: false
   responses:
-    "200":
+    '200':
       description: Returns the form definition updated
       content:
         application/json:
           schema:
-            $ref: '../schemas/forms/FormDefinitionResponse.yaml'
-    "400":
+            $ref: ../schemas/forms/FormDefinitionResponse.yaml
+    '400':
       description: An error with the request occurred
       content:
         application/json:
@@ -332,7 +333,7 @@ patch:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -341,7 +342,7 @@ patch:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "401":
+    '401':
       description: An error with the authorization occurred
       content:
         application/json:
@@ -354,7 +355,7 @@ patch:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -363,7 +364,7 @@ patch:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "403":
+    '403':
       description: An error with the user permissions occurred
       content:
         application/json:
@@ -376,7 +377,7 @@ patch:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -385,7 +386,7 @@ patch:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "404":
+    '404':
       description: An error with the user permissions occurred
       content:
         application/json:
@@ -398,7 +399,7 @@ patch:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -407,13 +408,13 @@ patch:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "429":
+    '429':
       description: Too many requests
       content:
         application/json:
           schema:
-            $ref: '../schemas/forms/Error.yaml'
-    "500":
+            $ref: ../schemas/forms/Error.yaml
+    '500':
       description: An internal server error occurred
       content:
         application/json:
@@ -426,7 +427,7 @@ patch:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer

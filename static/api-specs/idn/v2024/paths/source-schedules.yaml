@@ -1,8 +1,12 @@
-
 get:
   operationId: getSourceSchedules
   security:
-    - userAuth: [ idn:sources:read ]
+    - userAuth:
+        - idn:sources:read
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:read
+        - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -11,14 +15,14 @@ get:
     - Sources
   summary: List schedules on source
   description: |
-   Use this API to list the schedules that exist on the specified source in Identity Security Cloud (ISC).
-   :::info
-   This endpoint uses a **cron expression** to schedule a task, following standard **cron job syntax**.
+    Use this API to list the schedules that exist on the specified source in Identity Security Cloud (ISC).
+    :::info
+    This endpoint uses a **cron expression** to schedule a task, following standard **cron job syntax**.
 
-   For example, `0 0 12 1/1 * ? *` runs the task **daily at 12:00 PM**.
+    For example, `0 0 12 1/1 * ? *` runs the task **daily at 12:00 PM**.
 
-   **Days of the week are represented as 1-7 (Sunday-Saturday).**
-   :::
+    **Days of the week are represented as 1-7 (Sunday-Saturday).**
+    :::
   parameters:
     - in: path
       name: sourceId
@@ -36,23 +40,26 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/sources/Schedule.yaml'
+              $ref: ../schemas/sources/Schedule.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
 post:
   operationId: createSourceSchedule
   security:
-    - userAuth: [ idn:sources:update ]
+    - userAuth:
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -76,21 +83,21 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/sources/Schedule.yaml'
+          $ref: ../schemas/sources/Schedule.yaml
   responses:
     '201':
       description: The schedule was successfully created on the specified source.
       content:
         application/json:
           schema:
-            $ref: '../schemas/sources/Schedule.yaml'
+            $ref: ../schemas/sources/Schedule.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

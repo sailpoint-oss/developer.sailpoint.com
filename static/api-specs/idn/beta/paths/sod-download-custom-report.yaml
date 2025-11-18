@@ -5,10 +5,14 @@ get:
   summary: Download custom violation report
   deprecated: true
   security:
-    - userAuth: [ idn:sod-violation:read ]
-  description: >-
+    - userAuth:
+        - idn:sod-violation:read
+        - idn:sod-violation:manage
+    - applicationAuth:
+        - idn:sod-violation:read
+        - idn:sod-violation:manage
+  description: |-
     This allows to download a specified named violation report for a given report reference.
-
     Requires role of ORG_ADMIN.
   parameters:
     - in: path
@@ -35,14 +39,14 @@ get:
             type: string
             format: binary
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

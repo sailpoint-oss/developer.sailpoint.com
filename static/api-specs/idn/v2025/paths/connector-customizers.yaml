@@ -5,8 +5,8 @@ get:
   summary: List all connector customizers
   description: List all connector customizers.
   parameters:
-    - $ref: '../parameters/offset.yaml'
-    - $ref: '../parameters/limit.yaml'
+    - $ref: ../parameters/offset.yaml
+    - $ref: ../parameters/limit.yaml
   responses:
     '200':
       description: List all connector customizers.
@@ -63,6 +63,6 @@ post:
       $ref: ../responses/500.yaml
   security:
     - userAuth:
-        - sp:connector:create
+        - sp:connector:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN

@@ -1,87 +1,76 @@
 get:
   tags:
-  - Custom Forms
+    - Custom Forms
   summary: List form definitions by tenant.
   description: No parameters required.
   operationId: exportFormDefinitionsByTenant
   parameters:
-  - name: offset
-    in: query
-    description: 'Offset
+    - name: offset
+      in: query
+      description: |-
+        Offset
 
-
-      Integer specifying the offset of the first result from the beginning of the
-      collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
-
-      The offset value is record-based, not page-based, and the index starts at 0.'
-    schema:
-      type: integer
-      format: int64
-      default: 0
-      minimum: 0
+        Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+        The offset value is record-based, not page-based, and the index starts at 0.
+      schema:
+        type: integer
+        format: int64
+        default: 0
+        minimum: 0
+        x-go-name: Offset
+      example: 0
+      required: false
       x-go-name: Offset
-    example: 0
-    required: false
-    x-go-name: Offset
-  - name: limit
-    in: query
-    description: 'Limit
+    - name: limit
+      in: query
+      description: |-
+        Limit
 
-
-      Integer specifying the maximum number of records to return in a single API call.
-      The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
-
-      If it is not specified, a default limit is used.'
-    schema:
-      type: integer
-      format: int64
-      minimum: 0
-      maximum: 250
-      default: 250
+        Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+        If it is not specified, a default limit is used.
+      schema:
+        type: integer
+        format: int64
+        minimum: 0
+        maximum: 250
+        default: 250
+        x-go-name: Limit
+      example: 250
+      required: false
       x-go-name: Limit
-    example: 250
-    required: false
-    x-go-name: Limit
-  - name: filters
-    in: query
-    description: 'Filter results using the standard syntax described in [V3 API Standard
-      Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+    - name: filters
+      in: query
+      description: |-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
+        Filtering is supported for the following fields and operators:
 
-      Filtering is supported for the following fields and operators:
+        **name**: *eq, gt, sw, in*
 
+        **description**: *eq, gt, sw, in*
 
-      **name**: *eq, gt, sw, in*
+        **created**: *eq, gt, sw, in*
 
-
-      **description**: *eq, gt, sw, in*
-
-
-      **created**: *eq, gt, sw, in*
-
-
-      **modified**: *eq, gt, sw, in*'
-    schema:
-      type: string
+        **modified**: *eq, gt, sw, in*
+      schema:
+        type: string
+        x-go-name: Filters
+      example: name sw "my form"
+      required: false
       x-go-name: Filters
-    example: name sw "my form"
-    required: false
-    x-go-name: Filters
-  - name: sorters
-    in: query
-    description: 'Sort results using the standard syntax described in [V3 API Standard
-      Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+    - name: sorters
+      in: query
+      description: |-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
-
-      Sorting is supported for the following fields: **name, description, created,
-      modified**'
-    schema:
-      type: string
-      default: name
+        Sorting is supported for the following fields: **name, description, created, modified**
+      schema:
+        type: string
+        default: name
+        x-go-name: Sorters
+      example: name
+      required: false
       x-go-name: Sorters
-    example: name
-    required: false
-    x-go-name: Sorters
   responses:
     '200':
       description: Returns a list of form definition objects by tenant used by SP-Config
@@ -199,7 +188,9 @@ get:
                 type: string
                 x-go-name: TrackingID
   security:
-  - userAuth:
-    - sp:forms:manage
+    - userAuth:
+        - sp:config:read
+        - sp:forms:manage
+        - sp:config:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN

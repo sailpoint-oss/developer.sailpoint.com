@@ -3,8 +3,7 @@ get:
   summary: Export (download) details for a potential role in a role mining session
   tags:
     - IAI Role Mining
-  description: >-
-    This endpoint downloads a completed export of information for a potential role in a role mining session.
+  description: This endpoint downloads a completed export of information for a potential role in a role mining session.
   parameters:
     - in: path
       name: sessionId
@@ -42,10 +41,17 @@ get:
             type: string
             format: binary
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth:
+        - iai:access-modeling:read
+        - iai:access-modeling:manage
+    - applicationAuth:
+        - iai:access-modeling:read
+        - iai:access-modeling:manage

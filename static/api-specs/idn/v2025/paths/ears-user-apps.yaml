@@ -4,35 +4,33 @@ get:
     - Apps
   summary: List owned user apps
   security:
-    - userAuth: [idn:app-roles:read]
-  description: >-
-    This API returns the list of user apps assigned to logged in user
+    - userAuth:
+        - idn:app-roles:read
+        - idn:app-roles:manage
+    - applicationAuth:
+        - idn:app-roles:read
+        - idn:app-roles:manage
+  description: This API returns the list of user apps assigned to logged in user
   parameters:
-    - $ref: '../parameters/limit.yaml'
-    - $ref: '../parameters/count.yaml'
-    - $ref: '../parameters/offset.yaml'
+    - $ref: ../parameters/limit.yaml
+    - $ref: ../parameters/count.yaml
+    - $ref: ../parameters/offset.yaml
     - in: query
       name: filters
       schema:
         type: string
-      description: >-
+      description: |-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
-        
-        
-        Filtering is supported for the following fields and operators:
-        
-        
-        **id**: *eq*
-        
-        
-        **ownerName**: *eq, sw*
-        
-        
-        **ownerAlias**: *eq, sw*
-        
-        
-        **accountId**: *eq*
 
+        Filtering is supported for the following fields and operators:
+
+        **id**: *eq*
+
+        **ownerName**: *eq, sw*
+
+        **ownerAlias**: *eq, sw*
+
+        **accountId**: *eq*
 
         **sourceAppId**: *eq*
       example: name eq "user app name"
@@ -55,14 +53,14 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/app/UserApp.yaml'
+              $ref: ../schemas/app/UserApp.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

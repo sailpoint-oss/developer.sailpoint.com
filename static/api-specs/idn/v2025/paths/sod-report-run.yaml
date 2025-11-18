@@ -1,13 +1,14 @@
 post:
   security:
-    - userAuth: [idn:sod-violation:write]
+    - userAuth:
+        - idn:sod-violation:manage
+    - applicationAuth:
+        - idn:sod-violation:manage
   operationId: startSodPolicy
   tags:
     - SOD Policies
   summary: Runs sod policy violation report
-  description: >-
-    This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with
-    violation limit exceeded message.
+  description: This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
   parameters:
     - in: path
       name: id
@@ -23,22 +24,21 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../schemas/ReportResultReference.yaml'
-          example: {
-            "status": "PENDING",
-            "type": "REPORT_RESULT",
-            "id": "2e8d8180-24bc-4d21-91c6-7affdb473b0d",
-            "name": "policy-xyz"
-          }
+            $ref: ../schemas/ReportResultReference.yaml
+          example:
+            status: PENDING
+            type: REPORT_RESULT
+            id: 2e8d8180-24bc-4d21-91c6-7affdb473b0d
+            name: policy-xyz
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

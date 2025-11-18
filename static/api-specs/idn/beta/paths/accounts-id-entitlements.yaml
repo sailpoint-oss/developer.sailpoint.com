@@ -3,15 +3,19 @@ get:
   tags:
     - Accounts
   summary: Account entitlements
-  description: >-
+  description: |-
     This API returns entitlements of the account.  
-    
     A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
   deprecated: true
   x-deprecated-description: |
     This API has been deprecated, please refer to [Account Entitlements](https://developer.sailpoint.com/docs/api/v2025/get-account-entitlements) for latest API.
   security:
-    - userAuth: [idn:accounts:read]
+    - userAuth:
+        - idn:accounts:read
+        - idn:accounts:manage
+    - applicationAuth:
+        - idn:accounts:read
+        - idn:accounts:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -26,9 +30,9 @@ get:
       description: The account id
       example: ef38f94347e94562b5bb8424a56397d8
       x-sailpoint-resource-operation-id: listAccounts
-    - $ref: '../../v3/parameters/offset.yaml'
-    - $ref: '../../v3/parameters/limit.yaml'
-    - $ref: '../../v3/parameters/count.yaml'
+    - $ref: ../../v3/parameters/offset.yaml
+    - $ref: ../../v3/parameters/limit.yaml
+    - $ref: ../../v3/parameters/count.yaml
   responses:
     '200':
       description: An array of account entitlements
@@ -37,16 +41,16 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/Entitlement.yaml'
+              $ref: ../schemas/Entitlement.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

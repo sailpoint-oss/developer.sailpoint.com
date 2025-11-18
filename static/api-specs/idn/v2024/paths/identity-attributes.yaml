@@ -1,38 +1,42 @@
 get:
   operationId: listIdentityAttributes
   tags:
-  - Identity Attributes
+    - Identity Attributes
   summary: List identity attributes
   description: Use this API to get a collection of identity attributes.
   security:
-  - userAuth:
-    - idn:identity-profile-attribute-list:read
+    - userAuth:
+        - idn:identity-profile-attribute:read
+        - idn:identity-profile-attribute:manage
+    - applicationAuth:
+        - idn:identity-profile-attribute:read
+        - idn:identity-profile-attribute:manage
   parameters:
-  - in: query
-    name: includeSystem
-    schema:
-      type: boolean
-      default: false
-    description: Include 'system' attributes in the response.
-    required: false
-    example: false
-  - in: query
-    name: includeSilent
-    schema:
-      type: boolean
-      default: false
-    description: Include 'silent' attributes in the response.
-    required: false
-    example: false
-  - in: query
-    name: searchableOnly
-    schema:
-      type: boolean
-      default: false
-    description: Include only 'searchable' attributes in the response.
-    required: false
-    example: false
-  - $ref: ../parameters/count.yaml
+    - in: query
+      name: includeSystem
+      schema:
+        type: boolean
+        default: false
+      description: Include 'system' attributes in the response.
+      required: false
+      example: false
+    - in: query
+      name: includeSilent
+      schema:
+        type: boolean
+        default: false
+      description: Include 'silent' attributes in the response.
+      required: false
+      example: false
+    - in: query
+      name: searchableOnly
+      schema:
+        type: boolean
+        default: false
+      description: Include only 'searchable' attributes in the response.
+      required: false
+      example: false
+    - $ref: ../parameters/count.yaml
   responses:
     '200':
       description: List of identity attributes.
@@ -55,12 +59,12 @@ get:
 post:
   operationId: createIdentityAttribute
   tags:
-  - Identity Attributes
+    - Identity Attributes
   summary: Create identity attribute
   description: Use this API to create a new identity attribute.
   security:
-  - userAuth:
-    - idn:identity-profile-attribute:create
+    - userAuth:
+        - idn:identity-profile-attribute:manage
   requestBody:
     required: true
     content:

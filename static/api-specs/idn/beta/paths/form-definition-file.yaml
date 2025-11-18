@@ -8,7 +8,7 @@ get:
       in: path
       description: |-
         FormDefinitionID
-        
+
         Form definition ID
       required: true
       x-sailpoint-resource-operation-id: searchFormDefinitionsByTenant
@@ -21,7 +21,7 @@ get:
       in: path
       description: |-
         FileID
-        
+
         String specifying the hashed name of the uploaded file we are retrieving.
       required: true
       x-sailpoint-resource-operation-id: createFormDefinitionFileRequest
@@ -31,9 +31,8 @@ get:
         x-go-name: FileID
       x-go-name: FileID
   responses:
-    "200":
-      description: Returns a file that is referred to by fileID and associated
-        with the formDefinitionID
+    '200':
+      description: Returns a file that is referred to by fileID and associated with the formDefinitionID
       content:
         application/json:
           schema:
@@ -51,7 +50,7 @@ get:
           schema:
             type: string
             format: binary
-    "400":
+    '400':
       description: An error with the request occurred
       content:
         application/json:
@@ -64,7 +63,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -83,7 +82,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -102,7 +101,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -121,7 +120,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -130,7 +129,7 @@ get:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "401":
+    '401':
       description: An error with the authorization occurred
       content:
         application/json:
@@ -143,7 +142,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -162,7 +161,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -181,7 +180,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -200,7 +199,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -209,7 +208,7 @@ get:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "403":
+    '403':
       description: An error with the user permissions occurred
       content:
         application/json:
@@ -222,7 +221,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -241,7 +240,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -260,7 +259,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -279,7 +278,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -288,7 +287,7 @@ get:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "404":
+    '404':
       description: An error with the item not found
       content:
         application/json:
@@ -301,7 +300,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -320,7 +319,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -339,7 +338,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -358,7 +357,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -367,13 +366,13 @@ get:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "429":
+    '429':
       description: Too many requests
       content:
         application/json:
           schema:
-            $ref: '../schemas/forms/Error.yaml'
-    "500":
+            $ref: ../schemas/forms/Error.yaml
+    '500':
       description: An internal server error occurred
       content:
         application/json:
@@ -386,7 +385,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -405,7 +404,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -424,7 +423,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -443,7 +442,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -452,7 +451,7 @@ get:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "503":
+    '503':
       description: An external service is not available
       content:
         application/json:
@@ -465,7 +464,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -484,7 +483,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -503,7 +502,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -522,7 +521,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -532,6 +531,7 @@ get:
                 type: string
                 x-go-name: TrackingID
   security:
-    -  userAuth:
+    - userAuth:
+        - sp:forms:read
         - sp:forms:manage
   x-codegen-request-body-name: Body

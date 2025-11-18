@@ -3,10 +3,7 @@ get:
   summary: Get identities for a suggested entitlement (for a role)
   tags:
     - Role Insights
-  description: >-
-    Role insights suggests entitlements to be added for a role. This endpoint returns a list of identities in the role,
-    with or without the entitlements, for a suggested entitlement so that the user can see which identities would be affected
-    if the suggested entitlement were to be added to the role.
+  description: Role insights suggests entitlements to be added for a role. This endpoint returns a list of identities in the role, with or without the entitlements, for a suggested entitlement so that the user can see which identities would be affected if the suggested entitlement were to be added to the role.
   parameters:
     - in: path
       name: insightId
@@ -33,14 +30,13 @@ get:
       schema:
         type: boolean
         default: false
-    - $ref: '../../v3/parameters/offset.yaml'
-    - $ref: '../../v3/parameters/limit.yaml'
-    - $ref: '../../v3/parameters/count.yaml'
+    - $ref: ../../v3/parameters/offset.yaml
+    - $ref: ../../v3/parameters/limit.yaml
+    - $ref: ../../v3/parameters/count.yaml
     - in: query
       name: sorters
-      description: >-
+      description: |-
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
-
 
         Sorting is supported for the following fields: **name**
       example: name
@@ -51,12 +47,10 @@ get:
         type: string
     - in: query
       name: filters
-      description: >-
+      description: |-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
-
         Filtering is supported for the following fields and operators:
-
 
         **name**: *sw*
       example: name sw "Jan"
@@ -73,12 +67,17 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/RoleInsightsIdentities.yaml'
+              $ref: ../schemas/RoleInsightsIdentities.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth:
+        - iai:role-insights
+    - applicationAuth:
+        - iai:role-insights

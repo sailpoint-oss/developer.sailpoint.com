@@ -3,17 +3,15 @@ get:
   summary: Get role insights
   tags:
     - Role Insights
-  description: >-
-    This method returns detailed role insights for each role.
+  description: This method returns detailed role insights for each role.
   parameters:
-    - $ref: '../../v3/parameters/offset.yaml'
-    - $ref: '../../v3/parameters/limit.yaml'
-    - $ref: '../../v3/parameters/count.yaml'
+    - $ref: ../../v3/parameters/offset.yaml
+    - $ref: ../../v3/parameters/limit.yaml
+    - $ref: ../../v3/parameters/count.yaml
     - name: sorters
       in: query
-      description: >-
+      description: |-
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
-
 
         Sorting is supported for the following fields: **numberOfUpdates, identitiesWithAccess, totalNumberOfIdentities**
       example: numberOfUpdates
@@ -24,18 +22,14 @@ get:
         type: string
     - name: filters
       in: query
-      description: >-
+      description: |-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
-
 
         Filtering is supported for the following fields and operators:
 
-
         **name**: *sw*
 
-
         **ownerName**: *sw*
-
 
         **description**: *sw*
       required: false
@@ -52,12 +46,17 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/RoleInsight.yaml'
+              $ref: ../schemas/RoleInsight.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth:
+        - iai:role-insights
+    - applicationAuth:
+        - iai:role-insights

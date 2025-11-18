@@ -1,16 +1,14 @@
 get:
   operationId: listDataSegments
   security:
-    - userAuth: [ idn:data-segments:read ]
-    - applicationAuth: [ idn:data-segments:read ]
+    - userAuth:
+        - idn:data-segment:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
   tags:
     - Data Segmentation
   summary: Get segments
-  description: >-
-    This API returns the segment specified by the given ID.
-
+  description: This API returns the segment specified by the given ID.
   parameters:
     - in: query
       name: enabled
@@ -36,25 +34,22 @@ get:
         type: boolean
         default: true
       example: true
-    - $ref: '../parameters/limit.yaml'
-    - $ref: '../parameters/offset.yaml'
-    - $ref: '../parameters/count.yaml'
+    - $ref: ../parameters/limit.yaml
+    - $ref: ../parameters/offset.yaml
+    - $ref: ../parameters/count.yaml
     - in: query
       name: filters
       required: false
       schema:
         type: string
         example: name eq ""
-      description: >-
+      description: |-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
-      
-      
+
         Filtering is supported for the following fields and operators:
-        
-        
+
         **id**: *eq, in, sw*
-        
-        
+
         **name**: *eq, in, sw*
     - name: X-SailPoint-Experimental
       in: header
@@ -72,54 +67,52 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/data-segment/Data-Segment.yaml'
+              $ref: ../schemas/data-segment/Data-Segment.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
 post:
   operationId: createDataSegment
   security:
-    - userAuth: [ idn:data-segments:write ]
-    - applicationAuth: [ idn:data-segments:write ]
+    - userAuth:
+        - idn:data-segment:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   tags:
     - Data Segmentation
   summary: Create segment
-  description: >-
+  description: |-
     This API creates a segment. 
-
     >**Note:** Segment definitions may take time to propagate to all identities.
-
   requestBody:
     required: true
     content:
       application/json:
         schema:
-          $ref: '../schemas/data-segment/Data-Segment.yaml'
+          $ref: ../schemas/data-segment/Data-Segment.yaml
   responses:
     '201':
       description: Segment created
       content:
         application/json:
           schema:
-            $ref: '../schemas/data-segment/Data-Segment.yaml'
+            $ref: ../schemas/data-segment/Data-Segment.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

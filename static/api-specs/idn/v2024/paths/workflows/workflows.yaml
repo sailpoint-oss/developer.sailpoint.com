@@ -3,39 +3,39 @@ get:
   tags:
     - Workflows
   summary: List workflows
-  description: >-
-    List all workflows in the tenant.
+  description: List all workflows in the tenant.
   security:
-    - userAuth: [sp:workflow:read]
+    - userAuth:
+        - sp:workflow:read
+        - sp:workflow:manage
   responses:
     '200':
-      description: >-
-        List of workflows
+      description: List of workflows
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../../schemas/workflows/Workflow.yaml'
+              $ref: ../../schemas/workflows/Workflow.yaml
     '400':
-      $ref: '../../responses/400.yaml'
+      $ref: ../../responses/400.yaml
     '401':
-      $ref: '../../responses/401.yaml'
+      $ref: ../../responses/401.yaml
     '403':
-      $ref: '../../responses/403.yaml'
+      $ref: ../../responses/403.yaml
     '429':
-      $ref: '../../responses/429.yaml'
+      $ref: ../../responses/429.yaml
     '500':
-      $ref: '../../responses/500.yaml'
+      $ref: ../../responses/500.yaml
 post:
   operationId: createWorkflow
   tags:
     - Workflows
   summary: Create workflow
-  description: >-
-    Create a new workflow with the desired trigger and steps specified in the request body.
+  description: Create a new workflow with the desired trigger and steps specified in the request body.
   security:
-    - userAuth: [sp:workflow:manage]
+    - userAuth:
+        - sp:workflow:manage
   requestBody:
     required: true
     content:
@@ -44,7 +44,7 @@ post:
           allOf:
             - required:
                 - name
-            - $ref: '../../schemas/workflows/WorkflowBody.yaml'
+            - $ref: ../../schemas/workflows/WorkflowBody.yaml
         examples:
           Event Trigger:
             description: Workflow initiated by an event trigger
@@ -63,10 +63,10 @@ post:
                     attributes:
                       body: This is a test
                       from: sailpoint@sailpoint.com
-                      recipientId.$: "$.identity.id"
+                      recipientId.$: $.identity.id
                       subject: test
                     nextStep: success
-                    selectResult:
+                    selectResult: null
                     type: action
                   success:
                     type: success
@@ -75,7 +75,7 @@ post:
                 type: EVENT
                 attributes:
                   id: idn:identity-attributes-changed
-                  filter: "$.changes[?(@.attribute == 'manager')]"
+                  filter: $.changes[?(@.attribute == 'manager')]
           Scheduled Trigger:
             description: Workflow initiated by a scheduled trigger
             value:
@@ -93,10 +93,10 @@ post:
                     attributes:
                       body: This is a test
                       from: sailpoint@sailpoint.com
-                      recipientId.$: "$.identity.id"
+                      recipientId.$: $.identity.id
                       subject: test
                     nextStep: success
-                    selectResult:
+                    selectResult: null
                     type: action
                   success:
                     type: success
@@ -122,10 +122,10 @@ post:
                     attributes:
                       body: This is a test
                       from: sailpoint@sailpoint.com
-                      recipientId.$: "$.identity.id"
+                      recipientId.$: $.identity.id
                       subject: test
                     nextStep: success
-                    selectResult:
+                    selectResult: null
                     type: action
                   success:
                     type: success
@@ -141,14 +141,14 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/workflows/Workflow.yaml'
+            $ref: ../../schemas/workflows/Workflow.yaml
     '400':
-      $ref: '../../responses/400.yaml'
+      $ref: ../../responses/400.yaml
     '401':
-      $ref: '../../responses/401.yaml'
+      $ref: ../../responses/401.yaml
     '403':
-      $ref: '../../responses/403.yaml'
+      $ref: ../../responses/403.yaml
     '429':
-      $ref: '../../responses/429.yaml'
+      $ref: ../../responses/429.yaml
     '500':
-      $ref: '../../responses/500.yaml'
+      $ref: ../../responses/500.yaml

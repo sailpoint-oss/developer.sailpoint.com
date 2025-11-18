@@ -2,10 +2,9 @@ get:
   tags:
     - Sources
   summary: Downloads source entitlements schema template
-  description: >-
+  description: |-
     This API downloads the CSV schema that defines the entitlement attributes on a source.
-    
-    
+
     >**NOTE: This API is designated only for Delimited File sources.**
   operationId: getEntitlementsSchema
   parameters:
@@ -16,7 +15,7 @@ get:
       schema:
         type: string
       description: The Source id
-      example: '8c190e6787aa4ed9a90bd9d5344523fb'
+      example: 8c190e6787aa4ed9a90bd9d5344523fb
     - in: query
       name: schemaName
       schema:
@@ -28,35 +27,34 @@ get:
       description: Successfully downloaded the file
       content:
         text/csv:
-          example: "id,name,displayName,created,description,modified,entitlements,groups,permissions"
+          example: id,name,displayName,created,description,modified,entitlements,groups,permissions
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [idn:source-schema:read]
+    - userAuth:
+        - idn:source-schema:read
+        - idn:source-schema:manage
 post:
   tags:
     - Sources
   summary: Uploads source entitlements schema template
-  description: >-
+  description: |-
     This API uploads a source schema template file to configure a source's entitlement attributes.
 
-    
     To retrieve the file to modify and upload, log into Identity Now. 
-    
 
     Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Import Entitlements** -> **Download**
 
-    
     >**NOTE: This API is designated only for Delimited File sources.**
   operationId: importEntitlementsSchema
   parameters:
@@ -67,7 +65,7 @@ post:
       schema:
         type: string
       description: The Source id
-      example: '8c190e6787aa4ed9a90bd9d5344523fb'
+      example: 8c190e6787aa4ed9a90bd9d5344523fb
     - in: query
       name: schemaName
       schema:
@@ -90,16 +88,17 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../schemas/Schema.yaml'
+            $ref: ../schemas/Schema.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [idn:source-schema:manage]
+    - userAuth:
+        - idn:source-schema:manage

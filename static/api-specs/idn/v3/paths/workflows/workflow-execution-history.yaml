@@ -3,11 +3,12 @@ get:
   tags:
     - Workflows
   summary: Get workflow execution history
-  description: >-
-    [Deprecated] This endpoint will be removed in October 2027. Please use `/workflow-executions/{id}/history-v2` instead. Retrieves the detailed history of a single workflow execution. Workflow executions are available for up to 90 days before being archived; accessing an archived execution will return a 404 Not Found.
+  description: '[Deprecated] This endpoint will be removed in October 2027. Please use `/workflow-executions/{id}/history-v2` instead. Retrieves the detailed history of a single workflow execution. Workflow executions are available for up to 90 days before being archived; accessing an archived execution will return a 404 Not Found.'
   deprecated: true
   security:
-    - userAuth: [sp:workflow:read]
+    - userAuth:
+        - sp:workflow:read
+        - sp:workflow:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_SUBADMIN
@@ -25,23 +26,22 @@ get:
         example: c17bea3a-574d-453c-9e04-4365fbf5af0b
   responses:
     '200':
-      description: >-
-        List of workflow execution events for the given workflow execution
+      description: List of workflow execution events for the given workflow execution
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../../schemas/workflows/WorkflowExecutionEvent.yaml'
+              $ref: ../../schemas/workflows/WorkflowExecutionEvent.yaml
     '400':
-      $ref: '../../../v3/responses/400.yaml'
+      $ref: ../../../v3/responses/400.yaml
     '401':
-      $ref: '../../../v3/responses/401.yaml'
+      $ref: ../../../v3/responses/401.yaml
     '403':
-      $ref: '../../../v3/responses/403.yaml'
+      $ref: ../../../v3/responses/403.yaml
     '404':
-      $ref: '../../../v3/responses/404.yaml'
+      $ref: ../../../v3/responses/404.yaml
     '429':
-      $ref: '../../../v3/responses/429.yaml'
+      $ref: ../../../v3/responses/429.yaml
     '500':
-      $ref: '../../../v3/responses/500.yaml'
+      $ref: ../../../v3/responses/500.yaml

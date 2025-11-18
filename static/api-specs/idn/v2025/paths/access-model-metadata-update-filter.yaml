@@ -2,11 +2,11 @@ post:
   summary: Metadata Attribute update by filter
   description: Bulk update Access Model Metadata Attribute Values using a filter
   tags:
-  - Access Model Metadata
+    - Access Model Metadata
   operationId: updateAccessModelMetadataByFilter
   security:
-  - userAuth:
-    - idn:entitlement:update
+    - userAuth:
+        - idn:entitlement:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   requestBody:
@@ -15,14 +15,14 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/gov-entitlement/EntitlementAttributeBulkUpdateFilterRequest.yaml'
+          $ref: ../schemas/gov-entitlement/EntitlementAttributeBulkUpdateFilterRequest.yaml
   responses:
     '200':
       description: OK
       content:
         application/json:
           schema:
-            $ref: "../schemas/gov-entitlement/AccessModelMetadataBulkUpdateResponse.yaml"
+            $ref: ../schemas/gov-entitlement/AccessModelMetadataBulkUpdateResponse.yaml
     '400':
       $ref: ../responses/400.yaml
     '401':

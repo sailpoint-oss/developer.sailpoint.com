@@ -3,12 +3,10 @@ get:
   tags:
     - Tags
   summary: Get tag by id
-  description: >-
+  description: |-
     Returns a tag by its id.
 
-
-    A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN
-    authority is required to call this API.
+    A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   parameters:
     - in: path
       name: id
@@ -24,30 +22,35 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/Tag.yaml'
+            $ref: ../schemas/Tag.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth:
+        - idn:tag:read
+        - idn:tag:manage
+    - applicationAuth:
+        - idn:tag:read
+        - idn:tag:manage
 delete:
   operationId: deleteTagById
   tags:
     - Tags
   summary: Delete tag
-  description: >-
+  description: |-
     This API deletes a tag by specified id.
 
-
-    A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN
-    authority is required to call this API.
+    A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   parameters:
     - in: path
       name: id
@@ -65,7 +68,7 @@ delete:
       content:
         application/json:
           schema:
-            $ref: '../../v3/schemas/ErrorResponseDto.yaml'
+            $ref: ../../v3/schemas/ErrorResponseDto.yaml
           examples:
             400.1 Bad Request Content:
               description: Response for bad request content
@@ -86,12 +89,17 @@ delete:
                     localeOrigin: DEFAULT
                     text: The request cannot be fulfilled because doing so would violate referential integrity constraints.
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth:
+        - idn:tag:manage
+    - applicationAuth:
+        - idn:tag:manage

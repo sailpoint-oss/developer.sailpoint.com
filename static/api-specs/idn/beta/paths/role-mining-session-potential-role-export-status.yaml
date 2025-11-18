@@ -3,8 +3,7 @@ get:
   summary: Retrieve status of a potential role export job
   tags:
     - IAI Role Mining
-  description: >-
-    This endpoint retrieves information about the current status of a potential role export.
+  description: This endpoint retrieves information about the current status of a potential role export.
   parameters:
     - in: path
       name: sessionId
@@ -39,12 +38,19 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/RoleMiningPotentialRoleExportResponse.yaml'
+            $ref: ../schemas/RoleMiningPotentialRoleExportResponse.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth:
+        - iai:access-modeling:read
+        - iai:access-modeling:manage
+    - applicationAuth:
+        - iai:access-modeling:read
+        - iai:access-modeling:manage

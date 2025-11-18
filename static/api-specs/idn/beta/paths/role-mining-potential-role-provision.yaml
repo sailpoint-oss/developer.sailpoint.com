@@ -3,8 +3,7 @@ post:
   summary: Create request to provision a potential role into an actual role.
   tags:
     - IAI Role Mining
-  description: >-
-    This method starts a job to provision a potential role
+  description: This method starts a job to provision a potential role
   parameters:
     - in: path
       name: sessionId
@@ -47,21 +46,26 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/RoleMiningPotentialRoleProvisionRequest.yaml'
+          $ref: ../schemas/RoleMiningPotentialRoleProvisionRequest.yaml
   responses:
     '202':
       description: Accepted. Returns a potential role summary including the status of the provison request
       content:
         application/json:
           schema:
-              $ref: '../schemas/RoleMiningPotentialRoleSummary.yaml'
+            $ref: ../schemas/RoleMiningPotentialRoleSummary.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth:
+        - iai:access-modeling:manage
+    - applicationAuth:
+        - iai:access-modeling:manage

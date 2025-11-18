@@ -1,25 +1,23 @@
 get:
   operationId: getNativeChangeDetectionConfig
   tags:
-  - Sources
+    - Sources
   summary: Native change detection configuration
   security:
-  - userAuth:
-    - idn:sources:read
+    - userAuth:
+        - idn:sources:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
-  description: >-
-    This API returns the existing native change detection configuration
-    for a source specified by the given ID.
+  description: This API returns the existing native change detection configuration for a source specified by the given ID.
   parameters:
-  - in: path
-    name: id
-    required: true
-    x-sailpoint-resource-operation-id: listSources
-    schema:
-      type: string
-    description: The source id
-    example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: id
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      schema:
+        type: string
+      description: The source id
+      example: 2c9180835d191a86015d28455b4a2329
   responses:
     '200':
       description: Native change detection configuration for a source
@@ -42,25 +40,23 @@ get:
 put:
   operationId: putNativeChangeDetectionConfig
   tags:
-  - Sources
+    - Sources
   summary: Update native change detection configuration
   security:
-  - userAuth:
-    - idn:sources:update
+    - userAuth:
+        - idn:sources:update
   x-sailpoint-userLevels:
     - ORG_ADMIN
-  description: >-
-    Replaces the native change detection configuration for the source
-    specified by the given ID with the configuration provided in the request body.
+  description: Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
   parameters:
-  - in: path
-    name: id
-    required: true
-    x-sailpoint-resource-operation-id: listSources
-    schema:
-      type: string
-    description: The source id
-    example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: id
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      schema:
+        type: string
+      description: The source id
+      example: 2c9180835d191a86015d28455b4a2329
   requestBody:
     required: true
     content:
@@ -89,27 +85,25 @@ put:
 delete:
   operationId: deleteNativeChangeDetectionConfig
   tags:
-  - Sources
+    - Sources
   summary: Delete native change detection configuration
-  description: >-
-    Deletes the native change detection configuration for the source specified
-    by the given ID.
+  description: Deletes the native change detection configuration for the source specified by the given ID.
   security:
     - userAuth:
-      - idn:sources:update
+        - idn:sources:manage
     - applicationAuth:
-      - idn:sources:update
+        - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
-  - in: path
-    name: id
-    required: true
-    x-sailpoint-resource-operation-id: listSources
-    schema:
-      type: string
-    description: The source id
-    example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: id
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      schema:
+        type: string
+      description: The source id
+      example: 2c9180835d191a86015d28455b4a2329
   responses:
     '204':
       $ref: ../responses/204.yaml

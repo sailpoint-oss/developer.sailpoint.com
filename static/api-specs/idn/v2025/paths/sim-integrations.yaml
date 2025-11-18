@@ -1,6 +1,6 @@
 put:
   tags:
-  - SIM Integrations
+    - SIM Integrations
   summary: Update an existing sim integration
   description: Update an existing SIM integration.
   operationId: putSIMIntegration
@@ -12,22 +12,22 @@ put:
           $ref: ../schemas/SimIntegrationDetails.yaml
     required: true
   parameters:
-  - name: id
-    in: path
-    description: The id of the integration.
-    schema:
-      type: string
-    example: 12345
-    required: true
-    x-sailpoint-resource-operation-id: getSIMIntegrations
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - name: id
+      in: path
+      description: The id of the integration.
+      schema:
+        type: string
+      example: 12345
+      required: true
+      x-sailpoint-resource-operation-id: getSIMIntegrations
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   responses:
     '200':
       description: details of the updated integration
@@ -49,32 +49,32 @@ put:
       $ref: ../responses/500.yaml
   security:
     - userAuth:
-      - idn:service-desk-admin:create
+        - idn:service-desk-integration:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
 get:
   tags:
-  - SIM Integrations
+    - SIM Integrations
   summary: Get a sim integration details.
   description: Get the details of a SIM integration.
   operationId: getSIMIntegration
   parameters:
-  - name: id
-    in: path
-    description: The id of the integration.
-    schema:
-      type: string
-    example: 12345
-    required: true
-    x-sailpoint-resource-operation-id: getSIMIntegrations
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - name: id
+      in: path
+      description: The id of the integration.
+      schema:
+        type: string
+      example: 12345
+      required: true
+      x-sailpoint-resource-operation-id: getSIMIntegrations
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   responses:
     '200':
       description: The DTO containing the details of the SIM integration
@@ -96,32 +96,33 @@ get:
       $ref: ../responses/500.yaml
   security:
     - userAuth:
-      - idn:service-desk-admin:read
+        - idn:service-desk-integration:read
+        - idn:service-desk-integration:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
 delete:
   tags:
-  - SIM Integrations
+    - SIM Integrations
   summary: Delete a sim integration
   description: Get the details of a SIM integration.
   operationId: deleteSIMIntegration
   parameters:
-  - name: id
-    description: The id of the integration to delete.
-    in: path
-    schema:
-      type: string
-    example: 12345
-    required: true
-    x-sailpoint-resource-operation-id: getSIMIntegrations
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - name: id
+      description: The id of the integration to delete.
+      in: path
+      schema:
+        type: string
+      example: 12345
+      required: true
+      x-sailpoint-resource-operation-id: getSIMIntegrations
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   responses:
     '200':
       description: No content response
@@ -139,12 +140,12 @@ delete:
       $ref: ../responses/500.yaml
   security:
     - userAuth:
-      - idn:service-desk-admin:write
+        - idn:service-desk-integration:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
 patch:
   tags:
-  - SIM Integrations
+    - SIM Integrations
   summary: Patch a sim attribute.
   description: Patch a SIM attribute given a JsonPatch object.
   operationId: patchSIMAttributes
@@ -156,22 +157,22 @@ patch:
         schema:
           $ref: ../schemas/JsonPatch.yaml
   parameters:
-  - name: id
-    description: SIM integration id
-    in: path
-    schema:
-      type: string
-    example: 12345
-    required: true
-    x-sailpoint-resource-operation-id: getSIMIntegrations
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - name: id
+      description: SIM integration id
+      in: path
+      schema:
+        type: string
+      example: 12345
+      required: true
+      x-sailpoint-resource-operation-id: getSIMIntegrations
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   responses:
     '200':
       description: The updated DTO containing the details of the SIM integration.
@@ -193,6 +194,6 @@ patch:
       $ref: ../responses/500.yaml
   security:
     - userAuth:
-      - idn:service-desk-admin:write
+        - idn:service-desk-integration:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN

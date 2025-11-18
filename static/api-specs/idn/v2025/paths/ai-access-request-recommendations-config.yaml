@@ -3,12 +3,16 @@ get:
   tags:
     - IAI Access Request Recommendations
   security:
-    - userAuth: [ iai:configuration:read ]
+    - userAuth:
+        - iai:configuration:read
+        - iai:configuration:manage
+    - applicationAuth:
+        - iai:configuration:read
+        - iai:configuration:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   summary: Get access request recommendations config
-  description: >-
-    This API returns the configurations for Access Request Recommender for the tenant.
+  description: This API returns the configurations for Access Request Recommender for the tenant.
   parameters:
     - name: X-SailPoint-Experimental
       in: header
@@ -24,36 +28,39 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/AccessRequestRecommendationConfigDto.yaml'
+            $ref: ../schemas/AccessRequestRecommendationConfigDto.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
-
+      $ref: ../responses/500.yaml
 put:
   operationId: setAccessRequestRecommendationsConfig
   tags:
     - IAI Access Request Recommendations
   security:
-    - userAuth: [ iai:configuration:update ]
+    - userAuth:
+        - iai:configuration:read
+        - iai:configuration:manage
+    - applicationAuth:
+        - iai:configuration:read
+        - iai:configuration:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   summary: Update access request recommendations config
-  description: >-
-    This API updates the configurations for Access Request Recommender for the tenant.
+  description: This API updates the configurations for Access Request Recommender for the tenant.
   requestBody:
     description: The desired configurations for Access Request Recommender for the tenant.
     required: true
     content:
       application/json:
         schema:
-          $ref: '../schemas/AccessRequestRecommendationConfigDto.yaml'
+          $ref: ../schemas/AccessRequestRecommendationConfigDto.yaml
   parameters:
     - name: X-SailPoint-Experimental
       in: header
@@ -69,14 +76,14 @@ put:
       content:
         application/json:
           schema:
-            $ref: '../schemas/AccessRequestRecommendationConfigDto.yaml'
+            $ref: ../schemas/AccessRequestRecommendationConfigDto.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

@@ -1,7 +1,10 @@
 get:
   operationId: getNonEmployeeSourceSchemaAttributes
   security:
-    - userAuth: [idn:nelm:read]
+    - userAuth:
+        - idn:nelm:read
+    - applicationAuth:
+        - idn:nelm:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -16,10 +19,10 @@ get:
     any custom attributes. At most, a total of 18 attributes will be returned.
   deprecated: true
   parameters:
-    - $ref: "../../v3/parameters/limit.yaml"
-    - $ref: "../../v3/parameters/offset.yaml"
+    - $ref: ../../v3/parameters/limit.yaml
+    - $ref: ../../v3/parameters/offset.yaml
     - in: path
-      example: "2c918085842e69ae018432d22ccb212f"
+      example: 2c918085842e69ae018432d22ccb212f
       name: sourceId
       schema:
         type: string
@@ -27,42 +30,41 @@ get:
       x-sailpoint-resource-operation-id: listNonEmployeeSources
       description: The Source id
   responses:
-    "200":
+    '200':
       description: A list of Schema Attributes
       content:
         application/json:
           schema:
             type: array
             example:
-              [
-                {
-                  "type": "TEXT",
-                  "label": "string",
-                  "technicalName": "string",
-                  "helpText": "string",
-                  "placeholder": "string",
-                  "required": true,
-                },
-              ]
+              - type: TEXT
+                label: string
+                technicalName: string
+                helpText: string
+                placeholder: string
+                required: true
             items:
-              $ref: "../schemas/NonEmployeeSchemaAttribute.yaml"
+              $ref: ../schemas/NonEmployeeSchemaAttribute.yaml
             maxItems: 18
-    "400":
-      $ref: "../../v3/responses/400.yaml"
-    "401":
-      $ref: "../../v3/responses/401.yaml"
-    "403":
-      $ref: "../../v3/responses/403.yaml"
-    "404":
-      $ref: "../../v3/responses/404.yaml"
-    "429":
-      $ref: "../../v3/responses/429.yaml"
-    "500":
-      $ref: "../../v3/responses/500.yaml"
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
 post:
   operationId: createNonEmployeeSourceSchemaAttributes
   security:
-    - userAuth: [idn:nelm:manage]
+    - userAuth:
+        - idn:nelm:manage
+    - applicationAuth:
+        - idn:nelm:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -70,11 +72,7 @@ post:
   tags:
     - Non-Employee Lifecycle Management
   summary: Create non-employee source schema attribute
-  description: >-
-    This API creates a new schema attribute for Non-Employee Source. The schema technical name must be
-    unique in the source. Attempts to create a schema attribute with an existing name will result in a
-    "400.1.409 Reference conflict" response. At most, 10 custom attributes can be created per schema. Attempts
-    to create more than 10 will result in a "400.1.4 Limit violation" response.
+  description: This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a "400.1.409 Reference conflict" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a "400.1.4 Limit violation" response.
   deprecated: true
   parameters:
     - in: path
@@ -90,29 +88,31 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../schemas/NonEmployeeSchemaAttributeBody.yaml"
+          $ref: ../schemas/NonEmployeeSchemaAttributeBody.yaml
   responses:
-    "200":
-      description: >-
-        Schema Attribute created.
+    '200':
+      description: Schema Attribute created.
       content:
         application/json:
           schema:
-            $ref: "../schemas/NonEmployeeSchemaAttribute.yaml"
-    "400":
-      $ref: "../../v3/responses/400.yaml"
-    "401":
-      $ref: "../../v3/responses/401.yaml"
-    "403":
-      $ref: "../../v3/responses/403.yaml"
-    "429":
-      $ref: "../../v3/responses/429.yaml"
-    "500":
-      $ref: "../../v3/responses/500.yaml"
+            $ref: ../schemas/NonEmployeeSchemaAttribute.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
 delete:
   operationId: deleteNonEmployeeSourceSchemaAttributes
   security:
-    - userAuth: [idn:nelm:manage]
+    - userAuth:
+        - idn:nelm:manage
+    - applicationAuth:
+        - idn:nelm:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -120,8 +120,7 @@ delete:
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete all custom schema attributes
-  description: >-
-    This end-point deletes all custom schema attributes for a non-employee source.
+  description: This end-point deletes all custom schema attributes for a non-employee source.
   deprecated: true
   parameters:
     - in: path
@@ -133,16 +132,16 @@ delete:
       example: 2c91808b6ef1d43e016efba0ce470904
       description: The Source id
   responses:
-    "204":
-      $ref: "../../v3/responses/204.yaml"
+    '204':
+      $ref: ../../v3/responses/204.yaml
       description: All custon Schema Attributes were successfully deleted.
-    "400":
-      $ref: "../../v3/responses/400.yaml"
-    "401":
-      $ref: "../../v3/responses/401.yaml"
-    "403":
-      $ref: "../../v3/responses/403.yaml"
-    "429":
-      $ref: "../../v3/responses/429.yaml"
-    "500":
-      $ref: "../../v3/responses/500.yaml"
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

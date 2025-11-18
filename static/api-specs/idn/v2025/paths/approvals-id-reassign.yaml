@@ -1,44 +1,43 @@
 post:
   security:
-  - userAuth: [ sp:approvals:write ]
+    - userAuth:
+        - idn:access-request-approvals:manage
   x-sailpoint-userLevels:
-  - APPROVAL_OWNER
+    - APPROVAL_OWNER
   operationId: updateApprovalsReassign
   tags:
-  - Approvals
+    - Approvals
   summary: Post Approvals Reassign
-  description: >-
+  description: |-
     Currently this endpoint only supports Entitlement Description Approvals.
-    
     Reassigns an approval request to another identity resulting in that identity being added as an authorized approver.
   parameters:
-  - in: path
-    name: id
-    required: true
-    schema:
-      type: string
-    description: >-
-      Approval ID that correlates to an existing approval request that a user wants to reassign.
-    example: 38453251-6be2-5f8f-df93-5ce19e295837
-    x-sailpoint-resource-operation-id: updateApprovalsReassign
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: Approval ID that correlates to an existing approval request that a user wants to reassign.
+      example: 38453251-6be2-5f8f-df93-5ce19e295837
+      x-sailpoint-resource-operation-id: updateApprovalsReassign
   requestBody:
     required: true
     content:
       application/json:
         schema:
-          $ref: '../schemas/ApprovalReassignRequest.yaml'
+          $ref: ../schemas/ApprovalReassignRequest.yaml
   responses:
     '204':
-      $ref: '../responses/204.yaml'
+      $ref: ../responses/204.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

@@ -1,7 +1,10 @@
 get:
   operationId: getNonEmployeeExportRecords
   security:
-    - userAuth: [idn:nelm:read, idn:nelm:manage]
+    - userAuth:
+        - idn:nelm:read
+    - applicationAuth:
+        - idn:nelm:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -9,15 +12,13 @@ get:
   tags:
     - Non-Employee Lifecycle Management
   summary: Exports non-employee records to csv
-  description: >-
-    This requests a CSV download for all non-employees from a provided source.
+  description: This requests a CSV download for all non-employees from a provided source.
   deprecated: true
   parameters:
     - in: path
-      example: "2c918085842e69ae018432d22ccb212f"
+      example: 2c918085842e69ae018432d22ccb212f
       name: id
-      description: >-
-        Source Id (UUID)
+      description: Source Id (UUID)
       required: true
       x-sailpoint-resource-operation-id: listNonEmployeeSources
       schema:
@@ -32,14 +33,14 @@ get:
             Jon.Smith, Jon, Smith, 555-555-5555, jon@jon.doe.nope.com, Jim Smith, 2020-04-05T08:00:00-10:00,2020-08-07T19:00:00-10:00
             William.Chaffin, William, Chaffin, 555-555-5555, william@chaffins.nope.com, Bertram Chaffin, 2020-04-05T08:00:00-10:00,2020-08-07T19:00:00-10:00
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

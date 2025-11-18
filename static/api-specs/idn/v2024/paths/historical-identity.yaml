@@ -1,30 +1,33 @@
 get:
   operationId: getHistoricalIdentity
   tags:
-  - Identity History
+    - Identity History
   summary: Get latest snapshot of identity
-  description: This method retrieves a specified identity Requires authorization scope
-    of 'idn:identity-history:read'
+  description: This method retrieves a specified identity Requires authorization scope of 'idn:identity-history:read'
   security:
-  - userAuth:
-    - idn:identity-history:read
+    - userAuth:
+        - idn:identity-history:read
+        - idn:identity-history:manage
+    - applicationAuth:
+        - idn:identity-history:read
+        - idn:identity-history:manage
   parameters:
-  - in: path
-    name: id
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: listHistoricalIdentities
-    description: The identity id
-    example: 8c190e6787aa4ed9a90bd9d5344523fb
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listHistoricalIdentities
+      description: The identity id
+      example: 8c190e6787aa4ed9a90bd9d5344523fb
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   responses:
     '200':
       description: The identity object.

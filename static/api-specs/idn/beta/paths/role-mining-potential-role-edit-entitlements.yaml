@@ -3,8 +3,7 @@ post:
   summary: Edit entitlements for a potential role to exclude some entitlements
   tags:
     - IAI Role Mining
-  description: >-
-    This endpoint adds or removes entitlements from an exclusion list for a potential role.
+  description: This endpoint adds or removes entitlements from an exclusion list for a potential role.
   parameters:
     - in: path
       name: sessionId
@@ -28,19 +27,24 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../schemas/RoleMiningPotentialRoleEditEntitlements.yaml"
+          $ref: ../schemas/RoleMiningPotentialRoleEditEntitlements.yaml
   responses:
     '201':
       description: Adds or removes entitlements from a potential role's entitlement exclusion list.
       content:
         application/json:
           schema:
-            $ref: '../schemas/RoleMiningPotentialRole.yaml'
+            $ref: ../schemas/RoleMiningPotentialRole.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth:
+        - iai:access-modeling:manage
+    - applicationAuth:
+        - iai:access-modeling:manage

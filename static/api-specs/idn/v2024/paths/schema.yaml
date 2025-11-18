@@ -1,4 +1,3 @@
-
 get:
   operationId: getSourceSchema
   tags:
@@ -29,19 +28,23 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/Schema.yaml'
+            $ref: ../schemas/Schema.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - idn:source-schema:read
+        - idn:source-schema:manage
 put:
   operationId: putSourceSchema
   tags:
@@ -80,26 +83,29 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/Schema.yaml'
+          $ref: ../schemas/Schema.yaml
   responses:
     '200':
       description: The Schema was successfully replaced.
       content:
         application/json:
           schema:
-            $ref: '../schemas/Schema.yaml'
+            $ref: ../schemas/Schema.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - idn:source-schema:manage
 patch:
   operationId: updateSourceSchema
   tags:
@@ -107,7 +113,7 @@ patch:
   summary: Update source schema (partial)
   description: |
     Use this API to selectively update an existing Schema using a JSONPatch payload. 
-    
+
     The following schema fields are immutable and cannot be updated:
 
     - id
@@ -160,44 +166,43 @@ patch:
         schema:
           type: array
           items:
-            $ref: '../schemas/JsonPatchOperation.yaml'
+            $ref: ../schemas/JsonPatchOperation.yaml
         examples:
           add-attribute:
             summary: Add an attribute to the end of the list
-            value: [
-                {
-                    "op": "add",
-                    "path": "/attributes/-",
-                    "value": {
-                        "name": "location",
-                        "type": "STRING",
-                        "schema": null,
-                        "description": "Employee location",
-                        "isMulti": false,
-                        "isEntitlement": false,
-                        "isGroup": false
-                    }
-                }
-            ]
+            value:
+              - op: add
+                path: /attributes/-
+                value:
+                  name: location
+                  type: STRING
+                  schema: null
+                  description: Employee location
+                  isMulti: false
+                  isEntitlement: false
+                  isGroup: false
   responses:
     '200':
       description: The Schema was successfully updated.
       content:
         application/json:
           schema:
-            $ref: '../schemas/Schema.yaml'
+            $ref: ../schemas/Schema.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - idn:source-schema:manage
 delete:
   operationId: deleteSourceSchema
   tags:
@@ -222,17 +227,20 @@ delete:
       example: 2c9180835d191a86015d28455b4a2329
   responses:
     '204':
-      $ref: '../responses/204.yaml'
+      $ref: ../responses/204.yaml
       description: The Schema was successfully deleted.
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - idn:source-schema:manage

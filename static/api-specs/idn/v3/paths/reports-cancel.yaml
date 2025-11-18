@@ -1,12 +1,12 @@
 post:
   tags:
     - Reports Data Extraction
-  description: >-
-    Cancels a running report.
+  description: Cancels a running report.
   operationId: cancelReport
-  summary: "Cancel report"
+  summary: Cancel report
   security:
-    - userAuth: [sp:report:delete]
+    - userAuth:
+        - sp:report:manage
   parameters:
     - name: id
       in: path
@@ -17,17 +17,17 @@ post:
       explode: false
       schema:
         type: string
-        example: 'a1ed223247144cc29d23c632624b4767'
+        example: a1ed223247144cc29d23c632624b4767
   responses:
     '204':
-      $ref: '../../v3/responses/204.yaml'
+      $ref: ../../v3/responses/204.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

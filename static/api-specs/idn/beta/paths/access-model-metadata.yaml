@@ -1,36 +1,41 @@
 get:
-  summary: "Get access model metadata attribute"
-  description: "Get single Access Model Metadata Attribute"
+  summary: Get access model metadata attribute
+  description: Get single Access Model Metadata Attribute
   tags:
     - Access Model Metadata
-  operationId: "getAccessModelMetadataAttribute"
+  operationId: getAccessModelMetadataAttribute
   security:
-    - userAuth: [ 'idn:access-model-metadata:read' ]
+    - userAuth:
+        - idn:access-model-metadata:read
+        - idn:access-model-metadata:manage
+    - applicationAuth:
+        - idn:access-model-metadata:read
+        - idn:access-model-metadata:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
-    - name: "key"
-      in: "path"
+    - name: key
+      in: path
       required: true
       schema:
-        type: "string"
+        type: string
       description: Technical name of the Attribute.
-      example: "iscPrivacy"
+      example: iscPrivacy
       x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
   responses:
-    "200":
-      description: "OK"
+    '200':
+      description: OK
       content:
         application/json:
           schema:
-            $ref: "../schemas/gov-attributes/AttributeDTO.yaml"
+            $ref: ../schemas/gov-attributes/AttributeDTO.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

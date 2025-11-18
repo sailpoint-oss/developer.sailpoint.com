@@ -3,8 +3,7 @@ get:
   summary: Get role mining session status state
   tags:
     - IAI Role Mining
-  description: >-
-    This method returns a role mining session status for a customer.
+  description: This method returns a role mining session status for a customer.
   parameters:
     - in: path
       name: sessionId
@@ -20,12 +19,19 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/RoleMiningSessionStatus.yaml'
+            $ref: ../schemas/RoleMiningSessionStatus.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth:
+        - iai:access-modeling:read
+        - iai:access-modeling:manage
+    - applicationAuth:
+        - iai:access-modeling:read
+        - iai:access-modeling:manage

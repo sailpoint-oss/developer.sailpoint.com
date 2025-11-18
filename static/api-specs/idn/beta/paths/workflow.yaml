@@ -3,10 +3,11 @@ get:
   tags:
     - Workflows
   summary: Get workflow by id
-  description: >-
-    Get a single workflow by id.
+  description: Get a single workflow by id.
   security:
-    - userAuth: [sp:workflow:read]
+    - userAuth:
+        - sp:workflow:read
+        - sp:workflow:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
@@ -30,31 +31,30 @@ get:
       example: false
   responses:
     '200':
-      description: >-
-        The workflow object
+      description: The workflow object
       content:
         application/json:
           schema:
-            $ref: '../schemas/Workflow.yaml'
+            $ref: ../schemas/Workflow.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
 put:
   operationId: putWorkflow
   tags:
     - Workflows
   summary: Update workflow
-  description: >-
-    Perform a full update of a workflow.  The updated workflow object is returned in the response.
+  description: Perform a full update of a workflow.  The updated workflow object is returned in the response.
   security:
-    - userAuth: [sp:workflow:manage]
+    - userAuth:
+        - sp:workflow:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
@@ -73,33 +73,33 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/WorkflowBody.yaml'
+          $ref: ../schemas/WorkflowBody.yaml
   responses:
     '200':
       description: The Workflow object
       content:
         application/json:
           schema:
-            $ref: '../schemas/Workflow.yaml'
+            $ref: ../schemas/Workflow.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
 patch:
   operationId: patchWorkflow
   tags:
     - Workflows
   summary: Patch workflow
-  description: >-
-    Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+  description: Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
   security:
-    - userAuth: [sp:workflow:manage]
+    - userAuth:
+        - sp:workflow:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
@@ -120,98 +120,75 @@ patch:
         schema:
           type: array
           items:
-            $ref: '../schemas/JsonPatchOperation.yaml'
+            $ref: ../schemas/JsonPatchOperation.yaml
         examples:
           Update all patchable fields:
             description: Demonstrate how to update each patchable field in one PATCH request.
             value:
-              [
-                {
-                  "op": "replace",
-                  "path": "/name",
-                  "value": "Send Email"
-                },
-                {
-                  "op": "replace",
-                  "path": "/owner",
-                  "value": {
-                    "type": "IDENTITY",
-                    "id": "2c91808568c529c60168cca6f90c1313",
-                    "name": "William Wilson"
-
-                  }
-                },
-                {
-                  "op": "replace",
-                  "path": "/description",
-                  "value": "Send an email to the identity who's attributes changed."
-                },
-                {
-                  "op": "replace",
-                  "path": "/enabled",
-                  "value": false
-                },
-                {
-                  "op": "replace",
-                  "path": "/definition",
-                  "value": {
-                    "start": "Send Email Test",
-                    "steps": {
-                      "Send Email": {
-                        "actionId": "sp:send-email",
-                        "attributes": {
-                          "body": "This is a test",
-                          "from": "sailpoint@sailpoint.com",
-                          "recipientId.$": "$.identity.id",
-                          "subject": "test"
-                        },
-                        "nextStep": "success",
-                        "selectResult": null,
-                        "type": "action"
-                      },
-                      "success": {
-                        "type": "success"
-                      }
-                    }
-                  }
-                },
-                {
-                  "op": "replace",
-                  "path": "/trigger",
-                  "value": {
-                    "type": "EVENT",
-                    "attributes": {
-                      "id": "idn:identity-attributes-changed"
-                    }
-                  }
-                }
-              ]
+              - op: replace
+                path: /name
+                value: Send Email
+              - op: replace
+                path: /owner
+                value:
+                  type: IDENTITY
+                  id: 2c91808568c529c60168cca6f90c1313
+                  name: William Wilson
+              - op: replace
+                path: /description
+                value: Send an email to the identity who's attributes changed.
+              - op: replace
+                path: /enabled
+                value: false
+              - op: replace
+                path: /definition
+                value:
+                  start: Send Email Test
+                  steps:
+                    Send Email:
+                      actionId: sp:send-email
+                      attributes:
+                        body: This is a test
+                        from: sailpoint@sailpoint.com
+                        recipientId.$: $.identity.id
+                        subject: test
+                      nextStep: success
+                      selectResult: null
+                      type: action
+                    success:
+                      type: success
+              - op: replace
+                path: /trigger
+                value:
+                  type: EVENT
+                  attributes:
+                    id: idn:identity-attributes-changed
   responses:
     '200':
       description: The Workflow object
       content:
         application/json:
           schema:
-            $ref: '../schemas/Workflow.yaml'
+            $ref: ../schemas/Workflow.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
 delete:
   operationId: deleteWorkflow
   tags:
     - Workflows
   summary: Delete workflow by id
-  description: >-
-    Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
+  description: Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
   security:
-    - userAuth: [sp:workflow:manage]
+    - userAuth:
+        - sp:workflow:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
@@ -227,14 +204,14 @@ delete:
         example: c17bea3a-574d-453c-9e04-4365fbf5af0b
   responses:
     '204':
-      $ref: '../../v3/responses/204.yaml'
+      $ref: ../../v3/responses/204.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

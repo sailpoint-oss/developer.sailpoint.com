@@ -5,15 +5,15 @@ get:
   description: No parameters required.
   operationId: searchFormInstancesByTenant
   responses:
-    "200":
+    '200':
       description: Returns a list of form instances by tenant
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../schemas/forms/FormInstanceResponse.yaml'
-    "400":
+              $ref: ../schemas/forms/FormInstanceResponse.yaml
+    '400':
       description: An error with the request occurred
       content:
         application/json:
@@ -26,7 +26,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -35,7 +35,7 @@ get:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "401":
+    '401':
       description: An error with the authorization occurred
       content:
         application/json:
@@ -48,7 +48,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -57,7 +57,7 @@ get:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "403":
+    '403':
       description: An error with the user permissions occurred
       content:
         application/json:
@@ -70,7 +70,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -79,13 +79,13 @@ get:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "429":
+    '429':
       description: Too many requests
       content:
         application/json:
           schema:
-            $ref: '../schemas/forms/Error.yaml'
-    "500":
+            $ref: ../schemas/forms/Error.yaml
+    '500':
       description: An internal server error occurred
       content:
         application/json:
@@ -98,7 +98,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -109,6 +109,7 @@ get:
                 x-go-name: TrackingID
   security:
     - userAuth:
+        - sp:forms:read
         - sp:forms:manage
 post:
   tags:
@@ -120,28 +121,25 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/forms/CreateFormInstanceRequest.yaml'
-        example: {
-          "expire": "2023-06-20T15:57:55.332882Z",
-          "formDefinitionId": "00000000-0000-0000-0000-000000000000",
-          "recipients": [ {
-            type: "IDENTITY",
-            id: "an-identity-id"
-          } ],
-          "createdBy": {
-            "type": "WORKFLOW_EXECUTION",
-            "id": "a-workflow-execution-id"
-          },
-        }
+          $ref: ../schemas/forms/CreateFormInstanceRequest.yaml
+        example:
+          expire: '2023-06-20T15:57:55.332882Z'
+          formDefinitionId: 00000000-0000-0000-0000-000000000000
+          recipients:
+            - type: IDENTITY
+              id: an-identity-id
+          createdBy:
+            type: WORKFLOW_EXECUTION
+            id: a-workflow-execution-id
     required: false
   responses:
-    "201":
+    '201':
       description: Returns a new form instance
       content:
         application/json:
           schema:
-            $ref: '../schemas/forms/FormInstanceResponse.yaml'
-    "400":
+            $ref: ../schemas/forms/FormInstanceResponse.yaml
+    '400':
       description: An error with the request occurred
       content:
         application/json:
@@ -154,7 +152,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -163,7 +161,7 @@ post:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "401":
+    '401':
       description: An error with the authorization occurred
       content:
         application/json:
@@ -176,7 +174,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -185,7 +183,7 @@ post:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "403":
+    '403':
       description: An error with the user permissions occurred
       content:
         application/json:
@@ -198,7 +196,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -207,13 +205,13 @@ post:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "429":
+    '429':
       description: Too many requests
       content:
         application/json:
           schema:
-            $ref: '../schemas/forms/Error.yaml'
-    "500":
+            $ref: ../schemas/forms/Error.yaml
+    '500':
       description: An internal server error occurred
       content:
         application/json:
@@ -226,7 +224,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer

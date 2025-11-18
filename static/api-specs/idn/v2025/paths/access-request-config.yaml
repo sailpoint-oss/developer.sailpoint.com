@@ -1,61 +1,60 @@
 get:
   operationId: getAccessRequestConfig
   security:
-    - userAuth: [ idn:access-request-config:read ]
+    - userAuth:
+        - idn:access-request-config:read
   summary: Get access request configuration
   tags:
     - Access Requests
-  description: >-
-    This endpoint returns the current access-request configuration.
+  description: This endpoint returns the current access-request configuration.
   responses:
     '200':
       description: Access Request Configuration Details.
       content:
         application/json:
           schema:
-            $ref: '../schemas/AccessRequestConfig.yaml'
+            $ref: ../schemas/AccessRequestConfig.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
-
+      $ref: ../responses/500.yaml
 put:
   operationId: setAccessRequestConfig
   security:
-    - userAuth: [ idn:access-request-config:update ]
+    - userAuth:
+        - idn:access-request-config:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   summary: Update access request configuration
   tags:
     - Access Requests
-  description: >-
-    This endpoint replaces the current access-request configuration.
+  description: This endpoint replaces the current access-request configuration.
   requestBody:
-       required: true
-       content:
-         application/json:
-           schema:
-             $ref: '../schemas/AccessRequestConfig.yaml'
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/AccessRequestConfig.yaml
   responses:
     '200':
       description: Access Request Configuration Details.
       content:
         application/json:
           schema:
-            $ref: '../schemas/AccessRequestConfig.yaml'
+            $ref: ../schemas/AccessRequestConfig.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

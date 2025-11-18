@@ -2,8 +2,7 @@ get:
   tags:
     - Account Usages
   summary: Returns account usage insights
-  description: >-
-    This API returns a summary of account usage insights for past 12 months.
+  description: This API returns a summary of account usage insights for past 12 months.
   operationId: getUsagesByAccountId
   parameters:
     - name: accountId
@@ -12,24 +11,26 @@ get:
       required: true
       schema:
         type: string
-      example: 'ef38f94347e94562b5bb8424a56397d8'
+      example: ef38f94347e94562b5bb8424a56397d8
       x-sailpoint-resource-operation-id: listAccounts
-    - $ref: '../../v3/parameters/limit.yaml'
-    - $ref: '../../v3/parameters/offset.yaml'
-    - $ref: '../../v3/parameters/count.yaml'
+    - $ref: ../../v3/parameters/limit.yaml
+    - $ref: ../../v3/parameters/offset.yaml
+    - $ref: ../../v3/parameters/count.yaml
     - in: query
       name: sorters
       schema:
         type: string
         format: comma-separated
-      description: >-
+      description: |-
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
-
         Sorting is supported for the following fields: **date**
-      example: -date
+      example: '-date'
   security:
-      - userAuth: [ idn:accounts:read ]
+    - userAuth:
+        - idn:identity-history:manage
+    - applicationAuth:
+        - idn:identity-history:manage
   responses:
     '200':
       description: Summary of account usage insights for past 12 months.
@@ -38,14 +39,14 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/AccountUsage.yaml'
+              $ref: ../schemas/AccountUsage.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

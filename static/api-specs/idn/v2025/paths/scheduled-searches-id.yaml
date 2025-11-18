@@ -13,13 +13,13 @@ put:
         type: string
       required: true
       example: 2c91808568c529c60168cca6f90c1313
-      x-sailpoint-resource-operation-id: listScheduledSearch  
+      x-sailpoint-resource-operation-id: listScheduledSearch
   requestBody:
     description: The scheduled search to persist.
     content:
       application/json:
         schema:
-          $ref: '../schemas/search/scheduled/ScheduledSearch.yaml'
+          $ref: ../schemas/search/scheduled/ScheduledSearch.yaml
     required: true
   responses:
     '200':
@@ -27,19 +27,22 @@ put:
       content:
         application/json:
           schema:
-            $ref: '../schemas/search/scheduled/ScheduledSearch.yaml'
+            $ref: ../schemas/search/scheduled/ScheduledSearch.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - sp:scheduled-search:manage
 get:
   tags:
     - Scheduled Search
@@ -54,26 +57,26 @@ get:
         type: string
       required: true
       example: 2c91808568c529c60168cca6f90c1313
-      x-sailpoint-resource-operation-id: listScheduledSearch  
+      x-sailpoint-resource-operation-id: listScheduledSearch
   responses:
     '200':
       description: The requested scheduled search.
       content:
         application/json:
           schema:
-            $ref: '../schemas/search/scheduled/ScheduledSearch.yaml'
+            $ref: ../schemas/search/scheduled/ScheduledSearch.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
 delete:
   tags:
     - Scheduled Search
@@ -89,19 +92,22 @@ delete:
         type: string
       required: true
       example: 2c91808568c529c60168cca6f90c1313
-      x-sailpoint-resource-operation-id: listScheduledSearch  
+      x-sailpoint-resource-operation-id: listScheduledSearch
   responses:
     '204':
       description: No Content - Indicates the request was successful but there is no content to be returned in the response.
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - sp:scheduled-search:manage

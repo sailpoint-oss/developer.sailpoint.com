@@ -1,8 +1,9 @@
-
 get:
   operationId: getSourceSchemas
   security:
-    - userAuth: [ idn:source-schema:read ]
+    - userAuth:
+        - idn:source-schema:read
+        - idn:source-schema:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -28,20 +29,16 @@ get:
         enum:
           - group
           - user
-      description: >-
-        If set to 'group', then the account schema is filtered and only group schemas are returned. Only a
-        value of 'group' is recognized presently. 
-        
-        Note: The API will check whether include-types is group or not,
-        if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas.
+      description: |-
+        If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized presently. 
+        Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas.
       example: group
     - in: query
       name: include-names
       required: false
       schema:
         type: string
-      description: >-
-        A comma-separated list of schema names to filter result.
+      description: A comma-separated list of schema names to filter result.
       example: account
   responses:
     '200':
@@ -51,23 +48,24 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/Schema.yaml'
+              $ref: ../schemas/Schema.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
 post:
   operationId: createSourceSchema
   security:
-    - userAuth: [ idn:source-schema:create ]
+    - userAuth:
+        - idn:source-schema:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -89,21 +87,21 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/Schema.yaml'
+          $ref: ../schemas/Schema.yaml
   responses:
     '201':
       description: The schema was successfully created on the specified source.
       content:
         application/json:
           schema:
-            $ref: '../schemas/Schema.yaml'
+            $ref: ../schemas/Schema.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

@@ -33,23 +33,16 @@ post:
       x-go-name: Limit
     - name: filters
       in: query
-      description: >-
+      description: |-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
-
 
         Filtering is supported for the following fields and operators:
 
-
         **value**: *eq, ne, in*
-
 
         Supported composite operators: *not*
 
-
-        Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field.
-        For example, the following is valid: `not value in ("ID01")`
-
-
+        Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in ("ID01")`
       schema:
         type: string
         x-go-name: Filters
@@ -58,10 +51,7 @@ post:
       x-go-name: Filters
     - name: query
       in: query
-      description: >-
-        String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access 
-        profile data sources, this string will be passed to the access profile api and used with a "starts with" filter against 
-        several fields.
+      description: String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a "starts with" filter against  several fields.
       schema:
         type: string
         x-go-name: Query
@@ -69,21 +59,20 @@ post:
       required: false
       x-go-name: Query
   requestBody:
-    description: Body is the request payload to create a form definition dynamic
-      schema
+    description: Body is the request payload to create a form definition dynamic schema
     content:
       application/json:
         schema:
-          $ref: '../schemas/forms/FormElementPreviewRequest.yaml'
+          $ref: ../schemas/forms/FormElementPreviewRequest.yaml
     required: false
   responses:
-    "200":
+    '200':
       description: Returns a preview of a form definition data source
       content:
         application/json:
           schema:
-            $ref: '../schemas/forms/PreviewDataSourceResponse.yaml'
-    "400":
+            $ref: ../schemas/forms/PreviewDataSourceResponse.yaml
+    '400':
       description: An error with the request occurred
       content:
         application/json:
@@ -96,7 +85,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -105,7 +94,7 @@ post:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "401":
+    '401':
       description: An error with the authorization occurred
       content:
         application/json:
@@ -118,7 +107,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -127,7 +116,7 @@ post:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "403":
+    '403':
       description: An error with the user permissions occurred
       content:
         application/json:
@@ -140,7 +129,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -149,7 +138,7 @@ post:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "404":
+    '404':
       description: An error with the item not found
       content:
         application/json:
@@ -162,7 +151,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -171,13 +160,13 @@ post:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "429":
+    '429':
       description: Too many requests
       content:
         application/json:
           schema:
-            $ref: '../schemas/forms/Error.yaml'
-    "500":
+            $ref: ../schemas/forms/Error.yaml
+    '500':
       description: An internal server error occurred
       content:
         application/json:
@@ -190,7 +179,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -201,4 +190,5 @@ post:
                 x-go-name: TrackingID
   security:
     - userAuth:
+        - sp:forms:read
         - sp:forms:manage

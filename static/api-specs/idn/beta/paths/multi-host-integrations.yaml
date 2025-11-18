@@ -2,10 +2,9 @@ post:
   tags:
     - Multi-Host Integration
   summary: Create sources within multi-host integration
-  description: >-
+  description: |-
     This API is used to create sources within Multi-Host Integration. Multi-Host Integration holds similar types of sources.
-    
-    
+
     A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
   operationId: createSourcesWithinMultiHost
   parameters:
@@ -26,34 +25,37 @@ post:
         schema:
           type: array
           items:
-            $ref: '../schemas/MultiHostIntegrationsCreateSources.yaml'
+            $ref: ../schemas/MultiHostIntegrationsCreateSources.yaml
     required: true
   responses:
-    "200":
+    '200':
       description: OK. Returned if the request was successfully accepted into the system.
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:multihosts:create, idn:sources:create]
-
+    - userAuth:
+        - idn:sources:manage
+        - idn:multihosts-admin:manage
+    - applicationAuth:
+        - idn:sources:manage
+        - idn:multihosts-admin:manage
 get:
   tags:
     - Multi-Host Integration
   summary: Get multi-host integration by id
-  description: >-
+  description: |-
     Get an existing Multi-Host Integration. 
-  
-  
+
     A token with Org Admin or Multi-Host Integration Admin authority is required to access this endpoint.
   operationId: getMultiHostIntegrations
   parameters:
@@ -68,35 +70,38 @@ get:
         type: string
         example: 2c91808568c529c60168cca6f90c1326
   responses:
-    "200":
+    '200':
       description: OK. Returned if the request was successfully accepted into the system.
       content:
         application/json:
           schema:
-            $ref: '../schemas/MultiHostIntegrations.yaml'
+            $ref: ../schemas/MultiHostIntegrations.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:multihosts:read, idn:sources:read]
-
+    - userAuth:
+        - idn:sources:read
+        - idn:multihosts-admin:manage
+    - applicationAuth:
+        - idn:sources:read
+        - idn:multihosts-admin:manage
 delete:
   tags:
     - Multi-Host Integration
   summary: Delete multi-host integration
-  description: >-
+  description: |-
     Delete an existing Multi-Host Integration by ID.  
-    
-    
+
     A token with Org Admin or Multi Host Admin authority is required to access this endpoint.
   operationId: deleteMultiHost
   parameters:
@@ -111,32 +116,35 @@ delete:
         type: string
         example: 2c91808568c529c60168cca6f90c1326
   responses:
-    "200":
+    '200':
       description: OK. Returned if the request was successfully accepted into the system.
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:multihosts:delete,idn:sources:delete]
-      
+    - userAuth:
+        - idn:sources:manage
+        - idn:multihosts-admin:manage
+    - applicationAuth:
+        - idn:sources:manage
+        - idn:multihosts-admin:manage
 patch:
   operationId: updateMultiHostSources
   tags:
     - Multi-Host Integration
   summary: Update multi-host integration
-  description: >-
+  description: |-
     Update existing sources within Multi-Host Integration.
-    
-    
+
     A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
   parameters:
     - name: multihostId
@@ -162,34 +170,36 @@ patch:
             type: object
             description: A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
             required:
-              - "op"
-              - "path"
+              - op
+              - path
             properties:
               op:
                 type: string
                 description: The operation to be performed
                 enum:
-                  - "add"
-                  - "replace"
-                example: "replace"
+                  - add
+                  - replace
+                example: replace
               path:
                 type: string
                 description: A string JSON Pointer representing the target path to an element to be affected by the operation
-                example: "/description"
+                example: /description
               value:
                 oneOf:
                   - type: string
-                    example: "New description"
+                    example: New description
                     title: string
                   - type: boolean
                     example: true
-                    title: boolean 
+                    title: boolean
                   - type: integer
                     example: 300
                     title: integer
                   - type: object
                     title: object
-                    example: {"attributes": {"name": "philip"}}
+                    example:
+                      attributes:
+                        name: philip
                   - type: array
                     title: array
                     items:
@@ -197,31 +207,31 @@ patch:
                         - type: string
                         - type: integer
                         - type: object
-                      example: ["001","002","003"]
+                      example:
+                        - '001'
+                        - '002'
+                        - '003'
                 description: The value to be used for the operation, required for "add" and "replace" operations
-                example: "New description"
-        example: 
-          [
-              {
-                  "op": "add",
-                  "path": "/description",
-                  "value": "MDK Multi-Host Integration 222 description"
-              }
-          ]
+                example: New description
+        example:
+          - op: add
+            path: /description
+            value: MDK Multi-Host Integration 222 description
   responses:
-    "200":
+    '200':
       description: OK. Returned if the request was successfully accepted into the system.
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:multihosts:update]
+    - userAuth:
+        - idn:multihosts-admin:manage

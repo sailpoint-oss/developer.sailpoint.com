@@ -1,29 +1,36 @@
 put:
   operationId: updateSubscription
   tags:
-  - Triggers
+    - Triggers
   summary: Update a subscription
-  description: "This API updates a trigger subscription in IdentityNow, using a full\
-    \ object representation. In other words, the existing\n  Subscription is completely\
-    \ replaced. The following fields are immutable:\n\n\n  * id\n\n  * triggerId\n\
-    \n\n  Attempts to modify these fields result in 400."
+  description: |-
+    This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing
+      Subscription is completely replaced. The following fields are immutable:
+
+
+      * id
+
+      * triggerId
+
+
+      Attempts to modify these fields result in 400.
   parameters:
-  - in: path
-    name: id
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: listSubscriptions
-    description: Subscription ID
-    example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listSubscriptions
+      description: Subscription ID
+      example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   requestBody:
     required: true
     content:
@@ -90,36 +97,36 @@ put:
     '500':
       $ref: ../responses/500.yaml
   security:
-  - userAuth:
-    - sp:trigger-service-subscriptions:manage
+    - userAuth:
+        - sp:trigger-service-subscriptions:manage
+    - applicationAuth:
+        - sp:trigger-service-subscriptions:manage
 patch:
   operationId: patchSubscription
   tags:
-  - Triggers
+    - Triggers
   summary: Patch a subscription
-  description: 'This API updates a trigger subscription in IdentityNow, using a set
-    of instructions to modify a subscription partially. The following fields are patchable:
+  description: |-
+    This API updates a trigger subscription in IdentityNow, using a set of instructions to modify a subscription partially. The following fields are patchable:
 
-
-    **name**, **description**, **enabled**, **type**, **filter**, **responseDeadline**,
-    **httpConfig**, **eventBridgeConfig**, **workflowConfig**'
+    **name**, **description**, **enabled**, **type**, **filter**, **responseDeadline**, **httpConfig**, **eventBridgeConfig**, **workflowConfig**
   parameters:
-  - in: path
-    name: id
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: listSubscriptions
-    description: ID of the Subscription to patch
-    example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listSubscriptions
+      description: ID of the Subscription to patch
+      example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   requestBody:
     required: true
     content:
@@ -146,31 +153,31 @@ patch:
     '500':
       $ref: ../responses/500.yaml
   security:
-  - userAuth:
-    - sp:trigger-service-subscriptions:manage
+    - userAuth:
+        - sp:trigger-service-subscriptions:manage
 delete:
   operationId: deleteSubscription
   tags:
-  - Triggers
+    - Triggers
   summary: Delete a subscription
   description: Deletes an existing subscription to a trigger.
   parameters:
-  - in: path
-    name: id
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: listSubscriptions
-    description: Subscription ID
-    example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listSubscriptions
+      description: Subscription ID
+      example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   responses:
     '204':
       $ref: ../responses/204.yaml
@@ -188,5 +195,5 @@ delete:
     '500':
       $ref: ../responses/500.yaml
   security:
-  - userAuth:
-    - sp:trigger-service-subscriptions:manage
+    - userAuth:
+        - sp:trigger-service-subscriptions:manage

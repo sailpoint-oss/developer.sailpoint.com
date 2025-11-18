@@ -18,7 +18,7 @@ get:
       required: false
       schema:
         type: string
-      example: 'identityId eq "2c9180858082150f0180893dbaf44201"'
+      example: identityId eq "2c9180858082150f0180893dbaf44201"
       description: |
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
@@ -36,9 +36,8 @@ get:
         type: string
         format: comma-separated
       required: false
-      description: >-
+      description: |-
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
-
 
         Sorting is supported for the following fields: **displayName, technicalName**
       example: displayName
@@ -50,18 +49,18 @@ get:
         type: string
         default: true
       required: true
-    - $ref: "../parameters/count.yaml"
-    - $ref: "../parameters/limit.yaml"
-    - $ref: "../parameters/offset.yaml"
+    - $ref: ../parameters/count.yaml
+    - $ref: ../parameters/limit.yaml
+    - $ref: ../parameters/offset.yaml
   responses:
-    "200":
+    '200':
       description: List of machine account subtypes.
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: "../schemas/SourceSubtype.yaml"
+              $ref: ../schemas/SourceSubtype.yaml
           examples:
             SourceSubtype:
               value:
@@ -70,25 +69,29 @@ get:
                   technicalName: foo
                   displayName: Mr Foo
                   description: fighters
-                  created: 2025-07-28T16:13:42.801300Z
-                  modified: 2025-07-28T16:13:42.750850Z
-    "400":
-      $ref: "../responses/400.yaml"
-    "401":
-      $ref: "../responses/401.yaml"
-    "403":
-      $ref: "../responses/403.yaml"
-    "429":
-      $ref: "../responses/429.yaml"
-    "500":
-      $ref: "../responses/500.yaml"
+                  created: 2025-07-28T16:13:42.801Z
+                  modified: 2025-07-28T16:13:42.750Z
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [idn:sources:manage]
+    - userAuth:
+        - idn:sources:read
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:read
+        - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
     - SOURCE_SUBADMIN
-
 post:
   summary: Create subtype
   description: Create a new machine account subtype for a source.
@@ -117,7 +120,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../schemas/SourceSubtype.yaml"
+          $ref: ../schemas/SourceSubtype.yaml
         examples:
           SourceSubtype:
             value:
@@ -125,12 +128,12 @@ post:
               displayName: Mr Foo
               description: fighters
   responses:
-    "201":
+    '201':
       description: Created machine account subtype.
       content:
         application/json:
           schema:
-            $ref: "../schemas/SourceSubtype.yaml"
+            $ref: ../schemas/SourceSubtype.yaml
           examples:
             SourceSubtype:
               value:
@@ -139,20 +142,23 @@ post:
                 technicalName: foo
                 displayName: Mr Foo
                 description: fighters
-                created: 2025-07-28T16:13:42.801300Z
-                modified: 2025-07-28T16:13:42.750850Z
-    "400":
-      $ref: "../responses/400.yaml"
-    "401":
-      $ref: "../responses/401.yaml"
-    "403":
-      $ref: "../responses/403.yaml"
-    "429":
-      $ref: "../responses/429.yaml"
-    "500":
-      $ref: "../responses/500.yaml"
+                created: 2025-07-28T16:13:42.801Z
+                modified: 2025-07-28T16:13:42.750Z
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [idn:sources:manage]
+    - userAuth:
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN

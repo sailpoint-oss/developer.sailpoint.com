@@ -10,8 +10,7 @@ get:
       required: true
       schema:
         type: string
-      description: >-
-        ID of the Governance Group
+      description: ID of the Governance Group
       example: 2c9180837ca6693d017ca8d097500149
   responses:
     '200':
@@ -19,19 +18,24 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../../schemas/workgroups/WorkgroupDto.yaml"
+            $ref: ../../schemas/workgroups/WorkgroupDto.yaml
     '400':
-      $ref: '../../../v3/responses/400.yaml'
+      $ref: ../../../v3/responses/400.yaml
     '401':
-      $ref: '../../../v3/responses/401.yaml'
+      $ref: ../../../v3/responses/401.yaml
     '403':
-      $ref: '../../../v3/responses/403.yaml'
+      $ref: ../../../v3/responses/403.yaml
     '429':
-      $ref: '../../../v3/responses/429.yaml'
+      $ref: ../../../v3/responses/429.yaml
     '500':
-      $ref: '../../../v3/responses/500.yaml'
+      $ref: ../../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:workgroup:read]
+    - userAuth:
+        - idn:workgroup:read
+        - idn:workgroup:manage
+    - applicationAuth:
+        - idn:workgroup:read
+        - idn:workgroup:manage
 delete:
   operationId: deleteWorkgroup
   tags:
@@ -44,37 +48,38 @@ delete:
       required: true
       schema:
         type: string
-      description: >-
-        ID of the Governance Group
+      description: ID of the Governance Group
       example: 2c9180837ca6693d017ca8d097500149
   responses:
     '204':
-      $ref: '../../../v3/responses/204.yaml'
+      $ref: ../../../v3/responses/204.yaml
     '400':
-      $ref: '../../../v3/responses/400.yaml'
+      $ref: ../../../v3/responses/400.yaml
     '401':
-      $ref: '../../../v3/responses/401.yaml'
+      $ref: ../../../v3/responses/401.yaml
     '403':
-      $ref: '../../../v3/responses/403.yaml'
+      $ref: ../../../v3/responses/403.yaml
     '429':
-      $ref: '../../../v3/responses/429.yaml'
+      $ref: ../../../v3/responses/429.yaml
     '500':
-      $ref: '../../../v3/responses/500.yaml'
+      $ref: ../../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:workgroup:write]
+    - userAuth:
+        - idn:workgroup:manage
+    - applicationAuth:
+        - idn:workgroup:manage
 patch:
   operationId: patchWorkgroup
   tags:
     - Governance Groups
   summary: Patch a governance group
-  description: >-
+  description: |-
     This API updates an existing governance group by ID. 
-    
     The following fields and objects are patchable:
       * name
       * description
       * owner
-    
+
     A token with API or ORG_ADMIN authority is required to call this API.
   parameters:
     - in: path
@@ -82,8 +87,7 @@ patch:
       required: true
       schema:
         type: string
-      description: >-
-        ID of the Governance Group
+      description: ID of the Governance Group
       example: 2c9180837ca6693d017ca8d097500149
   requestBody:
     content:
@@ -91,7 +95,7 @@ patch:
         schema:
           type: array
           items:
-            $ref: '../../schemas/JsonPatchOperation.yaml'
+            $ref: ../../schemas/JsonPatchOperation.yaml
         examples:
           Replace Description:
             description: Replace description of a Governance Group.
@@ -105,16 +109,19 @@ patch:
       content:
         application/json:
           schema:
-            $ref: "../../schemas/workgroups/WorkgroupDto.yaml"
+            $ref: ../../schemas/workgroups/WorkgroupDto.yaml
     '400':
-      $ref: '../../../v3/responses/400.yaml'
+      $ref: ../../../v3/responses/400.yaml
     '401':
-      $ref: '../../../v3/responses/401.yaml'
+      $ref: ../../../v3/responses/401.yaml
     '403':
-      $ref: '../../../v3/responses/403.yaml'
+      $ref: ../../../v3/responses/403.yaml
     '429':
-      $ref: '../../../v3/responses/429.yaml'
+      $ref: ../../../v3/responses/429.yaml
     '500':
-      $ref: '../../../v3/responses/500.yaml'
+      $ref: ../../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:workgroup:write]
+    - userAuth:
+        - idn:workgroup:manage
+    - applicationAuth:
+        - idn:workgroup:manage

@@ -3,10 +3,14 @@ get:
   summary: Retrieves a specific potential role
   tags:
     - IAI Role Mining
-  description: >-
-    This method returns a specific potential role.
+  description: This method returns a specific potential role.
   security:
-    - userAuth: []
+    - userAuth:
+        - iai:access-modeling:read
+        - iai:access-modeling:manage
+    - applicationAuth:
+        - iai:access-modeling:read
+        - iai:access-modeling:manage
   parameters:
     - in: path
       name: potentialRoleId
@@ -22,18 +26,17 @@ get:
       content:
         application/json:
           schema:
-              $ref: '../schemas/RoleMiningPotentialRole.yaml'
+            $ref: ../schemas/RoleMiningPotentialRole.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
-
+      $ref: ../../v3/responses/500.yaml
 patch:
   operationId: patchRoleMiningPotentialRole
   summary: Update a potential role
@@ -41,7 +44,7 @@ patch:
     - IAI Role Mining
   description: |
     This method updates an existing potential role.
-   
+
     The following fields can be modified:
 
     * `description`
@@ -53,7 +56,8 @@ patch:
 
     >**NOTE: All other fields cannot be modified.**
   security:
-    - userAuth: []
+    - userAuth:
+        - iai:access-modeling:manage
   parameters:
     - in: path
       name: potentialRoleId
@@ -71,45 +75,31 @@ patch:
           type: array
           items:
             allOf:
-              - $ref: '../schemas/JsonPatchOperation.yaml'
+              - $ref: ../schemas/JsonPatchOperation.yaml
             properties:
               op:
                 type: string
                 description: The operation to be performed
                 enum:
-                  - "remove"
-                  - "replace"
-                example: "replace"
+                  - remove
+                  - replace
+                example: replace
         example:
-          [
-            {
-              "op": "remove",
-              "path": "/description"
-            },
-            {
-              "op": "replace",
-              "path": "/description",
-              "value": "Acct I - Potential Role"
-            },
-            {
-              "op": "remove",
-              "path": "/saved"
-            },
-            {
-              "op": "replace",
-              "path": "/saved",
-              "value": "false"
-            },
-            {
-              "op": "remove",
-              "path": "/name"
-            },
-            {
-              "op": "replace",
-              "path": "/name",
-              "value": "Potential Role Accounting"
-            }
-          ]
+          - op: remove
+            path: /description
+          - op: replace
+            path: /description
+            value: Acct I - Potential Role
+          - op: remove
+            path: /saved
+          - op: replace
+            path: /saved
+            value: 'false'
+          - op: remove
+            path: /name
+          - op: replace
+            path: /name
+            value: Potential Role Accounting
   responses:
     '200':
       description: Succeeded. Returns the potential role summary based on the potentialRoleId provided.
@@ -118,16 +108,16 @@ patch:
           schema:
             type: object
             items:
-              $ref: '../schemas/RoleMiningPotentialRole.yaml'
-    "400":
-      $ref: "../../v3/responses/400.yaml"
-    "401":
-      $ref: "../../v3/responses/401.yaml"
-    "403":
-      $ref: "../../v3/responses/403.yaml"
-    "404":
-      $ref: "../../v3/responses/404.yaml"
-    "429":
-      $ref: "../../v3/responses/429.yaml"
-    "500":
-      $ref: "../../v3/responses/500.yaml"
+              $ref: ../schemas/RoleMiningPotentialRole.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

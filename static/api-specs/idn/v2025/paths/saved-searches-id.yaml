@@ -22,7 +22,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/search/saved/SavedSearch.yaml'
+          $ref: ../schemas/search/saved/SavedSearch.yaml
     required: true
   responses:
     '200':
@@ -30,17 +30,20 @@ put:
       content:
         application/json:
           schema:
-            $ref: '../schemas/search/saved/SavedSearch.yaml'
+            $ref: ../schemas/search/saved/SavedSearch.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
-    '429': 
-      $ref: '../responses/429.yaml'
-    '500': 
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - sp:saved-search:manage
 get:
   tags:
     - Saved Search
@@ -63,19 +66,22 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/search/saved/SavedSearch.yaml'
+            $ref: ../schemas/search/saved/SavedSearch.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
-    '429': 
-      $ref: '../responses/429.yaml'
-    '500': 
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - sp:saved-search:read
 delete:
   tags:
     - Saved Search
@@ -96,14 +102,17 @@ delete:
     '204':
       description: No Content - Indicates the request was successful but there is no content to be returned in the response.
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
-    '429': 
-      $ref: '../responses/429.yaml'
-    '500': 
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - sp:saved-search:manage

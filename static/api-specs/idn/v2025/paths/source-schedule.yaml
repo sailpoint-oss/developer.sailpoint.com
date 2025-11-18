@@ -1,7 +1,12 @@
 get:
   operationId: getSourceSchedule
   security:
-    - userAuth: [ idn:sources:read ]
+    - userAuth:
+        - idn:sources:read
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:read
+        - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -36,23 +41,26 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/sources/Schedule.yaml'
+            $ref: ../schemas/sources/Schedule.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
 patch:
   operationId: updateSourceSchedule
   security:
-    - userAuth: [ idn:sources:update ]
+    - userAuth:
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -62,11 +70,10 @@ patch:
   summary: Update source schedule (partial)
   description: |
     Use this API to selectively update an existing Schedule using a JSONPatch payload. 
-    
+
     The following schedule fields are immutable and cannot be updated:
 
     - type
-
   parameters:
     - in: path
       name: sourceId
@@ -94,40 +101,40 @@ patch:
         schema:
           type: array
           items:
-            $ref: '../schemas/JsonPatchOperation.yaml'
+            $ref: ../schemas/JsonPatchOperation.yaml
         examples:
           add-attribute:
             summary: Replace an attribute of the schedule
-            value: [
-              {
-                "op": "replace",
-                "path": "/cronExpression",
-                "value": "0 0 6 * * ?"
-              }
-            ]
+            value:
+              - op: replace
+                path: /cronExpression
+                value: 0 0 6 * * ?
   responses:
     '200':
       description: The Schedule was successfully updated.
       content:
         application/json:
           schema:
-            $ref: '../schemas/sources/Schedule.yaml'
+            $ref: ../schemas/sources/Schedule.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
 delete:
   operationId: deleteSourceSchedule
   security:
-    - userAuth: [ idn:sources:update ]
+    - userAuth:
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -156,17 +163,17 @@ delete:
       example: ACCOUNT_AGGREGATION
   responses:
     '204':
-      $ref: '../responses/204.yaml'
+      $ref: ../responses/204.yaml
       description: The Schedule was successfully deleted.
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

@@ -10,22 +10,23 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/ServiceDeskIntegrationDto.yaml'
+            $ref: ../schemas/ServiceDeskIntegrationDto.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:service-desk-admin:read]
-
+    - userAuth:
+        - idn:service-desk-integration:read
+        - idn:service-desk-integration:manage
 post:
   tags:
     - SIM Integrations
@@ -37,7 +38,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/SimIntegrationDetails.yaml'
+          $ref: ../schemas/SimIntegrationDetails.yaml
     required: true
   responses:
     '200':
@@ -45,18 +46,19 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../schemas/ServiceDeskIntegrationDto.yaml'
+            $ref: ../schemas/ServiceDeskIntegrationDto.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:service-desk-admin:create]
+    - userAuth:
+        - idn:service-desk-integration:manage

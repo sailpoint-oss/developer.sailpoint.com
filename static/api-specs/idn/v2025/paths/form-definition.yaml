@@ -1,20 +1,20 @@
 get:
   tags:
-  - Custom Forms
+    - Custom Forms
   summary: Return a form definition.
   description: Parameter `{formDefinitionID}` should match a form definition ID.
   operationId: getFormDefinitionByKey
   parameters:
-  - name: formDefinitionID
-    in: path
-    description: Form definition ID
-    required: true
-    x-sailpoint-resource-operation-id: searchFormDefinitionsByTenant
-    schema:
-      type: string
+    - name: formDefinitionID
+      in: path
+      description: Form definition ID
+      required: true
+      x-sailpoint-resource-operation-id: searchFormDefinitionsByTenant
+      schema:
+        type: string
+        x-go-name: FormDefinitionID
+      example: 00000000-0000-0000-0000-000000000000
       x-go-name: FormDefinitionID
-    example: 00000000-0000-0000-0000-000000000000
-    x-go-name: FormDefinitionID
   responses:
     '200':
       description: Returns a form definition
@@ -139,25 +139,26 @@ get:
                 type: string
                 x-go-name: TrackingID
   security:
-  - userAuth:
-    - sp:forms:manage
+    - userAuth:
+        - sp:forms:read
+        - sp:forms:manage
 delete:
   tags:
-  - Custom Forms
+    - Custom Forms
   summary: Deletes a form definition.
   description: Parameter `{formDefinitionID}` should match a form definition ID.
   operationId: deleteFormDefinition
   parameters:
-  - name: formDefinitionID
-    in: path
-    description: Form definition ID
-    required: true
-    x-sailpoint-resource-operation-id: searchFormDefinitionsByTenant
-    schema:
-      type: string
+    - name: formDefinitionID
+      in: path
+      description: Form definition ID
+      required: true
+      x-sailpoint-resource-operation-id: searchFormDefinitionsByTenant
+      schema:
+        type: string
+        x-go-name: FormDefinitionID
+      example: 00000000-0000-0000-0000-000000000000
       x-go-name: FormDefinitionID
-    example: 00000000-0000-0000-0000-000000000000
-    x-go-name: FormDefinitionID
   responses:
     '204':
       description: Returns an empty body
@@ -282,25 +283,25 @@ delete:
                 type: string
                 x-go-name: TrackingID
   security:
-  - userAuth:
-    - sp:forms:manage
+    - userAuth:
+        - sp:forms:manage
 patch:
   tags:
-  - Custom Forms
+    - Custom Forms
   summary: Patch a form definition.
   description: Parameter `{formDefinitionID}` should match a form definition ID.
   operationId: patchFormDefinition
   parameters:
-  - name: formDefinitionID
-    in: path
-    description: Form definition ID
-    required: true
-    x-sailpoint-resource-operation-id: searchFormDefinitionsByTenant
-    schema:
-      type: string
+    - name: formDefinitionID
+      in: path
+      description: Form definition ID
+      required: true
+      x-sailpoint-resource-operation-id: searchFormDefinitionsByTenant
+      schema:
+        type: string
+        x-go-name: FormDefinitionID
+      example: 00000000-0000-0000-0000-000000000000
       x-go-name: FormDefinitionID
-    example: 00000000-0000-0000-0000-000000000000
-    x-go-name: FormDefinitionID
   requestBody:
     description: 'Body is the request payload to patch a form definition, check: https://jsonpatch.com'
     content:
@@ -308,9 +309,9 @@ patch:
         schema:
           $ref: ../schemas/forms/Patch.yaml
         example:
-        - op: replace
-          path: /description
-          value: test-description
+          - op: replace
+            path: /description
+            value: test-description
     required: false
   responses:
     '200':
@@ -436,6 +437,6 @@ patch:
                 type: string
                 x-go-name: TrackingID
   security:
-  - userAuth:
-    - sp:forms:manage
+    - userAuth:
+        - sp:forms:manage
   x-codegen-request-body-name: Body

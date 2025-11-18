@@ -3,9 +3,7 @@ get:
   tags:
     - Identity History
   summary: Gets the summary for the event count for a specific identity
-  description: >-
-    This method gets the summary for the event count for a specific identity by month/day
-    Requires authorization scope of 'idn:identity-history:read' 
+  description: 'This method gets the summary for the event count for a specific identity by month/day Requires authorization scope of ''idn:identity-history:read'' '
   parameters:
     - in: path
       name: id
@@ -34,10 +32,10 @@ get:
       schema:
         type: string
       description: The time zone. Defaults to UTC if not provided
-      example: 'UTC'  
-    - $ref: '../../v3/parameters/limit.yaml'
-    - $ref: '../../v3/parameters/offset.yaml'
-    - $ref: '../../v3/parameters/count.yaml'
+      example: UTC
+    - $ref: ../../v3/parameters/limit.yaml
+    - $ref: ../../v3/parameters/offset.yaml
+    - $ref: ../../v3/parameters/count.yaml
   responses:
     '200':
       description: A summary list of identity changes in date histogram format.
@@ -46,14 +44,21 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/MetricResponse.yaml'
+              $ref: ../schemas/MetricResponse.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'  
+      $ref: ../../v3/responses/404.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth:
+        - idn:identity-history:read
+        - idn:identity-history:manage
+    - applicationAuth:
+        - idn:identity-history:read
+        - idn:identity-history:manage

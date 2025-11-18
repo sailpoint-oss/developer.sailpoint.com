@@ -1,7 +1,10 @@
 get:
   operationId: getNonEmployeeRecord
   security:
-    - userAuth: [idn:nelm:read]
+    - userAuth:
+        - idn:nelm:read
+    - applicationAuth:
+        - idn:nelm:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -9,14 +12,12 @@ get:
   tags:
     - Non-Employee Lifecycle Management
   summary: Get a non-employee record
-  description: >-
-    This gets a non-employee record.
+  description: This gets a non-employee record.
   deprecated: true
   parameters:
     - in: path
       name: id
-      description: >-
-        Non-Employee record id (UUID)
+      description: Non-Employee record id (UUID)
       required: true
       x-sailpoint-resource-operation-id: listNonEmployeeRecords
       example: 2c91808b6ef1d43e016efba0ce470904
@@ -28,21 +29,22 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/NonEmployeeRecord.yaml'
+            $ref: ../schemas/NonEmployeeRecord.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
 put:
   operationId: putNonEmployeeRecord
   security:
-    - userAuth: [idn:nelm:manage]
+    - userAuth:
+        - idn:nelm:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -50,14 +52,12 @@ put:
   tags:
     - Non-Employee Lifecycle Management
   summary: Update non-employee record
-  description: >-
-    This request will update a non-employee record.
+  description: This request will update a non-employee record.
   deprecated: true
   parameters:
     - in: path
       name: id
-      description: >-
-        Non-employee record id (UUID)
+      description: Non-employee record id (UUID)
       required: true
       x-sailpoint-resource-operation-id: listNonEmployeeRecords
       example: 2c91808b6ef1d43e016efba0ce470904
@@ -69,30 +69,31 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/NonEmployeeRequestBody.yaml'
+          $ref: ../schemas/NonEmployeeRequestBody.yaml
   responses:
     '200':
       description: An updated non-employee record.
       content:
         application/json:
           schema:
-            $ref: '../schemas/NonEmployeeRecord.yaml'
+            $ref: ../schemas/NonEmployeeRecord.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
 patch:
   operationId: patchNonEmployeeRecord
   security:
-    - userAuth: [idn:nelm:manage]
+    - userAuth:
+        - idn:nelm:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -100,14 +101,12 @@ patch:
   tags:
     - Non-Employee Lifecycle Management
   summary: Patch non-employee record
-  description: >-
-    This request will patch a non-employee record.
+  description: This request will patch a non-employee record.
   deprecated: true
   parameters:
     - in: path
       name: id
-      description: >-
-        Non-employee record id (UUID)
+      description: Non-employee record id (UUID)
       required: true
       x-sailpoint-resource-operation-id: listNonEmployeeRecords
       example: 2c91808b6ef1d43e016efba0ce470904
@@ -121,34 +120,38 @@ patch:
         schema:
           type: array
           items:
-            $ref: '../schemas/JsonPatchOperation.yaml'
+            $ref: ../schemas/JsonPatchOperation.yaml
         example:
-            - op: "replace"
-              path: "/endDate"
-              value: {"2019-08-23T18:40:35.772Z"}
+          - op: replace
+            path: /endDate
+            value:
+              '2019-08-23T18:40:35.772Z': null
   responses:
     '200':
       description: A patched non-employee record.
       content:
         application/json:
           schema:
-            $ref: '../schemas/NonEmployeeRecord.yaml'
+            $ref: ../schemas/NonEmployeeRecord.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
 delete:
   operationId: deleteNonEmployeeRecord
   security:
-    - userAuth: [idn:nelm:manage]
+    - userAuth:
+        - idn:nelm:manage
+    - applicationAuth:
+        - idn:nelm:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -156,15 +159,12 @@ delete:
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete non-employee record
-  description: >-
-    This request will delete a non-employee record.
+  description: This request will delete a non-employee record.
   deprecated: true
-
   parameters:
     - in: path
       name: id
-      description: >-
-        Non-Employee record id (UUID)
+      description: Non-Employee record id (UUID)
       required: true
       x-sailpoint-resource-operation-id: listNonEmployeeRecords
       example: 2c91808b6ef1d43e016efba0ce470904
@@ -172,14 +172,14 @@ delete:
         type: string
   responses:
     '204':
-      $ref: '../../v3/responses/204.yaml'
+      $ref: ../../v3/responses/204.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

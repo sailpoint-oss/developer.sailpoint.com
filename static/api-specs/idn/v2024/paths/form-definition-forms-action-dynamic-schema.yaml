@@ -1,6 +1,6 @@
 post:
   tags:
-  - Custom Forms
+    - Custom Forms
   summary: Generate json schema dynamically.
   operationId: createFormDefinitionDynamicSchema
   requestBody:
@@ -141,6 +141,7 @@ post:
                 type: string
                 x-go-name: TrackingID
   security:
-  - userAuth:
-    - sp:forms:manage
+    - userAuth:
+        - sp:forms:read
+        - sp:forms:manage
   x-codegen-request-body-name: Body

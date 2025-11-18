@@ -3,11 +3,14 @@ get:
   tags:
     - Identity History
   summary: List identity event history
-  description: >-
-    This method retrieves all access events for the identity
-    Requires authorization scope of 'idn:identity-history:read' 
+  description: 'This method retrieves all access events for the identity Requires authorization scope of ''idn:identity-history:read'' '
   security:
-    - userAuth: [idn:identity-history:read]
+    - userAuth:
+        - idn:identity-history:read
+        - idn:identity-history:manage
+    - applicationAuth:
+        - idn:identity-history:read
+        - idn:identity-history:manage
   parameters:
     - in: path
       name: id
@@ -16,7 +19,7 @@ get:
       required: true
       x-sailpoint-resource-operation-id: listHistoricalIdentities
       description: The identity id
-      example: '8c190e6787aa4ed9a90bd9d5344523fb'
+      example: 8c190e6787aa4ed9a90bd9d5344523fb
     - in: query
       name: from
       schema:
@@ -42,15 +45,13 @@ get:
         items:
           type: string
       required: false
-      description: >- 
-        An optional list of access item types (app, account, entitlement, etc...) to return.  
-        If null or empty, all access items types are returned
+      description: An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned
       example:
         - entitlement
         - account
-    - $ref: '../../v3/parameters/limit.yaml'
-    - $ref: '../../v3/parameters/offset.yaml'
-    - $ref: '../../v3/parameters/count.yaml'    
+    - $ref: ../../v3/parameters/limit.yaml
+    - $ref: ../../v3/parameters/offset.yaml
+    - $ref: ../../v3/parameters/count.yaml
   responses:
     '200':
       description: The list of events for the identity
@@ -60,16 +61,16 @@ get:
             type: array
             items:
               anyOf:
-              - $ref: ../schemas/IdentityCertified.yaml
-              - $ref: ../schemas/AccessItemAssociated.yaml
-              - $ref: ../schemas/AccessItemRemoved.yaml
-              - $ref: ../schemas/AttributesChanged.yaml
-              - $ref: ../schemas/AccessRequested.yaml
-              - $ref: ../schemas/AccountStatusChanged.yaml
+                - $ref: ../schemas/IdentityCertified.yaml
+                - $ref: ../schemas/AccessItemAssociated.yaml
+                - $ref: ../schemas/AccessItemRemoved.yaml
+                - $ref: ../schemas/AttributesChanged.yaml
+                - $ref: ../schemas/AccessRequested.yaml
+                - $ref: ../schemas/AccountStatusChanged.yaml
           examples:
             AccessItemAssociated:
               description: An Access item associated event
-              value: 
+              value:
                 - accessItem:
                     id: 8c190e6787aa4ed9a90bd9d5344523fb
                     accessType: account
@@ -92,12 +93,11 @@ get:
                       - id: bc693f07e7b645539626c25954c58554
                         displayName: Jon Snow
                     decisionMaker:
-                        id: bc693f07e7b645539626c25954c58554
-                        displayName: Jon Snow
-
+                      id: bc693f07e7b645539626c25954c58554
+                      displayName: Jon Snow
             AccessItemRemoved:
               description: An Access item removed event
-              value: 
+              value:
                 - accessItem:
                     id: 8c190e6787aa4ed9a90bd9d5344523fb
                     accessType: account
@@ -122,10 +122,9 @@ get:
                     decisionMaker:
                       id: bc693f07e7b645539626c25954c58554
                       displayName: Jon Snow
-
             AttributesChanged:
               description: An attribute changed event
-              value: 
+              value:
                 - attributeChanges:
                     - name: firstname
                       previousValue: adam
@@ -133,10 +132,9 @@ get:
                   eventType: AttributesChanged
                   identityId: 8a80828f643d484f01643e14202e206f
                   dt: '2019-03-08T22:37:33.901Z'
-
             AccessRequested:
               description: An access requested event
-              value: 
+              value:
                 accessRequest:
                   requesterId: 2c91808a77ff216301782327a50f09bf
                   requestName: Bing C
@@ -149,17 +147,16 @@ get:
                       sourceId: 8a80828f643d484f01643e14202e206f
                       sourceName: Source1
                       approvalInfos:
-                         - name: John Snow
-                           id: 8a80828f643d484f01643e14202e2000
-                           status: Approved
+                        - name: John Snow
+                          id: 8a80828f643d484f01643e14202e2000
+                          status: Approved
                 eventType: AccessRequested
                 identityId: 8a80828f643d484f01643e14202e206f
                 dt: '2019-03-08T22:37:33.901Z'
-
             IdentityCertified:
               description: An identity certified event
-              value: 
-                - certification: 
+              value:
+                - certification:
                     id: 2c91808a77ff216301782327a50f09bf
                     name: Cert name
                     signedDate: '2019-03-08T22:37:33.901Z'
@@ -170,16 +167,15 @@ get:
                       - id: 8a80828f643d484f01643e14202e206f
                         displayName: Daenerys Targaryen
                     signer:
-                        id: 8a80828f643d484f01643e14202e206f
-                        displayName: Tyrion Lannister
+                      id: 8a80828f643d484f01643e14202e206f
+                      displayName: Tyrion Lannister
                   eventType: IdentityCertified
                   identityId: 8a80828f643d484f01643e14202e206f
-                  dt: '2019-03-08T22:37:33.901Z'            
-
+                  dt: '2019-03-08T22:37:33.901Z'
             AccountStatusChanged:
               description: An account status changed event
-              value: 
-                - account: 
+              value:
+                - account:
                     id: 2c91808a77ff216301782327a50f09bf
                     nativeIdentity: 127999
                     displayName: Sample Name
@@ -193,16 +189,15 @@ get:
                   eventType: AccountStatusChanged
                   identityId: 8a80828f643d484f01643e14202e206f
                   dt: '2019-03-08T22:37:33.901Z'
-
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

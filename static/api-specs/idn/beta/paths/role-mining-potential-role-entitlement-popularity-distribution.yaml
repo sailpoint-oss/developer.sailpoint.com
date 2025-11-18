@@ -3,8 +3,7 @@ get:
   summary: Retrieves entitlement popularity distribution for a potential role in a role mining session
   tags:
     - IAI Role Mining
-  description: >-
-    This method returns entitlement popularity distribution for a potential role in a role mining session.
+  description: This method returns entitlement popularity distribution for a potential role in a role mining session.
   parameters:
     - in: path
       name: sessionId
@@ -40,10 +39,17 @@ get:
             additionalProperties:
               type: integer
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth:
+        - iai:access-modeling:read
+        - iai:access-modeling:manage
+    - applicationAuth:
+        - iai:access-modeling:read
+        - iai:access-modeling:manage

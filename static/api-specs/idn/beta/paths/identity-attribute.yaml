@@ -3,10 +3,14 @@ get:
   tags:
     - Identity Attributes
   summary: Get identity attribute
-  description: >-
-    This gets an identity attribute for a given technical name.
+  description: This gets an identity attribute for a given technical name.
   security:
-    - userAuth: [ idn:identity-profile-attribute:read ]
+    - userAuth:
+        - idn:identity-profile-attribute:read
+        - idn:identity-profile-attribute:manage
+    - applicationAuth:
+        - idn:identity-profile-attribute:read
+        - idn:identity-profile-attribute:manage
   parameters:
     - in: path
       name: name
@@ -17,35 +21,33 @@ get:
       x-sailpoint-resource-operation-id: listIdentityAttributes
       example: displayName
   responses:
-    "200":
+    '200':
       description: The identity attribute with the given name
       content:
         application/json:
           schema:
-            $ref: "../../v3/schemas/identity-attributes/IdentityAttribute.yaml"
-    "400":
-      $ref: "../../v3/responses/400.yaml"
-    "401":
-      $ref: "../../v3/responses/401.yaml"
-    "403":
-      $ref: "../../v3/responses/403.yaml"
-    "404":
-      $ref: "../../v3/responses/404.yaml"
-    "429":
-      $ref: "../../v3/responses/429.yaml"
-    "500":
-      $ref: "../../v3/responses/500.yaml"
+            $ref: ../../v3/schemas/identity-attributes/IdentityAttribute.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
 put:
   operationId: putIdentityAttribute
   tags:
     - Identity Attributes
   summary: Update identity attribute
-  description: >-
-    This updates an existing identity attribute. 
-    Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.  
-    A token with ORG_ADMIN authority is required to call this API.
+  description: This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.   A token with ORG_ADMIN authority is required to call this API.
   security:
-    - userAuth: [ idn:identity-profile-attribute:manage ]
+    - userAuth:
+        - idn:identity-profile-attribute:manage
   parameters:
     - in: path
       name: name
@@ -60,37 +62,35 @@ put:
     content:
       application/json:
         schema:
-          $ref: "../../v3/schemas/identity-attributes/IdentityAttribute.yaml"
+          $ref: ../../v3/schemas/identity-attributes/IdentityAttribute.yaml
   responses:
-    "200":
+    '200':
       description: The identity attribute was updated successfully
       content:
         application/json:
           schema:
-            $ref: "../../v3/schemas/identity-attributes/IdentityAttribute.yaml"
-    "400":
-      $ref: "../../v3/responses/400.yaml"
-    "401":
-      $ref: "../../v3/responses/401.yaml"
-    "403":
-      $ref: "../../v3/responses/403.yaml"
-    "404":
-      $ref: "../../v3/responses/404.yaml"
-    "429":
-      $ref: "../../v3/responses/429.yaml"
-    "500":
-      $ref: "../../v3/responses/500.yaml"
+            $ref: ../../v3/schemas/identity-attributes/IdentityAttribute.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
 delete:
   operationId: deleteIdentityAttribute
   tags:
     - Identity Attributes
   summary: Delete identity attribute
-  description: >-
-    This deletes an identity attribute with the given name. 
-    The `system` and `standard` properties must be set to false before you can delete an identity attribute.  
-    A token with ORG_ADMIN authority is required to call this API.
+  description: This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.   A token with ORG_ADMIN authority is required to call this API.
   security:
-    - userAuth: [ idn:identity-profile-attribute:manage ]
+    - userAuth:
+        - idn:identity-profile-attribute:manage
   parameters:
     - in: path
       name: name
@@ -101,17 +101,17 @@ delete:
       x-sailpoint-resource-operation-id: listIdentityAttributes
       example: displayName
   responses:
-    "204":
-      $ref: "../../v3/responses/204.yaml"
-    "400":
-      $ref: "../../v3/responses/400.yaml"
-    "401":
-      $ref: "../../v3/responses/401.yaml"
-    "403":
-      $ref: "../../v3/responses/403.yaml"
-    "404":
-      $ref: "../../v3/responses/404.yaml"
-    "429":
-      $ref: "../../v3/responses/429.yaml"
-    "500":
-      $ref: "../../v3/responses/500.yaml"
+    '204':
+      $ref: ../../v3/responses/204.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

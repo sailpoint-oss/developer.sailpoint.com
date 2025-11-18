@@ -1,100 +1,102 @@
 post:
-  summary: "Add metadata to an entitlement."
-  description: "Add single Access Model Metadata to an entitlement."
+  summary: Add metadata to an entitlement.
+  description: Add single Access Model Metadata to an entitlement.
   tags:
     - Entitlements
-  operationId: "createAccessModelMetadataForEntitlement"
+  operationId: createAccessModelMetadataForEntitlement
   security:
-    - userAuth: [ idn:entitlement:update ]
+    - userAuth:
+        - idn:entitlement:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
-    - name: "id"
-      in: "path"
+    - name: id
+      in: path
       required: true
       schema:
-        type: "string"
+        type: string
       description: The entitlement id.
       example: 2c91808c74ff913f0175097daa9d59cd
       x-sailpoint-resource-operation-id: listEntitlements
-    - name: "attributeKey"
-      in: "path"
+    - name: attributeKey
+      in: path
       required: true
       x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
       schema:
-        type: "string"
+        type: string
       description: Technical name of the Attribute.
-      example: "iscPrivacy"
-    - name: "attributeValue"
-      in: "path"
+      example: iscPrivacy
+    - name: attributeValue
+      in: path
       required: true
       x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeValue
       schema:
-        type: "string"
+        type: string
       description: Technical name of the Attribute Value.
-      example: "public"
+      example: public
   responses:
-    "200":
-      description: "OK"
+    '200':
+      description: OK
       content:
         application/json:
           schema:
-            $ref: "../schemas/Entitlement.yaml"
+            $ref: ../schemas/Entitlement.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
 delete:
-  summary: "Remove metadata from an entitlement."
-  description: "Remove single Access Model Metadata from an entitlement."
+  summary: Remove metadata from an entitlement.
+  description: Remove single Access Model Metadata from an entitlement.
   tags:
     - Entitlements
-  operationId: "deleteAccessModelMetadataFromEntitlement"
+  operationId: deleteAccessModelMetadataFromEntitlement
   security:
-    - userAuth: [ idn:entitlement:delete ]
+    - userAuth:
+        - idn:entitlement:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
-    - name: "id"
-      in: "path"
+    - name: id
+      in: path
       required: true
       schema:
-        type: "string"
+        type: string
       description: The entitlement id.
       example: 2c91808c74ff913f0175097daa9d59cd
       x-sailpoint-resource-operation-id: listEntitlements
-    - name: "attributeKey"
-      in: "path"
+    - name: attributeKey
+      in: path
       required: true
       x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
       schema:
-        type: "string"
+        type: string
       description: Technical name of the Attribute.
-      example: "iscPrivacy"
-    - name: "attributeValue"
-      in: "path"
+      example: iscPrivacy
+    - name: attributeValue
+      in: path
       required: true
       x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeValue
       schema:
-        type: "string"
+        type: string
       description: Technical name of the Attribute Value.
-      example: "public"
+      example: public
   responses:
-    "200":
-      description: "OK"
+    '200':
+      description: OK
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

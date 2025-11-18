@@ -30,12 +30,12 @@ get:
         default: true
       required: true
   responses:
-    "200":
+    '200':
       description: Machine account subtype object.
       content:
         application/json:
           schema:
-            $ref: "../schemas/SourceSubtype.yaml"
+            $ref: ../schemas/SourceSubtype.yaml
           examples:
             SourceSubtype:
               value:
@@ -44,32 +44,34 @@ get:
                 technicalName: foo
                 displayName: Mr Foo
                 description: fighters
-                created: 2025-07-28T16:13:42.801300Z
-                modified: 2025-07-28T16:13:42.750850Z
-    "400":
-      $ref: "../responses/400.yaml"
-    "401":
-      $ref: "../responses/401.yaml"
-    "403":
-      $ref: "../responses/403.yaml"
-    "429":
-      $ref: "../responses/429.yaml"
-    "500":
-      $ref: "../responses/500.yaml"
+                created: 2025-07-28T16:13:42.801Z
+                modified: 2025-07-28T16:13:42.750Z
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [idn:sources:manage]
+    - userAuth:
+        - idn:sources:read
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:read
+        - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
     - SOURCE_SUBADMIN
-
 patch:
   summary: Patch subtype
-  description: >-
+  description: |-
     Update fields of a machine account subtype by its ID.
-
     Patchable fields include: `displayName`, `description`, `technicalName`.
-
   operationId: patchMachineAccountSubtype
   tags:
     - Machine Accounts
@@ -103,19 +105,19 @@ patch:
     content:
       application/json:
         schema:
-          $ref: "../schemas/SourceSubtype.yaml"
+          $ref: ../schemas/SourceSubtype.yaml
         examples:
           SourceSubtype:
             value:
               displayName: Mr Foo Updated
               description: fighters updated
   responses:
-    "200":
+    '200':
       description: Updated machine account subtype.
       content:
         application/json:
           schema:
-            $ref: "../schemas/SourceSubtype.yaml"
+            $ref: ../schemas/SourceSubtype.yaml
           examples:
             SourceSubtype:
               value:
@@ -124,25 +126,27 @@ patch:
                 technicalName: foo
                 displayName: Mr Foo Updated
                 description: fighters updated
-                created: 2025-07-28T16:13:42.801300Z
-                modified: 2025-07-28T16:13:42.750850Z
-    "400":
-      $ref: "../responses/400.yaml"
-    "401":
-      $ref: "../responses/401.yaml"
-    "403":
-      $ref: "../responses/403.yaml"
-    "429":
-      $ref: "../responses/429.yaml"
-    "500":
-      $ref: "../responses/500.yaml"
+                created: 2025-07-28T16:13:42.801Z
+                modified: 2025-07-28T16:13:42.750Z
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [idn:sources:manage]
+    - userAuth:
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
     - SOURCE_SUBADMIN
-
 delete:
   summary: Delete subtype
   description: Delete a machine account subtype by its ID.
@@ -175,20 +179,23 @@ delete:
         default: true
       required: true
   responses:
-    "204":
+    '204':
       description: Subtype deleted successfully.
-    "400":
-      $ref: "../responses/400.yaml"
-    "401":
-      $ref: "../responses/401.yaml"
-    "403":
-      $ref: "../responses/403.yaml"
-    "429":
-      $ref: "../responses/429.yaml"
-    "500":
-      $ref: "../responses/500.yaml"
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [idn:sources:manage]
+    - userAuth:
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN

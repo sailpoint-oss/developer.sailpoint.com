@@ -1,16 +1,14 @@
 get:
   operationId: getDataSegment
   security:
-    - userAuth: [ idn:data-segments:read ]
-    - applicationAuth: [ idn:data-segments:read ]
+    - userAuth:
+        - idn:data-segment:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
   tags:
     - Data Segmentation
   summary: Get segment by id
-  description: >-
-    This API returns the segment specified by the given ID.
-
+  description: This API returns the segment specified by the given ID.
   parameters:
     - in: path
       name: id
@@ -33,31 +31,30 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/data-segment/Data-Segment.yaml'
+            $ref: ../schemas/data-segment/Data-Segment.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
 post:
   operationId: publishDataSegment
   security:
-    - userAuth: [ idn:data-segments:write ]
-    - applicationAuth: [ idn:data-segments:write ]
+    - userAuth:
+        - idn:data-segment:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   tags:
     - Data Segmentation
   summary: Publish segment by id
-  description: >-
-    This will publish the segment so that it starts applying the segmentation to the desired users if enabled
+  description: This will publish the segment so that it starts applying the segmentation to the desired users if enabled
   parameters:
     - in: query
       name: publishAll
@@ -88,30 +85,28 @@ post:
     '200':
       description: Segments published
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
 patch:
   operationId: patchDataSegment
   security:
-    - userAuth: [ idn:data-segments:write ]
-    - applicationAuth: [ idn:data-segments:write ]
+    - userAuth:
+        - idn:data-segment:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   tags:
     - Data Segmentation
   summary: Update segment
-  description: >-
-    Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-
+  description: Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
   parameters:
     - in: path
       name: id
@@ -148,59 +143,55 @@ patch:
           items:
             type: object
         examples:
-            Set Visibility Criteria:
-                description: Set the member filter
+          Set Visibility Criteria:
+            description: Set the member filter
+            value:
+              - op: replace
+                path: /memberFilter
                 value:
-                  - op: "replace"
-                    path: "/memberFilter"
-                    value:
-                      expression:
-                        operator: "AND"
-                        children:
-                          - operator: "EQUALS"
-                            attribute: "location"
-                            value:
-                              type: "STRING"
-                              value: "Philadelphia"
-                          - operator: "EQUALS"
-                            attribute: "department"
-                            value:
-                              type: "STRING"
-                              value: "HR"
-                            
+                  expression:
+                    operator: AND
+                    children:
+                      - operator: EQUALS
+                        attribute: location
+                        value:
+                          type: STRING
+                          value: Philadelphia
+                      - operator: EQUALS
+                        attribute: department
+                        value:
+                          type: STRING
+                          value: HR
   responses:
     '200':
-      description: >-
-        Indicates the PATCH operation succeeded, and returns the segment's new representation.
+      description: Indicates the PATCH operation succeeded, and returns the segment's new representation.
       content:
         application/json:
           schema:
-            $ref: '../schemas/data-segment/Data-Segment.yaml'
+            $ref: ../schemas/data-segment/Data-Segment.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
 delete:
   operationId: deleteDataSegment
   security:
-    - userAuth: [ idn:data-segments:write ]
-    - applicationAuth: [ idn:data-segments:write ]
+    - userAuth:
+        - idn:data-segment:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   tags:
     - Data Segmentation
   summary: Delete segment by id
-  description: >-
-    This API deletes the segment specified by the given ID.
-
+  description: This API deletes the segment specified by the given ID.
   parameters:
     - in: path
       name: id
@@ -229,14 +220,14 @@ delete:
     '204':
       description: No content.
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

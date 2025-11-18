@@ -4,63 +4,57 @@ post:
     - Search Attribute Configuration
   summary: Create extended search attributes
   security:
-    - userAuth: [ idn:account-config:create ]
+    - userAuth:
+        - idn:account-config:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
-  description: >-
-    Create and configure extended search attributes. 
-    This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. 
-    It will then validate the inputs and configure/create the attribute promotion configuration in the Link ObjectConfig.
-
-    >**Note: Give searchable attributes unique names. 
-    Do not give them the same names used for account attributes or source attributes. 
-    Also, do not give them the same names present in account schema for a current or future source, regardless of whether that source is included in the searchable attributes' `applicationAttributes`.**
+  description: |-
+    Create and configure extended search attributes.  This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create the attribute promotion configuration in the Link ObjectConfig.
+    >**Note: Give searchable attributes unique names.  Do not give them the same names used for account attributes or source attributes.  Also, do not give them the same names present in account schema for a current or future source, regardless of whether that source is included in the searchable attributes' `applicationAttributes`.**
   requestBody:
     required: true
     content:
       application/json:
         schema:
-          $ref: '../schemas/SearchAttributeConfig.yaml'
-        example: {
-          "name": "newMailAttribute",
-          "displayName": "New Mail Attribute",
-          "applicationAttributes": {
-            "2c9180866166b5b0016167c32ef31a66": "mail",
-            "2c9180866166b5b0016167c32ef31a67": "mail"
-          }
-        }
+          $ref: ../schemas/SearchAttributeConfig.yaml
+        example:
+          name: newMailAttribute
+          displayName: New Mail Attribute
+          applicationAttributes:
+            2c9180866166b5b0016167c32ef31a66: mail
+            2c9180866166b5b0016167c32ef31a67: mail
   responses:
     '202':
-      $ref: '../../v3/responses/202.yaml'
+      $ref: ../../v3/responses/202.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
-
+      $ref: ../../v3/responses/500.yaml
 get:
   operationId: getSearchAttributeConfig
   tags:
     - Search Attribute Configuration
   summary: List extended search attributes
   security:
-    - userAuth: [ idn:account-config:read ]
+    - userAuth:
+        - idn:account-config:read
+        - idn:account-config:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
-  description: >-
+  description: |-
     Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
-
     A token with ORG_ADMIN authority is required to call this API.
   parameters:
-    - $ref: '../../v3/parameters/limit.yaml'
-    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: ../../v3/parameters/limit.yaml
+    - $ref: ../../v3/parameters/offset.yaml
   responses:
     '200':
       description: List of attribute configurations in ISC.
@@ -69,14 +63,14 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/SearchAttributeConfig.yaml'
+              $ref: ../schemas/SearchAttributeConfig.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

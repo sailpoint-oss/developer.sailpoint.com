@@ -1,39 +1,39 @@
 get:
   operationId: exportNonEmployeeSourceSchemaTemplate
-  # security:
-  #   - oauth2: [idn:nesr:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Exports source schema template
-  description: >-
-    This requests a download for the Source Schema Template for a provided
-    source. Requires role context of `idn:nesr:read`
+  description: This requests a download for the Source Schema Template for a provided source. Requires role context of `idn:nesr:read`
   parameters:
     - in: path
       name: id
-      description: >-
-        Source Id (UUID)
+      description: Source Id (UUID)
       required: true
       x-sailpoint-resource-operation-id: listNonEmployeeSources
       example: ef38f94347e94562b5bb8424a56397d8
       schema:
         type: string
   responses:
-    "200":
+    '200':
       description: Exported Source Schema Template
       content:
         text/csv:
           example: |
             accountName,firstName,lastName,phone,email,manager,startDate,endDate
-    "400":
-      $ref: "../responses/400.yaml"
-    "401":
-      $ref: "../responses/401.yaml"
-    "403":
-      $ref: "../responses/403.yaml"
-    "404":
-      $ref: "../responses/404.yaml"
-    "429":
-      $ref: "../responses/429.yaml"
-    "500":
-      $ref: "../responses/500.yaml"
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - idn:nelm:read
+    - applicationAuth:
+        - idn:nelm:read

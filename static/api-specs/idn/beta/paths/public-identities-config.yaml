@@ -3,13 +3,14 @@ get:
   tags:
     - Public Identities Config
   summary: Get public identity config
-  description: >-
-    This gets details of public identity config.
+  description: This gets details of public identity config.
   deprecated: true
   x-deprecated-description: |
     This API has been deprecated, please refer to [Get Public Identity Config](https://developer.sailpoint.com/docs/api/v2025/get-public-identity-config/) for latest API.
   security:
-    - userAuth: [idn:public-identity-config:read]
+    - userAuth:
+        - idn:public-identity-config:read
+        - idn:public-identity-config:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   responses:
@@ -18,29 +19,29 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/PublicIdentityConfig.yaml'
+            $ref: ../schemas/PublicIdentityConfig.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
 put:
   operationId: updatePublicIdentityConfig
   tags:
     - Public Identities Config
   summary: Update public identity config
-  description: >-
-    This updates the details of public identity config.
+  description: This updates the details of public identity config.
   deprecated: true
   x-deprecated-description: |
     This API has been deprecated, please refer to [Update Public Identity Config](https://developer.sailpoint.com/docs/api/v2025/update-public-identity-config/) for latest API.
   security:
-    - userAuth: [idn:public-identity-config:write]
+    - userAuth:
+        - idn:public-identity-config:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   requestBody:
@@ -48,21 +49,21 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/PublicIdentityConfig.yaml'
+          $ref: ../schemas/PublicIdentityConfig.yaml
   responses:
     '200':
       description: Request succeeded.
       content:
         application/json:
           schema:
-            $ref: '../schemas/PublicIdentityConfig.yaml'
+            $ref: ../schemas/PublicIdentityConfig.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

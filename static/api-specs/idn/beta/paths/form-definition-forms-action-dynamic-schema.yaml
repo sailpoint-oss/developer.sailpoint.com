@@ -4,30 +4,27 @@ post:
   summary: Generate json schema dynamically.
   operationId: createFormDefinitionDynamicSchema
   requestBody:
-    description: Body is the request payload to create a form definition dynamic
-      schema
+    description: Body is the request payload to create a form definition dynamic schema
     content:
       application/json:
         schema:
-          $ref: '../schemas/forms/FormDefinitionDynamicSchemaRequest.yaml'
-        example: {
-          "id": "sp:forms",
-          "attributes": {
-            "formDefinitionId": "00000000-0000-0000-0000-000000000000"
-          },
-          "description": "AnotherDescription",
-          "type": "action",
-          "versionNumber": 1
-        }
+          $ref: ../schemas/forms/FormDefinitionDynamicSchemaRequest.yaml
+        example:
+          id: sp:forms
+          attributes:
+            formDefinitionId: 00000000-0000-0000-0000-000000000000
+          description: AnotherDescription
+          type: action
+          versionNumber: 1
     required: false
   responses:
-    "200":
+    '200':
       description: Returns a form elements dynamic schema
       content:
         application/json:
           schema:
-            $ref: '../schemas/forms/FormDefinitionDynamicSchemaResponse.yaml'
-    "400":
+            $ref: ../schemas/forms/FormDefinitionDynamicSchemaResponse.yaml
+    '400':
       description: An error with the request occurred
       content:
         application/json:
@@ -40,7 +37,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -49,7 +46,7 @@ post:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "401":
+    '401':
       description: An error with the authorization occurred
       content:
         application/json:
@@ -62,7 +59,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -71,7 +68,7 @@ post:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "403":
+    '403':
       description: An error with the user permissions occurred
       content:
         application/json:
@@ -84,7 +81,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -93,7 +90,7 @@ post:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "404":
+    '404':
       description: An error with the item not found
       content:
         application/json:
@@ -106,7 +103,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -115,13 +112,13 @@ post:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "429":
+    '429':
       description: Too many requests
       content:
         application/json:
           schema:
-            $ref: '../schemas/forms/Error.yaml'
-    "500":
+            $ref: ../schemas/forms/Error.yaml
+    '500':
       description: An internal server error occurred
       content:
         application/json:
@@ -134,7 +131,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -145,5 +142,6 @@ post:
                 x-go-name: TrackingID
   security:
     - userAuth:
+        - sp:forms:read
         - sp:forms:manage
   x-codegen-request-body-name: Body

@@ -2,25 +2,29 @@ get:
   summary: List access model metadata values
   description: Get a list of Access Model Metadata Attribute Values
   tags:
-  - Access Model Metadata
+    - Access Model Metadata
   operationId: listAccessModelMetadataAttributeValue
   security:
-  - userAuth:
-    - idn:access-model-metadata:read
+    - userAuth:
+        - idn:access-model-metadata:read
+        - idn:access-model-metadata:manage
+    - applicationAuth:
+        - idn:access-model-metadata:read
+        - idn:access-model-metadata:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
-  - name: key
-    in: path
-    required: true
-    x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
-    schema:
-      type: string
-    description: Technical name of the Attribute.
-    example: iscPrivacy
-  - $ref: ../parameters/offset.yaml
-  - $ref: ../parameters/limit.yaml
-  - $ref: ../parameters/count.yaml
+    - name: key
+      in: path
+      required: true
+      x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
+      schema:
+        type: string
+      description: Technical name of the Attribute.
+      example: iscPrivacy
+    - $ref: ../parameters/offset.yaml
+    - $ref: ../parameters/limit.yaml
+    - $ref: ../parameters/count.yaml
   responses:
     '200':
       description: OK

@@ -6,7 +6,7 @@ post:
   summary: Execute a saved search by id
   operationId: executeSavedSearch
   parameters:
-  - $ref: '../parameters/path/search/id.yaml'
+    - $ref: ../parameters/path/search/id.yaml
   requestBody:
     description: |
       When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.
@@ -15,25 +15,28 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/search/saved/SearchArguments.yaml'
+          $ref: ../schemas/search/saved/SearchArguments.yaml
         examples:
           scheduled:
-            $ref: '../schemas/search/saved/examples/execute-scheduled.yaml'
+            $ref: ../schemas/search/saved/examples/execute-scheduled.yaml
           test:
-            $ref: '../schemas/search/saved/examples/execute-test.yaml'
+            $ref: ../schemas/search/saved/examples/execute-test.yaml
     required: true
   responses:
     '202':
       description: Accepted - Returned if the request was successfully accepted into the system.
-    '404':
-      $ref: '../responses/404.yaml'
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - sp:saved-search:manage

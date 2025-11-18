@@ -94,16 +94,47 @@ Provide the username generator transform itself in the create profile attribute 
 
 ## Attributes
 
-- **Required Attributes**
+The username generator transform uses the following structure:
 
-  - **type** - This must always be set to `usernameGenerator`.
-  - **patterns** - This is a JSON array of patterns for the generator to evaluate for uniqueness, in sequential order.
-    > **Note** that you can leverage `$uniqueCounter` here to automatically increment a counter if the generated value is not available and you want to try appending numeric values (i.e., 1, 2, 3, etc.) instead of progressing beyond the current pattern.
+```json
+{
+  "type": "usernameGenerator",
+  "attributes": {
+    "patterns": [
+      "CN=$fn.$ln,OU=Users,DC=YourDomain,DC=com",
+      "CN=$fn.$ln${uniqueCounter},OU=Users,DC=YourDomain,DC=com"
+    ],
+    "sourceCheck": true
+  }
+}
+```
 
-- **Optional Attributes**
-  - **sourceCheck** - This boolean value (true/false) indicates whether the generator must check only the Identity Security Cloud database's representation of accounts for uniqueness, or whether it must query the target system directly. If no value is provided, the attribute defaults to `false`.
-    - `true` indicates the generator must check the target system directly. The generator only respects this setting if the system supports the `getObject` functionality. For systems that lack the ability to query for single account objects, the generator ignores this setting and defaults to `false`. The generator only checks the attribute identified in the account schema as the `accountID`.
-    - `false` indicates the generator must check only the Identity Security Cloud database of accounts. The generator only checks the `accountID`.
+### Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `usernameGenerator`.
+
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the username generation configuration.
+
+#### Required
+
+- **patterns** `array` _(required)_  
+  A JSON array of patterns for the generator to evaluate for uniqueness, in sequential order. You can use `$uniqueCounter` to automatically increment a counter if the generated value is not available.
+
+#### Optional
+
+- **sourceCheck** `boolean` _(optional)_  
+  Whether the generator checks only the Identity Security Cloud database or queries the target system directly.
+  - `true` - Check the target system directly (only if the system supports `getObject`)
+  - `false` - Check only the Identity Security Cloud database (default)
+
+#### Optional (dynamic variables)
+
+Additional properties can be defined within the `attributes` object to serve as variables in the patterns. These can be transforms that evaluate to the desired values (e.g., `fn`, `ln`, `fi`, `mi`).
 
 ## Examples
 

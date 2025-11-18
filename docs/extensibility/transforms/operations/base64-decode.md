@@ -35,11 +35,25 @@ The base64 decode transform only requires the `type` and `name` attributes:
 
 ### Attributes
 
-- **Required Attributes**
-  - **type** - This must be set to `base64Decode`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
+The base64 decode transform only requires top-level properties:
+
+```json
+{
+  "type": "base64Decode",
+  "name": "Transform Name"
+}
+```
+
+### Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `base64Decode`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
 
 ## Examples
 

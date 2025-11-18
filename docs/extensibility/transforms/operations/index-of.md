@@ -36,15 +36,44 @@ The indexOf transform requires only the substring which you want to search for, 
 
 ## Attributes
 
-- **Required Attributes**
+The indexOf transform uses the following structure:
 
-  - **type** - This must always be set to `indexOf`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **substring** - This is the string whose beginning location within the incoming data you want to find.
+```json
+{
+  "type": "indexOf",
+  "name": "Transform Name",
+  "attributes": {
+    "substring": "searchString"
+  }
+}
+```
 
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
-  - **input** - This is an optional attribute that can explicitly define the input data passed into the transform logic. If no input is provided, the transform takes its input from the source and attribute combination configured with the UI.
+### Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `indexOf`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the search configuration.
+
+#### Required
+
+- **substring** `string` _(required)_  
+  The string whose beginning location within the incoming data you want to find. Returns `-1` if not found.
+
+#### Optional
+
+- **input** `object` _(optional)_  
+  Explicitly defines the input data passed into the transform. If not provided, the transform uses input from the source and attribute combination configured in the UI.
 
 ## Examples
 

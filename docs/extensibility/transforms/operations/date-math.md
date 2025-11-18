@@ -76,21 +76,67 @@ Some examples of expressions are:
 
 ## Attributes
 
-- **Required Attributes**
+The date math transform uses the following structure:
 
-  - **type** - This must always be set to `dateMath`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **expression** - A string value of the date and time components to operate on, along with the math operations to execute. Multiple operations on multiple components are supported.
+```json
+{
+  "type": "dateMath",
+  "name": "Transform Name",
+  "attributes": {
+    "expression": "now-5d/d",
+    "roundUp": false
+  }
+}
+```
 
-- **Optional Attributes**
+### Top-level properties (required)
 
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
-  - **roundUp** - This `true` or `false` value indicates whether the transform rounds up or down when the `expression` defines a rounding ("/") operation. If this value is not provided, the transform defaults to `false`.
+- **type** `string` _(required)_  
+  Must be set to `dateMath`.
 
-    - `true` indicates the transform rounds up (i.e., truncate the fractional date/time component indicated and then add one unit of that component).
-    - `false` indicates the transform rounds down (i.e., truncate the fractional date/time component indicated).
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
 
-  - **input** - This is an optional attribute that can explicitly define the input data passed into the transform logic. If no input is provided, the transform takes its input from the source and attribute combination configured with the UI.
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the date math configuration.
+
+#### Required
+
+- **expression** `string` _(required)_  
+  A string value of the date and time components to operate on, along with the math operations to execute. Multiple operations on multiple components are supported.
+  
+  **Abbreviations:**
+  - `y` - year
+  - `M` - month
+  - `w` - week
+  - `d` - day
+  - `h` - hour
+  - `m` - minute
+  - `s` - second
+  - `now` - current instant in time
+  
+  **Operators:**
+  - `+` - add (must be followed by a valid time unit)
+  - `-` - subtract (must be followed by a valid time unit)
+  - `/` - round (must be followed by a valid time unit)
+
+#### Optional
+
+- **roundUp** `boolean` _(optional)_  
+  Whether the transform rounds up or down when the expression defines a rounding (`/`) operation.
+  - `true` - Round up (truncate and add one unit)
+  - `false` - Round down (truncate only)
+  
+  Default is `false`.
+
+- **input** `object` _(optional)_  
+  Explicitly defines the input data passed into the transform. If not provided, the transform uses input from the source and attribute combination configured in the UI.
 
 ## Examples
 

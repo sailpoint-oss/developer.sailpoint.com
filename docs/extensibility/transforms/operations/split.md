@@ -31,19 +31,55 @@ In addition to the standard `type` and `name` attributes, the split transform re
 
 ## Attributes
 
-- **Required Attributes**
+The split transform uses the following structure:
 
-  - **type** - This must always be set to `split`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **delimiter** - This can be either a single character or a regex expression. Transforms use it identify the break point between two substrings in the incoming data.
-  - **index** - This is the integer value for the desired array element after the incoming data has been split into a list. The array is a 0-based object, so the first array element would be index 0, the second element would be index 1, etc.
+```json
+{
+  "type": "split",
+  "name": "Transform Name",
+  "attributes": {
+    "delimiter": ",",
+    "index": 0
+  }
+}
+```
 
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
-  - **throws** - This boolean (true/false) value indicates whether an exception is thrown and returned as an output when an index is out of bounds with the resulting array (i.e., the provided `index` value is larger than the size of the array).
-    - true - The transform returns "IndexOutOfBoundsException".
-    - false - The transform returns null.
-    - If no throws value is provided, the transform defaults to true and returns an "IndexOutOfBoundsException".
+### Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `split`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the split configuration.
+
+#### Required
+
+- **delimiter** `string` _(required)_  
+  Either a single character or a regex expression used to identify the break point between substrings in the incoming data.
+
+- **index** `integer` _(required)_  
+  The index of the desired array element after the incoming data has been split (0-based indexing).
+
+#### Optional
+
+- **throws** `boolean` _(optional)_  
+  Whether an exception is thrown when the index is out of bounds.
+  - `true` - Returns "IndexOutOfBoundsException"
+  - `false` - Returns null
+  
+  Default is `true`.
+
+- **input** `object` _(optional)_  
+  Explicitly defines the input data passed into the transform. If not provided, the transform uses input from the source and attribute combination configured in the UI.
 
 ## Examples
 

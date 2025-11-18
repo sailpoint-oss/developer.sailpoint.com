@@ -40,14 +40,51 @@ In addition to the `type` and `name` attributes, the conditional transform requi
 
 ## Attributes
 
-- **Required Attributes**
-  - **type** - This must always be set to `conditional`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **expression** - This comparison statement follows the structure of `ValueA eq ValueB` where `ValueA` and `ValueB` are static strings or outputs of other transforms; the `eq` operator is the only valid comparison.
-  - **positiveCondition** - This is the output of the transform if the expression evaluates to true.
-  - **negativeCondition** - This is the output of the transform if the expression evaluates to false.
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
+The conditional transform uses the following structure:
+
+```json
+{
+  "type": "conditional",
+  "name": "Transform Name",
+  "attributes": {
+    "expression": "valueA eq valueB",
+    "positiveCondition": "trueResult",
+    "negativeCondition": "falseResult"
+  }
+}
+```
+
+### Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `conditional`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the conditional logic configuration.
+
+#### Required
+
+- **expression** `string` _(required)_  
+  The comparison statement following the structure `ValueA eq ValueB` where `ValueA` and `ValueB` are static strings or outputs of other transforms. The `eq` operator is the only valid comparison.
+
+- **positiveCondition** `string` _(required)_  
+  The output of the transform if the expression evaluates to true.
+
+- **negativeCondition** `string` _(required)_  
+  The output of the transform if the expression evaluates to false.
+
+#### Optional (dynamic variables)
+
+Additional properties can be defined within the `attributes` object to serve as variables in the expression or conditions. These can be the results of other transforms referenced using `$variableName` syntax.
 
 ## Examples
 

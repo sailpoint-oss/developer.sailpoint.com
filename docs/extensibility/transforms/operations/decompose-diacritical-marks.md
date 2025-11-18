@@ -38,15 +38,28 @@ The transform for decompose diacritical marks requires only the transform's `typ
 
 ## Attributes
 
-- **Required Attributes**
+The decompose diacritical marks transform only requires top-level properties:
 
-  - **type** - This must always be set to `decomposeDiacriticalMarks`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
+```json
+{
+  "type": "decomposeDiacriticalMarks",
+  "name": "Transform Name"
+}
+```
 
-- **Optional Attributes**
+### Top-level properties (required)
 
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
-  - **input** - This is an optional attribute that can explicitly define the input data passed into the transform logic. If no input is provided, the transform takes its input from the source and attribute combination configured with the UI.
+- **type** `string` _(required)_  
+  Must be set to `decomposeDiacriticalMarks`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
+- **input** `object` _(optional)_  
+  Explicitly defines the input data passed into the transform. If not provided, the transform uses input from the source and attribute combination configured in the UI.
 
 ## Examples
 

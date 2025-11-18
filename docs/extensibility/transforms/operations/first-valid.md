@@ -52,13 +52,46 @@ The first valid transform requires an array list of `values` that you must consi
 
 ## Attributes
 
-- **Required Attributes**
-  - **type** - This must always be set to `firstValid`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **values** - This is an array of attributes to evaluate for existence.
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
-  - **ignoreErrors** - This `true` or `false` value indicates whether to proceed to the next option if an error (like an NPE) occurs.
+The first valid transform uses the following structure:
+
+```json
+{
+  "type": "firstValid",
+  "name": "Transform Name",
+  "attributes": {
+    "values": [
+      // array of values or transforms to evaluate
+    ]
+  }
+}
+```
+
+### Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `firstValid`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the values to evaluate.
+
+#### Required
+
+- **values** `array` _(required)_  
+  An array of attributes to evaluate for existence. The transform returns the first entry that evaluates to a non-null value, so provide entries in descending order of preference.
+
+#### Optional
+
+- **ignoreErrors** `boolean` _(optional)_  
+  Whether to proceed to the next option if an error (like an NPE) occurs. Default is `false`.
 
 ## Examples
 

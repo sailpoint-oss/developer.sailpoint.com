@@ -1,43 +1,45 @@
 ---
-id: concatenation
-title: Concatenation
-pagination_label: Concatenation
-sidebar_label: Concatenation
-sidebar_class_name: concatenation
-keywords: ['transforms', 'operations', 'concatenation']
-description: Join two or more string values into a combined output.
-slug: /extensibility/transforms/operations/concatenation
+id: join
+title: Join
+pagination_label: Join
+sidebar_label: Join
+sidebar_class_name: join
+keywords: ['transforms', 'operations', 'join']
+description: Join two or more string values into a combined output with a defined separator.
+slug: /extensibility/transforms/operations/join
 tags: ['Transforms', 'Transform Operations']
 ---
 
 ## Overview
 
-Use the concatenation transform to join two or more string values into a combined output. The concatenation transform often joins elements such as first and last name into a full display name, but it has many other uses.
+Use the join transform to join two or more string values with a specified separator into a combined output. The join transform often joins elements such as first and last name into a full display name, but it has many other uses.
 
 ## Transform structure
 
-The concatenation transform requires an array list of `values` that need to be joined. These values can be static strings or the return values of other nested transforms.
+The join transform requires an array list of `values` that need to be joined. These values can be static strings or the return values of other nested transforms.
 
 ```json
 {
   "attributes": {
-    "values": ["John", " ", "Smith"]
+    "values": ["John", "Smith"],
+    "separator": "|"
   },
-  "type": "concat",
-  "name": "Concatenation transform"
+  "type": "join",
+  "name": "Join transform"
 }
 ```
 
 ## Attributes
 
-The concatenation transform uses the following structure:
+The join transform uses the following structure:
 
 ```json
 {
-  "type": "concat",
+  "type": "join",
   "name": "Transform Name",
   "attributes": {
-    "values": ["string1", "string2", ...]
+    "values": ["string1", "string2", ...],
+    "separator": "|"
   }
 }
 ```
@@ -45,7 +47,7 @@ The concatenation transform uses the following structure:
 ### Top-level properties (required)
 
 - **type** `string` _(required)_  
-  Must be set to `concat`.
+  Must be set to `join`.
 
 - **name** `string` _(required)_  
   The name of the transform as it will appear in the UI's dropdown menus.
@@ -57,16 +59,21 @@ The concatenation transform uses the following structure:
 
 ### `attributes` (required)
 
-The `attributes` object contains the values to concatenate.
+The `attributes` object contains the values to join.
 
 #### Required
 
 - **values** `array` _(required)_  
   An array of items to join. Items can be static strings or the return values of other nested transforms.
 
+#### Optional
+
+- **separator** `string` _(optional)_  
+  The separator to use between each value in the array. Default is `","` (comma).
+
 ## Examples
 
-This transform joins the user's first name from the "HR Source" with his/her last name, adds a space between them, and then adds a parenthetical note that the user is a contractor at the end.
+This transform joins the user's first name and last name from the "HR Source" with a space separator.
 
 **Transform request body**:
 
@@ -81,19 +88,18 @@ This transform joins the user's first name from the "HR Source" with his/her las
         },
         "type": "accountAttribute"
       },
-      " ",
       {
         "attributes": {
           "sourceName": "HR Source",
           "attributeName": "LastName"
         },
         "type": "accountAttribute"
-      },
-      " (Contractor)"
-    ]
+      }
+    ],
+    "separator": " "
   },
-  "type": "concat",
-  "name": "Test Concat Transform"
+  "type": "join",
+  "name": "Join Transform"
 }
 ```
 
@@ -101,7 +107,7 @@ This transform joins the user's first name from the "HR Source" with his/her las
 
 <p>&nbsp;</p>
 
-This transform joins the user's job title with his/her job code value and adds a hyphen between those two pieces of data.
+This transform joins the user's job title with his/her job code value using a hyphen as the separator.
 
 **Transform request body**:
 
@@ -116,7 +122,6 @@ This transform joins the user's job title with his/her job code value and adds a
         },
         "type": "accountAttribute"
       },
-      "-",
       {
         "attributes": {
           "sourceName": "HR Source",
@@ -124,9 +129,10 @@ This transform joins the user's job title with his/her job code value and adds a
         },
         "type": "accountAttribute"
       }
-    ]
+    ],
+    "separator": "-"
   },
-  "type": "concat",
-  "name": "Test Concat Transform"
+  "type": "join",
+  "name": "Join Transform"
 }
 ```

@@ -30,15 +30,43 @@ In addition to the standard `type` and `name` attributes, the structure of a rul
 
 ## Attributes
 
-- **Required Attributes**
+The rule transform uses the following structure:
 
-  - **type** - This must always be set to `rule`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **attributes.name** - This is the name of the Transform rule the transform must invoke.
+```json
+{
+  "type": "rule",
+  "name": "Transform Name",
+  "attributes": {
+    "name": "Transform Calculation Rule"
+  }
+}
+```
 
-- **Optional Attributes**
-  - The rule transform can implement variables within the attributes list. These variables can be defined as static string values or even as the results of other transforms. Any variables defined here are passed to the Transform rule and are available for calculation within that code.
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
+### Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `rule`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the rule configuration.
+
+#### Required
+
+- **name** `string` _(required)_  
+  The name of the Transform rule the transform must invoke.
+
+#### Optional (dynamic variables)
+
+The rule transform can implement variables within the `attributes` object. These variables can be defined as static string values or as the results of other transforms. Any variables defined here are passed to the Transform rule and are available for calculation within that code.
 
 ## Examples
 

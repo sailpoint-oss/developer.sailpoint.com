@@ -41,17 +41,50 @@ In addition to the `type` and `name` attributes, the structure of a lookup trans
 
 ## Attributes
 
-- **Required Attributes**
+The lookup transform uses the following structure:
 
-  - **type** - This must always be set to `lookup`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **table** - This is a JSON object of key-value pairs. The key is the string the transform tries to match to the input, and the value is the output string the transform returns if it matches the key.
+```json
+{
+  "type": "lookup",
+  "name": "Transform Name",
+  "attributes": {
+    "table": {
+      "key1": "value1",
+      "key2": "value2",
+      "default": "defaultValue"
+    }
+  }
+}
+```
 
-    :::tip A default key must be specified. Otherwise, an error will be returned if there are no matching values in your table. :::
+### Top-level properties (required)
 
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
-  - **input** - This is an optional attribute that can explicitly define the input data passed into the transform logic. If no input is provided, the transform takes its input from the source and attribute combination configured with the UI.
+- **type** `string` _(required)_  
+  Must be set to `lookup`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the configuration for the lookup table.
+
+#### Required
+
+- **table** `object` _(required)_  
+  A JSON object of key-value pairs. The key is the string the transform tries to match to the input, and the value is the output string the transform returns if it matches the key.
+  
+  :::tip A default key must be specified. Otherwise, an error will be returned if there are no matching values in your table. :::
+
+#### Optional
+
+- **input** `object` _(optional)_  
+  Explicitly defines the input data passed into the transform. If not provided, the transform uses input from the source and attribute combination configured in the UI.
 
 ## Examples
 

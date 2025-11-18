@@ -44,36 +44,80 @@ The account attribute transform's configuration can take several attributes as i
 
 ## Attributes
 
-- **Required Attributes**
-  - **type** - This must always be set to `accountAttribute`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **sourceName** - This is a reference to the source to search for accounts.
-    - This is a reference by a source's display name attribute (e.g., Active Directory). If the display name is updated, this reference must also be updated.
-    - As an alternative, you can provide an `applicationId` or `applicationName` instead.
-      - `applicationId` - This is a reference by a source's external GUID/ID attribute (e.g., "ff8081815a8b3925015a8b6adac901ff").
-      - `applicationName` - This is a reference by a source's immutable name attribute (e.g., "Active Directory \[source\]").
-  - **attributeName** - The name of the attribute on the account to return. This matches the name of the account attribute name visible in the user interface or on the source schema.
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This is a `true` or `false` value indicating whether the transform logic must be reevaluated every evening as part of the identity refresh process.
-  - **accountSortAttribute** - This configuration's value is a string name of the attribute to use when determining the ordering of returned accounts when there are multiple entries.
-    - Accounts can be sorted by any schema attribute.
-    - If no sort attribute is defined, the transform will default to "created" (ascending sort on created date - oldest object wins).
-  - **accountSortDescending** - This configuration's value is a boolean (true/false). It controls the sort order when there are multiple accounts.
-    - If not defined, the transform will default to false (ascending order)
-  - **accountReturnFirstLink** - This configuration's value is a boolean (true/false). It controls which account to source a value from for an attribute. If this flag is set to true, the transform returns the value from the first account in the list, even if it is null. If this flag is set to false, the transform returns the first non-null value.
-    - If the configuration's value is not defined, the transform will default to the false setting.
-  - **accountFilter** - This expression queries the database to narrow search results. This configuration's value is a `sailpoint.object.Filter` expression for searching against the database. The default filter always includes the source and identity, and any subsequent expressions are combined in an AND operation with the existing search criteria.
-    - Only certain searchable attributes are available:
-      - `nativeIdentity` - This is the account ID.
-      - `displayName` - This is the account name.
-      - `entitlements` - This boolean value determine whether the account has entitlements.
-  - **accountPropertyFilter** - Use this expression to search and filter accounts in memory. This configuration's value is a `sailpoint.object.Filter` expression for searching against the returned resultset.
-    - All account attributes are available for filtering because this operation is performed in memory.
-    - Examples:
-      - `(status != "terminated")`
-      - `(department == "Engineering")`
-      - `(groups.containsAll({"Admin"}) || location == "Austin")`
-  - **input** - This is an optional attribute that can explicitly define the input data passed into the transform logic. If no input is provided, the transform takes its input from the source and attribute combination configured with the UI.
+The account attribute transform uses the following structure:
+
+```json
+{
+  "type": "accountAttribute",
+  "name": "Transform Name",
+  "attributes": {
+    // Configuration properties go here
+  }
+}
+```
+
+### Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `accountAttribute`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the configuration for looking up account attributes.
+
+#### Required
+
+- **sourceName** `string` _(required)_  
+  The source to search for accounts. This references a source's display name (e.g., "Active Directory"). If the display name changes, this reference must be updated.
+  
+  **Alternatives:**
+  - **applicationId** - Reference by source's external GUID (e.g., "ff8081815a8b3925015a8b6adac901ff")
+  - **applicationName** - Reference by source's immutable name (e.g., "Active Directory \[source\]")
+
+- **attributeName** `string` _(required)_  
+  The name of the attribute on the account to return. This matches the account attribute name visible in the UI or source schema.
+
+#### Optional
+
+- **accountSortAttribute** `string` _(optional)_  
+  The attribute name to use when sorting returned accounts (if multiple exist). Accounts can be sorted by any schema attribute. Default is `"created"` (ascending sort - oldest wins).
+
+- **accountSortDescending** `boolean` _(optional)_  
+  Controls the sort order when multiple accounts exist. Default is `false` (ascending order).
+
+- **accountReturnFirstLink** `boolean` _(optional)_  
+  Controls which account value to return:
+  - `true` - Returns the value from the first account in the sorted list, even if null
+  - `false` - Returns the first non-null value from the sorted accounts
+  
+  Default is `false`.
+
+- **accountFilter** `string` _(optional)_  
+  A `sailpoint.object.Filter` expression to narrow search results by querying the database. This filter is combined with the default source and identity filter using AND logic.
+  
+  **Available searchable attributes:**
+  - `nativeIdentity` - The account ID
+  - `displayName` - The account name  
+  - `entitlements` - Whether the account has entitlements (boolean)
+
+- **accountPropertyFilter** `string` _(optional)_  
+  A `sailpoint.object.Filter` expression to filter accounts in memory after retrieval. All account attributes are available since filtering happens in memory.
+  
+  **Examples:**
+  - `(status != "terminated")`
+  - `(department == "Engineering")`
+  - `(groups.containsAll({"Admin"}) || location == "Austin")`
+
+- **input** `object` _(optional)_  
+  Explicitly defines the input data passed into the transform. If not provided, the transform uses input from the source and attribute combination configured in the UI.
 
 ## Examples
 

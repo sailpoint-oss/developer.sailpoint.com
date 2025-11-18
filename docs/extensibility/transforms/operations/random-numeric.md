@@ -27,17 +27,42 @@ The random numeric transform only requires the standard `type` and `name` attrib
 
 ## Attributes
 
-- **Required Attributes**
+The random numeric transform uses the following structure:
 
-  - **type** - This must always be set to `randomNumeric`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
+```json
+{
+  "type": "randomNumeric",
+  "name": "Transform Name",
+  "attributes": {
+    "length": "10"
+  }
+}
+```
 
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
-  - **length** - This is the integer value specifying the required size/number of digits the random number must contain.
-    - This value must be a positive number and cannot be blank.
-    - If no length is provided, the transform defaults to a value of 10.
-    - Due to identity attribute data constraints, the maximum allowable value is 450 characters.
+### Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `randomNumeric`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
+---
+
+### `attributes` (optional)
+
+The `attributes` object contains the length configuration.
+
+#### Optional
+
+- **length** `string` _(optional)_  
+  An integer value specifying the required size/number of digits for the random number.
+  - Must be a positive number
+  - Default is `10`
+  - Maximum allowable value is `450` characters
 
 ## Examples
 

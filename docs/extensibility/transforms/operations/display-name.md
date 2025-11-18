@@ -30,10 +30,35 @@ The displayName generator transform is intended for using Preferred Name over Gi
 
 ## Attributes
 
-- **Required Attributes**
-  - **type** - This must always be set to `displayName`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **attributes** - The attributes key must be included and not null for the transform to work properly.
+The displayName transform uses the following structure:
+
+```json
+{
+  "type": "displayName",
+  "name": "Transform Name",
+  "attributes": {
+    "input": "input"
+  }
+}
+```
+
+### Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `displayName`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+---
+
+### `attributes` (required)
+
+The `attributes` object must be included for the transform to work properly.
+
+#### Required
+
+- The `attributes` key must be present and not null. The transform automatically uses the identity's Preferred Name (if available) or Given Name, combined with the Family Name.
 
 ## Examples
 

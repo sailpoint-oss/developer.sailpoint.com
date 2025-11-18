@@ -39,15 +39,57 @@ In addition to the standard `type` and `name` attributes, the static transform r
 
 ## Attributes
 
-- **Required Attributes**
+The static transform uses the following structure:
 
-  - **type** - This must always be set to `static.`
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **value** - This must evaluate to a JSON string either through a fixed value or through conditional logic using Velocity Template Language.
+```json
+{
+  "type": "static",
+  "name": "Transform Name",
+  "attributes": {
+    "value": "string or Velocity template"
+  }
+}
+```
 
-- **Optional Attributes**
-  - The static transform can implement variables within the `value` expression. These variables can be defined as optional attributes within the transform and can themselves be the results of other transforms.
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
+### Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `static`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the configuration for the static value or template.
+
+#### Required
+
+- **value** `string` _(required)_  
+  A JSON string value, either a fixed string or conditional logic using Velocity Template Language.
+
+#### Optional (dynamic variables)
+
+The static transform can implement variables within the `value` expression. These variables can be defined as additional properties within the `attributes` object and can themselves be the results of other transforms.
+
+**Example:**
+
+```json
+{
+  "attributes": {
+    "value": "$myVariable",
+    "myVariable": {
+      "type": "accountAttribute",
+      "attributes": { ... }
+    }
+  }
+}
+```
 
 ## Examples
 

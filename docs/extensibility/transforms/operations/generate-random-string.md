@@ -40,30 +40,55 @@ The structure of a generate random string transform requires the `name` of the r
 
 ## Attributes
 
-- **Required Attributes**
-  - **type** - This must always be set to `rule`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **attributes.name** - This must always be set to `Cloud Services Deployment Utility`.
-  - **operation** - This must always be set to `generateRandomString`.
-  - **includeNumbers** - You must set this value to `true` or `false` to indicate whether the generator logic includes numbers.
-  - **includeSpecialChars** - You must set this value to `true` or `false` to indicate whether the generator logic includes the followin special characters:
-    - !
-    - @
-    - \#
-    - \$
-    - %
-    - &
-    - \*
-    - (
-    - )
-    - \+
-    - \<
-    - \>
-    - ?
-  - **length** - This is the required length ofthe randomly generated string.
-    > **Note** Due to identity attribute data constraints, the maximum allowable value is 450 characters.
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
+The generate random string transform uses the following structure:
+
+```json
+{
+  "type": "rule",
+  "name": "Transform Name",
+  "attributes": {
+    "name": "Cloud Services Deployment Utility",
+    "operation": "generateRandomString",
+    "includeNumbers": "true",
+    "includeSpecialChars": "true",
+    "length": "16"
+  }
+}
+```
+
+### Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `rule`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the rule configuration.
+
+#### Required
+
+- **name** `string` _(required)_  
+  Must be set to `Cloud Services Deployment Utility`.
+
+- **operation** `string` _(required)_  
+  Must be set to `generateRandomString`.
+
+- **includeNumbers** `string` _(required)_  
+  Set to `"true"` or `"false"` to indicate whether the generator includes numbers.
+
+- **includeSpecialChars** `string` _(required)_  
+  Set to `"true"` or `"false"` to indicate whether the generator includes special characters `(!, @, #, $, %, &, *, (, ), +, <, >, ?)`.
+
+- **length** `string` _(required)_  
+  The required length of the randomly generated string. Maximum allowable value is `450` characters.
 
 ## Examples
 

@@ -12,9 +12,13 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 ## Event Context
 
-Account Deleted events occur whenever an account is deleted from its source during an account aggregation operation. The account may have been manually removed or deleted as the result of a provisioning event. The trigger cannot determine whether the account deletion happened on a source or in Identity Security Cloud. It omits events related to Identity Security Cloud accounts, such as the Identity Security Cloud Admin.
+This event trigger fires when an account is deleted in Identity Security Cloud.
 
-Use this event trigger to watch for deletions of authoritative accounts, such as an account deleted on Workday.
+Accounts can be deleted via aggregations or provisioning.
+
+You could use this event trigger to fire a Workflow that takes additional actions after a privileged account has been deleted.
+
+See [Aggregating Accounts](https://documentation.sailpoint.com/saas/help/accounts/index.html#aggregating-accounts) and [Configuring Source Account Provisioning](https://documentation.sailpoint.com/saas/help/provisioning/create_profile.html) for more information about the scenarios that lead to account deletion.
 
 This is an example input from this trigger:
 

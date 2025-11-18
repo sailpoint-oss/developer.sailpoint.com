@@ -27,13 +27,6 @@ For more information about the scenarios that lead to machine identity updates, 
 
 Customers that have licensed Machine Identity Security or Agent Identity Security will receive this event trigger.
 
-This event trigger provides a flexible way to extend Joiner-Mover-Leaver processes. This provides more proactive governance and ensures identities can quickly get necessary access when they gets updated.
-
-Some uses cases for this trigger include the following:
-
-- Notify an administrator or system to take the appropriate birthright provisioning actions as part of the Joiner-Mover-Leaver workflow.
-- Notify a third party system to trigger another action.
-
 This is an example input from this trigger:
 
 ```json

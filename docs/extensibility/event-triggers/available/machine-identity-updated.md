@@ -14,8 +14,18 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 ![Flow](./img/machine-identity-updated-path.png)
 
-Machine Identity Updated events occur when a change in machine identity is detected during an aggregation and refresh from an authoritative source. Update in machine identities are detected when a correlated account to an existing machine identity from the authoritative source is updated . For more information, see [Configuring Correlation](https://community.sailpoint.com/t5/Connectors/Configuring-Correlation/ta-p/74045). The Machine Identity Updated event contains all the identity attributes as they are configured in the identity profile. For more information, see [Mapping Identity Profiles](https://community.sailpoint.com/t5/Admin-Help/Mapping-Identity-Profiles/ta-p/77877).
+This event trigger fires when a machine identity is updated in Identity Security Cloud.
 
+Machine identities can be updated via the UI, endpoint, or aggregations.
+
+You could use this event trigger to fire a Workflow that notifies machine identity owners when a machine identity's owner list changes.
+
+For more information about the scenarios that lead to machine identity updates, refer
+- [Managing Application Identities](https://documentation.sailpoint.com/saas/help/machine/identity.html)
+- [Managing AI Agents](https://documentation.sailpoint.com/saas/help/agent/agent_mgmt.html#updating-ai-agents)
+- [Aggregating AI Agents](https://documentation.sailpoint.com/saas/help/agent/agent_aggregations.html)
+
+Customers that have licensed Machine Identity Security or Agent Identity Security will receive this event trigger.
 
 This event trigger provides a flexible way to extend Joiner-Mover-Leaver processes. This provides more proactive governance and ensures identities can quickly get necessary access when they gets updated.
 

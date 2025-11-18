@@ -31,7 +31,7 @@ from sailpoint.beta.models.test_source_connection_multihost200_response import T
 test_source_connection_multihost200_response = TestSourceConnectionMultihost200Response(
 success=True,
 message='Tes.',
-timing=56,
+timing=30437,
 result_type=SOURCE_STATE_HEALTHY,
 test_connection_details=''
 )

@@ -14,29 +14,19 @@ tags: ['Event Triggers', 'Available Event Triggers','Fire and Forget']
 
 ![Flow](img/machine-identity-deleted-path.png)
 
-Machine Identity Deleted event will occur when a machine identity meets all the following requirements:
+This event trigger fires when a machine identity is deleted in Identity Security Cloud.
 
-- No correlated machine accounts
-- Not an owner of a role, access profile, application, source, or taskResult
-- Not an owner or requester of a workItem
-- Not a protected machine account
-- No assigned capabilities (ex. not an assigned cert reviewer)
-- Not involved in any active certification as a target (its access is not being certified)
+Machine identities can be deleted via the UI, endpoint, or aggregations. Machine identities can also be auto-deleted when all account correlations to the machine identity are removed.
 
-After machine accounts are aggregated and the machine identity refresh process finds a machine identity that meets the above criteria, the associated machine identity is deleted from Identity Security Cloud. For more information, see [Configuring Correlation](https://community.sailpoint.com/t5/Connectors/Configuring-Correlation/ta-p/74045). The Machine Identity Deleted event contains any identity attributes as they are configured in the identity profile. For more information, see [Mapping Identity Profiles](https://community.sailpoint.com/t5/Admin-Help/Mapping-Identity-Profiles/ta-p/77877).
+You could use this event trigger to fire a Workflow that notifies machine identity owners when a machine identity is decommissioned.
 
-:::info
+For more information about the scenarios that lead to machine identity deletion, refer.
+- [Managing Application Identities](https://documentation.sailpoint.com/saas/help/machine/identity.html).
+- [Managing AI Agents](https://documentation.sailpoint.com/saas/help/agent/agent_mgmt.html#updating-ai-agents).
+- [Aggregating AI Agents](https://documentation.sailpoint.com/saas/help/agent/agent_aggregations.html).
+- [Mapping Machine Account Attributes](https://documentation.sailpoint.com/saas/help/machine/account_configuration.html#mapping-machine-account-attributes).
 
-Identity Security Cloud will **hide** a machine identity from the identity list in the UI when the authoritative account is removed. This does not necessarily mean that the machine identity has been deleted. The machine identity will only be deleted when the above criteria are met. The deletion task run each night, so there will be a delay from when the criteria are met to when the machine identity will actually be deleted.
-
-:::
-
-This event trigger provides a flexible way to extend joiner-mover-leaver processes. This provides more proactive governance and ensures identities can quickly get necessary access when they enter your organization.
-
-Some uses cases for this trigger include the following:
-
-- Notify an administrator or system to take the appropriate provisioning actions as part of the leaver workflow.
-- Notify a system to trigger another action (e.g. removing the application from the available application section).
+Customers that have licensed Machine Identity Security or Agent Identity Security will receive this event trigger.
 
 This is an example input from this trigger:
 

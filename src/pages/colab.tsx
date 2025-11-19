@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import Layout from '@theme/Layout';
-import MarketplaceBanner from '../components/marketplace/MarketplaceBanner';
 import Link from '@docusaurus/Link';
-import styles from './exchange.module.css';
+import Layout from '@theme/Layout';
+import React, { useState } from 'react';
+import MarketplaceBanner from '../components/marketplace/MarketplaceBanner';
 import MarketplaceCards from '../components/marketplace/MarketplaceCards';
+import styles from './exchange.module.css';
 
 interface FilterConfig {
   category: string;
@@ -23,6 +23,11 @@ const Marketplace: React.FC = () => {
 
   const [saas] = useState<FilterConfig>({
     category: 'colab-saas-connectors',
+    tags: [],
+  });
+
+  const [saasConnectorCustomizers] = useState<FilterConfig>({
+    category: 'saas-connector-customizers',
     tags: [],
   });
 
@@ -96,6 +101,16 @@ const Marketplace: React.FC = () => {
               <div className={styles.titleContainer}>
                 <h1 className={styles.title}>SaaS Connectors</h1>
                 <Link to={'/colab/saasconnectors'} className={styles.link}>
+                  View All &#8594;
+                </Link>
+              </div>
+              <MarketplaceCards filterCallback={saas} limit={5} multiple={true} />
+            </div>
+
+            <div className={styles.cardContainer}>
+              <div className={styles.titleContainer}>
+                <h1 className={styles.title}>SaaS Connector Customizers</h1>
+                <Link to={'/colab/saasconnectorcustomizers'} className={styles.link}>
                   View All &#8594;
                 </Link>
               </div>

@@ -2,10 +2,10 @@ get:
   operationId: getSodViolationReportStatus
   tags:
     - SOD Policies
-  summary: Get SOD violation report status
+  summary: Get sod violation report status
   deprecated: true
   security:
-    - UserContextAuth: [ idn:sod-violation:read ]
+    - userAuth: [ idn:sod-violation:read ]
   description: >-
     This gets the status for a violation report run task that has already been invoked.
 
@@ -16,6 +16,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: startSodPolicy
       description: The ID of the object reference to retrieve.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:

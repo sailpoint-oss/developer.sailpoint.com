@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clients
-  summary: Specified Managed Client Status.
+  summary: Specified managed client status.
   description: Retrieve Managed Client Status by ID.
   deprecated: true
   operationId: getManagedClientStatus
@@ -10,6 +10,7 @@ get:
       in: path
       description: ID of the Managed Client Status to get
       required: true
+      x-sailpoint-resource-operation-id: getManagedClients
       schema:
         type: string
         example: aClientId
@@ -40,7 +41,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:managed-client-status:read]
+    - userAuth: [idn:managed-client-status:read]
 post:
   tags:
     - Managed Clients
@@ -53,6 +54,7 @@ post:
       in: path
       description: ID of the Managed Client Status to update
       required: true
+      x-sailpoint-resource-operation-id: getManagedClients
       schema:
         type: string
         example: aClientId
@@ -82,4 +84,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:managed-client-status:manage]
+    - userAuth: [idn:managed-client-status:manage]

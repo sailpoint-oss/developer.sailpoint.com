@@ -2,11 +2,20 @@ get:
   operationId: getProfileConfig
   tags:
     - Auth Profile
-  summary: Get Auth Profile.
+  summary: Get auth profile.
   description: >-
     This API returns auth profile information.
+  parameters:
+    - name: id
+      in: path
+      description: ID of the Auth Profile to get.
+      required: true
+      schema:
+        type: string
+        example: 2c91808a7813090a017814121919ecca
+      x-sailpoint-resource-operation-id: getProfileConfigList
   security:
-    - UserContextAuth: [sp:auth-profile:read]
+    - userAuth: [sp:auth-profile:read]
   responses:
     '200':
       description: Auth Profile
@@ -30,7 +39,7 @@ patch:
   operationId: patchProfileConfig
   tags:
     - Auth Profile
-  summary: Patch a specified Auth Profile
+  summary: Patch a specified auth profile
   description: >-
     This API updates an existing Auth Profile. The following fields are patchable:
 
@@ -43,6 +52,7 @@ patch:
       schema:
         type: string
         example: 2c91808a7813090a017814121919ecca
+      x-sailpoint-resource-operation-id: getProfileConfigList
   requestBody:
     content:
       application/json-patch+json:
@@ -69,4 +79,4 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [sp:auth-profile:update]
+    - userAuth: [sp:auth-profile:update]

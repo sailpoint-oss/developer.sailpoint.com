@@ -2,11 +2,11 @@ post:
   operationId: sendDuoVerifyRequest
   tags:
     - MFA Controller
-  summary: Verifying authentication via Duo method
+  summary: Verifying authentication via duo method
   description: >-
     This API Authenticates the user via Duo-Web MFA method.
   security:
-    - UserContextAuth: [idn:mfa:verify]
+    - userAuth: [idn:mfa:verify]
   requestBody:
     required: true
     content:

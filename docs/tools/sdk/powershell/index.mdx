@@ -26,7 +26,7 @@ You need the following to use the PowerShell SDK:
 ## Setup
 
 <details>
-<summary>CLI Assisted <em>(Recommended)</em></summary>
+<summary>CLI assisted <em>(recommended)</em></summary>
 
 The SailPoint CLI offers a few commands that will allow you to quickly get started with the PowerShell SDK. To learn how to install and use the SailPoint CLI, refer to [SailPoint CLI](https://developer.sailpoint.com/idn/tools/cli#get-the-cli).
 
@@ -52,6 +52,9 @@ Run this command to install the required dependencies:
 
 ```powershell
 Install-Module -Name PSSailpoint
+Install-Module -Name PSSailpoint.Beta
+Install-Module -Name PSSailpoint.V3
+Install-Module -Name PSSailpoint.V2024
 ```
 
 The command installs the SailPoint PowerShell SDK module. You will be prompted to confirm that you want to install the module from 'PSGallery'. Enter "A" to say "Yes to All".
@@ -60,6 +63,9 @@ If you already have a version of the PowerShell SDK installed, you can install a
 
 ```powershell
 Install-Module -Name PSSailpoint -Force
+Install-Module -Name PSSailpoint.Beta -Force
+Install-Module -Name PSSailpoint.V3 -Force
+Install-Module -Name PSSailpoint.V2024 -Force
 ```
 
 To validate that the module is installed, run this command, `Get-Module -ListAvailable PSSailpoint`, and verify that the module is listed. Additionally, you can run this command, `Get-Command -Module PSSailpoint`, to see the available commands included in the module.
@@ -69,7 +75,7 @@ The SDK is now installed. To learn how to configure the SDK, refer to the [Confi
 </details>
 
 <details>
-    <summary>Manual Installation</summary>
+    <summary>Manual installation</summary>
 
 ### Manually install the SDK
 
@@ -105,7 +111,7 @@ You must provide configuration to the SDK so that it can authenticate to your Sa
 The SDK requires a configuration file to be named "config.json". Within the file, provide these key/value pairs: `ClientId`, `ClientSecret`, `BaseURL`.
 
 <details>
-<summary>CLI Assisted <em>(Recommended)</em></summary>
+<summary>CLI assisted <em>(recommended)</em></summary>
 The SailPoint CLI offers a command to generate the config.json file with your currently configured CLI credentials.
 
 ```bash
@@ -133,7 +139,7 @@ sail sdk init config --env devrel
 </details>
 
 <details>
-<summary>Manual Configuration</summary>
+<summary>Manual configuration</summary>
 
 Create a file named "config.json", and provide these key/value pairs: `ClientId`, `ClientSecret`, `BaseURL`.
 
@@ -191,10 +197,24 @@ To get your environment variables to persist across PowerShell sessions, run the
 </TabItem>
 </Tabs>
 
+## Getting support
+
+To get support for the PowerShell SDK, please see our GitHub page, https://github.com/sailpoint-oss/powershell-sdk.
+
+To submit a bug report, please [click here](https://github.com/sailpoint-oss/powershell-sdk/issues/new?assignees=&labels=bug&template=bug-report.md).
+
+To submit a feature request, please [click here](https://github.com/sailpoint-oss/powershell-sdk/issues/new?assignees=&labels=enhancement&template=feature-request.md)
+
+## Contribute
+
+Do you have an idea to help improve the PowerShell SDK? You can contribute directly!
+
+Before you contribute, you must sign our [CLA](https://cla-assistant.io/sailpoint-oss/powershell-sdk) and read the [Contribution Guidelines](https://github.com/sailpoint-oss/developer.sailpoint.com/blob/main/CONTRIBUTING.md).
+
 ## Discuss
 
 You can use this SDK to build new tools that extend your ISC platform and improve experiences across your organization. Use this guide to get started, and if you have questions, don't hesitate to reach out on the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss! 
 
-## Getting Started
+## Getting started
 
 To get started using the SDK, refer to the [Getting Started Guide](./getting-started.md).

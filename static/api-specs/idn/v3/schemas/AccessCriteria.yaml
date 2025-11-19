@@ -1,4 +1,5 @@
 type: object
+title: Access Criteria
 properties:
   name:
     type: string
@@ -16,7 +17,7 @@ properties:
           type: string
           enum:
             - ENTITLEMENT
-          description: Type of the propery to which this reference applies to
+          description: Type of the property to which this reference applies to
           example: ENTITLEMENT
         id:
           type: string
@@ -26,15 +27,16 @@ properties:
           type: string
           description: Human-readable display name of the object to which this reference applies to
           example: Administrator
-    example: [
-    {
-      type: "ENTITLEMENT",
-      id: "2c9180866166b5b0016167c32ef31a66",
-      name: "Administrator"
-    },
-    {
-      type: "ENTITLEMENT",
-      id: "2c9180866166b5b0016167c32ef31a67",
-      name: "Administrator"
-    }
-    ]
+    example:
+      [
+        {
+          type: "ENTITLEMENT",
+          id: "2c9180866166b5b0016167c32ef31a66",
+          name: "Administrator",
+        },
+        {
+          type: "ENTITLEMENT",
+          id: "2c9180866166b5b0016167c32ef31a67",
+          name: "Administrator",
+        },
+      ]

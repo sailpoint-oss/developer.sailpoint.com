@@ -2,32 +2,33 @@ get:
   operationId: getOrgConfig
   tags:
   - Org Config
-  summary: Get Org configuration settings
+  summary: Get org config settings
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:org-configs:read
     - idn:org-configs:manage
-  description: Get org configuration with only external (org admin) accessible properties
-    for the current org.
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  description: Get the current organization's configuration settings, only external accessible properties.
   responses:
     '200':
       description: Request succeeded.
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/OrgConfig.yaml
+            $ref: ../schemas/OrgConfig.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   parameters:
   - name: X-SailPoint-Experimental
     in: header
@@ -41,12 +42,14 @@ patch:
   operationId: patchOrgConfig
   tags:
   - Org Config
-  summary: Patch an Org configuration property
+  summary: Patch org config
   security:
-  - UserContextAuth:
+  - userAuth:
     - idn:org-configs:manage
-  description: Patch configuration of the current org using http://jsonpatch.com/
-    syntax.  Commonly used for changing the time zone of an org.
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  description: Patch the current organization's configuration, using http://jsonpatch.com/
+    syntax. This is commonly used to changing an organization's time zone.
   requestBody:
     description: A list of schema attribute update operations according to the [JSON
       Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -55,7 +58,7 @@ patch:
         schema:
           type: array
           items:
-            $ref: ../../beta/schemas/JsonPatchOperation.yaml
+            $ref: ../schemas/JsonPatchOperation.yaml
         example:
         - op: replace
           path: /timeZone
@@ -63,23 +66,23 @@ patch:
     required: true
   responses:
     '200':
-      description: The Org was successfully patched.
+      description: Successfully patched org config.
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/OrgConfig.yaml
+            $ref: ../schemas/OrgConfig.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   parameters:
   - name: X-SailPoint-Experimental
     in: header
@@ -89,3 +92,4 @@ patch:
       type: string
       default: true
     required: true
+

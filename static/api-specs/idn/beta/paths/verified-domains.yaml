@@ -1,10 +1,10 @@
 get:
   security:
-  - UserContextAuth: [ sp:notification-dkim-attributes:read ]
+  - userAuth: [ sp:notification-dkim-attributes:read ]
   operationId: getDkimAttributes
   tags:
     - Notifications
-  summary: Get DKIM Attributes
+  summary: Get dkim attributes
   description: >-
     Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants' AWS SES identities. Limits retrieval to 100 identities per call.
   responses:
@@ -29,11 +29,11 @@ get:
 
 post:
   security:
-  - UserContextAuth: [ sp:notification-verify-domain-dkim:write ]
+  - userAuth: [ sp:notification-verify-domain-dkim:write ]
   operationId: createDomainDkim
   tags:
   - Notifications
-  summary: Verify domain address via DKIM
+  summary: Verify domain address via dkim
   description: >-
     Create a domain to be verified via DKIM (DomainKeys Identified Mail)
   requestBody:

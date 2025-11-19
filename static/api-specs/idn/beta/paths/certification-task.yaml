@@ -3,13 +3,13 @@ get:
   tags:
     - Certifications
     - Certification Campaigns
-  summary: Certification Task by ID
+  summary: Certification task by id
   deprecated: true
   description: >-
     This API returns the certification task for the specified ID. A token with ORG_ADMIN or CERT_ADMIN authority is
     required to call this API. Reviewers for the specified certification can also call this API.
   security:
-    - UserContextAuth: [ idn:certification:read ]
+    - userAuth: [ idn:certification:read ]
   parameters:
     - in: path
       name: id
@@ -18,6 +18,7 @@ get:
       required: true
       description: The task ID
       example: 63b32151-26c0-42f4-9299-8898dc1c9daa
+      x-sailpoint-resource-operation-id: getPendingCertificationTasks
   responses:
     '200':
       description: A certification task

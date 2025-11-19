@@ -1,7 +1,7 @@
 get:
   operationId: getSpConfigExportStatus
   security:
-    - UserContextAuth: [ sp:config:read, sp:config:manage]
+    - userAuth: [ sp:config:read, sp:config:manage]
   tags:
     - SP-Config
   summary: Get export job status
@@ -18,6 +18,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: exportSpConfig
       description: The ID of the export job whose status will be returned.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:

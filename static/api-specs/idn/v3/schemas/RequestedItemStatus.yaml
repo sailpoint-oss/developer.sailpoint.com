@@ -1,5 +1,10 @@
 type: object
+title: Requested Item Status
 properties:
+  id:
+    type: string
+    description: The ID of the access request.
+    example: 2c9180926cbfbddd016cbfc7c3b10010
   name:
     type: string
     description: Human-readable display name of the item being requested.
@@ -32,6 +37,13 @@ properties:
     items:
       $ref: './ApprovalStatusDto.yaml'
     description: Approval details for each item.
+  approvalIds:
+    type: array
+    items:
+      type: string
+    description: List of approval IDs associated with the request.
+    example: ["85f0cf482dd44327b593624c07906c21", "fa57e1bfa36f41ee85e33ee59fcbeac5"]
+    nullable: true
   manualWorkItemDetails:
     type: array
     nullable: true
@@ -131,3 +143,14 @@ properties:
         "key1": "value1",
         "key2": "value2"
       }
+  requestedAccounts:
+    nullable: true
+    type: array
+    items:
+      $ref: './RequestedAccountRef.yaml'
+    description: The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.
+  privilegeLevel:
+    nullable: true
+    type: string
+    description: The privilege level of the requested access item, if applicable.
+    example: High

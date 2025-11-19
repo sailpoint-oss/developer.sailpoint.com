@@ -13,6 +13,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSources
       description: The Source id
     - in: query
       name: locale

@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Processes
-  summary: Get Managed Processes
+  summary: Get managed processes
   description: >-
     Get a list of Managed Processes.
 
@@ -49,11 +49,11 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:managed-process:read, idn:managed-process:manage]
+    - userAuth: [idn:managed-process:read, idn:managed-process:manage]
 post:
   tags:
     - Managed Processes
-  summary: Create new Managed Processes
+  summary: Create new managed processes
   description: >-
     Create a new Managed Process.
 
@@ -88,4 +88,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:managed-process:manage]
+    - userAuth: [idn:managed-process:manage]

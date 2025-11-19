@@ -1,6 +1,6 @@
 ---
 id: disable-access-profile-requests
-title: Disable Access Profile Requests
+title: Disable access profile requests
 pagination_label: Disable Access Profile Requests
 sidebar_label: Disable Access Profile Requests
 sidebar_position: 1

@@ -42,7 +42,7 @@ To initialize a connector project, run this command:
 sail conn init [connectorProjectName]
 ```
 
-This command creates a folder named `connectorProjectName` in your working directory. The folder includes all the files necessary to create a connector. For more information about initiating a connector project, refer to the [Create new project](/docs/connectivity/saas-connectivity/prerequisites/#create-new-project) section of the SaaS Connectivity documentation.
+This command creates a folder named `connectorProjectName` in your working directory. The folder includes all the files necessary to create a connector. For more information about initiating a connector project, refer to the [Create new project](/docs/connectivity/saas-connectivity/prerequisites#creating-your-first-project) section of the SaaS Connectivity documentation.
 
 ### Create connector
 
@@ -80,7 +80,7 @@ The entitlement commands require an additional flag (`-t [entitlementType]`), li
 sail conn invoke entitlement-list -t [entitlementType] -c [connectorID | connectorAlias] -p [config.json] -v [version]
 ```
 
-For more information about invoking commands, refer to the [Test your connector in Identity Security Cloud](/docs/connectivity/saas-connectivity/test-build-deploy#test-your-connector-in-identitynow) section of the SaaS Connectivity documentation.
+For more information about invoking commands, refer to the [Test your connector in Identity Security Cloud](/docs/connectivity/saas-connectivity/test-build-deploy#test-your-connector-in-identity-security-cloud) section of the SaaS Connectivity documentation.
 
 ### List connectors
 

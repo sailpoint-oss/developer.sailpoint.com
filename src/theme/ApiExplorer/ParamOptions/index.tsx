@@ -1,25 +1,41 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from 'react';
 
-import FormItem from "@theme/ApiExplorer/FormItem";
-import ParamArrayFormItem from "@theme/ApiExplorer/ParamOptions/ParamFormItems/ParamArrayFormItem";
-import ParamBooleanFormItem from "@theme/ApiExplorer/ParamOptions/ParamFormItems/ParamBooleanFormItem";
-import ParamMultiSelectFormItem from "@theme/ApiExplorer/ParamOptions/ParamFormItems/ParamMultiSelectFormItem";
-import ParamSelectFormItem from "@theme/ApiExplorer/ParamOptions/ParamFormItems/ParamSelectFormItem";
-import ParamTextFormItem from "@theme/ApiExplorer/ParamOptions/ParamFormItems/ParamTextFormItem";
-import { useTypedSelector } from "@theme/ApiItem/hooks";
+import FormItem from '@theme/ApiExplorer/FormItem';
+import ParamArrayFormItem from '@theme/ApiExplorer/ParamOptions/ParamFormItems/ParamArrayFormItem';
+import ParamBooleanFormItem from '@theme/ApiExplorer/ParamOptions/ParamFormItems/ParamBooleanFormItem';
+import ParamMultiSelectFormItem from '@theme/ApiExplorer/ParamOptions/ParamFormItems/ParamMultiSelectFormItem';
+import ParamSelectFormItem from '@theme/ApiExplorer/ParamOptions/ParamFormItems/ParamSelectFormItem';
+import ParamTextFormItem from '@theme/ApiExplorer/ParamOptions/ParamFormItems/ParamTextFormItem';
+import {useTypedSelector} from '@theme/ApiItem/hooks';
 
-import { Param } from "./slice";
+import {Param} from './slice';
 
 export interface ParamProps {
   param: Param;
 }
 
-function ParamOption({ param }: ParamProps) {
-  if (param.schema?.type === "array" && param.schema.items?.enum) {
+import {useDispatch} from 'react-redux';
+import {setParam} from './slice';
+
+function ParamOption({param}: ParamProps) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (param.name === 'X-SailPoint-Experimental') {
+      dispatch(
+        setParam({
+          ...param,
+          value: 'true', // or whatever default you want
+        }),
+      );
+    }
+  }, []);
+
+  if (param.schema?.type === 'array' && param.schema.items?.enum) {
     return <ParamMultiSelectFormItem param={param} />;
   }
 
-  if (param.schema?.type === "array") {
+  if (param.schema?.type === 'array') {
     return <ParamArrayFormItem param={param} />;
   }
 
@@ -27,7 +43,7 @@ function ParamOption({ param }: ParamProps) {
     return <ParamSelectFormItem param={param} />;
   }
 
-  if (param.schema?.type === "boolean") {
+  if (param.schema?.type === 'boolean') {
     return <ParamBooleanFormItem param={param} />;
   }
 
@@ -36,7 +52,7 @@ function ParamOption({ param }: ParamProps) {
   return <ParamTextFormItem param={param} />;
 }
 
-function ParamOptionWrapper({ param }: ParamProps) {
+function ParamOptionWrapper({param}: ParamProps) {
   return (
     <FormItem label={param.name} type={param.in} required={param.required}>
       <ParamOption param={param} />
@@ -73,55 +89,50 @@ function ParamOptions() {
       {optionalParams.length > 0 && (
         <>
           <button
+            type="button"
             className="openapi-explorer__show-more-btn"
-            onClick={() => setShowOptional((prev) => !prev)}
-          >
+            onClick={() => setShowOptional((prev) => !prev)}>
             <span
               style={{
-                width: "1.5em",
-                display: "inline-block",
-                textAlign: "center",
-              }}
-            >
+                width: '1.5em',
+                display: 'inline-block',
+                textAlign: 'center',
+              }}>
               <span
                 className={
                   showOptional
-                    ? "openapi-explorer__plus-btn--expanded"
-                    : "openapi-explorer__plus-btn"
-                }
-              >
+                    ? 'openapi-explorer__plus-btn--expanded'
+                    : 'openapi-explorer__plus-btn'
+                }>
                 <div>
                   <svg
                     style={{
-                      fill: "currentColor",
-                      width: "10px",
-                      height: "10px",
+                      fill: 'currentColor',
+                      width: '10px',
+                      height: '10px',
                     }}
                     height="16"
                     viewBox="0 0 16 16"
                     width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
+                    xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M9 7h6a1 1 0 0 1 0 2H9v6a1 1 0 0 1-2 0V9H1a1 1 0 1 1 0-2h6V1a1 1 0 1 1 2 0z"
-                      fillRule="evenodd"
-                    ></path>
+                      fillRule="evenodd"></path>
                   </svg>
                 </div>
               </span>
             </span>
             {showOptional
-              ? "Hide optional parameters"
-              : "Show optional parameters"}
+              ? 'Hide optional parameters'
+              : 'Show optional parameters'}
           </button>
 
           <div
             className={
               showOptional
-                ? "openapi-explorer__show-options"
-                : "openapi-explorer__hide-options"
-            }
-          >
+                ? 'openapi-explorer__show-options'
+                : 'openapi-explorer__hide-options'
+            }>
             {optionalParams.map((param) => (
               <ParamOptionWrapper
                 key={`${param.in}-${param.name}`}

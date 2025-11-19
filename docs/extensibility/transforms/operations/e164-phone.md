@@ -20,7 +20,7 @@ Use the E.164 phone transform to convert an incoming phone number string into an
 
 :::
 
-## Transform Structure
+## Transform structure
 
 The E.164 phone transform only requires the transform's `type` and `name` attributes:
 
@@ -52,7 +52,7 @@ Input: "512-777-2222"
 Output: "+1512459222"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -80,7 +80,7 @@ Input: "779.284.2727"
 Output: "+17792842727"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -110,7 +110,7 @@ defaultRegion: "AU"
 Output: "+61412345678"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

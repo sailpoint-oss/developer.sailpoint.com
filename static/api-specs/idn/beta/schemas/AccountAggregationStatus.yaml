@@ -1,4 +1,5 @@
 type: object
+title: Account Aggregation Status
 properties:
   start:
     type: string

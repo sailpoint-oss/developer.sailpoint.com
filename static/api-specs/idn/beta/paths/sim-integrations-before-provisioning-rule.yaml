@@ -1,7 +1,7 @@
 patch:
   tags:
     - SIM Integrations
-  summary: Patch a SIM beforeProvisioningRule attribute.
+  summary: Patch a sim beforeprovisioningrule attribute.
   description: Patch a SIM beforeProvisioningRule attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
   operationId: patchBeforeProvisioningRule
   requestBody:
@@ -19,6 +19,7 @@ patch:
         type: string
       example: 12345
       required: true
+      x-sailpoint-resource-operation-id: getSIMIntegrations
   responses:
     '200':
       description: The updated DTO containing the details of the SIM integration.
@@ -39,4 +40,4 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:service-desk-admin:write]
+    - userAuth: [idn:service-desk-admin:write]

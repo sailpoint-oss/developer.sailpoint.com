@@ -11,17 +11,14 @@ slug: /tools/cli/cluster
 tags: ['CLI']
 ---
 
-# Clusters
-
 Learn how to use the SailPoint CLI to list manage client managed clusters in this guide.
 
 The `cluster` command makes it easy to manage clusters within the CLI.
 
-- [Clusters](#clusters)
-  - [List clusters](#list-clusters)
-  - [Get cluster by ID](#get-cluster-by-id)
-  - [Get cluster's log configuration](#get-clusters-log-configuration)
-  - [Set cluster's log configuration](#set-clusters-log-configuration)
+- [List clusters](#list-clusters)
+- [Get cluster by ID](#get-cluster-by-id)
+- [Get cluster's log configuration](#get-clusters-log-configuration)
+- [Set cluster's log configuration](#set-clusters-log-configuration)
 
 ## List clusters
 
@@ -93,4 +90,4 @@ sail cluster log set 2c91808580f6cc1a01811af8cf5f18cb -r TRACE -d 30 -c sailpoin
 
 This example command sets the "TRACE" root logging level, a duration of 30 minutes, and a connector logging class of "sailpoint.connector.ADLDAPConnector=TRACE".
 
-Refer to your respective [connector guide](https://documentation.sailpoint.com/connectors/identitynow/landingpages/help/landingpages/identitynow_connectivity_landing.html) to see which connector logging classes are available.
+Refer to your respective [connector guide](https://documentation.sailpoint.com/connectors/isc/landingpages/help/landingpages/isc_landing.html) to see which connector logging classes are available.

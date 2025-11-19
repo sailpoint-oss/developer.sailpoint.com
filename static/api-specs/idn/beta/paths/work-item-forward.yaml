@@ -1,16 +1,24 @@
 post:
-  operationId: forwardWorkItem
+  operationId: submitForwardWorkItem
   tags:
     - Work Items
-  summary: Forward a Work Item
+  summary: Forward a work item
   description: >-
     This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Forward a Work Item](https://developer.sailpoint.com/docs/api/v2025/forward-work-item/) for latest API.
+  security:
+    - userAuth: [idn:work-item:update]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: path
       name: id
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listWorkItems
       description: The ID of the work item
       example: ef38f94347e94562b5bb8424a56397d8
   requestBody:

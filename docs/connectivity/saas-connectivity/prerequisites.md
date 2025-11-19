@@ -11,7 +11,7 @@ slug: /connectivity/saas-connectivity/prerequisites
 tags: ['Connectivity']
 ---
 
-## Required Software
+## Required software
 
 ### Node
 
@@ -21,7 +21,7 @@ To develop a connector, Node >= 18.0.0 is required. Download node from the [node
 
 SailPoint provides a CLI tool to manage the connectors' lifecycles. To install and set up the CLI, [follow the instructions here](../../tools/cli) or you can directly download and install from the [GitHub releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases)
 
-## Recommended Software
+## Recommended software
 
 ### IDE
 
@@ -43,7 +43,7 @@ The CLI init command creates a new folder with your project name in the location
 
 Change the directory to the project folder and run ``npm install to install` the dependencies.
 
-### Source Files
+### Source files
 
 The earlier command creates the initial project source directory below:
 
@@ -54,7 +54,7 @@ my-first-project
 ├── package.json
 ├── src/
 |   ├── index.ts
-|   ├── my-client.txt
+|   ├── my-client.ts
 |   └── connector-spec.ts
 ├── tsconfig.json
 ```

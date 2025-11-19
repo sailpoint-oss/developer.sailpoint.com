@@ -33,7 +33,7 @@ properties:
     example: Director
   status:
     type: string
-    enum: [Active, Disabled]
+    enum: [Active, Pending, Disabled]
     description: Status of the user
     example: Active
   login:
@@ -48,3 +48,8 @@ properties:
     type: string
     description: The locale the user prefers to use
     example: fr-CA
+  sailpoint_identity_id:
+    type: string
+    format: string
+    description: The SailPoint Identity ID associated with this user
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e

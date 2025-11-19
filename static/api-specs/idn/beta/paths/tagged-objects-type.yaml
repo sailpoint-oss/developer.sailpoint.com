@@ -1,15 +1,13 @@
 get:
   operationId: listTaggedObjectsByType
   security:
-    - UserContextAuth: [ idn:tag:read, idn:tag:manage ]
+    - userAuth: [ idn:tag:read, idn:tag:manage ]
   tags:
     - Tagged Objects
-  summary: List Tagged Objects by Type
+  summary: List tagged objects by type
   description: >-
     This API returns a list of all tagged objects by type.
 
-
-    Any authenticated token may be used to call this API.
   parameters:
     - in: path
       name: type

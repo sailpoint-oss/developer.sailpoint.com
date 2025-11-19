@@ -1,0 +1,96 @@
+.containerFluid {
+  margin: 20px;
+}
+
+.actionBar {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.alertContainer {
+  min-height: 50px;
+}
+
+.inputTerminalContainer {
+  border: 3px solid red !important;
+  background: var(--terminal-background) !important;
+}
+
+.terminalContainerDefault {
+  border: 3px solid var(--dev-card-background) !important;
+  background: var(--terminal-background) !important;
+}
+
+a[id^='jsonpathDocumentationLink'] {
+  color: var(--link-color) !important;
+  text-decoration: underline !important;
+}
+
+a[id^='jsonpathDocumentationLink']:hover {
+  text-decoration: none!important;
+}
+
+li[class^='MuiButtonBase-root'] {
+  color: var(--ifm-primary-text-color);
+}
+div[class^='MuiFormControl-root'] {
+  color: var(--ifm-primary-text-color);
+}
+div[id^='terminal-font-size-select'],
+div[id^='implementation-dropdown-select'] {
+  color: var(--ifm-primary-text-color);
+}
+
+input[id^='outlined-basic-jsonpath-input'],
+label[id^='outlined-basic-jsonpath-input-label'],
+select[id^='terminal-font-size-select'],
+label[id^='terminal-font-size-label'],
+select[id^='implementation-dropdown-select'],
+label[id^='implementation-dropdown-label'] {
+  color: var(--ifm-primary-text-color);
+}
+input[id^='outlined-basic-jsonpath-input'],
+div[id^='terminal-font-size-select'],
+div[id^='implementation-dropdown-select'] {
+  background: var(--terminal-background);
+}
+fieldset[class^='MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline'] {
+  border: 1.5px solid var(--terminal-background);
+}
+ul[class^='MuiList-root MuiList-padding MuiMenu-list css-1toxriw-MuiList-root-MuiMenu-list'] {
+  background-color: var(--terminal-background);
+}
+ul[class^='MuiMenu-list'] {
+  background-color: var(--terminal-background);
+}
+div[class^='MuiPaper-root'] {
+  background-color: var(--terminal-background) !important;
+}
+
+span[class^='ace_variable'] {
+  color: var(--terminal-key) !important;
+}
+span[class^='ace_string'] {
+  color: var(--terminal-value) !important;
+}
+
+div [id^='jsonpathalert'] {
+  color: rgb(244, 67, 54);
+  border: 1px solid rgb(244, 67, 54);
+}
+
+.actionBar button {
+  min-width: 100px;
+}
+
+.runButton {
+  color: var(--ifm-button-colors) !important;
+  border: 1px solid var(--ifm-button-colors) !important;
+  background-color: var(--dropdown-background) !important;
+}
+
+.runButton:hover {
+  background-color: var(--ifm-button-colors) !important;
+  color: var(--text-on-primary) !important;
+  border: 1px solid var(--ifm-button-colors) !important;
+}

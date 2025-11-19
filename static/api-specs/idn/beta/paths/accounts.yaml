@@ -2,28 +2,36 @@ get:
   operationId: listAccounts
   tags:
     - Accounts
-  summary: Accounts List
+  summary: Accounts list
   description: >-
-    This returns a list of accounts.  
-    
-    A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
+    List accounts.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Accounts List](https://developer.sailpoint.com/docs/api/v2025/list-accounts/) for latest API.
   security:
-    - UserContextAuth: [idn:accounts:read, idn:accounts:manage]
+    - userAuth: [idn:accounts:read, idn:accounts:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - HELPDESK
   parameters:
     - in: query
       name: detailLevel
+      required: false
       schema:
         type: string
         enum: [ SLIM, FULL ]
       description: >-
-        Determines whether Slim, or increased level of detail is provided for each account in the returned list.
-        FULL is the default behavior.
+        This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list.
+        `FULL` is the default behavior.
       example: FULL
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
     - $ref: '../../v3/parameters/count.yaml'
     - in: query
       name: filters
+      required: false
       schema:
         type: string
       example: identityId eq "2c9180858082150f0180893dbaf44201"
@@ -60,6 +68,9 @@ get:
 
         **manuallyCorrelated**: *eq*
 
+        
+        **hasEntitlements**: *eq*
+
 
         **identity.name**: *eq, in, sw*
 
@@ -77,6 +88,15 @@ get:
 
 
         **source.connectionType**: *eq, in*
+
+
+        **recommendation.method**: *eq, in, isnull*
+
+
+        **created**: *eq, ge, gt, le*
+
+
+        **modified**: *eq, ge, gt, le, lt*
     - in: query
       name: sorters
       required: false
@@ -88,10 +108,10 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
 
-        Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
+        Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, hasEntitlements, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType, sourceOwner.name**
   responses:
     '200':
-      description: List of account objects
+      description: List of account objects.
       content:
         application/json:
           schema:
@@ -155,9 +175,9 @@ post:
   operationId: createAccount
   tags:
     - Accounts
-  summary: Create Account
+  summary: Create account
   description: |
-    This API submits an account creation task and returns the task ID.  
+    Submits an account creation task - the API then returns the task ID.  
 
     The `sourceId` where this account will be created must be included in the `attributes` object.
 
@@ -168,10 +188,15 @@ post:
     The endpoint doesn't actually provision the account on the target source, which means that if the account doesn't also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant. 
 
     By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account.
-    
-    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Create Account](https://developer.sailpoint.com/docs/api/v2025/create-account) for latest API.
   security:
-    - UserContextAuth: [idn:accounts:manage]
+    - userAuth: [idn:accounts:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   requestBody:
     required: true
     content:
@@ -180,7 +205,7 @@ post:
           $ref: "../schemas/AccountAttributesCreate.yaml"
   responses:
     '202':
-      description: Async task details
+      description: Async task details.
       content:
         application/json:
           schema:

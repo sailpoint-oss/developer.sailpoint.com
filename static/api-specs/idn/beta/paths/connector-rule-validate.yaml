@@ -2,7 +2,7 @@ post:
   tags:
     - Connector Rule Management
   operationId: validateConnectorRule
-  summary: Validate Connector Rule
+  summary: Validate connector rule
   description: >-
     Returns a list of issues within the code to fix, if any.
 
@@ -33,4 +33,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:rule-management-connector:read, idn:rule-management-connector:manage]
+    - userAuth: [idn:rule-management-connector:read, idn:rule-management-connector:manage]

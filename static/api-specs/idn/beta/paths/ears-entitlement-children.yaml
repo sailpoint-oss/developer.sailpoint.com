@@ -6,7 +6,9 @@ get:
   description: >-
     This API returns a list of all child entitlements of a given entitlement.
   security:
-    - UserContextAuth: ['idn:entitlement:read']
+    - userAuth: ['idn:entitlement:read']
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
@@ -18,6 +20,7 @@ get:
       required: true
       description: Entitlement Id
       example: 2c91808874ff91550175097daaec161c
+      x-sailpoint-resource-operation-id: listEntitlements
     - in: query
       name: sorters
       schema:

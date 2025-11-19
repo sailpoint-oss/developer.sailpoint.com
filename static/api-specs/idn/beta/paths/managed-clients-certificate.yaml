@@ -1,7 +1,7 @@
 post:
   tags:
     - Managed Clients
-  summary: Request to sign client(VA) certificate
+  summary: Request to sign client(va) certificate
   description: >-
     This API is used by client instances to request to sign client(VA) certificate.
   operationId: signCertificate
@@ -10,6 +10,7 @@ post:
       in: path
       description: The Managed Client ID
       required: true
+      x-sailpoint-resource-operation-id: getManagedClients
       schema:
         type: string
       example: aClientId
@@ -39,4 +40,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:managed-client-certificate:update]
+    - userAuth: [idn:managed-client-certificate:update]

@@ -2,13 +2,13 @@ get:
   operationId: getCampaignTemplateSchedule
   tags:
     - Certification Campaigns
-  summary: Get Campaign Template Schedule
+  summary: Get campaign template schedule
   description: |
     Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-template-schedule).
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: []
+    - userAuth: []
   deprecated: true
   parameters:
     - in: path
@@ -18,6 +18,7 @@ get:
       required: true
       description: ID of the campaign template whose schedule is being fetched.
       example: "04bedce387bd47b2ae1f86eb0bb36dee"
+      x-sailpoint-resource-operation-id: getCampaignTemplates
   responses:
     '200':
       description: >-
@@ -43,14 +44,14 @@ put:
   operationId: setCampaignTemplateSchedule
   tags:
     - Certification Campaigns
-  summary: Set Campaign Template Schedule
+  summary: Set campaign template schedule
   description: |
     Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
     Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/set-campaign-template-schedule).
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: []
+    - userAuth: []
   deprecated: true
   parameters:
     - in: path
@@ -60,6 +61,7 @@ put:
       required: true
       description: ID of the campaign template being scheduled.
       example: 04bedce387bd47b2ae1f86eb0bb36dee
+      x-sailpoint-resource-operation-id: getCampaignTemplates
   requestBody:
     content:
       application/json:
@@ -151,13 +153,13 @@ delete:
   operationId: deleteCampaignTemplateSchedule
   tags:
     - Certification Campaigns
-  summary: Delete Campaign Template Schedule
+  summary: Delete campaign template schedule
   description: |
     Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/delete-campaign-template-schedule).
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: []
+    - userAuth: []
   deprecated: true
   parameters:
     - in: path
@@ -167,6 +169,7 @@ delete:
       required: true
       description: ID of the campaign template whose schedule is being deleted.
       example: "04bedce387bd47b2ae1f86eb0bb36dee"
+      x-sailpoint-resource-operation-id: getCampaignTemplates
   responses:
     '204':
       $ref: '../../v3/responses/204.yaml'

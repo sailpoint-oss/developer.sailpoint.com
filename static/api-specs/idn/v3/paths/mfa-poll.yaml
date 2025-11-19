@@ -2,18 +2,26 @@ post:
   operationId: pingVerificationStatus
   tags:
     - MFA Controller
-  summary: Polling MFA method by VerificationPollRequest
+  summary: Polling mfa method by verificationpollrequest
   description: >-
     This API poll the VerificationPollRequest for the specified MFA method.
-    A token with ORG_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:mfa:poll]
+    - userAuth: [idn:mfa:poll]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: path
       name: method
       schema:
         type: string
         example: okta-verify
+        nullable: false
+        enum:
+          - okta-verify
+          - duo-web
+          - kba
+          - token
+          - rsa
       required: true
       description: >-
         The name of the MFA method.

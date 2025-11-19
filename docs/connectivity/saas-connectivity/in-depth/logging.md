@@ -115,7 +115,7 @@ export const connector = async () => {
 
 ## Configuring the SDK to Mask Sensitive Values
 
-The SDK Logger uses [Pino](https://github.com/pinojs/pino) under the hood, which has the built-in capability to search and remove json paths that can contain sensitive information.
+The SDK Logger uses [Pino](https://github.com/pinojs/pino) under the hood, which has the built-in capability to search and remove JSON paths that can contain sensitive information.
 
 > 🚧 Never expose any Personal Identifiable Information in any logging operations.
 

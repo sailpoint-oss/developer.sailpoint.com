@@ -1,6 +1,6 @@
 ---
 id: postman-collection
-title: Postman Collection
+title: Postman collection
 pagination_label: Postman Collection
 sidebar_label: Postman Collection
 sidebar_position: 6

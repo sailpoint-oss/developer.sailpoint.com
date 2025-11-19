@@ -1,5 +1,6 @@
 description: The contextual information of the violated criteria.
 type: object
+title: Sod Violation Context
 properties:
   policy:
     $ref: './SodPolicyDto.yaml'

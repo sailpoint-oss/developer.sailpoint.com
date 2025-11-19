@@ -16,7 +16,7 @@ get:
       $ref: "../responses/500.yaml"
 post:
   summary: Create multiple new roles
-  operationId: postRoles
+  operationId: submitRoles
   description: Create multiple new users
   tags:
     - roles

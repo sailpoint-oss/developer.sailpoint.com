@@ -1,7 +1,7 @@
 post:
   tags:
     - Managed Clusters
-  summary: Reboot a cluster's VAs
+  summary: Reboot a cluster's vas
   description: >-
     Reboot a clusters VAs manual call
 
@@ -13,6 +13,7 @@ post:
       in: path
       description: ID of the cluster to reboot
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       style: simple
       explode: false
       schema:
@@ -37,4 +38,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:remote-client:manage]
+    - userAuth: [idn:remote-client:manage]

@@ -2,17 +2,17 @@ get:
   operationId: listCompleteWorkflowLibrary
   tags:
     - Workflows
-  summary: List Complete Workflow Library
+  summary: List complete workflow library
   description: >-
     This lists all triggers, actions, and operators in the library
   externalDocs:
     description: Additional documentation for workflows
-    url: https://documentation.sailpoint.com/saas/help/workflows/workflow-steps.html
+    url: https://documentation.sailpoint.com/saas/help/workflows/index.html
   parameters:
     - $ref: '../../../v3/parameters/limit.yaml'
     - $ref: '../../../v3/parameters/offset.yaml'
   security:
-    - UserContextAuth: [sp:workflow:read]
+    - userAuth: [sp:workflow:read]
   responses:
     '200':
       description: >-

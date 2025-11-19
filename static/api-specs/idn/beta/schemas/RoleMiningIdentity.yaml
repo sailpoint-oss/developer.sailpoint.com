@@ -1,4 +1,5 @@
 type : object
+title: Role Mining Identity
 properties:
   id:
     type: string

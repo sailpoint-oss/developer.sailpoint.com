@@ -1,4 +1,5 @@
 type: object
+title: Argument
 nullable: true
 properties:
   name:

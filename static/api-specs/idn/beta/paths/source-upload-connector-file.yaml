@@ -1,7 +1,7 @@
 post:
   operationId: importSourceConnectorFile
   security:
-    - UserContextAuth: [ idn:sources-admin:manage ]
+    - userAuth: [ idn:sources-admin:manage ]
   tags:
     - Sources
   summary: Upload connector file to source
@@ -14,6 +14,7 @@ post:
     - in: path
       name: sourceId
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
       description: The Source id

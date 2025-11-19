@@ -1,4 +1,5 @@
 type : object
+title: Account Attributes
 required:
   - attributes
 properties:

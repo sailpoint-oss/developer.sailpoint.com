@@ -2,6 +2,7 @@ description: >-
   Represents the IdentityNow as Service Provider Configuration
   allowing customers to log into IDN via an Identity Provider
 type: object
+title: Service Provider Configuration
 properties:
   enabled:
     description: This determines whether or not the SAML authentication flow is enabled for an org

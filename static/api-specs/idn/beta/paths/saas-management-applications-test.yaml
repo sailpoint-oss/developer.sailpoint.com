@@ -2,7 +2,7 @@ post:
   operationId: testApplicationMapping
   tags:
     - SaaS Management
-  summary: Test SaaS Management Application mapping
+  summary: Test saas management application mapping
   description: >-
     This API tests if accounts on IdentityNow match those on the mapped SaaS Management Application,
     or 404 if not mapped.
@@ -14,6 +14,7 @@ post:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSources
       description: The IdentityNow source ID
       example: 2c9180866166b5b0016167c32ef31a66
   responses:

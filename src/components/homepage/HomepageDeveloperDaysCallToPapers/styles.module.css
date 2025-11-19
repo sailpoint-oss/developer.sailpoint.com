@@ -1,0 +1,101 @@
+.mainCard {
+  display: grid;
+  grid-gap: 10px;
+  max-width: 1180px;
+  justify-content: center;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.gettingStartedOne {
+  color: var(--ifm-color-primary);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 100%;
+  text-align: center;
+}
+
+.gettingStartedTwo {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.gettingStartedThree {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.registerButtonPink {
+  text-decoration: none;
+  text-align: center;
+  margin: 10px auto;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 100%;
+  width: 300px;
+  height: 61px;
+  line-height: 61px;
+  background: transparent 0% 0% no-repeat padding-box;
+  opacity: 1;
+  box-shadow: 0px 20px 60px #00000015;
+  border: 2px solid #df61ca;
+  border-radius: 0.5rem;
+  color: #df61ca;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.registerButtonPink:hover {
+  cursor: pointer;
+  top: -2px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  background-color: var(--dev-button-hover);
+  color: #cc27b0;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 1178px) {
+  .contentContainer {
+    width: 600px;
+  }
+}
+@media only screen and (min-width: 1179px) {
+  .mainCard {
+    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+    /* UI Properties */
+    background: var(--main-hero-card-background);
+    box-shadow: var(--dev-main-card-shadow);
+    border: 1px solid var(--dev-card-background);
+    border-radius: 0.25em;
+    opacity: 1;
+    margin: 50px auto;
+    width: calc(100% - 100px);
+    min-height: 325px;
+  }
+}
+@media only screen and (max-width: 570px) {
+  .mainCard {
+    margin-top: 50px;
+  }
+  .contentContainer {
+    width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

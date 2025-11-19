@@ -1,4 +1,5 @@
 type: object
+title: Pending Approval
 properties:
   id:
     type: string
@@ -29,12 +30,7 @@ properties:
   requester:
     $ref: './AccessItemRequesterDto.yaml'
   requestedFor:
-    type: array
-    description: Identities access was requested for. 
-    items: 
-      $ref: './AccessItemRequestedForDto.yaml'
-    minItems: 1
-    maxItems: 10
+    $ref: './AccessItemRequestedForDto.yaml'
   owner:
     $ref: './AccessItemOwnerDto.yaml'
   requestedObject:
@@ -79,3 +75,26 @@ properties:
   sodViolationContext:
     $ref: './SodViolationContextCheckCompleted.yaml'
     description: The details of the SOD violations for the associated approval.
+  clientMetadata:
+    nullable: true
+    type: object
+    additionalProperties:
+      type: string
+    description: >-
+      Arbitrary key-value pairs, if any were included in the corresponding
+      access request item
+    example:
+      customKey1: custom value 1
+      customKey2: custom value 2
+  requestedAccounts:
+    nullable: true
+    type: array
+    items:
+      $ref: '../../v3/schemas/RequestedAccountRef.yaml'
+    description: The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.
+  privilegeLevel:
+    nullable: true
+    type: string
+    description: The privilege level of the requested access item, if applicable.
+    example: High
+

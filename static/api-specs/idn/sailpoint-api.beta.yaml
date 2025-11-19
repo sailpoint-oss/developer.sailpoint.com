@@ -51,7 +51,7 @@ tags:
 
       When users need both Active Directory employee and developer access, they can request access to the 'AD Developers' access profile.
 
-      Access profiles are the most important units of access in Identity Security Cloud. Identity Security Cloud uses access profiles in many features, including the following:
+      Identity Security Cloud uses access profiles in many features, including the following:
 
       - Provisioning: When you use the Provisioning Service, lifecycle states and roles both grant access to users in the form of access profiles.
 
@@ -113,7 +113,7 @@ tags:
       In My Team on the Identity Security Cloud Home, managers can submit requests to revoke their team members' access.
       They can use the My Requests tab under Request Center to track and/or cancel the requests.
 
-      Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html) for more information about access requests.
+      Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/request_center.html) for more information about access requests.
   - name: Account Activities
     description: |
       Use this API to implement account activity tracking functionality.
@@ -194,15 +194,28 @@ tags:
 
       Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
 
-      Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
+      Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/accounts/identities.html?h=disabling+identities#managing-access) for more information about accounts.
   - name: Application Discovery
     description: |
-      Use this API to discover applications within your Okta connector and receive connector recommendations by manually uploading application names.
+      Use this API to implement application discovery functionality. 
+      With this functionality in place, you can discover applications within your Okta connector and receive connector recommendations by manually uploading application names.
+  - name: Approvals
+    description: |
+      Use this API to implement approval functionality. With this functionality in place, you can get generic approvals and modify them. 
+      
+      The main advantages this API has vs [Access Request Approvals](https://developer.sailpoint.com/docs/api/beta/access-request-approvals) are that you can use it to get generic approvals individually or in batches and make changes to those approvals.
+  - name: Apps
+    description: |
+      Use this API to implement source application functionality. 
+      With this functionality in place, you can create, customize, and manage applications within sources.
   - name: Auth Profile
     description: |
-      Auth Profile - Represents authentication configuration for an Identity Profile. This object gets created when an Identity Profile is created.
-
-      APIs can be used to retrieve and update Auth Profiles.
+      Use this API to implement Auth Profile functionality. 
+      With this functionality in place, users can read authentication profiles and make changes to them. 
+      
+      An authentication profile represents an identity profile's authentication configuration. 
+      When the identity profile is created, its authentication profile is also created. 
+      An authentication profile includes information like its authentication profile type (`BLOCK`, `MFA`, `NON_PTA`, PTA`) and settings controlling whether or not it blocks access from off network or untrusted geographies.
   - name: Certification Campaigns
     description: |
       Use this API to implement certification campaign functionality.
@@ -269,7 +282,7 @@ tags:
 
       The end of a certification campaign is determined by its deadline, its completion status, or by an administrator's decision.
 
-      For more information about certifications and certification campaigns, refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html).
+      For more information about certifications and certification campaigns, refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certs/reviewing/index.html).
   - name: Certifications
     description: |
       Use this API to implement certification functionality.
@@ -286,8 +299,15 @@ tags:
       This API enables administrators and reviewers to get useful information about certifications at a high level, such as the reviewers involved, and at a more granular level, such as the permissions affected by changes to entitlements within those certifications.
       It also provides the useful ability to reassign identities and items within certifications to other reviewers, rather than [reassigning the entire certifications themselves](https://developer.sailpoint.com/idn/api/beta/submit-reassign-certs-async/).
 
-      Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
+      Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/accounts/identities.html?h=disabling+identities#managing-access) for more information about accounts.
   - name: Connector Rule Management
+    description: |
+      Use this API to implement connector rule management functionality. 
+      With this functionality in place, administrators can implement connector-executed rules in a programmatic, scalable way. 
+
+      In Identity Security Cloud (ISC), [rules](https://developer.sailpoint.com/docs/extensibility/rules) serve as a flexible configuration framework you can leverage to perform complex or advanced configurations. 
+      [Connector-executed rules](https://developer.sailpoint.com/docs/extensibility/rules/connector-rules) are rules that are executed in the ISC virtual appliance (VA), usually extensions of the [connector](https://documentation.sailpoint.com/connectors/isc/landingpages/help/landingpages/isc_landing.html) itself, the bridge between the data source and ISC. 
+      This API allows administrators to view existing connector-executed rules, make changes to them, delete them, and create new ones from the available types.
   - name: Connectors
     description: |
       Use this API to implement connector functionality.
@@ -303,7 +323,7 @@ tags:
 
       Refer to [SaaS Connectivity](https://developer.sailpoint.com/docs/connectivity/saas-connectivity) for more information about the SaaS custom connectors that do not need VAs (virtual appliances) to communicate with their sources.
 
-      Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about using connectors in Identity Security Cloud.
+      Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/index.html) for more information about using connectors in Identity Security Cloud.
   - name: Custom Forms
     description: |
       Use this API to build and manage custom forms.
@@ -428,6 +448,11 @@ tags:
       Administrators can also use this page to create new identity profiles or delete existing ones.
 
       Refer to [Creating Identity Profiles](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html) for more information about identity profiles.
+  - name: Launchers
+    description: |
+      Use this API to manage Launchers.
+
+      Launchers are objects that allow users to launch various tasks from ISC such as Privileged Workflows.
   - name: Lifecycle States
     description: |
       Use this API to implement and customize lifecycle state functionality.
@@ -467,13 +492,22 @@ tags:
 
       Refer to [Setting Up Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html) for more information about lifecycle states.
   - name: Managed Clients
-    description: Read and write operations for managing client data and statuses
+    description: |
+      Use this API to implement managed client functionality. 
+      With this functionality in place, administrators can modify and delete existing managed clients, create new ones, and view and make changes to their log configurations.
   - name: Managed Clusters
-    description: Operations for accessing and managing client Clusters, including Log Configuration
+    description: |
+      Use this API to implement managed cluster functionality. 
+      With this functionality in place, administrators can modify and delete existing managed clients, get their statuses, and create new ones.
   - name: MFA Configuration
     description: Configure and test multifactor authentication (MFA) methods
   - name: MFA Controller
     description: This API used for multifactor authentication functionality belong to gov-multi-auth service. This controller allow you to verify authentication by specified method
+  - name: Multi-Host Integration
+    description: |
+      Use this API to build a Multi-Host Integration.
+      Multi-Host Integration will help customers to configure and manage similar type of target system in Identity Security Cloud.
+      In Identity Security Cloud, administrators can create a Multi-Host Integration by going to Admin > Connections > Multi-Host Sources and selecting 'Create.'
   - name: Non-Employee Lifecycle Management
     description: |
       Use this API to implement non-employee lifecycle management functionality.
@@ -514,7 +548,9 @@ tags:
       With this functionality in place, users with the appropriate security scopes can create and configure OAuth clients to use as a way to obtain authorization to use the Identity Security Cloud REST API.
       Refer to [Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information about OAuth and how it works with the Identity Security Cloud REST API.
   - name: Org Config
-    description: Operations for managing org configuration settings (eg. time zone)
+    description: |
+      Use this API to implement organization configuration functionality. 
+      Administrators can use this functionality to manage organization settings, such as time zones.
   - name: Password Configuration
     description: |
       Use this API to implement organization password configuration functionality.
@@ -626,7 +662,7 @@ tags:
 
       - Each authentication source in a sync group must have at least one application. Refer to [Adding and Resetting Application Passwords](https://documentation.sailpoint.com/saas/help/pwd/adv_config.html#adding-and-resetting-application-passwords) for more information about adding applications to sources.
 
-      - At least one password policy. Refer to [Managing Password Policies](https://documentation.sailpoint.com/saas/help/pwd/policies.html) for more information about password policies.
+      - At least one password policy. Refer to [Managing Password Policies](https://documentation.sailpoint.com/saas/help/pwd/pwd_policies/index.html) for more information about password policies.
 
       In the Admin panel in Identity Security Cloud, administrators can use the Password Mgmt dropdown menu to select Sync Groups.
       To create a sync group, administrators must provide a name, choose a password policy to be enforced across the sources in the sync group, and select the sources to include in the sync group.
@@ -655,7 +691,7 @@ tags:
       They must then provide a description about the token's purpose.
       They can then select 'Create Token' at the bottom of the page to generate and view the Secret and Client ID.
 
-      Refer to [Managing Personal Access Tokens](https://documentation.sailpoint.com/saas/help/common/generate_tokens.html) for more information about PATs.
+      Refer to [Managing Personal Access Tokens](https://documentation.sailpoint.com/saas/help/common/api_keys.html?h=token#generating-a-personal-access-token) for more information about PATs.
   - name: Public Identities Config
     description: |
       Use this API to implement public identity configuration functionality.
@@ -714,6 +750,25 @@ tags:
 
       Refer to [Working with Roles](https://documentation.sailpoint.com/saas/help/access/roles.html) for more information about roles.
   - name: Search Attribute Configuration
+    description: |
+      Use this API to implement search attribute configuration functionality, along with [Search](https://developer.sailpoint.com/docs/api/v3/search).
+      With this functionality in place, administrators can create custom search attributes that and run extended searches based on those attributes to further narrow down their searches and get the information and insights they want. 
+
+      Identity Security Cloud (ISC) enables organizations to store user data from across all their connected sources and manage the users' access, so the ability to query and filter that data is essential.  
+      Its search goes through all those sources and finds the results quickly and specifically. 
+
+      The search query is flexible - it can be very broad or very narrow. 
+      The search only returns results for searchable objects it is filtering for. 
+      The following objects are searchable: identities, roles, access profiles, entitlements, events, and account activities. 
+      By default, no filter is applied, so a search for "Ad" returns both the identity "Adam.Archer" as well as the role "Administrator."
+
+      Users can further narrow their results by using ISC's specific syntax and punctuation to structure their queries. 
+      For example, the query "attributes.location:austin AND NOT manager.name:amanda.ross" returns all results associated with the Austin location, but it excludes those associated with the manager Amanda Ross.
+      Refer to [Building a Search Query](https://documentation.sailpoint.com/saas/help/search/building-query.html) for more information about how to construct specific search queries. 
+
+      Refer to [Search Attribute Configuration](https://developer.sailpoint.com/docs/extensibility/rules/rule-utility/#configuration-of-search-attributes-within-identity-security-cloud) for more information about ISC's search and its different possibilities. 
+
+      With Search Attribute Configuration, administrators can create, manage, and run searches based on the attributes they want to search.
   - name: Segments
     description: |
       Use this API to implement and customize access request segment functionality. 
@@ -826,7 +881,7 @@ tags:
       Use this API to implement and customize source functionality.
       With source functionality in place, organizations can use Identity Security Cloud to connect their various sources and user data sets and manage access across all those different sources in a secure, scalable way.
 
-      [Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) refer to the Identity Security Cloud representations for external applications, databases, and directory management systems that maintain their own sets of users, like Dropbox, GitHub, and Workday, for example.
+      [Sources](https://documentation.sailpoint.com/saas/help/sources/index.html) refer to the Identity Security Cloud representations for external applications, databases, and directory management systems that maintain their own sets of users, like Dropbox, GitHub, and Workday, for example.
       Organizations may use hundreds, if not thousands, of different source systems, and any one employee within an organization likely has a different user record on each source, often with different permissions on many of those records.
       Connecting these sources to Identity Security Cloud makes it possible to manage user access across them all.
       Then, if a new hire starts at an organization, Identity Security Cloud can grant the new hire access to all the sources they need.
@@ -876,15 +931,17 @@ tags:
       Refer to [Assigning Source Accounts to Identities](https://documentation.sailpoint.com/saas/help/accounts/correlation.html) for more information about this correlation process between source accounts and identities.
 
       Admins can also delete sources, but they must first ensure that the sources no longer have any active connections: the source must not be associated with any identity profile or any app, and it must not be referenced by any transform.
-      Refer to [Deleting Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html#deleting-sources) for more information about deleting sources.
+      Refer to [Deleting Sources](https://documentation.sailpoint.com/saas/help/sources/index.html#deleting-sources) for more information about deleting sources.
 
       Well organized, mapped out connections between sources and Identity Security Cloud are essential to achieving comprehensive identity access governance across all the source systems organizations need.
-      Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about all the different things admins can do with sources once they are connected.
+      Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/index.html) for more information about all the different things admins can do with sources once they are connected.
   - name: SP-Config
     description: Import and export configuration for some objects between tenants.
   - name: Suggested Entitlement Description
     description: |
-      Use this API to leverage power of LLM to generate suggested entitlement description.
+      Use this API to implement Suggested Entitlement Description (SED) functionality. 
+      SED functionality leverages the power of LLM to generate suggested entitlement descriptions. 
+      Refer to [GenAI Entitlement Descriptions](https://documentation.sailpoint.com/saas/help/access/entitlements.html#genai-entitlement-descriptions) to learn more about SED in Identity Security Cloud (ISC).
   - name: Tagged Objects
     description: |
       Use this API to implement object tagging functionality. 
@@ -940,11 +997,17 @@ tags:
       - Risk levels 
 
       Refer to [Tagging Items in Search](https://documentation.sailpoint.com/saas/help/search/index.html?h=tags#tagging-items-in-search) for more information about tagging objects in Identity Security Cloud.
+  - name: Tags
   - name: Task Management
   - name: Tenant
     description: API for reading tenant details.
   - name: Transforms
-    description: Operations for creating, managing, and deleting transforms.
+    description: |
+      The purpose of this API is to expose functionality for the manipulation of Transform objects.
+      Transforms are a form of configurable objects which define an easy way to manipulate attribute data without having
+      to write code. 
+
+      Refer to [Transforms](https://developer.sailpoint.com/docs/extensibility/transforms/) for more information about transforms.
   - name: Triggers
     description: |
       Event Triggers provide real-time updates to changes in Identity Security Cloud so you can take action as soon as an event occurs, rather than poll an API endpoint for updates. Identity Security Cloud provides a user interface within the admin console to create and manage trigger subscriptions.  These endpoints allow for programatically creating and managing trigger subscriptions.
@@ -979,15 +1042,6 @@ tags:
       | [Source Updated](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/source-updated/) | idn:source-updated | FIRE_AND_FORGET | After configuration changes have been made to a source. |
       | [VA Cluster Status Change](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/va-cluster-status-change/) | idn:va-cluster-status-change | FIRE_AND_FORGET | After the status of a VA cluster has changed. |
 
-      ## Early Access Event Triggers
-      Triggers that are in-development and not ready for production use.  Please contact support to enable these triggers in your tenant.
-
-      | Name | ID | Type | Trigger condition |
-      |-|-|-|-|
-      | [Identity Deleted](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/identity-deleted/) | idn:identity-deleted | FIRE_AND_FORGET | After an identity is deleted. |
-      | [Source Account Created](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/source-account-created/) | idn:source-account-created | FIRE_AND_FORGET | After a source account is created. |
-      | [Source Account Deleted](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/source-account-deleted/) | idn:source-account-deleted | FIRE_AND_FORGET | After a source account is deleted. |
-      | [Source Account Updated](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/source-account-updated/) | idn:source-account-updated | FIRE_AND_FORGET | After a source account is changed. |
   - name: UI Metadata
     description: API for managing UI Metadata.
       Use this API to manage metadata about your User Interface.
@@ -1026,49 +1080,46 @@ tags:
       Workflows allow administrators to create custom automation scripts directly within Identity Security Cloud.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/docs/extensibility/event-triggers/#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the Identity Security Cloud UI.  Workflows can be configured via a graphical user interface within Identity Security Cloud, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
 
 security:
-  - UserContextAuth: [ ]
-
+- userAuth:
+  - "sp:scopes:all"
 components:
   securitySchemes:
-    UserContextAuth:
+    userAuth:
       type: oauth2
+      x-displayName: Personal Access Token
       description: |
-        OAuth2 Bearer token (JWT) generated using either a Personal Access token or through the Authorization Code flow. 
+        OAuth2 Bearer token (JWT) generated using either a [personal access token (PAT)](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or through the [authorization code flow](https://developer.sailpoint.com/docs/api/authentication/#request-access-token-with-authorization-code-grant-flow).
+
+        Personal access tokens are associated with a user in Identity Security Cloud and relies on the user's [user level](https://documentation.sailpoint.com/saas/help/common/users/index.html) (ex. Admin, Helpdesk, etc.) to determine a base level of access.
+        
         See [Identity Security Cloud REST API Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information.
-        - Directions for generating a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#personal-access-tokens)
-        - Directions using [client credentials flow](https://developer.sailpoint.com/docs/api/authentication/#client-credentials-grant-flow)
-        - Directions for using [authorization code flow](https://developer.sailpoint.com/docs/api/authentication/#authorization-code-grant-flow)
-
-        Which authentication method should I choose?  See the [guide](https://developer.sailpoint.com/docs/api/authentication/#which-oauth-20-grant-flow-should-i-use).
-
-        Learn more about how to find your `tokenUrl` and `authorizationUrl` [in the docs](https://developer.sailpoint.com/docs/api/authentication/#find-your-tenants-oauth-details).
       flows:
         clientCredentials:
-          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          tokenUrl: https://example-tenant.api.identitynow.com/oauth/token
           scopes:
             "sp:scopes:default": "default scope"
             "sp:scopes:all": "access to all scopes"
         authorizationCode:
-          authorizationUrl: https://tenant.login.sailpoint.com/oauth/authorize
-          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          authorizationUrl: https://example-tenant.login.sailpoint.com/oauth/authorize
+          tokenUrl: https://example-tenant.api.identitynow.com/oauth/token
           scopes:
             "sp:scopes:default": "default scope"
             "sp:scopes:all": "access to all scopes"
-    ApplicationOnlyAuth:
+    applicationAuth:
       type: oauth2
+      x-displayName: Client Credentials
       description: |
-        OAuth2 Bearer token (JWT) generated using client credentials flow. 
+        OAuth2 Bearer token (JWT) generated using [client credentials flow](https://developer.sailpoint.com/docs/api/authentication/#request-access-token-with-client-credentials-grant-flow).
+
+        Client credentials refers to tokens that are not associated with a user in Identity Security Cloud.
+
         See [Identity Security Cloud REST API Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information.
-        - Directions using [client credentials flow](https://developer.sailpoint.com/docs/api/authentication/#client-credentials-grant-flow)
-
-        Which authentication method should I choose?  See the [guide](https://developer.sailpoint.com/docs/api/authentication/#which-oauth-20-grant-flow-should-i-use).
-
-        Learn more about how to find your `tokenUrl` and `authorizationUrl` [in the docs](https://developer.sailpoint.com/docs/api/authentication/#find-your-tenants-oauth-details).
       flows:
         clientCredentials:
-          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          tokenUrl: https://example-tenant.api.identitynow.com/oauth/token
           scopes:
             "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
   schemas:
     AccountAggregation:
       $ref: './beta/schemas/AccountAggregationStatus.yaml'
@@ -1116,6 +1167,52 @@ components:
       $ref: './beta/schemas/SourceUsage.yaml'
     SourceUsageStatus:
       $ref: './beta/schemas/SourceUsageStatus.yaml'
+
+x-webhooks:
+  AccessRequestDecision:
+    $ref: './beta/webhooks/access-request-decision.yaml'
+  AccessRequestDynamicApproval:
+    $ref: './beta/webhooks/access-request-dynamic-approval.yaml'
+  AccessRequestSubmitted:
+    $ref: './beta/webhooks/access-request-submitted.yaml'
+  AccountAggregationCompleted:
+    $ref: './beta/webhooks/account-aggregation-completed.yaml'
+  CampaignActivated:
+    $ref: './beta/webhooks/campaign-activated.yaml'
+  CampaignEnded:
+    $ref: './beta/webhooks/campaign-ended.yaml'
+  CampaignGenerated:
+    $ref: './beta/webhooks/campaign-generated.yaml'
+  CertificationSignedOff:
+    $ref: './beta/webhooks/certification-signed-off.yaml'
+  FormSubmitted:
+    $ref: './beta/webhooks/form-submitted.yaml'
+  IdentityAttributesChanged:
+    $ref: './beta/webhooks/identity-attributes-changed.yaml'
+  IdentityCreated:
+    $ref: './beta/webhooks/identity-created.yaml'
+  NativeChangeAccountCreated:
+    $ref: './beta/webhooks/native-change-account-created.yaml'
+  NativeChangeAccountDeleted:
+    $ref: './beta/webhooks/native-change-account-deleted.yaml'
+  NativeChangeAccountUpdated:
+    $ref: './beta/webhooks/native-change-account-updated.yaml'
+  OutlierDetected:
+    $ref: './beta/webhooks/outlier-detected.yaml'
+  ProvisioningCompleted:
+    $ref: './beta/webhooks/provisioning-completed.yaml'
+  ScheduledSearch:
+    $ref: './beta/webhooks/scheduled-search.yaml'
+  SourceCreated:
+    $ref: './beta/webhooks/source-created.yaml'
+  SourceDeleted:
+    $ref: './beta/webhooks/source-deleted.yaml'
+  SourceUpdated:
+    $ref: './beta/webhooks/source-updated.yaml'
+  VaClusterStatusChange:
+    $ref: './beta/webhooks/va-cluster-status-change.yaml'
+  IdentityDeleted:
+    $ref: './beta/webhooks/identity-deleted.yaml'
 
 paths:
   /access-model-metadata/attributes:
@@ -1244,6 +1341,8 @@ paths:
     $ref: './beta/paths/identity-certifications-item-permissions.yaml'
   /certifications/{id}/reviewers:
     $ref: './beta/paths/certifications-reviewers.yaml'
+  /certifications:
+    $ref: './beta/paths/certifications.yaml'
   /connector-rules:
     $ref: './beta/paths/connector-rules.yaml'
   /connector-rules/{id}:
@@ -1268,7 +1367,7 @@ paths:
     $ref: './beta/paths/ears-entitlement-bulk-update.yaml'
   /entitlements/{id}/entitlement-request-config:
     $ref: "./beta/paths/entitlement-request-config.yaml"
-  /entitlements/reset/sources/{id}:
+  /entitlements/reset/sources/{sourceId}:
     $ref: './beta/paths/reset-entitlements.yaml'
   /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}:
     $ref: './beta/paths/entitlement-access-model-metadata.yaml'
@@ -1300,7 +1399,7 @@ paths:
     $ref: './beta/paths/historical-identity-start-date.yaml'
   /historical-identities/{id}/compare:
     $ref: './beta/paths/historical-identity-compare.yaml'
-  /historical-identities/{id}/compare/{access-type}:
+  /historical-identities/{id}/compare/{accessType}:
     $ref: './beta/paths/historical-identity-compare-type.yaml'
   /identities/{identityId}/synchronize-attributes:
     $ref: './beta/paths/identity-synchronize-attributes.yaml'
@@ -1311,12 +1410,12 @@ paths:
   /identities/{id}:
     $ref: './beta/paths/identity.yaml'
   /identities/invite:
-      $ref: './beta/paths/identities-invite.yaml'
+    $ref: './beta/paths/identities-invite.yaml'
   /identities/{id}/verification/account/send:
     $ref: './beta/paths/identity-send-account-verification.yaml'
   /identities/process:
     $ref: './beta/paths/identities-process.yaml'
-  /identities/{id}/reset:
+  /identities/{identityId}/reset:
     $ref: './beta/paths/identity-reset.yaml'
   /identities/{identityId}/role-assignments:
     $ref: './beta/paths/identities-role-assignments.yaml'
@@ -1346,6 +1445,24 @@ paths:
     $ref: './beta/paths/identity-profile-process-identities.yaml'
   /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}:
     $ref: './beta/paths/identity-profile-lifecycle-state.yaml'
+  /multihosts:
+    $ref: './beta/paths/multi-host-integration.yaml'
+  /multihosts/types:
+    $ref: './beta/paths/multi-host-integration-types.yaml'
+  /multihosts/{multihostId}:
+    $ref: './beta/paths/multi-host-integrations.yaml'
+  /multihosts/{multihostId}/sources/testConnection:
+    $ref: './beta/paths/multi-host-integration-test-connection.yaml'
+  /multihosts/{multihostId}/sources/{sourceId}/testConnection:
+    $ref: './beta/paths/multi-host-integration-test-connection-source.yaml'
+  /multihosts/{multihostId}/sources:
+    $ref: './beta/paths/multi-host-integration-list-sources.yaml'
+  /multihosts/{multiHostId}/sources/errors:
+    $ref: './beta/paths/multi-host-integration-sources-creation-error.yaml'
+  /multihosts/{multihostId}/acctAggregationGroups:
+    $ref: './beta/paths/multi-host-integration-get-acct-agg-groups.yaml'
+  /multihosts/{multiHostId}/entitlementAggregationGroups:
+    $ref: './beta/paths/multi-host-integration-get-entitlement-agg-groups.yaml'
   /non-employee-records:
     $ref: './beta/paths/non-employee-records.yaml'
   /non-employee-records/{id}:
@@ -1394,12 +1511,8 @@ paths:
     $ref: './beta/paths/managed-clusters.yaml'
   /mail-from-attributes:
     $ref: './beta/paths/mail-from-attributes.yaml'
-  /mail-from-attributes/{identity}:
+  /mail-from-attributes/{identityId}:
     $ref: './beta/paths/mail-from-attribute.yaml'
-  /generic-approvals:
-    $ref: './beta/paths/approvals.yaml'
-  /generic-approvals/{id}:
-    $ref: './beta/paths/approval.yaml'
   /mfa/okta-verify/config:
     $ref: './v3/paths/mfa-okta-config.yaml'
   /mfa/duo-web/config:
@@ -1494,6 +1607,8 @@ paths:
     $ref: './beta/paths/reassignment-configurations.yaml'
   /reassignment-configurations/{identityId}:
     $ref: './beta/paths/reassignment-configuration.yaml'
+  /reassignment-configurations/{identityId}/{configType}:
+    $ref: './beta/paths/reassignment-configuration-config-type.yaml'
   /reassignment-configurations/{identityId}/evaluate/{configType}:
     $ref: './beta/paths/reassignment-configuration-evaluate.yaml'
   /reassignment-configurations/tenant-config:
@@ -1534,6 +1649,8 @@ paths:
     $ref: './beta/paths/role-mining-session-potential-role-summary.yaml'
   /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/applications:
     $ref: './beta/paths/role-mining-session-potential-role-applications.yaml'
+  /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/entitlements:
+    $ref: './beta/paths/role-mining-session-potential-role-entitlements.yaml'
   /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularities:
     $ref: './beta/paths/role-mining-potential-role-entitlement-popularities.yaml'
   /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularity-distribution:
@@ -1632,29 +1749,29 @@ paths:
     $ref: './v3/paths/provisioning-policy.yaml'
   /sources/{sourceId}/provisioning-policies/bulk-update:
     $ref: './v3/paths/provisioning-policies-bulk-update.yaml'
-  /sources/{id}/remove-accounts:
+  /sources/{sourceId}/remove-accounts:
     $ref: './beta/paths/remove-accounts.yaml'
   /sources/{sourceId}/schemas:
     $ref: './beta/paths/schemas.yaml'
   /sources/{sourceId}/schemas/{schemaId}:
     $ref: './beta/paths/schema.yaml'
-  /sources/{id}/schemas/accounts:
+  /sources/{sourceId}/schemas/accounts:
     $ref: './beta/paths/source-accounts-schema.yaml'
-  /sources/{id}/schemas/entitlements:
+  /sources/{sourceId}/schemas/entitlements:
     $ref: './beta/paths/source-entitlements-schema.yaml'
   /sources/{sourceId}/upload-connector-file:
     $ref: './beta/paths/source-upload-connector-file.yaml'
-  /sources/{id}/synchronize-attributes:
+  /sources/{sourceId}/synchronize-attributes:
     $ref: './beta/paths/source-synchronize-attributes.yaml'
-  /sources/{id}/entitlement-request-config:
+  /sources/{sourceId}/entitlement-request-config:
     $ref: './beta/paths/sources-entitlement-request-config.yaml'
-  /sources/{id}/load-accounts:
+  /sources/{sourceId}/load-accounts:
     $ref: './beta/paths/load-accounts.yaml'
-  /sources/{id}/load-entitlements:
+  /sources/{sourceId}/load-entitlements:
     $ref: './beta/paths/load-entitlements.yaml'
-  /sources/{id}/load-uncorrelated-accounts:
+  /sources/{sourceId}/load-uncorrelated-accounts:
     $ref: './beta/paths/load-uncorrelated-accounts.yaml'
-  /sources/{id}/correlation-config:
+  /sources/{sourceId}/correlation-config:
     $ref: './beta/paths/correlation-config.yaml'
   /source-apps/{id}:
     $ref: './beta/paths/ears-source-app.yaml'
@@ -1686,6 +1803,10 @@ paths:
     $ref: './beta/paths/bulk-add-tagged-objects.yaml'
   /tagged-objects/bulk-remove:
     $ref: './beta/paths/bulk-remove-tagged-objects.yaml'
+  /tags:
+    $ref: "./beta/paths/tags.yaml"
+  /tags/{id}:
+    $ref: "./beta/paths/tag.yaml"
   /tenant:
     $ref: './beta/paths/tenant.yaml'
   /transforms:
@@ -1854,8 +1975,8 @@ paths:
     $ref: "./beta/paths/manual-discover-applications.yaml"
   /discovered-applications:
     $ref: "./beta/paths/discovered-applications.yaml"
-  /vendor-connector-mappings:
-    $ref: "./beta/paths/vendor-connector-mappings.yaml"
+  /discovered-applications/{id}:
+    $ref: "./beta/paths/discovered-application.yaml"
   /icons/{objectType}/{objectId}:
     $ref: './beta/paths/icon.yaml'
   /suggested-entitlement-description-batches/{batchId}/stats:
@@ -1868,3 +1989,9 @@ paths:
     $ref: "./beta/paths/suggested-entitlement-description-assignments.yaml"
   /suggested-entitlement-descriptions:
     $ref: "./beta/paths/suggested-entitlement-descriptions.yaml"
+  /launchers:
+    $ref: "./beta/paths/launchers.yaml"
+  /launchers/{launcherID}:
+    $ref: "./beta/paths/launcher.yaml"
+  /beta/launchers/{launcherID}/launch:
+    $ref: "./beta/paths/launcher-launch.yaml"

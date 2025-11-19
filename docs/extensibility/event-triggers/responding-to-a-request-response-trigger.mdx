@@ -1,6 +1,6 @@
 ---
 id: responding-to-response-required-triggers
-title: Responding to Response Required Triggers
+title: Responding to response required triggers
 pagination_label: Responding to Response Required Triggers
 sidebar_label: Responding to Response Required Triggers
 sidebar_position: 6
@@ -30,7 +30,7 @@ You can specify how your application interacts with a response required (`REQUES
   <TabItem value="sync" label="SYNC Response" default>
 
 <!-- Uncomment this once the model definition links are fixed
-The custom application responds to the trigger invocation with an appropriate payload. For example, the application may receive a request from the [Access Request Dynamic Approver](https://developer.sailpoint.com/apis/beta/#tag/Event-Trigger-Models) trigger. The application will have **10 seconds** to analyze the event details and respond with a 200 (OK) status code and a [response payload](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Dynamic-Approver-Event-Trigger-Output) that contains the identity to add to the approval chain. -->
+The custom application responds to the trigger invocation with an appropriate payload. For example, the application may receive a request from the [Access Request Dynamic Approver](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/access-request-dynamic-approval) trigger. The application will have **10 seconds** to analyze the event details and respond with a 200 (OK) status code and a [response payload](https://developer.sailpoint.com/apis/beta/#section/Access-Request-Dynamic-Approver-Event-Trigger-Output) that contains the identity to add to the approval chain. -->
 
 The custom application responds to the trigger invocation with an appropriate payload. For example, the application may receive a request from the Access Request Dynamic Approver trigger. The application will have **10 seconds** to analyze the event details and respond with a 200 (OK) status code and a response payload that contains the identity to add to the approval chain. For example, the response may look like this:
 
@@ -48,7 +48,7 @@ The custom application responds to the trigger invocation with an appropriate pa
   <TabItem value="async" label="ASYNC Respose">
 
 <!-- Uncomment this once the model definition links are fixed
-The custom application only needs to acknowledge that it has received the trigger invocation request by returning an HTTP status of 200 (OK) with an empty JSON object (ex. `{}`) in the response body within **10 seconds** of receiving the event. It then has until the configured deadline on the subscription to provide a full response to the invocation. For example, the application may receive a request from the [Access Request Dynamic Approver](https://developer.sailpoint.com/apis/beta/#tag/Event-Trigger-Models) trigger. An example of the request payload that the application might receive is as follows: -->
+The custom application only needs to acknowledge that it has received the trigger invocation request by returning an HTTP status of 200 (OK) with an empty JSON object (ex. `{}`) in the response body within **10 seconds** of receiving the event. It then has until the configured deadline on the subscription to provide a full response to the invocation. For example, the application may receive a request from the [Access Request Dynamic Approver](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/access-request-dynamic-approval) trigger. An example of the request payload that the application might receive is as follows: -->
 
 The custom application only needs to acknowledge that it has received the trigger invocation request by returning an HTTP status of 200 (OK) with an empty JSON object (ex. `{}`) in the response body within **10 seconds** of receiving the event. It then has until the configured deadline on the subscription to provide a full response to the invocation. For example, the application may receive a request from the Access Request Dynamic Approver trigger. An example of the request payload that the application might receive is as follows:
 

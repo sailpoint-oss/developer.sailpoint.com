@@ -1,6 +1,6 @@
 ---
 id: your-first-transform
-title: Your First Transform
+title: Your first transform
 pagination_label: Your First Transform
 sidebar_label: Your First Transform
 sidebar_class_name: yourFirstTransform
@@ -15,15 +15,15 @@ tags: ['Transforms', 'Guides', 'First']
 
 In this guide, you will learn how to use [Identity Security Cloud's Transform REST APIs](/docs/api/v3/transforms) to do the following:
 
-- [List Transforms in Your Identity Security Cloud Tenant](#list-transforms-in-your-identitynow-tenant)
+- [List Transforms in Your Identity Security Cloud Tenant](#list-transforms-in-your-identity-security-cloud-tenant)
 - [Create a Transform](#create-a-transform)
 - [Get Transform by ID](#get-transform-by-id)
 - [Update a Transform](#update-a-transform)
 - [Delete a Transform](#delete-a-transform)
 
-## List Transforms in your Identity Security Cloud Tenant
+## List transforms in your Identity Security Cloud tenant
 
-To call the APIs for transforms, you need a personal access token and your tenant's name to provide with the request. For more information about how to get a personal access token, see [Personal Access Tokens](../../../api/authentication.md#personal-access-tokens). For more information about how to get the name of your tenant, see [Finding Your Organization Tenant Name](../../../api/getting-started.md#finding-your-orgtenant-name).
+To call the APIs for transforms, you need a personal access token and your tenant's name to provide with the request. For more information about how to get a personal access token, see [Personal Access Tokens](../../../api/authentication.md#generate-a-personal-access-token). For more information about how to get the name of your tenant, see [Finding Your Organization Tenant Name](../../../api/getting-started.md#find-your-tenant-name).
 
 Before you create your first custom transform, see what transforms are already in the tenant. You can get this information by calling the [List Transforms API](/docs/api/v3/list-transforms).
 
@@ -77,7 +77,7 @@ The response body contains an array of transform objects containing the followin
     ]
 ```
 
-## Create a Transform
+## Create a transform
 
 This [lookup transform](../operations/lookup.md) takes the input value of an attribute, locates it in the table provided, and returns its corresponding value. If the transform does not find your input value in the lookup table, it returns the default value. Replace `{tenant}` and `{token}` with the values you got ealier.
 
@@ -99,7 +99,7 @@ curl --location --request POST 'https://{tenant}.api.identitynow.com/v3/transfor
 }'
 ```
 
-**Response Body:**
+**Response body:**
 
 ```json
 {
@@ -124,7 +124,7 @@ Once you have created the transform, you can find it in Identity Security Cloud 
 
 For more information about creating transforms, see [Create Transform](/docs/api/v3/create-transform).
 
-## Get Transform by ID
+## Get transform by ID
 
 To get the transform created with the API, call the `GET` endpoint, using the `id` returned by the create API response.
 
@@ -133,7 +133,7 @@ curl --location --request GET 'https://{tenant}.api.identitynow.com/v3/transform
 --header 'Authorization: Bearer {token}'
 ```
 
-**Response Body:**
+**Response body:**
 
 ```json
 {
@@ -154,7 +154,7 @@ curl --location --request GET 'https://{tenant}.api.identitynow.com/v3/transform
 
 For more information about getting a transform by its `id` see the API [Transform by ID](/docs/api/v3/get-transform).
 
-## Update a Transform
+## Update a transform
 
 To update a transform, call the `PUT` endpoint with the updated transform body. This example adds another item to the lookup table, `EN-CA.`
 
@@ -183,7 +183,7 @@ curl --location --request PUT 'https://{tenant}.api.identitynow.com/v3/transform
 }'
 ```
 
-**Response Body:**
+**Response body:**
 
 ```json
 {
@@ -205,7 +205,7 @@ curl --location --request PUT 'https://{tenant}.api.identitynow.com/v3/transform
 
 For more information about updating transforms, see [Update a transform](/docs/api/v3/update-transform).
 
-## Delete a Transform
+## Delete a transform
 
 To delete the transform, call the DELETE endpoint with the `id` of the transform to delete. The server responds with a 204 when the transform is successfully removed.
 
@@ -216,6 +216,6 @@ curl --location --request DELETE 'https://{tenant}.api.identitynow.com/v3/transf
 
 For more information about deleting transforms, see the API [Delete Transform](/docs/api/v3/delete-transform).
 
-## Next Steps
+## Next steps
 
 Congratulations on creating your first transform! Now that you understand the lifecycle of transforms, see [complex usecase](./temporary-password.md) to learn how to use a nested transform structure to create a temporary password that can be sent to each user.

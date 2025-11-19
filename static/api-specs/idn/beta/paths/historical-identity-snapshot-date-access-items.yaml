@@ -2,17 +2,18 @@ get:
   operationId: listIdentitySnapshotAccessItems
   tags:
     - Identity History
-  summary: Get Identity Access Items Snapshot 
+  summary: Get identity access items snapshot
   description: >-
     Use this API to get a list of identity access items at a specified date, filtered by item type.
   security:
-    - UserContextAuth: [idn:identity-history:read]
+    - userAuth: [idn:identity-history:read]
   parameters:
     - in: path
       name: id
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listHistoricalIdentities
       description: Identity ID. 
       example: '8c190e6787aa4ed9a90bd9d5344523fb'
     - in: path
@@ -26,6 +27,12 @@ get:
       name: type
       schema:
         type: string
+        enum:
+          - role
+          - access_profile
+          - entitlement
+          - app
+          - account
       description: Access item type.
       example: account
   responses:

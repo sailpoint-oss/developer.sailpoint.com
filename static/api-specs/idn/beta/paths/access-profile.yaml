@@ -2,13 +2,9 @@ get:
   operationId: getAccessProfile
   tags:
     - Access Profiles
-  summary: Get an Access Profile
+  summary: Get an access profile
   description: >-
     This API returns an Access Profile by its ID.
-
-
-    A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to
-    call this API.
   parameters:
     - in: path
       name: id
@@ -18,6 +14,7 @@ get:
       description: >-
         ID of the Access Profile
       example: 2c9180837ca6693d017ca8d097500149
+      x-sailpoint-resource-operation-id: listAccessProfiles
   responses:
     '200':
       description: An AccessProfile
@@ -36,12 +33,19 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:access-profile:read, idn:access-profile:manage]
+    - userAuth: [idn:access-profile:read, idn:access-profile:manage]
+    - applicationAuth: [idn:access-profile:read, idn:access-profile:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
 patch:
   operationId: patchAccessProfile
   tags:
     - Access Profiles
-  summary: Patch a specified Access Profile
+  summary: Patch a specified access profile
   description: >-
     This API updates an existing Access Profile. The following fields are patchable:
 
@@ -66,6 +70,7 @@ patch:
       schema:
         type: string
         example: 2c91808a7813090a017814121919ecca
+      x-sailpoint-resource-operation-id: listAccessProfiles
   requestBody:
     content:
       application/json-patch+json:
@@ -125,12 +130,12 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:access-profile:manage]
+    - userAuth: [idn:access-profile:manage]
 delete:
   operationId: deleteAccessProfile
   tags:
     - Access Profiles
-  summary: Delete the specified Access Profile
+  summary: Delete the specified access profile
   description: >-
     This API deletes an existing Access Profile.
 
@@ -148,6 +153,7 @@ delete:
       schema:
         type: string
         example: 2c91808a7813090a017814121919ecca
+      x-sailpoint-resource-operation-id: listAccessProfiles
   responses:
     '204':
       $ref: "../../v3/responses/204.yaml"
@@ -176,5 +182,5 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:access-profile:manage]
+    - userAuth: [idn:access-profile:manage]
   

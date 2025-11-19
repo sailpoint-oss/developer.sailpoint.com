@@ -56,6 +56,8 @@ Resources:
           - "https://developer.sailpoint.com"
       DefaultRouteSettings:
         DetailedMetricsEnabled: true
+        ThrottlingBurstLimit: 10
+        ThrottlingRateLimit: 5
       Auth:
         DefaultAuthorizer: LambdaAuthorizer
         Authorizers:
@@ -66,7 +68,7 @@ Resources:
             Identity:
               Headers:
                 - Authorization
-            AuthorizerPayloadFormatVersion: 2.0
+            AuthorizerPayloadFormatVersion: "2.0"
             EnableSimpleResponses: false
   DeveloperSailpointAuthFunction:
     Type: AWS::Serverless::Function
@@ -82,6 +84,123 @@ Resources:
         - x86_64
       MemorySize: 128
       Timeout: 100
+  SailAppsAuthFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Events:
+        GenerateSailAppsAuth:
+          Type: HttpApi
+          Properties:
+            Path: /sailapps/auth
+            Method: POST
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
+        PerformSailAppsCodeExchange:
+          Type: HttpApi
+          Properties:
+            Path: /sailapps/auth/code
+            Method: POST
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
+        GetSailAppsToken:
+          Type: HttpApi
+          Properties:
+            Path: /sailapps/auth/token/{uuid}
+            Method: GET
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
+        PerformSailAppsTokenRefresh:
+          Type: HttpApi
+          Properties:
+            Path: /sailapps/auth/refresh
+            Method: POST
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
+        PerformSailAppsTokenDecryption:
+          Type: HttpApi
+          Properties:
+            Path: /sailapps/auth/token/decrypt
+            Method: POST
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
+        GenerateKeyPair:
+          Type: HttpApi
+          Properties:
+            Path: /sailapps/auth/keypair
+            Method: POST
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
+      CodeUri: backend/src/mithrandir/
+      Handler: index.handler
+      Runtime: nodejs22.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Policies:
+        # Give Create/Read/Update/Delete Permissions to the CMSTable
+        - DynamoDBCrudPolicy:
+            TableName: !Ref SailAppsAuth
+      Environment:
+        Variables:
+          # Make table name accessible as environment variable from function code during execution
+          AUTH_TOKENS_TABLE: !Ref SailAppsAuth
+          # Make DynamoDB endpoint accessible as environment variable from function code during execution
+          ENDPOINT_OVERRIDE: ""
+          # OAuth configuration
+          OAUTH_CLIENT_ID: sailpoint-cli
+          OAUTH_DEV_REDIRECT_URL: http://localhost:4200/sailapps
+          OAUTH_REDIRECT_URL: https://developer.sailpoint.com/sailapps
+  JSONPathGoFunction:
+    Type: AWS::Serverless::Function
+    Metadata:
+      BuildMethod: go1.x
+    Properties:
+      Handler: bootstrap
+      Runtime: provided.al2023
+      CodeUri: backend/src/go
+      MemorySize: 128
+      Timeout: 30
+      Events:
+        Api:
+          Type: HttpApi
+          Properties:
+            Path: /jsonpath/go
+            Method: POST
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
+  JSONPathJavaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: com.sailpoint.handler.JSONPathHandler::handleRequest
+      Runtime: java11
+      CodeUri: backend/src/java
+      MemorySize: 128
+      Timeout: 30
+      Events:
+        Api:
+          Type: HttpApi
+          Properties:
+            Path: /jsonpath/java
+            Method: POST
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
   # This is a Lambda function config associated with the source code: get-by-id.js
   developerSailpointGetByIdFunction:
     Type: AWS::Serverless::Function
@@ -126,6 +245,21 @@ Resources:
       ProvisionedThroughput:
         ReadCapacityUnits: 20
         WriteCapacityUnits: 2
+  SailAppsAuth:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 20
+        WriteCapacityUnits: 2
+      TimeToLiveSpecification:
+        AttributeName: ttl
+        Enabled: true
   # S3 Bucket to host single page app website
   DeveloperSailpointWebSiteBucket:
     Type: "AWS::S3::Bucket"

@@ -1,4 +1,5 @@
 type: object
+title: Expression
 properties:
   operator:
     type: string

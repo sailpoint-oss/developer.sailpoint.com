@@ -3,6 +3,7 @@ required:
   - identityId
   - accessRefs
 type: object
+title: Identity With New Access
 properties:
   identityId:
     description: Set of identity IDs to be checked.

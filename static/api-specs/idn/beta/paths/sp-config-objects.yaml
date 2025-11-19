@@ -1,14 +1,14 @@
 get:
   operationId: listSpConfigObjects
   security:
-    - UserContextAuth: [sp:config:read, sp:config:manage]
+    - userAuth: [sp:config:read, sp:config:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   tags:
     - SP-Config
-  summary: Get config object details
+  summary: List config objects
   description: >-
-    This gets the list of object configurations which are known to the tenant export/import service.
-    Object configurations that contain "importUrl" and "exportUrl" are available for export/import.
-
+    Get a list of object configurations that the tenant export/import service knows.
   responses:
     '200':
       description: >-

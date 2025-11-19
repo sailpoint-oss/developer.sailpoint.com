@@ -34,7 +34,7 @@ In this process, SailPoint does _not check_ whether the rule executes correctly 
 
 ## Submit for Rule Review
 
-To submit your Cloud Rule for review, approval, and inclusion in the SailPoint platform, submit a [SailPoint support portal request](https://support.sailpoint.com/csm) or send an email to `support@sailpoint.com`. Attach the rule, validator output, tenant name (e.g., acme-sb.identitynow.com for sandbox or acme.identitynow.com for production) and approval for expert services to proceed. If you need assistance writing and testing rules, Expert Services can assist in that process as well. Make sure your contact information is up to date so the review team can contact you if they need to.
+To submit your Cloud Rule for review, approval, and inclusion in the SailPoint platform, submit a [SailPoint support portal request](https://support.sailpoint.com/csm) or send an email to `support@sailpoint.com`. Attach the rule, [validator](https://community.sailpoint.com/t5/Professional-Services/IdentityNow-Rule-Validator/ta-p/166116) output, tenant name (e.g., acme-sb.identitynow.com for sandbox or acme.identitynow.com for production) and approval for expert services to proceed. If you need assistance writing and testing rules, Expert Services can assist in that process as well. Make sure your contact information is up to date so the review team can contact you if they need to.
 
 ## Review Guidelines
 
@@ -46,6 +46,7 @@ All submitted rules must follow proper rule submission guidelines.
 - **Rule Quality**
   - Rules must follow the [Rule Guidelines](../index.md#rule-guidelines) and [Code Restrictions](../index.md#rule-code-restrictions)
   - Rules must be adequately tested prior to submission.
+  - Rules must be properly formatted and indented to maintain readability.
 - **Documentation**
   - Include detailed comments for non-obvious features in the configurations, including supporting documentation where appropriate. This includes justification for why something was created or done in a certain way. - _e.g. I did this because..._
 - **Standards**

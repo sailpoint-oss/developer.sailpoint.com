@@ -1,10 +1,10 @@
 get:
   operationId: getSource
   security:
-    - UserContextAuth: [ idn:sources:read ]
+    - userAuth: [ idn:sources:read ]
   tags:
     - Sources
-  summary: Get Source by ID
+  summary: Get source by id
   description: >-
     Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
 
@@ -15,6 +15,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSources
       description: Source ID.
       example: 2c9180835d191a86015d28455b4a2329
   responses:
@@ -39,10 +40,10 @@ get:
 put:
   operationId: putSource
   security:
-    - UserContextAuth: [ idn:sources:manage ]
+    - userAuth: [ idn:sources:manage ]
   tags:
     - Sources
-  summary: Update Source (Full)
+  summary: Update source (full)
   description: |
     Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.
 
@@ -64,6 +65,7 @@ put:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSources
       description: Source ID.
       example: 2c9180835d191a86015d28455b4a2329
   requestBody:
@@ -96,10 +98,10 @@ put:
 patch:
   operationId: updateSource
   security:
-    - UserContextAuth: [ idn:sources:manage ]
+    - userAuth: [ idn:sources:manage ]
   tags:
     - Sources
-  summary: Update Source (Partial)
+  summary: Update source (partial)
   description: |
     Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the
     [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -123,6 +125,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSources
       description: Source ID.
       example: 2c9180835d191a86015d28455b4a2329
   requestBody:
@@ -248,11 +251,11 @@ patch:
       $ref: '../../v3/responses/500.yaml'
 delete:
   security:
-    - UserContextAuth: [ idn:sources:manage ]
+    - userAuth: [ idn:sources:manage ]
   operationId: delete
   tags:
     - Sources
-  summary: Delete Source by ID
+  summary: Delete source by id
   description: >-
     Use this API to delete a specific source in Identity Security Cloud (ISC).
 
@@ -266,6 +269,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSources
       description: Source ID.
       example: 2c9180835d191a86015d28455b4a2329
   responses:
@@ -292,7 +296,7 @@ delete:
                 example: null
           examples:
             deleteSource: 
-              summary: Response returned when a source is being deleted. 
+              summary: Response returned when a source is being deleted.
               value: {"type": "TASK_RESULT", "id": "2c91808779ecf55b0179f720942f181a", "name": null}
     '400':
       $ref: '../../v3/responses/400.yaml'

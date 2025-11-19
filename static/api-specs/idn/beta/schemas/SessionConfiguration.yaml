@@ -1,4 +1,5 @@
 type: object
+title: Session Configuration
 properties:
   maxIdleTime:
     type: integer

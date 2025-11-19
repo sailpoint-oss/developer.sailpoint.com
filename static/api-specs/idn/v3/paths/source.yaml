@@ -1,20 +1,23 @@
 get:
   operationId: getSource
   security:
-    - UserContextAuth: [ idn:sources:read ]
+    - userAuth: [ idn:sources:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Sources
-  summary: Get Source by ID
+  summary: Get source by id
   description: >-
     Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
-
-    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   parameters:
     - in: path
       name: id
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSources
       description: Source ID.
       example: 2c9180835d191a86015d28455b4a2329
   responses:
@@ -39,10 +42,14 @@ get:
 put:
   operationId: putSource
   security:
-    - UserContextAuth: [ idn:sources:manage ]
+    - userAuth: [ idn:sources:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Sources
-  summary: Update Source (Full)
+  summary: Update source (full)
   description: |
     Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.
 
@@ -56,14 +63,13 @@ put:
     * passwordPolicies
 
     Attempts to modify these fields will result in a 400 error.
-
-    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   parameters:
     - in: path
       name: id
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSources
       description: Source ID.
       example: 2c9180835d191a86015d28455b4a2329
   requestBody:
@@ -96,10 +102,14 @@ put:
 patch:
   operationId: updateSource
   security:
-    - UserContextAuth: [ idn:sources:manage ]
+    - userAuth: [ idn:sources:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Sources
-  summary: Update Source (Partial)
+  summary: Update source (partial)
   description: |
     Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the
     [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -116,14 +126,13 @@ patch:
     * passwordPolicies
 
     Attempts to modify these fields will result in a 400 error.
-
-    A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API.
   parameters:
     - in: path
       name: id
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSources
       description: Source ID.
       example: 2c9180835d191a86015d28455b4a2329
   requestBody:
@@ -250,23 +259,26 @@ patch:
 delete:
   operationId: deleteSource
   security:
-    - UserContextAuth: [ idn:sources:manage ]
+    - userAuth: [ idn:sources:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Sources
-  summary: Delete Source by ID
+  summary: Delete source by id
   description: >-
     Use this API to delete a specific source in Identity Security Cloud (ISC).
 
     The API removes all the accounts on the source first, and then it deletes the source.
     You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
-
-    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   parameters:
     - in: path
       name: id
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSources
       description: Source ID.
       example: 2c9180835d191a86015d28455b4a2329
   responses:
@@ -293,7 +305,7 @@ delete:
                 example: null
           examples:
             deleteSource:
-              summary: Response returned when a source is being deleted. 
+              summary: Response returned when a source is being deleted.
               value: {"type": "TASK_RESULT", "id": "2c91808779ecf55b0179f720942f181a", "name": null}
     '400':
       $ref: '../../v3/responses/400.yaml'

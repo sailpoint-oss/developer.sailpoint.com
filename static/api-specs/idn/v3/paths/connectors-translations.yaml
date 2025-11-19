@@ -2,15 +2,15 @@ get:
   tags:
     - Connectors
   operationId: getConnectorTranslations
+  summary: Get connector translations
   description: >-
-    Fetches a connector's translations using its script name.
-    
-    A token with ORG_ADMIN authority is required to call this API.
+    Fetches a connector's translations using its script name.    
   parameters:
     - name: scriptName
       in: path
       description: The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
       required: true
+      x-sailpoint-resource-operation-id: getConnectorList
       style: simple
       explode: false
       schema:
@@ -45,20 +45,24 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [ idn:connector-config:read ]
+    - userAuth: [ idn:connector-config:read, idn:connector-config:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
 put:
   tags:
     - Connectors
-  operationId: putTranslations
+  operationId: putConnectorTranslations
+  summary: Update connector translations
   description: >-
-    Update a connector's translations using its script name.
-    
-    A token with ORG_ADMIN authority is required to call this API.
+    Update a connector's translations using its script name.    
   parameters:
     - name: scriptName
       in: path
       description: The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
       required: true
+      x-sailpoint-resource-operation-id: getConnectorList
       style: simple
       explode: false
       schema:
@@ -99,4 +103,8 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [ idn:connector-config:update ]
+    - userAuth: [ idn:connector-config:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

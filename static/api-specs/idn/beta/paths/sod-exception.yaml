@@ -2,7 +2,7 @@ get:
   operationId: getSodExceptionById
   tags:
     - SOD Exception
-  summary: Get SOD exception by ID
+  summary: Get sod exception by id
   # security:
   #   - oauth2: [API]
   description: >-
@@ -16,6 +16,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodExceptions
       description: The ID of the object reference to retrieve.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
@@ -37,7 +38,7 @@ patch:
   operationId: patchExceptionById
   tags:
     - SOD Exception
-  summary: Update SOD exception
+  summary: Update sod exception
   # security:
   #   - oauth2: [API]
   description: >-
@@ -51,6 +52,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodExceptions
       description: The ID of the SOD exception to update.
       example: ef38f94347e94562b5bb8424a56397d8
   requestBody:
@@ -93,7 +95,7 @@ delete:
   operationId: deleteSodExceptionById
   tags:
     - SOD Exception
-  summary: Delete SOD exception by ID
+  summary: Delete sod exception by id
   # security:
   #   - oauth2: [API]
   description: >-
@@ -107,6 +109,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodExceptions
       description: The ID of the SOD exception to delete.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:

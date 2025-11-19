@@ -1,0 +1,8 @@
+name: category
+in: query
+description: Filters profiles by profile type category
+required: false
+schema:
+  type: string
+  enum: [non-employee, assignment]
+  example: non-employee

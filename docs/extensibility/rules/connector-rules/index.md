@@ -1,6 +1,6 @@
 ---
 id: connector-executed-rules
-title: Connector Executed Rules
+title: Connector executed Rules
 pagination_label: Connector Executed Rules
 sidebar_label: Connector Executed Rules
 sidebar_position: 3
@@ -15,7 +15,7 @@ tags: ['Rules']
 
 Unlike cloud rules, connector rules do not have a rule review process and are directly editable with the [Connector Rule REST APIs](https://developer.sailpoint.com/docs/api/beta/connector-rule-management). For more details, see [Configuration Process](#configuration-process).
 
-## Supported Connector Rules
+## Supported connector Rules
 
 | Rule Name | Rule Type | Source Type(s) | Purpose |
 | --- | --- | --- | --- |
@@ -33,7 +33,7 @@ Unlike cloud rules, connector rules do not have a rule review process and are di
 | [Web Services Before Operation Rule](./web_services_before_operation_rule.md) | [WebServiceBeforeOperationRule](./web_services_before_operation_rule.md) | Web Services | Executes before the next web-services HTTP(S) operation. Often used to calculate values. |
 | [Web Services After Operation Rule](./web_services_after_operation_rule.md) | [WebServiceAfterOperationRule](./web_services_after_operation_rule.md) | Web Services | Executes after a web-services HTTP(S) operation. Often used to parse complex data. |
 
-## Configuration Process
+## Configuration process
 
 Connector Rules are directly editable with the [Connector Rule REST APIs](https://developer.sailpoint.com/docs/api/beta/connector-rule-management), which provide ability to interact with rules directly.
 
@@ -48,7 +48,7 @@ Connector Rules are directly editable with the [Connector Rule REST APIs](https:
 
 SailPoint architectural optimizations have added resiliency and protections against malformed or long-running rules. These APIs also offer built-in protection and checking against potentially harmful code. For more information, see [Rule Code Restrictions](../../rules/index.md#rule-code-restrictions).
 
-## Connector Rule Object Model
+## Connector Rule object model
 
 ```json
 {
@@ -79,13 +79,16 @@ requestEndPoint.getBody().put(\"jsonBody\",requestXML); \n              }\n     
 - `created` - Timestamp when the rule was created.
 - `modified` - Timestamp when the rule was last modified. The default is `null`.
 - `type` - Type of connector rule. For a list of supported rule types, see [Supported Connector Rules](#supported-connector-rules).
+- `signature` - The list of input variables and the output variable of the rule. These can be found in the corresponding sections of the Rule Documentation. **NOTE**: Adding additional values will not bring in new variables. 
+  - `input` - The list of the input variables. This can be found in the Rule documentation's Input section.
+  - `output` - The output variable for the rule. This can be found the Rule documentation's Output section.
 - `attributes` - List of attributes.
   - `sourceVersion` - String indicating the rule's version. Typically, this is the same as `version`.
 - `sourceCode` - Object housing the actual source code that makes the rule work.
   - `version` - String indicating the rule's version. Typically, this is the same as `sourceVersion`.
-  - `script` - Rule’s code the connector runs. This must be an escaped string. For help with formatting, use an escaping tool like [Free Formatter.](https://www.freeformatter.com/java-dotnet-escape.html#before-output)
+  - `script` - Rule’s code the connector runs. This must be an escaped string. For help with formatting, use an escaping tool like [Escaping Tool Formatter.](/tools/escaping-tool-formatter)
 
-## Attaching Connector-Related Rules to Sources
+## Attaching connector-related Rules to sources
 
 Once a connector-related rule has been imported to your tenant, you must configure any sources that need to reference that rule during the desired operation. You can accomplish this configuration through the execution of an API call on the source. The following examples all use a `PATCH` operation for a partial source update, but `PUT` operations work too, as long as the entire source object model is provided.
 
@@ -95,7 +98,7 @@ For the `PATCH` operations, you must provide an `op` key. For new configurations
 - `replace` - Use this operation to change the existing value. Use this operation if you are updating the value, i.e. you want to change the configuration.
 - `remove` - Removes a value from the configuration. Use this operation if you want to unset a value. **Caution: Removals can be destructive if the path is improperly configured. This can negatively alter your source config.**
 
-## Example API calls by Rule Type
+## Example API calls by Rule type
 
 ### BeforeProvisioning Rule
 
@@ -227,7 +230,7 @@ Content-Type: `application/json-patch+json`
 ]
 ```
 
-### SAP HR Provisioning Modify Rule
+### SAP HR provisioning modify Rule
 
 `PATCH` /v3/sources/[id]
 
@@ -249,7 +252,7 @@ Content-Type: `application/json-patch+json`
 
 Content-Type: `application/json-patch+json`
 
-_Note: Replace `_`with the index location of operation the way it is configured on the source. For example, 0, 1, 2, etc. You can use a`GET`call on the source first to verify the index location prior to executing the`PATCH` call to attach the rule.\*
+_Note: Replace \[\*\] with the index location of the operation the way it is configured on the source. For example, 0, 1, 2, etc. You can use a`GET`call on the source first to verify the index location prior to executing the `PATCH` call to attach the rule. This number will be 1 less than the value in "sequenceNumberForEndpoint", which is the UI Order value of this endpoint._
 
 ```json
 [
@@ -263,9 +266,11 @@ _Note: Replace `_`with the index location of operation the way it is configured 
 
 ### WebServiceAfterOperation Rule
 
-`PATCH` /v3/sources/[id] Content-Type: `application/json-patch+json`
+`PATCH` /v3/sources/[id] 
 
-_Note: Replace \[\*\] with the index location of the operation the way it is configured on the source. For example, 0, 1, 2, etc. You can use a `GET` call on the source first to verify the index location prior to executing the `PATCH` call to attach the rule._
+Content-Type: `application/json-patch+json`
+
+_Note: Replace \[\*\] with the index location of the operation the way it is configured on the source. For example, 0, 1, 2, etc. You can use a `GET` call on the source first to verify the index location prior to executing the `PATCH` call to attach the rule. This number will be 1 less than the value in "sequenceNumberForEndpoint", which is the UI Order value of this endpoint._
 
 ```json
 [

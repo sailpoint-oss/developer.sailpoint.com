@@ -4,7 +4,7 @@ get:
     - Apps
   summary: List available accounts for user app
   security:
-    - UserContextAuth: [idn:app-roles:read]
+    - userAuth: [idn:app-roles:read]
   description: >-
     This API returns the list of available accounts for the specified user app. The user app needs to belong lo logged in user.
   parameters:
@@ -15,8 +15,10 @@ get:
       schema:
         type: string
         example: 2c91808a7813090a017814121e121518
+      x-sailpoint-resource-operation-id: listAllUserApps
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/count.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
   responses:
     '200':
       description: List of available accounts for the specified user app

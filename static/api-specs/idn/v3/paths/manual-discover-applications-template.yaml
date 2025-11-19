@@ -1,15 +1,15 @@
 get:
-  summary: CSV template download for discovery
+  summary: Download csv template for discovery
   tags:
     - Application Discovery
   description: >
-    This endpoint allows the user to download an example CSV file with two columns `application_name` and `description`. 
+    Download an example CSV file with two columns `application_name` and `description`. 
     The CSV file contains a single row with the values 'Example Application' and 'Example Description'.
     
     
     The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint.
   security:
-    - UserContextAuth:
+    - userAuth:
         - 'idn:application-discovery:read'
   operationId: getManualDiscoverApplicationsCsvTemplate
   responses:

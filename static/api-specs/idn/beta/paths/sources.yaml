@@ -1,10 +1,15 @@
 get:
   operationId: listSources
   security:
-    - UserContextAuth: [ idn:sources:read ]
+    - userAuth: [ idn:sources:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - ROLE_SUBADMIN
   tags:
     - Sources
-  summary: Lists all sources in IdentityNow.
+  summary: Lists all sources in identitynow.
   description: >-
     This end-point lists all the sources in IdentityNow.
 
@@ -92,6 +97,14 @@ get:
         Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when
         this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this
         parameter, a 403 Forbidden is returned.
+    - in: query
+      name: includeIDNSource
+      required: false
+      schema:
+        type: boolean
+        default: false
+      example: true
+      description: Include the IdentityNow source in the response.
   responses:
     '200':
       description: List of Source objects
@@ -116,10 +129,14 @@ get:
 post:
   operationId: createSource
   security:
-    - UserContextAuth: [ idn:sources:manage ]
+    - userAuth: [ idn:sources:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Sources
-  summary: Creates a source in IdentityNow.
+  summary: Creates a source in identitynow.
   description: >-
     This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and
     encrypted upon receipt in IdentityNow.

@@ -1,10 +1,12 @@
 get:
   operationId: listAccessRequestStatus
   security:
-    - UserContextAuth: [ idn:access-request-status:read ]
+    - userAuth: [idn:access-request-status:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   tags:
     - Access Requests
-  summary: Access Request Status
+  summary: Access request status
   description: >-
     Use this API to return a list of access request statuses
     based on the specified query parameters.
@@ -12,8 +14,8 @@ get:
     If an access request was made for access that an identity already has, the API ignores the access request. 
     These ignored requests do not display in the list of access request statuses.
 
-    Any token with any authority can request their own status. A token with
-    ORG_ADMIN authority is required to call this API to get a list of statuses
+    Any user with any user level can get the status of their own access requests. A user with
+    ORG_ADMIN is required to call this API to get a list of statuses
     for other users.
   parameters:
     - in: query
@@ -32,7 +34,7 @@ get:
         type: string
       example: 2c9180877b2b6ea4017b2c545f971429
       description: >-
-        Filter the results by the identity twho made the requests. *me*
+        Filter the results by the identity who made the requests. *me*
         indicates the current user. Mutually exclusive with
         *regarding-identity*.
       required: false
@@ -102,7 +104,13 @@ get:
         Filtering is supported for the following fields and operators:
 
 
+        **accessRequestId**: *eq, in, ge, gt, le, lt, ne, sw*
+
+
         **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
+
+
+        **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
       required: false
     - in: query
       name: sorters
@@ -115,6 +123,14 @@ get:
 
         Sorting is supported for the following fields: **created, modified, accountActivityItemId, name**
       example: created
+      required: false
+    - in: query
+      name: request-state
+      schema:
+        type: string
+      example: request-state=EXECUTING
+      description: >-
+        Filter the results by the state of the request. The only valid value is *EXECUTING*.
       required: false
   responses:
     "200":

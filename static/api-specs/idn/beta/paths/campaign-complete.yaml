@@ -2,7 +2,7 @@ post:
   operationId: completeCampaign
   tags:
     - Certification Campaigns
-  summary: Complete a Campaign
+  summary: Complete a campaign
   description: |
     :::caution
     
@@ -18,7 +18,7 @@ post:
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   deprecated: true
   security:
-    - UserContextAuth: [idn:campaign:manage]
+    - userAuth: [idn:campaign:manage]
   requestBody:
     description:
       Optional. Default behavior is for the campaign to auto-approve upon completion,
@@ -36,6 +36,7 @@ post:
       required: true
       description: Campaign ID. 
       example: ef38f94347e94562b5bb8424a56397d8
+      x-sailpoint-resource-operation-id: getActiveCampaigns
   responses:
     '202':
       $ref: '../../v3/responses/202.yaml'

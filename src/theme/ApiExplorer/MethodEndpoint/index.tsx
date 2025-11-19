@@ -1,7 +1,6 @@
 import React from "react";
 
 import BrowserOnly from "@docusaurus/BrowserOnly";
-
 import { useTypedSelector } from "@theme/ApiItem/hooks";
 
 function colorForMethod(method: string) {
@@ -28,13 +27,18 @@ function colorForMethod(method: string) {
 export interface Props {
   method: string;
   path: string;
+  context?: "endpoint" | "callback";
 }
 
-function MethodEndpoint({ method, path }: Props) {
+function MethodEndpoint({ method, path, context }: Props) {
   let serverValue = useTypedSelector((state: any) => state.server.value);
   let serverUrlWithVariables = "";
 
   const renderServerUrl = () => {
+    if (context === "callback") {
+      return "";
+    }
+
     if (serverValue && serverValue.variables) {
       serverUrlWithVariables = serverValue.url.replace(/\/$/, "");
 

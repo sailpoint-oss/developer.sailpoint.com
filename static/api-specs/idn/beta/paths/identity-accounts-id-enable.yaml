@@ -2,20 +2,28 @@ post:
   operationId: enableAccountForIdentity
   tags:
     - Accounts
-  summary: Enable IDN Account for Identity
+  summary: Enable idn account for identity
   description: >-
     This API submits a task to enable IDN account for a single identity.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Enable IDN Account for Identity](https://developer.sailpoint.com/docs/api/v2025/enable-account-for-identity) for latest API.
   externalDocs:
     description: 'Learn more about enabling identities here'
-    url: 'https://documentation.sailpoint.com/saas/help/common/users/user_access.html#enabling-user-identities'
+    url: 'https://documentation.sailpoint.com/saas/help/accounts/identities.html?h=disabling+identities#enabling-identities'
   security:
-    - UserContextAuth: [idn:accounts-state:manage]
+    - userAuth: [idn:accounts-state:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   parameters:
     - in: path
       name: id
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listIdentities
       description: The identity id.
       example: 2c91808384203c2d018437e631158309
   responses:

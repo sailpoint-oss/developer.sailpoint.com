@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clusters
-  summary: Retrieve all Managed Cluster processes
+  summary: Retrieve all managed cluster processes
   description: Retrieve a list of the ManagedProcesses that this particular VA instance is configured for.
   operationId: getManagedClusterProcesses
   parameters:
@@ -9,6 +9,7 @@ get:
       in: path
       description: ID of the Managed Cluster
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       style: simple
       explode: false
       schema:
@@ -36,4 +37,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:managed-process:read, idn:managed-process:manage]
+    - userAuth: [idn:managed-process:read, idn:managed-process:manage]

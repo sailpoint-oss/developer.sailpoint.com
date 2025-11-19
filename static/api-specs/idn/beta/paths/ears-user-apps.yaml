@@ -4,12 +4,13 @@ get:
     - Apps
   summary: List owned user apps
   security:
-    - UserContextAuth: [idn:app-roles:read]
+    - userAuth: [idn:app-roles:read]
   description: >-
     This API returns the list of user apps assigned to logged in user
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/count.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
     - in: query
       name: filters
       schema:

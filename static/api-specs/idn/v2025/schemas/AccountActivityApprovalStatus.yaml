@@ -1,0 +1,12 @@
+type: string
+nullable: true
+enum:
+  - FINISHED
+  - REJECTED
+  - RETURNED
+  - EXPIRED
+  - PENDING
+  - CANCELED
+  - null
+example: PENDING
+description: The state of an approval status

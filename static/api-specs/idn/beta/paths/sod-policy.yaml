@@ -2,10 +2,10 @@ get:
   operationId: getSodPolicy
   tags:
     - SOD Policies
-  summary: Get SOD policy by ID
+  summary: Get sod policy by id
   deprecated: true
   security:
-    - UserContextAuth: [ idn:sod-policy:read ]
+    - userAuth: [ idn:sod-policy:read ]
   description: >-
     This gets specified SOD policy.
 
@@ -16,6 +16,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodPolicies
       description: The ID of the object reference to retrieve.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
@@ -130,10 +131,10 @@ put:
   operationId: putSodPolicy
   tags:
     - SOD Policies
-  summary: Update SOD policy by ID
+  summary: Update sod policy by id
   deprecated: true
   security:
-    - UserContextAuth: [idn:sod-policy:write]
+    - userAuth: [idn:sod-policy:write]
   description: >-
     This updates a specified SOD policy.
 
@@ -144,6 +145,7 @@ put:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodPolicies
       description: The ID of the SOD policy to update.
       example: ef38f94347e94562b5bb8424a56397d8
   requestBody:
@@ -352,10 +354,10 @@ delete:
   operationId: deleteSodPolicy
   tags:
     - SOD Policies
-  summary: Delete SOD policy by ID
+  summary: Delete sod policy by id
   deprecated: true
   security:
-    - UserContextAuth: [idn:sod-policy:write]
+    - userAuth: [idn:sod-policy:write]
   description: >-
     This deletes a specified SOD policy.
 
@@ -366,6 +368,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodPolicies
       description: The ID of the SOD Policy to delete.
       example: ef38f94347e94562b5bb8424a56397d8
     - in: query
@@ -395,10 +398,10 @@ patch:
   operationId: patchSodPolicy
   tags:
     - SOD Policies
-  summary: Patch a SOD policy
+  summary: Patch a sod policy
   deprecated: true
   security:
-    - UserContextAuth: [ idn:sod-policy:write ]
+    - userAuth: [ idn:sod-policy:write ]
   description: >-
     Allows updating SOD Policy fields other than ["id","created","creatorId","policyQuery","type"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
   
@@ -411,6 +414,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodPolicies
       description: The ID of the SOD policy being modified.
       example: 2c9180835d191a86015d28455b4a2329
   requestBody:

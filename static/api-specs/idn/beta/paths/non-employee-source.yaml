@@ -1,12 +1,17 @@
 get:
   operationId: getNonEmployeeSource
   security:
-    - UserContextAuth: [idn:nelm:read]
+    - userAuth: [idn:nelm:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
-  summary: Get a Non-Employee Source
+  summary: Get a non-employee source
   description: >-
     This gets a non-employee source.
+  deprecated: true
   parameters:
     - in: path
       example: 2c91808b7c28b350017c2a2ec5790aa1
@@ -14,6 +19,7 @@ get:
       description: >-
         Source Id
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeSources
       schema:
         type: string
   responses:
@@ -36,13 +42,18 @@ get:
 patch:
   operationId: patchNonEmployeeSource
   security:
-    - UserContextAuth: [idn:nelm:manage]
+    - userAuth: [idn:nelm:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
-  summary: Patch a Non-Employee Source
+  summary: Patch a non-employee source
   description: >-
     patch a non-employee source. (Partial Update)  Patchable field: **name,
     description, approvers, accountManagers**
+  deprecated: true
 
   parameters:
     - in: path
@@ -50,6 +61,7 @@ patch:
       description: >-
         Source Id
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeSources
       example: 2c91808b6ef1d43e016efba0ce470904
       schema:
         type: string
@@ -95,12 +107,17 @@ patch:
 delete:
   operationId: deleteNonEmployeeSource
   security:
-    - UserContextAuth: [idn:nelm:manage]
+    - userAuth: [idn:nelm:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
-  summary: Delete Non-Employee Source
+  summary: Delete non-employee source
   description: >-
     This request will delete a non-employee source.
+  deprecated: true
 
   parameters:
     - in: path
@@ -108,6 +125,7 @@ delete:
       description: >-
         Source Id
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeSources
       example: 2c91808b6ef1d43e016efba0ce470904
       schema:
         type: string

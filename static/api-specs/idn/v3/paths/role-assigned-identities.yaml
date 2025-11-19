@@ -2,7 +2,7 @@ get:
     operationId: getRoleAssignedIdentities
     tags:
       - Roles
-    summary: List Identities assigned a Role
+    summary: List identities assigned a role
     parameters:
       - in: path
         name: id
@@ -12,6 +12,7 @@ get:
           ID of the Role for which the assigned Identities are to be listed
         example: 2c91808a7813090a017814121e121518
         required: true
+        x-sailpoint-resource-operation-id: listRoles
       - $ref: '../../v3/parameters/limit.yaml'
       - $ref: '../../v3/parameters/offset.yaml'
       - $ref: '../../v3/parameters/count.yaml'
@@ -68,5 +69,5 @@ get:
       '500':
         $ref: '../../v3/responses/500.yaml'
     security:
-      - UserContextAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
+      - userAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
 

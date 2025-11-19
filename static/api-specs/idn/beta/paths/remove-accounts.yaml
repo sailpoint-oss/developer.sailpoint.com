@@ -1,6 +1,6 @@
 post:
   operationId: deleteAccountsAsync
-  summary: Remove All Accounts in a Source
+  summary: Remove all accounts in a source
   tags:
     - Sources
   description: |
@@ -10,13 +10,13 @@ post:
     * Removing accounts that no longer exist on the source.
     * Removing accounts that won't be aggregated following updates to the source configuration.
     * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc.
-
   parameters:
     - in: path
-      name: id
+      name: sourceId
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSources
       description: The source id
       example: ebbf35756e1140699ce52b233121384a
   responses:
@@ -43,4 +43,4 @@ post:
     "500":
       $ref: "../../v3/responses/500.yaml"
   security:
-    - UserContextAuth: [ idn:account:remove ]
+    - userAuth: [ idn:accounts:manage ]

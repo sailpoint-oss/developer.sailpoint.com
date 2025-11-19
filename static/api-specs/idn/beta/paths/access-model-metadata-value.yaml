@@ -1,11 +1,13 @@
 get:
-  summary: "Get Access Model Metadata Value"
+  summary: "Get access model metadata value"
   description: "Get single Access Model Metadata Attribute Value"
   tags:
     - Access Model Metadata
   operationId: "getAccessModelMetadataAttributeValue"
   security:
-    - UserContextAuth: [ 'idn:access-model-metadata:read' ]
+    - userAuth: [ 'idn:access-model-metadata:read' ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - name: "key"
       in: "path"
@@ -14,6 +16,7 @@ get:
         type: "string"
       description: Technical name of the Attribute.
       example: "iscPrivacy"
+      x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
     - name: "value"
       in: "path"
       required: true
@@ -21,6 +24,7 @@ get:
         type: "string"
       description: Technical name of the Attribute value.
       example: "public"
+      x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeValue
   responses:
     "200":
       description: "OK"

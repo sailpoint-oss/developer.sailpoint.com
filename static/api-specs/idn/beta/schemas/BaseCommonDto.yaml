@@ -1,4 +1,5 @@
 type: object
+title: Base Common Dto
 required:
   - name
 properties:
@@ -11,6 +12,7 @@ properties:
     description: Name of the Object
     type: string
     example: aName
+    nullable: true
   created:
     description: Creation date of the Object
     type: string

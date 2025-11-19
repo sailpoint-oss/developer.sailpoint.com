@@ -32,5 +32,6 @@ value:
   totalCertifications: 0
   completedCertifications: 0
   sourcesWithOrphanEntitlements: null
+  machineAccountCampaignInfo: null
   mandatoryCommentRequirement: NO_DECISIONS
   

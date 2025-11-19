@@ -1,12 +1,17 @@
 get:
   operationId: getNonEmployeeApproval
   security:
-    - UserContextAuth: [idn:nelm:read]
+    - userAuth: [idn:nelm:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
-  summary: Get a non-employee approval item detail
+  summary: A non-employee approval item detail
   description: >-
     Approves a non-employee approval request and notifies the next approver.
+  deprecated: true
   parameters:
     - in: path
       name: id
@@ -14,6 +19,7 @@ get:
       description: >-
         Non-Employee approval item id (UUID)
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeApprovals
       schema:
         type: string
     - in: query

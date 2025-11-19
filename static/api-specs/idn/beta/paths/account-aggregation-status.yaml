@@ -2,7 +2,7 @@ get:
   operationId: getAccountAggregationStatus
   tags:
     - Account Aggregations
-  summary: In-progress Account Aggregation status
+  summary: In-progress account aggregation status
   description: >-
     This API returns the status of an *in-progress* account aggregation, along with the total number of **NEW**,
     **CHANGED** and **DELETED** accounts found since the previous aggregation, and the number of those accounts that
@@ -30,6 +30,7 @@ get:
       required: true
       description: The account aggregation id
       example: 2c91808477a6b0c60177a81146b8110b
+      x-sailpoint-resource-operation-id: importAccounts
   responses:
     '200':
       description: An account aggregation status object

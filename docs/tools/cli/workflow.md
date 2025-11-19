@@ -11,27 +11,23 @@ slug: /tools/cli/workflow
 tags: ['CLI']
 ---
 
-# Workflows
-
 Learn how to use the SailPoint CLI to create, manage, and test workflows in this guide.
 
 A workflow is a set of steps that are completed whenever a specific event occurs. Once that event triggers the workflow, the workflow performs the steps within Identity Security Cloud.
 
-The `workflow` command makes it easy to create, manage, and test workflows from within the SailPoint CLI. To learn more about workflows, refer to [Workflows](https://documentation.sailpoint.com/saas/help/workflows/workflow-basics.html?h=workflow).
+The `workflow` command makes it easy to create, manage, and test workflows from within the SailPoint CLI. To learn more about workflows, refer to [Workflows](https://documentation.sailpoint.com/saas/help/workflows/).
 
-- [Workflows](#workflows)
-
-  - [List workflows](#list-workflows)
-  - [Get workflow](#get-workflow)
-  - [Create workflow](#create-workflow)
-    - [File path](#file-path)
-    - [Folder path](#folder-path)
-  - [Update workflow](#update-workflow)
-    - [File path](#file-path-1)
-    - [Folder path](#folder-path-1)
-  - [Delete workflow](#delete-workflow)
-  - [Download workflow](#download-workflow)
-    - [Folder](#folder)
+- [List workflows](#list-workflows)
+- [Get workflow](#get-workflow)
+- [Create workflow](#create-workflow)
+  - [File path](#file-path)
+  - [Folder path](#folder-path)
+- [Update workflow](#update-workflow)
+  - [File path](#file-path-1)
+  - [Folder path](#folder-path-1)
+- [Delete workflow](#delete-workflow)
+- [Download workflow](#download-workflow)
+  - [Folder](#folder)
 
   ## List workflows
 
@@ -131,7 +127,7 @@ The `workflow` command makes it easy to create, manage, and test workflows from 
 
   The updated workflow will be located in the file path you specified.
 
-  This command uses the [Update workflow endpoint](https://developer.sailpoint.com/docs/api/beta/update-workflow).
+  This command uses the [Update workflow endpoint](https://developer.sailpoint.com/docs/api/beta/put-workflow).
 
   ### File path
 

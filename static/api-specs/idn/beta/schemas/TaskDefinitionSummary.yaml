@@ -7,6 +7,7 @@ required:
   - uniqueName
   - parentName
 type: object
+title: Task Definition Summary
 properties:
   id:
     description: System-generated unique ID of the TaskDefinition
@@ -17,6 +18,7 @@ properties:
     type: string
     example: Cloud Account Aggregation
   description:
+    nullable: true
     description: Description of the TaskDefinition
     type: string
     example: Aggregates from the specified application.
@@ -33,3 +35,8 @@ properties:
     description: Formal parameters of the TaskDefinition, without values
     type: object
     additionalProperties: true
+    example:
+      mantisExecutor: com.sailpoint.mantis.sources.task.AccountAggregationTask
+      eventClassesCsv: sailpoint.thunderbolt.events.AggregationEvents
+      serviceClass: sailpoint.thunderbolt.service.AggregationService
+      serviceMethod: accountAggregationTask

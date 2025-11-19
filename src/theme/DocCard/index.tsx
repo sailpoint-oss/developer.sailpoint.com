@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link';
 import {
   findFirstSidebarItemLink,
   useDocById,
-} from '@docusaurus/theme-common/internal';
+} from "@docusaurus/plugin-content-docs/client";
 import {usePluralForm} from '@docusaurus/theme-common';
 import isInternalUrl from '@docusaurus/isInternalUrl';
 import {translate} from '@docusaurus/Translate';
@@ -19,11 +19,8 @@ import type {
 import styles from './styles.module.css';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {
-  faFolderOpen,
-  faBook,
-  faArrowUpRightFromSquare,
-} from '@fortawesome/pro-duotone-svg-icons';
+// Icons - conditionally load based on the token availability
+import { faFolderOpen, faBook, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'; // Fallback classic icons
 
 function useCategoryItemsPlural() {
   const {selectMessage} = usePluralForm();
@@ -105,7 +102,7 @@ function CardCategory({
     <CardLayout
       href={href}
       icon={
-        <FontAwesomeIcon icon={faFolderOpen} className={styles.docCardIcon} />
+        <FontAwesomeIcon style={{fontSize: '1.2rem'}} icon={faFolderOpen} className={styles.docCardIcon} />
       }
       title={item.label}
       description={item.description ?? categoryItemsPlural(item.items.length)}

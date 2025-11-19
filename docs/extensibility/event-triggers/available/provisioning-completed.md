@@ -24,6 +24,12 @@ Some uses cases for this trigger include the following:
 - Notify an administrator or system that provisioning has been completed.
 - Notify a third party system to trigger another action, like continuing additional provisioning actions or auditing of provisioning activities, for example.
 
+:::warning
+
+Applications should be able to handle provisioning tasks independently, as the order in which operations are executed may not always be predictable.
+
+:::
+
 This is an example input from this trigger:
 
 ```json
@@ -83,9 +89,9 @@ To provision to a target application, the connector for the source must support 
 - `PROVISIONING` - Can write to accounts. Currently, the trigger does not include attribute synchronization.
 - `PASSWORD` - Can update password for accounts.
 
-For a list of supported connectors and features, see [Supported Connectors for Identity Security Cloud](https://community.sailpoint.com/t5/Connectors/Supported-Sources-Connectors-for-Identity Security Cloud/ta-p/80019).
+For a list of supported connectors and features, see [Supported Connectors for Identity Security Cloud](https://community.sailpoint.com/t5/IdentityNow-Connectors/Identity-Security-Cloud-Connectors/ta-p/80019).
 
-For information about configuring sources for provisioning, see [How can I edit the Create Profile on a source?](https://community.sailpoint.com/t5/Connectors/How-can-I-edit-the-Create-Profile-on-a-source/ta-p/74429).
+For information about configuring sources for provisioning, see [Configuring Source Account Provisioning](https://documentation.sailpoint.com/saas/help/provisioning/create_profile.html).
 
 Provisioning events occur in these workflows:
 
@@ -124,7 +130,7 @@ Provisioning removal of accounts acquired through Access Request occurs through 
 
 ### Role Membership
 
-Access defined in access profiles can be grouped into roles, and roles can be assigned to identities using `COMPLEX_CRITERION` or `IDENTITY_LIST`. See [Admin UI](https://community.sailpoint.com/t5/Admin-Help/Standard-Role-Membership-Criteria-Options/ta-p/74392) for information on how to set `COMPLEX_CRITERION`.
+Access defined in access profiles can be grouped into roles, and roles can be assigned to identities using `COMPLEX_CRITERION` or `IDENTITY_LIST`. See [Automating Role Assignment](https://documentation.sailpoint.com/saas/help/provisioning/role_assignment.html) for information on how to set `COMPLEX_CRITERION`.
 
 > **Note:** `CUSTOM` role membership through rules is no longer supported.
 
@@ -144,7 +150,7 @@ To provision access with lifecycle states, the prerequisites must be met:
 - Source entitlements mapped from an authoritative source.
 - Source entitlements mapped to access profiles.
 - Identity profile using an authoritative source.
-- Lifecycle states configured. To set them up, follow this [guide].
+- Lifecycle states configured. To set them up, follow this [guide](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html).
 
 ### Password Management
 

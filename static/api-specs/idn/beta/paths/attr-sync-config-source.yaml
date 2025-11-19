@@ -3,14 +3,14 @@ get:
   operationId: getSourceAttrSyncConfig
   tags:
     - Sources
-  summary: Attribute Sync Config
+  summary: Attribute sync config
   description: >-
     This API returns the existing attribute synchronization configuration for a source specified by the
     given ID. The response contains all attributes, regardless of whether they enabled or not.
 
     A token with ORG_ADMIN or HELPDESK authority is required to call this API.
   security:
-    - UserContextAuth: [ "idn:attr-sync-source-config:read", "idn:attr-sync-source-config:manage" ]
+    - userAuth: [ "idn:attr-sync-source-config:read", "idn:attr-sync-source-config:manage" ]
   parameters:
     - in: path
       name: id
@@ -19,6 +19,7 @@ get:
         type: string
       description: The source id
       example: 2c9180835d191a86015d28455b4a2329
+      x-sailpoint-resource-operation-id: listSources
   responses:
     '200':
       description: Attribute synchronization configuration for a source
@@ -43,7 +44,7 @@ put:
   operationId: putSourceAttrSyncConfig
   tags:
     - Sources
-  summary: Update Attribute Sync Config
+  summary: Update attribute sync config
   description: >-
     Replaces the attribute synchronization configuration for the source specified by the given ID with the
     configuration provided in the request body. Only the "enabled" field of the values in the "attributes"
@@ -52,7 +53,7 @@ put:
         
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth:
+    - userAuth:
         - "idn:attr-sync-source-config:manage"
   parameters:
     - in: path
@@ -62,6 +63,7 @@ put:
         type: string
       description: The source id
       example: 2c9180835d191a86015d28455b4a2329
+      x-sailpoint-resource-operation-id: listSources
   requestBody:
     required: true
     content:

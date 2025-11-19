@@ -1,6 +1,6 @@
 ---
 id: saas-configuration
-title: SaaS Configuration
+title: SaaS configuration
 pagination_label: SaaS Configuration
 sidebar_position: 4
 sidebar_class_name: saasConfiguration
@@ -24,7 +24,7 @@ For more details around how to manage configurations, refer to [SailPoint SaaS C
 
 This document is intended for technically proficient administrators, implementers, integrators or even developers. No coding experience is necessary, but being able to understand JSON data structures and make REST API web-service calls is necessary to fully understand this guide.
 
-## Supported Objects
+## Supported objects
 
 A SailPoint tenant configuration comprises various objects and their details, such as an organization's different identity profiles, roles, certification campaigns, and more. 
 You can use the SaaS Configuration APIs to exclude objects from the imports and exports. 
@@ -43,6 +43,7 @@ To learn more about Configuration Hub, refer to [Configuration Hub](https://docu
 | Attribute Sync Source Configuration | `ATTR_SYNC_SOURCE_CONFIG` | ✅ | ❌ | ✅ | ✅ |
 | Authentication Configuration | `AUTH_ORG` | ✅ | ❌ | ✅ | ✅ |
 | Campaign Filters | `CAMPAIGN_FILTER` | ✅ | ❌ | ✅ | ✅ |
+| Connector Rules | `CONNECTOR_RULE` | ✅ | ✅ | ✅ | ✅ |
 | Form Definitions | `FORM_DEFINITION` | ✅ | ❌ | ✅ | ✅ |
 | Governance Groups | `GOVERNANCE_GROUP` | ✅ | ❌ | ✅ | ✅ |
 | Identity Object Configuration | `IDENTITY_OBJECT_CONFIG` | ✅ | ✅ | ✅ | ✅ |
@@ -67,6 +68,8 @@ To learn more about Configuration Hub, refer to [Configuration Hub](https://docu
 
 The available supported objects are also available via REST API! See List Configuration Objects in the **API Reference** section of this document.
 
+:::
+
 :::tip
 
 Source passwords, secret token or other sensitive data is not exported. Those need to be re-added after importing
@@ -75,7 +78,7 @@ Source passwords, secret token or other sensitive data is not exported. Those ne
 
 **Rule Import and Export -** Rules can be exported from one tenant and imported into another. Cloud rules have already been reviewed and installed in other tenants, and connector rules do not require a rule review. During the import and export process, rules cannot be changed in the migration process because these are validated by the usage of `jwsHeader` and `jwsSignature` in the object.
 
-## Exporting Configurations
+## Exporting configurations
 
 ### Prerequisites
 
@@ -93,7 +96,7 @@ Source passwords, secret token or other sensitive data is not exported. Those ne
 5. **Get Export Results** - Once the status is `COMPLETE`, download the export results by calling `GET /beta/sp-config/export/{id}/download` where the `{id}` is the `jobId`.
 6. **Response with Export Results** - In response, the export process will produce a set of JSON objects you can download as an export result set. These will reflect the objects that were selected in the export options earlier.
 
-## Importing Configurations
+## Importing configurations
 
 ### Prerequisites
 
@@ -111,8 +114,13 @@ Source passwords, secret token or other sensitive data is not exported. Those ne
 5. **Get Import Results** - Once the status is `COMPLETE`, download the import results by calling `GET /beta/sp-config/import/{id}/download` where the `{id}` is the `jobId`.
 6. **Response with Import Results** - In response, the import process should produce listing of object that successfully imported, as well as any errors, warnings, or information about the import process. This result set will reflect the objects that were selected to be imported earlier.
 
+:::caution
 
-## API Reference Guide
+You cannot import Non-Employee sources. 
+
+:::
+
+## API reference guide
 
 | **Description**     | **REST API Endpoint**                     |
 | :------------------ | :----------------------------------------- |
@@ -124,12 +132,11 @@ Source passwords, secret token or other sensitive data is not exported. Those ne
 | Import Status       | `GET /beta/sp-config/import/{id}`          |
 | Import Results      | `GET /beta/sp-config/import/{id}/download` |
 
-### List Configuration Objects
+### List configuration objects
 
 **Description**
 
-[This endpoint](https://developer.sailpoint.com/docs/api/beta/list-sp-config-objects) gets the list of object configurations known to the tenant export/import service. 
-Object configurations containing "importUrl" and "exportUrl" are available for export/import.
+[This endpoint](https://developer.sailpoint.com/docs/api/beta/list-sp-config-objects) gets the list of object configurations the tenant export/import service knows. 
 
 <Tabs>
   <TabItem value="request" label="Request" default>
@@ -229,7 +236,7 @@ Content-Type: application/json
   </TabItem>
 </Tabs>
 
-### Export Objects
+### Export objects
 
 **Description**
 
@@ -311,11 +318,11 @@ You can only use the `includedIds` and `includedNames` filters when you're expor
 
 :::
 
-### Export Status
+### Export status
 
 **Description**
 
-[This endpoint](https://developer.sailpoint.com/docs/api/beta/export-sp-config-job-status) gets the status of the export job identified by its `id` parameter.
+[This endpoint](https://developer.sailpoint.com/docs/api/beta/get-sp-config-export-status) gets the status of the export job identified by its `id` parameter.
 
 This request requires one of the following security scopes: 
 
@@ -352,11 +359,11 @@ Content-Type: application/json
   </TabItem>
 </Tabs>
 
-### Export Results
+### Export results
 
 **Description**
 
-[This endpoint](https://developer.sailpoint.com/docs/api/beta/export-sp-config-download) gets the export job's resulting export file by using the requested `id` and downloads it to a file.
+[This endpoint](https://developer.sailpoint.com/docs/api/beta/get-sp-config-export) gets the export job's resulting export file by using the requested `id` and downloads it to a file.
 
 This request requires one of the following security scopes:
 
@@ -516,7 +523,7 @@ Content-Type: application/json
   </TabItem>
 </Tabs>
 
-### Import Objects
+### Import objects
 
 **Description**
 
@@ -576,7 +583,7 @@ Example: POST /beta/sp-config/import?preview=true
 
 **Description**
 
-[This endpoint](https://developer.sailpoint.com/docs/api/beta/import-sp-config-job-status) gets the status of the import job identified by its `id` parameter. 
+[This endpoint](https://developer.sailpoint.com/docs/api/beta/get-sp-config-import-status) gets the status of the import job identified by its `id` parameter. 
 
 This request requires the following security scope: 
 
@@ -617,7 +624,7 @@ Content-Type: application/json
 
 **Description**
 
-[This endpoint](https://developer.sailpoint.com/docs/api/beta/import-sp-config-download) gets the import job's resulting import file by using the requested `id` and downloads the file. 
+[This endpoint](https://developer.sailpoint.com/docs/api/beta/get-sp-config-import) gets the import job's resulting import file by using the requested `id` and downloads the file. 
 The downloaded file will contain the import job's results, including any associated error, warning or informational messages.
 
 This request requires the following security scope:

@@ -1,7 +1,7 @@
 post:
   tags:
     - Managed Clusters
-  summary: Create new Managed Cluster
+  summary: Create new managed cluster
   description: >-
     Create a new Managed Cluster.
 
@@ -33,4 +33,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:remote-client:manage]
+    - userAuth: [idn:remote-client:manage]

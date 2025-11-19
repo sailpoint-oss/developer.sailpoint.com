@@ -12,6 +12,7 @@ get:
     - in: path
       name: id
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
       description: The Source id
@@ -41,7 +42,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:source-schema:read]
+    - userAuth: [idn:source-schema:read]
 post:
   tags:
     - Sources
@@ -62,6 +63,7 @@ post:
     - in: path
       name: id
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
       description: The Source id
@@ -100,4 +102,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:source-schema:manage]
+    - userAuth: [idn:source-schema:manage]

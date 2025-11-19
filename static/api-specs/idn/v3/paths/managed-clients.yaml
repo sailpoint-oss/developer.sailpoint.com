@@ -1,9 +1,9 @@
 get:
   tags:
     - Managed Clients
-  summary: Get Managed Clients
+  summary: Get managed clients
   description: >-
-    Get a list of Managed Clients.
+    List managed clients.
   operationId: getManagedClients
   parameters:
     - $ref: '../../v3/parameters/offset.yaml'
@@ -30,10 +30,11 @@ get:
 
 
         **clusterId**: *eq*
+      required: false
       example: name eq "client name"
   responses:
     "200":
-      description: Responds with a list of ManagedClient based on the query params provided
+      description: Response with a list of managed clients, based on the specified query parameters.
       content:
         application/json:
           schema:
@@ -51,15 +52,17 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:remote-client:read, idn:remote-client:manage]
+    - userAuth: [idn:remote-client:read, idn:remote-client:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 post:
   tags:
     - Managed Clients
-  summary: Create a new Managed Client
+  summary: Create managed client
   description: >-
-    Create a new Managed Client.
+    Create a new managed client.
 
-    The API returns a result that includes the Managed Client ID.
+    The API returns a result that includes the managed client ID.
   operationId: createManagedClient
   requestBody:
     required: true
@@ -69,7 +72,7 @@ post:
           $ref: '../schemas/ManagedClientRequest.yaml'
   responses:
     "200":
-      description: The created ManagedClient
+      description: Created managed client.
       content:
         application/json:
           schema:
@@ -85,4 +88,6 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:remote-client:manage]
+    - userAuth: [idn:remote-client:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

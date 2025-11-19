@@ -2,12 +2,11 @@ get:
     operationId: getAccessProfileEntitlements
     tags:
       - Access Profiles
-    summary: List Access Profile's Entitlements
+    summary: List access profile's entitlements
     description: >-
         Use this API to get a list of an access profile's entitlements. 
 
-        A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In
-        addition, a token with SOURCE_SUBADMIN authority must have access to the source associated with the specified
+        A user with SOURCE_SUBADMIN authority must have access to the source associated with the specified
         access profile.
     parameters:
       - name: id
@@ -17,6 +16,7 @@ get:
         schema:
           type: string
           example: 2c91808a7813090a017814121919ecca
+        x-sailpoint-resource-operation-id: listAccessProfiles
       - $ref: '../../v3/parameters/limit.yaml'
       - $ref: '../../v3/parameters/offset.yaml'
       - $ref: '../../v3/parameters/count.yaml'
@@ -90,7 +90,12 @@ get:
       '500':
         $ref: '../../v3/responses/500.yaml'
     security:
-      - UserContextAuth: [idn:access-profile:read, idn:access-profile:manage]
+      - userAuth: [idn:access-profile:read, idn:access-profile:manage]
+      - applicationAuth: [idn:access-profile:read, idn:access-profile:manage]
+    x-sailpoint-userLevels:
+      - ORG_ADMIN
+      - SOURCE_ADMIN
+      - SOURCE_SUBADMIN
 
 
 

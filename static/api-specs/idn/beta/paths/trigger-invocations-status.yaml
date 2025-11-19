@@ -2,7 +2,7 @@ get:
   operationId: listTriggerInvocationStatus
   tags:
     - Triggers
-  summary: List Latest Invocation Statuses
+  summary: List latest invocation statuses
   description: >-
     Gets a list of latest invocation statuses.
 
@@ -62,4 +62,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [sp:trigger-service-invocation-status:read, sp:trigger-service-invocation-status:manage]
+    - userAuth: [sp:trigger-service-invocation-status:read, sp:trigger-service-invocation-status:manage]

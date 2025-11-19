@@ -2,11 +2,11 @@ post:
   operationId: deleteNotificationTemplatesInBulk
   tags:
     - Notifications
-  summary: Bulk Delete Notification Templates
+  summary: Bulk delete notification templates
   description: >-
     This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
   security:
-  - UserContextAuth: [ idn:notification-templates:delete ]
+  - userAuth: [ idn:notification-templates:delete ]
   requestBody:
     required: true
     content:

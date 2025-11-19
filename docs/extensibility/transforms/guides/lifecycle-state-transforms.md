@@ -1,6 +1,6 @@
 ---
 id: lifecycle-state-transform
-title: Lifecycle State Transform
+title: Lifecycle state transform
 pagination_label: Lifecycle State Transform
 sidebar_label: Lifecycle State Transform
 sidebar_class_name: lifecycleStateTransform
@@ -220,9 +220,9 @@ Lines 34-36 use the comparison operator less than or equal to: `lte`. This uses 
 
 </details>
 
-## Putting It All Together
+## Putting it all together
 
-Now that you have taken the time to understand each of the nested transforms, you can put it all together! You can now calculate lifecycle states for the identities with the [velocity if/else logic](https://people.apache.org/~henning/velocity/html/ch05s03.html) within the static transform.
+Now that you have taken the time to understand each of the nested transforms, you can put it all together! You can now calculate lifecycle states for the identities with the [velocity if/else logic](https://velocity.apache.org/engine/1.7/user-guide.html#if-elseif-else) within the static transform.
 
 ```javascript
 #if($inPast=='false' && $Within7Days == 'true')
@@ -250,7 +250,7 @@ This is the logic within the static transform:
 ```
 
 <details>
-    <summary>Show Complete Transform</summary>
+    <summary>Show complete transform</summary>
 
 ```json
 {

@@ -20,6 +20,7 @@ value:
     - 612b31b1a0f04aaf83123bdb80e70db6
   searchCampaignInfo: null
   roleCompositionCampaignInfo: null
+  machineAccountCampaignInfo: null
   alerts: null
   totalCertifications: 0
   completedCertifications: 0

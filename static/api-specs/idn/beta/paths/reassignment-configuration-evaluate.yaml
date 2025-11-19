@@ -2,7 +2,7 @@ get:
   operationId: getEvaluateReassignmentConfiguration
   tags:
     - Work Reassignment
-  summary: Evaluate Reassignment Configuration
+  summary: Evaluate reassignment configuration
   description: >-
     Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type
     should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup
@@ -12,11 +12,12 @@ get:
     for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value
     and the lookupTrail node will be empty.
   security:
-    - UserContextAuth: [idn:reassignment-configuration:evaluate]
+    - userAuth: [idn:reassignment-configuration:evaluate]
   parameters:
     - in: path
       name: identityId
       required: true
+      x-sailpoint-resource-operation-id: listIdentities
       schema:
         type: string
       description: unique identity id

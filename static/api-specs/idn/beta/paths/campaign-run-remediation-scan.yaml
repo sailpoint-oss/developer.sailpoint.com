@@ -2,14 +2,14 @@ post:
   operationId: startCampaignRemediationScan
   tags:
     - Certification Campaigns
-  summary: Run Campaign Remediation Scan
+  summary: Run campaign remediation scan
   description: |
     Use this API to run a remediation scan task for a certification campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-campaign-remediation-scan).
 
     A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
   deprecated: true
   security:
-    - UserContextAuth: [idn:campaign-report:manage]
+    - userAuth: [idn:campaign-report:manage]
   parameters:
     - in: path
       name: id
@@ -18,6 +18,7 @@ post:
         example: 2c91808571bcfcf80171c23e4b4221fc
       required: true
       description: ID of the campaign the remediation scan is being run for.
+      x-sailpoint-resource-operation-id: getActiveCampaigns
   responses:
     '202':
       $ref: '../../v3/responses/202.yaml'

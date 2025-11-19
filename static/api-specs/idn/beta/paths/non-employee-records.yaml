@@ -1,17 +1,21 @@
 post:
   operationId: createNonEmployeeRecord
   security:
-    - UserContextAuth: [idn:nelm:manage]
+    - userAuth: [idn:nelm:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
-  summary: Create Non-Employee Record
+  summary: Create non-employee record
   description: >-
     This request will create a non-employee record.
 
     Request will require the following security scope:
 
     'idn:nesr:create'
-
+  deprecated: true
   requestBody:
     description: Non-Employee record creation request body.
     required: true
@@ -39,12 +43,17 @@ post:
 get:
   operationId: listNonEmployeeRecords
   security:
-    - UserContextAuth: [idn:nelm:read]
+    - userAuth: [idn:nelm:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
-  summary: List Non-Employee Records
+  summary: List non-employee records
   description: >-
     This gets a list of non-employee records.
+  deprecated: true
   parameters:
     - $ref: "../../v3/parameters/limit.yaml"
     - $ref: "../../v3/parameters/offset.yaml"

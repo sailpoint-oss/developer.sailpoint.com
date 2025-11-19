@@ -1,4 +1,5 @@
 type: object
+title: Tagged Object
 properties:
   objectRef:
     type: object

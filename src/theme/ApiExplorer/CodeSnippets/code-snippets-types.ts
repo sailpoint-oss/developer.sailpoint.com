@@ -15,10 +15,12 @@ export type CodeSampleLanguage =
   | "JavaScript"
   | "Kotlin"
   | "Objective-C"
+  | "OCaml"
   | "Perl"
   | "PHP"
   | "PowerShell"
   | "Python"
+  | "R"
   | "Ruby"
   | "Rust"
   | "Scala"
@@ -31,13 +33,14 @@ export interface Language {
   language: string;
   codeSampleLanguage: CodeSampleLanguage;
   logoClass: string;
-  variant: string;
-  variants: string[];
+  variant: string | null;
+  variants: string[] | null;
   options?: { [key: string]: boolean };
   sample?: string;
   samples?: string[];
   samplesSources?: string[];
   samplesLabels?: string[];
+  tag?: string;
 }
 
 // https://redocly.com/docs/api-reference-docs/specification-extensions/x-code-samples

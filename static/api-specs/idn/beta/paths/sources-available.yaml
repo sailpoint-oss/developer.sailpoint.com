@@ -2,7 +2,7 @@ get:
   operationId: listSources
   tags:
     - Sources
-  summary: List of filtered Sources
+  summary: List of filtered sources
   description: |
     This end-point lists all sources with 'PASSWORD' feature,
     sources assigned to the any of existing Password Sync Group are filtered out.
@@ -29,4 +29,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:password-sync-group-management:read]
+    - userAuth: [idn:password-sync-group-management:read]

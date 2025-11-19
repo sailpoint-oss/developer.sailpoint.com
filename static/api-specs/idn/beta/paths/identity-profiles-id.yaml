@@ -2,7 +2,7 @@ delete:
   operationId: deleteIdentityProfile
   tags:
     - Identity Profiles
-  summary: Delete an Identity Profile
+  summary: Delete an identity profile
   description: >-
     This API endpoint deletes an Identity Profile based on its ID.
 
@@ -17,6 +17,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listIdentityProfiles
       description: The Identity Profile ID.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
@@ -40,13 +41,13 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:identity-profile:manage]
+    - userAuth: [idn:identity-profile:manage]
 
 patch:
   operationId: updateIdentityProfile
   tags:
     - Identity Profiles
-  summary: Update the Identity Profile
+  summary: Update the identity profile
   description: >-
     This update the specified Identity Profile.
 
@@ -61,7 +62,7 @@ patch:
 
     * modified
   security:
-    - UserContextAuth: [idn:identity-profile:manage]
+    - userAuth: [idn:identity-profile:manage]
   parameters:
     - in: path
       name: id
@@ -69,6 +70,7 @@ patch:
         type: string
         format: uuid
       required: true
+      x-sailpoint-resource-operation-id: listIdentityProfiles
       description: The Identity Profile ID
       example: ef38f94347e94562b5bb8424a56397d8
   requestBody:

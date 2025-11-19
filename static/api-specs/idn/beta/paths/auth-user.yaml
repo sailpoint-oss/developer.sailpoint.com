@@ -2,10 +2,10 @@ put:
   operationId: setAuthUser
   tags:
     - Auth User
-  summary: Auth User Update - Overwrite
+  summary: Auth user update - overwrite
   description: Update an existing user in the authentication system by over overwriting the information with new information.
   security:
-    - UserContextAuth: [sp:auth-user-internal:update]
+    - userAuth: [sp:auth-user-internal:update]
   parameters:
     - in: path
       name: id
@@ -15,6 +15,7 @@ put:
       schema:
         type: string
       example: ef38f94347e94562b5bb8424a56397d8
+      x-sailpoint-resource-operation-id: listIdentities
   requestBody:
     required: true
     description: |
@@ -47,10 +48,10 @@ delete:
   operationId: deleteAuthUser
   tags:
     - Auth User
-  summary: Delete an Auth User
+  summary: Delete an auth user
   description: Delete an existing user in the authentication system.
   security:
-    - UserContextAuth: [sp:auth-user:delete]
+    - userAuth: [sp:auth-user:delete]
   parameters:
     - in: path
       name: id
@@ -60,6 +61,7 @@ delete:
       schema:
         type: string
       example: ef38f94347e94562b5bb8424a56397d8
+      x-sailpoint-resource-operation-id: listIdentities
   responses:
     '204':
       $ref: '../../v3/responses/204.yaml'

@@ -2,7 +2,7 @@ get:
   operationId: getWorkgroup
   tags:
     - Governance Groups
-  summary: Get Governance Group by Id
+  summary: Get governance group by id
   description: This API returns a Governance Groups by its ID.
   parameters:
     - in: path
@@ -31,12 +31,12 @@ get:
     '500':
       $ref: '../../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:workgroup:read]
+    - userAuth: [idn:workgroup:read]
 delete:
   operationId: deleteWorkgroup
   tags:
     - Governance Groups
-  summary: Delete a Governance Group
+  summary: Delete a governance group
   description: This API deletes a Governance Group by its ID.
   parameters:
     - in: path
@@ -61,12 +61,12 @@ delete:
     '500':
       $ref: '../../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:workgroup:write]
+    - userAuth: [idn:workgroup:write]
 patch:
   operationId: patchWorkgroup
   tags:
     - Governance Groups
-  summary: Patch a Governance Group
+  summary: Patch a governance group
   description: >-
     This API updates an existing governance group by ID. 
     
@@ -117,4 +117,4 @@ patch:
     '500':
       $ref: '../../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:workgroup:write]
+    - userAuth: [idn:workgroup:write]

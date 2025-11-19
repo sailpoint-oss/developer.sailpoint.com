@@ -1,6 +1,6 @@
 post:
   operationId: deleteWorkgroupsInBulk
-  summary: Delete Governance Group(s)
+  summary: Delete governance group(s)
   tags:
     - Governance Groups
   description: >-
@@ -53,4 +53,4 @@ post:
     '500':
       $ref: '../../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [ idn:workgroup:write ]
+    - userAuth: [ idn:workgroup:write ]

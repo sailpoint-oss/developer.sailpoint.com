@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clusters
-  summary: Retrieve all Managed Clusters.
+  summary: Retrieve all managed clusters.
   description: Retrieve all Managed Clusters for the current Org, based on request context.
   operationId: getManagedClusters
   parameters:
@@ -41,11 +41,11 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:remote-client:read, idn:remote-client:manage]
+    - userAuth: [idn:remote-client:read, idn:remote-client:manage]
 post:
   tags:
     - Managed Clusters
-  summary: Create new Managed Cluster
+  summary: Create new managed cluster
   description: >-
     Create a new Managed Cluster.
 
@@ -77,4 +77,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:remote-client:manage]
+    - userAuth: [idn:remote-client:manage]

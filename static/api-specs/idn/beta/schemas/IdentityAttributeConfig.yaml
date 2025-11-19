@@ -1,8 +1,9 @@
 type: object
+title: Identity Attribute Config
 properties:
   enabled:
     type: boolean
-    description: If the profile or mapping is enabled
+    description: Backend will only promote values if the profile/mapping is enabled.
     example: true
     default: true
   attributeTransforms:

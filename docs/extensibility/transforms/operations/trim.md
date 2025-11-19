@@ -14,7 +14,7 @@ tags: ['Transforms', 'Transform Operations']
 
 Use the trim transform to trim whitespaces from both the beginning and ending of input strings.
 
-## Transform Structure
+## Transform structure
 
 The trim transform only requires the transform's `type` and `name` attributes:
 
@@ -45,7 +45,7 @@ Input: " Vice President"
 Output: "Vice President"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -73,7 +73,7 @@ Input: "Austin, Texas "
 Output: "Austin, Texas"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

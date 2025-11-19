@@ -1,4 +1,4 @@
-import React, { cloneElement, ReactElement } from "react";
+import React, { cloneElement, ReactElement, useEffect, useRef } from "react";
 
 import {
   sanitizeTabsChildren,
@@ -36,9 +36,37 @@ function TabList({
   selectValue,
   tabValues,
 }: CodeTabsProps & ReturnType<typeof useTabs>) {
-  const tabRefs: (HTMLLIElement | null)[] = [];
+  const tabRefs = useRef<(HTMLLIElement | null)[]>([]);
+  const tabsScrollContainerRef = useRef<any>();
   const { blockElementScrollPositionUntilNextRender } =
     useScrollPositionBlocker();
+
+  useEffect(() => {
+    const activeTab = tabRefs.current.find(
+      (tab) => tab?.getAttribute("aria-selected") === "true"
+    );
+
+    if (activeTab && tabsScrollContainerRef.current) {
+      const container = tabsScrollContainerRef.current;
+      const containerRect = container.getBoundingClientRect();
+      const activeTabRect = activeTab.getBoundingClientRect();
+
+      // Calculate the distance to scroll to align active tab to the left
+      const glowOffset = 3;
+      const scrollOffset =
+        activeTabRect.left -
+        containerRect.left +
+        container.scrollLeft -
+        glowOffset;
+
+      // Check if the active tab is not already at the left position
+
+      if (Math.abs(scrollOffset - container.scrollLeft) > 4) {
+        // Adjust the scroll of the container
+        container.scrollLeft = scrollOffset;
+      }
+    }
+  }, []);
 
   const handleTabChange = (
     event:
@@ -47,7 +75,7 @@ function TabList({
       | React.KeyboardEvent<HTMLLIElement>
   ) => {
     const newTab = event.currentTarget;
-    const newTabIndex = tabRefs.indexOf(newTab);
+    const newTabIndex = tabRefs.current.indexOf(newTab);
     const newTabValue = tabValues[newTabIndex]!.value;
 
     if (newTabValue !== selectedValue) {
@@ -73,7 +101,7 @@ function TabList({
         newLanguage = languageSet.filter(
           (lang: Language) => lang.language === newTabValue
         )[0];
-        action.setSelectedVariant(newLanguage.variant.toLowerCase());
+        action.setSelectedVariant(newLanguage.variants[0].toLowerCase());
         action.setSelectedSample(newLanguage.sample);
       }
       action.setLanguage(newLanguage);
@@ -89,13 +117,15 @@ function TabList({
         break;
       }
       case "ArrowRight": {
-        const nextTab = tabRefs.indexOf(event.currentTarget) + 1;
-        focusElement = tabRefs[nextTab] ?? tabRefs[0]!;
+        const nextTab = tabRefs.current.indexOf(event.currentTarget) + 1;
+        focusElement = tabRefs.current[nextTab] ?? tabRefs.current[0]!;
         break;
       }
       case "ArrowLeft": {
-        const prevTab = tabRefs.indexOf(event.currentTarget) - 1;
-        focusElement = tabRefs[prevTab] ?? tabRefs[tabRefs.length - 1]!;
+        const prevTab = tabRefs.current.indexOf(event.currentTarget) - 1;
+        focusElement =
+          tabRefs.current[prevTab] ??
+          tabRefs.current[tabRefs.current.length - 1]!;
         break;
       }
       default:
@@ -106,6 +136,7 @@ function TabList({
   };
 
   return (
+    
     <ul
       role="tablist"
       aria-orientation="horizontal"
@@ -117,6 +148,7 @@ function TabList({
         },
         className
       )}
+      ref={tabsScrollContainerRef}
     >
       {tabValues.map(({ value, label, attributes }) => (
         <li
@@ -125,7 +157,7 @@ function TabList({
           tabIndex={selectedValue === value ? 0 : -1}
           aria-selected={selectedValue === value}
           key={value}
-          ref={(tabControl) => tabRefs.push(tabControl)}
+          ref={(tabControl) => tabRefs.current.push(tabControl)}
           onKeyDown={handleKeydown}
           onClick={handleTabChange}
           {...attributes}
@@ -178,7 +210,6 @@ function TabContent({
 function TabsComponent(props: CodeTabsProps & Props): React.JSX.Element {
   const tabs = useTabs(props);
   const { className } = props;
-
   return (
     <div
       className={clsx("tabs-container openapi-tabs__code-container", className)}

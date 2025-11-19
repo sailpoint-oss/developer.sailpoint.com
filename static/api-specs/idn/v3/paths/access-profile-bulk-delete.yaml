@@ -1,6 +1,6 @@
 post:
   operationId: deleteAccessProfilesInBulk
-  summary: Delete Access Profile(s)
+  summary: Delete access profile(s)
   tags:
     - Access Profiles
   description: >-
@@ -16,8 +16,7 @@ post:
     **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will
     be deleted.
 
-    A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this endpoint. In addition,
-    a SOURCE_SUBADMIN can only use this endpoint to delete access profiles associated with sources they're able
+    A SOURCE_SUBADMIN user can only use this endpoint to delete access profiles associated with sources they're able
     to administer.
   requestBody:
     required: true
@@ -85,4 +84,9 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:access-profile:manage]
+    - userAuth: [idn:access-profile:manage]
+    - applicationAuth: [idn:access-profile:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

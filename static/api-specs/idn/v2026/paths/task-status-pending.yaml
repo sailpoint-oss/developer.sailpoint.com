@@ -1,0 +1,99 @@
+get:
+  tags:
+  - Task Management
+  summary: Retrieve pending task status list
+  description: |
+    Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
+    Possible tasks to be returned: Cloud Account Aggregation, Cloud Group Aggregation, Cloud Process Uncorrelated Accounts, Cloud Refresh Role, Source Application Discovery, AI Agent Aggregation, Cloud Entitlement Import, Cloud Uncorrelated Refresh, Cloud Identity Aggregation, Cloud Attribute Synchronization, Identity Refresh
+
+  operationId: getPendingTasks
+  parameters:
+  - $ref: ../parameters/offset.yaml
+  - $ref: ../parameters/limit.yaml
+  - $ref: ../parameters/count.yaml
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Responds with a list of TaskStatus for pending tasks.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/TaskStatus.yaml
+    '204':
+      $ref: ../responses/204.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth: [idn:task-management:read, idn:task-management:write]
+    - applicationAuth: [idn:task-management:read, idn:task-management:write]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - HELPDESK
+    - CERT_ADMIN
+    - REPORT_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+head:
+  tags:
+  - Task Management
+  summary: Retrieve pending task list headers
+  description: Responds with headers only for list of task statuses for pending tasks. 
+  operationId: getPendingTaskHeaders
+  parameters:
+  - $ref: ../parameters/offset.yaml
+  - $ref: ../parameters/limit.yaml
+  - $ref: ../parameters/count.yaml
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Retrieve headers for a list of TaskStatus for pending tasks. 
+    '204':
+      $ref: ../responses/204.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth: [idn:task-management:read, idn:task-management:write]
+    - applicationAuth: [idn:task-management:read, idn:task-management:write]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - HELPDESK
+    - CERT_ADMIN
+    - REPORT_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

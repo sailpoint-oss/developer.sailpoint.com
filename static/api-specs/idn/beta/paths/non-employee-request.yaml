@@ -1,12 +1,17 @@
 get:
   operationId: getNonEmployeeRequest
   security:
-    - UserContextAuth: [idn:nelm:read]
+    - userAuth: [idn:nelm:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
-  summary: Get a Non-Employee Request
+  summary: Get a non-employee request
   description: >-
     This gets a non-employee request.
+  deprecated: true
   parameters:
     - in: path
       name: id
@@ -14,6 +19,7 @@ get:
       description: >-
         Non-Employee request id (UUID)
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeRequests
       schema:
         type: string
   responses:
@@ -38,18 +44,24 @@ get:
 delete:
   operationId: deleteNonEmployeeRequest
   security:
-    - UserContextAuth: [idn:nelm:manage]
+    - userAuth: [idn:nelm:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
-  summary: Delete Non-Employee Request
+  summary: Delete non-employee request
   description: >-
     This request will delete a non-employee request.
+  deprecated: true
   parameters:
     - in: path
       name: id
       description: >-
         Non-Employee request id in the UUID format
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeRequests
       example: 2c91808b6ef1d43e016efba0ce470904
       schema:
         type: string

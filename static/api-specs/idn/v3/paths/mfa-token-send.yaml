@@ -6,7 +6,7 @@ post:
   description:
     This API send token request.
   security:
-    - UserContextAuth: [idn:mfa:send]
+    - userAuth: [idn:mfa:send]
   requestBody:
     required: true
     content:

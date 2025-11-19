@@ -1,7 +1,7 @@
 get:
   tags:
     - SIM Integrations
-  summary: List the existing SIM integrations.
+  summary: List the existing sim integrations.
   description: List the existing SIM integrations. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
   operationId: getSIMIntegrations
   responses:
@@ -24,12 +24,12 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:service-desk-admin:read]
+    - userAuth: [idn:service-desk-admin:read]
 
 post:
   tags:
     - SIM Integrations
-  summary: Create new SIM integration
+  summary: Create new sim integration
   description: Create a new SIM Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
   operationId: createSIMIntegration
   requestBody:
@@ -59,4 +59,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:service-desk-admin:create]
+    - userAuth: [idn:service-desk-admin:create]

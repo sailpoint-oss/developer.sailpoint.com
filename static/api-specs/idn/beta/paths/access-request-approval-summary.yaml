@@ -1,8 +1,8 @@
 get:
   operationId: getAccessRequestApprovalSummary
   security:
-    - UserContextAuth: [ idn:access-request-approvals-summary:read ]
-  summary: Get Access Requests Approvals Number
+    - userAuth: [ idn:access-request-approvals-summary:read ]
+  summary: Get access requests approvals number
   tags:
     - Access Request Approvals
   description: >-

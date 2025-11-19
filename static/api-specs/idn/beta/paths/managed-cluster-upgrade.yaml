@@ -1,7 +1,7 @@
 post:
   tags:
     - Managed Clusters
-  summary: Upgrade a cluster's VAs
+  summary: Upgrade a cluster's vas
   description: >-
     Upgrade a clusters VAs manual call
 
@@ -13,6 +13,7 @@ post:
       in: path
       description: ID of the cluster to upgrade
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       style: simple
       explode: false
       schema:
@@ -43,4 +44,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:managed-cluster-upgrade:manage]
+    - userAuth: [idn:managed-cluster-upgrade:manage]

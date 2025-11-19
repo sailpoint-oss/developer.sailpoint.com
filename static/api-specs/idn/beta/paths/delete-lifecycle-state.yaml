@@ -2,7 +2,7 @@ delete:
   operationId: deleteLifecycleState
   tags:
     - Lifecycle States
-  summary: Lifecycle State Delete
+  summary: Lifecycle state delete
   description: |
     This endpoint deletes a lifecycle state and updates the corresponding Identity Profile.
 
@@ -13,6 +13,7 @@ delete:
       description: >-
         Identity Profile ID
       required: true
+      x-sailpoint-resource-operation-id: listIdentityProfiles
       schema:
         type: string
     - in: path
@@ -20,6 +21,7 @@ delete:
       description: >-
         Lifecycle State ID
       required: true
+      x-sailpoint-resource-operation-id: listLifecycleStates
       schema:
         type: string
   responses:

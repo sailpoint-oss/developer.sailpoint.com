@@ -4,8 +4,9 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, GetCommand } from '@aws-sdk/lib-dynamodb';
 
+
 //DynamoDB Endpoint
-const ENDPOINT_OVERRIDE = process.env.ENDPOINT_OVERRIDE;
+const ENDPOINT_OVERRIDE = process.env.ENDPOINT_OVERRIDE;;
 let ddbClient = undefined;
 
 if(ENDPOINT_OVERRIDE){

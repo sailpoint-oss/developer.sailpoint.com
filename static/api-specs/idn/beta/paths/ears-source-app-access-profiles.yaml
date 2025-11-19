@@ -4,7 +4,7 @@ get:
     - Apps
   summary: List access profiles for the specified source app
   security:
-    - UserContextAuth: [idn:app-roles:manage]
+    - userAuth: [idn:app-roles:manage]
   description: >-
     This API returns the list of access profiles for the specified source app
   parameters:
@@ -15,7 +15,9 @@ get:
       schema:
         type: string
         example: 2c91808a7813090a017814121e121518
+      x-sailpoint-resource-operation-id: listAllSourceApp
     - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
     - in: query
       name: filters
       schema:

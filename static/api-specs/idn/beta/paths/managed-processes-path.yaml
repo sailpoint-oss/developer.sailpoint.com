@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Processes
-  summary: Get a Managed Process
+  summary: Get a managed process
   description: >-
     Get a Managed Process.
 
@@ -13,6 +13,7 @@ get:
       in: path
       description: The Managed Process ID
       required: true
+      x-sailpoint-resource-operation-id: getManagedProcesses
       schema:
         type: string
       example: aProcessId
@@ -36,11 +37,11 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:managed-process:read, idn:managed-process:manage]
+    - userAuth: [idn:managed-process:read, idn:managed-process:manage]
 patch:
   tags:
     - Managed Processes
-  summary: Update a Managed Processes
+  summary: Update a managed processes
   description: >-
     Update an existing Managed Process.
 
@@ -53,6 +54,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getManagedProcesses
       description: The Managed Process ID
       example: aProcessId
   requestBody:
@@ -82,12 +84,12 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:managed-process:manage]
+    - userAuth: [idn:managed-process:manage]
 delete:
   operationId: deleteManagedProcess
   tags:
     - Managed Processes
-  summary: Delete a Managed Process
+  summary: Delete a managed process
   description: >-
     Delete an existing Managed Process.
 
@@ -99,6 +101,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getManagedProcesses
       description: The Managed Process ID
       example: aProcessId
   responses:
@@ -116,4 +119,4 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:managed-process:manage]
+    - userAuth: [idn:managed-process:manage]

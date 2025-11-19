@@ -1,10 +1,10 @@
 get:
   security:
-    - UserContextAuth: [idn:sod-policy:read]
+    - userAuth: [idn:sod-policy:read]
   operationId: getSodPolicy
   tags:
     - SOD Policies
-  summary: Get SOD policy by ID
+  summary: Get sod policy by id
   description: >-
     This gets specified SOD policy.
 
@@ -15,6 +15,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodPolicies
       description: The ID of the SOD Policy to retrieve.
       example: ef38f943-47e9-4562-b5bb-8424a56397d8
   responses:
@@ -23,7 +24,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/SodPolicy.yaml'
+            $ref: '../schemas/SodPolicyRead.yaml'
           examples:
             Conflicting Access Based Policy:
               value:
@@ -127,11 +128,11 @@ get:
       $ref: '../responses/500.yaml'
 put:
   security:
-    - UserContextAuth: [idn:sod-policy:write]
+    - userAuth: [idn:sod-policy:write]
   operationId: putSodPolicy
   tags:
     - SOD Policies
-  summary: Update SOD policy by ID
+  summary: Update sod policy by id
   description: >-
     This updates a specified SOD policy.
 
@@ -142,6 +143,7 @@ put:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodPolicies
       description: The ID of the SOD policy to update.
       example: ef38f943-47e9-4562-b5bb-8424a56397d8
   requestBody:
@@ -149,7 +151,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/SodPolicy.yaml'
+          $ref: '../schemas/SodPolicyRead.yaml'
         examples:
           Conflicting Access Based Policy:
             value:
@@ -235,7 +237,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: '../schemas/SodPolicy.yaml'
+            $ref: '../schemas/SodPolicyRead.yaml'
           examples:
             Conflicting Access Based Policy:
               value:
@@ -339,11 +341,11 @@ put:
       $ref: '../responses/500.yaml'
 delete:
   security:
-    - UserContextAuth: [idn:sod-policy:write]
+    - userAuth: [idn:sod-policy:write]
   operationId: deleteSodPolicy
   tags:
     - SOD Policies
-  summary: Delete SOD policy by ID
+  summary: Delete sod policy by id
   description: >-
     This deletes a specified SOD policy.
 
@@ -354,6 +356,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodPolicies
       description: The ID of the SOD Policy to delete.
       example: ef38f943-47e9-4562-b5bb-8424a56397d8
     - in: query
@@ -384,11 +387,11 @@ delete:
       $ref: '../responses/500.yaml'
 patch:
   security:
-    - UserContextAuth: [idn:sod-policy:write]
+    - userAuth: [idn:sod-policy:write]
   operationId: patchSodPolicy
   tags:
     - SOD Policies
-  summary: Patch SOD policy by ID
+  summary: Patch sod policy by id
   description: >-
     Allows updating SOD Policy fields other than ["id","created","creatorId","policyQuery","type"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
   
@@ -402,6 +405,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodPolicies
       description: The ID of the SOD policy being modified.
       example: 2c918083-5d19-1a86-015d-28455b4a2329
   requestBody:
@@ -460,7 +464,7 @@ patch:
       content:
         application/json:
           schema:
-            $ref: '../schemas/SodPolicy.yaml'
+            $ref: '../schemas/SodPolicyRead.yaml'
           examples:
             Conflicting Access Based Policy:
               value:

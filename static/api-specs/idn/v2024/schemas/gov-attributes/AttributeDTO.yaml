@@ -1,0 +1,47 @@
+type: "object"
+properties:
+  key:
+    type: "string"
+    description: >- 
+      Technical name of the Attribute. This is unique and cannot be changed after creation.
+    example: "iscPrivacy"
+  name:
+    type: "string"
+    description: >-
+      The display name of the key.
+    example: "Privacy"
+  multiselect:
+    type: "boolean"
+    default: false
+    description: >-
+      Indicates whether the attribute can have multiple values.
+    example: false
+  status:
+    type: "string"
+    description: >-
+      The status of the Attribute.
+    example: "active"
+  type:
+    type: "string"
+    description: >-
+      The type of the Attribute. This can be either "custom" or "governance".
+    example: "governance"
+  objectTypes:
+    type: "array"
+    items:
+      type: "string"
+    nullable: true
+    description: >- 
+      An array of object types this attributes values can be applied to. Possible values are "all" or "entitlement".
+      Value "all" means this attribute can be used with all object types that are supported.
+    example: ["entitlement"]
+  description:
+    type: "string"
+    description: >-
+      The description of the Attribute.
+    example: "Specifies the level of privacy associated with an access item."
+  values:
+    type: "array"
+    nullable: true
+    items:
+      $ref: "./AttributeValueDTO.yaml"

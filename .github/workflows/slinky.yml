@@ -1,0 +1,33 @@
+name: Slinky - Crawl Docs for broken links
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+    
+permissions:
+  contents: read
+  pull-requests: write
+  
+concurrency:
+  group: 'slinky'
+  cancel-in-progress: true
+
+jobs:
+  slinky:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Run Slinky
+        uses: LukeHagar/slinky@v1
+        with:
+          respect_gitignore: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          

@@ -1,7 +1,7 @@
 post:
-  summary: Add a value to an option based attribute
-  operationId: postAttributeOption
-  description: Add a value to an option based attribute
+  summary: Add value to option
+  operationId: submitAttributeOption
+  description: Adds a value to an option based attribute
   tags:
     - attribute options
   requestBody:

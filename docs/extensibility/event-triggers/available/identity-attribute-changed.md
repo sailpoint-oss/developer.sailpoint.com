@@ -18,6 +18,12 @@ Identity Attribute Changed events occur when any attributes aggegrated from an a
 
 This event trigger provides a flexible way to extend Joiner-Mover-Leaver processes. This provides more proactive governance and ensures users can quickly get necessary access when they enter your organization.
 
+:::warning
+
+The `attribute` field in event payloads is limited to 450 characters. If an attribute value exceeds this limit, it will be truncated.
+
+:::
+
 :::info
 
 This event trigger doesn't detect an identity's change in lifecycle state from 'null' to 'active', so it's recommended that you set an identity's lifecycle state when it's created. You can then use the [Identity Created](./identity-created.md) trigger to detect that change to 'active' for Joiners. 

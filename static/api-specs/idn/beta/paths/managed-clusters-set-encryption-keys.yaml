@@ -1,7 +1,7 @@
 post:
   tags:
     - Managed Clusters
-  summary: New encryption keys for ManagedCluster
+  summary: New encryption keys for managedcluster
   description: >-
     Set new encryption keys for a Managed Cluster
 
@@ -14,6 +14,7 @@ post:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       description: The Managed Cluster ID
       example: aClusterId
   requestBody:
@@ -43,4 +44,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:remote-client:manage]
+    - userAuth: [idn:remote-client:manage]

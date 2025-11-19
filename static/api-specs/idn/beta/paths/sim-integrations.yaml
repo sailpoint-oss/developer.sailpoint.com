@@ -1,7 +1,7 @@
 put:
   tags:
     - SIM Integrations
-  summary: Update an existing SIM integration
+  summary: Update an existing sim integration
   description: Update an existing SIM integration.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
   operationId: putSIMIntegration
   requestBody:
@@ -19,6 +19,7 @@ put:
         type: string
       example: 12345
       required: true
+      x-sailpoint-resource-operation-id: getSIMIntegrations
   responses:
     '200':
       description: details of the updated integration
@@ -39,12 +40,12 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:service-desk-admin:create]
+    - userAuth: [idn:service-desk-admin:create]
 
 get:
   tags:
     - SIM Integrations
-  summary: Get a SIM integration details.
+  summary: Get a sim integration details.
   description: Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
   operationId: getSIMIntegration
   parameters:
@@ -55,6 +56,7 @@ get:
         type: string
       example: 12345
       required: true
+      x-sailpoint-resource-operation-id: getSIMIntegrations
   responses:
     '200':
       description: The DTO containing the details of the SIM integration
@@ -75,12 +77,12 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:service-desk-admin:read]
+    - userAuth: [idn:service-desk-admin:read]
 
 delete:
   tags:
     - SIM Integrations
-  summary: Delete a SIM integration
+  summary: Delete a sim integration
   description: Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
   operationId: deleteSIMIntegration
   parameters:
@@ -91,6 +93,7 @@ delete:
         type: string
       example: 12345
       required: true
+      x-sailpoint-resource-operation-id: getSIMIntegrations
   responses:
     '200':
       description: No content response
@@ -107,12 +110,12 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:service-desk-admin:write]
+    - userAuth: [idn:service-desk-admin:write]
 
 patch:
   tags:
     - SIM Integrations
-  summary: Patch a SIM attribute.
+  summary: Patch a sim attribute.
   description: Patch a SIM attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
   operationId: patchSIMAttributes
   requestBody:
@@ -130,6 +133,7 @@ patch:
         type: string
       example: 12345
       required: true
+      x-sailpoint-resource-operation-id: getSIMIntegrations
   responses:
     '200':
       description: The updated DTO containing the details of the SIM integration.
@@ -150,4 +154,4 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:service-desk-admin:write]
+    - userAuth: [idn:service-desk-admin:write]

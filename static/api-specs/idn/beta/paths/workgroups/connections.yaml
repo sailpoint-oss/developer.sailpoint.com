@@ -2,7 +2,7 @@ get:
   operationId: listConnections
   tags:
     - Governance Groups
-  summary: List connections for Governance Group
+  summary: List connections for governance group
   description: This API returns list of connections associated with a Governance Group.
   parameters:
     -  name: workgroupId
@@ -47,4 +47,4 @@ get:
     '500':
       $ref: '../../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [ idn:workgroup:read]
+    - userAuth: [ idn:workgroup:read]

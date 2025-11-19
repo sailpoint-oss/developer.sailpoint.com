@@ -1,7 +1,7 @@
 post:
   tags:
     - Entitlements
-  summary: Aggregate Entitlements
+  summary: Aggregate entitlements
   deprecated: true
   operationId: importEntitlementsBySource
   description: >-
@@ -18,6 +18,7 @@ post:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSources
       description: Source Id
       example: ef38f94347e94562b5bb8424a56397d8
   requestBody:
@@ -48,4 +49,6 @@ post:
     "500":
       $ref: "../../v3/responses/500.yaml"
   security:
-    - UserContextAuth: [ idn:entitlements:manage ]
+    - userAuth: [ idn:entitlements:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

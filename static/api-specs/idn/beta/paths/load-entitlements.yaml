@@ -1,7 +1,7 @@
 post:
   tags:
     - Sources
-  summary: Entitlement Aggregation
+  summary: Entitlement aggregation
   operationId: importEntitlements
   description: >-
     Starts an entitlement aggregation on the specified source. 
@@ -13,10 +13,11 @@ post:
     A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   parameters:
     - in: path
-      name: id
+      name: sourceId
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSources
       description: Source Id
       example: ef38f94347e94562b5bb8424a56397d8
   requestBody:
@@ -47,4 +48,6 @@ post:
     "500":
       $ref: "../../v3/responses/500.yaml"
   security:
-    - UserContextAuth: [ idn:entitlements:manage ]
+    - userAuth: [ idn:entitlements:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

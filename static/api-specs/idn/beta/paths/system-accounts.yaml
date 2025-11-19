@@ -2,7 +2,7 @@ get:
   operationId: getSystemAccount
   tags:
     - Accounts
-  summary: Get System Account For Identity
+  summary: Get system account for identity
   description: >-
     Returns the system account given an identity ID.
 
@@ -13,7 +13,7 @@ get:
       schema:
         type: string
       required: true
-
+      x-sailpoint-resource-operation-id: listIdentities
       description: The Identity's ID
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
@@ -36,5 +36,5 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:accounts:read]
+    - userAuth: [idn:accounts:read]
 

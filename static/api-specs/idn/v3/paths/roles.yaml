@@ -2,13 +2,9 @@ get:
   operationId: listRoles
   tags:
     - Roles
-  summary: List Roles
+  summary: List roles
   description: >-
     This API returns a list of Roles.
-
-
-    A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to
-    call this API.
   parameters:
     - in: query
       name: for-subadmin
@@ -42,16 +38,19 @@ get:
         **name**: *eq, sw*
         
         
-        **created**: *gt, lt, ge, le*
+        **created**: *gt, ge, le*
 
 
-        **modified**: *gt, lt, ge, le*
+        **modified**: *lt, ge, le*
         
         
         **owner.id**: *eq, in*
         
         
         **requestable**: *eq*
+
+
+        **dimensional**: *eq*
       example: requestable eq false
       required: false
     - in: query
@@ -109,19 +108,18 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
+    - userAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
 post:
   operationId: createRole
   tags:
     - Roles
-  summary: Create a Role
+  summary: Create a role
   description: >-
     This API creates a role.
-
-
-    You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to
-    call this API. 
-    
 
     In addition, a ROLE_SUBADMIN may not create a role including an access profile if that access profile
     is associated with a source the ROLE_SUBADMIN is not associated with themselves. 
@@ -153,4 +151,8 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:role-unchecked:manage, idn:role-checked:manage]
+    - userAuth: [idn:role-unchecked:manage, idn:role-checked:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN

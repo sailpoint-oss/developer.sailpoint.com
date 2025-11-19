@@ -1,0 +1,89 @@
+get:
+  operationId: listMachineIdentityUserEntitlements
+  tags:
+    - Machine Identities
+  summary: List machine identity's user entitlements
+  description: >-
+    This API returns a list of user entitlements associated with machine identities.
+  security:
+    - userAuth:
+        - "idn:mis-user-entitlements:read"
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - HELPDESK
+  parameters:
+    - in: query
+      name: filters
+      required: false
+      schema:
+        type: string
+      example: machineIdentityId eq "2c9180858082150f0180893dbaf44201"
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+      
+
+        Filtering is supported for the following fields and operators:
+
+
+        **machineIdentityId**: *eq, in*
+
+
+        **machineIdentityName**: *eq, in, sw*
+
+
+        **entitlement.id**: *eq, in*
+
+
+        **entitlement.name**: *eq, in, sw*
+
+
+        **source.id**: *eq, in*
+
+
+        **source.name**: *eq, in, sw*
+
+    - in: query
+      name: sorters
+      schema:
+        type: string
+      required: false
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **machineIdentityName, entitlement.name, source.name**
+      example: machineIdentityName
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+    - $ref: "../parameters/count.yaml"
+    - $ref: "../parameters/limit.yaml"
+    - $ref: "../parameters/offset.yaml"
+  responses:
+    "200":
+      description: List of machine identity user entitlements.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/MachineIdentityUserEntitlementResponse.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "404":
+      $ref: "../responses/404.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

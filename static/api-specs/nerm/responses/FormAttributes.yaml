@@ -4,6 +4,7 @@ content:
     schema:
       type: object
       properties:
-        form_attribute:
-          type: object
-          $ref: '../schemas/GET/FormAttributes.yaml'
+        form_attributes:
+          type: array
+          items:
+            $ref: '../schemas/GET/FormAttributes.yaml'

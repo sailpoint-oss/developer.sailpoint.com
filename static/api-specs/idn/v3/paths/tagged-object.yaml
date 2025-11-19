@@ -1,10 +1,10 @@
 get:
   operationId: getTaggedObject
   security:
-    - UserContextAuth: [ idn:tag:read, idn:tag:manage ]
+    - userAuth: [ idn:tag:read, idn:tag:manage ]
   tags:
     - Tagged Objects
-  summary: Get Tagged Object
+  summary: Get tagged object
   description: >-
     This gets a tagged object for the specified type.
   parameters:
@@ -29,6 +29,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listTaggedObjects
       description: The ID of the object reference to retrieve.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
@@ -51,10 +52,10 @@ get:
 put:
   operationId: putTaggedObject
   security:
-    - UserContextAuth: [ idn:tag:manage ]
+    - userAuth: [ idn:tag:manage ]
   tags:
     - Tagged Objects
-  summary: Update Tagged Object
+  summary: Update tagged object
   description: >-
     This updates a tagged object for the specified type.
   parameters:
@@ -79,6 +80,7 @@ put:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listTaggedObjects
       description: The ID of the object reference to update.
       example: ef38f94347e94562b5bb8424a56397d8
   requestBody:
@@ -107,12 +109,12 @@ put:
 delete:
   operationId: deleteTaggedObject
   security:
-    - UserContextAuth: [ idn:tag:manage ]
+    - userAuth: [ idn:tag:manage ]
   tags:
     - Tagged Objects
-  summary: Delete Tagged Object
+  summary: Delete object tags
   description: >-
-    This deletes a tagged object for the specified type.
+    Delete all tags from a tagged object.
   parameters:
     - in: path
       name: type
@@ -128,14 +130,15 @@ delete:
           - SOD_POLICY
           - SOURCE
       required: true
-      description: The type of tagged object to delete.
+      description: The type of object to delete tags from. 
       example: ROLE
     - in: path
       name: id
       schema:
         type: string
       required: true
-      description: The ID of the object reference to delete.
+      x-sailpoint-resource-operation-id: listTaggedObjects
+      description: The ID of the object to delete tags from. 
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
     '204':

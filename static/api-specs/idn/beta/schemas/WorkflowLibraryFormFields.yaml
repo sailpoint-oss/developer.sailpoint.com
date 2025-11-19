@@ -1,4 +1,5 @@
 type: object
+title: Workflow Library Form Fields
 properties:
   description:
     type: string

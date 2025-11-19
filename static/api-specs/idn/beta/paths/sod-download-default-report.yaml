@@ -5,7 +5,7 @@ get:
   summary: Download violation report
   deprecated: true
   security:
-    - UserContextAuth: [ idn:sod-violation:read ]
+    - userAuth: [ idn:sod-violation:read ]
   description: >-
     This allows to download a violation report for a given report reference.
 
@@ -16,6 +16,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: startSodPolicy
       description: The ID of the report reference to download.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:

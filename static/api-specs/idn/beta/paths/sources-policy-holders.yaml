@@ -11,6 +11,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSources
       description: The Source id
       example: 8c190e6787aa4ed9a90bd9d5344523fb
   responses:
@@ -35,13 +36,13 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:password-policy:read]
+    - userAuth: [idn:password-policy:read]
 
 patch:
   operationId: updatePasswordPolicyHolders
   tags:
     - Sources
-  summary: Update Exceptions Password Policy
+  summary: Update exceptions password policy
   description: |
     This API can be used to set up or update an Exceptions Password Policy in IdentityNow for the specified Source.
     Source must support PASSWORD feature.
@@ -53,6 +54,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSources
       description: The Source id
       example: 8c190e6787aa4ed9a90bd9d5344523fb
   requestBody:
@@ -82,4 +84,4 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [ idn:sources:update ]
+    - userAuth: [ idn:sources:update ]

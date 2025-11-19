@@ -8,13 +8,14 @@ post:
 
     A token with ORG_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:source-connector:manage]
+    - userAuth: [idn:source-connector:manage]
   parameters:
     - in: path
       name: sourceId
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSources
       description: The ID of the Source
       example: cef3ee201db947c5912551015ba0c679
   requestBody:

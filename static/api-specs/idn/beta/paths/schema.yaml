@@ -3,13 +3,14 @@ get:
   operationId: getSourceSchema
   tags:
     - Sources
-  summary: Get Source Schema by ID
+  summary: Get source schema by id
   description: |
     Get the Source Schema by ID in IdentityNow.
   parameters:
     - in: path
       name: sourceId
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
       description: The Source ID.
@@ -19,6 +20,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getSourceSchemas
       description: The Schema ID.
       example: 2c9180835d191a86015d28455b4a2329
   responses:
@@ -44,7 +46,7 @@ put:
   operationId: putSourceSchema
   tags:
     - Sources
-  summary: Update Source Schema (Full)
+  summary: Update source schema (full)
   description: >-
     This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.
 
@@ -61,6 +63,7 @@ put:
     - in: path
       name: sourceId
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
       description: The Source ID.
@@ -70,6 +73,7 @@ put:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getSourceSchemas
       description: The Schema ID.
       example: 2c9180835d191a86015d28455b4a2329
   requestBody:
@@ -101,7 +105,7 @@ patch:
   operationId: updateSourceSchema
   tags:
     - Sources
-  summary: Update Source Schema (Partial)
+  summary: Update source schema (partial)
   description: |
     Use this API to selectively update an existing Schema using a JSONPatch payload. 
     
@@ -136,6 +140,7 @@ patch:
     - in: path
       name: sourceId
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
       description: The Source id.
@@ -145,6 +150,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getSourceSchemas
       description: The Schema id.
       example: 2c9180835d191a86015d28455b4a2329
   requestBody:
@@ -183,11 +189,12 @@ delete:
   operationId: deleteSourceSchema
   tags:
     - Sources
-  summary: Delete Source Schema by ID
+  summary: Delete source schema by id
   parameters:
     - in: path
       name: sourceId
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
       description: The Source ID.
@@ -197,6 +204,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getSourceSchemas
       description: The Schema ID.
       example: 2c9180835d191a86015d28455b4a2329
   responses:

@@ -2,7 +2,7 @@ post:
   operationId: reassignCertifications
   tags:
     - Certifications
-  summary: Reassign Identities or Items
+  summary: Reassign identities or items
   description: >-
     This API reassigns up to 50 identities or items in a certification to another reviewer. A token with ORG_ADMIN or
     CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
@@ -13,6 +13,7 @@ post:
         type: string
       required: true
       description: The certification ID
+      x-sailpoint-resource-operation-id: listCertifications
   requestBody:
     required: true
     content:

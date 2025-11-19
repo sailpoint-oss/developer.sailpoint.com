@@ -40,7 +40,7 @@ Get-ActiveCampaigns              List Campaigns
 ...
 ```
 
-## List Transforms
+## List transforms
 
 Let's say that you wanted to see all the transforms available in your tenant. You can search for the cmdlet:
 
@@ -66,7 +66,7 @@ Get-Help Get-Transforms -Detailed
 ```
 
 <details>
-<summary>Cmdlet Response</summary>
+<summary>Cmdlet response</summary>
 
 ```text
 NAME
@@ -120,7 +120,7 @@ Running `Get-Transforms` will return a list of all transforms in your tenant.
 
 Running `Get-Transforms -Limit 10 -Filter 'name sw Test"'` will return a list of no more than 10 transforms whose names start with `Test`.
 
-## WithHttpInfo Switch
+## WithHttpInfo switch
 
 By default, the cmdlets return just the response from the API without including any information about status code or headers returned. Use the `-WithHttpInfo` switch to return this information with the response.
 

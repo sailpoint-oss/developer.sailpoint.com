@@ -2,13 +2,15 @@ get:
   operationId: getCampaignReports
   tags:
     - Certification Campaigns
-  summary: Get Campaign Reports
+  summary: Get campaign reports
   description: |
     Use this API to fetch all reports for a certification campaign by campaign ID.
-
-    A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:campaign-report:read, idn:campaign-report:manage]
+    - userAuth: [idn:campaign-report:read, idn:campaign-report:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+    - REPORT_ADMIN
   parameters:
     - in: path
       name: id
@@ -16,6 +18,7 @@ get:
         type: string
         example: 2c91808571bcfcf80171c23e4b4221fc
       required: true
+      x-sailpoint-resource-operation-id: getActiveCampaigns
       description: ID of the campaign whose reports are being fetched.
   responses:
     '200':

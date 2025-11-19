@@ -18,4 +18,4 @@ allOf:
       callbackUrl:
         type: string
         description: The allowed callback URL where users will be redirected to after authentication. Used with SP configurations.
-        example: https://stradbroke-sso.identitysoon.com/sso/Consumer/metaAlias/cdov-saml/sp
+        example: https://example-tenant.identitynow.com/sso/Consumer/metaAlias/example-tenant-sp

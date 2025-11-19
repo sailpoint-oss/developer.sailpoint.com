@@ -5,15 +5,16 @@ get:
     Get the report results for a report that was run or is running.
     Returns empty report result in case there are no active task definitions with used in payload task definition name.
   operationId: getReportResult
-  summary: "Get Report Result"
+  summary: "Get report result"
   security:
-    - UserContextAuth: [sp:report-result:read]
+    - userAuth: [sp:report-result:read]
   parameters:
     - in: path
       name: taskResultId
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: startReport
       description: Unique identifier of the task result which handled report
       example: ef38f94347e94562b5bb8424a56397d8
     - in: query

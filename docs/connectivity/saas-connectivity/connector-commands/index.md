@@ -3,7 +3,7 @@ id: connector-commands
 title: Connector Commands
 pagination_label: Connector Commands
 sidebar_label: Connector Commands
-sidebar_position: 7
+sidebar_position: 8
 sidebar_class_name: connectorCommands
 keywords: ['connectivity', 'connector', 'commands']
 description: All commands available to implement in a SaaS Connector.

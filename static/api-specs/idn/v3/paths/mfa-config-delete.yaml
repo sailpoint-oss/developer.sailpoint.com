@@ -2,19 +2,23 @@ delete:
   operationId: deleteMFAConfig
   tags:
     - MFA Configuration
-  summary: Delete MFA method configuration
+  summary: Delete mfa method configuration
   description: >-
     This API removes the configuration for the specified MFA method.
-
-    A token with ORG_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:mfa-configuration:manage]
+    - userAuth: [idn:mfa-configuration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: path
       name: method
       schema:
         type: string
         example: okta-verify
+        nullable: false
+        enum:
+          - okta-verify
+          - duo-web
       required: true
       description: >-
         The name of the MFA method.

@@ -2,11 +2,11 @@ get:
   operationId: listIdentities
   tags:
     - Identities
-  summary: List Identities
+  summary: List identities
   description: >-
     This API returns a list of identities.
   security:
-    - UserContextAuth:
+    - userAuth:
       - "idn:identity:read"
       - "idn:identity:manage"
   parameters:

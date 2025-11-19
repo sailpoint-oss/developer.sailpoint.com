@@ -4,12 +4,13 @@ get:
     - Apps
   summary: List available source apps
   security:
-    - UserContextAuth: [idn:app-roles:read]
+    - userAuth: [idn:app-roles:read]
   description: >-
     This API returns the list of source apps available for access request.
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/count.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
     - in: query
       name: sorters
       schema:
@@ -79,7 +80,7 @@ post:
   description: >-
     This endpoint creates a source app using the given source app payload
   security:
-    - UserContextAuth: [idn:app-roles:manage]
+    - userAuth: [idn:app-roles:manage]
   requestBody:
     required: true
     content:

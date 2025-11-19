@@ -1,7 +1,7 @@
 post:
   tags:
     - Managed Clients
-  summary: Create a provisional Managed Client
+  summary: Create a provisional managed client
   description: >-
     Create a draft Managed Client.
   operationId: createProvisionalManagedClient
@@ -31,4 +31,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:remote-client:manage]
+    - userAuth: [idn:remote-client:manage]

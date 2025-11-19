@@ -10,6 +10,7 @@ get:
       in: path
       description: ID of ManagedCluster to get log configuration for
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       style: simple
       explode: false
       schema:
@@ -35,7 +36,7 @@ get:
     "500":
       $ref: '../../v3/responses/500.yaml'  
   security:
-    - UserContextAuth: [idn:remote-client:read, idn:remote-client:manage]
+    - userAuth: [idn:remote-client:read, idn:remote-client:manage]
 put:
   tags:
     - Managed Clusters
@@ -48,6 +49,7 @@ put:
       in: path
       description: ID of ManagedCluster to update log configuration for
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       style: simple
       explode: false
       schema:
@@ -80,4 +82,4 @@ put:
     "500":
       $ref: '../../v3/responses/500.yaml'  
   security:
-    - UserContextAuth: [idn:remote-client:manage]
+    - userAuth: [idn:remote-client:manage]

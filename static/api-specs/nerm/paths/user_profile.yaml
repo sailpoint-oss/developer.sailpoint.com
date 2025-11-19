@@ -1,6 +1,6 @@
 post:
   summary: Create a user-profile contributor relationship
-  operationId: postUserProfile
+  operationId: submitUserProfile
   description: Create a user-profile contributor relationship
   tags:
     - user profiles

@@ -1,11 +1,16 @@
 get:
   operationId: getNonEmployeeSchemaAttribute
   security:
-    - UserContextAuth: [idn:nelm:read]
+    - userAuth: [idn:nelm:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
-  summary: Get Schema Attribute Non-Employee Source
+  summary: Get schema attribute non-employee source
   description: This API gets a schema attribute by Id for the specified Non-Employee SourceId.
+  deprecated: true
   parameters:
     - in: path
       example: "2c918085842e69ae018432d22ccb212f"
@@ -13,6 +18,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getNonEmployeeSourceSchemaAttributes
       description: The Schema Attribute Id (UUID)
     - in: path
       example: "2c918085842e69ae018432d22ccb212f"
@@ -20,6 +26,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeSources
       description: The Source id
   responses:
     '200':
@@ -43,12 +50,17 @@ get:
 patch:
   operationId: patchNonEmployeeSchemaAttribute
   security:
-    - UserContextAuth: [idn:nelm:manage]
+    - userAuth: [idn:nelm:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
-  summary: Patch Non-Employee Source's Schema Attribute
+  summary: Patch non-employee source's schema attribute
   description: |
     This end-point patches a specific schema attribute for a non-employee SourceId.
+  deprecated: true
 
   parameters:
     - in: path
@@ -56,6 +68,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getNonEmployeeSourceSchemaAttributes
       example: 2c91808b6ef1d43e016efba0ce470904
       description: The Schema Attribute Id (UUID)
     - in: path
@@ -63,6 +76,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeSources
       example: 2c91808b6ef1d43e016efba0ce470904
       description: The Source id
   requestBody:
@@ -101,12 +115,17 @@ patch:
 delete:
   operationId: deleteNonEmployeeSchemaAttribute
   security:
-    - UserContextAuth: [idn:nelm:manage]
+    - userAuth: [idn:nelm:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
-  summary: Delete Non-Employee Source's Schema Attribute
+  summary: Delete non-employee source's schema attribute
   description: | 
     This end-point deletes a specific schema attribute for a non-employee source.
+  deprecated: true
 
   parameters:
     - in: path
@@ -114,6 +133,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getNonEmployeeSourceSchemaAttributes
       example: 2c91808b6ef1d43e016efba0ce470904
       description: The Schema Attribute Id (UUID)
     - in: path
@@ -121,6 +141,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeSources
       example: 2c91808b6ef1d43e016efba0ce470904
       description: The Source id
   responses:

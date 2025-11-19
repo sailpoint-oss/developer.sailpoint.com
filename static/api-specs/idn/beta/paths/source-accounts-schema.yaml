@@ -5,8 +5,9 @@ get:
   operationId: getSourceAccountsSchema
   parameters:
     - in: path
-      name: id
+      name: sourceId
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
       description: The Source id
@@ -30,7 +31,7 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:source-schema:read, idn:source-schema:manage]
+    - userAuth: [idn:source-schema:read, idn:source-schema:manage]
 post:
   tags:
     - Sources
@@ -40,8 +41,9 @@ post:
   operationId: importSourceAccountsSchema
   parameters:
     - in: path
-      name: id
+      name: sourceId
       required: true
+      x-sailpoint-resource-operation-id: listSources
       schema:
         type: string
       description: The Source id
@@ -74,4 +76,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:source-schema:manage]
+    - userAuth: [idn:source-schema:manage]

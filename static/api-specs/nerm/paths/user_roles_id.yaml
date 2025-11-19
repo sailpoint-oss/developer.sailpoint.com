@@ -1,5 +1,5 @@
 get:
-  summary: Find user role pairing by id
+  summary: Find user role pairing
   operationId: getUserRole
   description: Info for a specific user role pairing
   tags:
@@ -14,7 +14,7 @@ get:
     '500':
       $ref: "../responses/500.yaml"
 patch:
-  summary: Update a user role pairing by id
+  summary: Update a user role pairing
   operationId: patchUserRole
   description: Update a user role pairing by id
   tags:

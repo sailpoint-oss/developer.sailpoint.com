@@ -2,14 +2,14 @@ get:
   operationId: getCampaign
   tags:
     - Certification Campaigns
-  summary: Get Campaign
+  summary: Get campaign
   description: |
     Use this API to get information for an existing certification campaign by the campaign's ID. Though this endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign).
     
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   deprecated: true
   security:
-   - UserContextAuth: [idn:campaign:read, idn:campaign:manage]
+   - userAuth: [idn:campaign:read, idn:campaign:manage]
   parameters:
     - in: path
       name: id
@@ -18,6 +18,7 @@ get:
       required: true
       description: ID of the campaign to be retrieved.
       example: 2c91808571bcfcf80171c23e4b4221fc
+      x-sailpoint-resource-operation-id: getActiveCampaigns
   responses:
     '200':
       description: Campaign object. 
@@ -50,22 +51,23 @@ patch:
   operationId: updateCampaign
   tags:
     - Certification Campaigns
-  summary: Update a Campaign
+  summary: Update a campaign
   description: |
-    Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Though this endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/beta/update-campaign).
+    Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Though this endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/update-campaign).
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   deprecated: true
   security:
-    - UserContextAuth: [idn:campaign:read,idn:campaign:manage]
+    - userAuth: [idn:campaign:read,idn:campaign:manage]
   parameters:
     - in: path
       name: id
       schema:
         type: string
       required: true
-      description: ID of the campaign template being modified.
+      description: ID of the campaign being modified.
       example: 2c91808571bcfcf80171c23e4b4221fc
+      x-sailpoint-resource-operation-id: getActiveCampaigns
   requestBody:
     required: true
     description: |

@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Cluster Types
-  summary: Get a Managed Cluster Type
+  summary: Get a managed cluster type
   description: >-
     Get a Managed Cluster Type.
 
@@ -13,6 +13,7 @@ get:
       in: path
       description: The Managed Cluster Type ID
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusterTypes
       schema:
         type: string
       example: aClusterTypeId
@@ -36,11 +37,11 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:managed-cluster-types:read, idn:managed-cluster-types:manage]
+    - userAuth: [idn:managed-cluster-types:read, idn:managed-cluster-types:manage]
 patch:
   tags:
     - Managed Cluster Types
-  summary: Update a Managed Cluster Type
+  summary: Update a managed cluster type
   description: >-
     Update an existing Managed Cluster Type.
 
@@ -53,6 +54,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusterTypes
       description: The Managed Cluster Type ID
       example: aClusterTypeId
   requestBody:
@@ -82,12 +84,12 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:managed-cluster-types:manage]
+    - userAuth: [idn:managed-cluster-types:manage]
 delete:
   operationId: deleteManagedClusterType
   tags:
     - Managed Cluster Types
-  summary: Delete a Managed Cluster Type
+  summary: Delete a managed cluster type
   description: >-
     Delete an existing Managed Cluster Type.
 
@@ -99,6 +101,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusterTypes
       description: The Managed Cluster Type ID
       example: aClusterTypeId
   responses:
@@ -116,4 +119,4 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:managed-cluster-types:manage]
+    - userAuth: [idn:managed-cluster-types:manage]

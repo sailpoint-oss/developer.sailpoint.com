@@ -1,6 +1,6 @@
 get:
   operationId: getMessageCatalogs
-  summary: Get Message catalogs
+  summary: Get message catalogs
   tags:
     - IAI Message Catalogs
   description: >-
@@ -36,4 +36,6 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: []
+    - userAuth: [ iai:decisions:manage ]
+  x-sailpoint-userLevels:
+    - Any

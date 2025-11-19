@@ -11,27 +11,24 @@ slug: /tools/cli/search
 tags: ['CLI']
 ---
 
-# Search
-
 Learn how to use the CLI to search your ISC tenant in this guide.
 
-In Identity Security Cloud (ISC), you can search across all the sources connected to your tenant and return virtually any information you have access to. The `search` command allows you to access ISC search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](./search.md). For more information about search in ISC, refer to [Search](../../api/v3/search).
+In Identity Security Cloud (ISC), you can search across all the sources connected to your tenant and return virtually any information you have access to. The `search` command allows you to access ISC search functionality within the CLI. For more information about search in ISC, refer to [Search](../../api/v3/search).
 
 In Identity Security Cloud, you can search all the sources connected to your tenant and return virtually any information you have access to. To learn more about search in Identity Security Cloud, refer to [Search](https://documentation.sailpoint.com/saas/help/search/index.html).
 
 The `search` command makes it easy to search in Identity Security Cloud with the SailPoint CLI. Read this guide to learn how to use the `query` and `template` commands to search Identity Security Cloud with the CLI.
 
-- [Search](#search)
-  - [Query](#query)
-    - [Command](#command)
-    - [Flags](#flags)
-      - [Indices](#indices)
-      - [Sort](#sort)
-      - [Folder Path](#folder-path)
-  - [Template](#template)
-    - [Command](#command-1)
-    - [Flags](#flags-1)
-      - [Folder Path](#folder-path-1)
+- [Query](#query)
+  - [Command](#command)
+  - [Flags](#flags)
+    - [Indices](#indices)
+    - [Sort](#sort)
+    - [Folder Path](#folder-path)
+- [Template](#template)
+  - [Command](#command-1)
+  - [Flags](#flags-1)
+    - [Folder Path](#folder-path-1)
 
 ## Query
 
@@ -103,7 +100,7 @@ Here is an example of a `query` command that sorts the results in ascending orde
 sail search query "name:a*" --indices identities --sort name --sort "-created"
 ```
 
-#### Folder Path
+#### Folder path
 
 Use the `folderPath` flag to specify the folder path to save the search results in. If you don't specify a `folderPath`, the results will save to a folder called "search_results", located within your current working directory.
 
@@ -135,7 +132,7 @@ You can append one flag to the `template` command to refine it:
 
 - The flag, `folderPath`, allows you to specify the folder path where you want to save the search query result files.
 
-#### Folder Path
+#### Folder path
 
 Use the `folderPath` flag to specify the folder path to save the search results in. If you don't specify a `folderPath`, the results will save to a folder called "search_results", located within your current working directory.
 

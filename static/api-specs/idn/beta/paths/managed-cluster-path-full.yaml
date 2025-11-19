@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clusters
-  summary: Get a specified ManagedCluster.
+  summary: Get a specified managedcluster.
   description: Retrieve a ManagedCluster by ID.
   operationId: getManagedCluster
   parameters:
@@ -9,6 +9,7 @@ get:
       in: path
       description: ID of the ManagedCluster to get
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       style: simple
       explode: false
       schema:
@@ -34,11 +35,11 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:remote-client:read, idn:remote-client:manage]
+    - userAuth: [idn:remote-client:read, idn:remote-client:manage]
 patch:
   tags:
     - Managed Clusters
-  summary: Update a Managed Cluster
+  summary: Update a managed cluster
   description: >-
     Update an existing Managed Cluster.
   operationId: updateManagedCluster
@@ -48,6 +49,7 @@ patch:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       description: The Managed Cluster ID
       example: aClusterId
   requestBody:
@@ -77,12 +79,12 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:remote-client:manage]
+    - userAuth: [idn:remote-client:manage]
 delete:
   operationId: deleteManagedCluster
   tags:
     - Managed Clusters
-  summary: Delete a Managed Cluster
+  summary: Delete a managed cluster
   description: >-
     Delete an existing Managed Cluster.
   parameters:
@@ -91,6 +93,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       description: The Managed Cluster ID
       example: aClusterId
     - in: query
@@ -116,4 +119,4 @@ delete:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:remote-client:manage]
+    - userAuth: [idn:remote-client:manage]

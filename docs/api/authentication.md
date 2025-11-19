@@ -59,8 +59,8 @@ Read this guide to learn how to authenticate to SailPoint's ISC APIs.
 
 To authenticate to the ISC APIs, you must be able to connect to your tenant to send the access token request. To do so, you need to do the following:
 
-1. [Find your tenant's OAuth details](#find-your-tenant's-oauth-details)
-2. [Generate personal access token](#generate-personal-access-token)
+1. [Find your tenant's OAuth details](#find-your-tenants-oauth-details)
+2. [Generate personal access token](#generate-a-personal-access-token)
 3. [Choose authorization grant flow](#choose-authorization-grant-flow)
 4. [Request access token](#request-access-token-with-client-credentials-grant-flow)
 
@@ -78,21 +78,34 @@ If you have admin access but don't know your tenant name, you can learn it by fo
 3. Select 'Overview'.
 4. Find the tenant name ('Org Name') in the dashboard's `Org Details` section.
 
-This is an example of the OAuth details of the tenant, "iga-acme-sb":
+This is an example of the OAuth details of the tenant, `iga-acme-sb`, that does not use a vanity URL:
+```json
+{
+    "tenantId": "6d9b2709-915f-47f0-879e-cee65d6bc9af",
+    "tenantName": "iga-acme-sb",
+    "authorizeEndpoint": "https://iga-acme-sb.login.sailpoint.com/oauth/authorize",
+    "tokenEndpoint": "https://iga-acme-sb.api.identitynow.com/oauth/token",
+    "cloudDomainUrl": "https://iga-acme-sb.identitynow.com",
+    "logoutUrl": "https://iga-acme-sb.identitynow.com/logout",
+    "pod": "stg01-useast1"
+}
+```
+
+This is an example of the OAuth details of the tenant, `iga-acme`, that uses a vanity URL, "iga.acme.com":
 
 ```json
 {
   "tenantId": "cc31a307-8a8d-49e8-93b9-c7cbe20e2e6b",
-  "tenantName": "iga-acme-sb",
-  "authorizeEndpoint": "https://iga-sb.login.sailpoint.com/oauth/authorize",
-  "tokenEndpoint": "https://iga-sb.api.identitynow.com/oauth/token",
-  "cloudDomainUrl": "https://iga-sb.acme.com",
-  "logoutUrl": "https://iga-sb.acme.com/logout",
-  "pod": "stg01-useast1"
+  "tenantName": "iga-acme",
+  "authorizeEndpoint": "https://iga-acme.login.sailpoint.com/oauth/authorize",
+  "tokenEndpoint": "https://iga-acme.api.identitynow.com/oauth/token",
+  "cloudDomainUrl": "https://iga.acme.com",
+  "logoutUrl": "https://iga.acme.com/logout",
+  "pod": "prd01-useast1"
 }
 ```
 
-You can use the `authorizeEndpoint` and `tokenEndpoint` URLs from this example to test out the different authentication methods listed in this guide.
+You can use the `authorizeEndpoint` and `tokenEndpoint` URLs from your tenant to test out the different authentication methods listed in this guide.
 
 ### Generate a personal access token
 
@@ -198,7 +211,7 @@ This example cURL command passes client credentials in the body as form-data to 
 
 ```bash
 curl --location 'https://[tenant].api.identitynow.com/oauth/token' \
---header 'scope: sp:scope:all' \
+--header 'scope: sp:scopes:all' \
 --form 'grant_type="client_credentials"' \
 --form 'client_id="{clientId}"' \
 --form 'client_secret="{clientSecret}"'
@@ -437,7 +450,7 @@ If you were to decode the access token data, it might look something like this:
 
 ```json
 {
-  "alg": "HS256",
+  "alg": "ES256",
   "typ": "JWT"
 }
 ```
@@ -502,7 +515,7 @@ If you're using Postman, you have some different ways to set up your authorizati
 
 #### Web applications
 
-If you are making a web application, the best grant flow to use is the [Authorization Code grant flow](#request-access-token-with-authorization-grant-flow). This will allow users to be directed to ISC to login and then redirected back to the web application through a URL redirect. This also works well with Single Sign-on (SSO), strong authentication, and pass-through authentication mechanisms.
+If you are making a web application, the best grant flow to use is the [Authorization Code grant flow](#request-access-token-with-authorization-code-grant-flow). This will allow users to be directed to ISC to login and then redirected back to the web application through a URL redirect. This also works well with Single Sign-on (SSO), strong authentication, and pass-through authentication mechanisms.
 
 SailPoint doesn't recommend using a password grant flow for web applications because doing so would involve entering ISC credentials in the web application. This flow also doesn't allow you to work with SSO, strong authentication, or pass-through authentication.
 
@@ -561,7 +574,7 @@ GET /beta/oauth-clients/
 
 You can also view all of the active clients in the UI by going to `https://[tenant].identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`.
 
-3. Verify that the OAuth 2.0 client grant types match the OAuth 2.0 grant type flow you're trying to use. For example, this client will work with [Authorization Code](#authorization-code-grant-flow) and [Client Credentials](#client-Credentials-grant-flow) grant flows, but not [Refresh Token](#refresh-token-grant-flow) flows:
+3. Verify that the OAuth 2.0 client grant types match the OAuth 2.0 grant type flow you're trying to use. For example, this client will work with [Authorization Code](#request-access-token-with-authorization-code-grant-flow) and [Client Credentials](#request-access-token-with-client-credentials-grant-flow) grant flows, but not [Refresh Token](#request-access-token-with-refresh-token-grant-flow) flows:
 
 ```json
 {
@@ -579,7 +592,7 @@ You can also view all of the active clients in the UI by going to `https://[tena
 }
 ```
 
-4. If you're using an [Authorization Code](#authorization-code-grant-flow) grant flow, verify that the redirect URL(s) for your application match the `redirectUris` value in the client. You can check this by calling the [List OAuth Clients endpoint](/docs/api/beta/list-oauth-clients).
+4. If you're using an [Authorization Code](#request-access-token-with-authorization-code-grant-flow) grant flow, verify that the redirect URL(s) for your application match the `redirectUris` value in the client. You can check this by calling the [List OAuth Clients endpoint](/docs/api/beta/list-oauth-clients).
 
 ### Verify OAuth calls
 

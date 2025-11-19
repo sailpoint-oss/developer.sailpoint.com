@@ -1,6 +1,6 @@
 post:
   summary: Create a profile type
-  operationId: postProfileType
+  operationId: submitProfileType
   description: Create a profile type
   tags:
     - profile types

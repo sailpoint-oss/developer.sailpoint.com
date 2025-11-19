@@ -1,15 +1,15 @@
 get:
   security:
-    - UserContextAuth: [ sp:notification-mail-from-attributes:read ]
+    - userAuth: [ sp:notification-mail-from-attributes:read ]
   operationId: getMailFromAttributes
   tags:
     - Notifications
-  summary: Get MAIL FROM Attributes
+  summary: Get mail from attributes
   description: >-
     Retrieve MAIL FROM attributes for a given AWS SES identity.
   parameters:
-    - in: query
-      name: id
+    - name: identityId
+      in: path
       required: true
       schema:
         type: string

@@ -1,0 +1,37 @@
+---
+id: kba-auth-response
+title: KbaAuthResponse
+pagination_label: KbaAuthResponse
+sidebar_label: KbaAuthResponse
+sidebar_class_name: powershellsdk
+keywords: ['powershell', 'PowerShell', 'sdk', 'KbaAuthResponse', 'KbaAuthResponse'] 
+slug: /tools/sdk/powershell/v3/models/kba-auth-response
+tags: ['SDK', 'Software Development Kit', 'KbaAuthResponse', 'KbaAuthResponse']
+---
+
+
+# KbaAuthResponse
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**KbaAuthResponseItems** | [**[]KbaAuthResponseItem**](kba-auth-response-item) |  | [optional] 
+**Status** |  **Enum** [  "PENDING",    "SUCCESS",    "FAILED",    "LOCKOUT",    "NOT_ENOUGH_DATA" ] | MFA Authentication status | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$KbaAuthResponse = Initialize-KbaAuthResponse  -KbaAuthResponseItems [{questionId=089899f13a8f4da7824996191587bab9, isVerified=false}] `
+ -Status PENDING
+```
+
+- Convert the resource to JSON
+```powershell
+$KbaAuthResponse | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

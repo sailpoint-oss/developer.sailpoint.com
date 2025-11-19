@@ -6,22 +6,21 @@
 
 /* You can override the default Infima variables here. */
 
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+@import '~@fortawesome/fontawesome-svg-core/styles.css';
 
 .ReactModal__Overlay {
   z-index: 9999;
 }
 
-.tf-v1-popup > .tf-v1-iframe-wrapper {
+/* .tf-v1-popup > .tf-v1-iframe-wrapper {
   @apply !w-[50vw] !h-[50vh];
-}
+} */
 
 @import url('https://p.typekit.net/p.css?s=1&k=hbq4agn&ht=tk&f=30490.30491.30492.30493.30494.30495.30496.30497.30498.30499.30500.30501.30502.30503&a=87767056&app=typekit&e=css');
 
 @font-face {
   font-family: 'input-mono';
-  src:
-    url('https://use.typekit.net/af/4fc98e/00000000000000007735b0ff/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i1&v=3')
+  src: url('https://use.typekit.net/af/4fc98e/00000000000000007735b0ff/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i1&v=3')
       format('woff2'),
     url('https://use.typekit.net/af/4fc98e/00000000000000007735b0ff/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i1&v=3')
       format('woff'),
@@ -35,8 +34,7 @@
 
 @font-face {
   font-family: 'input-mono';
-  src:
-    url('https://use.typekit.net/af/9ddc39/00000000000000007735b103/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n1&v=3')
+  src: url('https://use.typekit.net/af/9ddc39/00000000000000007735b103/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n1&v=3')
       format('woff2'),
     url('https://use.typekit.net/af/9ddc39/00000000000000007735b103/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n1&v=3')
       format('woff'),
@@ -50,8 +48,7 @@
 
 @font-face {
   font-family: 'input-mono';
-  src:
-    url('https://use.typekit.net/af/3a1a0d/00000000000000007735b106/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i2&v=3')
+  src: url('https://use.typekit.net/af/3a1a0d/00000000000000007735b106/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i2&v=3')
       format('woff2'),
     url('https://use.typekit.net/af/3a1a0d/00000000000000007735b106/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i2&v=3')
       format('woff'),
@@ -65,8 +62,7 @@
 
 @font-face {
   font-family: 'input-mono';
-  src:
-    url('https://use.typekit.net/af/403df5/00000000000000007735b10d/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n2&v=3')
+  src: url('https://use.typekit.net/af/403df5/00000000000000007735b10d/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n2&v=3')
       format('woff2'),
     url('https://use.typekit.net/af/403df5/00000000000000007735b10d/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n2&v=3')
       format('woff'),
@@ -80,8 +76,7 @@
 
 @font-face {
   font-family: 'input-mono';
-  src:
-    url('https://use.typekit.net/af/6c83a4/00000000000000007735b117/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3&v=3')
+  src: url('https://use.typekit.net/af/6c83a4/00000000000000007735b117/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3&v=3')
       format('woff2'),
     url('https://use.typekit.net/af/6c83a4/00000000000000007735b117/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3&v=3')
       format('woff'),
@@ -95,8 +90,7 @@
 
 @font-face {
   font-family: 'input-mono';
-  src:
-    url('https://use.typekit.net/af/25ef29/00000000000000007735b110/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3')
+  src: url('https://use.typekit.net/af/25ef29/00000000000000007735b110/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3')
       format('woff2'),
     url('https://use.typekit.net/af/25ef29/00000000000000007735b110/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3')
       format('woff'),
@@ -110,8 +104,7 @@
 
 @font-face {
   font-family: 'input-mono';
-  src:
-    url('https://use.typekit.net/af/c3093e/00000000000000007735b116/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3')
+  src: url('https://use.typekit.net/af/c3093e/00000000000000007735b116/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3')
       format('woff2'),
     url('https://use.typekit.net/af/c3093e/00000000000000007735b116/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3')
       format('woff'),
@@ -125,8 +118,7 @@
 
 @font-face {
   font-family: 'input-mono';
-  src:
-    url('https://use.typekit.net/af/f1b774/00000000000000007735b11b/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3')
+  src: url('https://use.typekit.net/af/f1b774/00000000000000007735b11b/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3')
       format('woff2'),
     url('https://use.typekit.net/af/f1b774/00000000000000007735b11b/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3')
       format('woff'),
@@ -140,8 +132,7 @@
 
 @font-face {
   font-family: 'input-mono';
-  src:
-    url('https://use.typekit.net/af/9d2d8f/00000000000000007735b11f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i5&v=3')
+  src: url('https://use.typekit.net/af/9d2d8f/00000000000000007735b11f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i5&v=3')
       format('woff2'),
     url('https://use.typekit.net/af/9d2d8f/00000000000000007735b11f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i5&v=3')
       format('woff'),
@@ -155,8 +146,7 @@
 
 @font-face {
   font-family: 'input-mono';
-  src:
-    url('https://use.typekit.net/af/82c6c3/00000000000000007735b123/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3')
+  src: url('https://use.typekit.net/af/82c6c3/00000000000000007735b123/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3')
       format('woff2'),
     url('https://use.typekit.net/af/82c6c3/00000000000000007735b123/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3')
       format('woff'),
@@ -170,8 +160,7 @@
 
 @font-face {
   font-family: 'input-mono';
-  src:
-    url('https://use.typekit.net/af/038dc3/00000000000000007735b127/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3')
+  src: url('https://use.typekit.net/af/038dc3/00000000000000007735b127/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3')
       format('woff2'),
     url('https://use.typekit.net/af/038dc3/00000000000000007735b127/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3')
       format('woff'),
@@ -185,8 +174,7 @@
 
 @font-face {
   font-family: 'input-mono';
-  src:
-    url('https://use.typekit.net/af/62782e/00000000000000007735b12a/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3')
+  src: url('https://use.typekit.net/af/62782e/00000000000000007735b12a/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3')
       format('woff2'),
     url('https://use.typekit.net/af/62782e/00000000000000007735b12a/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3')
       format('woff'),
@@ -200,8 +188,7 @@
 
 @font-face {
   font-family: 'input-mono';
-  src:
-    url('https://use.typekit.net/af/e16354/00000000000000007735b12f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3')
+  src: url('https://use.typekit.net/af/e16354/00000000000000007735b12f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3')
       format('woff2'),
     url('https://use.typekit.net/af/e16354/00000000000000007735b12f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3')
       format('woff'),
@@ -215,8 +202,7 @@
 
 @font-face {
   font-family: 'input-mono';
-  src:
-    url('https://use.typekit.net/af/e049ab/00000000000000007735b134/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i8&v=3')
+  src: url('https://use.typekit.net/af/e049ab/00000000000000007735b134/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i8&v=3')
       format('woff2'),
     url('https://use.typekit.net/af/e049ab/00000000000000007735b134/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i8&v=3')
       format('woff'),
@@ -231,17 +217,35 @@
 @font-face {
   font-family: 'Poppins';
   src: url('../../static/fonts/poppins/Poppins-Regular.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
+* {
+  font-family: 'Poppins';
+}
+html {
+  font-family: 'Poppins';
+}
+html * {
+  font-family: 'Poppins';
+}
+
 :root {
   font-family: Poppins !important;
+  --doc-sidebar-width: 445px !important;
+}
+
+h1 {
+  font-family: 'Poppins' !important;
+  font-weight: 600 !important;
+  color: var(--ifm-color-primary) !important;
 }
 
 :root {
   color: #415364;
+  --ifm-primary-text-color: #415364;
   --ifm-color-primary: #0033a1;
   --ifm-color-primary-dark: #002e91;
   --ifm-color-primary-darker: #002b89;
@@ -249,9 +253,17 @@
   --ifm-color-primary-light: #0038b1;
   --ifm-color-primary-lighter: #003bb9;
   --ifm-color-primary-lightest: #0042d1;
+  --ifm-button-colors: rgba(0, 113, 206, 1);
 
   --ifm-color-secondary: #cc27b0;
-  --ifm-link-color: #0188f7;
+  --ifm-color-secondary-dark: rgb(181, 13, 152);
+  --ifm-link-color: #0071ce;
+  --link-color: #0071ce;
+
+  --terminal-key: rgb(47, 162, 160);
+  --terminal-value: rgb(226, 52, 120);
+  --terminal-background: #f7f8fa;
+  --mui-link: rgb(4, 125, 246);
 
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
@@ -266,7 +278,6 @@
   --dev-tag-highlight: #eaeef1;
 
   --text-on-primary: #ffffff;
-  --text-color: black;
 
   --dropdown-background: #ffffff;
 
@@ -295,16 +306,24 @@
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   color: #ffffff;
-  --ifm-color-primary: #7ecfee;
+  --ifm-primary-text-color: #ffffff;
+  --ifm-color-primary: #54c0e8;
   --ifm-color-primary-dark: #5ec3ea;
   --ifm-color-primary-darker: #4ebde8;
   --ifm-color-primary-darkest: #1eabe1;
-  --ifm-color-primary-light: #8ed5f0;
-  --ifm-color-primary-lighter: #aee1f4;
-  --ifm-color-primary-lightest: #bee7f6;
+  --ifm-color-primary-light: #d0ebf6;
+  --ifm-color-primary-lighter: #d0ebf6;
+  --ifm-color-primary-lightest: #d0ebf6;
   --ifm-link-color: #7ecfee;
+  --link-color: #7ecfee;
 
   --ifm-color-secondary: #cc27b0;
+  --ifm-color-secondary-dark: rgb(181, 13, 152);
+
+  --terminal-key: rgb(247, 247, 240);
+  --terminal-value: rgb(255, 110, 191);
+  --terminal-background: #282a36;
+  --mui-link: rgb(115, 200, 235);
 
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --dev-text-color-cobalt: #dae1e9;
@@ -316,8 +335,6 @@
     hue-rotate(165deg) brightness(96%) contrast(89%);
 
   --text-on-primary: #ffffff;
-
-  --text-color: #ffffff;
 
   --dropdown-background: #2a2b2d;
 
@@ -338,11 +355,35 @@
   --main-hero-card-background: #202122;
 }
 
+.openapi-schema__container:hover .openapi-schema__property {
+  color: var(--link-color) !important;
+}
+
+.navbar__link:hover {
+  color: var(--link-color) !important;
+}
+
+.footer__link-item:hover {
+  color: var(--link-color) !important;
+  text-decoration: underline !important;
+}
+
 .navbar__logo {
   margin-right: 0.5rem;
 }
 
-@media only screen and (max-width: 1291px) {
+.cardContainer_S8oU {
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  transition: transform 0.2s ease-in-out;
+}
+
+.cardContainer_S8oU:hover {
+  border-color: var(--link-color) !important;
+  transform: scale(1.02);
+}
+
+@media only screen and (max-width: 1450px) {
   .navbar__logo {
     content: var(--dev-sailpoint-small-logo);
   }
@@ -350,6 +391,12 @@
 @media only screen and (max-width: 1043px) {
   .navbar__item {
     padding: 4px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu__link {
+    padding-left: 8%;
   }
 }
 
@@ -362,6 +409,23 @@
 
 .menu__link {
   padding-left: 13%;
+}
+
+.menu__link:hover {
+  color: var(--link-color) !important;
+}
+
+.menu__link--active {
+  color: var(--link-color) !important;
+  text-decoration: underline !important;
+}
+
+.navbar__link:hover {
+  color: var(--link-color) !important;
+}
+
+.dropdown__link:hover {
+  color: var(--link-color) !important;
 }
 
 /* Sidebar Method labels */
@@ -410,6 +474,11 @@
 .patch > .menu__link::before {
   content: 'patch';
   background-color: var(--openapi-code-orange);
+}
+
+.event > .menu__link::before {
+  content: 'event';
+  background-color: #8000a8;
 }
 
 .header-github-link:hover {
@@ -486,7 +555,6 @@ html[data-theme='dark'] .theme-admonition-note {
   background-color: #474748;
 }
 
-
 .button.button--secondary {
   color: white;
 }
@@ -519,6 +587,11 @@ div[class^='announcementBar_'] {
   }
 }
 
+.ace_editor,
+.ace_editor * {
+  font-family: monospace !important;
+}
+
 div[class^='responseTabsContainer_'] {
   max-width: 590px !important;
 }
@@ -532,6 +605,16 @@ div[class^='container padding-top--md padding-bottom--lg'] {
 
 code[class^='openapi-explorer__code-block'] {
   max-height: 400px !important;
+}
+
+input[class^='openapi-explorer__form-item-input'] {
+  background-color: var(--dev-new-car-background);
+  border: 1px solid var(--dev-card-border);
+}
+
+select[class^='openapi-explorer__select-input'] {
+  background-color: var(--dev-new-car-background);
+  border: 1px solid var(--dev-card-border);
 }
 
 iframe#webpack-dev-server-client-overlay {
@@ -548,7 +631,7 @@ iframe[id^='discourse-embed-frame'] {
 }
 
 div[id^='discourseContainer'] {
-  border-radius: 0.5em;
+  border-radius: 0.25em;
 }
 
 div[id^='discourse-comments'] {
@@ -560,26 +643,91 @@ div[id^='discourse-comments'] {
   background: var(--ifm-pre-background);
 }
 
-.menu__list-item--experimental > .menu__link::after {
+.menu__list-item--experimental {
+  display: flex;
+  align-items: center;
+  margin-left: -20px;
+}
+
+.menu__list-item--deprecated {
+  display: flex;
+  align-items: center;
+  margin-left: -20px;
+}
+
+.experimentalIcon::before {
   font-size: 20px;
-  font-family: 'Font Awesome 6 Free'; 
+  font-family: 'Font Awesome 6 Free';
   font-weight: 900;
   color: var(--dev-icon-experimental);
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   content: '\f0c3';
   position: relative;
-  right: 103%;
+  left: 45px;
 }
 
-.menu__list-item--deprecated > .menu__link::after {
+.deprecatedIcon::before {
   font-size: 20px;
-  font-family: 'Font Awesome 6 Free'; 
+  font-family: 'Font Awesome 6 Free';
   font-weight: 900;
   color: var(--dev-icon-deprecated);
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   content: '\f071';
   position: relative;
-  right: 103%;
+  left: 45px;
+}
+
+li.tabs__item.openapi-tabs__code-item.openapi-tabs__code-item--typescript::after {
+  content: '';
+  width: 24px; /* Adjust image width */
+  height: 24px; /* Adjust image height */
+  background-image: url('../../static/icons/typescript-svgrepo-com.svg'); /* Replace with your image URL */
+  background-size: contain; /* Ensure image fits properly */
+  background-repeat: no-repeat;
+  z-index: 1; /* Ensure it is above other content */
+}
+
+details ol li a:link,
+details p a:link {
+  text-decoration: underline !important;
+  text-decoration-color: var(--link-color) !important;
+  color: var(--link-color) !important;
+}
+
+p a:link,
+td a:link {
+  text-decoration: underline !important;
+}
+
+p a:link:hover,
+td a:link:hover {
+  text-decoration: none !important;
+}
+
+.svg-inline--fa {
+  font-size: 1.2rem !important;
+}
+
+.fa-lg {
+  font-size: 1.25em !important;
+  line-height: 0.05em 1px !important;
+  vertical-align: -0.075em !important;
+}
+
+.fa-2x {
+  font-size: 2em !important;
+}
+
+.fa-3x {
+  font-size: 3em !important;
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2') format('woff2');
 }

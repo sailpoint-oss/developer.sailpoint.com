@@ -2,7 +2,7 @@ post:
   operationId: testSubscriptionFilter
   tags:
     - Triggers
-  summary: Validate a Subscription Filter
+  summary: Validate a subscription filter
   description: >-
     Validates a JSONPath filter expression against a provided mock input.
 
@@ -45,4 +45,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [sp:trigger-service-subscriptions:manage]
+    - userAuth: [sp:trigger-service-subscriptions:manage]

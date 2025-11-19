@@ -1,5 +1,5 @@
 get:
-  summary: Retrieves the URL of the profile avatar
+  summary: Retrieves profile avatar URL
   operationId: getProfileAvatar
   description: Retrieves the URL of the profile avatar
   tags:
@@ -14,8 +14,8 @@ get:
     '500':
       $ref: "../responses/500.yaml"
 post:
-  summary: Uploads a new profile avatar
-  operationId: postProfileAvatar
+  summary: Uploads new profile avatar
+  operationId: submitProfileAvatar
   description: Uploads a new profile avatar
   tags:
     - profiles

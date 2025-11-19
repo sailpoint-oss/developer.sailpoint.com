@@ -1,0 +1,23 @@
+# RFC 6902 JSON Patch operation object
+description: RFC 6902 JSON Patch operation
+type: object
+required:
+  - op
+  - path
+properties:
+  op:
+    type: string
+    description: The operation to perform (add, remove, replace, move, copy, test)
+    enum: [add, remove, replace, move, copy, test]
+    example: replace
+  path:
+    type: string
+    description: A JSON-Pointer describing the target location
+    example: /name
+  value:
+    description: The value to be used within the operations. Required for add/replace/test.
+    example: Credentials for server.
+  from:
+    type: string
+    description: A JSON-Pointer describing the source location for move/copy.
+    example: /description

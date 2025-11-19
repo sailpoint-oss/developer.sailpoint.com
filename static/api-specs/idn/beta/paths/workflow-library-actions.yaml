@@ -2,12 +2,12 @@ get:
   operationId: listWorkflowLibraryActions
   tags:
     - Workflows
-  summary: List Workflow Library Actions
+  summary: List workflow library actions
   description: >-
     This lists the workflow actions available to you.
   externalDocs:
     description: Additional documentation for each action
-    url: https://documentation.sailpoint.com/saas/help/workflows/workflow-steps.html#actions
+    url: https://documentation.sailpoint.com/saas/help/workflows/index.html#actions
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
@@ -26,7 +26,7 @@ get:
         **id**: *eq*
       example: id eq "sp:create-campaign"
   security:
-    - UserContextAuth: [sp:workflow:read]
+    - userAuth: [sp:workflow:read]
   responses:
     '200':
       description: >-

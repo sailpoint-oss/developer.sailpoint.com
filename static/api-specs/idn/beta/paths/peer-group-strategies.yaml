@@ -2,7 +2,7 @@ get:
   operationId: getPeerGroupOutliers
   tags:
     - IAI Peer Group Strategies
-  summary: Identity Outliers List
+  summary: Identity outliers list
   deprecated: true
   description: >-
     -- Deprecated : See 'IAI Outliers'
@@ -12,6 +12,8 @@ get:
       name: strategy
       schema:
         type: string
+        enum:
+          - entitlement
       required: true
       description: The strategy used to create peer groups. Currently, 'entitlement' is supported.
       example: 'entitlement'
@@ -38,4 +40,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: []
+    - userAuth: []

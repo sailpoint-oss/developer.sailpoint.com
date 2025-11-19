@@ -1,5 +1,6 @@
 
 type: object
+title: Attr Sync Source Config
 description: Specification of attribute sync configuration for a source
 required:
   - source

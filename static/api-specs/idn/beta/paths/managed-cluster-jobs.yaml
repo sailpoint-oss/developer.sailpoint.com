@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clusters
-  summary: Retrieve all Managed Cluster jobs
+  summary: Retrieve all managed cluster jobs
   description: >-
     Retrieve all Managed Cluster cached Redis jobs for the given cluster ID.
 
@@ -13,6 +13,7 @@ get:
       in: path
       description: ID of the cluster to upgrade
       required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
       style: simple
       explode: false
       schema:
@@ -40,4 +41,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:managed-cluster-jobs:read]
+    - userAuth: [idn:managed-cluster-jobs:read]

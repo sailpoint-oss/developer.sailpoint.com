@@ -2,7 +2,7 @@ get:
   operationId: getRolesByIdentity
   tags:
     - Roles
-  summary: Roles assigned to Identity
+  summary: Roles assigned to identity
   description: >-
     This API returns a list of Roles assigned to Identity.
 
@@ -18,6 +18,7 @@ get:
         ID of the Identity for which the assigned Roles are to be listed
       example: 2c9180857dc9900e017dd3a36e1c3ab8
       required: true
+      x-sailpoint-resource-operation-id: listIdentities
   responses:
     '200':
       description: List of Roles
@@ -38,4 +39,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:identity:read, idn:identity:manage, idn:identity-account-read, idn:identity-self:read]
+    - userAuth: [idn:identity:read, idn:identity:manage, idn:identity-account-read, idn:identity-self:read]

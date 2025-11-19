@@ -2,7 +2,7 @@ get:
   operationId: getTeamSummary
   tags:
     - Identities
-  summary: Get team summary by identityId
+  summary: Get team summary by identityid
   description: >-
     This returns reference to a given identity’s manager, and the count of Identities that are managed by the provided identity.
   parameters:
@@ -11,6 +11,7 @@ get:
       description: >-
         The ID of the identity to build the team summary
       required: true
+      x-sailpoint-resource-operation-id: listIdentities
       example: 2c9180857893f1290178944561990364
       schema:
         type: string

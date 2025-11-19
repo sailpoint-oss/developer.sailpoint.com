@@ -2,15 +2,15 @@ get:
   tags:
     - Connectors
   operationId: getConnectorSourceTemplate
+  summary: Get connector source template
   description: >-
-    Fetches a connector's source template using its script name.
-    
-    A token with ORG_ADMIN authority is required to call this API.
+    Fetches a connector's source template using its script name.    
   parameters:
     - name: scriptName
       in: path
-      description: The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+      description: The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
       required: true
+      x-sailpoint-resource-operation-id: getConnectorList
       style: simple
       explode: false
       schema:
@@ -36,20 +36,24 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [ idn:connector-config:read ]
+    - userAuth: [ idn:connector-config:read, idn:connector-config:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
 put:
   tags:
     - Connectors
-  operationId: putSourceTemplate
+  operationId: putConnectorSourceTemplate
+  summary: Update connector source template
   description: >-
-    Update a connector's source template using its script name.
-    
-    A token with ORG_ADMIN authority is required to call this API.
+    Update a connector's source template using its script name.    
   parameters:
     - name: scriptName
       in: path
-      description: The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+      description: The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
       required: true
+      x-sailpoint-resource-operation-id: getConnectorList
       style: simple
       explode: false
       schema:
@@ -88,4 +92,8 @@ put:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [ idn:connector-config:update ]
+    - userAuth: [ idn:connector-config:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

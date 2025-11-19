@@ -4,7 +4,7 @@ required:
 - certification
 properties:
   certification:
-    description: The certification campaign that was signed off on.
+    description: Certification campaign that was signed off on.
     required:
     - id
     - name
@@ -14,20 +14,20 @@ properties:
     properties:
       id:
         type: string
-        description: Unique ID of the certification.
+        description: Certification's unique ID.
         example: 2c91808576f886190176f88caf0d0067
       name:
         type: string
-        description: The name of the certification.
+        description: Certification's name.
         example: Manager Access Review for Alice Baker
       created:
         type: string
         format: date-time
-        description: The date and time the certification was created.
-        example: "2020-02-16T03:04:45.815Z"
+        description: Date and time when the certification was created.
+        example: 2020-02-16T03:04:45.815Z
       modified:
         nullable: true
         type: string
         format: date-time
-        description: The date and time the certification was last modified.
-        example: "2020-02-16T03:06:45.815Z"
+        description: Date and time when the certification was last modified.
+        example: 2020-02-16T03:06:45.815Z

@@ -2,14 +2,14 @@ patch:
   operationId: patchUserApp
   tags:
     - Apps
-  summary: Patch user app by ID
+  summary: Patch user app by id
   description: >-
     This API updates an existing user app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
     The following fields are patchable:
     **account**
   security:
-    - UserContextAuth: [idn:app-roles:read]
+    - userAuth: [idn:app-roles:read]
   parameters:
     - name: id
       in: path
@@ -18,6 +18,7 @@ patch:
       schema:
         type: string
         example: 2c91808a7813090a017814121e121518
+      x-sailpoint-resource-operation-id: listAllUserApps
   requestBody:
     content:
       application/json-patch+json:

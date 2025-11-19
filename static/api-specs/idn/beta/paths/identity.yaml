@@ -2,11 +2,11 @@ get:
   operationId: getIdentity
   tags:
     - Identities
-  summary: Identity Details
+  summary: Identity details
   description: >-
     This API returns a single identity using the Identity ID.
   security:
-    - UserContextAuth:
+    - userAuth:
       - "idn:identity:read"
       - "idn:identity:manage"
   parameters:
@@ -15,6 +15,7 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listIdentities
       description: Identity Id
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
@@ -45,7 +46,7 @@ delete:
   description: >-
     The API returns successful response if the requested identity was deleted.
   security:
-    - UserContextAuth:
+    - userAuth:
         - "idn:identity:delete"
   parameters:
     - in: path
@@ -53,6 +54,7 @@ delete:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listIdentities
       description: Identity Id
       example: ef38f94347e94562b5bb8424a56397d8
   responses:

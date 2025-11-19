@@ -1,5 +1,6 @@
 description: The inner object representing the completed SOD Violation check
 type: object
+title: Sod Violation Check Result
 properties:
   message:
     $ref: '../../v3/schemas/ErrorMessageDto.yaml'

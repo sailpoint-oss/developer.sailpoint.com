@@ -2,13 +2,14 @@ get:
   operationId: getNotificationTemplate
   tags:
   - Notifications
-  summary: Get Notification Template By Id
+  summary: Get notification template by id
   description: This gets a template that you have modified for your site by Id.
   parameters:
   - name: id
     in: path
     description: Id of the Notification Template
     required: true
+    x-sailpoint-resource-operation-id: listNotificationTemplates
     style: simple
     explode: false
     schema:
@@ -28,16 +29,16 @@ get:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              $ref: ../../beta/schemas/TemplateDto.yaml
+            $ref: ../schemas/TemplateDto.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml

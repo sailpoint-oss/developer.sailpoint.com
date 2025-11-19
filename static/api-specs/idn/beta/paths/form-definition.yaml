@@ -9,6 +9,7 @@ get:
       in: path
       description: Form definition ID
       required: true
+      x-sailpoint-resource-operation-id: searchFormDefinitionsByTenant
       schema:
         type: string
         x-go-name: FormDefinitionID
@@ -138,7 +139,7 @@ get:
                 type: string
                 x-go-name: TrackingID
   security:
-    - UserContextAuth:
+    - userAuth:
         - sp:forms:manage
 delete:
   tags:
@@ -151,6 +152,7 @@ delete:
       in: path
       description: Form definition ID
       required: true
+      x-sailpoint-resource-operation-id: searchFormDefinitionsByTenant
       schema:
         type: string
         x-go-name: FormDefinitionID
@@ -280,7 +282,7 @@ delete:
                 type: string
                 x-go-name: TrackingID
   security:
-    - UserContextAuth:
+    - userAuth:
         - sp:forms:manage
 patch:
   tags:
@@ -293,6 +295,7 @@ patch:
       in: path
       description: Form definition ID
       required: true
+      x-sailpoint-resource-operation-id: searchFormDefinitionsByTenant
       schema:
         type: string
         x-go-name: FormDefinitionID
@@ -433,6 +436,6 @@ patch:
                 type: string
                 x-go-name: TrackingID
   security:
-    - UserContextAuth:
+    - userAuth:
         - sp:forms:manage
   x-codegen-request-body-name: Body

@@ -2,7 +2,7 @@ post:
   operationId: rejectApprovalItem
   tags:
     - Work Items
-  summary: Reject an Approval Item
+  summary: Reject an approval item
   description: >-
     This API rejects an Approval Item. Either an admin, or the owning/current user must make this request.
   parameters:
@@ -11,6 +11,7 @@ post:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listWorkItems
       description: The ID of the work item
       example: ef38f94347e94562b5bb8424a56397d8
     - in: path

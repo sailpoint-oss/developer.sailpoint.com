@@ -1,5 +1,6 @@
 description: Managed Cluster Attributes for Cluster Configuration. Supported Cluster Types [sqsCluster, spConnectCluster]
 type: object
+title: Managed Cluster Attributes
 properties:
   queue:
     description: ManagedCluster keystore for sqsCluster type

@@ -2,10 +2,9 @@ get:
   operationId: getMFAKbaConfig
   tags:
     - MFA Configuration
-  summary: Configuration of KBA MFA method
+  summary: Configuration of kba mfa method
   description: >-
     This API returns the KBA configuration for MFA.
-    A token with USER or ORG_ADMIN authority is required to call this API.
   parameters:
     - in: query
       name: allLanguages
@@ -19,7 +18,10 @@ get:
            * If not passed, it behaves the same way as passing this parameter as false
       example: allLanguages=true
   security:
-    - UserContextAuth: [idn:mfa-kba:read]
+    - userAuth: [idn:mfa-kba:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - USER
   responses:
     "200":
       description: The configuration for KBA MFA method.

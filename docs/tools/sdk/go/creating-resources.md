@@ -23,7 +23,7 @@ import (
  "os"
 
  sailpoint "github.com/sailpoint-oss/golang-sdk"
- "github.com/sailpoint-oss/golang-sdk/beta"
+ beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 )
 
 func main() {
@@ -32,7 +32,7 @@ func main() {
  configuration := sailpoint.NewDefaultConfiguration()
  apiClient := sailpoint.NewAPIClient(configuration)
 
- resp, _, err := apiClient.V3.PublicIdentitiesApi.GetPublicIdentities(ctx).Limit(1).Execute()
+ resp, _, err := apiClient.V3.PublicIdentitiesAPI.GetPublicIdentities(ctx).Limit(1).Execute()
 
  identity := "IDENTITY"
  workgroupName := "DB Access Governance Group"
@@ -48,7 +48,7 @@ func main() {
   },
  }
 
- newWorkgroup, request, errMessage := apiClient.Beta.GovernanceGroupsApi.CreateWorkgroup(ctx).WorkgroupDto(workgroup).Execute()
+ newWorkgroup, request, errMessage := apiClient.Beta.GovernanceGroupsAPI.CreateWorkgroup(ctx).WorkgroupDto(workgroup).Execute()
 
  if errMessage != nil {
   fmt.Fprintf(os.Stderr, "Error when calling `GovernanceGroupsApi.CreateWorkgroup``: %v\n", err)

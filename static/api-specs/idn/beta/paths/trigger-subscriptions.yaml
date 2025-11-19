@@ -2,7 +2,7 @@ post:
   operationId: createSubscription
   tags:
     - Triggers
-  summary: Create a Subscription
+  summary: Create a subscription
   description: >-
     This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required:
 
@@ -77,13 +77,13 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [sp:trigger-service-subscriptions:manage]
+    - userAuth: [sp:trigger-service-subscriptions:manage]
   
 get:
   operationId: listSubscriptions
   tags:
     - Triggers
-  summary: List Subscriptions
+  summary: List subscriptions
   description: Gets a list of all trigger subscriptions.
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
@@ -189,4 +189,4 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [sp:trigger-service-subscriptions:read]
+    - userAuth: [sp:trigger-service-subscriptions:read]

@@ -4,14 +4,15 @@ post:
   description: >-
     Cancels a running report.
   operationId: cancelReport
-  summary: "Cancel Report"
+  summary: "Cancel report"
   security:
-    - UserContextAuth: [sp:report:delete]
+    - userAuth: [sp:report:delete]
   parameters:
     - name: id
       in: path
       description: ID of the running Report to cancel
       required: true
+      x-sailpoint-resource-operation-id: startReport
       style: simple
       explode: false
       schema:

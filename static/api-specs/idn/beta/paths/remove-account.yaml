@@ -1,6 +1,6 @@
 post:
   operationId: deleteAccountAsync
-  summary: Remove Account
+  summary: Remove account
   tags:
     - Accounts
   description: |
@@ -17,6 +17,7 @@ post:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listAccounts
       description: The account id
       example: c350d6aa4f104c61b062cb632421ad10
   responses:
@@ -43,4 +44,4 @@ post:
     "500":
       $ref: "../../v3/responses/500.yaml"
   security:
-    - UserContextAuth: [ idn:account:remove ]
+    - userAuth: [ idn:accounts:manage ]

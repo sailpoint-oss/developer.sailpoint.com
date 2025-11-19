@@ -1,6 +1,6 @@
 post:
   operationId: importIdentityProfiles
-  summary: Import Identity Profiles
+  summary: Import identity profiles
   description: >-
     This imports previously exported identity profiles.
   tags:
@@ -32,4 +32,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:identity-profile:manage]
+    - userAuth: [idn:identity-profile:manage]

@@ -1,4 +1,5 @@
 type: object
+title: V 3 Connector Dto
 properties:
   name:
     type: string

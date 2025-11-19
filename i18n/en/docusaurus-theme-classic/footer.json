@@ -37,7 +37,7 @@
   },
   "link.item.label.Get Certified": {
     "message": "Get Certified",
-    "description": "The label of footer link with label=Get Certified linking to https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003042/true/xxemptyxx/"
+    "description": "The label of footer link with label=Get Certified linking to https://university.sailpoint.com/page/professional-certifications-and-knowledge-credentials"
   },
   "link.item.label.Build A Plugin": {
     "message": "Build A Plugin",
@@ -49,15 +49,11 @@
   },
   "link.item.label.Submit an Idea": {
     "message": "Submit an Idea",
-    "description": "The label of footer link with label=Submit an Idea linking to https://developer-sailpoint.ideas.aha.io/"
+    "description": "The label of footer link with label=Submit an Idea linking to https://ideas.sailpoint.com/"
   },
   "link.item.label.Contact Our Team": {
     "message": "Contact Our Team",
     "description": "The label of footer link with label=Contact Our Team linking to https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations"
-  },
-  "link.item.label.Engineering Blog": {
-    "message": "Engineering Blog",
-    "description": "The label of footer link with label=Engineering Blog linking to https://medium.com/sailpointtechblog"
   },
   "link.item.label.GitHub": {
     "message": "GitHub",
@@ -85,10 +81,10 @@
   },
   "link.item.label.Terms & Conditions": {
     "message": "Terms & Conditions",
-    "description": "The label of footer link with label=Terms & Conditions linking to https://developet.sailpoint.com"
+    "description": "The label of footer link with label=Terms & Conditions linking to https://developer.sailpoint.com"
   },
   "copyright": {
-    "message": "Copyright © 2023 SailPoint Technologies, Inc. All Rights Reserved.",
+    "message": "Copyright © 2025 SailPoint Technologies, Inc. All Rights Reserved.",
     "description": "The footer copyright"
   }
 }

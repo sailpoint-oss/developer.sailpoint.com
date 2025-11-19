@@ -2,10 +2,10 @@ post:
   operationId: startGenerateCampaignTemplate
   tags:
     - Certification Campaigns
-  summary: Generate a Campaign from Template
+  summary: Generate a campaign from template
   deprecated: true
   security:
-     - UserContextAuth: [idn:campaign-template:manage]
+     - userAuth: [idn:campaign-template:manage]
   description: |
     Use this API to generate a new certification campaign from a campaign template.
 
@@ -30,6 +30,7 @@ post:
       required: true
       description: ID of the campaign template to use for generation.
       example: 2c9180835d191a86015d28455b4a2329
+      x-sailpoint-resource-operation-id: getCampaignTemplates
   responses:
     '200':
       description: >-

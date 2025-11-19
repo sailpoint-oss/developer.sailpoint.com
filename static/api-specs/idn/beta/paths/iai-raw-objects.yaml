@@ -2,7 +2,7 @@ get:
   operationId: searchObjects
   tags:
     - IAI Raw Objects
-  summary: List Objects
+  summary: List objects
   description: >-
     This API returns a list of Objects.
     

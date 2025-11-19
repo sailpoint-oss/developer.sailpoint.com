@@ -2,13 +2,13 @@ get:
   operationId: getCampaignTemplate
   tags:
     - Certification Campaigns
-  summary: Get a Campaign Template
+  summary: Get a campaign template
   description: |
     Use this API to fetch a certification campaign template by ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-template).
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
-    - UserContextAuth: [idn:campaign-template:read, idn:campaign-template:manage]
+    - userAuth: [idn:campaign-template:read, idn:campaign-template:manage]
   deprecated: true
   parameters:
     - in: path
@@ -18,6 +18,7 @@ get:
       required: true
       description: Requested campaign template's ID.
       example: 2c9180835d191a86015d28455b4a2329
+      x-sailpoint-resource-operation-id: getCampaignTemplates
   responses:
     '200':
       description: Data for the campaign matching the given ID.
@@ -50,14 +51,14 @@ patch:
   operationId: patchCampaignTemplate
   tags:
     - Certification Campaigns
-  summary: Update a Campaign Template
+  summary: Update a campaign template
   description: |
     Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/patch-campaign-template).
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   deprecated: true
   security:
-    - UserContextAuth: [idn:campaign-template:manage]
+    - userAuth: [idn:campaign-template:manage]
   parameters:
     - in: path
       name: id
@@ -66,6 +67,7 @@ patch:
       required: true
       description: ID of the campaign template being modified.
       example: 2c9180835d191a86015d28455b4a2329
+      x-sailpoint-resource-operation-id: getCampaignTemplates
   requestBody:
     required: true
     description: |
@@ -122,14 +124,14 @@ delete:
   operationId: deleteCampaignTemplate
   tags:
     - Certification Campaigns
-  summary: Delete a Campaign Template
+  summary: Delete a campaign template
   description: |
     Use this API to delete a certification campaign template by ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/delete-campaign-template).
 
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   deprecated: true
   security:
-    - UserContextAuth: [idn:campaign-template:manage]
+    - userAuth: [idn:campaign-template:manage]
   parameters:
     - in: path
       name: id
@@ -138,6 +140,7 @@ delete:
       required: true
       description: ID of the campaign template being deleted.
       example: 2c9180835d191a86015d28455b4a2329
+      x-sailpoint-resource-operation-id: getCampaignTemplates
   responses:
     '204':
       $ref: '../../v3/responses/204.yaml'

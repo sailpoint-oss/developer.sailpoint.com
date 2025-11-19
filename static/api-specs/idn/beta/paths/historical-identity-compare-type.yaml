@@ -2,7 +2,7 @@ get:
   operationId: compareIdentitySnapshotsAccessType
   tags:
     - Identity History
-  summary: Gets a list of differences of specific accessType for the given identity between 2 snapshots
+  summary: Gets a list of differences of specific accesstype for the given identity between 2 snapshots
   description: >-
     This method gets a list of differences of specific accessType for the given identity between 2 snapshots
     Requires authorization scope of 'idn:identity-history:read' 
@@ -12,12 +12,19 @@ get:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listHistoricalIdentities
       description: The identity id
       example: 8c190e6787aa4ed9a90bd9d5344523fb
     - in: path
       name: accessType
       schema:
         type: string
+        enum:
+          - accessProfile
+          - account
+          - app
+          - entitlement
+          - role
       required: true
       description: The specific type which needs to be compared
       example: role

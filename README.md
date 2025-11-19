@@ -24,21 +24,27 @@
 
 ## About The Project
 
-This repository contains the complete build, with assets, for everything seen on developer.sailpoint.com. This includes the homepage, all static elements, _documentation_, API specifications, et. al. The API specifications come in from a GitHub Action in another repository, but ultimately the API specifications used to generate this static site are those found in the `static` folder.
+This repository contains the complete build, with assets, for everything seen on developer.sailpoint.com. This includes the homepage, all static elements, _documentation_, API specifications, etc. The API specifications come in from a GitHub Action in another repository, but ultimately the API specifications used to generate this static site are those found in the `static` folder.
 
 Please use GitHub [issues](https://github.com/sailpoint-oss/developer.sailpoint.com/issues) to [submit bugs](https://github.com/sailpoint-oss/developer.sailpoint.com/issues/new?assignees=&labels=&template=bug-report.md&title=%5BBug%5D+Your+Bug+Report+Here) or make [feature requests](https://github.com/sailpoint-oss/developer.sailpoint.com/issues/new?assignees=&labels=&template=feature-request.md&title=%5BFeature%5D+Your+Feature+Request+Here).
 
-If you'd like to contribute directly (which we encourage!) please read the contribution guidelines below, first!
+If you'd like to contribute directly (which we encourage!), please read the contribution guidelines below, first!
 
 <!-- GETTING STARTED -->
 
 ## Getting Started
 
 If you want to build this project locally, follow the steps below.
+ <br> If you're new to GitHub or web development, you can also start by editing files directly in the browser — no need to install anything!
+
 
 ### Prerequisites
 
-To run this project you must first have npm installed.
+To run this project you must first have node.js and npm installed.
+
+## 📌 Note
+
+> **Important**: Node.js version 23.6.0 does not work with this build currently. 
 
 ```sh
 npm install npm@latest -g
@@ -71,7 +77,7 @@ npm install npm@latest -g
 
 ## Discuss
 
-[Click Here](https://developer.sailpoint.com/discuss) to discuss this tool with other users.
+[Click Here](https://developer.sailpoint.com/discuss) to discuss this tool with other users.<br>You can ask questions, suggest ideas, or get help from the SailPoint developer community.
 
 <!-- LICENSE -->
 

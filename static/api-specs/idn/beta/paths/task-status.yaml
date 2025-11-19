@@ -4,14 +4,15 @@
 get:
   tags:
     - Task Management
-  summary: Get task status by ID.
-  description: Get a TaskStatus for a task by task ID.
+  summary: Get task status by id
+  description: Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. 
   operationId: getTaskStatus
   parameters:
     - name: id
       in: path
       description: Task ID.
       required: true
+      x-sailpoint-resource-operation-id: getTaskStatusList
       example: 00eebcf881994e419d72e757fd30dc0e
       style: simple
       explode: false
@@ -37,12 +38,22 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:task-management:read]
+    - userAuth: [idn:task-management:read, idn:task-management:write]
+    - applicationAuth: [idn:task-management:read, idn:task-management:write]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - HELPDESK
+    - CERT_ADMIN
+    - REPORT_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
 patch:
   operationId: updateTaskStatus
   tags:
     - Task Management
-  summary: Update task status by ID
+  summary: Update task status by id
   description: Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
   parameters:
     - name: id
@@ -50,6 +61,7 @@ patch:
       description: Task ID.
       example: 00eebcf881994e419d72e757fd30dc0e
       required: true
+      x-sailpoint-resource-operation-id: getTaskStatusList
       style: simple
       explode: false
       schema:
@@ -90,4 +102,12 @@ patch:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:task-management:write]
+    - userAuth: [idn:task-management:write]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+    - REPORT_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

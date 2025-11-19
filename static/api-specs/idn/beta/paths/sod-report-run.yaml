@@ -2,10 +2,10 @@ post:
   operationId: startSodPolicy
   tags:
     - SOD Policies
-  summary: Runs SOD policy violation report
+  summary: Runs sod policy violation report
   deprecated: true
   security:
-    - UserContextAuth: [idn:sod-violation:write]
+    - userAuth: [idn:sod-violation:write]
   description: >-
     This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with
     violation limit exceeded message.
@@ -17,6 +17,7 @@ post:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listSodPolicies
       description: The SOD policy ID to run.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:

@@ -2,11 +2,11 @@ post:
   operationId: sendTokenAuthRequest
   tags:
     - MFA Controller
-  summary: Authenticate Token provided MFA method
+  summary: Authenticate token provided mfa method
   description: >-
     This API Authenticate user in Token MFA method.
   security:
-    - UserContextAuth: [idn:mfa:verify]
+    - userAuth: [idn:mfa:verify]
   requestBody:
     required: true
     content:

@@ -8,15 +8,13 @@ post:
     
     This task will send an invitation email only for unregistered identities.
     
-    The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status)
-    
-    A token with ORG_ADMIN or HELPDESK authority is required to call this API.
+    The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status).
   externalDocs:
     description: 'Learn more about inviting identities here'
     url: 'https://documentation.sailpoint.com/saas/help/common/users/inviting_users.html'
-  security:
-    - UserContextAuth:
-        - "idn:password-user-invite:create"
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - HELPDESK
   requestBody:
     required: true
     content:

@@ -4,6 +4,7 @@ content:
     schema:
       type: object
       properties:
-        form:
-          type: object
-          $ref: "../../schemas/POST/Forms.yaml"
+        forms:
+          type: array
+          items:
+            $ref: "../../schemas/POST/Forms.yaml"

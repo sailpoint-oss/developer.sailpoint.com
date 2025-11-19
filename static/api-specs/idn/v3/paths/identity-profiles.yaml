@@ -2,11 +2,9 @@ get:
   operationId: listIdentityProfiles
   tags:
     - Identity Profiles
-  summary: Identity Profiles List
+  summary: List identity profiles
   description: >-
-    This returns a list of Identity Profiles based on the specified query parameters.
-
-    A token with ORG_ADMIN or API authority is required to call this API to get a list of Identity Profiles.
+    Get a list of identity profiles, based on the specified query parameters.
   parameters:
     - $ref: '../parameters/limit.yaml'
     - $ref: '../parameters/offset.yaml'
@@ -24,10 +22,10 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*
+        **id**: *eq, ne, ge, gt, in, le, sw*
 
 
-        **name**: *eq, ne, in, le, lt, isnull, sw*
+        **name**: *eq, ne, ge, gt, in, le, sw*
 
 
         **priority**: *eq, ne*
@@ -45,7 +43,7 @@ get:
         Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name**
   responses:
     '200':
-      description: List of identityProfiles.
+      description: List of identity profiles.
       content:
         application/json:
           schema:
@@ -63,16 +61,15 @@ get:
     '500':
       $ref: '../responses/500.yaml'
   security:
-    - UserContextAuth: [idn:identity-profile:read]
-
+    - userAuth: [idn:identity-profile:read]
+    - applicationAuth: [idn:identity-profile:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 post:
   operationId: createIdentityProfile
-  summary: Create an Identity Profile
+  summary: Create identity profile
   description: >-
-    This creates an Identity Profile.
-    
-    
-    A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
+    Creates an identity profile.    
   tags:
     - Identity Profiles
   requestBody:
@@ -83,7 +80,7 @@ post:
           $ref: '../schemas/IdentityProfile.yaml'
   responses:
     '201':
-      description: The created Identity Profile
+      description: Created identity profile.
       content:
         application/json:
           schema:
@@ -99,4 +96,6 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [ idn:identity-profile:manage ]
+    - userAuth: [ idn:identity-profile:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

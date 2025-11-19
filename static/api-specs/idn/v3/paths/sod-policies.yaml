@@ -1,10 +1,10 @@
 post:
   security:
-    - UserContextAuth: [idn:sod-policy:write]
+    - userAuth: [idn:sod-policy:write]
   operationId: createSodPolicy
   tags:
     - SOD Policies
-  summary: Create SOD policy
+  summary: Create sod policy
   description: >-
     This creates both General and Conflicting Access Based policy, with a limit
     of 50 entitlements for each (left & right) criteria for Conflicting Access
@@ -16,7 +16,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../schemas/SodPolicy.yaml"
+          $ref: "../schemas/SodPolicyRequest.yaml"
         examples:
           Conflicting Access Based Policy:
             value:
@@ -114,7 +114,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: "../schemas/SodPolicy.yaml"
+            $ref: "../schemas/SodPolicyRead.yaml"
           examples:
             Conflicting Access Based Policy:
               value:
@@ -231,11 +231,11 @@ post:
       $ref: "../responses/500.yaml"
 get:
   security:
-    - UserContextAuth: [idn:sod-policy:read]
+    - userAuth: [idn:sod-policy:read]
   operationId: listSodPolicies
   tags:
     - SOD Policies
-  summary: List SOD policies
+  summary: List sod policies
   description: >-
     This gets list of all SOD policies.
 
@@ -284,7 +284,7 @@ get:
           schema:
             type: array
             items:
-              $ref: "../schemas/SodPolicy.yaml"
+              $ref: "../schemas/SodPolicyRead.yaml"
           example:
             [
               {

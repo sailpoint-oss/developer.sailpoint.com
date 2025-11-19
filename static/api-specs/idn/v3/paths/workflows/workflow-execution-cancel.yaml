@@ -2,11 +2,11 @@ post:
   operationId: cancelWorkflowExecution
   tags:
     - Workflows
-  summary: Cancel Workflow Execution by ID
+  summary: Cancel workflow execution by id
   description: >-
     Use this API to cancel a running workflow execution.
   security:
-    - UserContextAuth: [sp:workflow-execute:external]
+    - userAuth: [sp:workflow-execute:external]
   parameters:
     - name: id
       in: path

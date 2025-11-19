@@ -1,4 +1,5 @@
 type: object
+title: Workflow Trigger
 description: The trigger that starts the workflow
 required:
   - type
@@ -10,13 +11,15 @@ properties:
       - EVENT
       - EXTERNAL
       - SCHEDULED
+      - ""
     example: EVENT
     description: The trigger type
   displayName:
     type: string
     nullable: true
   attributes:
-    oneOf:
+    nullable: true
+    anyOf:
       - $ref: './workflows/trigger-attributes/EventAttributes.yaml'
       - $ref: './workflows/trigger-attributes/ExternalAttributes.yaml'
       - $ref: './workflows/trigger-attributes/ScheduledAttributes.yaml'

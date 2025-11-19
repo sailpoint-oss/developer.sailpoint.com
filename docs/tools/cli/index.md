@@ -17,8 +17,8 @@ The SailPoint CLI is a terminal-based tool you can use to to interact with your 
 
 You can use the CLI to perform many functions you would have otherwise used Postman or custom scripts to perform before. For example, you can use the CLI to call the SailPoint APIs to do whatever you want in your ISC tenant, and you can do all this directly on the command line, with minimal setup.
 
-<div class="text--center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/JInlFmABuO8?si=CE8fw3RB1w7qFESv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div className="text--center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JInlFmABuO8?si=CE8fw3RB1w7qFESv" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 </div>
 
 Learn how to use the SailPoint command line interface (CLI) in this guide.
@@ -40,7 +40,7 @@ Learn how to use the SailPoint command line interface (CLI) in this guide.
   - [PAT Authentication](#pat-authentication)
 - [Environment variable configuration](#environment-variable-configuration)
 - [Usage](#usage)
-- [GitHub](#github)
+- [Support](#support)
 - [Contribution](#contribution)
 - [Questions](#questions)
 
@@ -75,7 +75,7 @@ Then make sure you can run the `sail` command.
 
 Each release on the [releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases) includes a tarball that can be extracted and run on Linux. Or you can install using the available .deb or .rpm packages.
 
-#### Deb Package
+#### Deb package
 
 Download the specific .deb package from the release you wish to install
 
@@ -89,7 +89,7 @@ sudo apt install ./sail_x.x.x_linux_amd64.deb
 sudo apt install /path/to/deb/package/sail_x.x.x_linux_amd64.deb
 ```
 
-#### RPM Package
+#### RPM package
 
 Download the specific .rpm package from the release you wish to install
 
@@ -109,12 +109,12 @@ To configure the CLI to connect and authenticate to your ISC tenant, you must do
 
 - Find your tenant name. To learn how to find it, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The CLI will use this tenant name to connect to your ISC instance.
 - OAuth
-- PAT | Create a personal access token (PAT). Make sure to note the "Client ID" and "Client Secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/docs/api/authentication#personal-access-tokens).
+- PAT | Create a personal access token (PAT). Make sure to note the "Client ID" and "Client Secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/docs/api/authentication#generate-a-personal-access-token).
 
 To configure your first environment for OAuth run the following command:
 
 ```bash
-sail env {environment}
+sail env create {environment}
 ```
 
 with `{environment}` being the name of the environment you wish to configure.
@@ -124,15 +124,15 @@ You will be prompted for the following information:
 - The Tenant URL - The web URL used to access your Identity Security Cloud tenant (ex. https://tenant.identitynow.com), this is used during the OAuth process.
 - The API URL - The API URL used to access your Identity Security Cloud tenant (ex. https://tenant.api.identitynow.com), this is used for the api calls made by certain commands.
 
-### OAuth Authentication
+### OAuth authentication
 
 With the default environment values populated you can immediately begin using the CLI with OAuth authentication. Just make sure OAuth is your selected authentication method, this can be done by running `sail set auth oauth`.
 
-### PAT Authentication
+### PAT authentication
 
 After you have configured your environment, if you want to use PAT authentication, run the `sail set pat` command. You can then provide your PAT client ID and client secret.
 
-![Configure PAT](https://github.com/sailpoint-oss/sailpoint-cli/blob/main/assets/img/vhs/configure/configure-pat.gif?raw=true)
+![Configure PAT](https://github.com/sailpoint-oss/sailpoint-cli/blob/main/assets/img/vhs/configure/configure-environment.gif?raw=true)
 
 Once you have provided your client ID and client secret, you can swap your auth method to PAT using `sail set auth pat`.
 
@@ -153,9 +153,9 @@ To get your environment variables to persist across terminal sessions, add these
 To store your configuration in environment variables on **Windows**, run Powershell as an administrator and run these commands:
 
 ```powershell
-$env:SAIL_BASE_URL=https://{tenant}.api.identitynow.com
-$env:SAIL_CLIENT_ID={clientID}
-$env:SAIL_CLIENT_SECRET={clientSecret}
+$env:SAIL_BASE_URL='https://{tenant}.api.identitynow.com'
+$env:SAIL_CLIENT_ID='{clientID}'
+$env:SAIL_CLIENT_SECRET='{clientSecret}'
 ```
 
 To get your environment variables to persist across PowerShell sessions, run this command instead:
@@ -163,7 +163,7 @@ To get your environment variables to persist across PowerShell sessions, run thi
 ```powershell
 [System.Environment]::SetEnvironmentVariable('SAIL_BASE_URL','https://{tenant}.api.identitynow.com')
 [System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_ID','{clientID}')
-[System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_SECRET','clientSecret}')
+[System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_SECRET','{clientSecret}')
 ```
 
 ## Usage
@@ -181,7 +181,7 @@ These commands are available:
 - `cluster`: Run this command to access VA clusters connected to your tenant. For more information about the `cluster` command, refer to the CLI [Clusters guide](/docs/tools/cli/cluster).
 - `workflow`: Run this command to create and manage workflows within the CLI. For more information about the `workflow` command, refer to the CLI [Workflows guide](/docs/tools/cli/workflow).
 
-## GitHub
+## Support
 
 You will find the SailPoint GitHub CLI repo here: https://github.com/sailpoint-oss/sailpoint-cli
 

@@ -4,7 +4,7 @@ post:
     - Apps
   summary: Bulk remove access profiles from the specified source app
   security:
-    - UserContextAuth: [idn:app-roles:manage]
+    - userAuth: [idn:app-roles:manage]
   description: >-
     This API returns the final list of access profiles for the specified source app after removing
   parameters:
@@ -15,6 +15,7 @@ post:
       schema:
         type: string
         example: 2c91808a7813090a017814121e121518
+      x-sailpoint-resource-operation-id: listAllSourceApp
     - $ref: '../../v3/parameters/limit.yaml'
   requestBody:
     required: true
@@ -24,11 +25,11 @@ post:
           type: array
           items:
             type: string
-        description: List of access profile IDs for removal
-        example: [
-          "c9575abb5e3a4e3db82b2f989a738aa2",
-          "c9dc28e148a24d65b3ccb5fb8ca5ddd9"
-        ]
+          description: List of access profile IDs for removal
+          example: [
+           "c9575abb5e3a4e3db82b2f989a738aa2",
+           "c9dc28e148a24d65b3ccb5fb8ca5ddd9"
+          ]
   responses:
     '200':
       description: The final list of access profiles for the specified source app

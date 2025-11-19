@@ -1,5 +1,6 @@
 description: Managed Cluster key pair for Cluster
 type: object
+title: Managed Cluster Queue
 properties:
   name:
     description: ManagedCluster queue name

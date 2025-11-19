@@ -4,7 +4,7 @@ get:
     - Apps
   summary: List all user apps
   security:
-    - UserContextAuth: [idn:app-roles:manage]
+    - userAuth: [idn:app-roles:manage]
   description: >-
     This API returns the list of all user apps with specified filters.
     
@@ -12,6 +12,7 @@ get:
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/count.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
     - in: query
       name: filters
       schema:

@@ -4,7 +4,7 @@
 post:
   tags:
     - Task Management
-  summary: Cancel a task by ID
+  summary: Cancel a task by id
   description: Cancel a task by task ID.
   operationId: cancelTask
   parameters:
@@ -12,6 +12,7 @@ post:
       in: path
       description: Task ID of task to cancel
       required: true
+      x-sailpoint-resource-operation-id: getPendingTasks
       style: simple
       explode: false
       schema:
@@ -25,4 +26,4 @@ post:
     "404":
       $ref: '../../v3/responses/404.yaml'
   security:
-    - UserContextAuth: [idn:task-management:write]
+    - userAuth: [idn:task-management:write]

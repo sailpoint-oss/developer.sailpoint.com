@@ -2,7 +2,7 @@ post:
   operationId: showGenerateIdentityPreview
   tags:
     - Identity Profiles
-  summary: Generate Identity Profile Preview
+  summary: Generate identity profile preview
   description: >-
     Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body.
 
@@ -35,4 +35,4 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - UserContextAuth: [idn:identity-profile:manage]
+    - userAuth: [idn:identity-profile:manage]

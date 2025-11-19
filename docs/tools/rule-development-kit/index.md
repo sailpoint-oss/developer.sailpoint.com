@@ -11,7 +11,7 @@ slug: /tools/rule-development-kit
 tags: ['RDK']
 ---
 
-## Start Using the Rule Development Kit
+## Start using the Rule Development Kit
 
 The SailPoint Rule Development Kit (RDK) is a project you can use to develop rules more quickly and easily.
 
@@ -21,13 +21,13 @@ The RDK provides you with the available classes and methods available when you'r
 
 Learn how to use the SailPoint RDK in this guide.
 
-<div class="text--center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/b2LvCaH59JY?si=owtL69BIkbuyHyA0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div className="text--center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/b2LvCaH59JY?si=owtL69BIkbuyHyA0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 </div>
 
 ## Requirements
 
-- [Java 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)
+- [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 - [Apache Maven 3.9.3+](https://maven.apache.org/install.html)
   - [Mac OS installation guide](https://www.appsdeveloperblog.com/how-to-install-maven-on-mac-os/)
   - [Windows installation guide](https://phoenixnap.com/kb/install-maven-windows)
@@ -613,8 +613,20 @@ When your test runs, you will see the output of your logs. These logs can help w
 [INFO] ------------------------------------------------------------------------
 ```
 
-## Next steps
+## Getting support
 
-Have an issue using the RDK? Reach out to us on GitHub [here](https://github.com/sailpoint-oss/rule-development-kit/issues)
+To get support for the Rule Development Kit, please see our GitHub page, https://github.com/sailpoint-oss/rule-development-kit.
+
+To submit a bug report, please [click here](https://github.com/sailpoint-oss/rule-development-kit/issues/new?assignees=&labels=bug&template=bug-report.md).
+
+To submit a feature request, please [click here](https://github.com/sailpoint-oss/rule-development-kit/issues/new?assignees=&labels=enhancement&template=feature-request.md)
+
+## Contribute
+
+Do you have an idea to help improve the Rule Development Kit? You can contribute directly!
+
+Before you contribute, you must sign our [CLA](https://cla-assistant.io/sailpoint-oss/rule-development-kit) and read the [Contribution Guidelines](https://github.com/sailpoint-oss/developer.sailpoint.com/blob/main/CONTRIBUTING.md).
+
+## Discuss
 
 Discuss the tool and other rule-specific topics in the [SailPoint Developer Community](https://developer.sailpoint.com/discuss/).

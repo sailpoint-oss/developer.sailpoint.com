@@ -11,7 +11,7 @@ interface FilterState {
   tags: string[];
 }
 
-const SaasConnector: React.FC = () => {
+const SaasConnectorCustomizers: React.FC = () => {
   const [filteredProduct, setFilteredProduct] = useState<FilterState>({
     category: 'saas-connector-customizers',
     tags: [],
@@ -47,4 +47,4 @@ const SaasConnector: React.FC = () => {
   );
 };
 
-export default SaasConnector;
+export default SaasConnectorCustomizers;

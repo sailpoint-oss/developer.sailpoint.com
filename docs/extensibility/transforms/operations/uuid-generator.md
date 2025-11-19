@@ -31,15 +31,27 @@ The UUID generator transform only requires the transform's `type` and `name` att
 }
 ```
 
+### Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `uuid`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
 ## Attributes
 
-- **Required Attributes**
+The UUID generator transform only requires top-level properties:
 
-  - **type** - This must always be set to `uuid`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
+```json
+{
+  "type": "uuid",
+  "name": "Transform Name"
+}
+```
 
 ## Examples
 

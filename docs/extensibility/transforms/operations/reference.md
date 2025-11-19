@@ -28,17 +28,46 @@ In addition to the standard `type` and `name` attributes, the structure of a ref
 }
 ```
 
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `reference`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
 ## Attributes
 
-- **Required Attributes**
+The reference transform uses the following structure:
 
-  - **type** - This must always be set to `reference`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **attributes.id** - This specifies the name of the pre-existing transform you want to use within your current transform.
+```json
+{
+  "type": "reference",
+  "name": "Transform Name",
+  "attributes": {
+    "id": "Name of Transform to Reference"
+  }
+}
+```
 
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
-  - **input** - This is an optional attribute that can explicitly define the input data passed into the transform logic. If no input is provided, the transform takes its input from the source and attribute combination configured with the UI.
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the reference configuration.
+
+#### Required
+
+- **id** `string` _(required)_  
+  The name of the pre-existing transform you want to reference within your current transform.
+
+#### Optional
+
+- **input** `object` _(optional)_  
+  Explicitly defines the input data passed into the transform. If not provided, the transform uses input from the source and attribute combination configured in the UI.
 
 ## Examples
 

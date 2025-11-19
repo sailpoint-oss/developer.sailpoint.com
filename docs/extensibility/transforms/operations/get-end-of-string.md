@@ -30,19 +30,54 @@ The structure of a get end of string transform requires the `name` of the refere
 }
 ```
 
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `rule`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
 ## Attributes
 
-- **Required Attributes**
+The get end of string transform uses the following structure:
 
-  - **type** - This must always be set to `rule`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **attributes.name** - This must always be set to `Cloud Services Deployment Utility`.
-  - **operation** - This must always be set to `getEndOfString`.
-  - **numChars** - This specifies how many of the rightmost characters within the incoming string the transform returns. If the value of numChars is greater than the string length, the transform returns null.
+```json
+{
+  "type": "rule",
+  "name": "Transform Name",
+  "attributes": {
+    "name": "Cloud Services Deployment Utility",
+    "operation": "getEndOfString",
+    "numChars": "4"
+  }
+}
+```
 
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
-  - **input** - This is an optional attribute that can explicitly define the input data passed into the transform logic. If no input is provided, the transform takes its input from the source and attribute combination configured with the UI.
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the rule configuration.
+
+#### Required
+
+- **name** `string` _(required)_  
+  Must be set to `Cloud Services Deployment Utility`.
+
+- **operation** `string` _(required)_  
+  Must be set to `getEndOfString`.
+
+- **numChars** `string` _(required)_  
+  Specifies how many of the rightmost characters within the incoming string the transform returns. If the value is greater than the string length, the transform returns null.
+
+#### Optional
+
+- **input** `object` _(optional)_  
+  Explicitly defines the input data passed into the transform. If not provided, the transform uses input from the source and attribute combination configured in the UI.
 
 ## Examples
 

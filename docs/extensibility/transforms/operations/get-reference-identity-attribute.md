@@ -32,19 +32,53 @@ The structure of a get reference identity transform requires the `name` of the r
 }
 ```
 
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `rule`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
 ## Attributes
 
-- **Required Attributes**
+The get reference identity attribute transform uses the following structure:
 
-  - **type** - This must always be set to `rule`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **attributes.name** - This must always be set to `Cloud Services Deployment Utility`.
-  - **operation** - This must always be set to `getReferenceIdentityAttribute`.
-  - **uid** - This is the SailPoint User Name (uid) value of the identity whose attribute is desired.
-    - For your convenience, you can use the "manager" keyword to look up the user's manager and then get that manager's identity attribute.
+```json
+{
+  "type": "rule",
+  "name": "Transform Name",
+  "attributes": {
+    "name": "Cloud Services Deployment Utility",
+    "operation": "getReferenceIdentityAttribute",
+    "uid": "manager",
+    "attributeName": "email"
+  }
+}
+```
 
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the rule configuration.
+
+#### Required
+
+- **name** `string` _(required)_  
+  Must be set to `Cloud Services Deployment Utility`.
+
+- **operation** `string` _(required)_  
+  Must be set to `getReferenceIdentityAttribute`.
+
+- **uid** `string` _(required)_  
+  The SailPoint User Name (uid) value of the identity whose attribute is desired. You can use the `"manager"` keyword to look up the user's manager and get that manager's identity attribute.
+
+- **attributeName** `string` _(required)_  
+  The name of the identity attribute to retrieve from the referenced identity.
 
 ## Examples
 

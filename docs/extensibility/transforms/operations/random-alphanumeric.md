@@ -25,19 +25,44 @@ The random alphanumeric transform only requires the standard `type` and `name` a
 }
 ```
 
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `randomAlphaNumeric`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
 ## Attributes
 
-- **Required Attributes**
+The random alphanumeric transform uses the following structure:
 
-  - **type** - This must always be set to `randomAlphaNumeric`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
+```json
+{
+  "type": "randomAlphaNumeric",
+  "name": "Transform Name",
+  "attributes": {
+    "length": "32"
+  }
+}
+```
 
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
-  - **length** - This is the integer value specifying the required size/number of characters the random string must contain.
-    - This value must be a positive number and cannot be blank.
-    - If no length is provided, the transform defaults to a value of 32.
-    - Due to identity attribute data constraints, the maximum allowable value is 450 characters.
+---
+
+### `attributes` (optional)
+
+The `attributes` object contains the length configuration.
+
+#### Optional
+
+- **length** `string` _(optional)_  
+  An integer value specifying the required size/number of characters for the random string.
+  - Must be a positive number
+  - Default is `32`
+  - Maximum allowable value is `450` characters
 
 ## Examples
 

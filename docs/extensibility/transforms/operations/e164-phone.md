@@ -31,17 +31,39 @@ The E.164 phone transform only requires the transform's `type` and `name` attrib
 }
 ```
 
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `e164phone`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
 ## Attributes
 
-- **Required Attributes**
+The E.164 phone transform only requires top-level properties:
 
-  - **type** - This must always be set to `E.164phone.`
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
+```json
+{
+  "type": "e164phone",
+  "name": "Transform Name"
+}
+```
 
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
-  - **input** - This is an optional attribute that can explicitly define the input data passed into the transform logic. If no input is provided, the transform takes its input from the source and attribute combination configured with the UI.
-  - **defaultRegion** - This is an optional attribute used to define the phone number region to format into. If no defaultRegion is provided, the transform takes US as the default country. The format of the country code must be in [ISO 3166-1 alpha-2 format](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+### `attributes` (required)
+
+The `attributes` object contains the E.164 phone configuration.
+
+#### Optional
+
+- **defaultRegion** `string` _(optional)_  
+  The phone number region to format into. Must be in [ISO 3166-1 alpha-2 format](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Default is `US`.
+
+- **input** `object` _(optional)_  
+  Explicitly defines the input data passed into the transform. If not provided, the transform uses input from the source and attribute combination configured in the UI.
 
 ## Examples
 

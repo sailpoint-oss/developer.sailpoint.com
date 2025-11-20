@@ -114,7 +114,7 @@ const Marketplace: React.FC = () => {
                   View All &#8594;
                 </Link>
               </div>
-              <MarketplaceCards filterCallback={saas} limit={5} multiple={true} />
+              <MarketplaceCards filterCallback={saasConnectorCustomizers} limit={5} multiple={true} />
             </div>
 
             <div className={styles.cardContainer}>

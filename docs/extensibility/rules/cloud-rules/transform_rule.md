@@ -65,10 +65,14 @@ return result[index];
 
 ## Template
 
+:::warning
+The type attribute is now required on the `<Rule>` element. You must specify `type="Transform"` going forward. In previous versions, this attribute could be omitted.
+:::
+
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
-<Rule name="Example Rule">
+<Rule name="Example Rule" type="Transform">
   <Description>Describe your rule here.</Description>
   <Source><![CDATA[
 

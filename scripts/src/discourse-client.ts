@@ -213,7 +213,8 @@ export class DiscourseClient {
 
     async isSailPointEmployee(username: string): Promise<boolean> {
         const email = await this.getEmail(username)
-        if (email.email.endsWith("sailpoint.com")) {
+        const domain = email.email.split('@')[1];
+        if (domain === "sailpoint.com") {
             return true
         } else {
             return false

@@ -21,8 +21,7 @@ const personas = [
     {
         id: 4,
         paths: [
-            {path: '../docs/api/beta', recursive: true},
-            {path: '../docs/api/v3', recursive: true}
+            {path: '../docs/api/v2025', recursive: true}
         ]
     },
     {
@@ -67,5 +66,5 @@ async function main(id: number, paths: {path: string, recursive: boolean}[]) {
 processFiles('../docs/api');
 
 for (let persona of personas) {
-    main(persona.id, persona.paths);
+        main(persona.id, persona.paths);
 }

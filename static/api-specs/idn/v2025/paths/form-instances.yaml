@@ -1,9 +1,26 @@
 get:
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
   tags:
     - Custom Forms
   summary: List form instances by tenant.
-  description: No parameters required.
+  description: Returns a list of form instances for the tenant. Optionally filter by form definition ID.
   operationId: searchFormInstancesByTenant
+  parameters:
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **formDefinitionId**: *eq*
+      example: formDefinitionId eq "351c1daa-56f6-4bbf-b32c-49844c0b716e"
+      required: false
   responses:
     '200':
       description: Returns a list of form instances by tenant
@@ -112,6 +129,8 @@ get:
         - sp:forms:read
         - sp:forms:manage
 post:
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
   tags:
     - Custom Forms
   summary: Creates a form instance.

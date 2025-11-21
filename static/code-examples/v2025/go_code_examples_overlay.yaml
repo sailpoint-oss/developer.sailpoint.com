@@ -8712,6 +8712,7 @@
         )
 
         func main() {
+          filters := `formDefinitionId eq "351c1daa-56f6-4bbf-b32c-49844c0b716e"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq* (optional)
 
           
 
@@ -8719,7 +8720,7 @@
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
           resp, r, err := apiClient.V2025.CustomFormsAPI.SearchFormInstancesByTenant(context.Background()).Execute()
-          //resp, r, err := apiClient.V2025.CustomFormsAPI.SearchFormInstancesByTenant(context.Background()).Execute()
+          //resp, r, err := apiClient.V2025.CustomFormsAPI.SearchFormInstancesByTenant(context.Background()).Filters(filters).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.SearchFormInstancesByTenant``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

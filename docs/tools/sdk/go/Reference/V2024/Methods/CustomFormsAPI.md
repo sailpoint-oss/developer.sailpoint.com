@@ -1183,18 +1183,22 @@ func main() {
 
 ## search-form-instances-by-tenant
 List form instances by tenant.
-No parameters required.
+Returns a list of form instances for the tenant. Optionally filter by form definition ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/search-form-instances-by-tenant)
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiSearchFormInstancesByTenantRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq* | 
 
 ### Return type
 
@@ -1220,13 +1224,14 @@ import (
 )
 
 func main() {
+    filters := `formDefinitionId eq "351c1daa-56f6-4bbf-b32c-49844c0b716e"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq* (optional)
 
     
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.SearchFormInstancesByTenant(context.Background()).Execute()
-	  //resp, r, err := apiClient.V2024.CustomFormsAPI.SearchFormInstancesByTenant(context.Background()).Execute()
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.SearchFormInstancesByTenant(context.Background()).Filters(filters).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.SearchFormInstancesByTenant``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

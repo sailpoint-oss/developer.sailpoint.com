@@ -5614,6 +5614,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/custom-forms#search-form-instances-by-tenant
       source: |
+        $Filters = "formDefinitionId eq "351c1daa-56f6-4bbf-b32c-49844c0b716e"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq* (optional)
         
         # List form instances by tenant.
         
@@ -5621,7 +5622,7 @@
             Search-V2025FormInstancesByTenant 
     
             # Below is a request that includes all optional parameters
-            # Search-V2025FormInstancesByTenant   
+            # Search-V2025FormInstancesByTenant -Filters $Filters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-V2025FormInstancesByTenant"
             Write-Host $_.ErrorDetails

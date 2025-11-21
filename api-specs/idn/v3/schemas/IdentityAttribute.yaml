@@ -1,0 +1,15 @@
+type: object
+title: Identity Attribute
+properties:
+  key:
+    type: string
+    description: The attribute key
+    example: 'country'
+  name:
+    type: string
+    description: Human-readable display name of the attribute
+    example: 'Country'
+  value:
+    type: string
+    description: The attribute value
+    example: 'US'

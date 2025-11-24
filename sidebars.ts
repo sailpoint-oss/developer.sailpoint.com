@@ -17,7 +17,7 @@ import {
   versionSelector,
 } from 'docusaurus-plugin-openapi-docs/lib/sidebars/utils';
 import nermVersions from './docs/api/nerm/v2025/versions.json';
-import versions from './docs/api/v2025/versions.json';
+import versions from './docs/api/v2026/versions.json';
 
 const sidebars: SidebarsConfig = {
   openApiSidebar: [

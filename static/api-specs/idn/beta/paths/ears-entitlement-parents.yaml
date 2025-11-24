@@ -91,21 +91,21 @@ get:
                 "attribute": "memberOf",
                 "attributes": {
                   "GroupType": "Security",
-                  "sAMAccountName": "LauncherTest1",
+                  "sAMAccountName": "PayrollControls",
                   "GroupScope": "Global",
                   "objectguid": "{01a6e70b-9705-4155-a5c6-492a9bcc8c64}",
                   "objectSid": "S-1-5-21-3585869415-1648031554-2909195034-1633",
-                  "cn": "LauncherTest1",
-                  "msDS-PrincipalName": "AUTOMATIONAD\\LauncherTest1"
+                  "cn": "PayrollControls",
+                  "msDS-PrincipalName": "SERI\\PayrollControls"
                 },
-                "value": "CN=LauncherTest1,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local",
-                "description": "some description",
+                "value": "CN=PayrollControls,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com",
+                "description": "Grants the ability to access and manage payroll-related controls and settings within the Corporate Active Directory system.",
                 "privileged": false,
                 "cloudGoverned": false,
                 "source": {
                   "type": "SOURCE",
                   "id": "2c9180877504c40e0175097d5ce707c8",
-                  "name": "EndToEnd-ADSource"
+                  "name": "Corporate Active Directory"
                 },
                 "owner": {
                   "id": "2a2fdacca5e345f18bf7970cfbb8fec2",
@@ -120,7 +120,7 @@ get:
                   "DESCRIPTION": true
                 },
                 "id": "2c91808c74ff913f0175097daa9d59cd",
-                "name": "LauncherTest1",
+                "name": "PayrollControls",
                 "created": "2020-10-08T18:33:52.029Z",
                 "modified": "2021-01-19T16:53:35.707Z"
               }

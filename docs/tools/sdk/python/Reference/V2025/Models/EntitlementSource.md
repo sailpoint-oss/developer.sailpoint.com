@@ -29,7 +29,7 @@ from sailpoint.v2025.models.entitlement_source import EntitlementSource
 entitlement_source = EntitlementSource(
 id='2c9180827ca885d7017ca8ce28a000eb',
 type='SOURCE',
-name='ODS-AD-Source'
+name='Corporate Active Directory'
 )
 
 ```

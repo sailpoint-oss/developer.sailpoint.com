@@ -1,0 +1,86 @@
+type: object
+title: ScheduleInfo
+properties:
+  scheduleTaskId:
+    type: integer
+    format: int64
+    description: The unique identifier for the scheduled task.
+    example: 1001
+  scheduleTaskName:
+    type: string
+    nullable: true
+    description: The display name of the scheduled task.
+    example: "Daily Data Sync"
+  taskTypeName:
+    type: string
+    nullable: true
+    description: The type or category of the scheduled task.
+    example: "DataSync"
+  interval:
+    type: integer
+    format: int32
+    description: The interval depends on the chosen schedule cycle (scheduleType), i.e. if the schedule is daily, the interval will represent the days between executions.
+    example: 1440
+  scheduleType:
+    type: string
+    nullable: true
+    description: The scheduling type, such as "Daily", "Weekly", or "Manual" etc.
+    example: "Daily"
+  active:
+    type: boolean
+    description: Indicates whether the scheduled task is currently active.
+    example: true
+    default: false
+  startTime:
+    type: integer
+    format: int64
+    nullable: true
+    description: The start time for the scheduled task, represented as epoch seconds.
+    example: 1762237200
+  endTime:
+    type: integer
+    format: int64
+    nullable: true
+    description: The end time for the scheduled task, represented as epoch seconds.
+    example: 1762240800
+  daysOfWeek:
+    type: array
+    items:
+      type: string
+    nullable: true
+    description: A list of days of the week when the task should run (e.g., "Monday", "Wednesday").
+    example: ["Monday", "Wednesday", "Friday"]
+  runAfterScheduleTaskId:
+    type: integer
+    format: int64
+    nullable: true
+    description: The ID of another scheduled task that triggers this scheduled task upon its completion.
+    example: 1000
+  runAfterScheduleTaskName:
+    type: string
+    nullable: true
+    description: The name of the scheduled task that must complete before this task runs.
+    example: "Pre-Sync Task"
+  applicationId:
+    type: integer
+    format: int64
+    nullable: true
+    description: The unique identifier of the application associated with the scheduled task.
+    example: 2001
+  createdByDisplayName:
+    type: string
+    nullable: true
+    description: The display name of the user who created the scheduled task.
+    example: "Jane Doe"
+  nextRun:
+    type: integer
+    format: int64
+    nullable: true
+    description: The next scheduled run time for the task, represented as epoch seconds.
+    example: 1762323600
+  lastRun:
+    type: integer
+    format: int64
+    nullable: true
+    description: The last run time of the task, represented as epoch seconds.
+    example: 1762237200

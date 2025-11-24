@@ -449,6 +449,9 @@ tags:
       Custom user levels allow administrators to create custom user levels that can be used to control access to Identity Security Cloud features and APIs.
       
       Refer to [User Levels](https://documentation.sailpoint.com/saas/help/common/users/index.html) for more information about User Levels.
+  - name: Data Access Security
+    description: |
+      Use this API to trigger and manage DAS tasks such as scans-starting them on demand, updating schedules, and retrieving statuses.
   - name: Data Segmentation
     description: |
       This service is responsible for creating segments that will determine how access is delegated to identities
@@ -1051,7 +1054,7 @@ tags:
       
       You must have an IdentityNow ServiceNow ServiceDesk license to use this integration. Contact your Customer Success Manager for more information.
       
-      Service Desk integration for IdentityNow and in deprecation - not available for new implementation, as of July 21st, 2021. As per SailPoint’s [support policy](https://community.sailpoint.com/t5/Connector-Directory/SailPoint-Support-Policy-for-Connectivity/ta-p/79422), all existing SailPoint IdentityNow customers using this legacy integration will be supported until July 2022.
+      Service Desk integration for IdentityNow and in deprecation - not available for new implementation, as of July 21st, 2021. As per SailPoint's [support policy](https://community.sailpoint.com/t5/Connector-Directory/SailPoint-Support-Policy-for-Connectivity/ta-p/79422), all existing SailPoint IdentityNow customers using this legacy integration will be supported until July 2022.
   - name: SOD Policies
     description: |
       Use this API to implement and manage "separation of duties" (SOD) policies. 
@@ -1304,7 +1307,7 @@ tags:
       - Temporarily redirecting work for users who are out of office, such as on vacation or sick leave
       - Permanently redirecting work for users who should not be assigned these tasks at all, such as senior executives or service identities
       
-      Users can define reassignments for themselves, managers can add them for their team members, and administrators can configure them on any user’s behalf. Work assigned during the specified reassignment timeframes will be automatically reassigned to the designated user as it is created.
+      Users can define reassignments for themselves, managers can add them for their team members, and administrators can configure them on any user's behalf. Work assigned during the specified reassignment timeframes will be automatically reassigned to the designated user as it is created.
       
       Refer to [Work Reassignment](https://documentation.sailpoint.com/saas/help/users/work_reassignment.html) for more information about this topic.
   - name: Workflows
@@ -1552,6 +1555,18 @@ paths:
     $ref: ./v2025/paths/connector-rule.yaml
   /connector-rules/validate:
     $ref: ./v2025/paths/connector-rule-validate.yaml
+  /das/tasks:
+    $ref: ./v2025/paths/data-access-security/tasks.yaml
+  /das/tasks/{id}:
+    $ref: ./v2025/paths/data-access-security/tasks-id.yaml
+  /das/tasks/cancel/{id}:
+    $ref: ./v2025/paths/data-access-security/tasks-cancel-id.yaml
+  /das/tasks/rerun/{id}:
+    $ref: ./v2025/paths/data-access-security/tasks-rerun-id.yaml
+  /das/tasks/schedules:
+    $ref: ./v2025/paths/data-access-security/tasks-schedules.yaml
+  /das/tasks/schedules/{id}:
+    $ref: ./v2025/paths/data-access-security/tasks-schedules-id.yaml
   /data-segments/membership/{identityId}:
     $ref: "./v2025/paths/data-segment-membership.yaml"
   /data-segments/user-enabled/{identityId}:

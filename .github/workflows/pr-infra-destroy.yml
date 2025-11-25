@@ -21,14 +21,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS credentials from Test account
-        uses: aws-actions/configure-aws-credentials@v3
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::176038645705:role/github-action-role
           role-session-name: deploy-developer-site-infra-to-aws
           aws-region: us-east-1
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
       - name: setup SAM
         uses: aws-actions/setup-sam@v2
       - name: set env vars

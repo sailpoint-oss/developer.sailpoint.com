@@ -1,0 +1,45 @@
+delete:
+  operationId: deleteObjectMapping
+  security:
+    - userAuth: [sp:config-object-mapping:manage]
+  tags:
+    - Configuration Hub
+  summary: Deletes an object mapping
+  description: >-
+    This deletes an existing object mapping.
+    
+    Source org should be "default" when deleting an object mapping that is not associated to any particular org.
+    
+    The request will need the following security scope:
+
+    - sp:config-object-mapping:manage
+  parameters:
+    - in: path
+      name: sourceOrg
+      schema:
+        type: string
+      required: true
+      description: The name of the source org.
+      example: source-org
+    - in: path
+      name: objectMappingId
+      schema:
+        type: string
+      required: true
+      description: The id of the object mapping to be deleted.
+      example: 3d6e0144-963f-4bd6-8d8d-d77b4e507ce4
+  responses:
+    '204':
+      $ref: '../../responses/204.yaml'
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

@@ -1,0 +1,21 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: NERM API v2025
+  description: The NERM API v2025 accesss and modifies resources in your environment.
+  license:
+    name: MIT
+
+servers:
+  - url: https://{tenantName}.nonemployee.com/api/v2025
+    variables:
+      tenantName:
+        default: acmeco
+        description: Tenant name assigned to customer
+
+paths:
+  # Delegation
+  /delegations:
+    $ref: "./paths/delegations.yaml"
+  /delegations/{id}:
+    $ref: "./paths/delegation.yaml"

@@ -1,0 +1,7 @@
+type: string
+enum:
+  - ALL
+  - FILTER
+  - SELECTION
+description: An enumeration of the types of membership choices
+example: ALL

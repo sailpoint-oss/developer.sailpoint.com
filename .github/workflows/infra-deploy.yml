@@ -33,7 +33,7 @@ jobs:
     runs-on: developer_site_runner
     steps:
       - name: Configure AWS credentials from Test account
-        uses: aws-actions/configure-aws-credentials@v3
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::176038645705:role/github-action-role
           role-session-name: deploy-developer-site-infra-to-aws
@@ -42,12 +42,12 @@ jobs:
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       
       - name: Set up Go
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@v5
         with:
           go-version: 1.21
 
@@ -111,7 +111,7 @@ jobs:
         run: |
           aws s3 sync ./build s3://$S3_BUCKET
       - name: Find Comment
-        uses: peter-evans/find-comment@v2
+        uses: peter-evans/find-comment@v3
         id: find-comment
         with:
           issue-number: ${{ github.event.pull_request.number }}
@@ -119,7 +119,7 @@ jobs:
         continue-on-error: true
       - name: add cloudfront url to PR
         if: github.event_name == 'pull_request'
-        uses: peter-evans/create-or-update-comment@v2
+        uses: peter-evans/create-or-update-comment@v3
         with:
           comment-id: ${{ steps.find-comment.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
@@ -131,7 +131,7 @@ jobs:
       - name: deploy to prod
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         id: deploy_github_pages
-        uses: crazy-max/ghaction-github-pages@v3
+        uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: gh-pages
           build_dir: build

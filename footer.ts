@@ -18,7 +18,7 @@ const footerConfig = {
         items: [
           { 
             label: 'Build a plugin', 
-            to: 'https://documentation.sailpoint.com/identityiq/help/plugins/identityiq_plugins.html' 
+            to: 'https://documentation.sailpoint.com/identityiq/help/plugins/develop_plugins/index.html' 
           },
           { 
             label: 'Get certified', 

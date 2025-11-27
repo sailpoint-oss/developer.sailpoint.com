@@ -85,9 +85,7 @@ with ApiClient(configuration) as api_client:
     source_subtype = '''{
           "sourceId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
           "displayName" : "Mr Foo",
-          "created" : "2025-07-28T16:13:42.8013Z",
           "description" : "fighters",
-          "modified" : "2025-07-28T16:13:42.75085Z",
           "id" : "43bdd144-4b17-4fce-a744-17c7fd3e717b",
           "technicalName" : "foo"
         }''' # SourceSubtype | 
@@ -625,9 +623,7 @@ with ApiClient(configuration) as api_client:
     source_subtype = '''{
           "sourceId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
           "displayName" : "Mr Foo",
-          "created" : "2025-07-28T16:13:42.8013Z",
           "description" : "fighters",
-          "modified" : "2025-07-28T16:13:42.75085Z",
           "id" : "43bdd144-4b17-4fce-a744-17c7fd3e717b",
           "technicalName" : "foo"
         }''' # SourceSubtype | 

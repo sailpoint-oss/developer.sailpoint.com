@@ -76,7 +76,6 @@ This is an example input from this trigger:
     },
     "userEntitlements": [
       {
-        "sourceId": "7443d0ffb1304bbcbdf4c07b5c09d4f2",
         "entitlementId": "2509f650c20a3ab5956be70f6f136fbc",
         "displayName": "CN=Engineering-test-org3,OU=megapod-useast1-test-org3,OU=org-data-service,DC=TestAutomationAD,DC=local",
         "source": {

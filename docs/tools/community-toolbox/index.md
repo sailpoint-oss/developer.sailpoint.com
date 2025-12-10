@@ -10,7 +10,9 @@ description: The Admin's toolbox.
 slug: /tools/community-toolbox
 tags: ['UI']
 ---
-
+:::note
+The Community Toolbox has been deprecated. Navigate [here](https://github.com/sailpoint-oss/ui-development-kit/releases) to download the latest UI Development Kit
+:::
 ## Overview 
 
 The Identity Security Cloud (ISC) Community Toolbox is a desktop application you can use to administer and troubleshoot ISC. The ISC Community Toolbox is built using Electron and Sveltekit, and it's developed and maintained by the SailPoint Developer Relations team. 

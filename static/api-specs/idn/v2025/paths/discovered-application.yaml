@@ -3,11 +3,14 @@ get:
   tags:
     - Application Discovery
   summary: Get discovered application by id
-  description: >
+  description: >-
     Get the discovered application, along with with its associated sources, based on the provided ID.
   security:
     - userAuth:
         - 'idn:application-discovery:read'
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
   parameters:
     - name: "id"
       in: "path"
@@ -16,6 +19,7 @@ get:
         type: "string"
       description: Discovered application's ID. 
       example: "123e4567-e89b-12d3-a456-426655440000"
+      x-sailpoint-resource-operation-id: getDiscoveredApplications
   responses:
     '200':
       description: Returns the discovered application, along with its associated sources.
@@ -36,6 +40,44 @@ get:
               "f9b7e2ce-aced-4117-a95f-4ffad8b33989",
               "a3b159f2-5f09-43c9-b40e-a6f317aa5b8f"
             ]
+            operationalStatus: "Operational"
+            datasetId: null
+            discoverySourceCategory: "csv"
+            licenseCount: 175
+            isSanctioned: true
+            logo: "https://spdojtest1.oktapreview.com/api/v1/apps/0oaeuef9hiipHcMgR0h7/logo"
+            appUrl: "https://spdojtest1.oktapreview.com/home/salesforce/0oaeuef9hiipHcMgR0h7/24"
+            groups:
+            - map:
+                id: "id"
+                name: "JIRA Users"
+                nativeIdentifiers:
+                  map:
+                    distinguishedName: "CN=Engineering users,OU=Engineering,DC=corp,DC=example,DC=com"
+                    id: "nativeId"
+                    objectSid: "S-1-5-21-717838489-685202119-709183397-1177"
+                type: "EXTERNAL_GROUP|LOCAL_GROUP"
+            usersCount: "175"
+            applicationOwner:
+                - "Mr. abel.tuter"
+            itApplicationOwner:
+                - "Mr. john doe"
+            businessCriticality: "High"
+            dataClassification: "Restricted"
+            businessUnit: "Finance"
+            installType: "On Premise"
+            environment: "Production"
+            riskScore: "ANY"
+            isPrivileged: false
+            warrantyExpiration: "2023-09-25T14:07:27.000+0000"
+            attributes:
+              features:
+              - "IMPORT_PROFILE_UPDATES"
+              - "IMPORT_USER_SCHEMA"
+              - "IMPORT_NEW_USERS"
+              identityStack: "NOT_SHARED"
+              selfService: false
+              signOnMode: "SAML_2_0"
     '400':
       $ref: '../responses/400.yaml'
     '401':
@@ -60,6 +102,9 @@ patch:
   security:
     - userAuth:
         - 'idn:application-discovery:write'
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
   parameters:
     - name: "id"
       in: "path"
@@ -68,6 +113,7 @@ patch:
         type: "string"
       description: Discovered application's ID.
       example: "123e4567-e89b-12d3-a456-426655440000"
+      x-sailpoint-resource-operation-id: getDiscoveredApplications
   requestBody:
     content:
       application/json-patch+json:

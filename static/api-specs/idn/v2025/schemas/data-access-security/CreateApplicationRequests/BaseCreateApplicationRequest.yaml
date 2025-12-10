@@ -1,0 +1,60 @@
+required:
+  - applicationType
+  - name
+type: object
+properties:
+  applicationType:
+    $ref: ../ApplicationType.yaml
+    description: The type of application to be created (e.g., Active Directory, AWS S3, etc.).
+    example: 9
+  name:
+    type: string
+    description: The display name of the application.
+    example: "HR File Server"
+  description:
+    type: string
+    nullable: true
+    description: A brief description of the application and its purpose.
+    example: "Stores HR documents and employee records."
+  tags:
+    type: array
+    items:
+      $ref: './Int64StringKeyValuePair.yaml'
+    nullable: true
+    description: A list of tags to categorize or identify the application.
+    example: [{ "key": 1, "value": "Confidential" }]
+  identityCollectorId:
+    type: integer
+    format: int64
+    nullable: true
+    description: The unique identifier for the identity collector associated with this application.
+    example: 123456789
+  adIdentityCollectorId:
+    type: integer
+    format: int64
+    nullable: true
+    description: The unique identifier for the AD identity collector.
+    example: 987654321
+  nisIdentityCollectorId:
+    type: integer
+    format: int64
+    nullable: true
+    description: The unique identifier for the NIS identity collector.
+    example: 192837465
+  applicationCrawlerSettings:
+    $ref: ../ApplicationCrawlerSettings.yaml
+    description: Settings for crawling the application to discover resources.
+  permissionCollectorSettings:
+    $ref: ../PermissionCollectorSettings.yaml
+    description: Settings for collecting permissions from the application.
+  dataClassificationSettings:
+    $ref: ../DataClassificationSettings.yaml
+    description: Settings for classifying data within the application.
+  activityConfigurationSettings:
+    $ref: ../ActivityConfigurationSettings.yaml
+    description: Settings for tracking and configuring activity within the application.
+  executeNow:
+    type: boolean
+    description: If true, the application setup will be executed immediately after creation.
+    example: false
+    default: false

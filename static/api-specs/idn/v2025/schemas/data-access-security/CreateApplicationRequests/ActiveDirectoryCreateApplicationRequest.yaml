@@ -1,0 +1,57 @@
+allOf:
+  - $ref: './BaseCreateApplicationRequest.yaml'
+  - required:
+      - domain
+      - domainNetbiosName
+      - isSpecificServer
+      - password
+      - port
+      - timeout
+      - userName
+    type: object
+    properties:
+      domain:
+        type: string
+        description: The Active Directory domain name.
+        example: "corp.example.com"
+      domainNetbiosName:
+        type: string
+        description: The NetBIOS name of the domain.
+        example: "CORP"
+      baseDn:
+        type: string
+        nullable: true
+        description: The base distinguished name for LDAP queries.
+        example: "DC=corp,DC=example,DC=com"
+      userName:
+        type: string
+        description: The username for Active Directory authentication.
+        example: "aduser"
+      password:
+        type: string
+        description: The password for Active Directory authentication.
+        example: "adpassword"
+      port:
+        type: integer
+        format: int32
+        description: The port number for Active Directory connection.
+        example: 389
+      isSpecificServer:
+        type: boolean
+        description: Indicates whether a specific server is used for connection.
+        example: true
+        default: false
+      specificServer:
+        type: string
+        description: The specific server address for Active Directory.
+        example: "adserver.corp.example.com"
+      timeout:
+        type: integer
+        format: int32
+        description: Timeout value for the connection in seconds.
+        example: 30
+      certificateFile:
+        type: string
+        nullable: true
+        description: The path to the certificate file for secure connection.
+        example: "/path/to/ad-cert.pfx"

@@ -3,13 +3,13 @@ get:
   summary: Get an attestation document.
   tags:
     - Parameter Storage
-  description: Get an attestation document, and perform x25519 handshake to enabled end-to-end encrypted transport of parameter private fields.
+  description: Get an attestation document containing a NIST P-384 service public key for an ECDHE handshake, enabling the end-to-end-encrypted transport of parameter private fields.
   parameters:
     - name: key
       in: query
       required: true
-      description: Base64Url encoded public key
-      example: cHVibGljIGtleSBnb2VzIGhlcmU=
+      description: Base64Url encoded NIST P-384 public key
+      example: BLdV-KA7nSRXx2XkksQX7bmOAShARsB3CCVWodKr4dOJj_puru76wy6drBTVlSytW_rDheLwepm9xdrRuqUI7p81wMP576frFBbsjndBKyRm3eouPbDcW8MAz0XRH1BB3w==
       schema:
         type: string
   security:

@@ -3,8 +3,7 @@ get:
   - Task Management
   summary: Retrieve task status list
   description: | 
-    Use this endpoint to get a list of statuses for **all** tasks which include finished, in-progress, terminated, and errored tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. To get a list of statuses for only **in-progress** tasks, please use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/v2024/get-pending-tasks) endpoint.
-    Possible tasks to be returned: Cloud Account Aggregation, Cloud Group Aggregation, Cloud Process Uncorrelated Accounts, Cloud Refresh Role, Source Application Discovery, AI Agent Aggregation, Cloud Entitlement Import, Cloud Uncorrelated Refresh, Cloud Identity Aggregation, Cloud Attribute Synchronization, Identity Refresh
+    Use this endpoint to get a list of statuses for **all** tasks, including completed, in-progress, terminated, and errored tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks. Data for tasks older than 90 days will not be returned. For a list of **in-progress** tasks, apply the isnull filter to the Completion Status field.
   operationId: getTaskStatusList
   parameters:
   - $ref: ../parameters/limit.yaml
@@ -14,7 +13,7 @@ get:
     name: filters
     schema:
       type: string
-    example: type eq "Cloud Account Aggregation" and completionStatus eq "null"
+    example: type eq "CLOUD_ACCOUNT_AGGREGATION" and completionStatus isnull
     required: false
     description: 'Filter results using the standard syntax described in [V3 API Standard
       Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
@@ -29,10 +28,13 @@ get:
       **sourceId**: *eq, in*
 
 
-      **completionStatus**: *eq, in*
+      **completionStatus**: *eq, in, isnull*
 
 
-      **type**: *eq, in*'
+      **type**: *eq, in*
+
+
+      **Possible Values:** CLOUD_ACCOUNT_AGGREGATION, CLOUD_GROUP_AGGREGATION, CLOUD_PROCESS_UNCORRELATED_ACCOUNTS, CLOUD_REFRESH_ROLE, SOURCE_APPLICATION_DISCOVERY, AI_AGENT_AGGREGATION, CLOUD_ENTITLEMENT_IMPORT, CLOUD_UNCORRELATED_REFRESH, CLOUD_IDENTITY_AGGREGATION, CLOUD_ATTRIBUTE_SYNCHRONIZATION, IDENTITY_REFRESH, APPLICATION_DISCOVERY, MACHINE_IDENTITY_AGGREGATION, MACHINE_IDENTITY_DELETION, ACCOUNT_DELETION'
   - in: query
     name: sorters
     schema:

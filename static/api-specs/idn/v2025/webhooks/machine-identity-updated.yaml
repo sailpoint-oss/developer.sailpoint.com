@@ -1,0 +1,30 @@
+post:
+  summary: Machine Identity Updated
+  operationId: machineIdentityUpdatedEvent
+  description: >-
+    This event trigger fires when a machine identity is updated in Identity Security Cloud.
+
+    Machine identities can be updated via the UI, endpoint, or aggregations.
+
+    You could use this event trigger to fire a Workflow that notifies machine identity owners when a machine identity's owner list changes.
+
+    See [Managing Application Identities](https://documentation.sailpoint.com/saas/help/machine/identity.html), 
+    [Managing AI Agents](https://documentation.sailpoint.com/saas/help/agent/agent_mgmt.html#updating-ai-agents) or 
+    [Aggregating AI Agents](https://documentation.sailpoint.com/saas/help/agent/agent_aggregations.html) 
+    for more information about the scenarios that lead to machine identity updates.
+
+    Customers that have licensed Machine Identity Security or Agent Identity Security will receive this event trigger.
+    
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [Machine Identity Updated](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/machine-identity-updated).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/MachineIdentityUpdated.yaml'

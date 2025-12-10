@@ -9,18 +9,65 @@ value:
     discoveredAt: "2023-07-01T12:00:00Z"
     createdAt: "2024-06-01T12:00:00Z"
     status: "ACTIVE"
+    operationalStatus: "Operational"
+    datasetId: null
+    discoverySourceCategory: "csv"
+    licenseCount: null
+    isSanctioned: false
+    logo: null
+    appUrl: null
+    groups: null
+    usersCount: null
+    applicationOwner:
+      - "Ms. jane.doe"
+    itApplicationOwner:
+      - "Mr. mark.smith"
+    businessCriticality: "Medium"
+    dataClassification: "Confidential"
+    businessUnit: "Operations"
+    installType: null
+    environment: null
+    riskScore: null
+    isPrivileged: false
+    warrantyExpiration: null
+    attributes: null
     associatedSources: ["e0cc5d7d-bf7f-4f81-b2af-8885b09d9923"]
   - id: "b3a3a704-6a45-45ee-a501-bbc332388222"
     name: "Sample Tracker"
-    discoverySource: "Okta SaaS"
+    discoverySource: "ServiceNow CMDB"
     discoveredVendor: "Sample Vendor"
     description: "A tool for monitoring and managing samples."
     recommendedConnectors: ["ConnectorC", "ConnectorD"]
     discoveredAt: "2023-08-15T08:00:00Z"
     createdAt: "2024-05-20T08:00:00Z"
     status: "ACTIVE"
+    operationalStatus: "Operational"
+    datasetId: "cmdb-servicenow:applications"
+    discoverySourceCategory: "cmdb"
+    licenseCount: ""
+    isSanctioned: false
+    logo: ""
+    appUrl: ""
+    groups: null
+    usersCount: ""
+    applicationOwner:
+      - "Ms. lisa.brown"
+    itApplicationOwner:
+      - "Mr. david.lee"
+    businessCriticality: "High"
+    dataClassification: "Internal"
+    businessUnit: "R&D"
+    installType: "SaaS"
+    environment: "Production"
+    riskScore: "MEDIUM"
+    isPrivileged: false
+    warrantyExpiration: "2024-09-01T00:00:00.000+0000"
+    attributes:
+      identityStack: "NOT_SHARED"
+      selfService: false
+      signOnMode: "SAML_2_0"
     associatedSources: ["a3b159f2-5f09-43c9-b40e-a6f317aa5b8f", "e0cc5d7d-bf7f-4f81-b2af-8885b09d9923"]
-  - id: "1d070458-faed-4a6c-8990-918ad70a06ee"
+  - id: "dfe675cb-f689-475f-99f1-49e348449867"
     name: "Demo Manager"
     discoverySource: "Okta SaaS"
     discoveredVendor: "Demo Provider"
@@ -29,14 +76,42 @@ value:
     discoveredAt: "2023-09-10T15:00:00Z"
     createdAt: "2024-07-03T15:00:00Z"
     status: "ACTIVE"
-    associatedSources: ["4e2d7605-833f-4c34-8d03-5b2c7d2f4f66", "f9b7e2ce-aced-4117-a95f-4ffad8b33989", "a3b159f2-5f09-43c9-b40e-a6f317aa5b8f"]
-  - id: "9be7c5a5-9f37-46ba-965a-e5b9453472c6"
-    name: "Task Organizer"
-    discoverySource: "Manual Entry"
-    discoveredVendor: "Organizer Solutions"
-    description: "An application designed to help teams manage tasks and projects efficiently."
-    recommendedConnectors: [ "ConnectorG", "ConnectorH" ]
-    discoveredAt: "2023-10-05T14:00:00Z"
-    createdAt: "2024-08-01T14:00:00Z"
-    status: "ACTIVE"
+    operationalStatus: "Operational"
+    datasetId: "sso-okta:applications"
+    discoverySourceCategory: "sso"
+    licenseCount: 175
+    isSanctioned: true
+    logo: "https://spdojtest1.oktapreview.com/api/v1/apps/0oaeuef9hiipHcMgR0h7/logo"
+    appUrl: "https://spdojtest1.oktapreview.com/home/salesforce/0oaeuef9hiipHcMgR0h7/24"
+    groups:
+      - map:
+          id: "id"
+          name: "JIRA Users"
+          nativeIdentifiers:
+            map:
+              distinguishedName: "CN=Engineering users,OU=Engineering,DC=corp,DC=example,DC=com"
+              id: "nativeId"
+              objectSid: "S-1-5-21-717838489-685202119-709183397-1177"
+          type: "EXTERNAL_GROUP|LOCAL_GROUP"
+    usersCount: "175"
+    applicationOwner:
+      - "Mr. abel.tuter"
+    itApplicationOwner:
+      - "Mr. john doe"
+    businessCriticality: "High"
+    dataClassification: "Restricted"
+    businessUnit: "Finance"
+    installType: "On Premise"
+    environment: "Production"
+    riskScore: "ANY"
+    isPrivileged: false
+    warrantyExpiration: "2023-09-25T14:07:27.000+0000"
+    attributes:
+      features:
+        - "IMPORT_PROFILE_UPDATES"
+        - "IMPORT_USER_SCHEMA"
+        - "IMPORT_NEW_USERS"
+      identityStack: "NOT_SHARED"
+      selfService: false
+      signOnMode: "SAML_2_0"
     associatedSources: []

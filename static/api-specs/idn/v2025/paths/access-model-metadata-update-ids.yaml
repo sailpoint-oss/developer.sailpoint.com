@@ -1,6 +1,9 @@
 post:
   summary: Metadata Attribute update by ids
   description: Bulk update Access Model Metadata Attribute Values using ids.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to entitlements, roles and access-profile documentations for latest API.
   tags:
     - Access Model Metadata
   operationId: updateAccessModelMetadataByIds

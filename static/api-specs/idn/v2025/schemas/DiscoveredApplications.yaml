@@ -43,3 +43,104 @@ items:
       format: date-time
       description: The timestamp when the application was discovered, in ISO 8601 format.
       example: "2023-01-01T12:00:00Z"
+    operationalStatus:
+        type: string
+        description: The operational status of the application.
+        example: "Operational"
+    discoverySourceCategory:
+        type: string
+        description: The category of the discovery source.
+        example: "sso"
+    licenseCount:
+        type: integer
+        format: int32
+        description: The number of licenses associated with the application.
+        example: 175
+    isSanctioned:
+        type: boolean
+        description: Indicates whether the application is sanctioned.
+        example: true
+        default: false
+    logo:
+        type: string
+        description: URL of the application's logo.
+        example: "https://spdojtest1.oktapreview.com/api/v1/apps/0oaeuef9hiipHcMgR0h7/logo"
+    appUrl:
+        type: string
+        description: The URL of the application.
+        example: "https://spdojtest1.oktapreview.com/home/salesforce/0oaeuef9hiipHcMgR0h7/24"
+    groups:
+        type: array
+        items:
+            type: object
+        description: List of groups associated with the application.
+        example:
+            - map:
+                id: "id"
+                name: "JIRA Users"
+                nativeIdentifiers:
+                  map:
+                    distinguishedName: "CN=Engineering users,OU=Engineering,DC=corp,DC=example,DC=com"
+                    id: "nativeId"
+                    objectSid: "S-1-5-21-717838489-685202119-709183397-1177"
+                type: "EXTERNAL_GROUP|LOCAL_GROUP"
+    usersCount:
+        type: string
+        description: The count of users associated with the application.
+        example: "175"
+    applicationOwner:
+        type: array
+        items:
+            type: string
+        description: The owners of the application.
+        example: ["owner1@example.com", "owner2@example.com"]
+    itApplicationOwner:
+        type: array
+        items:
+            type: string
+        description: The IT owners of the application.
+        example: ["itowner1@example.com", "itowner2@example.com"]
+    businessCriticality:
+        type: string
+        description: The business criticality level of the application.
+        example: "High"
+    dataClassification:
+        type: string
+        description: The data classification level of the application.
+        example: "Restricted"
+    businessUnit:
+        type: string
+        description: The business unit associated with the application.
+        example: "Finance"
+    installType:
+        type: string
+        description: The installation type of the application.
+        example: "On Premise"
+    environment:
+        type: string
+        description: The environment in which the application operates.
+        example: "Production"
+    riskScore:
+        type: string
+        description: The risk score of the application.
+        example: "ANY"
+    isPrivileged:
+        type: boolean
+        description: Indicates whether the application has privileged access.
+        example: false
+        default: false
+    warrantyExpiration:
+        type: string
+        description: The warranty expiration date of the application.
+        example: "2023-09-25T14:07:27.000+0000"
+    attributes:
+        type: object
+        description: Additional attributes of the application useful for visibility of governance posture.
+        example:
+          features:
+                - "IMPORT_PROFILE_UPDATES"
+                - "IMPORT_USER_SCHEMA"
+                - "IMPORT_NEW_USERS"
+          identityStack: "NOT_SHARED"
+          selfService: false
+          signOnMode: "SAML_2_0"

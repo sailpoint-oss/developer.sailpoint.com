@@ -1228,7 +1228,6 @@ tags:
       | Account Attributes Changed | idn:account-attributes-changed | FIRE_AND_FORGET | After an account aggregation, and one or more account attributes have changed. |
       | Account Correlated | idn:account-correlated | FIRE_AND_FORGET | After an account is added to an identity. |
       | Accounts Collected for Aggregation |  idn:aggregation-accounts-collected | FIRE_AND_FORGET | New, changed, and deleted accounts have been gathered during an aggregation and are being processed. |
-      | Account Uncorrelated | idn:account-uncorrelated | FIRE_AND_FORGET | After an account is removed from an identity. |
       | Campaign Activated | idn:campaign-activated | FIRE_AND_FORGET | After a campaign is activated. |
       | Campaign Ended | idn:campaign-ended | FIRE_AND_FORGET | After a campaign ends. |
       | Campaign Generated | idn:campaign-generated | FIRE_AND_FORGET | After a campaign finishes generating. |

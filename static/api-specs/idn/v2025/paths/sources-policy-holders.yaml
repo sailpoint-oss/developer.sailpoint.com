@@ -1,3 +1,51 @@
+get:
+  operationId: listPasswordPolicyHoldersOnSource
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - ROLE_SUBADMIN
+  tags:
+    - Sources
+  summary: Get Password Policy for source
+  description: |
+    This API can be used to get Password Policy in IdentityNow for the specified Source.
+    Source must support PASSWORD feature.
+  parameters:
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      description: The Source id
+      example: 8c190e6787aa4ed9a90bd9d5344523fb
+      x-sailpoint-resource-operation-id: listSources
+    - $ref: ../../v2025/parameters/offset.yaml
+    - $ref: ../../v2025/parameters/limit.yaml
+    - $ref: ../../v2025/parameters/count.yaml
+
+  responses:
+    '200':
+      description: >-
+        Password Policies
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/PasswordPolicyHoldersDto.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - userAuth: [ idn:password-policy:read ]
 patch:
   operationId: updatePasswordPolicyHolders
   x-sailpoint-userLevels:

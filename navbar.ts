@@ -36,7 +36,6 @@ const navbarConfig = {
           { label: 'JSON Path Evaluator', to: '/tools/json-path-evaluator' },
           { label: 'Rule Development Kit', to: '/docs/tools/rule-development-kit' },
           { label: 'UI Development Kit', to: '/docs/tools/ui-development-kit' },
-          { label: 'Community Toolbox', to: '/docs/tools/community-toolbox' },
           { label: 'Velocity PlayGround', to: '/tools/velocity-playground' },
         ],
       },

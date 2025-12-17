@@ -3,7 +3,7 @@ id: extending-services
 title: Extending Services
 pagination_label: UDK
 sidebar_label: Extending
-sidebar_position: 2
+sidebar_position: 3
 sidebar_class_name: rudk
 keywords: ['UI', 'development', 'kit']
 description: Extending Services in the UI Development Kit

@@ -12,11 +12,11 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
-    link: 'https://developer.sailpoint.com/discuss/u/taylor_wingfield/summary',
-    name: 'Taylor Wingfield',
-    title: ['Interim Manager', 'Developer Relations'],
-    expertise: 'Identity Security Cloud'.toUpperCase(),
-    image: '/homepage/taylor-wingfield.jpeg',
+    link: 'https://developer.sailpoint.com/discuss/u/heatherstorm/summary',
+    name: 'Heather Storm',
+    title: ['Senior Manager', 'Developer Relations'],
+    expertise: 'DEVELOPER TOOLS',
+    image: '/homepage/heather-storm.jpg',
   },
   {
     link: 'https://developer.sailpoint.com/discuss/u/tyler_mairose/summary',

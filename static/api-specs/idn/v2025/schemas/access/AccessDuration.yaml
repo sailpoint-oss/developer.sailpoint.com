@@ -1,0 +1,17 @@
+type: object
+nullable : true
+properties:
+  value:
+    type: integer
+    description: The numeric value representing the amount of time, which is defined in the **timeUnit**.
+    format: int32
+    example: 6
+  timeUnit:
+    type: string
+    description: The unit of time that corresponds to the **value**. It defines the scale of the time period.
+    enum:
+      - HOURS
+      - DAYS
+      - WEEKS
+      - MONTHS
+    example: MONTHS

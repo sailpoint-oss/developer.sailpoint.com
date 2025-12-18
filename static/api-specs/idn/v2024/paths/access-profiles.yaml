@@ -116,7 +116,6 @@ get:
       $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:access-profile:read]
-    - applicationAuth: [idn:access-profile:read]
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - ROLE_ADMIN
@@ -163,7 +162,6 @@ post:
       $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:access-profile:manage, idn:entitlement:read, idn:identity:read, idn:sources:read]
-    - applicationAuth: [idn:access-profile:manage, idn:entitlement:read, idn:identity:read, idn:sources:read]
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - ROLE_ADMIN

@@ -46,6 +46,7 @@ get:
                 description: fighters
                 created: 2025-07-28T16:13:42.801Z
                 modified: 2025-07-28T16:13:42.750Z
+                type: MACHINE
     '400':
       $ref: ../responses/400.yaml
     '401':
@@ -70,19 +71,19 @@ get:
 patch:
   summary: Patch subtype
   description: |-
-    Update fields of a machine account subtype by its ID.
-    Patchable fields include: `displayName`, `description`, `technicalName`.
+    Update fields of a machine account subtype by source ID and technical name.
+    Patchable fields include: `displayName`, `description`.
   operationId: patchMachineAccountSubtype
   tags:
     - Machine Accounts
   parameters:
     - in: path
-      name: subtypeId
+      name: sourceId
       required: true
       schema:
         type: string
-      example: 43bdd144-4b17-4fce-a744-17c7fd3e717b
-      description: The ID of the machine account subtype.
+      example: 6d0458373bec4b4b80460992b76016da
+      description: The ID of the source.
       x-sailpoint-resource-operation-id: listMachineAccountSubtypes
     - in: path
       name: technicalName
@@ -102,15 +103,21 @@ patch:
       required: true
   requestBody:
     required: true
+    description: >-
+      A JSON of updated values [JSON
+      Patch](https://tools.ietf.org/html/rfc6902) standard.
     content:
-      application/json:
+      application/json-patch+json:
         schema:
-          $ref: ../schemas/SourceSubtype.yaml
+          type: array
+          items:
+            type: object
         examples:
-          SourceSubtype:
+          Update display name:
             value:
-              displayName: Mr Foo Updated
-              description: fighters updated
+              - op: replace
+                path: /displayName
+                value: Test New DisplayName
   responses:
     '200':
       description: Updated machine account subtype.
@@ -124,10 +131,11 @@ patch:
                 id: 43bdd144-4b17-4fce-a744-17c7fd3e717b
                 sourceId: 6d0458373bec4b4b80460992b76016da
                 technicalName: foo
-                displayName: Mr Foo Updated
+                displayName: Test New DisplayName
                 description: fighters updated
                 created: 2025-07-28T16:13:42.801Z
                 modified: 2025-07-28T16:13:42.750Z
+                type: MACHINE
     '400':
       $ref: ../responses/400.yaml
     '401':
@@ -149,18 +157,18 @@ patch:
     - SOURCE_SUBADMIN
 delete:
   summary: Delete subtype
-  description: Delete a machine account subtype by its ID.
+  description: Delete a machine account subtype by source ID and technical name.
   operationId: deleteMachineAccountSubtype
   tags:
     - Machine Accounts
   parameters:
     - in: path
-      name: subtypeId
+      name: sourceId
       required: true
       schema:
         type: string
-      example: 43bdd144-4b17-4fce-a744-17c7fd3e717b
-      description: The ID of the machine account subtype.
+      example: 6d0458373bec4b4b80460992b76016da
+      description: The ID of the source.
       x-sailpoint-resource-operation-id: listMachineAccountSubtypes
     - in: path
       name: technicalName

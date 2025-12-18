@@ -37,3 +37,7 @@ properties:
     format: date-time
     description: Last modified timestamp.
     example: 2025-07-28T16:13:42.750850Z
+  type:
+    type: string
+    description: Type of the subtype. Either MACHINE OR null.
+    example: MACHINE

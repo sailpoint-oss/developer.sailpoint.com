@@ -91,7 +91,6 @@ get:
         $ref: '../../v3/responses/500.yaml'
     security:
       - userAuth: [idn:access-profile:read, idn:access-profile:manage]
-      - applicationAuth: [idn:access-profile:read, idn:access-profile:manage]
     x-sailpoint-userLevels:
       - ORG_ADMIN
       - SOURCE_ADMIN

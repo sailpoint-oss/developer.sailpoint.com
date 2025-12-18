@@ -70,6 +70,30 @@ properties:
         "f7b1b8a3-5fed-4fd4-ad29-82014e137e19",
         "29cb6c06-1da8-43ea-8be4-b3125f248f2a"
     ]
+  accessModelMetadata:
+    $ref: '../../../beta/schemas/gov-attributes/AttributeDTOList.yaml'
+    description: This field must be left null or empty when creating an Role, otherwise a 400 Bad Request error will result.
+    example:
+      [
+        {
+          "key": "iscFederalClassifications",
+          "name": "Federal Classifications",
+          "multiselect": true,
+          "status": "active",
+          "type": "governance",
+          "objectTypes": [
+            "general"
+          ],
+          "description": "Classification used by government organizations to specify the level of confidentiality for an access item.",
+          "values": [
+            {
+              "value": "secret",
+              "name": "Secret",
+              "status": "active"
+            }
+          ]
+        }
+      ]
   provisioningCriteria:
     $ref: './ProvisioningCriteriaLevel1.yaml'
     description: >-
@@ -111,6 +135,11 @@ properties:
         }
       ]
     }
+  additionalOwners:
+    type: array
+    nullable: true
+    items:
+      $ref: './OwnerReference.yaml'
 required:
   - owner
   - name

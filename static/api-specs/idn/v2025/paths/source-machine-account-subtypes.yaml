@@ -18,8 +18,7 @@ get:
       required: false
       schema:
         type: string
-      example: identityId eq "2c9180858082150f0180893dbaf44201"
-      description: |
+      description: >-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
 
@@ -30,6 +29,7 @@ get:
 
 
         **technicalName**: *eq, sw*
+      example: displayName eq "sail"
     - in: query
       name: sorters
       schema:
@@ -71,6 +71,7 @@ get:
                   description: fighters
                   created: 2025-07-28T16:13:42.801Z
                   modified: 2025-07-28T16:13:42.750Z
+                  type: MACHINE
     '400':
       $ref: ../responses/400.yaml
     '401':
@@ -120,13 +121,35 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../schemas/SourceSubtype.yaml
+          type: object
+          required:
+            - technicalName
+            - displayName
+            - description
+          properties:
+            technicalName:
+              type: string
+              description: Technical name of the subtype.
+              example: foo
+            displayName:
+              type: string
+              description: Display name of the subtype.
+              example: Mr Foo
+            description:
+              type: string
+              description: Description of the subtype.
+              example: fighters
+            type:
+              type: string
+              description: Type of the subtype.
+              example: MACHINE
         examples:
           SourceSubtype:
             value:
               technicalName: foo
               displayName: Mr Foo
               description: fighters
+              type: MACHINE
   responses:
     '201':
       description: Created machine account subtype.
@@ -144,6 +167,7 @@ post:
                 description: fighters
                 created: 2025-07-28T16:13:42.801Z
                 modified: 2025-07-28T16:13:42.750Z
+                type: MACHINE
     '400':
       $ref: ../responses/400.yaml
     '401':

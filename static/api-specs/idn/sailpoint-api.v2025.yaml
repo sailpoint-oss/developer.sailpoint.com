@@ -453,7 +453,8 @@ tags:
       Refer to [User Levels](https://documentation.sailpoint.com/saas/help/common/users/index.html) for more information about User Levels.
   - name: Data Access Security
     description: |
-      Use this API to trigger and manage DAS tasks such as starting them on demand, updating configurations or schedules, and retrieving statuses. Additionally, you can onboard and manage applications at scale by creating and configuring them, setting scanning schedules, retrieving metadata, and associating them with Virtual Appliances and Identity Collectors.
+      Use this API to enable data ownership election campaigns, assign resource owners, and respond to identity lifecycle events to maintain continuous accountability.
+      This API can also trigger and manage DAS tasks such as scans-starting them on demand, updating configurations or schedules, and retrieving statuses. Additionally, you can onboard and manage applications at scale by creating and configuring them, setting scanning schedules, retrieving metadata, and associating them with Virtual Appliances and Identity Collectors.
   - name: Data Segmentation
     description: |
       This service is responsible for creating segments that will determine how access is delegated to identities
@@ -1584,6 +1585,18 @@ paths:
     $ref: ./v2025/paths/data-access-security/applications.yaml
   /das/applications/{id}:
     $ref: ./v2025/paths/data-access-security/applications-id.yaml
+  /das/owners/applications/{appId}:
+    $ref: ./v2025/paths/data-access-security/owners-applications-appId.yaml
+  /das/owners/resources/{resourceId}:
+    $ref: ./v2025/paths/data-access-security/owners-resources-resourceId.yaml
+  /das/owners/{ownerIdentityId}/resources:
+    $ref: ./v2025/paths/data-access-security/owners-ownerIdentityId-resources.yaml
+  /das/owners/assign:
+    $ref: ./v2025/paths/data-access-security/owners-assign.yaml
+  /das/owners/{sourceIdentityId}/reassign/{destinationIdentityId}:
+    $ref: ./v2025/paths/data-access-security/owners-sourceIdentityId-reassign-destinationIdentityId.yaml
+  /das/owners/reelect:
+    $ref: ./v2025/paths/data-access-security/owners-reelect.yaml
   /data-segments/membership/{identityId}:
     $ref: "./v2025/paths/data-segment-membership.yaml"
   /data-segments/user-enabled/{identityId}:

@@ -188,7 +188,7 @@ get:
         Sorting is supported for the following fields: **name, created, description, status, owner**
       example: name, -created, description, status, owner
       required: false
-    - $ref: '../../../v2025/parameters/limit.yaml'
+    - $ref: '../../../v2025/parameters/limit50.yaml'
     - $ref: '../../../v2025/parameters/offset.yaml'
   responses:
     '200':

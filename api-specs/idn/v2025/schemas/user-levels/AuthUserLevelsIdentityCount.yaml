@@ -1,0 +1,12 @@
+type: object
+title: Auth user levels identity count
+properties:
+  id:
+    type: string
+    description: The unique identifier of the user level.
+    example: idn:access-request-administrator
+  count:
+    type: integer
+    format: int32
+    description: Number of identities having this user level.
+    example: 10

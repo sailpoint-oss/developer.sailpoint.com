@@ -1,0 +1,8 @@
+type: string
+enum:
+  - ENTITLEMENT
+  - CERTIFICATION
+  - IDENTITY
+  - ENTITLEMENTREQUEST
+description: An enumeration of the types of scope choices
+example: ALL

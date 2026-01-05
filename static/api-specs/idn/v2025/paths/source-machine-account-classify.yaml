@@ -20,7 +20,7 @@ post:
     call this API.
   parameters:
     - in: path
-      name: id
+      name: sourceId
       schema:
         type: string
       required: true

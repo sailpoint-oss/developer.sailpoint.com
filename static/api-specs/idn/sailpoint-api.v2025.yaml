@@ -459,6 +459,7 @@ tags:
     description: |
       This service is responsible for creating segments that will determine how access is delegated to identities
       withing the organization.
+  - name: Declassify Source
   - name: Dimensions
     description:
       Use this API to implement and customize dynamic role functionality.
@@ -2147,6 +2148,8 @@ paths:
     $ref: "./v2025/paths/machine-mappings.yaml"
   /sources/{sourceId}/classify:
     $ref: "./v2025/paths/source-machine-account-classify.yaml"
+  /sources/{sourceId}/declassify:
+    $ref: "./v2025/paths/source-machine-account-declassify.yaml"
   /sources/{sourceId}/aggregate-agents:
     $ref: "./v2025/paths/aggregate-agents.yaml"
   /sources/{sourceId}/subtypes:

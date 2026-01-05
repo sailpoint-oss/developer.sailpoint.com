@@ -3,7 +3,7 @@ id: udk-error-handling
 title: Error handling
 pagination_label: UDK
 sidebar_label: Error Handling
-sidebar_position: 3
+sidebar_position: 4
 sidebar_class_name: rudk
 keywords: ['UI', 'development', 'kit', 'error', 'handling']
 description: Error handling in your custom user interfaces

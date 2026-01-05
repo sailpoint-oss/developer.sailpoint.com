@@ -3,7 +3,7 @@ id: udk-deploying
 title: Deploying
 pagination_label: UDK
 sidebar_label: Deploying
-sidebar_position: 2
+sidebar_position: 3
 sidebar_class_name: rudk
 keywords: ['UI', 'development', 'kit']
 description: Deploying your UI project

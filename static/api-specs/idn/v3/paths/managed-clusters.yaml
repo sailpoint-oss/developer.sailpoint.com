@@ -20,6 +20,15 @@ get:
 
 
         **operational**: *eq*
+
+
+        **name**: *eq*
+
+
+        **type**: *eq*
+
+
+        **status**: *eq*
       required: false
       example: operational eq "operation"
   responses:

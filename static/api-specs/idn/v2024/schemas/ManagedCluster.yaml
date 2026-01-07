@@ -149,6 +149,7 @@ properties:
         description: The processGroups for updatePreferences
         type: string
         nullable: true
+        example: "processGroup1"
       updateState:
         description: The current updateState for the cluster
         type: string
@@ -173,6 +174,7 @@ properties:
     description: New available updates for the Managed cluster
     type: string
     nullable: true
+    example: "123.1.2"
   isOutOfDateNotifiedAt:
     description: The time at which out of date notification was sent for the Managed cluster
     type: string

@@ -13,6 +13,8 @@ get:
   security:
   - userAuth:
     - idn:identity:read
+  x-sailpoint-userLevels:
+    - Any
   parameters:
   - in: path
     name: identityId
@@ -24,7 +26,7 @@ get:
     example: ff8081814d2a8036014d701f3fbf53fa
   responses:
     '200':
-      description: Identity's ownership association details.
+      description: "Identity's ownership association details. If the API is triggered for uncorrelated accounts, will respond with OK."
       content:
         application/json:
           schema:

@@ -5,17 +5,17 @@ post:
   summary: Classify a Single Machine Account
   security:
     - userAuth:
-        - "idn:account:update"
+        - idn:account:update
+    - applicationAuth:
+        - idn:account:update
   x-sailpoint-userLevels:
     - API
     - ORG_ADMIN
     - SOURCE_ADMIN
     - SOURCE_SUBADMIN
-  description: >-
+  description: |-
     Use this API to classify a single machine account.
-
-    A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to
-    call this API.
+    A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   parameters:
     - in: path
       name: id
@@ -25,7 +25,7 @@ post:
       description: Account ID.
       x-sailpoint-resource-operation-id: listAccounts
       example: ef38f94347e94562b5bb8424a56397d8
-    - $ref: '../schemas/ClassificationMode.yaml'
+    - $ref: ../schemas/ClassificationMode.yaml
   responses:
     '200':
       description: Account classified as Machine.
@@ -40,12 +40,12 @@ post:
                 default: false
                 example: true
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

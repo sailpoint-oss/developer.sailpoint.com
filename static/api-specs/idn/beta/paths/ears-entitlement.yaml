@@ -8,6 +8,9 @@ get:
     - userAuth:
         - idn:entitlement:read
         - idn:entitlement:update
+    - applicationAuth:
+        - idn:entitlement:read
+        - idn:entitlement:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN

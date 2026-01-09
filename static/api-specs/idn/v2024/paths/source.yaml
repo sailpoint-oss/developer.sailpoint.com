@@ -48,6 +48,8 @@ put:
   security:
     - userAuth:
         - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -106,6 +108,8 @@ patch:
   operationId: updateSource
   security:
     - userAuth:
+        - idn:sources:manage
+    - applicationAuth:
         - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
@@ -226,6 +230,8 @@ delete:
   operationId: deleteSource
   security:
     - userAuth:
+        - idn:sources:manage
+    - applicationAuth:
         - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN

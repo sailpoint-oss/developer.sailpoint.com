@@ -4,9 +4,11 @@ get:
     - Apps
   summary: List access profiles for the specified source app
   security:
-    - userAuth: [idn:app-roles:manage]
-  description: >-
-    This API returns the list of access profiles for the specified source app
+    - userAuth:
+        - idn:app-roles:manage
+    - applicationAuth:
+        - idn:app-roles:manage
+  description: This API returns the list of access profiles for the specified source app
   parameters:
     - name: id
       in: path
@@ -16,27 +18,22 @@ get:
         type: string
         example: 2c91808a7813090a017814121e121518
       x-sailpoint-resource-operation-id: listAllSourceApp
-    - $ref: '../../v3/parameters/limit.yaml'
-    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: ../../v3/parameters/limit.yaml
+    - $ref: ../../v3/parameters/offset.yaml
     - in: query
       name: filters
       schema:
         type: string
-      description: >-
+      description: |-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
-
 
         Filtering is supported for the following fields and operators:
 
-
         **id**: *eq, in*
-
 
         **name**: *eq, in*
 
-
         **created**: *gt, lt, ge, le*
-
 
         **modified**: *gt, lt, ge, le*
       example: name eq "developer access profile"
@@ -51,14 +48,14 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/app/AccessProfileDetails.yaml'
+              $ref: ../schemas/app/AccessProfileDetails.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

@@ -1,127 +1,106 @@
 get:
   operationId: listEntitlements
   tags:
-  - Entitlements
+    - Entitlements
   summary: Gets a list of entitlements.
   security:
-  - userAuth:
-    - idn:entitlement:read
-    - idn:entitlement:manage
+    - userAuth:
+        - idn:entitlement:read
+        - idn:entitlement:manage
+    - applicationAuth:
+        - idn:entitlement:read
+        - idn:entitlement:manage
   x-sailpoint-userLevels:
     - Any
-  description: 'This API returns a list of entitlements.
+  description: |-
+    This API returns a list of entitlements.
 
+    This API can be used in one of the two following ways: either getting entitlements for a specific **account-id**, or getting via use of **filters** (those two options are exclusive).
 
-    This API can be used in one of the two following ways: either getting entitlements
-    for a specific **account-id**, or getting via use of **filters** (those two options
-    are exclusive).
-
-
-    Any authenticated token can call this API.'
+    Any authenticated token can call this API.
   parameters:
-  - in: query
-    name: account-id
-    schema:
-      type: string
-    description: The account ID. If specified, returns only entitlements associated
-      with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**,
-      **for-segment-ids**, or **include-unsegmented** param(s).
-    example: ef38f94347e94562b5bb8424a56397d8
-    required: false
-  - in: query
-    name: segmented-for-identity
-    schema:
-      type: string
-    description: 'If present and not empty, additionally filters Entitlements to those
-      which are assigned to the Segment(s) which are visible to the Identity with
-      the specified ID.
+    - in: query
+      name: account-id
+      schema:
+        type: string
+      description: The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s).
+      example: ef38f94347e94562b5bb8424a56397d8
+      required: false
+    - in: query
+      name: segmented-for-identity
+      schema:
+        type: string
+      description: |-
+        If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID.
+        Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity.
+      example: e554098913544630b5985e9042f5e44b
+      required: false
+    - in: query
+      name: for-segment-ids
+      schema:
+        type: string
+        format: comma-separated
+      description: |-
+        If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs.
+        Cannot be specified with the **account-id** or **segmented-for-identity** param(s).
+      example: 041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649
+      required: false
+    - in: query
+      name: include-unsegmented
+      schema:
+        type: boolean
+        default: true
+      description: Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error.
+      example: true
+      required: false
+    - $ref: ../parameters/offset.yaml
+    - $ref: ../parameters/limit.yaml
+    - $ref: ../parameters/count.yaml
+    - in: query
+      name: sorters
+      schema:
+        type: string
+        format: comma-separated
+      description: |-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
-      Cannot be specified with the **account-id** or **for-segment-ids** param(s).
-      It is also illegal to specify a value that refers to a different user''s Identity.'
-    example: e554098913544630b5985e9042f5e44b
-    required: false
-  - in: query
-    name: for-segment-ids
-    schema:
-      type: string
-      format: comma-separated
-    description: 'If present and not empty, additionally filters Access Profiles to
-      those which are assigned to the Segment(s) with the specified IDs.
+        Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable**
+      example: name,-modified
+      required: false
+      style: form
+      explode: true
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: |-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
-      Cannot be specified with the **account-id** or **segmented-for-identity** param(s).'
-    example: 041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649
-    required: false
-  - in: query
-    name: include-unsegmented
-    schema:
-      type: boolean
-      default: true
-    description: Whether or not the response list should contain unsegmented Entitlements.
-      If **for-segment-ids** and **segmented-for-identity** are both absent or empty,
-      specifying **include-unsegmented=false** results in an error.
-    example: true
-    required: false
-  - $ref: ../parameters/offset.yaml
-  - $ref: ../parameters/limit.yaml
-  - $ref: ../parameters/count.yaml
-  - in: query
-    name: sorters
-    schema:
-      type: string
-      format: comma-separated
-    description: 'Sort results using the standard syntax described in [V3 API Standard
-      Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+        Filtering is supported for the following fields and operators:
 
+        **id**: *eq, in*
 
-      Sorting is supported for the following fields: **id, name, created, modified,
-      type, attribute, value, source.id, requestable**'
-    example: name,-modified
-    required: false
-    style: form
-    explode: true
-  - in: query
-    name: filters
-    schema:
-      type: string
-    description: 'Filter results using the standard syntax described in [V3 API Standard
-      Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+        **name**: *eq, in, sw*
 
+        **type**: *eq, in*
 
-      Filtering is supported for the following fields and operators:
+        **attribute**: *eq, in*
 
+        **value**: *eq, in, sw*
 
-      **id**: *eq, in*
+        **source.id**: *eq, in*
 
+        **requestable**: *eq*
 
-      **name**: *eq, in, sw*
+        **created**: *gt, lt, ge, le*
 
+        **modified**: *gt, lt, ge, le*
 
-      **type**: *eq, in*
-
-
-      **attribute**: *eq, in*
-
-
-      **value**: *eq, in, sw*
-
-
-      **source.id**: *eq, in*
-
-
-      **requestable**: *eq*
-
-
-      **created**: *gt, lt, ge, le*
-
-
-      **modified**: *gt, lt, ge, le*
-
-
-      **owner.id**: *eq, in*'
-    example: attribute eq "memberOf"
-    required: false
-    style: form
-    explode: true
+        **owner.id**: *eq, in*
+      example: attribute eq "memberOf"
+      required: false
+      style: form
+      explode: true
   responses:
     '200':
       description: List of entitlements

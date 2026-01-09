@@ -3,29 +3,31 @@ get:
   tags:
     - Global Tenant Security Settings
   summary: Get auth org lockout configuration.
-  description: >-
-    This API returns the details of an org's lockout auth configuration.
+  description: This API returns the details of an org's lockout auth configuration.
   security:
-    - userAuth: [ sp:auth-org:read ]
+    - userAuth:
+        - sp:auth-org:read
+    - applicationAuth:
+        - sp:auth-org:read
   responses:
-    "200":
+    '200':
       description: Lockout configuration for the tenant's auth org.
       content:
         application/json:
           schema:
-            $ref: "../schemas/LockoutConfiguration.yaml"
-    "400":
-      $ref: "../../v3/responses/400.yaml"
-    "401":
-      $ref: "../../v3/responses/401.yaml"
-    "403":
-      $ref: "../../v3/responses/403.yaml"
-    "404":
-      $ref: "../../v3/responses/404.yaml"
-    "429":
-      $ref: "../../v3/responses/429.yaml"
-    "500":
-      $ref: "../../v3/responses/500.yaml"
+            $ref: ../schemas/LockoutConfiguration.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
 patch:
   operationId: patchAuthOrgLockoutConfig
   tags:
@@ -34,18 +36,18 @@ patch:
   description: |
     This API updates an existing lockout configuration for an org using PATCH
   security:
-    - userAuth: [ sp:auth-org:manage ]
+    - userAuth:
+        - sp:auth-org:manage
+    - applicationAuth:
+        - sp:auth-org:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - HELPDESK
   requestBody:
     required: true
-    description: >-
-      A list of auth org lockout configuration update operations according to
-      the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-
-      Ensures that the patched Lockout Config conforms to certain logical
-      guidelines, which are:
+    description: |-
+      A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+      Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:
         `1. maximumAttempts >= 1 && maximumAttempts <= 15
         2. lockoutDuration >= 5 && lockoutDuration <= 60
         3. lockoutWindow >= 5 && lockoutDuration <= 60`
@@ -54,30 +56,30 @@ patch:
         schema:
           type: array
           items:
-            $ref: "../schemas/JsonPatchOperation.yaml"
+            $ref: ../schemas/JsonPatchOperation.yaml
         example:
-          - op: "replace"
-            path: "/maximumAttempts"
+          - op: replace
+            path: /maximumAttempts
             value: 7,
-          - op: "add"
-            path: "/lockoutDuration"
+          - op: add
+            path: /lockoutDuration
             value: 35
   responses:
-    "200":
+    '200':
       description: Updated Auth Org lockout configuration.
       content:
         application/json:
           schema:
-            $ref: "../schemas/LockoutConfiguration.yaml"
-    "400":
-      $ref: "../../v3/responses/400.yaml"
-    "401":
-      $ref: "../../v3/responses/401.yaml"
-    "403":
-      $ref: "../../v3/responses/403.yaml"
-    "404":
-      $ref: "../../v3/responses/404.yaml"
-    "429":
-      $ref: "../../v3/responses/429.yaml"
-    "500":
-      $ref: "../../v3/responses/500.yaml"
+            $ref: ../schemas/LockoutConfiguration.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

@@ -2,66 +2,64 @@ get:
   tags:
     - Managed Clients
   summary: Get managed clients
-  description: >-
-    List managed clients.
+  description: List managed clients.
   operationId: getManagedClients
   parameters:
-    - $ref: '../parameters/offset.yaml'
-    - $ref: '../parameters/limit.yaml'
-    - $ref: '../parameters/count.yaml'
+    - $ref: ../parameters/offset.yaml
+    - $ref: ../parameters/limit.yaml
+    - $ref: ../parameters/count.yaml
     - in: query
       name: filters
       schema:
         type: string
-      description: >-
+      description: |-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
-
 
         Filtering is supported for the following fields and operators:
 
-
         **id**: *eq*
-
 
         **name**: *eq*
 
-
         **clientId**: *eq*
-
 
         **clusterId**: *eq*
       required: false
       example: name eq "client name"
   responses:
-    "200":
+    '200':
       description: Response with a list of managed clients, based on the specified query parameters.
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../schemas/ManagedClient.yaml'
+              $ref: ../schemas/ManagedClient.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [idn:remote-client:read, idn:remote-client:manage]
+    - userAuth:
+        - idn:remote-client:read
+        - idn:remote-client:manage
+    - applicationAuth:
+        - idn:remote-client:read
+        - idn:remote-client:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
 post:
   tags:
     - Managed Clients
   summary: Create managed client
-  description: >-
+  description: |-
     Create a new managed client.
-
     The API returns a result that includes the managed client ID.
   operationId: createManagedClient
   requestBody:
@@ -69,25 +67,26 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/ManagedClientRequest.yaml'
+          $ref: ../schemas/ManagedClientRequest.yaml
   responses:
-    "200":
+    '200':
       description: Created managed client.
       content:
         application/json:
           schema:
-            $ref: '../schemas/ManagedClient.yaml'
+            $ref: ../schemas/ManagedClient.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [idn:remote-client:manage]
+    - userAuth:
+        - idn:remote-client:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN

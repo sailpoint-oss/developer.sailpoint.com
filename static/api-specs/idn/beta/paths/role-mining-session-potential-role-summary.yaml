@@ -134,3 +134,4 @@ patch:
       $ref: ../../v3/responses/429.yaml
     '500':
       $ref: ../../v3/responses/500.yaml
+  security: []

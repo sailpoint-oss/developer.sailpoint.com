@@ -1,25 +1,25 @@
 post:
   operationId: searchResourceObjects
   tags:
-  - Sources
+    - Sources
   summary: Peek source connector's resource objects
-  description: >-
-    Retrieves a sample of data returned from account and group aggregation
-    requests.
+  description: Retrieves a sample of data returned from account and group aggregation requests.
   security:
     - userAuth:
-      - idn:source-connector:manage
+        - idn:source-connector:manage
+    - applicationAuth:
+        - idn:source-connector:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
-  - in: path
-    name: sourceId
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: listSources
-    description: The ID of the Source
-    example: cef3ee201db947c5912551015ba0c679
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      description: The ID of the Source
+      example: cef3ee201db947c5912551015ba0c679
   requestBody:
     required: true
     content:

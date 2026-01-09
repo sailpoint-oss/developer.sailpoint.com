@@ -1,12 +1,16 @@
 get:
   operationId: getTaggedObject
   security:
-    - userAuth: [ idn:tag:read, idn:tag:manage ]
+    - userAuth:
+        - idn:tag:read
+        - idn:tag:manage
+    - applicationAuth:
+        - idn:tag:read
+        - idn:tag:manage
   tags:
     - Tagged Objects
   summary: Get tagged object
-  description: >-
-    This gets a tagged object for the specified type.
+  description: This gets a tagged object for the specified type.
   parameters:
     - in: path
       name: type
@@ -38,26 +42,28 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/TaggedObject.yaml'
+            $ref: ../schemas/TaggedObject.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
 put:
   operationId: putTaggedObject
   security:
-    - userAuth: [ idn:tag:manage ]
+    - userAuth:
+        - idn:tag:manage
+    - applicationAuth:
+        - idn:tag:manage
   tags:
     - Tagged Objects
   summary: Update tagged object
-  description: >-
-    This updates a tagged object for the specified type.
+  description: This updates a tagged object for the specified type.
   parameters:
     - in: path
       name: type
@@ -88,33 +94,35 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/TaggedObject.yaml'
+          $ref: ../schemas/TaggedObject.yaml
   responses:
     '200':
       description: Tagged object by type and ID.
       content:
         application/json:
           schema:
-            $ref: '../schemas/TaggedObject.yaml'
+            $ref: ../schemas/TaggedObject.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
 delete:
   operationId: deleteTaggedObject
   security:
-    - userAuth: [ idn:tag:manage ]
+    - userAuth:
+        - idn:tag:manage
+    - applicationAuth:
+        - idn:tag:manage
   tags:
     - Tagged Objects
   summary: Delete object tags
-  description: >-
-    Delete all tags from a tagged object.
+  description: Delete all tags from a tagged object.
   parameters:
     - in: path
       name: type
@@ -130,7 +138,7 @@ delete:
           - SOD_POLICY
           - SOURCE
       required: true
-      description: The type of object to delete tags from. 
+      description: The type of object to delete tags from.
       example: ROLE
     - in: path
       name: id
@@ -138,18 +146,18 @@ delete:
         type: string
       required: true
       x-sailpoint-resource-operation-id: listTaggedObjects
-      description: The ID of the object to delete tags from. 
+      description: The ID of the object to delete tags from.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
     '204':
       description: No content.
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

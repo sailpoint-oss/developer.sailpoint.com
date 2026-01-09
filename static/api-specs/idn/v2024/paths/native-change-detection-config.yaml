@@ -6,6 +6,8 @@ get:
   security:
     - userAuth:
         - idn:sources:read
+    - applicationAuth:
+        - idn:sources:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
   description: This API returns the existing native change detection configuration for a source specified by the given ID.
@@ -44,6 +46,8 @@ put:
   summary: Update native change detection configuration
   security:
     - userAuth:
+        - idn:sources:update
+    - applicationAuth:
         - idn:sources:update
   x-sailpoint-userLevels:
     - ORG_ADMIN

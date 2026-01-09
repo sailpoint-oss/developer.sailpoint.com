@@ -1,12 +1,11 @@
 post:
   tags:
-  - Suggested Entitlement Description
+    - Suggested Entitlement Description
   operationId: submitSedAssignment
   summary: Submit sed assignment request
-  description: 'Submit Assignment Request.
-
-    Request body has an assignee, and list of SED Ids that are assigned to that assignee
-    API responses with batchId that groups all approval requests together'
+  description: |-
+    Submit Assignment Request.
+    Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
   requestBody:
     description: Sed Assignment Request
     content:
@@ -34,8 +33,10 @@ post:
     '500':
       $ref: ../responses/500.yaml
   security:
-  - userAuth:
-    - idn:sed:write
+    - userAuth:
+        - idn:sed:write
+    - applicationAuth:
+        - idn:sed:write
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN

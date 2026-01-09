@@ -3,10 +3,12 @@ get:
   tags:
     - Lifecycle States
   summary: Get lifecycle state
-  description: >-
-    Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID.
+  description: Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID.
   security:
-    - userAuth: [idn:identity-profile-lifecycle-state:read]
+    - userAuth:
+        - idn:identity-profile-lifecycle-state:read
+    - applicationAuth:
+        - idn:identity-profile-lifecycle-state:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
@@ -32,29 +34,30 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/LifecycleState.yaml'
+            $ref: ../schemas/LifecycleState.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
 patch:
   operationId: updateLifecycleStates
   tags:
     - Lifecycle States
   summary: Update lifecycle state
-  description: >-
-    Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+  description: Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
   security:
-    - userAuth: [idn:identity-profile-lifecycle-state:manage]
-    - applicationAuth: [idn:identity-profile-lifecycle-state:manage]
+    - userAuth:
+        - idn:identity-profile-lifecycle-state:manage
+    - applicationAuth:
+        - idn:identity-profile-lifecycle-state:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
@@ -92,76 +95,77 @@ patch:
         schema:
           type: array
           items:
-            $ref: '../schemas/JsonPatchOperation.yaml'
+            $ref: ../schemas/JsonPatchOperation.yaml
         example:
-          - op: "replace"
-            path: "/description"
-            value: "Updated description!"
-          - op: "replace"
-            path: "/accessProfileIds"
+          - op: replace
+            path: /description
+            value: Updated description!
+          - op: replace
+            path: /accessProfileIds
             value:
-              - "2c918087742bab150174407a80f3125e"
-              - "2c918087742bab150174407a80f3124f"
-          - op: "replace"
-            path: "/accountActions"
+              - 2c918087742bab150174407a80f3125e
+              - 2c918087742bab150174407a80f3124f
+          - op: replace
+            path: /accountActions
             value:
-              - "action": "ENABLE"
-                "sourceIds":
-                  - "2c9180846a2f82fb016a481c1b1560c5"
-                  - "2c9180846a2f82fb016a481c1b1560cc"
-                "excludeSourceIds": null
+              - action: ENABLE
+                sourceIds:
+                  - 2c9180846a2f82fb016a481c1b1560c5
+                  - 2c9180846a2f82fb016a481c1b1560cc
+                excludeSourceIds: null
                 allSources: false
-              - "action": "DISABLE"
-                "sourceIds": null
-                "excludeSourceIds":
-                  - "3b551ccf5566478b9b77f37de25303aa"
+              - action: DISABLE
+                sourceIds: null
+                excludeSourceIds:
+                  - 3b551ccf5566478b9b77f37de25303aa
                 allSources: true
-              - "action": "DELETE"
-                "sourceIds":
-                  - "3c9180846a2f82fb016a481c1b1560c5"
-                  - "8n9180846a2f82fb016a481c1b1560cc"
-                "excludeSourceIds": null
+              - action: DELETE
+                sourceIds:
+                  - 3c9180846a2f82fb016a481c1b1560c5
+                  - 8n9180846a2f82fb016a481c1b1560cc
+                excludeSourceIds: null
                 allSources: false
-          - op: "replace"
-            path: "/emailNotificationOption"
+          - op: replace
+            path: /emailNotificationOption
             value:
-              "notifyManagers": true
-              "notifyAllAdmins": false
-              "notifySpecificUsers": false
-              "emailAddressList": []
-          - op: "replace"
-            path: "/accessActionConfiguration"
+              notifyManagers: true
+              notifyAllAdmins: false
+              notifySpecificUsers: false
+              emailAddressList: []
+          - op: replace
+            path: /accessActionConfiguration
             value:
-              "removeAllAccessEnabled": true
+              removeAllAccessEnabled: true
   responses:
     '200':
       description: The LifecycleState was successfully updated.
       content:
         application/json:
           schema:
-            $ref: '../schemas/LifecycleState.yaml'
+            $ref: ../schemas/LifecycleState.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
 delete:
   operationId: deleteLifecycleState
   tags:
     - Lifecycle States
   summary: Delete lifecycle state
-  description: >-
-    Use this endpoint to delete the lifecycle state by its ID.
+  description: Use this endpoint to delete the lifecycle state by its ID.
   security:
-    - userAuth: [idn:identity-profile-lifecycle-state:manage]
-    - applicationAuth: [idn:identity-profile-lifecycle-state:manage]
+    - userAuth:
+        - idn:identity-profile-lifecycle-state:manage
+    - applicationAuth:
+        - idn:identity-profile-lifecycle-state:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
@@ -187,16 +191,16 @@ delete:
       content:
         application/json:
           schema:
-            $ref: '../schemas/LifecyclestateDeleted.yaml'
+            $ref: ../schemas/LifecyclestateDeleted.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

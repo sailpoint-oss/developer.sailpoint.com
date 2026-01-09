@@ -78,6 +78,8 @@ post:
   security:
     - userAuth:
         - idn:app-roles:manage
+    - applicationAuth:
+        - idn:app-roles:manage
   requestBody:
     required: true
     content:

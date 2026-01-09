@@ -1,27 +1,29 @@
 post:
   operationId: enableAccountForIdentity
   tags:
-  - Accounts
+    - Accounts
   summary: Enable idn account for identity
   description: This API submits a task to enable IDN account for a single identity.
   externalDocs:
     description: Learn more about enabling identities here
     url: https://documentation.sailpoint.com/saas/help/accounts/identities.html?h=disabling+identities#enabling-identities
   security:
-  - userAuth:
-    - idn:accounts-state:manage
-    - idn:accounts-provisioning:manage
+    - userAuth:
+        - idn:accounts-state:manage
+        - idn:accounts-provisioning:manage
+    - applicationAuth:
+        - idn:accounts-state:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
-  - in: path
-    name: id
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: listIdentities
-    description: The identity id.
-    example: 2c91808384203c2d018437e631158309
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listIdentities
+      description: The identity id.
+      example: 2c91808384203c2d018437e631158309
   responses:
     '202':
       $ref: ../responses/202.yaml

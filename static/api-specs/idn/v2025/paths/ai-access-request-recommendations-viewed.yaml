@@ -5,6 +5,8 @@ post:
   security:
     - userAuth:
         - iai:access-request-recommender:manage
+    - applicationAuth:
+        - iai:access-request-recommender:manage
   x-sailpoint-userLevels:
     - Any
   summary: Mark viewed access request recommendations

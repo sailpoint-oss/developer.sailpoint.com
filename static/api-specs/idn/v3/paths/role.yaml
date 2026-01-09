@@ -3,11 +3,9 @@ get:
   tags:
     - Roles
   summary: Get role
-  description: >-
+  description: |-
     Get a role by ID.
-
-    A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated
-    to sources with management workgroups of the ROLE_SUBADMIN is a member of.
+    A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.
   parameters:
     - in: path
       name: id
@@ -15,8 +13,7 @@ get:
       x-sailpoint-resource-operation-id: listRoles
       schema:
         type: string
-      description: >-
-        Role ID.
+      description: Role ID.
       example: 2c91808a7813090a017814121e121518
   responses:
     '200':
@@ -24,19 +21,28 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../v3/schemas/access/Role.yaml'
+            $ref: ../../v3/schemas/access/Role.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read]
+    - userAuth:
+        - idn:role-unchecked:read
+        - idn:role-unchecked:manage
+        - idn:role-checked:manage
+        - idn:role-checked:read
+    - applicationAuth:
+        - idn:role-unchecked:read
+        - idn:role-unchecked:manage
+        - idn:role-checked:manage
+        - idn:role-checked:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - ROLE_ADMIN
@@ -46,43 +52,25 @@ patch:
   tags:
     - Roles
   summary: Patch role
-  description: >-
+  description: |-
     Update an existing role, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
-
     The following fields are patchable:
-
     * name
-
     * description
-
     * enabled
-
     * owner
-
     * accessProfiles
-
     * entitlements
-
     * membership
-
     * requestable
-
     * accessRequestConfig
-
     * revokeRequestConfig
-
     * segments
-    
     * accessModelMetadata
 
+    A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.
 
-    A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated
-    to sources with management workgroups of the ROLE_SUBADMIN is a member of.
-
-
-    The maximum supported length for the description field is 2000 characters.
-    ISC preserves longer descriptions for existing roles. However, any new roles as well as any updates to existing descriptions are limited to 2000 characters.
-
+    The maximum supported length for the description field is 2000 characters. ISC preserves longer descriptions for existing roles. However, any new roles as well as any updates to existing descriptions are limited to 2000 characters.
 
     When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time. 
   parameters:
@@ -100,153 +88,85 @@ patch:
         schema:
           type: array
           items:
-            $ref: '../schemas/JsonPatchOperation.yaml'
+            $ref: ../schemas/JsonPatchOperation.yaml
         examples:
           Make a Role Requestable and Enable it in One Call:
             description: This example shows how multiple fields may be updated with a single patch call.
             value:
-              [
-                {
-                  "op": "replace",
-                  "path": "/requestable",
-                  "value": true
-                },
-                {
-                  "op": "replace",
-                  "path": "/enabled",
-                  "value": true
-                }
-              ]
-
+              - op: replace
+                path: /requestable
+                value: true
+              - op: replace
+                path: /enabled
+                value: true
           Assign a Role to a Segment:
-            description: >-
-              This example illustrates the use of patch to assign a role to a segment by adding the segment's ID to the
-              role's segments array.
+            description: This example illustrates the use of patch to assign a role to a segment by adding the segment's ID to the role's segments array.
             value:
-              [
-                {
-                  "op": "add",
-                  "path": "/segments/-",
-                  "value": "f7b1b8a3-5fed-4fd4-ad29-82014e137e19"
-                }
-              ]
-
+              - op: add
+                path: /segments/-
+                value: f7b1b8a3-5fed-4fd4-ad29-82014e137e19
           Set the Membership Selection Criteria to a List of Identities:
-            description: >-
-              This example shows how to define a role's membershp by providing a list of identities, referenced by their
-              IDs.
+            description: This example shows how to define a role's membershp by providing a list of identities, referenced by their IDs.
             value:
-              [
-                {
-                  "op": "replace",
-                  "path": "/membership",
-                  "value": {
-                        "type": "IDENTITY_LIST",
-                        "identities": [
-                          {
-                            "id": "2c91808973fe906c0174262092014ed9"
-                          },
-                          {
-                            "id": "2c918086262092014ed94fb8a47612f3"
-                          }
-                        ]
-                    }
-                }
-              ]
-
+              - op: replace
+                path: /membership
+                value:
+                  type: IDENTITY_LIST
+                  identities:
+                    - id: 2c91808973fe906c0174262092014ed9
+                    - id: 2c918086262092014ed94fb8a47612f3
           Set the Membership Selection Criteria to a Standard Expression:
-            description: >-
-              This example shows how to define a role's membership, using `STANDARD` criteria. In this case, ISC will grant the role
-              to all identities that have the *Engineering* attribute from the indicated source.
+            description: This example shows how to define a role's membership, using `STANDARD` criteria. In this case, ISC will grant the role to all identities that have the *Engineering* attribute from the indicated source.
             value:
-              [
-                {
-                  "op": "replace",
-                  "path": "/membership",
-                  "value": {
-                    "type": "STANDARD",
-                    "criteria": {
-                      "operation": "OR",
-                      "children": [
-                        {
-                          "operation": "EQUALS",
-                          "key": {
-                            "type": "ENTITLEMENT",
-                            "property": "attribute.memberOf",
-                            "sourceId": "2c9180887701fb2014213e122092014e"
-                          },
-                          "stringValue": "Engineering"
-                        }
-                      ]
-                    }
-                  }
-                }
-              ]
-
+              - op: replace
+                path: /membership
+                value:
+                  type: STANDARD
+                  criteria:
+                    operation: OR
+                    children:
+                      - operation: EQUALS
+                        key:
+                          type: ENTITLEMENT
+                          property: attribute.memberOf
+                          sourceId: 2c9180887701fb2014213e122092014e
+                        stringValue: Engineering
           Add a New Clause as the Child of an Existing Standard Expression:
-            description: >-
-                This example shows how to add a child clause to an existing `STANDARD` criteria expression.
+            description: This example shows how to add a child clause to an existing `STANDARD` criteria expression.
             value:
-               [
-                {
-                  "op": "add",
-                  "path": "/membership/criteria/children/-",
-                  "value": {
-                    "operation": "ENDS_WITH",
-                    "key": {
-                      "type": "IDENTITY",
-                      "property": "attribute.email"
-                    },
-                    "stringValue": "@identitynow.com"
-                  }
-                }
-              ]
-
+              - op: add
+                path: /membership/criteria/children/-
+                value:
+                  operation: ENDS_WITH
+                  key:
+                    type: IDENTITY
+                    property: attribute.email
+                  stringValue: '@identitynow.com'
           Assign a Access Model Metadata to a Role:
             description: This example shows how to assign existing metadata to a role.
             value:
-              [
-                {
-                  "op": "add",
-                  "path": "/accessModelMetadata/attributes/0",
-                  "value": {
-                    "key": "iscFederalClassifications",
-                    "values": [
-                      {
-                        "value": "secret"
-                      }
-                    ]
-                  }
-                }
-              ]
-
+              - op: add
+                path: /accessModelMetadata/attributes/0
+                value:
+                  key: iscFederalClassifications
+                  values:
+                    - value: secret
           Add an Access Profile to a Role:
             description: This example shows how to add an access profile to a role.
             value:
-              [
-                {
-                  "op": "add",
-                  "path": "/accessProfiles/-",
-                  "value": {
-                      "id": "1de104e1f9024b1289b3a31e22d28cd1",
-                      "type": "ACCESS_PROFILE"
-                    }
-                }
-              ]
-
+              - op: add
+                path: /accessProfiles/-
+                value:
+                  id: 1de104e1f9024b1289b3a31e22d28cd1
+                  type: ACCESS_PROFILE
           Add an Entitlement to a Role:
             description: This example shows how to add an entitlement to a role.
             value:
-              [
-                {
-                  "op": "add",
-                  "path": "/entitlements/-",
-                  "value": {
-                      "id": "0fb2f8051e48421b8f1f8a64aee3b205",
-                      "type": "ENTITLEMENT"
-                    }
-                }
-              ]
+              - op: add
+                path: /entitlements/-
+                value:
+                  id: 0fb2f8051e48421b8f1f8a64aee3b205
+                  type: ENTITLEMENT
     required: true
   responses:
     '200':
@@ -254,19 +174,21 @@ patch:
       content:
         application/json:
           schema:
-            $ref: '../../v3/schemas/access/Role.yaml'
+            $ref: ../../v3/schemas/access/Role.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:role-unchecked:manage, idn:role-checked:manage]
+    - userAuth:
+        - idn:role-unchecked:manage
+        - idn:role-checked:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - ROLE_ADMIN
@@ -276,12 +198,10 @@ delete:
   tags:
     - Roles
   summary: Delete role
-  description: >-
+  description: |-
     Delete a role by ID.
 
-
-    A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated
-    to sources with management workgroups the ROLE_SUBADMIN is a member of.
+    A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups the ROLE_SUBADMIN is a member of.
   parameters:
     - in: path
       name: id
@@ -289,24 +209,25 @@ delete:
       x-sailpoint-resource-operation-id: listRoles
       schema:
         type: string
-      description: >-
-        Role ID.
+      description: Role ID.
       example: 2c91808a7813090a017814121e121518
   responses:
     '204':
-      $ref: "../../v3/responses/204.yaml"
+      $ref: ../../v3/responses/204.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:role-unchecked:manage,idn:role-checked:manage]
+    - userAuth:
+        - idn:role-unchecked:manage
+        - idn:role-checked:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - ROLE_ADMIN

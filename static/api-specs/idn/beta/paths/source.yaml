@@ -46,6 +46,8 @@ put:
   security:
     - userAuth:
         - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:manage
   tags:
     - Sources
   summary: Update source (full)
@@ -102,6 +104,8 @@ patch:
   operationId: updateSource
   security:
     - userAuth:
+        - idn:sources:manage
+    - applicationAuth:
         - idn:sources:manage
   tags:
     - Sources
@@ -218,6 +222,8 @@ patch:
 delete:
   security:
     - userAuth:
+        - idn:sources:manage
+    - applicationAuth:
         - idn:sources:manage
   operationId: delete
   tags:

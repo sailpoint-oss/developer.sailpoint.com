@@ -1,13 +1,16 @@
 get:
   operationId: listTaggedObjectsByType
   security:
-    - userAuth: [ idn:tag:read, idn:tag:manage ]
+    - userAuth:
+        - idn:tag:read
+        - idn:tag:manage
+    - applicationAuth:
+        - idn:tag:read
+        - idn:tag:manage
   tags:
     - Tagged Objects
   summary: List tagged objects by type
-  description: >-
-    This API returns a list of all tagged objects by type.
-
+  description: This API returns a list of all tagged objects by type.
   parameters:
     - in: path
       name: type
@@ -19,30 +22,27 @@ get:
           - CAMPAIGN
           - ENTITLEMENT
           - IDENTITY
-          - ROLE 
+          - ROLE
           - SOD_POLICY
-          - SOURCE 
+          - SOURCE
       required: true
       description: The type of tagged object to retrieve.
       example: ROLE
-    - $ref: '../parameters/limit.yaml'
-    - $ref: '../parameters/offset.yaml'
-    - $ref: '../parameters/count.yaml'
+    - $ref: ../parameters/limit.yaml
+    - $ref: ../parameters/offset.yaml
+    - $ref: ../parameters/count.yaml
     - in: query
       name: filters
       schema:
         type: string
-      description: >-
-          Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+      description: |-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
+        Filtering is supported for the following fields and operators:
 
-          Filtering is supported for the following fields and operators:
+        **objectRef.id**: *eq*
 
-
-          **objectRef.id**: *eq*
-        
-
-          **objectRef.type**: *eq*
+        **objectRef.type**: *eq*
       example: objectRef.id eq "2c91808568c529c60168cca6f90c1313"
       required: false
   responses:
@@ -53,14 +53,14 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/TaggedObject.yaml'
+              $ref: ../schemas/TaggedObject.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

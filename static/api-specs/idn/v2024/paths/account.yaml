@@ -63,6 +63,8 @@ patch:
   security:
     - userAuth:
         - idn:accounts:manage
+    - applicationAuth:
+        - idn:accounts:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -144,6 +146,8 @@ put:
   security:
     - userAuth:
         - idn:accounts:manage
+    - applicationAuth:
+        - idn:accounts:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -194,6 +198,8 @@ delete:
     >**NOTE: You can only delete accounts from sources of the "DelimitedFile" type.**
   security:
     - userAuth:
+        - idn:accounts:manage
+    - applicationAuth:
         - idn:accounts:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN

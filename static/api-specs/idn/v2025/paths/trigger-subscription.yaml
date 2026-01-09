@@ -155,6 +155,8 @@ patch:
   security:
     - userAuth:
         - sp:trigger-service-subscriptions:manage
+    - applicationAuth:
+        - sp:trigger-service-subscriptions:manage
 delete:
   operationId: deleteSubscription
   tags:
@@ -196,4 +198,6 @@ delete:
       $ref: ../responses/500.yaml
   security:
     - userAuth:
+        - sp:trigger-service-subscriptions:manage
+    - applicationAuth:
         - sp:trigger-service-subscriptions:manage

@@ -6,6 +6,8 @@ get:
   security:
     - userAuth:
         - idn:sources:read
+    - applicationAuth:
+        - idn:sources:read
   description: |-
     This API returns the existing native change detection configuration for a source specified by the given ID.
     A token with ORG_ADMIN authority is required to call this API.
@@ -44,6 +46,8 @@ put:
   summary: Update native change detection configuration
   security:
     - userAuth:
+        - idn:sources:update
+    - applicationAuth:
         - idn:sources:update
   description: |-
     Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.

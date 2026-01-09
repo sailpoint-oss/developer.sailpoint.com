@@ -2,8 +2,7 @@ get:
   tags:
     - Managed Clients
   summary: Get managed client health indicators
-  description: >-
-    Get a managed client's health indicators, using its ID.
+  description: Get a managed client's health indicators, using its ID.
   operationId: getManagedClientHealthIndicators
   parameters:
     - name: id
@@ -15,25 +14,28 @@ get:
         type: string
         example: 4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7
   responses:
-    "200":
+    '200':
       description: Response with the managed client health indicators, with the given ID.
       content:
         application/json:
           schema:
-            $ref: '../schemas/ManagedClientHealthIndicators.yaml'
+            $ref: ../schemas/ManagedClientHealthIndicators.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [ idn:remote-client:manage ]
+    - userAuth:
+        - idn:remote-client:manage
+    - applicationAuth:
+        - idn:remote-client:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN

@@ -72,6 +72,8 @@ patch:
   security:
     - userAuth:
         - idn:accounts:manage
+    - applicationAuth:
+        - idn:accounts:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -158,6 +160,8 @@ put:
   security:
     - userAuth:
         - idn:accounts:manage
+    - applicationAuth:
+        - idn:accounts:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -212,6 +216,8 @@ delete:
     This API has been deprecated, please refer to [Delete Account](https://developer.sailpoint.com/docs/api/v2025/delete-account) for latest API.
   security:
     - userAuth:
+        - idn:accounts:manage
+    - applicationAuth:
         - idn:accounts:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN

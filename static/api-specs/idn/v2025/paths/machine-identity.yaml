@@ -3,11 +3,10 @@ get:
   tags:
     - Machine Identities
   summary: Machine identity details
-  description: >-
-    This API returns a single machine identity using the Machine Identity ID.
+  description: This API returns a single machine identity using the Machine Identity ID.
   security:
     - userAuth:
-      - 'idn:mis-identity:read'
+        - idn:mis-identity:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -31,24 +30,24 @@ get:
         default: true
       required: true
   responses:
-    "200":
+    '200':
       description: A machine identity object
       content:
         application/json:
           schema:
-            $ref: "../schemas/MachineIdentityResponse.yaml"
-    "400":
-      $ref: "../responses/400.yaml"
-    "401":
-      $ref: "../responses/401.yaml"
-    "403":
-      $ref: "../responses/403.yaml"
-    "404":
-      $ref: "../responses/404.yaml"
-    "429":
-      $ref: "../responses/429.yaml"
-    "500":
-      $ref: "../responses/500.yaml"
+            $ref: ../schemas/MachineIdentityResponse.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
 patch:
   operationId: updateMachineIdentity
   tags:
@@ -58,7 +57,9 @@ patch:
     Use this API to update machine identity details.
   security:
     - userAuth:
-      - 'idn:mis-identity:manage'
+        - idn:mis-identity:manage
+    - applicationAuth:
+        - idn:mis-identity:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
@@ -80,9 +81,7 @@ patch:
       required: true
   requestBody:
     required: true
-    description: >-
-      A JSON of updated values [JSON
-      Patch](https://tools.ietf.org/html/rfc6902) standard.
+    description: A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
     content:
       application/json-patch+json:
         schema:
@@ -105,33 +104,35 @@ patch:
               - op: remove
                 path: /attributes/securityRisk
   responses:
-    "200":
+    '200':
       description: Updated Machine Identity object.
       content:
         application/json:
           schema:
-            $ref: "../schemas/MachineIdentityResponse.yaml"
-    "400":
-      $ref: "../responses/400.yaml"
-    "401":
-      $ref: "../responses/401.yaml"
-    "403":
-      $ref: "../responses/403.yaml"
-    "404":
-      $ref: "../responses/404.yaml"
-    "429":
-      $ref: "../responses/429.yaml"
-    "500":
-      $ref: "../responses/500.yaml"
+            $ref: ../schemas/MachineIdentityResponse.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
 delete:
   operationId: deleteMachineIdentity
   tags:
     - Machine Identities
   summary: Delete machine identity
-  description: >-
-    The API returns successful response if the requested machine identity was deleted.
+  description: The API returns successful response if the requested machine identity was deleted.
   security:
-    - userAuth: [ idn:mis-identity:manage ]
+    - userAuth:
+        - idn:mis-identity:manage
+    - applicationAuth:
+        - idn:mis-identity:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
@@ -152,17 +153,17 @@ delete:
         default: true
       required: true
   responses:
-    "204":
-      $ref: "../responses/204.yaml"
-    "400":
-      $ref: "../responses/400.yaml"
-    "401":
-      $ref: "../responses/401.yaml"
-    "403":
-      $ref: "../responses/403.yaml"
-    "404":
-      $ref: "../responses/404.yaml"
-    "429":
-      $ref: "../responses/429.yaml"
-    "500":
-      $ref: "../responses/500.yaml"
+    '204':
+      $ref: ../responses/204.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

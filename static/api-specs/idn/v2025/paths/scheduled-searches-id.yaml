@@ -77,6 +77,7 @@ get:
       $ref: ../responses/429.yaml
     '500':
       $ref: ../responses/500.yaml
+  security: []
 delete:
   tags:
     - Scheduled Search

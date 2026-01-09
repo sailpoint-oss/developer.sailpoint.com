@@ -1,24 +1,25 @@
 post:
   tags:
-  - Sources
+    - Sources
   summary: Process uncorrelated accounts
   operationId: importUncorrelatedAccounts
-  description: File is required for upload. You will also need to set the Content-Type
-    header to `multipart/form-data`
+  description: File is required for upload. You will also need to set the Content-Type header to `multipart/form-data`
   security:
-  - userAuth:
-    - idn:sources:manage
+    - userAuth:
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
-  - in: path
-    name: id
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: listSources
-    description: Source Id
-    example: 75dbec1ebe154d5785da27b95e1dd5d7
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      description: Source Id
+      example: 75dbec1ebe154d5785da27b95e1dd5d7
   requestBody:
     content:
       multipart/form-data:

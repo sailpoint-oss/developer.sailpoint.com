@@ -1,12 +1,15 @@
 get:
   operationId: getOrgConfig
   tags:
-  - Org Config
+    - Org Config
   summary: Get org config settings
   security:
-  - userAuth:
-    - idn:org-configs:read
-    - idn:org-configs:manage
+    - userAuth:
+        - idn:org-configs:read
+        - idn:org-configs:manage
+    - applicationAuth:
+        - idn:org-configs:read
+        - idn:org-configs:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   description: Get the current organization's configuration settings, only external accessible properties.
@@ -32,18 +35,16 @@ get:
 patch:
   operationId: patchOrgConfig
   tags:
-  - Org Config
+    - Org Config
   summary: Patch org config
   security:
-  - userAuth:
-    - idn:org-configs:manage
+    - userAuth:
+        - idn:org-configs:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
-  description: Patch the current organization's configuration, using http://jsonpatch.com/
-    syntax. This is commonly used to changing an organization's time zone.
+  description: Patch the current organization's configuration, using http://jsonpatch.com/ syntax. This is commonly used to changing an organization's time zone.
   requestBody:
-    description: A list of schema attribute update operations according to the [JSON
-      Patch](https://tools.ietf.org/html/rfc6902) standard.
+    description: A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
     content:
       application/json-patch+json:
         schema:
@@ -51,9 +52,9 @@ patch:
           items:
             $ref: ../schemas/JsonPatchOperation.yaml
         example:
-        - op: replace
-          path: /timeZone
-          value: America/Toronto
+          - op: replace
+            path: /timeZone
+            value: America/Toronto
     required: true
   responses:
     '200':
@@ -74,4 +75,3 @@ patch:
       $ref: ../responses/429.yaml
     '500':
       $ref: ../responses/500.yaml
-

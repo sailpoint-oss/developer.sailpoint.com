@@ -1,10 +1,10 @@
 post:
   tags:
-  - Suggested Entitlement Description
+    - Suggested Entitlement Description
   summary: Submit bulk approval request
-  description: 'Submit Bulk Approval Request for SED.
-
-    Request body takes list of SED Ids. API responses with list of SED Approval Status'
+  description: |-
+    Submit Bulk Approval Request for SED.
+    Request body takes list of SED Ids. API responses with list of SED Approval Status
   operationId: submitSedApproval
   requestBody:
     description: Sed Approval
@@ -37,8 +37,10 @@ post:
     '500':
       $ref: ../responses/500.yaml
   security:
-  - userAuth:
-    - idn:sed:write
+    - userAuth:
+        - idn:sed:write
+    - applicationAuth:
+        - idn:sed:write
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN

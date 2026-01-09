@@ -1,0 +1,94 @@
+get:
+  operationId: listApiSummary
+  security:
+    - userAuth: [sp:api-usage:read]
+    - applicationAuth: [sp:api-usage:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Api Usage
+  summary: Get Api Summary
+  description: >-
+    This API gets a list of APIs called by the org in a specific timespan, sorted by number of calls.
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+        
+        
+        **method**: *eq*
+
+
+        **startDate**: *gt, eq*
+
+  
+        **endDate**: *lt, eq*
+      example: method eq "GET", startDate gt "2025-08-01"
+      required: false
+    - in: query
+      name: limit
+      description: Max number of results to return.
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 250
+        default: 250
+      example: 100
+    - in: query
+      name: offset
+      description: >-
+        Offset into the full result set. Usually specified with *limit* to
+        paginate through the results. Defaults to 0 if not specified.
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+      example: 10
+  responses:
+    '200':
+      description: >-
+        List API calls sorted by number of requests.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/api-usage/SummaryResponse.yaml'
+          example:
+            [
+              {
+                "RequestedUri": "/v2025/sources/<id>",
+                "NumberOfCalls": 5
+              },
+              {
+                "RequestedUri": "/v2024/auth-org/session-config",
+                "NumberOfCalls": 1
+              }
+            ]
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

@@ -1,0 +1,55 @@
+type: object
+description: The schedule information.
+properties:
+  type:
+    $ref: 'ScheduleType.yaml'
+  months:
+    allOf:
+    - $ref: Selector.yaml
+    - description: |
+        The months to execute the search. This only applies to schedules with a type of `ANNUALLY`.
+      example:
+        type: 'LIST'
+        values:
+          - "3"
+          - "6"
+          - "9"
+          - "12"
+      nullable: true
+  days:
+    allOf:
+    - $ref: Selector.yaml
+    - description: |
+        The days to execute the search.
+        
+        If `type` is `WEEKLY`, the values will be `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
+
+        If `type` is `MONTHLY` or `ANNUALLY`, the values will be a number in double quotes, like `"1"`, `"10"`, or `"28"`.  Optionally, the value `"L"` can be used to refer to the last day of the month.
+      example:
+          type: 'LIST'
+          values:
+          - 'MON'
+          - 'WED'
+          - 'FRI'
+      nullable: true
+  hours:
+    allOf:
+    - $ref: Selector.yaml
+    - description: The hours selected.
+      example:
+        type: 'RANGE'
+        values:
+        - '9'
+        - '18'
+        interval: 3
+  expiration:
+    description: The schedule expiration date. Latest possible expiration date is '2038-01-19T03:14:07+0000'
+    $ref: ../search/model/base/DateTime.yaml
+  timeZoneId:
+    description: The canonical TZ identifier the schedule will run in (ex. America/New_York).  If no timezone is specified, the org's default timezone is used.
+    nullable: true
+    type: string
+    example: 'America/Chicago'
+required:
+- type
+- hours

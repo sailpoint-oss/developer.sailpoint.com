@@ -5,6 +5,7 @@ pagination_label: V2024
 sidebar_label: V2024
 sidebar_position: 2
 sidebar_class_name: v2024
+sidebar_key: v2024-golang-reference
 keywords: ['v2024', 'Golang']
 description: Golang SDK reference V2024.
 slug: /tools/go/reference/v2024

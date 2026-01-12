@@ -5,6 +5,7 @@ pagination_label: V2024
 sidebar_label: V2024
 sidebar_position: 2
 sidebar_class_name: v2024
+sidebar_key: v2024-powershell-reference
 keywords: ['v2024', 'PowerShell']
 description: PowerShell SDK reference V2024.
 slug: /tools/powershell/reference/v2024

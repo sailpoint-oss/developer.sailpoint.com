@@ -5,6 +5,7 @@ pagination_label: Methods
 sidebar_label: Methods
 sidebar_position: 3
 sidebar_class_name: methods
+sidebar_key: v2026-methods-python
 keywords: ['python', 'Python', 'sdk', 'methods'] 
 slug: /tools/sdk/python/v2026/methods
 tags: ['SDK', 'Software Development Kit', 'v2026', 'methods']

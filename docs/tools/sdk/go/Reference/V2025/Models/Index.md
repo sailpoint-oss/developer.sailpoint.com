@@ -5,6 +5,7 @@ pagination_label: Models
 sidebar_label: Models
 sidebar_position: 3
 sidebar_class_name: models
+sidebar_key: v2025-models-golang
 keywords: ['go', 'Golang', 'sdk', 'models'] 
 slug: /tools/sdk/go/v2025/models
 tags: ['SDK', 'Software Development Kit', 'v2025', 'models']

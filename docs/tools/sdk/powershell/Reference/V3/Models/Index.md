@@ -5,6 +5,7 @@ pagination_label: Models
 sidebar_label: Models
 sidebar_position: 3
 sidebar_class_name: models
+sidebar_key: v3-models-powershell
 keywords: ['powershell', 'PowerShell', 'sdk', 'models'] 
 slug: /tools/sdk/powershell/v3/models
 tags: ['SDK', 'Software Development Kit', 'v3', 'models']

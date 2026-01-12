@@ -24,7 +24,6 @@ const config: Config = {
   baseUrl,
   favicon: 'img/SailPoint-Logo-Icon.ico',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
   onDuplicateRoutes: 'throw',
   i18n: {
     defaultLocale: 'en',
@@ -145,6 +144,9 @@ const config: Config = {
 
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'throw'
+    }
   },
 
   themes: ['docusaurus-theme-openapi-docs', '@docusaurus/theme-mermaid'],

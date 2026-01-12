@@ -5,6 +5,7 @@ pagination_label: V3
 sidebar_label: V3
 sidebar_position: 2
 sidebar_class_name: v3
+sidebar_key: v3-powershell-reference
 keywords: ['v3', 'PowerShell']
 description: PowerShell SDK reference V3.
 slug: /tools/powershell/reference/v3

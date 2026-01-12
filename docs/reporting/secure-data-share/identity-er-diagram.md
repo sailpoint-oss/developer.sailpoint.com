@@ -193,7 +193,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     }
     CERTIFICATION_ITEM {
         text TENANT_ID "Unique Id for an Organization tenant"
-        text ID "Unique Id for the certification item"
+        text ID PK "Unique Id for the certification item"
         datetime CREATED_DATE "date when the object was created"
         datetime UPDATED_DATE "date when the object was modified"
         datetime DELETED_DATE "date when the object was deleted"
@@ -253,7 +253,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     }
     SOURCE {
         text TENANT_ID "Unique Id for an Organization tenant"
-        text ID "Unique Id for the Source or application"
+        text ID PK "Unique Id for the Source or application"
         text NAME "Name of the Source or application"
         datetime DELETED_DATE "date when the object was deleted"
         text DISPLAY_NAME "Human-readable display name of the object"
@@ -280,7 +280,6 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         datetime SYNC_DATE "When the row is last synced"
     }
     ACCOUNT_ENTITLEMENTS {
-        text PK "Primary key for the account-entitlement relationship"
         text TENANT_ID "Unique Id for an Organization tenant"
         text ID PK "Account ID - the account associated with the entitlement"
         text ENTITLEMENT_ID PK "Entitlement ID - the entitlement associated with the account"

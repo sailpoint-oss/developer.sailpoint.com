@@ -21,5 +21,27 @@ properties:
     description: Is Reauthorization Required
     default: false
     example: false
-
-
+  requireEndDate:
+    type: boolean
+    default: false
+    description: If true, then remove date or sunset date is required in access request of the entitlement.
+    example: true
+  maxPermittedAccessDuration:
+    nullable: true
+    type: object
+    description: The maximum duration for which the access is permitted.
+    properties:
+      value:
+        type: integer
+        format: int32
+        description: The numeric value of the duration.
+        example: 5
+      timeUnit:
+        type: string
+        description: The time unit for the duration.
+        enum:
+          - HOURS
+          - DAYS
+          - WEEKS
+          - MONTHS
+        example: DAYS

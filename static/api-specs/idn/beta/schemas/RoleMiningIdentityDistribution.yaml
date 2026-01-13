@@ -9,6 +9,13 @@ properties:
     type: array
     items:
       type: object
-      additionalProperties:
-        type: string
-    example: [{"attributeValue":"NM Tier 3","count":6}]
+      properties:
+        attributeValue:
+          type: string
+          description: The attribute value that identities are grouped by
+          example: NM Tier 3
+        count:
+          type: integer
+          description: The number of identities that have this attribute value
+          format: int32
+          example: 6  

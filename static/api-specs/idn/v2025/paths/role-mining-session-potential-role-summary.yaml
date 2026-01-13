@@ -53,9 +53,13 @@ get:
     - applicationAuth:
         - iai:access-modeling:read
         - iai:access-modeling:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
 patch:
-  operationId: patchPotentialRole
-  summary: Update a potential role
+  operationId: patchPotentialRoleSession
+  summary: Update a potential role session
   tags:
     - IAI Role Mining
   description: |
@@ -103,16 +107,48 @@ patch:
         schema:
           type: array
           items:
-            allOf:
-              - $ref: ../schemas/JsonPatchOperation.yaml
+            type: object
+            title: Json Patch Operation
+            description: A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
+            required:
+              - "op"
+              - "path"
             properties:
               op:
                 type: string
                 description: The operation to be performed
                 enum:
-                  - remove
-                  - replace
-                example: replace
+                  - "remove"
+                  - "replace"
+                example: "replace"
+              path:
+                type: string
+                description: A string JSON Pointer representing the target path to an element to be affected by the operation
+                example: "/description"
+              value:
+                oneOf:
+                  - type: string
+                    example: "New description"
+                    title: string
+                  - type: boolean
+                    example: true
+                    title: boolean 
+                  - type: integer
+                    example: 300
+                    title: integer
+                  - type: object
+                    title: object
+                    example: {"attributes": {"name": "philip"}}
+                  - type: array
+                    title: array
+                    items:
+                      anyOf:
+                        - type: string
+                        - type: integer
+                        - type: object
+                      example: ["001","002","003"]
+                description: The value to be used for the operation, required for "add" and "replace" operations
+                example: "New description"
         example:
           - op: remove
             path: /description
@@ -150,4 +186,12 @@ patch:
       $ref: ../responses/429.yaml
     '500':
       $ref: ../responses/500.yaml
-  security: []
+  security:
+    - userAuth:
+        - iai:access-modeling:manage
+    - applicationAuth:
+        - iai:access-modeling:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN

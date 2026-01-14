@@ -5,6 +5,7 @@ pagination_label: Methods
 sidebar_label: Methods
 sidebar_position: 3
 sidebar_class_name: methods
+sidebar_key: beta-methods-python
 keywords: ['python', 'Python', 'sdk', 'methods'] 
 slug: /tools/sdk/python/beta/methods
 tags: ['SDK', 'Software Development Kit', 'beta', 'methods']

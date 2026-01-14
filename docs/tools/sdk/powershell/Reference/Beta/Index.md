@@ -5,6 +5,7 @@ pagination_label: Beta
 sidebar_label: Beta
 sidebar_position: 2
 sidebar_class_name: beta
+sidebar_key: powershell-beta
 keywords: ['beta', 'PowerShell']
 description: PowerShell SDK reference Beta.
 slug: /tools/powershell/reference/beta

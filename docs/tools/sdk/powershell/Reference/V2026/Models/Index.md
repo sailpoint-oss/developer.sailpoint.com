@@ -5,6 +5,7 @@ pagination_label: Models
 sidebar_label: Models
 sidebar_position: 3
 sidebar_class_name: models
+sidebar_key: v2026-models-powershell
 keywords: ['powershell', 'PowerShell', 'sdk', 'models'] 
 slug: /tools/sdk/powershell/v2026/models
 tags: ['SDK', 'Software Development Kit', 'v2026', 'models']

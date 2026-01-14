@@ -5,6 +5,7 @@ pagination_label: Methods
 sidebar_label: Methods
 sidebar_position: 3
 sidebar_class_name: methods
+sidebar_key: v2026-methods-powershell
 keywords: ['powershell', 'PowerShell', 'sdk', 'methods'] 
 slug: /tools/sdk/powershell/v2026/methods
 tags: ['SDK', 'Software Development Kit', 'v2026', 'methods']

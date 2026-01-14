@@ -4,6 +4,7 @@ title: Reference
 pagination_label: Reference
 sidebar_label: Reference
 sidebar_class_name: reference
+sidebar_key: transforms-reference
 keywords: ['transforms', 'operations', 'reference']
 description: Reuse a transform that has already been written.
 slug: /extensibility/transforms/operations/reference

@@ -5,6 +5,7 @@ pagination_label: Reference
 sidebar_label: Reference
 sidebar_position: 9
 sidebar_class_name: reference
+sidebar_key: golang-reference
 keywords: ['reference']
 description: Golang SDK reference.
 slug: /tools/go/reference

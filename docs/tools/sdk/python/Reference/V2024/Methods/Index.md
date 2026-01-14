@@ -5,6 +5,7 @@ pagination_label: Methods
 sidebar_label: Methods
 sidebar_position: 3
 sidebar_class_name: methods
+sidebar_key: v2024-methods-python
 keywords: ['python', 'Python', 'sdk', 'methods'] 
 slug: /tools/sdk/python/v2024/methods
 tags: ['SDK', 'Software Development Kit', 'v2024', 'methods']

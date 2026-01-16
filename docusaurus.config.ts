@@ -87,7 +87,7 @@ const config: Config = {
     ],
     algolia: {
       appId: 'TB01H1DFAM',
-      apiKey: process.env.ALGOLIA_SEARCH_KEY || '',
+      apiKey: process.env.ALGOLIA_SEARCH_KEY || 'dummy-key',
       indexName: 'crawler_Developer_Documentation',
       searchPagePath: false,
       placeholder: 'Search the Developer Community',

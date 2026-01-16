@@ -27,6 +27,7 @@ Each ISC API version is broken out into a separate collection within the workspa
 | V3 API | <CMSLinkComponent source="v3CollectionUrl"></CMSLinkComponent> |
 | Beta API | <CMSLinkComponent source="betaCollectionUrl"></CMSLinkComponent> |
 | NERM API | <CMSLinkComponent source="nermCollectionUrl"></CMSLinkComponent> |
+| NERM 2025 API | <CMSLinkComponent source="nerm-v2025CollectionUrl"></CMSLinkComponent> |
 | SaaS Connectivity | [![Run in Postman](../img/button.svg)](https://god.gw.postman.com/run-collection/23226990-a0b5c429-d8dd-4fe2-a4a2-eb7ff85322ef?action=collection%2Ffork&collection-url=entityId%3D23226990-a0b5c429-d8dd-4fe2-a4a2-eb7ff85322ef%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) |
 
 You can also fork a collection by selecting the ellipses to the right of the collection and selecting 'Create a fork.'

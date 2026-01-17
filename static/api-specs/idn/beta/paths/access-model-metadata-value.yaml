@@ -43,6 +43,69 @@ get:
       $ref: ../../v3/responses/401.yaml
     '403':
       $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+
+patch:
+  summary: Update access model metadata value
+  description: |
+    Update an existing Access Model Metadata Attribute Value.    
+    The following fields are patchable: **name**
+  operationId: updateAccessModelMetadataAttributeValue
+  tags:
+    - Access Model Metadata
+  security:
+    - userAuth:
+        - idn:access-model-metadata:update
+    - applicationAuth:
+        - idn:access-model-metadata:update
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - name: key
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Technical name of the Attribute.
+      example: iscPrivacy
+      x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
+    - name: value
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Technical name of the Attribute value.
+      example: public
+      x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeValue
+  requestBody:
+    required: true
+    description: JSON Patch array to apply
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../v3/schemas/JsonPatchOperation.yaml
+  responses:
+    '200':
+      description: OK - Attribute value updated successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/gov-attributes/AttributeValueDTO.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
     '429':
       $ref: ../../v3/responses/429.yaml
     '500':

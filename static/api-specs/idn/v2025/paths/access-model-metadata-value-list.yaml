@@ -22,7 +22,6 @@ get:
         type: string
       description: Technical name of the Attribute.
       example: iscPrivacy
-    - $ref: ../parameters/offset.yaml
     - $ref: ../parameters/limit.yaml
     - $ref: ../parameters/count.yaml
   responses:
@@ -40,6 +39,58 @@ get:
       $ref: ../responses/401.yaml
     '403':
       $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+
+post:
+  summary: Create access model metadata value
+  description: |
+    Create a new value for an existing Access Model Metadata Attribute.    
+  operationId: createAccessModelMetadataAttributeValue
+  tags:
+    - Access Model Metadata
+  security:
+    - userAuth:
+        - idn:access-model-metadata:create
+    - applicationAuth:
+        - idn:access-model-metadata:create
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - name: key
+      in: path
+      required: true
+      x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
+      schema:
+        type: string
+      description: Technical name of the Attribute.
+      example: iscPrivacy
+  requestBody:
+    required: true
+    description: Attribute value to create
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/gov-attributes/AttributeValueDTO.yaml
+  responses:
+    '201':
+      description: Created
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/gov-attributes/AttributeValueDTO.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
     '429':
       $ref: ../responses/429.yaml
     '500':

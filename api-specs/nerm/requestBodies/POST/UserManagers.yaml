@@ -1,0 +1,10 @@
+required: true
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        user_managers:
+          type: array
+          items:
+            $ref: "../../schemas/POST/UserManager.yaml"

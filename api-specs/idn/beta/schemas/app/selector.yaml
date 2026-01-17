@@ -1,0 +1,40 @@
+type: object
+properties:
+  applicationId:
+    type: string
+    description: The application id
+    example: 2c91808874ff91550175097daaec161c"
+  accountMatchConfig:
+    type: object
+    properties:
+      matchExpression:
+        type: object
+        properties:
+          matchTerms:
+            type: array
+            items:
+              $ref: './matchTerm.yaml'
+            example: [
+                      {
+                        "name": "",
+                        "value": "",
+                        "op": null,
+                        "container": true,
+                        "and": false,
+                        "children": [
+                          {
+                            "name": "businessCategory",
+                            "value": "Service",
+                            "op": "eq",
+                            "container": false,
+                            "and": false,
+                            "children": null
+                          }
+                        ]
+                      }
+                    ]
+          and:
+            type: boolean
+            description: If it is AND operators for match terms
+            default: true
+            example: true

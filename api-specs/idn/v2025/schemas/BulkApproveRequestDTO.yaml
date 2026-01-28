@@ -1,0 +1,23 @@
+type: object
+title: BulkApproveRequestDTO
+description: BulkApproveRequestDTO is the input struct that represents the request body required to facilitate a bulk approval action for a set of generic approval requests.
+properties:
+  approvalIds:
+    type: array
+    items:
+      type: string
+    description: Array of Approval IDs to be bulk approved
+    example:
+    - "38453251-6be2-5f8f-df93-5ce19e295837"
+    - "38453251-6be2-5f8f-df93-5ce19e295838"
+  comment:
+    type: string
+    description: Optional comment to include with the bulk approval request
+    example: "Bulk approved by admin for monthly review"
+  additionalAttributes:
+    type: object
+    additionalProperties: {}
+    description: Additional attributes to include with the bulk approval request
+    example:
+      source: "automation"
+      urgency: "high"

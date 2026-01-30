@@ -137,3 +137,104 @@ SailPoint may make breaking changes to our APIs in order to decrease the time to
 ## V3 and Beta APIs
 
 The V3 and Beta APIs will remain operational for as long as they contain non-deprecated endpoints. V3 and Beta will be supported until Q1 of 2027, meaning that users can submit support tickets for these versions. After Q1 of 2027, users may no longer submit support tickets for these versions, and they will be asked to use a supported version instead.
+
+## The `/latest` Endpoint
+
+Following the introduction of SailPoint's annual API versioning strategy (`/v2024`, `/v2025`, etc.), the `/latest` endpoint functionality was created in response to community feedback. This feature allows developers to automatically use the most current version of an endpoint without manually updating version numbers in their code every time a new annual release is published.
+
+### Purpose and use cases
+
+The `/latest` endpoint is designed for developers who want their integrations to automatically adopt the newest API versions as they become available. Instead of hardcoding a specific version number (e.g., `/v2025/accounts`), developers can use `/latest/accounts` to always route to the most current supported version of that endpoint.
+
+#### When to use `/latest`
+
+* Development and testing environments
+* Non-critical integrations where occasional updates are acceptable
+* Scripts and automations that can tolerate potential changes
+* Proof-of-concept implementations
+
+#### When NOT to use `/latest`
+
+**Critical business operations should not use the `/latest` endpoint.** Because `/latest` automatically updates to point to newer API versions when they are released, your integration may experience unexpected behavior if breaking changes are introduced in a new annual release. For production systems and mission-critical workflows, explicitly specify a version number (e.g., `/v2025/accounts`) to ensure stability and predictability.
+
+### How it works
+
+The `/latest` endpoint routes to the most recent **public** (production-ready) version of an API. However, if no public version of an endpoint exists, `/latest` will route to the most recent **experimental** version instead.
+
+#### Determining the routed version
+
+You can identify which version `/latest` is currently routing to by inspecting the response headers. Every response from a `/latest` endpoint call includes an `X-SailPoint-Route-Version` header that indicates the actual version being used.
+
+![Latest Header](../../../static/img/latest-header.png)
+
+This header allows you to:
+
+* Verify which version your `/latest` calls are using
+* Monitor when automatic version updates occur
+* Debug routing behavior during development
+
+#### Basic routing example
+
+If you're operating during calendar year 2025, and an endpoint exists in the following versions:
+
+* `/beta/accounts`
+* `/v3/accounts`
+* `/v2024/accounts`
+* `/v2025/accounts`
+
+Then `/latest/accounts` will route to `/v2025/accounts` since it is the most recent public version.
+
+#### Experimental API handling
+
+**The `/latest` endpoint does NOT automatically route to experimental APIs unless no public version exists.** It only routes to the most recent **public** version of an endpoint, except when only an experimental version is available.
+
+##### Example: new experimental endpoint
+
+If during 2025 a completely new endpoint is released as experimental (e.g., `/v2025/custom-user-levels`), and no public version exists:
+
+* `/latest/custom-user-levels` **will** route to the experimental version
+* This occurs because it is the only available version of this endpoint
+
+#### Example: breaking change to existing endpoint
+
+If during 2025 the `/task-status` endpoint receives a breaking change:
+
+* The updated endpoint is released as `/v2026/task-status` marked as experimental
+* The previous version remains as `/v2025/task-status` (public)
+* `/latest/task-status` continues to route to `/v2025/task-status` (the most recent public version)
+* Once `/v2026/task-status` is promoted from experimental to public status, `/latest/task-status` will then route to the v2026 version
+
+#### Deprecated API handling
+
+If an API is deprecated and not carried forward to the newest annual release:
+
+* `/latest` will continue to route to the most recent version where the endpoint exists
+* This routing remains in place until that annual release reaches end-of-life
+* Deprecation notices and timelines follow the standard deprecation process outlined in the API Versioning Strategy
+
+### Risk acknowledgment
+
+:::warning
+
+By using the `/latest` endpoint, you acknowledge and accept the following risks:
+
+:::
+
+* **Automatic updates**: When a new annual version is released, your integration will automatically begin using the new version
+* **Testing responsibility**: You are responsible for monitoring API updates and testing your integration when new versions are released
+* **Potential breaking changes**: While rare in public releases, changes to API behavior may impact your integration
+
+### Best Practices
+
+1. **Use explicit versions for production**: Specify version numbers (e.g., `/v2025/accounts`) for all production and business-critical integrations
+2. **Monitor release announcements**: Stay informed about new annual releases through the Identity Security Cloud Admin page, Compass, and developer communications
+3. **Document your usage**: Clearly document where you're using `/latest` vs. explicit versions so your team understands the update behavior
+4. **Be aware of annual updates and test after the switch**: When a new annual version is released, `/latest` integrations will automatically begin using the new version. Monitor for these updates each year and promptly test your scripts and integrations to ensure continued compatibility after the automatic switch.
+
+### Compatibility with API versioning strategy
+
+The `/latest` endpoint works in conjunction with SailPoint's annual versioning strategy:
+
+* Annual releases follow the same 3-year support + 2-year transition period
+* Deprecation notices apply regardless of whether you use `/latest` or explicit versions
+* The `X-SailPoint-Experimental` header is still required to access experimental endpoints, even via `/latest`

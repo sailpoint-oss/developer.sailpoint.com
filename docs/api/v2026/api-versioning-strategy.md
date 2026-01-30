@@ -161,6 +161,18 @@ The `/latest` endpoint is designed for developers who want their integrations to
 
 The `/latest` endpoint routes to the most recent **public** (production-ready) version of an API. However, if no public version of an endpoint exists, `/latest` will route to the most recent **experimental** version instead.
 
+#### Determining the routed version
+
+You can identify which version `/latest` is currently routing to by inspecting the response headers. Every response from a `/latest` endpoint call includes an `X-SailPoint-Route-Version` header that indicates the actual version being used.
+
+![Latest Header](../../../static/img/latest-header.png)
+
+This header allows you to:
+
+* Verify which version your `/latest` calls are using
+* Monitor when automatic version updates occur
+* Debug routing behavior during development
+
 #### Basic routing example
 
 If you're operating during calendar year 2025, and an endpoint exists in the following versions:

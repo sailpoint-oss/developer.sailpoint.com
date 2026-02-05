@@ -155,7 +155,7 @@ The `/latest` endpoint is designed for developers who want their integrations to
 
 #### When NOT to use `/latest`
 
-**Critical business operations should not use the `/latest` endpoint.** Because `/latest` automatically updates to point to newer API versions when they are released, your integration may experience unexpected behavior if breaking changes are introduced in a new annual release. For production systems and mission-critical workflows, explicitly specify a version number (e.g., `/v2025/accounts`) to ensure stability and predictability.
+**Critical business operations should not use the `/latest` endpoint.** Because `/latest` automatically updates to point to newer API versions when they are released, your integration may experience unexpected behavior if breaking changes are introduced in a new annual release or when a public-preview endpoint becomes public. For production systems and mission-critical workflows, explicitly specify a version number (e.g., `/v2025/accounts`) to ensure stability and predictability.
 
 ### How it works
 

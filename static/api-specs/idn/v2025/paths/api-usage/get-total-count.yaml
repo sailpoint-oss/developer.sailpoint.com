@@ -9,7 +9,8 @@ get:
     - Api Usage
   summary: Total number of API requests
   description: >-
-    This API gets an aggregated number of all API calls from an org in a given timespan.
+    This API gets an aggregated number of all API calls from an org in a specific timespan. Unless specified, the results
+    are aggregated between the first day of the current month and today.
   parameters:
     - name: X-SailPoint-Experimental
       in: header

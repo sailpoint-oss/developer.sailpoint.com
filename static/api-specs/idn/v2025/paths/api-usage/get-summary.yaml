@@ -9,7 +9,8 @@ get:
     - Api Usage
   summary: Get Api Summary
   description: >-
-    This API gets a list of APIs called by the org in a specific timespan, sorted by number of calls.
+    This API gets a list of APIs called by the org in a specific timespan, sorted by number of calls. Unless specified, 
+    the results are aggregated between the first day of the current month and today.
   parameters:
     - name: X-SailPoint-Experimental
       in: header
@@ -64,7 +65,7 @@ get:
   responses:
     '200':
       description: >-
-        List API calls sorted by number of requests.
+        A list of API calls sorted by number of requests.
       content:
         application/json:
           schema:

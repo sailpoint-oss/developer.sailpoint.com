@@ -1292,6 +1292,8 @@ x-webhooks:
     $ref: './v2024/webhooks/access-request-submitted.yaml'
   AccountAggregationCompleted:
     $ref: './v2024/webhooks/account-aggregation-completed.yaml'
+  AccountsCollectedForAggregation:
+    $ref: './v2024/webhooks/accounts-collected-for-aggregation.yaml'
   CampaignActivated:
     $ref: './v2024/webhooks/campaign-activated.yaml'
   CampaignEnded:

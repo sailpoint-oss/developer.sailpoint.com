@@ -25,7 +25,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
       - name: Run Slinky
-        uses: LukeHagar/slinky@v1
+        uses: LukasParke/slinky@v1
         with:
           respect_gitignore: false
         env:

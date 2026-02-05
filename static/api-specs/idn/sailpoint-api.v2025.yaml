@@ -1325,6 +1325,8 @@ x-webhooks:
     $ref: './v2025/webhooks/access-request-submitted.yaml'
   AccountAggregationCompleted:
     $ref: './v2025/webhooks/account-aggregation-completed.yaml'
+  AccountsCollectedForAggregation:
+    $ref: './v2025/webhooks/accounts-collected-for-aggregation.yaml'
   AccountCreated:
     $ref: './v2025/webhooks/account-created.yaml'
   AccountDeleted:

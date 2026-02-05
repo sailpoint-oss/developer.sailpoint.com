@@ -22,7 +22,7 @@ get:
       required: false
       schema:
         type: string
-      example: identityId eq "2c9180858082150f0180893dbaf44201"
+      example: hasEntitlements eq true
       description: >-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
@@ -30,7 +30,7 @@ get:
         Filtering is supported for the following fields and operators:
   
   
-        **id**: *eq, in, sw*
+        **id**: *eq, in*
 
 
         **name**: *eq, in, sw*
@@ -39,52 +39,64 @@ get:
         **nativeIdentity**: *eq, in, sw*
 
 
-        **machineIdentity**: *eq, in, sw*
+        **uuid**: *eq, in*
 
 
         **description**: *eq, in, sw*
 
 
-        **ownerIdentity**: *eq, in, sw*
+        **machineIdentity.id**: *eq, in*
 
 
-        **ownerIdentityId**: *eq, in, sw*
+        **machineIdentity.name**: *eq, in, sw*
 
 
-        **entitlements**: *eq*
+        **subtype.technicalName**: *eq, in, sw*
+
+
+        **subtype.displayName**: *eq, in, sw*
 
 
         **accessType**: *eq, in, sw*
 
 
-        **subType**: *eq, in, sw*
-
-
         **environment**: *eq, in, sw*
 
 
-        **classificationMethod**: *eq, in, sw*
+        **ownerIdentity**: *eq, in*
+
+
+        **ownerIdentity.id**: *eq, in*
+
+
+        **ownerIdentity.name**: *eq, in, sw*
 
 
         **manuallyCorrelated**: *eq*
 
 
-        **manuallyEdited**: *eq*
-
-
-        **identity**: *eq, in, sw*
-
-
-        **source**: *eq, in*
- 
-
-        **hasEntitlement**: *eq*
+        **enabled**: *eq*
 
 
         **locked**: *eq*
 
 
-        **connectorAttributes**: *eq*
+        **hasEntitlements**: *eq*
+
+
+        **attributes**: *eq*
+
+
+        **source.id**: *eq, in*
+
+
+        **source.name**: *eq, in, sw*
+
+
+        **created**: *eq, gt, lt, ge, le*
+
+
+        **modified**: *eq, gt, lt, ge, le*
     - in: query
       name: sorters
       required: false
@@ -96,7 +108,7 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
 
-        Sorting is supported for the following fields: **id, name, created, modified, machineIdentity, identity.id, nativeIdentity, uuid, manuallyCorrelated, connectorAttributes, entitlements, identity.name, identity.type, source.id, source.name, source.type**
+        Sorting is supported for the following fields: **id, name, nativeIdentity, ownerIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, manuallyCorrelated, enabled, locked, hasEntitlements, ownerIdentity.id, ownerIdentity.name, attributes, source.id, source.name, created, modified**
     - name: X-SailPoint-Experimental
       in: header
       description: Use this header to enable this experimental API.

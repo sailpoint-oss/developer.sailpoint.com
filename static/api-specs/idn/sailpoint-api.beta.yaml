@@ -1176,6 +1176,8 @@ x-webhooks:
     $ref: './beta/webhooks/access-request-submitted.yaml'
   AccountAggregationCompleted:
     $ref: './beta/webhooks/account-aggregation-completed.yaml'
+  AccountsCollectedForAggregation:
+    $ref: './beta/webhooks/accounts-collected-for-aggregation.yaml'
   CampaignActivated:
     $ref: './beta/webhooks/campaign-activated.yaml'
   CampaignEnded:

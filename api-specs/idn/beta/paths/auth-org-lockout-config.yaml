@@ -1,0 +1,115 @@
+get:
+  operationId: getAuthOrgLockoutConfig
+  tags:
+    - Auth Org Configuration
+  summary: Get the org's auth org lockout configuration.
+  description: >-
+    This API returns the details of an org's lockout auth configuration.
+    Requires security scope of: 'sp:auth-org:read'
+  responses:
+    "200":
+      description: Lockout configuration for the tenant's auth org.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/LockoutConfiguration.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+  # security:
+  #   - oauth2: [sp:auth-org:read]
+post:
+  operationId: createAuthOrgLockoutConfig
+  tags:
+    - Auth Org Configuration
+  summary: Create the org's auth org lockout configuration.
+  description: >-
+    This API returns the details of an org's lockout auth configuration.
+    Requires security scope of: 'sp:auth-org:create'
+  requestBody:
+    required: true
+    description: >-
+      Lockout configuration creation request body.   The following constraints
+      ensure the request body conforms to certain logical guidelines, which are:
+        1. maximumAttempts >= 1 && maximumAttempts <= 15
+        2. lockoutDuration >= 5 && lockoutDuration <= 60
+        3. lockoutWindow >= 5 && lockoutDuration <= 60
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/LockoutConfiguration.yaml"
+  responses:
+    "200":
+      description: Lockout configuration for the tenant.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/LockoutConfiguration.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+  # security:
+  #   - oauth2: [sp:auth-org:create]
+patch:
+  operationId: patchAuthOrgLockoutConfig
+  tags:
+    - Auth Org Configuration
+  summary: Update the org's auth org lockout configuration
+  description: >-
+    This API updates an existing lockout configuration for an org using PATCH
+     Requires security scope of:  'sp:auth-org:update'
+  requestBody:
+    required: true
+    description: >-
+      A list of auth org lockout configuration update operations according to
+      the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+      Ensures that the patched Lockout Config conforms to certain logical
+      guidelines, which are:
+        1. maximumAttempts >= 1 && maximumAttempts <= 15
+        2. lockoutDuration >= 5 && lockoutDuration <= 60
+        3. lockoutWindow >= 5 && lockoutDuration <= 60
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: "../schemas/JsonPatchOperation.yaml"
+        example:
+          - op: "replace"
+            path: "/maximumAttempts"
+            value: 7,
+          - op: "add"
+            path: "/lockoutDuration"
+            value: 35
+  responses:
+    "200":
+      description: Updated Auth Org lockout configuration.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/LockoutConfiguration.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+  # security:
+  #   - oauth2: [sp:auth-org:update]

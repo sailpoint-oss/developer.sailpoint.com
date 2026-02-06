@@ -1,0 +1,62 @@
+# Path
+id:
+  $ref: './path/id.yaml'
+attribute_id:
+  $ref: './path/attribute_id.yaml'
+# Query
+limit:
+  $ref: './query/limit.yaml'
+offset:
+  $ref: './query/offset.yaml'
+user_id:
+  $ref: './query/user_id.yaml'
+manager_id:
+  $ref: './query/manager_id.yaml'
+role_id:
+  $ref: './query/role_id.yaml'
+label:
+  $ref: './query/label.yaml'
+data_type:
+  $ref: './query/data_type.yaml'
+ne_attribute_id:
+  $ref: './query/ne_attribute_id.yaml'
+option:
+  $ref: './query/option.yaml'
+name:
+  $ref: './query/name.yaml'
+archived:
+  $ref: './query/archived.yaml'
+profile_type_id:
+  $ref: './query/profile_type_id.yaml'
+status:
+  $ref: './query/status.yaml'
+object_id:
+  $ref: './query/object_id.yaml'
+object_type:
+  $ref: './query/object_type.yaml'
+overall_risk_level_id:
+  $ref: './query/overall_risk_level_id.yaml'
+impact_risk_level_id:
+  $ref: './query/impact_risk_level_id.yaml'
+probability_risk_level_id:
+  $ref: './query/probability_risk_level_id.yaml'
+profile_id:
+  $ref: './query/profile_id.yaml'
+relationship_type:
+  $ref: './query/relationship_type.yaml'
+uid:
+  $ref: './query/uid.yaml'
+workflow_id:
+  $ref: './query/workflow_id.yaml'
+requester_id:
+  $ref: './query/requester_id.yaml'
+status_uid:
+  $ref: './query/status_uid.yaml'
+workflow_session_id:
+  $ref: './query/workflow_session_id.yaml'
+result:
+  $ref: './query/result.yaml'
+metadata:
+  $ref: './query/metadata.yaml'
+after_id:
+  $ref: './query/after_id.yaml'

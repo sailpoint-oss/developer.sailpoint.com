@@ -1,0 +1,9 @@
+description: Expected response to a valid request
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        system_role_permission:
+          type: object
+          $ref: '../schemas/GET/SystemRolePermission.yaml'

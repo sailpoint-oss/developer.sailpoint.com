@@ -1,0 +1,10 @@
+enum:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+type: integer
+description: 'Office 365 plan type: 0 - Unspecified, 1 - Enterprise, 2 - Gcc, 3 - Gcchigh, 4 - Dod'
+format: int32
+example: 1

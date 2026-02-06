@@ -8,7 +8,7 @@ interface BlogCardProps {
   featured?: boolean;
   link: string;
   title: string;
-  tags?: string[];
+  tags?: (string | { id: number; name: string; slug: string })[];
   creatorImage: string;
   creatorTitle: string;
   image: string;

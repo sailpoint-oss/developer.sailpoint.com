@@ -4,7 +4,7 @@ get:
     - Apps
   summary: List all source apps
   security:
-    - userAuth: [idn:app-roles:manage]
+    - userAuth: [idn:app-roles:read, idn:app-roles:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
   description: >-
@@ -47,13 +47,10 @@ get:
         **created**: *gt, lt, ge, le*
         
         
-        **modified**: *gt, lt, ge, le*
+        **modified**: *gt, ge, le*
         
         
         **owner.id**: *eq, in*
-        
-        
-        **accountSource.id**: *eq, in*
         
         
         **enabled**: *eq*

@@ -10,7 +10,10 @@ properties:
       name: "Active Directory"
   accountInfo:
     $ref: "./AccountInfoDto.yaml"
-  roleName:
-    type: string
-    description: "Specific role name for this target if using multiple accounts"
-    example: "Marketing"
+  role:
+    $ref: "./BaseReferenceDto.yaml"
+    description: "Role reference for this account target"
+    example:
+      id: "e7697a1e96d04db1ac7b0f4544915d2c"
+      type: "ACCESS_PROFILE"
+      name: "Marketing Access Profile"

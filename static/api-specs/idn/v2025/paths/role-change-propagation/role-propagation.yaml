@@ -1,0 +1,61 @@
+post:
+  operationId: startRolePropagation
+  summary: Initiate Role Propagation process
+  tags:
+    - Role Propagation
+  description: >- 
+    This endpoint initiates a role change propagation process for a tenant asynchronously. 
+    If all preconditions are met, the request is accepted and a rolePropagationId is returned which 
+    can be used to view the status.
+    
+    API throws 4xx if any of the following conditions are met
+    - Role propagation feature is disabled 
+    - There is an ongoing role propagation for the tenant
+    - Role refresh needs to be kicked off as part of the role propagation (skipRoleRefresh=false) and there is an ongoing refresh for the tenant
+  parameters:
+    - in: query
+      name: skipRoleRefresh
+      schema:
+        type: boolean
+        default: false
+      example: true
+      description: When true, the role refresh is not performed. Keeping it false is recommended.
+      required: false
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  responses:
+    '202':
+      description: Role Propagation has sucessfully started.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/role-change-propagation/role-propagation-response.yaml'
+          example:
+            {
+              "rolePropagationId": "47b9fb02-e12e-42ba-8bfe-1860d78c88eb"
+            }
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+  security:
+    - userAuth: [idn:role-propagation:write]
+    - applicationAuth: [idn:role-propagation:write]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - API
+    - HELPDESK

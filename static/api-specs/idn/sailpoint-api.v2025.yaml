@@ -881,6 +881,12 @@ tags:
       With this functionality in place, administrators can determine which access items can be requested with the [Access Request APIs](https://developer.sailpoint.com/docs/api/v2025/access-requests/), along with their statuses. 
       This can be helpful for administrators who are implementing and customizing access request functionality as a way of checking which items are requestable as they are created, assigned, and made available.
   - name: Role Insights
+  - name: Role Propagation
+    description: |
+      Role Change Propagation ensures that any changes to the composition of a role’s access objects 
+      (entitlements, access profiles, or dimensions) are applied to all member identities. 
+      For example: If an entitlement is removed from a role, all identities assigned to that role 
+      should lose access to that entitlement as part of this process.
   - name: Roles
     description: |
       Use this API to implement and customize role functionality.
@@ -2290,6 +2296,14 @@ paths:
     $ref: ./v2025/paths/role-mining-potential-roles-draft.yaml
   /role-mining-potential-roles/{potentialRoleId}/sources/{sourceId}/identityUsage:
     $ref: ./v2025/paths/role-mining-potential-role-source-identity-usage.yaml
+  /role-propagation:
+    $ref: ./v2025/paths/role-change-propagation/role-propagation.yaml
+  /role-propagation/{rolePropagationId}/status:
+    $ref: ./v2025/paths/role-change-propagation/role-propagation-status.yaml
+  /role-propagation/is-running:
+    $ref: ./v2025/paths/role-change-propagation/role-propagation-ongoing.yaml
+  /role-propagation/terminate:
+    $ref: ./v2025/paths/role-change-propagation/role-propagation-terminate.yaml
   /roles/{id}/entitlements:
     $ref: ./v2025/paths/role-entitlements.yaml
   /send-test-notification:

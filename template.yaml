@@ -332,6 +332,7 @@ Resources:
           MinTTL: 0
           DefaultTTL: 3600
           MaxTTL: 86400
+          ResponseHeadersPolicyId: !Ref DeveloperSailpointResponseHeadersPolicy
         PriceClass: "PriceClass_200"
         Restrictions:
           GeoRestriction:
@@ -351,6 +352,16 @@ Resources:
         OriginAccessControlOriginType: "s3"
         SigningBehavior: "always"
         SigningProtocol: "sigv4"
+  DeveloperSailpointResponseHeadersPolicy:
+    Type: "AWS::CloudFront::ResponseHeadersPolicy"
+    Properties:
+      ResponseHeadersPolicyConfig:
+        Name: !Sub "${AWS::StackName}-security-headers"
+        Comment: "Security headers for developer.sailpoint.com including CSP"
+        SecurityHeadersConfig:
+          ContentSecurityPolicy:
+            ContentSecurityPolicy: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://code.jquery.com https://www.googletagmanager.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https: http:; font-src 'self' data: https://cdn.jsdelivr.net; connect-src 'self' https://*.algolia.net https://*.algolianet.com https://www.googletagmanager.com; frame-src 'self' https://www.googletagmanager.com;"
+            Override: true
 Parameters:
   AuthUsername:
     Type: String

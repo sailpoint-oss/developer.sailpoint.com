@@ -112,3 +112,6 @@ yarn.lock
 
 #VS Code
 .vscode
+.shipmate/
+.cursor/
+

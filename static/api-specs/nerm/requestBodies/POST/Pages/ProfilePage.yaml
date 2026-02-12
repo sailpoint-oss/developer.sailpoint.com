@@ -5,5 +5,4 @@ content:
       type: object
       properties:
         page:
-          type: object
           $ref: "../../../schemas/POST/Pages/ProfilePage.yaml"

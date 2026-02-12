@@ -6,8 +6,6 @@ properties:
     readOnly: true
   uid:
     type: string
-    minLength: 32
-    maxLength: 32
     readOnly: true
   label:
     type: string

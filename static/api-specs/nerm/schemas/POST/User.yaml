@@ -1,14 +1,17 @@
 type: object
+required:
+  - name
+  - email
+  - type
+  - login
 properties:
   name:
     type: string
-    required: true
     description: The user name
     example: Bob
   email:
     type: string
     format: email
-    required: true
     description: The user email
     example: test@sailpoint.com
   type:
@@ -29,12 +32,10 @@ properties:
   status:
     type: string
     enum: [Active, Pending, Disabled]
-    required: true
     description: The user status
     example: Active
   login:
     type: string
-    required: true
     description: The user login
     example: my_user
   group_strings:
@@ -48,10 +49,8 @@ properties:
   password:
     type: string
     description: The user password. Not required for NeprofileUser
-    required: false
     example: U*bF7hy9fW
   sailpoint_identity_id:
     type: string
-    format: string
     description: The SailPoint Identity ID associated with this user
     example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e

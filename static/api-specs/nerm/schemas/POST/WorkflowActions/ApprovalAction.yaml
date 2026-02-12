@@ -1,20 +1,20 @@
 type: object
+required:
+  - workflow_id
+  - page_id
 properties:
   workflow_id:
     type: string
     format: uuid
-    required: true
     description: The workflow the workflow action belongs to.
     example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
   description:
     type: string
-    required: false
     description: The description of the workflow action.
     example: Require approval from another user or a group of users with a specific role.
   page_id:
     type: string
     format: uuid
-    required: true
     description: The page the workflow action should render.
     example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
   archived:

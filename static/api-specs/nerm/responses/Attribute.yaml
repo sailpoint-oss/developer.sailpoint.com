@@ -5,5 +5,4 @@ content:
       type: object
       properties:
         ne_attribute:
-          type: object
           $ref: '../schemas/GET/Attribute.yaml'

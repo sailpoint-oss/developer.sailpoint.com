@@ -8,8 +8,6 @@ properties:
     description: ID of the object to retrieve or update
   uid:
     type: string
-    minLength: 32
-    maxLength: 32
     readonly: true
     example: user1
     description: UID of the user

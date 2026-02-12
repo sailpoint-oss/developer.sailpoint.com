@@ -1,4 +1,6 @@
 type: object
+required:
+  - label
 properties:
   id:
     description: ID of ne attribute
@@ -9,18 +11,15 @@ properties:
   uid:
     description: Ne attribute's uid
     type: string
-    minLength: 32
-    maxLength: 32
     readOnly: true
     example: 1246d8b3-ac29-4015-8154-dea4434a73fa
   label:
     description: Ne attribute's label
     type: string
-    required: true
     readOnly: true
     example: object
   synced:
     description: synced_attribute ID if there is one
-    type: uuid
-    required: false
+    type: string
+    format: uuid
     example: 1246d8b3-ac29-4015-8154-dea4434a73fa

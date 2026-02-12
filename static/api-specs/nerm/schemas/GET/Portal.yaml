@@ -10,8 +10,6 @@ properties:
     description: the Portal ID set by the user
     example: "portal_uid"
     type: string
-    minLength: 32
-    maxLength: 32
     readonly: true
   inactivity_timeout:
     description: the amount of time, in minutes, that a user can be inactive before its logged out

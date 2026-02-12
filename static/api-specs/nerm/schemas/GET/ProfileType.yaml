@@ -8,8 +8,6 @@ properties:
     example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
   uid:
     type: string
-    minLength: 32
-    maxLength: 32
     readOnly: true
     description: The objects UID.
     example: ptUid
@@ -53,8 +51,6 @@ properties:
           example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
         uid:
           type: string
-          minLength: 32
-          maxLength: 32
           description: The user-specified identifier of the properties that are used for duplication protection.
           example: attribute-uid
         profile_type_id:
@@ -79,8 +75,6 @@ properties:
           example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
         uid:
           type: string
-          minLength: 32
-          maxLength: 32
           description: The user-specified identifier of the profile type naming.
           example: profile-type-name
         profile_type_id:

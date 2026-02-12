@@ -86,8 +86,6 @@ properties:
     example: Enabled
   uid:
     type: string
-    minLength: 32
-    maxLength: 32
     readOnly: true
     description: The user-specified identifier of the workflow.
     example: my_uid

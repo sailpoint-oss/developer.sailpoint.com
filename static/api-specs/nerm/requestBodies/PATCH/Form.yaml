@@ -5,5 +5,4 @@ content:
       type: object
       properties:
         role:
-          type: object
           $ref: "../../schemas/PATCH/Form.yaml"

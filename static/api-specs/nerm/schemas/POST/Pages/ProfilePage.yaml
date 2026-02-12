@@ -5,7 +5,7 @@ properties:
     description: The user-specified identifier of the page
     example: page_uid
   description:
-    type: text
+    type: string
     example: Page for workflow
     description: The description of the page
   name:

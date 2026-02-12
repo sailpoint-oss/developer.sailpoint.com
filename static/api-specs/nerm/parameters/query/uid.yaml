@@ -4,6 +4,4 @@ description: Workflow session user-specified identifier (UID) for filtering
 required: false
 schema:
   type: string
-  minLength: 32
-  maxLength: 32
   example: some_workflow_session_123

@@ -1,4 +1,6 @@
 type: object
+required:
+  - element_type
 properties:
   id:
     type: string
@@ -13,7 +15,6 @@ properties:
   element_type:
     type: string
     enum: [PageContent, Form]
-    required: true
     description: The type of content on the page.
     example: PageContent
   page_uid:

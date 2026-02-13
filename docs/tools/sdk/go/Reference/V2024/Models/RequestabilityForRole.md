@@ -18,8 +18,6 @@ Name | Type | Description | Notes
 **CommentsRequired** | Pointer to **NullableBool** | Whether the requester of the containing object must provide comments justifying the request | [optional] [default to false]
 **DenialCommentsRequired** | Pointer to **NullableBool** | Whether an approver must provide comments when denying the request | [optional] [default to false]
 **ReauthorizationRequired** | Pointer to **NullableBool** | Indicates whether reauthorization is required for the request. | [optional] [default to false]
-**RequireEndDate** | Pointer to **NullableBool** | Indicates whether the requester of the containing object must provide access end date. | [optional] [default to false]
-**MaxPermittedAccessDuration** | Pointer to [**NullableAccessDuration**](access-duration) |  | [optional] 
 **ApprovalSchemes** | Pointer to [**[]ApprovalSchemeForRole**](approval-scheme-for-role) | List describing the steps in approving the request | [optional] 
 
 ## Methods
@@ -146,76 +144,6 @@ HasReauthorizationRequired returns a boolean if a field has been set.
 `func (o *RequestabilityForRole) UnsetReauthorizationRequired()`
 
 UnsetReauthorizationRequired ensures that no value is present for ReauthorizationRequired, not even an explicit nil
-### GetRequireEndDate
-
-`func (o *RequestabilityForRole) GetRequireEndDate() bool`
-
-GetRequireEndDate returns the RequireEndDate field if non-nil, zero value otherwise.
-
-### GetRequireEndDateOk
-
-`func (o *RequestabilityForRole) GetRequireEndDateOk() (*bool, bool)`
-
-GetRequireEndDateOk returns a tuple with the RequireEndDate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRequireEndDate
-
-`func (o *RequestabilityForRole) SetRequireEndDate(v bool)`
-
-SetRequireEndDate sets RequireEndDate field to given value.
-
-### HasRequireEndDate
-
-`func (o *RequestabilityForRole) HasRequireEndDate() bool`
-
-HasRequireEndDate returns a boolean if a field has been set.
-
-### SetRequireEndDateNil
-
-`func (o *RequestabilityForRole) SetRequireEndDateNil(b bool)`
-
- SetRequireEndDateNil sets the value for RequireEndDate to be an explicit nil
-
-### UnsetRequireEndDate
-`func (o *RequestabilityForRole) UnsetRequireEndDate()`
-
-UnsetRequireEndDate ensures that no value is present for RequireEndDate, not even an explicit nil
-### GetMaxPermittedAccessDuration
-
-`func (o *RequestabilityForRole) GetMaxPermittedAccessDuration() AccessDuration`
-
-GetMaxPermittedAccessDuration returns the MaxPermittedAccessDuration field if non-nil, zero value otherwise.
-
-### GetMaxPermittedAccessDurationOk
-
-`func (o *RequestabilityForRole) GetMaxPermittedAccessDurationOk() (*AccessDuration, bool)`
-
-GetMaxPermittedAccessDurationOk returns a tuple with the MaxPermittedAccessDuration field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMaxPermittedAccessDuration
-
-`func (o *RequestabilityForRole) SetMaxPermittedAccessDuration(v AccessDuration)`
-
-SetMaxPermittedAccessDuration sets MaxPermittedAccessDuration field to given value.
-
-### HasMaxPermittedAccessDuration
-
-`func (o *RequestabilityForRole) HasMaxPermittedAccessDuration() bool`
-
-HasMaxPermittedAccessDuration returns a boolean if a field has been set.
-
-### SetMaxPermittedAccessDurationNil
-
-`func (o *RequestabilityForRole) SetMaxPermittedAccessDurationNil(b bool)`
-
- SetMaxPermittedAccessDurationNil sets the value for MaxPermittedAccessDuration to be an explicit nil
-
-### UnsetMaxPermittedAccessDuration
-`func (o *RequestabilityForRole) UnsetMaxPermittedAccessDuration()`
-
-UnsetMaxPermittedAccessDuration ensures that no value is present for MaxPermittedAccessDuration, not even an explicit nil
 ### GetApprovalSchemes
 
 `func (o *RequestabilityForRole) GetApprovalSchemes() []ApprovalSchemeForRole`

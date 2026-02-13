@@ -1,4 +1,7 @@
 type: object
+required:
+  - id
+  - scope
 properties:
   tenantId:
     type: string
@@ -7,11 +10,49 @@ properties:
   id:
     type: string
     example: "5804e7d6-e04b-400f-9fb8-dff894419a2f"
-    description: ID of the approval configuration.
+    description:
+      The ID defined by the scope field, where [[id]]:[[scope]] is the following
+
+      [[roleID]]:ROLE
+      
+      [[entitlementID]]:ENTITLEMENT
+      
+      [[accessProfileID]]:ACCESS_PROFILE
+      
+      [[sourceID]]:SOURCE
+      
+      [[applicationID]]:APPLICATION
+      
+      ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
+      
+      ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
+      
+      [[tenantID]]:TENANT
+        
+      [[domainObjectID]]:DOMAIN_OBJECT
   scope:
     type: string
     example: "DOMAIN_OBJECT"
-    description: The type/scope of the configuration. Ie DOMAIN_OBJECT, APPROVAL_TYPE, TENANT
+    description:
+      The scope of the field, where [[id]]:[[scope]] is the following
+
+      [[roleID]]:ROLE
+      
+      [[entitlementID]]:ENTITLEMENT
+      
+      [[accessProfileID]]:ACCESS_PROFILE
+      
+      [[sourceID]]:SOURCE
+      
+      [[applicationID]]:APPLICATION
+      
+      ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
+      
+      ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
+      
+      [[tenantID]]:TENANT
+        
+      [[domainObjectID]]:DOMAIN_OBJECT
   reminderConfig:
     type: object
     properties:

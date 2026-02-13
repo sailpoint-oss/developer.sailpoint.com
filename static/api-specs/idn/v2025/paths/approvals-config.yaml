@@ -9,57 +9,6 @@ put:
   summary: Put Approval Config
   description: >-
     Upserts a singular approval configuration that matches the given configID and configScope. If id and scope are not provided, it will default to setting the tenant config.
-  parameters:
-  - in: query
-    name: id
-    required: false
-    schema:
-      type: string
-    description: |
-      The ID defined by the scope field, where [[id]]:[[scope]] is the following:
-    
-      [[roleID]]:ROLE
-      
-      [[entitlementID]]:ENTITLEMENT
-      
-      [[accessProfileID]]:ACCESS_PROFILE
-      
-      [[sourceID]]:SOURCE
-      
-      [[applicationID]]:APPLICATION
-      
-      ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
-      
-      ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
-      
-      [[tenantID]]:TENANT
-    example: 38453251-6be2-5f8f-df93-5ce19e295837
-    x-sailpoint-resource-operation-id: getApprovals
-  - in: query
-    name: scope
-    required: false
-    schema:
-      type: string
-    description: |
-      The scope of the field, where [[id]]:[[scope]] is the following:
-      
-      [[roleID]]:ROLE
-      
-      [[entitlementID]]:ENTITLEMENT
-      
-      [[accessProfileID]]:ACCESS_PROFILE
-      
-      [[sourceID]]:SOURCE
-      
-      [[applicationID]]:APPLICATION
-      
-      ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
-      
-      ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
-      
-      [[tenantID]]:TENANT
-    example: ROLE
-    x-sailpoint-resource-operation-id: getApprovals
   requestBody:
     required: true
     content:

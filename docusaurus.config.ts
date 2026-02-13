@@ -86,7 +86,7 @@ const config: Config = {
       { name: 'twitter:image', content: 'https://developer.sailpoint.com/img/SailPoint-Logo-OG.png' },
 
       // Content Security Policy
-      { 'http-equiv': 'Content-Security-Policy', content: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://code.jquery.com https://www.googletagmanager.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://p.typekit.net https://use.typekit.net; img-src 'self' data: https: http:; font-src 'self' data: https://cdn.jsdelivr.net https://use.typekit.net; connect-src 'self' http://localhost:3000 https://nug87yusrg.execute-api.us-east-1.amazonaws.com/Prod/* https://*.algolia.net https://*.algolianet.com https://www.googletagmanager.com https://www.google.com https://analytics.google.com https://developer.sailpoint.com; frame-src 'self' https://www.googletagmanager.com https://www.youtube.com https://play.vidyard.com;" },
+      { 'http-equiv': 'Content-Security-Policy', content: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://code.jquery.com https://www.googletagmanager.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://p.typekit.net https://use.typekit.net; img-src 'self' data: https: http:; font-src 'self' data: https://cdn.jsdelivr.net https://use.typekit.net; connect-src 'self' http://localhost:3000 https://*.algolia.net https://*.algolianet.com https://www.googletagmanager.com https://www.google.com https://analytics.google.com https://developer.sailpoint.com; frame-src 'self' https://www.googletagmanager.com https://www.youtube.com https://play.vidyard.com;" },
     ],
     algolia: {
       appId: 'TB01H1DFAM',

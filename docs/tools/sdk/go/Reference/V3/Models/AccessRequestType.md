@@ -18,6 +18,4 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestType', 'AccessRequestTyp
 
 * `REVOKE_ACCESS` (value: `"REVOKE_ACCESS"`)
 
-* `MODIFY_ACCESS` (value: `"MODIFY_ACCESS"`)
-
 

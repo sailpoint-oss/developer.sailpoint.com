@@ -103,7 +103,6 @@ Method | HTTP request | Description
 [**import-entitlements**](#import-entitlements) | **Post** `/sources/{sourceId}/load-entitlements` | Entitlement aggregation
 [**import-entitlements-schema**](#import-entitlements-schema) | **Post** `/sources/{id}/schemas/entitlements` | Uploads source entitlements schema template
 [**import-uncorrelated-accounts**](#import-uncorrelated-accounts) | **Post** `/sources/{id}/load-uncorrelated-accounts` | Process uncorrelated accounts
-[**list-password-policy-holders-on-source**](#list-password-policy-holders-on-source) | **Get** `/sources/{sourceId}/password-policies` | Get Password Policy for source
 [**list-provisioning-policies**](#list-provisioning-policies) | **Get** `/sources/{sourceId}/provisioning-policies` | Lists provisioningpolicies
 [**list-sources**](#list-sources) | **Get** `/sources` | Lists all sources in identitynow.
 [**ping-cluster**](#ping-cluster) | **Post** `/sources/{sourceId}/connector/ping-cluster` | Ping cluster for source connector
@@ -2451,80 +2450,6 @@ func main() {
 
 [[Back to top]](#)
 
-## list-password-policy-holders-on-source
-Get Password Policy for source
-This API can be used to get Password Policy in IdentityNow for the specified Source.
-Source must support PASSWORD feature.
-
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-password-policy-holders-on-source)
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**sourceId** | **string** | The Source id | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListPasswordPolicyHoldersOnSourceRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
- **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
- **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
-
-### Return type
-
-[**[]PasswordPolicyHoldersDtoInner**](../models/password-policy-holders-dto-inner)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-  
-    
-	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
-)
-
-func main() {
-    sourceId := `8c190e6787aa4ed9a90bd9d5344523fb` // string | The Source id # string | The Source id
-    offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-
-    
-
-    configuration := sailpoint.NewDefaultConfiguration()
-    apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2025.SourcesAPI.ListPasswordPolicyHoldersOnSource(context.Background(), sourceId).Execute()
-	  //resp, r, err := apiClient.V2025.SourcesAPI.ListPasswordPolicyHoldersOnSource(context.Background(), sourceId).Offset(offset).Limit(limit).Count(count).Execute()
-    if err != nil {
-	    fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.ListPasswordPolicyHoldersOnSource``: %v\n", err)
-	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListPasswordPolicyHoldersOnSource`: []PasswordPolicyHoldersDtoInner
-    fmt.Fprintf(os.Stdout, "Response from `SourcesAPI.ListPasswordPolicyHoldersOnSource`: %v\n", resp)
-}
-```
-
-[[Back to top]](#)
-
 ## list-provisioning-policies
 Lists provisioningpolicies
 This end-point lists all the ProvisioningPolicies in IdentityNow.
@@ -4083,12 +4008,7 @@ func main() {
               "approverType" : "GOVERNANCE_GROUP"
             } ],
             "reauthorizationRequired" : false,
-            "requestCommentRequired" : true,
-            "requireEndDate" : true,
-            "maxPermittedAccessDuration" : {
-              "value" : 5,
-              "timeUnit" : "DAYS"
-            }
+            "requestCommentRequired" : true
           },
           "revocationRequestConfig" : {
             "approvalSchemes" : [ {

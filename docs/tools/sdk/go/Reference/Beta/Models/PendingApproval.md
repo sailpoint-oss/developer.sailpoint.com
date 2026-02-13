@@ -33,10 +33,11 @@ Name | Type | Description | Notes
 **RemoveDate** | Pointer to **SailPointTime** | The date the role or access profile or entitlement is no longer assigned to the specified identity. | [optional] 
 **RemoveDateUpdateRequested** | Pointer to **bool** | If true, then the request is to change the remove date or sunset date. | [optional] [default to false]
 **CurrentRemoveDate** | Pointer to **SailPointTime** | The remove date or sunset date that was assigned at the time of the request. | [optional] 
-**SodViolationContext** | Pointer to [**NullableSodViolationContextCheckCompleted1**](sod-violation-context-check-completed1) |  | [optional] 
+**SodViolationContext** | Pointer to [**NullableSodViolationContextCheckCompleted2**](sod-violation-context-check-completed2) |  | [optional] 
 **ClientMetadata** | Pointer to **map[string]string** | Arbitrary key-value pairs, if any were included in the corresponding access request item | [optional] 
 **RequestedAccounts** | Pointer to [**[]RequestedAccountRef**](requested-account-ref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
 **PrivilegeLevel** | Pointer to **NullableString** | The privilege level of the requested access item, if applicable. | [optional] 
+**MaxPermittedAccessDuration** | Pointer to [**NullablePendingApprovalMaxPermittedAccessDuration**](pending-approval-max-permitted-access-duration) |  | [optional] 
 
 ## Methods
 
@@ -519,20 +520,20 @@ HasCurrentRemoveDate returns a boolean if a field has been set.
 
 ### GetSodViolationContext
 
-`func (o *PendingApproval) GetSodViolationContext() SodViolationContextCheckCompleted1`
+`func (o *PendingApproval) GetSodViolationContext() SodViolationContextCheckCompleted2`
 
 GetSodViolationContext returns the SodViolationContext field if non-nil, zero value otherwise.
 
 ### GetSodViolationContextOk
 
-`func (o *PendingApproval) GetSodViolationContextOk() (*SodViolationContextCheckCompleted1, bool)`
+`func (o *PendingApproval) GetSodViolationContextOk() (*SodViolationContextCheckCompleted2, bool)`
 
 GetSodViolationContextOk returns a tuple with the SodViolationContext field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSodViolationContext
 
-`func (o *PendingApproval) SetSodViolationContext(v SodViolationContextCheckCompleted1)`
+`func (o *PendingApproval) SetSodViolationContext(v SodViolationContextCheckCompleted2)`
 
 SetSodViolationContext sets SodViolationContext field to given value.
 
@@ -657,4 +658,39 @@ HasPrivilegeLevel returns a boolean if a field has been set.
 `func (o *PendingApproval) UnsetPrivilegeLevel()`
 
 UnsetPrivilegeLevel ensures that no value is present for PrivilegeLevel, not even an explicit nil
+### GetMaxPermittedAccessDuration
+
+`func (o *PendingApproval) GetMaxPermittedAccessDuration() PendingApprovalMaxPermittedAccessDuration`
+
+GetMaxPermittedAccessDuration returns the MaxPermittedAccessDuration field if non-nil, zero value otherwise.
+
+### GetMaxPermittedAccessDurationOk
+
+`func (o *PendingApproval) GetMaxPermittedAccessDurationOk() (*PendingApprovalMaxPermittedAccessDuration, bool)`
+
+GetMaxPermittedAccessDurationOk returns a tuple with the MaxPermittedAccessDuration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxPermittedAccessDuration
+
+`func (o *PendingApproval) SetMaxPermittedAccessDuration(v PendingApprovalMaxPermittedAccessDuration)`
+
+SetMaxPermittedAccessDuration sets MaxPermittedAccessDuration field to given value.
+
+### HasMaxPermittedAccessDuration
+
+`func (o *PendingApproval) HasMaxPermittedAccessDuration() bool`
+
+HasMaxPermittedAccessDuration returns a boolean if a field has been set.
+
+### SetMaxPermittedAccessDurationNil
+
+`func (o *PendingApproval) SetMaxPermittedAccessDurationNil(b bool)`
+
+ SetMaxPermittedAccessDurationNil sets the value for MaxPermittedAccessDuration to be an explicit nil
+
+### UnsetMaxPermittedAccessDuration
+`func (o *PendingApproval) UnsetMaxPermittedAccessDuration()`
+
+UnsetMaxPermittedAccessDuration ensures that no value is present for MaxPermittedAccessDuration, not even an explicit nil
 

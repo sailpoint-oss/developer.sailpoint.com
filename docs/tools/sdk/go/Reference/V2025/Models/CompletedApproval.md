@@ -40,6 +40,7 @@ Name | Type | Description | Notes
 **ClientMetadata** | Pointer to **map[string]string** | Arbitrary key-value pairs provided during the request. | [optional] 
 **RequestedAccounts** | Pointer to [**[]RequestedAccountRef**](requested-account-ref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
 **PrivilegeLevel** | Pointer to **NullableString** | The privilege level of the requested access item, if applicable. | [optional] 
+**MaxPermittedAccessDuration** | Pointer to [**NullablePendingApprovalMaxPermittedAccessDuration**](pending-approval-max-permitted-access-duration) |  | [optional] 
 
 ## Methods
 
@@ -755,4 +756,39 @@ HasPrivilegeLevel returns a boolean if a field has been set.
 `func (o *CompletedApproval) UnsetPrivilegeLevel()`
 
 UnsetPrivilegeLevel ensures that no value is present for PrivilegeLevel, not even an explicit nil
+### GetMaxPermittedAccessDuration
+
+`func (o *CompletedApproval) GetMaxPermittedAccessDuration() PendingApprovalMaxPermittedAccessDuration`
+
+GetMaxPermittedAccessDuration returns the MaxPermittedAccessDuration field if non-nil, zero value otherwise.
+
+### GetMaxPermittedAccessDurationOk
+
+`func (o *CompletedApproval) GetMaxPermittedAccessDurationOk() (*PendingApprovalMaxPermittedAccessDuration, bool)`
+
+GetMaxPermittedAccessDurationOk returns a tuple with the MaxPermittedAccessDuration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxPermittedAccessDuration
+
+`func (o *CompletedApproval) SetMaxPermittedAccessDuration(v PendingApprovalMaxPermittedAccessDuration)`
+
+SetMaxPermittedAccessDuration sets MaxPermittedAccessDuration field to given value.
+
+### HasMaxPermittedAccessDuration
+
+`func (o *CompletedApproval) HasMaxPermittedAccessDuration() bool`
+
+HasMaxPermittedAccessDuration returns a boolean if a field has been set.
+
+### SetMaxPermittedAccessDurationNil
+
+`func (o *CompletedApproval) SetMaxPermittedAccessDurationNil(b bool)`
+
+ SetMaxPermittedAccessDurationNil sets the value for MaxPermittedAccessDuration to be an explicit nil
+
+### UnsetMaxPermittedAccessDuration
+`func (o *CompletedApproval) UnsetMaxPermittedAccessDuration()`
+
+UnsetMaxPermittedAccessDuration ensures that no value is present for MaxPermittedAccessDuration, not even an explicit nil
 

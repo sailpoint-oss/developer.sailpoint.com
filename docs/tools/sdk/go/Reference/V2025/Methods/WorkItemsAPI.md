@@ -248,17 +248,6 @@ func main() {
 [[Back to top]](#)
 
 ## forward-work-item
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.Experimental = true
- ```
-:::
 Forward a work item
 This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
 
@@ -280,7 +269,6 @@ Other parameters are passed through a pointer to a apiForwardWorkItemRequest str
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **workItemForward** | [**WorkItemForward**](../models/work-item-forward) |  | 
 
 ### Return type
@@ -308,7 +296,6 @@ import (
 
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The ID of the work item # string | The ID of the work item
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     workitemforward := []byte(`{
           "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
           "comment" : "I'm going on vacation.",
@@ -324,8 +311,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    r, err := apiClient.V2025.WorkItemsAPI.ForwardWorkItem(context.Background(), id).XSailPointExperimental(xSailPointExperimental).WorkItemForward(workItemForward).Execute()
-	  //r, err := apiClient.V2025.WorkItemsAPI.ForwardWorkItem(context.Background(), id).XSailPointExperimental(xSailPointExperimental).WorkItemForward(workItemForward).Execute()
+    r, err := apiClient.V2025.WorkItemsAPI.ForwardWorkItem(context.Background(), id).WorkItemForward(workItemForward).Execute()
+	  //r, err := apiClient.V2025.WorkItemsAPI.ForwardWorkItem(context.Background(), id).WorkItemForward(workItemForward).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ForwardWorkItem``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -405,17 +392,6 @@ func main() {
 [[Back to top]](#)
 
 ## get-count-completed-work-items
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.Experimental = true
- ```
-:::
 Count completed work items
 This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
 
@@ -432,7 +408,6 @@ Other parameters are passed through a pointer to a apiGetCountCompletedWorkItems
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **ownerId** | **string** | ID of the work item owner. | 
 
 ### Return type
@@ -459,15 +434,14 @@ import (
 )
 
 func main() {
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     ownerId := `ownerId_example` // string | ID of the work item owner. (optional) # string | ID of the work item owner. (optional)
 
     
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2025.WorkItemsAPI.GetCountCompletedWorkItems(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
-	  //resp, r, err := apiClient.V2025.WorkItemsAPI.GetCountCompletedWorkItems(context.Background()).XSailPointExperimental(xSailPointExperimental).OwnerId(ownerId).Execute()
+    resp, r, err := apiClient.V2025.WorkItemsAPI.GetCountCompletedWorkItems(context.Background()).Execute()
+	  //resp, r, err := apiClient.V2025.WorkItemsAPI.GetCountCompletedWorkItems(context.Background()).OwnerId(ownerId).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.GetCountCompletedWorkItems``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

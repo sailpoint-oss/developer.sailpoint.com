@@ -15,10 +15,10 @@ tags: ['SDK', 'Software Development Kit', 'SodViolationCheckResult1', 'BetaSodVi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** | Pointer to [**ErrorMessageDto**](error-message-dto) |  | [optional] 
+**Message** | Pointer to [**ErrorMessageDto1**](error-message-dto1) |  | [optional] 
 **ClientMetadata** | Pointer to **map[string]string** | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check. | [optional] 
 **ViolationContexts** | Pointer to [**[]SodViolationContext1**](sod-violation-context1) |  | [optional] 
-**ViolatedPolicies** | Pointer to [**[]SodPolicyDto1**](sod-policy-dto1) | A list of the Policies that were violated. | [optional] 
+**ViolatedPolicies** | Pointer to [**[]SodPolicyDto1**](sod-policy-dto1) | A list of the SOD policies that were violated. | [optional] 
 
 ## Methods
 
@@ -41,20 +41,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetMessage
 
-`func (o *SodViolationCheckResult1) GetMessage() ErrorMessageDto`
+`func (o *SodViolationCheckResult1) GetMessage() ErrorMessageDto1`
 
 GetMessage returns the Message field if non-nil, zero value otherwise.
 
 ### GetMessageOk
 
-`func (o *SodViolationCheckResult1) GetMessageOk() (*ErrorMessageDto, bool)`
+`func (o *SodViolationCheckResult1) GetMessageOk() (*ErrorMessageDto1, bool)`
 
 GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMessage
 
-`func (o *SodViolationCheckResult1) SetMessage(v ErrorMessageDto)`
+`func (o *SodViolationCheckResult1) SetMessage(v ErrorMessageDto1)`
 
 SetMessage sets Message field to given value.
 
@@ -89,6 +89,16 @@ SetClientMetadata sets ClientMetadata field to given value.
 
 HasClientMetadata returns a boolean if a field has been set.
 
+### SetClientMetadataNil
+
+`func (o *SodViolationCheckResult1) SetClientMetadataNil(b bool)`
+
+ SetClientMetadataNil sets the value for ClientMetadata to be an explicit nil
+
+### UnsetClientMetadata
+`func (o *SodViolationCheckResult1) UnsetClientMetadata()`
+
+UnsetClientMetadata ensures that no value is present for ClientMetadata, not even an explicit nil
 ### GetViolationContexts
 
 `func (o *SodViolationCheckResult1) GetViolationContexts() []SodViolationContext1`
@@ -114,6 +124,16 @@ SetViolationContexts sets ViolationContexts field to given value.
 
 HasViolationContexts returns a boolean if a field has been set.
 
+### SetViolationContextsNil
+
+`func (o *SodViolationCheckResult1) SetViolationContextsNil(b bool)`
+
+ SetViolationContextsNil sets the value for ViolationContexts to be an explicit nil
+
+### UnsetViolationContexts
+`func (o *SodViolationCheckResult1) UnsetViolationContexts()`
+
+UnsetViolationContexts ensures that no value is present for ViolationContexts, not even an explicit nil
 ### GetViolatedPolicies
 
 `func (o *SodViolationCheckResult1) GetViolatedPolicies() []SodPolicyDto1`
@@ -139,4 +159,14 @@ SetViolatedPolicies sets ViolatedPolicies field to given value.
 
 HasViolatedPolicies returns a boolean if a field has been set.
 
+### SetViolatedPoliciesNil
+
+`func (o *SodViolationCheckResult1) SetViolatedPoliciesNil(b bool)`
+
+ SetViolatedPoliciesNil sets the value for ViolatedPolicies to be an explicit nil
+
+### UnsetViolatedPolicies
+`func (o *SodViolationCheckResult1) UnsetViolatedPolicies()`
+
+UnsetViolatedPolicies ensures that no value is present for ViolatedPolicies, not even an explicit nil
 

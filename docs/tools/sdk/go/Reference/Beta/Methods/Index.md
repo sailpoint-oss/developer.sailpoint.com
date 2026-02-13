@@ -3,7 +3,6 @@ id: methods
 title: Methods
 pagination_label: Methods
 sidebar_label: Methods
-sidebar_key: beta-methods-golang
 sidebar_position: 3
 sidebar_class_name: methods
 keywords: ['go', 'Golang', 'sdk', 'methods'] 

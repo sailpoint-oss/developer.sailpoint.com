@@ -20,6 +20,8 @@ To view aggregation activity, administrators can select the Connections drop-dow
 In Account Aggregation, administrators can view the account aggregations&#39; statuses and details in the Account Activity Log.
 
 Refer to [Loading Account Data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html) for more information about account aggregations.
+
+If you are looking for the endpoint for account aggregations in a source, [click here](https://developer.sailpoint.com/docs/api/v2025/import-accounts)
  
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 

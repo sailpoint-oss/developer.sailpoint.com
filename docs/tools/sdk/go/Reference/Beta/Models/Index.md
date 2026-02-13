@@ -5,7 +5,6 @@ pagination_label: Models
 sidebar_label: Models
 sidebar_position: 3
 sidebar_class_name: models
-sidebar_key: beta-models-golang
 keywords: ['go', 'Golang', 'sdk', 'models'] 
 slug: /tools/sdk/go/beta/models
 tags: ['SDK', 'Software Development Kit', 'beta', 'models']

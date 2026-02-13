@@ -24,6 +24,25 @@ Name | Type | Description | Notes
 **DiscoveredAt** | Pointer to **SailPointTime** | The timestamp when the application was last received via an entitlement aggregation invocation  or a manual csv upload, in ISO 8601 format. | [optional] 
 **CreatedAt** | Pointer to **SailPointTime** | The timestamp when the application was first discovered, in ISO 8601 format. | [optional] 
 **Status** | Pointer to **string** | The status of an application within the discovery source.  By default this field is set to \"ACTIVE\" when the application is discovered.  If an application has been deleted from within the discovery source, the status will be set to \"INACTIVE\". | [optional] 
+**OperationalStatus** | Pointer to **string** | The operational status of the application. | [optional] 
+**DiscoverySourceCategory** | Pointer to **string** | The category of the discovery source. | [optional] 
+**LicenseCount** | Pointer to **int32** | The number of licenses associated with the application. | [optional] 
+**IsSanctioned** | Pointer to **bool** | Indicates whether the application is sanctioned. | [optional] [default to false]
+**Logo** | Pointer to **string** | URL of the application's logo. | [optional] 
+**AppUrl** | Pointer to **string** | The URL of the application. | [optional] 
+**Groups** | Pointer to **[]map[string]interface{}** | List of groups associated with the application. | [optional] 
+**UsersCount** | Pointer to **string** | The count of users associated with the application. | [optional] 
+**ApplicationOwner** | Pointer to **[]string** | The owners of the application. | [optional] 
+**ItApplicationOwner** | Pointer to **[]string** | The IT owners of the application. | [optional] 
+**BusinessCriticality** | Pointer to **string** | The business criticality level of the application. | [optional] 
+**DataClassification** | Pointer to **string** | The data classification level of the application. | [optional] 
+**BusinessUnit** | Pointer to **string** | The business unit associated with the application. | [optional] 
+**InstallType** | Pointer to **string** | The installation type of the application. | [optional] 
+**Environment** | Pointer to **string** | The environment in which the application operates. | [optional] 
+**RiskScore** | Pointer to **string** | The risk score of the application. | [optional] 
+**IsPrivileged** | Pointer to **bool** | Indicates whether the application has privileged access. | [optional] [default to false]
+**WarrantyExpiration** | Pointer to **string** | The warranty expiration date of the application. | [optional] 
+**Attributes** | Pointer to **map[string]interface{}** | Additional attributes of the application useful for visibility of governance posture. | [optional] 
 
 ## Methods
 
@@ -268,5 +287,480 @@ SetStatus sets Status field to given value.
 `func (o *SlimDiscoveredApplications) HasStatus() bool`
 
 HasStatus returns a boolean if a field has been set.
+
+### GetOperationalStatus
+
+`func (o *SlimDiscoveredApplications) GetOperationalStatus() string`
+
+GetOperationalStatus returns the OperationalStatus field if non-nil, zero value otherwise.
+
+### GetOperationalStatusOk
+
+`func (o *SlimDiscoveredApplications) GetOperationalStatusOk() (*string, bool)`
+
+GetOperationalStatusOk returns a tuple with the OperationalStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperationalStatus
+
+`func (o *SlimDiscoveredApplications) SetOperationalStatus(v string)`
+
+SetOperationalStatus sets OperationalStatus field to given value.
+
+### HasOperationalStatus
+
+`func (o *SlimDiscoveredApplications) HasOperationalStatus() bool`
+
+HasOperationalStatus returns a boolean if a field has been set.
+
+### GetDiscoverySourceCategory
+
+`func (o *SlimDiscoveredApplications) GetDiscoverySourceCategory() string`
+
+GetDiscoverySourceCategory returns the DiscoverySourceCategory field if non-nil, zero value otherwise.
+
+### GetDiscoverySourceCategoryOk
+
+`func (o *SlimDiscoveredApplications) GetDiscoverySourceCategoryOk() (*string, bool)`
+
+GetDiscoverySourceCategoryOk returns a tuple with the DiscoverySourceCategory field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDiscoverySourceCategory
+
+`func (o *SlimDiscoveredApplications) SetDiscoverySourceCategory(v string)`
+
+SetDiscoverySourceCategory sets DiscoverySourceCategory field to given value.
+
+### HasDiscoverySourceCategory
+
+`func (o *SlimDiscoveredApplications) HasDiscoverySourceCategory() bool`
+
+HasDiscoverySourceCategory returns a boolean if a field has been set.
+
+### GetLicenseCount
+
+`func (o *SlimDiscoveredApplications) GetLicenseCount() int32`
+
+GetLicenseCount returns the LicenseCount field if non-nil, zero value otherwise.
+
+### GetLicenseCountOk
+
+`func (o *SlimDiscoveredApplications) GetLicenseCountOk() (*int32, bool)`
+
+GetLicenseCountOk returns a tuple with the LicenseCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLicenseCount
+
+`func (o *SlimDiscoveredApplications) SetLicenseCount(v int32)`
+
+SetLicenseCount sets LicenseCount field to given value.
+
+### HasLicenseCount
+
+`func (o *SlimDiscoveredApplications) HasLicenseCount() bool`
+
+HasLicenseCount returns a boolean if a field has been set.
+
+### GetIsSanctioned
+
+`func (o *SlimDiscoveredApplications) GetIsSanctioned() bool`
+
+GetIsSanctioned returns the IsSanctioned field if non-nil, zero value otherwise.
+
+### GetIsSanctionedOk
+
+`func (o *SlimDiscoveredApplications) GetIsSanctionedOk() (*bool, bool)`
+
+GetIsSanctionedOk returns a tuple with the IsSanctioned field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsSanctioned
+
+`func (o *SlimDiscoveredApplications) SetIsSanctioned(v bool)`
+
+SetIsSanctioned sets IsSanctioned field to given value.
+
+### HasIsSanctioned
+
+`func (o *SlimDiscoveredApplications) HasIsSanctioned() bool`
+
+HasIsSanctioned returns a boolean if a field has been set.
+
+### GetLogo
+
+`func (o *SlimDiscoveredApplications) GetLogo() string`
+
+GetLogo returns the Logo field if non-nil, zero value otherwise.
+
+### GetLogoOk
+
+`func (o *SlimDiscoveredApplications) GetLogoOk() (*string, bool)`
+
+GetLogoOk returns a tuple with the Logo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLogo
+
+`func (o *SlimDiscoveredApplications) SetLogo(v string)`
+
+SetLogo sets Logo field to given value.
+
+### HasLogo
+
+`func (o *SlimDiscoveredApplications) HasLogo() bool`
+
+HasLogo returns a boolean if a field has been set.
+
+### GetAppUrl
+
+`func (o *SlimDiscoveredApplications) GetAppUrl() string`
+
+GetAppUrl returns the AppUrl field if non-nil, zero value otherwise.
+
+### GetAppUrlOk
+
+`func (o *SlimDiscoveredApplications) GetAppUrlOk() (*string, bool)`
+
+GetAppUrlOk returns a tuple with the AppUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAppUrl
+
+`func (o *SlimDiscoveredApplications) SetAppUrl(v string)`
+
+SetAppUrl sets AppUrl field to given value.
+
+### HasAppUrl
+
+`func (o *SlimDiscoveredApplications) HasAppUrl() bool`
+
+HasAppUrl returns a boolean if a field has been set.
+
+### GetGroups
+
+`func (o *SlimDiscoveredApplications) GetGroups() []map[string]interface{}`
+
+GetGroups returns the Groups field if non-nil, zero value otherwise.
+
+### GetGroupsOk
+
+`func (o *SlimDiscoveredApplications) GetGroupsOk() (*[]map[string]interface{}, bool)`
+
+GetGroupsOk returns a tuple with the Groups field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGroups
+
+`func (o *SlimDiscoveredApplications) SetGroups(v []map[string]interface{})`
+
+SetGroups sets Groups field to given value.
+
+### HasGroups
+
+`func (o *SlimDiscoveredApplications) HasGroups() bool`
+
+HasGroups returns a boolean if a field has been set.
+
+### GetUsersCount
+
+`func (o *SlimDiscoveredApplications) GetUsersCount() string`
+
+GetUsersCount returns the UsersCount field if non-nil, zero value otherwise.
+
+### GetUsersCountOk
+
+`func (o *SlimDiscoveredApplications) GetUsersCountOk() (*string, bool)`
+
+GetUsersCountOk returns a tuple with the UsersCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUsersCount
+
+`func (o *SlimDiscoveredApplications) SetUsersCount(v string)`
+
+SetUsersCount sets UsersCount field to given value.
+
+### HasUsersCount
+
+`func (o *SlimDiscoveredApplications) HasUsersCount() bool`
+
+HasUsersCount returns a boolean if a field has been set.
+
+### GetApplicationOwner
+
+`func (o *SlimDiscoveredApplications) GetApplicationOwner() []string`
+
+GetApplicationOwner returns the ApplicationOwner field if non-nil, zero value otherwise.
+
+### GetApplicationOwnerOk
+
+`func (o *SlimDiscoveredApplications) GetApplicationOwnerOk() (*[]string, bool)`
+
+GetApplicationOwnerOk returns a tuple with the ApplicationOwner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApplicationOwner
+
+`func (o *SlimDiscoveredApplications) SetApplicationOwner(v []string)`
+
+SetApplicationOwner sets ApplicationOwner field to given value.
+
+### HasApplicationOwner
+
+`func (o *SlimDiscoveredApplications) HasApplicationOwner() bool`
+
+HasApplicationOwner returns a boolean if a field has been set.
+
+### GetItApplicationOwner
+
+`func (o *SlimDiscoveredApplications) GetItApplicationOwner() []string`
+
+GetItApplicationOwner returns the ItApplicationOwner field if non-nil, zero value otherwise.
+
+### GetItApplicationOwnerOk
+
+`func (o *SlimDiscoveredApplications) GetItApplicationOwnerOk() (*[]string, bool)`
+
+GetItApplicationOwnerOk returns a tuple with the ItApplicationOwner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItApplicationOwner
+
+`func (o *SlimDiscoveredApplications) SetItApplicationOwner(v []string)`
+
+SetItApplicationOwner sets ItApplicationOwner field to given value.
+
+### HasItApplicationOwner
+
+`func (o *SlimDiscoveredApplications) HasItApplicationOwner() bool`
+
+HasItApplicationOwner returns a boolean if a field has been set.
+
+### GetBusinessCriticality
+
+`func (o *SlimDiscoveredApplications) GetBusinessCriticality() string`
+
+GetBusinessCriticality returns the BusinessCriticality field if non-nil, zero value otherwise.
+
+### GetBusinessCriticalityOk
+
+`func (o *SlimDiscoveredApplications) GetBusinessCriticalityOk() (*string, bool)`
+
+GetBusinessCriticalityOk returns a tuple with the BusinessCriticality field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBusinessCriticality
+
+`func (o *SlimDiscoveredApplications) SetBusinessCriticality(v string)`
+
+SetBusinessCriticality sets BusinessCriticality field to given value.
+
+### HasBusinessCriticality
+
+`func (o *SlimDiscoveredApplications) HasBusinessCriticality() bool`
+
+HasBusinessCriticality returns a boolean if a field has been set.
+
+### GetDataClassification
+
+`func (o *SlimDiscoveredApplications) GetDataClassification() string`
+
+GetDataClassification returns the DataClassification field if non-nil, zero value otherwise.
+
+### GetDataClassificationOk
+
+`func (o *SlimDiscoveredApplications) GetDataClassificationOk() (*string, bool)`
+
+GetDataClassificationOk returns a tuple with the DataClassification field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDataClassification
+
+`func (o *SlimDiscoveredApplications) SetDataClassification(v string)`
+
+SetDataClassification sets DataClassification field to given value.
+
+### HasDataClassification
+
+`func (o *SlimDiscoveredApplications) HasDataClassification() bool`
+
+HasDataClassification returns a boolean if a field has been set.
+
+### GetBusinessUnit
+
+`func (o *SlimDiscoveredApplications) GetBusinessUnit() string`
+
+GetBusinessUnit returns the BusinessUnit field if non-nil, zero value otherwise.
+
+### GetBusinessUnitOk
+
+`func (o *SlimDiscoveredApplications) GetBusinessUnitOk() (*string, bool)`
+
+GetBusinessUnitOk returns a tuple with the BusinessUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBusinessUnit
+
+`func (o *SlimDiscoveredApplications) SetBusinessUnit(v string)`
+
+SetBusinessUnit sets BusinessUnit field to given value.
+
+### HasBusinessUnit
+
+`func (o *SlimDiscoveredApplications) HasBusinessUnit() bool`
+
+HasBusinessUnit returns a boolean if a field has been set.
+
+### GetInstallType
+
+`func (o *SlimDiscoveredApplications) GetInstallType() string`
+
+GetInstallType returns the InstallType field if non-nil, zero value otherwise.
+
+### GetInstallTypeOk
+
+`func (o *SlimDiscoveredApplications) GetInstallTypeOk() (*string, bool)`
+
+GetInstallTypeOk returns a tuple with the InstallType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstallType
+
+`func (o *SlimDiscoveredApplications) SetInstallType(v string)`
+
+SetInstallType sets InstallType field to given value.
+
+### HasInstallType
+
+`func (o *SlimDiscoveredApplications) HasInstallType() bool`
+
+HasInstallType returns a boolean if a field has been set.
+
+### GetEnvironment
+
+`func (o *SlimDiscoveredApplications) GetEnvironment() string`
+
+GetEnvironment returns the Environment field if non-nil, zero value otherwise.
+
+### GetEnvironmentOk
+
+`func (o *SlimDiscoveredApplications) GetEnvironmentOk() (*string, bool)`
+
+GetEnvironmentOk returns a tuple with the Environment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnvironment
+
+`func (o *SlimDiscoveredApplications) SetEnvironment(v string)`
+
+SetEnvironment sets Environment field to given value.
+
+### HasEnvironment
+
+`func (o *SlimDiscoveredApplications) HasEnvironment() bool`
+
+HasEnvironment returns a boolean if a field has been set.
+
+### GetRiskScore
+
+`func (o *SlimDiscoveredApplications) GetRiskScore() string`
+
+GetRiskScore returns the RiskScore field if non-nil, zero value otherwise.
+
+### GetRiskScoreOk
+
+`func (o *SlimDiscoveredApplications) GetRiskScoreOk() (*string, bool)`
+
+GetRiskScoreOk returns a tuple with the RiskScore field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRiskScore
+
+`func (o *SlimDiscoveredApplications) SetRiskScore(v string)`
+
+SetRiskScore sets RiskScore field to given value.
+
+### HasRiskScore
+
+`func (o *SlimDiscoveredApplications) HasRiskScore() bool`
+
+HasRiskScore returns a boolean if a field has been set.
+
+### GetIsPrivileged
+
+`func (o *SlimDiscoveredApplications) GetIsPrivileged() bool`
+
+GetIsPrivileged returns the IsPrivileged field if non-nil, zero value otherwise.
+
+### GetIsPrivilegedOk
+
+`func (o *SlimDiscoveredApplications) GetIsPrivilegedOk() (*bool, bool)`
+
+GetIsPrivilegedOk returns a tuple with the IsPrivileged field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsPrivileged
+
+`func (o *SlimDiscoveredApplications) SetIsPrivileged(v bool)`
+
+SetIsPrivileged sets IsPrivileged field to given value.
+
+### HasIsPrivileged
+
+`func (o *SlimDiscoveredApplications) HasIsPrivileged() bool`
+
+HasIsPrivileged returns a boolean if a field has been set.
+
+### GetWarrantyExpiration
+
+`func (o *SlimDiscoveredApplications) GetWarrantyExpiration() string`
+
+GetWarrantyExpiration returns the WarrantyExpiration field if non-nil, zero value otherwise.
+
+### GetWarrantyExpirationOk
+
+`func (o *SlimDiscoveredApplications) GetWarrantyExpirationOk() (*string, bool)`
+
+GetWarrantyExpirationOk returns a tuple with the WarrantyExpiration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWarrantyExpiration
+
+`func (o *SlimDiscoveredApplications) SetWarrantyExpiration(v string)`
+
+SetWarrantyExpiration sets WarrantyExpiration field to given value.
+
+### HasWarrantyExpiration
+
+`func (o *SlimDiscoveredApplications) HasWarrantyExpiration() bool`
+
+HasWarrantyExpiration returns a boolean if a field has been set.
+
+### GetAttributes
+
+`func (o *SlimDiscoveredApplications) GetAttributes() map[string]interface{}`
+
+GetAttributes returns the Attributes field if non-nil, zero value otherwise.
+
+### GetAttributesOk
+
+`func (o *SlimDiscoveredApplications) GetAttributesOk() (*map[string]interface{}, bool)`
+
+GetAttributesOk returns a tuple with the Attributes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttributes
+
+`func (o *SlimDiscoveredApplications) SetAttributes(v map[string]interface{})`
+
+SetAttributes sets Attributes field to given value.
+
+### HasAttributes
+
+`func (o *SlimDiscoveredApplications) HasAttributes() bool`
+
+HasAttributes returns a boolean if a field has been set.
 
 

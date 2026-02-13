@@ -257,7 +257,12 @@ func main() {
               "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
               "approverType" : "GOVERNANCE_GROUP"
             } ],
-            "denialCommentsRequired" : true
+            "denialCommentsRequired" : true,
+            "requireEndDate" : true,
+            "maxPermittedAccessDuration" : {
+              "value" : 6,
+              "timeUnit" : "MONTHS"
+            }
           },
           "accessProfiles" : [ {
             "name" : "Access Profile 2567",

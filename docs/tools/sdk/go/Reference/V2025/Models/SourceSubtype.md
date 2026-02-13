@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **Description** | **string** | Description of the subtype. | 
 **Created** | Pointer to **SailPointTime** | Creation timestamp. | [optional] 
 **Modified** | Pointer to **SailPointTime** | Last modified timestamp. | [optional] 
+**Type** | Pointer to **string** | Type of the subtype. Either MACHINE OR null. | [optional] 
 
 ## Methods
 
@@ -201,5 +202,30 @@ SetModified sets Modified field to given value.
 `func (o *SourceSubtype) HasModified() bool`
 
 HasModified returns a boolean if a field has been set.
+
+### GetType
+
+`func (o *SourceSubtype) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *SourceSubtype) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *SourceSubtype) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *SourceSubtype) HasType() bool`
+
+HasType returns a boolean if a field has been set.
 
 

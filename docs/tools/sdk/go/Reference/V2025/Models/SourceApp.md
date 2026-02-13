@@ -21,10 +21,10 @@ Name | Type | Description | Notes
 **Created** | Pointer to **SailPointTime** | Time when the source app was created | [optional] 
 **Modified** | Pointer to **SailPointTime** | Time when the source app was last modified | [optional] 
 **Enabled** | Pointer to **bool** | True if the source app is enabled | [optional] [default to false]
-**ProvisionRequestEnabled** | Pointer to **bool** | True if the source app is provision request enabled | [optional] [default to false]
+**ProvisionRequestEnabled** | Pointer to **bool** | True if the app allows access request | [optional] [default to false]
 **Description** | Pointer to **string** | The description of the source app | [optional] 
 **MatchAllAccounts** | Pointer to **bool** | True if the source app match all accounts | [optional] [default to false]
-**AppCenterEnabled** | Pointer to **bool** | True if the source app is shown in the app center | [optional] [default to true]
+**AppCenterEnabled** | Pointer to **bool** | True if the app is visible in the request center | [optional] [default to true]
 **AccountSource** | Pointer to [**NullableSourceAppAccountSource**](source-app-account-source) |  | [optional] 
 **Owner** | Pointer to [**NullableBaseReferenceDto**](base-reference-dto) | The owner of source app | [optional] 
 

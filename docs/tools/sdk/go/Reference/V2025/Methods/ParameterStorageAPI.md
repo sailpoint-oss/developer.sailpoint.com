@@ -178,7 +178,7 @@ func main() {
 
 ## get-attestation-document
 Get an attestation document.
-Get an attestation document, and perform x25519 handshake to enabled end-to-end encrypted transport of parameter private fields.
+Get an attestation document containing a NIST P-384 service public key for an ECDHE handshake, enabling the end-to-end-encrypted transport of parameter private fields.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-attestation-document)
 
@@ -193,7 +193,7 @@ Other parameters are passed through a pointer to a apiGetAttestationDocumentRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key** | **string** | Base64Url encoded public key | 
+ **key** | **string** | Base64Url encoded NIST P-384 public key | 
 
 ### Return type
 
@@ -219,7 +219,7 @@ import (
 )
 
 func main() {
-    key := `cHVibGljIGtleSBnb2VzIGhlcmU=` // string | Base64Url encoded public key # string | Base64Url encoded public key
+    key := `BLdV-KA7nSRXx2XkksQX7bmOAShARsB3CCVWodKr4dOJj_puru76wy6drBTVlSytW_rDheLwepm9xdrRuqUI7p81wMP576frFBbsjndBKyRm3eouPbDcW8MAz0XRH1BB3w==` // string | Base64Url encoded NIST P-384 public key # string | Base64Url encoded NIST P-384 public key
 
     
 

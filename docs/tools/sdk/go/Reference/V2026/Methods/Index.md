@@ -5,7 +5,6 @@ pagination_label: Methods
 sidebar_label: Methods
 sidebar_position: 3
 sidebar_class_name: methods
-sidebar_key: v2026-methods-golang
 keywords: ['go', 'Golang', 'sdk', 'methods'] 
 slug: /tools/sdk/go/v2026/methods
 tags: ['SDK', 'Software Development Kit', 'v2026', 'methods']

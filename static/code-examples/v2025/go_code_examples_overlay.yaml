@@ -1,3 +1,105 @@
+- path: /access-model-metadata/attributes
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/access-model-metadata#create-access-model-metadata-attribute
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+           attributedto := []byte(`{
+          "multiselect" : false,
+          "values" : [ {
+            "name" : "Public",
+            "value" : "public",
+            "status" : "active"
+          }, {
+            "name" : "Public",
+            "value" : "public",
+            "status" : "active"
+          } ],
+          "name" : "Privacy",
+          "description" : "Specifies the level of privacy associated with an access item.",
+          "type" : "governance",
+          "objectTypes" : [ "entitlement" ],
+          "key" : "iscPrivacy",
+          "status" : "active"
+        }`) // AttributeDTO | Attribute to create
+
+          
+          var attributeDTO v2025.AttributeDTO
+          if err := json.Unmarshal(attributedto, &attributeDTO); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.AccessModelMetadataAPI.CreateAccessModelMetadataAttribute(context.Background()).AttributeDTO(attributeDTO).Execute()
+          //resp, r, err := apiClient.V2025.AccessModelMetadataAPI.CreateAccessModelMetadataAttribute(context.Background()).AttributeDTO(attributeDTO).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `AccessModelMetadataAPI.CreateAccessModelMetadataAttribute``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `CreateAccessModelMetadataAttribute`: AttributeDTO
+          fmt.Fprintf(os.Stdout, "Response from `AccessModelMetadataAPI.CreateAccessModelMetadataAttribute`: %v\n", resp)
+        }
+- path: /access-model-metadata/attributes/{key}/values
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/access-model-metadata#create-access-model-metadata-attribute-value
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          key := `iscPrivacy` // string | Technical name of the Attribute. # string | Technical name of the Attribute.
+           attributevaluedto := []byte(`{
+          "name" : "Public",
+          "value" : "public",
+          "status" : "active"
+        }`) // AttributeValueDTO | Attribute value to create
+
+          
+          var attributeValueDTO v2025.AttributeValueDTO
+          if err := json.Unmarshal(attributevaluedto, &attributeValueDTO); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.AccessModelMetadataAPI.CreateAccessModelMetadataAttributeValue(context.Background(), key).AttributeValueDTO(attributeValueDTO).Execute()
+          //resp, r, err := apiClient.V2025.AccessModelMetadataAPI.CreateAccessModelMetadataAttributeValue(context.Background(), key).AttributeValueDTO(attributeValueDTO).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `AccessModelMetadataAPI.CreateAccessModelMetadataAttributeValue``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `CreateAccessModelMetadataAttributeValue`: AttributeValueDTO
+          fmt.Fprintf(os.Stdout, "Response from `AccessModelMetadataAPI.CreateAccessModelMetadataAttributeValue`: %v\n", resp)
+        }
 - path: /access-model-metadata/attributes/{key}
   method: Get
   xCodeSample:
@@ -85,9 +187,8 @@
         )
 
         func main() {
-          filters := `name eq "Privacy"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  **Supported composite operators**: *and* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  **Supported composite operators**: *and* (optional)
+          filters := `name eq "Privacy"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* (optional)
           sorters := `name,-key` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** (optional)
-          offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
           count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
@@ -97,7 +198,7 @@
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
           resp, r, err := apiClient.V2025.AccessModelMetadataAPI.ListAccessModelMetadataAttribute(context.Background()).Execute()
-          //resp, r, err := apiClient.V2025.AccessModelMetadataAPI.ListAccessModelMetadataAttribute(context.Background()).Filters(filters).Sorters(sorters).Offset(offset).Limit(limit).Count(count).Execute()
+          //resp, r, err := apiClient.V2025.AccessModelMetadataAPI.ListAccessModelMetadataAttribute(context.Background()).Filters(filters).Sorters(sorters).Limit(limit).Count(count).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `AccessModelMetadataAPI.ListAccessModelMetadataAttribute``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -124,7 +225,6 @@
 
         func main() {
           key := `iscPrivacy` // string | Technical name of the Attribute. # string | Technical name of the Attribute.
-          offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
           count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
@@ -134,13 +234,96 @@
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
           resp, r, err := apiClient.V2025.AccessModelMetadataAPI.ListAccessModelMetadataAttributeValue(context.Background(), key).Execute()
-          //resp, r, err := apiClient.V2025.AccessModelMetadataAPI.ListAccessModelMetadataAttributeValue(context.Background(), key).Offset(offset).Limit(limit).Count(count).Execute()
+          //resp, r, err := apiClient.V2025.AccessModelMetadataAPI.ListAccessModelMetadataAttributeValue(context.Background(), key).Limit(limit).Count(count).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `AccessModelMetadataAPI.ListAccessModelMetadataAttributeValue``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
           }
           // response from `ListAccessModelMetadataAttributeValue`: []AttributeValueDTO
           fmt.Fprintf(os.Stdout, "Response from `AccessModelMetadataAPI.ListAccessModelMetadataAttributeValue`: %v\n", resp)
+        }
+- path: /access-model-metadata/attributes/{key}
+  method: Patch
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/access-model-metadata#update-access-model-metadata-attribute
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          key := `iscPrivacy` // string | Technical name of the Attribute. # string | Technical name of the Attribute.
+          jsonpatchoperation := []byte(``) // []JsonPatchOperation | JSON Patch array to apply
+
+          
+          var jsonPatchOperation []v2025.JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.AccessModelMetadataAPI.UpdateAccessModelMetadataAttribute(context.Background(), key).JsonPatchOperation(jsonPatchOperation).Execute()
+          //resp, r, err := apiClient.V2025.AccessModelMetadataAPI.UpdateAccessModelMetadataAttribute(context.Background(), key).JsonPatchOperation(jsonPatchOperation).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `AccessModelMetadataAPI.UpdateAccessModelMetadataAttribute``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `UpdateAccessModelMetadataAttribute`: AttributeDTO
+          fmt.Fprintf(os.Stdout, "Response from `AccessModelMetadataAPI.UpdateAccessModelMetadataAttribute`: %v\n", resp)
+        }
+- path: /access-model-metadata/attributes/{key}/values/{value}
+  method: Patch
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/access-model-metadata#update-access-model-metadata-attribute-value
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          key := `iscPrivacy` // string | Technical name of the Attribute. # string | Technical name of the Attribute.
+          value := `public` // string | Technical name of the Attribute value. # string | Technical name of the Attribute value.
+          jsonpatchoperation := []byte(``) // []JsonPatchOperation | JSON Patch array to apply
+
+          
+          var jsonPatchOperation []v2025.JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.AccessModelMetadataAPI.UpdateAccessModelMetadataAttributeValue(context.Background(), key, value).JsonPatchOperation(jsonPatchOperation).Execute()
+          //resp, r, err := apiClient.V2025.AccessModelMetadataAPI.UpdateAccessModelMetadataAttributeValue(context.Background(), key, value).JsonPatchOperation(jsonPatchOperation).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `AccessModelMetadataAPI.UpdateAccessModelMetadataAttributeValue``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `UpdateAccessModelMetadataAttributeValue`: AttributeValueDTO
+          fmt.Fprintf(os.Stdout, "Response from `AccessModelMetadataAPI.UpdateAccessModelMetadataAttributeValue`: %v\n", resp)
         }
 - path: /access-model-metadata/bulk-update/filter
   method: Post
@@ -443,6 +626,15 @@
             "type" : "SOURCE"
           },
           "enabled" : true,
+          "additionalOwners" : [ {
+            "name" : "support",
+            "id" : "2c9180a46faadee4016fb4e018c20639",
+            "type" : "IDENTITY"
+          }, {
+            "name" : "support",
+            "id" : "2c9180a46faadee4016fb4e018c20639",
+            "type" : "IDENTITY"
+          } ],
           "revocationRequestConfig" : {
             "approvalSchemes" : [ {
               "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
@@ -463,7 +655,12 @@
               "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
               "approverType" : "GOVERNANCE_GROUP"
             } ],
-            "denialCommentsRequired" : true
+            "denialCommentsRequired" : true,
+            "requireEndDate" : true,
+            "maxPermittedAccessDuration" : {
+              "value" : 6,
+              "timeUnit" : "MONTHS"
+            }
           },
           "name" : "Employee-database-read-write",
           "provisioningCriteria" : {
@@ -503,6 +700,22 @@
             "value" : "carlee.cert1c9f9b6fd@mailinator.com"
           },
           "modified" : "2021-03-02T20:22:28.104Z",
+          "accessModelMetadata" : {
+            "attributes" : [ {
+              "key" : "iscPrivacy",
+              "name" : "Privacy",
+              "multiselect" : false,
+              "status" : "active",
+              "type" : "governance",
+              "objectTypes" : [ "all" ],
+              "description" : "Specifies the level of privacy associated with an access item.",
+              "values" : [ {
+                "value" : "public",
+                "name" : "Public",
+                "status" : "active"
+              } ]
+            } ]
+          },
           "id" : "2c91808a7190d06e01719938fcd20792",
           "requestable" : true
         }`) // AccessProfile | 
@@ -1576,7 +1789,7 @@
           count := false // bool | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to false) # bool | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to false)
           limit := 100 // int32 | Max number of results to return. (optional) (default to 250) # int32 | Max number of results to return. (optional) (default to 250)
           offset := 10 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
-          filters := `accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, in, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, in, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional)
+          filters := `accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, ne, sw*  **created**: *eq, ge, gt, le, lt, ne* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, ne, sw*  **created**: *eq, ge, gt, le, lt, ne* (optional)
           sorters := `created` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional)
           requestState := `request-state=EXECUTING` // string | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional) # string | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
 
@@ -1788,7 +2001,12 @@
                 "approverType" : "GOVERNANCE_GROUP"
               } ],
               "reauthorizationRequired" : false,
-              "requestCommentRequired" : true
+              "requestCommentRequired" : true,
+              "requireEndDate" : true,
+              "maxPermittedAccessDuration" : {
+                "value" : 5,
+                "timeUnit" : "DAYS"
+              }
             },
             "revocationRequestConfig" : {
               "approvalSchemes" : [ {
@@ -2700,8 +2918,8 @@
           limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
           offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           detail := `FULL` // string | Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior. (optional) # string | Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior. (optional)
-          filter := `name eq "Okta" and description co "Okta" and discoverySource in ("csv", "Okta Saas")` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in*  (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in*  (optional)
-          sorters := `name` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource** (optional)
+          filter := `name eq "Okta" and description co "Okta" and discoverySource in ("csv", "Okta Saas")` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in*  **discoverySourceName**: *eq, in*  **discoverySourceCategory**: *eq, in*  (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in*  **discoverySourceName**: *eq, in*  **discoverySourceCategory**: *eq, in*  (optional)
+          sorters := `name` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource, discoverySourceName, discoverySourceCategory** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource, discoverySourceName, discoverySourceCategory** (optional)
 
           
 
@@ -2781,6 +2999,49 @@
             fmt.Fprintf(os.Stderr, "Error when calling `ApplicationDiscoveryAPI.SendManualDiscoverApplicationsCsvTemplate``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
           }
+        }
+- path: /sources/{sourceId}/discover-applications
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/application-discovery#start-application-discovery
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+           applicationdiscoveryrequest := []byte(`{
+          "datasetIds" : [ "source:datasetId12345", "source:datasetId12345" ]
+        }`) // ApplicationDiscoveryRequest | 
+
+          
+          var applicationDiscoveryRequest v2025.ApplicationDiscoveryRequest
+          if err := json.Unmarshal(applicationdiscoveryrequest, &applicationDiscoveryRequest); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.ApplicationDiscoveryAPI.StartApplicationDiscovery(context.Background()).XSailPointExperimental(xSailPointExperimental).ApplicationDiscoveryRequest(applicationDiscoveryRequest).Execute()
+          //resp, r, err := apiClient.V2025.ApplicationDiscoveryAPI.StartApplicationDiscovery(context.Background()).XSailPointExperimental(xSailPointExperimental).ApplicationDiscoveryRequest(applicationDiscoveryRequest).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `ApplicationDiscoveryAPI.StartApplicationDiscovery``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `StartApplicationDiscovery`: ApplicationDiscoveryResponse
+          fmt.Fprintf(os.Stdout, "Response from `ApplicationDiscoveryAPI.StartApplicationDiscovery`: %v\n", resp)
         }
 - path: /generic-approvals/{id}/approve
   method: Post
@@ -3627,7 +3888,7 @@
           count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
           offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           sorters := `name,-modified` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, owner.id, accountSource.id** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, owner.id, accountSource.id** (optional)
-          filters := `enabled eq true` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **accountSource.id**: *eq, in*  **enabled**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **accountSource.id**: *eq, in*  **enabled**: *eq* (optional)
+          filters := `enabled eq true` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, ge, le*  **owner.id**: *eq, in*  **enabled**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, ge, le*  **owner.id**: *eq, in*  **enabled**: *eq* (optional)
 
           
 
@@ -6284,15 +6545,15 @@
         )
 
         func main() {
-          id := `ef38f94347e94562b5bb8424a56397d8` // string | Source ID. # string | Source ID.
+          sourceId := `ef38f94347e94562b5bb8424a56397d8` // string | Source ID. # string | Source ID.
 
           
 
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2025.ClassifySourceAPI.SendClassifyMachineAccountFromSource(context.Background(), id).Execute()
-          //resp, r, err := apiClient.V2025.ClassifySourceAPI.SendClassifyMachineAccountFromSource(context.Background(), id).Execute()
+          resp, r, err := apiClient.V2025.ClassifySourceAPI.SendClassifyMachineAccountFromSource(context.Background(), sourceId).Execute()
+          //resp, r, err := apiClient.V2025.ClassifySourceAPI.SendClassifyMachineAccountFromSource(context.Background(), sourceId).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `ClassifySourceAPI.SendClassifyMachineAccountFromSource``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9158,7 +9419,7 @@
           detailLevel := `detailLevel=FULL` // string | Specifies the level of detail for the user levels. (optional) # string | Specifies the level of detail for the user levels. (optional)
           filters := `name co "identity", owner co "john", status eq "active", description co "some description"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *co*    **owner**: *co*    **status**: *eq*  **description**: *co* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *co*    **owner**: *co*    **status**: *eq*  **description**: *co* (optional)
           sorters := `name, -created, description, status, owner` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, description, status, owner** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, description, status, owner** (optional)
-          limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          limit := 50 // int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50) # int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
           offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
           
@@ -9335,6 +9596,90 @@
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
           }
         }
+- path: /das/applications
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#create-application
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+           basecreateapplicationrequest := []byte(`{
+          "adIdentityCollectorId" : 987654321,
+          "applicationType" : 9,
+          "nisIdentityCollectorId" : 192837465,
+          "executeNow" : false,
+          "name" : "HR File Server",
+          "description" : "Stores HR documents and employee records.",
+          "dataClassificationSettings" : {
+            "isEnabled" : true,
+            "clusterId" : "cluster-001"
+          },
+          "activityConfigurationSettings" : {
+            "excludeFolders" : [ "/tmp", "/archive" ],
+            "excludeFileExtensions" : [ ".log", ".bak" ],
+            "excludeActions" : [ "delete", "move" ],
+            "isEnabled" : true,
+            "retentionTimePeriod" : 30,
+            "retentionTimeType" : "days",
+            "clusterId" : "cluster-001",
+            "excludeUsers" : [ "user1", "user2" ]
+          },
+          "applicationCrawlerSettings" : {
+            "calculateResourceSize" : 2,
+            "excludedResources" : [ "resourceA", "resourceB" ],
+            "crawlPublicFolders" : true,
+            "excludedPathsByRegex" : "^/archive/.*",
+            "isEnabled" : true,
+            "crawlSnapshotsFolder" : true,
+            "crawlMailboxes" : false,
+            "crawlTopLevelShares" : [ "share1", "share2" ],
+            "clusterId" : "cluster-001",
+            "includeResources" : [ "resourceX", "resourceY" ]
+          },
+          "identityCollectorId" : 123456789,
+          "permissionCollectorSettings" : {
+            "analyzeUniquePermissions" : true,
+            "calculateRiskiestPermissions" : false,
+            "isEnabled" : true,
+            "calculateEffectivePermissions" : true,
+            "clusterId" : "cluster-001",
+            "effectivePermissionsSource" : "S3"
+          },
+          "tags" : [ {
+            "key" : 1,
+            "value" : "Confidential"
+          } ]
+        }`) // BaseCreateApplicationRequest | Request body containing the details required to create a new application.
+
+          
+          var baseCreateApplicationRequest v2025.BaseCreateApplicationRequest
+          if err := json.Unmarshal(basecreateapplicationrequest, &baseCreateApplicationRequest); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          r, err := apiClient.V2025.DataAccessSecurityAPI.CreateApplication(context.Background()).BaseCreateApplicationRequest(baseCreateApplicationRequest).Execute()
+          //r, err := apiClient.V2025.DataAccessSecurityAPI.CreateApplication(context.Background()).BaseCreateApplicationRequest(baseCreateApplicationRequest).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.CreateApplication``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+        }
 - path: /das/tasks/schedules
   method: Post
   xCodeSample:
@@ -9385,6 +9730,233 @@
           }
           // response from `CreateSchedule`: int64
           fmt.Fprintf(os.Stdout, "Response from `DataAccessSecurityAPI.CreateSchedule`: %v\n", resp)
+        }
+- path: /das/owners/assign
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#das-owners-assign-post
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+           assignresourceownerrequest := []byte(`{
+          "fullPath" : "/shared/hr/documents/employee-records.pdf",
+          "identityId" : "d290f1ee-6c54-4b01-90e6-d701748f0851",
+          "appId" : 12345
+        }`) // AssignResourceOwnerRequest | 
+
+          
+          var assignResourceOwnerRequest v2025.AssignResourceOwnerRequest
+          if err := json.Unmarshal(assignresourceownerrequest, &assignResourceOwnerRequest); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.DataAccessSecurityAPI.DasOwnersAssignPost(context.Background()).AssignResourceOwnerRequest(assignResourceOwnerRequest).Execute()
+          //resp, r, err := apiClient.V2025.DataAccessSecurityAPI.DasOwnersAssignPost(context.Background()).AssignResourceOwnerRequest(assignResourceOwnerRequest).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.DasOwnersAssignPost``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `DasOwnersAssignPost`: int32
+          fmt.Fprintf(os.Stdout, "Response from `DataAccessSecurityAPI.DasOwnersAssignPost`: %v\n", resp)
+        }
+- path: /das/owners/{ownerIdentityId}/resources
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#das-owners-owner-identity-id-resources-get
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          ownerIdentityId := `a3f1c2d4-5678-4e9b-8c2d-123456789abc` // string | Unique identifier for the owner. This should be a UUID representing the owner's identity. # string | Unique identifier for the owner. This should be a UUID representing the owner's identity.
+          limit := 250 // int32 | Not applicable for this endpoint. Do not use. (optional) (default to 250) # int32 | Not applicable for this endpoint. Do not use. (optional) (default to 250)
+          offset := 0 // int32 | Not applicable for this endpoint. Do not use. (optional) (default to 0) # int32 | Not applicable for this endpoint. Do not use. (optional) (default to 0)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.DataAccessSecurityAPI.DasOwnersOwnerIdentityIdResourcesGet(context.Background(), ownerIdentityId).Execute()
+          //resp, r, err := apiClient.V2025.DataAccessSecurityAPI.DasOwnersOwnerIdentityIdResourcesGet(context.Background(), ownerIdentityId).Limit(limit).Offset(offset).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.DasOwnersOwnerIdentityIdResourcesGet``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `DasOwnersOwnerIdentityIdResourcesGet`: []ResourceModel
+          fmt.Fprintf(os.Stdout, "Response from `DataAccessSecurityAPI.DasOwnersOwnerIdentityIdResourcesGet`: %v\n", resp)
+        }
+- path: /das/owners/reelect
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#das-owners-reelect-post
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+           reelectrequest := []byte(`{
+          "ownerId" : "c1a2b3d4-e5f6-7890-abcd-1234567890ab",
+          "campaignName" : "Annual Resource Owner Election",
+          "reviewers" : [ "d4e5f6a7-b8c9-0123-4567-89abcdef0123", "e7f8g9h0-i1j2-3456-7890-klmnopqrstuv" ]
+        }`) // ReelectRequest | The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds.
+
+          
+          var reelectRequest v2025.ReelectRequest
+          if err := json.Unmarshal(reelectrequest, &reelectRequest); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.DataAccessSecurityAPI.DasOwnersReelectPost(context.Background()).ReelectRequest(reelectRequest).Execute()
+          //resp, r, err := apiClient.V2025.DataAccessSecurityAPI.DasOwnersReelectPost(context.Background()).ReelectRequest(reelectRequest).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.DasOwnersReelectPost``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `DasOwnersReelectPost`: int32
+          fmt.Fprintf(os.Stdout, "Response from `DataAccessSecurityAPI.DasOwnersReelectPost`: %v\n", resp)
+        }
+- path: /das/owners/resources/{resourceId}
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#das-owners-resources-resource-id-get
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          resourceId := 101 // int64 | Unique identifier for the resource. # int64 | Unique identifier for the resource.
+          limit := 250 // int32 | Not applicable for this endpoint. Do not use. (optional) (default to 250) # int32 | Not applicable for this endpoint. Do not use. (optional) (default to 250)
+          offset := 0 // int32 | Not applicable for this endpoint. Do not use. (optional) (default to 0) # int32 | Not applicable for this endpoint. Do not use. (optional) (default to 0)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.DataAccessSecurityAPI.DasOwnersResourcesResourceIdGet(context.Background(), resourceId).Execute()
+          //resp, r, err := apiClient.V2025.DataAccessSecurityAPI.DasOwnersResourcesResourceIdGet(context.Background(), resourceId).Limit(limit).Offset(offset).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.DasOwnersResourcesResourceIdGet``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `DasOwnersResourcesResourceIdGet`: []string
+          fmt.Fprintf(os.Stdout, "Response from `DataAccessSecurityAPI.DasOwnersResourcesResourceIdGet`: %v\n", resp)
+        }
+- path: /das/owners/{sourceIdentityId}/reassign/{destinationIdentityId}
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#das-owners-source-identity-id-reassign-destination-identity-id-post
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          sourceIdentityId := `a3f1c2d4-5678-4e9b-8c2d-123456789abc` // string | Unique identifier for the source owner. This should be a UUID representing the identity to reassign from. # string | Unique identifier for the source owner. This should be a UUID representing the identity to reassign from.
+          destinationIdentityId := `b4e2d3c5-6789-4f0a-9d3e-234567890bcd` // string | Unique identifier for the destination owner. This should be a UUID representing the identity to reassign to. # string | Unique identifier for the destination owner. This should be a UUID representing the identity to reassign to.
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.DataAccessSecurityAPI.DasOwnersSourceIdentityIdReassignDestinationIdentityIdPost(context.Background(), sourceIdentityId, destinationIdentityId).Execute()
+          //resp, r, err := apiClient.V2025.DataAccessSecurityAPI.DasOwnersSourceIdentityIdReassignDestinationIdentityIdPost(context.Background(), sourceIdentityId, destinationIdentityId).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.DasOwnersSourceIdentityIdReassignDestinationIdentityIdPost``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `DasOwnersSourceIdentityIdReassignDestinationIdentityIdPost`: int32
+          fmt.Fprintf(os.Stdout, "Response from `DataAccessSecurityAPI.DasOwnersSourceIdentityIdReassignDestinationIdentityIdPost`: %v\n", resp)
+        }
+- path: /das/applications/{id}
+  method: Delete
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#delete-application
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := 12345 // int64 | The unique identifier of the application to delete. # int64 | The unique identifier of the application to delete.
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          r, err := apiClient.V2025.DataAccessSecurityAPI.DeleteApplication(context.Background(), id).Execute()
+          //r, err := apiClient.V2025.DataAccessSecurityAPI.DeleteApplication(context.Background(), id).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.DeleteApplication``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
         }
 - path: /das/tasks/schedules/{id}
   method: Delete
@@ -9449,6 +10021,113 @@
             fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.DeleteTask``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
           }
+        }
+- path: /das/applications/{id}
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#get-application
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := 12345 // int64 | The unique identifier of the application to retrieve. # int64 | The unique identifier of the application to retrieve.
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.DataAccessSecurityAPI.GetApplication(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2025.DataAccessSecurityAPI.GetApplication(context.Background(), id).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.GetApplication``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetApplication`: ApplicationItem
+          fmt.Fprintf(os.Stdout, "Response from `DataAccessSecurityAPI.GetApplication`: %v\n", resp)
+        }
+- path: /das/applications
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#get-applications
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          filters := `AppType eq 'ActiveDirectory' and Statuses eq 'Passed'` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **appIds**: *eq, in*  **tagIds**: *eq, in*  **statuses**: *eq, in*  **groupCodes**: *eq, in*  **virtualAppId**: *eq*  **appName**: *eq*  **supportsValidation**: *eq*  Supported composite operators are *and, or* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **appIds**: *eq, in*  **tagIds**: *eq, in*  **statuses**: *eq, in*  **groupCodes**: *eq, in*  **virtualAppId**: *eq*  **appName**: *eq*  **supportsValidation**: *eq*  Supported composite operators are *and, or* (optional)
+          limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+          count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.DataAccessSecurityAPI.GetApplications(context.Background()).Execute()
+          //resp, r, err := apiClient.V2025.DataAccessSecurityAPI.GetApplications(context.Background()).Filters(filters).Limit(limit).Offset(offset).Count(count).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.GetApplications``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetApplications`: []ApplicationItem
+          fmt.Fprintf(os.Stdout, "Response from `DataAccessSecurityAPI.GetApplications`: %v\n", resp)
+        }
+- path: /das/owners/applications/{appId}
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#get-owners
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          appId := 2001 // int64 | The unique identifier of the application for which to retrieve owners. # int64 | The unique identifier of the application for which to retrieve owners.
+          limit := 250 // int32 | Not applicable for this endpoint. Do not use. (optional) (default to 250) # int32 | Not applicable for this endpoint. Do not use. (optional) (default to 250)
+          offset := 0 // int32 | Not applicable for this endpoint. Do not use. (optional) (default to 0) # int32 | Not applicable for this endpoint. Do not use. (optional) (default to 0)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.DataAccessSecurityAPI.GetOwners(context.Background(), appId).Execute()
+          //resp, r, err := apiClient.V2025.DataAccessSecurityAPI.GetOwners(context.Background(), appId).Limit(limit).Offset(offset).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.GetOwners``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetOwners`: []DataOwnerModel
+          fmt.Fprintf(os.Stdout, "Response from `DataAccessSecurityAPI.GetOwners`: %v\n", resp)
         }
 - path: /das/tasks/schedules/{id}
   method: Get
@@ -9591,6 +10270,91 @@
           }
           // response from `GetTasks`: []TaskInfo
           fmt.Fprintf(os.Stdout, "Response from `DataAccessSecurityAPI.GetTasks`: %v\n", resp)
+        }
+- path: /das/applications/{id}
+  method: Put
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#put-application
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := 12345 // int64 | The unique identifier of the application to update. # int64 | The unique identifier of the application to update.
+           basecreateapplicationrequest := []byte(`{
+          "adIdentityCollectorId" : 987654321,
+          "applicationType" : 9,
+          "nisIdentityCollectorId" : 192837465,
+          "executeNow" : false,
+          "name" : "HR File Server",
+          "description" : "Stores HR documents and employee records.",
+          "dataClassificationSettings" : {
+            "isEnabled" : true,
+            "clusterId" : "cluster-001"
+          },
+          "activityConfigurationSettings" : {
+            "excludeFolders" : [ "/tmp", "/archive" ],
+            "excludeFileExtensions" : [ ".log", ".bak" ],
+            "excludeActions" : [ "delete", "move" ],
+            "isEnabled" : true,
+            "retentionTimePeriod" : 30,
+            "retentionTimeType" : "days",
+            "clusterId" : "cluster-001",
+            "excludeUsers" : [ "user1", "user2" ]
+          },
+          "applicationCrawlerSettings" : {
+            "calculateResourceSize" : 2,
+            "excludedResources" : [ "resourceA", "resourceB" ],
+            "crawlPublicFolders" : true,
+            "excludedPathsByRegex" : "^/archive/.*",
+            "isEnabled" : true,
+            "crawlSnapshotsFolder" : true,
+            "crawlMailboxes" : false,
+            "crawlTopLevelShares" : [ "share1", "share2" ],
+            "clusterId" : "cluster-001",
+            "includeResources" : [ "resourceX", "resourceY" ]
+          },
+          "identityCollectorId" : 123456789,
+          "permissionCollectorSettings" : {
+            "analyzeUniquePermissions" : true,
+            "calculateRiskiestPermissions" : false,
+            "isEnabled" : true,
+            "calculateEffectivePermissions" : true,
+            "clusterId" : "cluster-001",
+            "effectivePermissionsSource" : "S3"
+          },
+          "tags" : [ {
+            "key" : 1,
+            "value" : "Confidential"
+          } ]
+        }`) // BaseCreateApplicationRequest | Request body containing the updated details for the application.
+
+          
+          var baseCreateApplicationRequest v2025.BaseCreateApplicationRequest
+          if err := json.Unmarshal(basecreateapplicationrequest, &baseCreateApplicationRequest); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          r, err := apiClient.V2025.DataAccessSecurityAPI.PutApplication(context.Background(), id).BaseCreateApplicationRequest(baseCreateApplicationRequest).Execute()
+          //r, err := apiClient.V2025.DataAccessSecurityAPI.PutApplication(context.Background(), id).BaseCreateApplicationRequest(baseCreateApplicationRequest).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.PutApplication``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
         }
 - path: /das/tasks/schedules/{id}
   method: Put
@@ -9973,6 +10737,38 @@
           //r, err := apiClient.V2025.DataSegmentationAPI.PublishDataSegment(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).PublishAll(publishAll).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.PublishDataSegment``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+        }
+- path: /sources/{sourceId}/declassify
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/declassify-source#send-declassify-machine-account-from-source
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          sourceId := `ef38f94347e94562b5bb8424a56397d8` // string | Source ID. # string | Source ID.
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          r, err := apiClient.V2025.DeclassifySourceAPI.SendDeclassifyMachineAccountFromSource(context.Background(), sourceId).Execute()
+          //r, err := apiClient.V2025.DeclassifySourceAPI.SendDeclassifyMachineAccountFromSource(context.Background(), sourceId).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DeclassifySourceAPI.SendDeclassifyMachineAccountFromSource``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
           }
         }
@@ -10734,7 +11530,12 @@
               "approverType" : "GOVERNANCE_GROUP"
             } ],
             "reauthorizationRequired" : false,
-            "requestCommentRequired" : true
+            "requestCommentRequired" : true,
+            "requireEndDate" : true,
+            "maxPermittedAccessDuration" : {
+              "value" : 5,
+              "timeUnit" : "DAYS"
+            }
           },
           "revocationRequestConfig" : {
             "approvalSchemes" : [ {
@@ -13508,7 +14309,7 @@
           // response from `GetSavedPotentialRoles`: []RoleMiningSessionDraftRoleDto
           fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetSavedPotentialRoles`: %v\n", resp)
         }
-- path: /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}
+- path: /role-mining-potential-roles/{potentialRoleId}
   method: Patch
   xCodeSample:
     - lang: Go
@@ -13551,11 +14352,11 @@
           // response from `PatchPotentialRole`: map[string]interface{}
           fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.PatchPotentialRole`: %v\n", resp)
         }
-- path: /role-mining-potential-roles/{potentialRoleId}
+- path: /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}
   method: Patch
   xCodeSample:
     - lang: Go
-      label: SDK_tools/sdk/go/v2025/methods/iai-role-mining#patch-potential-role-0
+      label: SDK_tools/sdk/go/v2025/methods/iai-role-mining#patch-potential-role-session
       source: |
         package main
 
@@ -13572,11 +14373,11 @@
           sessionId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The role mining session id # string | The role mining session id
           potentialRoleId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The potential role summary id # string | The potential role summary id
           xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-          patchpotentialrolerequestinner := []byte(`[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]`) // []PatchPotentialRoleRequestInner | 
+          jsonpatchoperation := []byte(`[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]`) // []JsonPatchOperation | 
 
           
-          var patchPotentialRoleRequestInner []v2025.PatchPotentialRoleRequestInner
-          if err := json.Unmarshal(patchpotentialrolerequestinner, &patchPotentialRoleRequestInner); err != nil {
+          var jsonPatchOperation []v2025.JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -13585,14 +14386,14 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2025.IAIRoleMiningAPI.PatchPotentialRole_0(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).PatchPotentialRoleRequestInner(patchPotentialRoleRequestInner).Execute()
-          //resp, r, err := apiClient.V2025.IAIRoleMiningAPI.PatchPotentialRole_0(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).PatchPotentialRoleRequestInner(patchPotentialRoleRequestInner).Execute()
+          resp, r, err := apiClient.V2025.IAIRoleMiningAPI.PatchPotentialRoleSession(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
+          //resp, r, err := apiClient.V2025.IAIRoleMiningAPI.PatchPotentialRoleSession(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
           if err != nil {
-            fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.PatchPotentialRole_0``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.PatchPotentialRoleSession``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
           }
-          // response from `PatchPotentialRole_0`: map[string]interface{}
-          fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.PatchPotentialRole_0`: %v\n", resp)
+          // response from `PatchPotentialRoleSession`: map[string]interface{}
+          fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.PatchPotentialRoleSession`: %v\n", resp)
         }
 - path: /role-mining-sessions/{sessionId}
   method: Patch
@@ -16393,19 +17194,11 @@
         func main() {
           sourceId := `6d0458373bec4b4b80460992b76016da` // string | The ID of the source. # string | The ID of the source.
           xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-           sourcesubtype := []byte(`{
-          "sourceId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
-          "displayName" : "Mr Foo",
-          "created" : "2025-07-28T16:13:42.8013Z",
-          "description" : "fighters",
-          "modified" : "2025-07-28T16:13:42.75085Z",
-          "id" : "43bdd144-4b17-4fce-a744-17c7fd3e717b",
-          "technicalName" : "foo"
-        }`) // SourceSubtype | 
+           createmachineaccountsubtyperequest := []byte(`{technicalName=foo, displayName=Mr Foo, description=fighters, type=MACHINE}`) // CreateMachineAccountSubtypeRequest | 
 
           
-          var sourceSubtype v2025.SourceSubtype
-          if err := json.Unmarshal(sourcesubtype, &sourceSubtype); err != nil {
+          var createMachineAccountSubtypeRequest v2025.CreateMachineAccountSubtypeRequest
+          if err := json.Unmarshal(createmachineaccountsubtyperequest, &createMachineAccountSubtypeRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -16414,8 +17207,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2025.MachineAccountsAPI.CreateMachineAccountSubtype(context.Background(), sourceId).XSailPointExperimental(xSailPointExperimental).SourceSubtype(sourceSubtype).Execute()
-          //resp, r, err := apiClient.V2025.MachineAccountsAPI.CreateMachineAccountSubtype(context.Background(), sourceId).XSailPointExperimental(xSailPointExperimental).SourceSubtype(sourceSubtype).Execute()
+          resp, r, err := apiClient.V2025.MachineAccountsAPI.CreateMachineAccountSubtype(context.Background(), sourceId).XSailPointExperimental(xSailPointExperimental).CreateMachineAccountSubtypeRequest(createMachineAccountSubtypeRequest).Execute()
+          //resp, r, err := apiClient.V2025.MachineAccountsAPI.CreateMachineAccountSubtype(context.Background(), sourceId).XSailPointExperimental(xSailPointExperimental).CreateMachineAccountSubtypeRequest(createMachineAccountSubtypeRequest).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.CreateMachineAccountSubtype``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -16441,7 +17234,7 @@
         )
 
         func main() {
-          subtypeId := `43bdd144-4b17-4fce-a744-17c7fd3e717b` // string | The ID of the machine account subtype. # string | The ID of the machine account subtype.
+          sourceId := `6d0458373bec4b4b80460992b76016da` // string | The ID of the source. # string | The ID of the source.
           technicalName := `foo` // string | The technical name of the subtype. # string | The technical name of the subtype.
           xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
@@ -16450,8 +17243,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          r, err := apiClient.V2025.MachineAccountsAPI.DeleteMachineAccountSubtype(context.Background(), subtypeId, technicalName).XSailPointExperimental(xSailPointExperimental).Execute()
-          //r, err := apiClient.V2025.MachineAccountsAPI.DeleteMachineAccountSubtype(context.Background(), subtypeId, technicalName).XSailPointExperimental(xSailPointExperimental).Execute()
+          r, err := apiClient.V2025.MachineAccountsAPI.DeleteMachineAccountSubtype(context.Background(), sourceId, technicalName).XSailPointExperimental(xSailPointExperimental).Execute()
+          //r, err := apiClient.V2025.MachineAccountsAPI.DeleteMachineAccountSubtype(context.Background(), sourceId, technicalName).XSailPointExperimental(xSailPointExperimental).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.DeleteMachineAccountSubtype``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -16492,7 +17285,7 @@
           // response from `GetMachineAccount`: MachineAccount
           fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.GetMachineAccount`: %v\n", resp)
         }
-- path: /sources/subtype/{subtypeId}
+- path: /sources/subtypes/{subtypeId}
   method: Get
   xCodeSample:
     - lang: Go
@@ -16583,7 +17376,7 @@
         func main() {
           sourceId := `6d0458373bec4b4b80460992b76016da` // string | The ID of the source. # string | The ID of the source.
           xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-          filters := `identityId eq "2c9180858082150f0180893dbaf44201"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)   Filtering is supported for the following fields and operators:   **displayName**: *eq, sw*   **technicalName**: *eq, sw*  (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)   Filtering is supported for the following fields and operators:   **displayName**: *eq, sw*   **technicalName**: *eq, sw*  (optional)
+          filters := `displayName eq "sail"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw* (optional)
           sorters := `displayName` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** (optional)
           count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
           limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -16625,8 +17418,8 @@
           limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
           offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-          filters := `identityId eq "2c9180858082150f0180893dbaf44201"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **machineIdentity**: *eq, in, sw*  **description**: *eq, in, sw*  **ownerIdentity**: *eq, in, sw*  **ownerIdentityId**: *eq, in, sw*  **entitlements**: *eq*  **accessType**: *eq, in, sw*  **subType**: *eq, in, sw*  **environment**: *eq, in, sw*  **classificationMethod**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **manuallyEdited**: *eq*  **identity**: *eq, in, sw*  **source**: *eq, in*  **hasEntitlement**: *eq*  **locked**: *eq*  **connectorAttributes**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **machineIdentity**: *eq, in, sw*  **description**: *eq, in, sw*  **ownerIdentity**: *eq, in, sw*  **ownerIdentityId**: *eq, in, sw*  **entitlements**: *eq*  **accessType**: *eq, in, sw*  **subType**: *eq, in, sw*  **environment**: *eq, in, sw*  **classificationMethod**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **manuallyEdited**: *eq*  **identity**: *eq, in, sw*  **source**: *eq, in*  **hasEntitlement**: *eq*  **locked**: *eq*  **connectorAttributes**: *eq* (optional)
-          sorters := `id,name` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, machineIdentity, identity.id, nativeIdentity, uuid, manuallyCorrelated, connectorAttributes, entitlements, identity.name, identity.type, source.id, source.name, source.type** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, machineIdentity, identity.id, nativeIdentity, uuid, manuallyCorrelated, connectorAttributes, entitlements, identity.name, identity.type, source.id, source.name, source.type** (optional)
+          filters := `hasEntitlements eq true` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le* (optional)
+          sorters := `id,name` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, ownerIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, manuallyCorrelated, enabled, locked, hasEntitlements, ownerIdentity.id, ownerIdentity.name, attributes, source.id, source.name, created, modified** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, ownerIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, manuallyCorrelated, enabled, locked, hasEntitlements, ownerIdentity.id, ownerIdentity.name, attributes, source.id, source.name, created, modified** (optional)
 
           
 
@@ -16660,22 +17453,14 @@
         )
 
         func main() {
-          subtypeId := `43bdd144-4b17-4fce-a744-17c7fd3e717b` // string | The ID of the machine account subtype. # string | The ID of the machine account subtype.
+          sourceId := `6d0458373bec4b4b80460992b76016da` // string | The ID of the source. # string | The ID of the source.
           technicalName := `foo` // string | The technical name of the subtype. # string | The technical name of the subtype.
           xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-           sourcesubtype := []byte(`{
-          "sourceId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
-          "displayName" : "Mr Foo",
-          "created" : "2025-07-28T16:13:42.8013Z",
-          "description" : "fighters",
-          "modified" : "2025-07-28T16:13:42.75085Z",
-          "id" : "43bdd144-4b17-4fce-a744-17c7fd3e717b",
-          "technicalName" : "foo"
-        }`) // SourceSubtype | 
+          requestbody := []byte(`[{op=replace, path=/displayName, value=Test New DisplayName}]`) // []map[string]interface{} | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
           
-          var sourceSubtype v2025.SourceSubtype
-          if err := json.Unmarshal(sourcesubtype, &sourceSubtype); err != nil {
+          var requestBody []v2025.RequestBody
+          if err := json.Unmarshal(requestbody, &requestBody); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -16684,8 +17469,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2025.MachineAccountsAPI.PatchMachineAccountSubtype(context.Background(), subtypeId, technicalName).XSailPointExperimental(xSailPointExperimental).SourceSubtype(sourceSubtype).Execute()
-          //resp, r, err := apiClient.V2025.MachineAccountsAPI.PatchMachineAccountSubtype(context.Background(), subtypeId, technicalName).XSailPointExperimental(xSailPointExperimental).SourceSubtype(sourceSubtype).Execute()
+          resp, r, err := apiClient.V2025.MachineAccountsAPI.PatchMachineAccountSubtype(context.Background(), sourceId, technicalName).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
+          //resp, r, err := apiClient.V2025.MachineAccountsAPI.PatchMachineAccountSubtype(context.Background(), sourceId, technicalName).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.PatchMachineAccountSubtype``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -17829,7 +18614,7 @@
           offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
           count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-          filters := `operational eq "operation"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional)
+          filters := `operational eq "operation"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq* (optional)
 
           
 
@@ -20730,7 +21515,7 @@
         )
 
         func main() {
-          key := `cHVibGljIGtleSBnb2VzIGhlcmU=` // string | Base64Url encoded public key # string | Base64Url encoded public key
+          key := `BLdV-KA7nSRXx2XkksQX7bmOAShARsB3CCVWodKr4dOJj_puru76wy6drBTVlSytW_rDheLwepm9xdrRuqUI7p81wMP576frFBbsjndBKyRm3eouPbDcW8MAz0XRH1BB3w==` // string | Base64Url encoded NIST P-384 public key # string | Base64Url encoded NIST P-384 public key
 
           
 
@@ -22538,6 +23323,142 @@
           // response from `GetRoleInsightsSummary`: RoleInsightsSummary
           fmt.Fprintf(os.Stdout, "Response from `RoleInsightsAPI.GetRoleInsightsSummary`: %v\n", resp)
         }
+- path: /role-propagation/terminate
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/role-propagation#cancel-role-propagation
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          r, err := apiClient.V2025.RolePropagationAPI.CancelRolePropagation(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+          //r, err := apiClient.V2025.RolePropagationAPI.CancelRolePropagation(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `RolePropagationAPI.CancelRolePropagation``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+        }
+- path: /role-propagation/is-running
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/role-propagation#get-ongoing-role-propagation
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.RolePropagationAPI.GetOngoingRolePropagation(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+          //resp, r, err := apiClient.V2025.RolePropagationAPI.GetOngoingRolePropagation(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `RolePropagationAPI.GetOngoingRolePropagation``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetOngoingRolePropagation`: RolePropagationOngoingResponse
+          fmt.Fprintf(os.Stdout, "Response from `RolePropagationAPI.GetOngoingRolePropagation`: %v\n", resp)
+        }
+- path: /role-propagation/{rolePropagationId}/status
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/role-propagation#get-role-propagation-status
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+          rolePropagationId := `47b9fb02-e12e-42ba-8bfe-1860d78c88eb` // string | The ID of the role propagation process to retrieve the status for. # string | The ID of the role propagation process to retrieve the status for.
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.RolePropagationAPI.GetRolePropagationStatus(context.Background(), rolePropagationId).XSailPointExperimental(xSailPointExperimental).Execute()
+          //resp, r, err := apiClient.V2025.RolePropagationAPI.GetRolePropagationStatus(context.Background(), rolePropagationId).XSailPointExperimental(xSailPointExperimental).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `RolePropagationAPI.GetRolePropagationStatus``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetRolePropagationStatus`: RolePropagationStatusResponse
+          fmt.Fprintf(os.Stdout, "Response from `RolePropagationAPI.GetRolePropagationStatus`: %v\n", resp)
+        }
+- path: /role-propagation
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/role-propagation#start-role-propagation
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+          skipRoleRefresh := true // bool | When true, the role refresh is not performed. Keeping it false is recommended. (optional) (default to false) # bool | When true, the role refresh is not performed. Keeping it false is recommended. (optional) (default to false)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.RolePropagationAPI.StartRolePropagation(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+          //resp, r, err := apiClient.V2025.RolePropagationAPI.StartRolePropagation(context.Background()).XSailPointExperimental(xSailPointExperimental).SkipRoleRefresh(skipRoleRefresh).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `RolePropagationAPI.StartRolePropagation``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `StartRolePropagation`: RolePropagationResponse
+          fmt.Fprintf(os.Stdout, "Response from `RolePropagationAPI.StartRolePropagation`: %v\n", resp)
+        }
 - path: /roles
   method: Post
   xCodeSample:
@@ -22694,7 +23615,12 @@
               "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
               "approverType" : "GOVERNANCE_GROUP"
             } ],
-            "denialCommentsRequired" : true
+            "denialCommentsRequired" : true,
+            "requireEndDate" : true,
+            "maxPermittedAccessDuration" : {
+              "value" : 6,
+              "timeUnit" : "MONTHS"
+            }
           },
           "accessProfiles" : [ {
             "name" : "Access Profile 2567",
@@ -28080,6 +29006,43 @@
           // response from `ImportUncorrelatedAccounts`: LoadUncorrelatedAccountsTask
           fmt.Fprintf(os.Stdout, "Response from `SourcesAPI.ImportUncorrelatedAccounts`: %v\n", resp)
         }
+- path: /sources/{sourceId}/password-policies
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/sources#list-password-policy-holders-on-source
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          sourceId := `8c190e6787aa4ed9a90bd9d5344523fb` // string | The Source id # string | The Source id
+          offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+          limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.SourcesAPI.ListPasswordPolicyHoldersOnSource(context.Background(), sourceId).Execute()
+          //resp, r, err := apiClient.V2025.SourcesAPI.ListPasswordPolicyHoldersOnSource(context.Background(), sourceId).Offset(offset).Limit(limit).Count(count).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.ListPasswordPolicyHoldersOnSource``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `ListPasswordPolicyHoldersOnSource`: []PasswordPolicyHoldersDtoInner
+          fmt.Fprintf(os.Stdout, "Response from `SourcesAPI.ListPasswordPolicyHoldersOnSource`: %v\n", resp)
+        }
 - path: /sources/{sourceId}/provisioning-policies
   method: Get
   xCodeSample:
@@ -28977,7 +29940,12 @@
               "approverType" : "GOVERNANCE_GROUP"
             } ],
             "reauthorizationRequired" : false,
-            "requestCommentRequired" : true
+            "requestCommentRequired" : true,
+            "requireEndDate" : true,
+            "maxPermittedAccessDuration" : {
+              "value" : 5,
+              "timeUnit" : "DAYS"
+            }
           },
           "revocationRequestConfig" : {
             "approvalSchemes" : [ {
@@ -30016,7 +30984,7 @@
           limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
           offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-          filters := `completionStatus eq "Success"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in*  **type**: *eq, in* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in*  **type**: *eq, in* (optional)
+          filters := `completionStatus eq "Success"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in, isnull*  **type**: *eq, in*  **Possible Values:** CLOUD_ACCOUNT_AGGREGATION, CLOUD_GROUP_AGGREGATION, CLOUD_PROCESS_UNCORRELATED_ACCOUNTS, CLOUD_REFRESH_ROLE, SOURCE_APPLICATION_DISCOVERY, AI_AGENT_AGGREGATION, APPLICATION_DISCOVERY, MACHINE_IDENTITY_AGGREGATION, MACHINE_IDENTITY_DELETION, ACCOUNT_DELETION (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in, isnull*  **type**: *eq, in*  **Possible Values:** CLOUD_ACCOUNT_AGGREGATION, CLOUD_GROUP_AGGREGATION, CLOUD_PROCESS_UNCORRELATED_ACCOUNTS, CLOUD_REFRESH_ROLE, SOURCE_APPLICATION_DISCOVERY, AI_AGENT_AGGREGATION, APPLICATION_DISCOVERY, MACHINE_IDENTITY_AGGREGATION, MACHINE_IDENTITY_DELETION, ACCOUNT_DELETION (optional)
           sorters := `-created` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created** (optional)
 
           
@@ -31037,7 +32005,6 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | The ID of the work item # string | The ID of the work item
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
            workitemforward := []byte(`{
           "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
           "comment" : "I'm going on vacation.",
@@ -31055,8 +32022,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          r, err := apiClient.V2025.WorkItemsAPI.ForwardWorkItem(context.Background(), id).XSailPointExperimental(xSailPointExperimental).WorkItemForward(workItemForward).Execute()
-          //r, err := apiClient.V2025.WorkItemsAPI.ForwardWorkItem(context.Background(), id).XSailPointExperimental(xSailPointExperimental).WorkItemForward(workItemForward).Execute()
+          r, err := apiClient.V2025.WorkItemsAPI.ForwardWorkItem(context.Background(), id).WorkItemForward(workItemForward).Execute()
+          //r, err := apiClient.V2025.WorkItemsAPI.ForwardWorkItem(context.Background(), id).WorkItemForward(workItemForward).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ForwardWorkItem``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -31117,7 +32084,6 @@
         )
 
         func main() {
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
           ownerId := `ownerId_example` // string | ID of the work item owner. (optional) # string | ID of the work item owner. (optional)
 
           
@@ -31125,8 +32091,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2025.WorkItemsAPI.GetCountCompletedWorkItems(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2025.WorkItemsAPI.GetCountCompletedWorkItems(context.Background()).XSailPointExperimental(xSailPointExperimental).OwnerId(ownerId).Execute()
+          resp, r, err := apiClient.V2025.WorkItemsAPI.GetCountCompletedWorkItems(context.Background()).Execute()
+          //resp, r, err := apiClient.V2025.WorkItemsAPI.GetCountCompletedWorkItems(context.Background()).OwnerId(ownerId).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.GetCountCompletedWorkItems``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

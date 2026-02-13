@@ -166,7 +166,7 @@ A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**sourceId** | **string** | Source ID. | 
+**id** | **string** | Source ID. | 
 
 ### Other Parameters
 
@@ -201,14 +201,14 @@ import (
 )
 
 func main() {
-    sourceId := `ef38f94347e94562b5bb8424a56397d8` // string | Source ID. # string | Source ID.
+    id := `ef38f94347e94562b5bb8424a56397d8` // string | Source ID. # string | Source ID.
 
     
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2025.ClassifySourceAPI.SendClassifyMachineAccountFromSource(context.Background(), sourceId).Execute()
-	  //resp, r, err := apiClient.V2025.ClassifySourceAPI.SendClassifyMachineAccountFromSource(context.Background(), sourceId).Execute()
+    resp, r, err := apiClient.V2025.ClassifySourceAPI.SendClassifyMachineAccountFromSource(context.Background(), id).Execute()
+	  //resp, r, err := apiClient.V2025.ClassifySourceAPI.SendClassifyMachineAccountFromSource(context.Background(), id).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `ClassifySourceAPI.SendClassifyMachineAccountFromSource``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

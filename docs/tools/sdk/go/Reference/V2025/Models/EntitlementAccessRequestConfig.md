@@ -19,8 +19,6 @@ Name | Type | Description | Notes
 **RequestCommentRequired** | Pointer to **bool** | If the requester must provide a comment during access request. | [optional] [default to false]
 **DenialCommentRequired** | Pointer to **bool** | If the reviewer must provide a comment when denying the access request. | [optional] [default to false]
 **ReauthorizationRequired** | Pointer to **bool** | Is Reauthorization Required | [optional] [default to false]
-**RequireEndDate** | Pointer to **bool** | If true, then remove date or sunset date is required in access request of the entitlement. | [optional] [default to false]
-**MaxPermittedAccessDuration** | Pointer to [**NullablePendingApprovalMaxPermittedAccessDuration**](pending-approval-max-permitted-access-duration) |  | [optional] 
 
 ## Methods
 
@@ -141,64 +139,4 @@ SetReauthorizationRequired sets ReauthorizationRequired field to given value.
 
 HasReauthorizationRequired returns a boolean if a field has been set.
 
-### GetRequireEndDate
-
-`func (o *EntitlementAccessRequestConfig) GetRequireEndDate() bool`
-
-GetRequireEndDate returns the RequireEndDate field if non-nil, zero value otherwise.
-
-### GetRequireEndDateOk
-
-`func (o *EntitlementAccessRequestConfig) GetRequireEndDateOk() (*bool, bool)`
-
-GetRequireEndDateOk returns a tuple with the RequireEndDate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRequireEndDate
-
-`func (o *EntitlementAccessRequestConfig) SetRequireEndDate(v bool)`
-
-SetRequireEndDate sets RequireEndDate field to given value.
-
-### HasRequireEndDate
-
-`func (o *EntitlementAccessRequestConfig) HasRequireEndDate() bool`
-
-HasRequireEndDate returns a boolean if a field has been set.
-
-### GetMaxPermittedAccessDuration
-
-`func (o *EntitlementAccessRequestConfig) GetMaxPermittedAccessDuration() PendingApprovalMaxPermittedAccessDuration`
-
-GetMaxPermittedAccessDuration returns the MaxPermittedAccessDuration field if non-nil, zero value otherwise.
-
-### GetMaxPermittedAccessDurationOk
-
-`func (o *EntitlementAccessRequestConfig) GetMaxPermittedAccessDurationOk() (*PendingApprovalMaxPermittedAccessDuration, bool)`
-
-GetMaxPermittedAccessDurationOk returns a tuple with the MaxPermittedAccessDuration field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMaxPermittedAccessDuration
-
-`func (o *EntitlementAccessRequestConfig) SetMaxPermittedAccessDuration(v PendingApprovalMaxPermittedAccessDuration)`
-
-SetMaxPermittedAccessDuration sets MaxPermittedAccessDuration field to given value.
-
-### HasMaxPermittedAccessDuration
-
-`func (o *EntitlementAccessRequestConfig) HasMaxPermittedAccessDuration() bool`
-
-HasMaxPermittedAccessDuration returns a boolean if a field has been set.
-
-### SetMaxPermittedAccessDurationNil
-
-`func (o *EntitlementAccessRequestConfig) SetMaxPermittedAccessDurationNil(b bool)`
-
- SetMaxPermittedAccessDurationNil sets the value for MaxPermittedAccessDuration to be an explicit nil
-
-### UnsetMaxPermittedAccessDuration
-`func (o *EntitlementAccessRequestConfig) UnsetMaxPermittedAccessDuration()`
-
-UnsetMaxPermittedAccessDuration ensures that no value is present for MaxPermittedAccessDuration, not even an explicit nil
 

@@ -4008,12 +4008,7 @@ func main() {
               "approverType" : "GOVERNANCE_GROUP"
             } ],
             "reauthorizationRequired" : false,
-            "requestCommentRequired" : true,
-            "requireEndDate" : true,
-            "maxPermittedAccessDuration" : {
-              "value" : 5,
-              "timeUnit" : "DAYS"
-            }
+            "requestCommentRequired" : true
           },
           "revocationRequestConfig" : {
             "approvalSchemes" : [ {

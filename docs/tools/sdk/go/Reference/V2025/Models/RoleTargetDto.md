@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Source** | Pointer to [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
 **AccountInfo** | Pointer to [**AccountInfoDto**](account-info-dto) |  | [optional] 
-**Role** | Pointer to [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
+**RoleName** | Pointer to **string** | Specific role name for this target if using multiple accounts | [optional] 
 
 ## Methods
 
@@ -88,29 +88,29 @@ SetAccountInfo sets AccountInfo field to given value.
 
 HasAccountInfo returns a boolean if a field has been set.
 
-### GetRole
+### GetRoleName
 
-`func (o *RoleTargetDto) GetRole() BaseReferenceDto`
+`func (o *RoleTargetDto) GetRoleName() string`
 
-GetRole returns the Role field if non-nil, zero value otherwise.
+GetRoleName returns the RoleName field if non-nil, zero value otherwise.
 
-### GetRoleOk
+### GetRoleNameOk
 
-`func (o *RoleTargetDto) GetRoleOk() (*BaseReferenceDto, bool)`
+`func (o *RoleTargetDto) GetRoleNameOk() (*string, bool)`
 
-GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
+GetRoleNameOk returns a tuple with the RoleName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRole
+### SetRoleName
 
-`func (o *RoleTargetDto) SetRole(v BaseReferenceDto)`
+`func (o *RoleTargetDto) SetRoleName(v string)`
 
-SetRole sets Role field to given value.
+SetRoleName sets RoleName field to given value.
 
-### HasRole
+### HasRoleName
 
-`func (o *RoleTargetDto) HasRole() bool`
+`func (o *RoleTargetDto) HasRoleName() bool`
 
-HasRole returns a boolean if a field has been set.
+HasRoleName returns a boolean if a field has been set.
 
 

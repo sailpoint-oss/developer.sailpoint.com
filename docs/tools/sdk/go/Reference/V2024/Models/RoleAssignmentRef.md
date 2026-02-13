@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** | Assignment Id | [optional] 
 **Role** | Pointer to [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
 **AddedDate** | Pointer to **SailPointTime** | Date that the assignment was added | [optional] 
-**RemoveDate** | Pointer to **NullableTime** | Date that the assignment will be removed | [optional] 
 
 ## Methods
 
@@ -114,39 +113,4 @@ SetAddedDate sets AddedDate field to given value.
 
 HasAddedDate returns a boolean if a field has been set.
 
-### GetRemoveDate
-
-`func (o *RoleAssignmentRef) GetRemoveDate() SailPointTime`
-
-GetRemoveDate returns the RemoveDate field if non-nil, zero value otherwise.
-
-### GetRemoveDateOk
-
-`func (o *RoleAssignmentRef) GetRemoveDateOk() (*SailPointTime, bool)`
-
-GetRemoveDateOk returns a tuple with the RemoveDate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRemoveDate
-
-`func (o *RoleAssignmentRef) SetRemoveDate(v SailPointTime)`
-
-SetRemoveDate sets RemoveDate field to given value.
-
-### HasRemoveDate
-
-`func (o *RoleAssignmentRef) HasRemoveDate() bool`
-
-HasRemoveDate returns a boolean if a field has been set.
-
-### SetRemoveDateNil
-
-`func (o *RoleAssignmentRef) SetRemoveDateNil(b bool)`
-
- SetRemoveDateNil sets the value for RemoveDate to be an explicit nil
-
-### UnsetRemoveDate
-`func (o *RoleAssignmentRef) UnsetRemoveDate()`
-
-UnsetRemoveDate ensures that no value is present for RemoveDate, not even an explicit nil
 

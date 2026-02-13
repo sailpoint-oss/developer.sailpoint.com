@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningIdentityDistribution', 'Bet
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AttributeName** | Pointer to **string** | Id of the potential role | [optional] 
-**Distribution** | Pointer to [**[]RoleMiningIdentityDistributionDistributionInner**](role-mining-identity-distribution-distribution-inner) |  | [optional] 
+**Distribution** | Pointer to **[]map[string]string** |  | [optional] 
 
 ## Methods
 
@@ -64,20 +64,20 @@ HasAttributeName returns a boolean if a field has been set.
 
 ### GetDistribution
 
-`func (o *RoleMiningIdentityDistribution) GetDistribution() []RoleMiningIdentityDistributionDistributionInner`
+`func (o *RoleMiningIdentityDistribution) GetDistribution() []map[string]string`
 
 GetDistribution returns the Distribution field if non-nil, zero value otherwise.
 
 ### GetDistributionOk
 
-`func (o *RoleMiningIdentityDistribution) GetDistributionOk() (*[]RoleMiningIdentityDistributionDistributionInner, bool)`
+`func (o *RoleMiningIdentityDistribution) GetDistributionOk() (*[]map[string]string, bool)`
 
 GetDistributionOk returns a tuple with the Distribution field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDistribution
 
-`func (o *RoleMiningIdentityDistribution) SetDistribution(v []RoleMiningIdentityDistributionDistributionInner)`
+`func (o *RoleMiningIdentityDistribution) SetDistribution(v []map[string]string)`
 
 SetDistribution sets Distribution field to given value.
 

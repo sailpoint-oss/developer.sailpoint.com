@@ -36,8 +36,8 @@ Method | HTTP request | Description
 [**get-role-mining-session-status**](#get-role-mining-session-status) | **Get** `/role-mining-sessions/{sessionId}/status` | Get role mining session status state
 [**get-role-mining-sessions**](#get-role-mining-sessions) | **Get** `/role-mining-sessions` | Retrieves all role mining sessions
 [**get-saved-potential-roles**](#get-saved-potential-roles) | **Get** `/role-mining-potential-roles/saved` | Retrieves all saved potential roles
-[**patch-potential-role**](#patch-potential-role) | **Patch** `/role-mining-potential-roles/{potentialRoleId}` | Update a potential role
-[**patch-potential-role-session**](#patch-potential-role-session) | **Patch** `/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}` | Update a potential role session
+[**patch-potential-role**](#patch-potential-role) | **Patch** `/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}` | Update a potential role
+[**patch-potential-role-0**](#patch-potential-role-0) | **Patch** `/role-mining-potential-roles/{potentialRoleId}` | Update a potential role
 [**patch-role-mining-session**](#patch-role-mining-session) | **Patch** `/role-mining-sessions/{sessionId}` | Patch a role mining session
 [**update-entitlements-potential-role**](#update-entitlements-potential-role) | **Post** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements` | Edit entitlements for a potential role to exclude some entitlements
 
@@ -1974,7 +1974,7 @@ func main() {
 
 [[Back to top]](#)
 
-## patch-potential-role-session
+## patch-potential-role-0
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
@@ -1986,7 +1986,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.Experimental = true
  ```
 :::
-Update a potential role session
+Update a potential role
 The method updates an existing potential role using.
 
 The following fields can be modified:
@@ -2001,7 +2001,7 @@ The following fields can be modified:
 >**NOTE: All other fields cannot be modified.**
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-potential-role-session)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-potential-role-0)
 
 ### Path Parameters
 
@@ -2014,7 +2014,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPatchPotentialRoleSessionRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPatchPotentialRole_1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -2022,7 +2022,7 @@ Name | Type | Description  | Notes
 
 
  **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
- **jsonPatchOperation** | [**[]JsonPatchOperation**](../models/json-patch-operation) |  | 
+ **patchPotentialRoleRequestInner** | [**[]PatchPotentialRoleRequestInner**](../models/patch-potential-role-request-inner) |  | 
 
 ### Return type
 
@@ -2051,10 +2051,10 @@ func main() {
     sessionId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The role mining session id # string | The role mining session id
     potentialRoleId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The potential role summary id # string | The potential role summary id
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    jsonpatchoperation := []byte(`[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]`) // []JsonPatchOperation | 
+    patchpotentialrolerequestinner := []byte(`[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]`) // []PatchPotentialRoleRequestInner | 
 
-    var jsonPatchOperation []v2025.JsonPatchOperation
-    if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
+    var patchPotentialRoleRequestInner []v2025.PatchPotentialRoleRequestInner
+    if err := json.Unmarshal(patchpotentialrolerequestinner, &patchPotentialRoleRequestInner); err != nil {
       fmt.Println("Error:", err)
       return
     }
@@ -2062,14 +2062,14 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2025.IAIRoleMiningAPI.PatchPotentialRoleSession(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
-	  //resp, r, err := apiClient.V2025.IAIRoleMiningAPI.PatchPotentialRoleSession(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
+    resp, r, err := apiClient.V2025.IAIRoleMiningAPI.PatchPotentialRole_0(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).PatchPotentialRoleRequestInner(patchPotentialRoleRequestInner).Execute()
+	  //resp, r, err := apiClient.V2025.IAIRoleMiningAPI.PatchPotentialRole_0(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).PatchPotentialRoleRequestInner(patchPotentialRoleRequestInner).Execute()
     if err != nil {
-	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.PatchPotentialRoleSession``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.PatchPotentialRole_0``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PatchPotentialRoleSession`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.PatchPotentialRoleSession`: %v\n", resp)
+    // response from `PatchPotentialRole_0`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.PatchPotentialRole_0`: %v\n", resp)
 }
 ```
 

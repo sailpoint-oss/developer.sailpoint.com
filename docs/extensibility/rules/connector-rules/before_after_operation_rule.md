@@ -102,8 +102,7 @@ Try{
     }
 
     #Call the client script
-    $command = -join ($command, " -requestString '$requestAsString'")
-    Invoke-Expression $command
+    & $command -requestString $requestAsString
 
 }Catch{
  $ErrorMessage = $_.Exception.Message

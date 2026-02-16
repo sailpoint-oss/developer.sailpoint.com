@@ -93,6 +93,90 @@ Once you have submitted your rule and you are in the review process, remember th
 - **Rejections:** SailPoint's goal is to apply these guidelines fairly and consistently, but mistaken rejections can happen. If your rule has been rejected and you have questions or you would like to provide additional information, communicate directly with the rule review team. This may help get your rule into Identity Security Cloud, and it can help SailPoint improve the process or identify a need for clarity in its policies. If you still disagree with the outcome, let SailPoint know and someone can look into it.
 - **Changes:** Rule changes or modifications to meet guidelines are not the reviewer's responsibility. They are the responsibility of the person(s) submitting the rule. Reviewers may give advice, examples, etc. to help, but doing so does not guarantee a solution. You should test the rules with the changes before resubmission.
 
+## Attaching Rules to sources
+
+Once a rule has been imported to your tenant, you must configure any sources that need to reference that rule during the desired operation. You can accomplish this configuration through the execution of an API call on the source. The following examples all use a `PATCH` operation for a partial source update, but `PUT` operations work too, as long as the entire source object model is provided.
+
+For the `PATCH` operations, you must provide an `op` key. For new configurations, this key is typically set to `add` as the example shows, but they can be any of the following:
+
+- `add` - Add a new value to the configuration. Use this operation if this is the first time you are setting the value, i.e. it has never been configured before.
+- `replace` - Use this operation to change the existing value. Use this operation if you are updating the value, i.e. you want to change the configuration.
+- `remove` - Removes a value from the configuration. Use this operation if you want to unset a value. **Caution: Removals can be destructive if the path is improperly configured. This can negatively alter your source config.**
+
+## Example API calls by Rule type
+
+### BeforeProvisioning Rule
+
+`PATCH` /v3/sources/[id]
+
+Content-Type: `application/json-patch+json`
+
+```json
+[
+  {
+    "op": "add",
+    "path": "/beforeProvisioningRule",
+    "value": {
+      "type": "RULE",
+      "id": "2c918085708c274401708c2a8a760001",
+      "name": "Example Rule"
+    }
+  }
+]
 ```
 
+### BuildMap Rule
+
+`PATCH` /v3/sources/[id]
+
+Content-Type: `application/json-patch+json`
+
+```json
+[
+  {
+    "op": "add",
+    "path": "/connectorAttributes/buildMapRule",
+    "value": "Example Rule"
+  }
+]
+```
+
+### Correlation Rule
+
+`PATCH` /v3/sources/[id]
+
+Content-Type: `application/json-patch+json`
+
+```json
+[
+  {
+    "op": "add",
+    "path": "/accountCorrelationRule",
+    "value": {
+      "type": "RULE",
+      "id": "2c9180896fc824e5016fc827ea880005",
+      "name": "Example Rule"
+    }
+  }
+]
+```
+
+### ManagerCorrelation Rule
+
+`PATCH` /v3/sources/[id]
+
+Content-Type: `application/json-patch+json`
+
+```json
+[
+  {
+    "op": "replace",
+    "path": "/managerCorrelationRule",
+    "value": {
+      "type": "RULE",
+      "id": "2c9180836fb03f35016fb05dae3b0001",
+      "name": "Example Rule"
+    }
+  }
+]
 ```

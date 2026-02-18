@@ -1,7 +1,4 @@
 type: object
-required:
-  - id
-  - scope
 properties:
   tenantId:
     type: string

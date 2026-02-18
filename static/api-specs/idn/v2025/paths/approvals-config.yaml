@@ -9,6 +9,67 @@ put:
   summary: Put Approval Config
   description: >-
     Upserts a singular approval configuration that matches the given configID and configScope. If id and scope are not provided, it will default to setting the tenant config.
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+    description: The ID defined by the scope field, where [[id]]:[[scope]] is the following
+
+      [[roleID]]:ROLE
+                         
+      [[entitlementID]]:ENTITLEMENT
+     
+      [[accessProfileID]]:ACCESS_PROFILE
+     
+      [[sourceID]]:SOURCE
+     
+      [[applicationID]]:APPLICATION
+     
+      ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
+     
+      ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
+     
+      [[tenantID]]:TENANT
+                         
+      [[domainObjectID]]:DOMAIN_OBJECT
+    example: 38453251-6be2-5f8f-df93-5ce19e295837
+    x-sailpoint-resource-operation-id: getApprovals
+  - in: path
+    name: scope
+    required: true
+    schema:
+      type: string
+      enum:
+      - DOMAIN_OBJECT
+      - ROLE
+      - APPLICATION
+      - ACCESS_PROFILE
+      - ENTITLEMENT
+      - APPROVAL_TYPE
+      - TENANT
+      - SOURCE
+    description: The scope of the field, where [[id]]:[[scope]] is the following
+
+      [[roleID]]:ROLE
+                         
+      [[entitlementID]]:ENTITLEMENT
+     
+      [[accessProfileID]]:ACCESS_PROFILE
+     
+      [[sourceID]]:SOURCE
+     
+      [[applicationID]]:APPLICATION
+     
+      ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
+     
+      ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
+     
+      [[tenantID]]:TENANT
+                         
+      [[domainObjectID]]:DOMAIN_OBJECT
+    example: DOMAIN_OBJECT
   requestBody:
     required: true
     content:
@@ -22,6 +83,95 @@ put:
         application/json:
           schema:
             $ref: '../schemas/ApprovalConfig.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+delete:
+  security:
+  - userAuth: [ sp:approvals:write ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  operationId: deleteApprovalConfigRequest
+  tags:
+  - Approvals
+  summary: Delete Approval Configuration
+  description: |-
+    Deletes an approval configuration.
+    Configurations at the APPROVAL_REQUEST scope cannot be deleted.
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+    description: The ID defined by the scope field, where [[id]]:[[scope]] is the following
+
+      [[roleID]]:ROLE
+                   
+      [[entitlementID]]:ENTITLEMENT
+     
+      [[accessProfileID]]:ACCESS_PROFILE
+     
+      [[sourceID]]:SOURCE
+     
+      [[applicationID]]:APPLICATION
+     
+      ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
+     
+      ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
+     
+      [[tenantID]]:TENANT
+     
+      [[domainObjectID]]:DOMAIN_OBJECT
+    example: 38453251-6be2-5f8f-df93-5ce19e295837
+    x-sailpoint-resource-operation-id: getApprovals
+  - in: path
+    name: scope
+    required: true
+    schema:
+      type: string
+      enum:
+      - DOMAIN_OBJECT
+      - ROLE
+      - APPLICATION
+      - ACCESS_PROFILE
+      - ENTITLEMENT
+      - APPROVAL_TYPE
+      - TENANT
+      - SOURCE
+    description:  The scope of the field, where [[id]]:[[scope]] is the following
+
+      [[roleID]]:ROLE
+                    
+      [[entitlementID]]:ENTITLEMENT
+      
+      [[accessProfileID]]:ACCESS_PROFILE
+      
+      [[sourceID]]:SOURCE
+      
+      [[applicationID]]:APPLICATION
+      
+      ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
+      
+      ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
+      
+      [[tenantID]]:TENANT
+      
+      [[domainObjectID]]:DOMAIN_OBJECT
+    example: DOMAIN_OBJECT
+    x-go-name: Type
+  responses:
+    '204':
+      $ref: '../responses/204.yaml'
     '400':
       $ref: '../responses/400.yaml'
     '401':

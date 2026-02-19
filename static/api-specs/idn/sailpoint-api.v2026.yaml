@@ -29,11 +29,24 @@ servers:
 tags:
   - name: Account Deletion Requests
   - name: Delete account
+  - name: Entitlements
   - name: Human Account Deletion Approval Config
   - name: Machine Account Deletion Approval Config
   - name: Machine Subtype Approval Config
   - name: Task Management
 paths:
+  /entitlements:
+    $ref: ./v2026/paths/entitlements.yaml
+  /entitlements/account/{accountId}/entitlements:
+    $ref: ./v2026/paths/account-entitlements.yaml
+  /entitlements/bulk-update:
+    $ref: ./v2026/paths/entitlement-bulk-update.yaml
+  /entitlements/{id}:
+    $ref: ./v2026/paths/entitlement.yaml
+  /entitlements/{id}/parents:
+    $ref: ./v2026/paths/entitlement-parents.yaml
+  /entitlements/{id}/children:
+    $ref: ./v2026/paths/entitlement-children.yaml
   /task-status/{id}:
     $ref: ./v2026/paths/task-status.yaml
   /task-status:

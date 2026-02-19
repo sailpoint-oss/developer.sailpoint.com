@@ -27,7 +27,12 @@ servers:
       default: sailpoint.api.identitynow.com
       description: This is the api url of your tenant
 tags:
-   - name: Task Management
+  - name: Account Deletion Requests
+  - name: Delete account
+  - name: Human Account Deletion Approval Config
+  - name: Machine Account Deletion Approval Config
+  - name: Machine Subtype Approval Config
+  - name: Task Management
 paths:
   /task-status/{id}:
     $ref: ./v2026/paths/task-status.yaml
@@ -35,6 +40,16 @@ paths:
     $ref: ./v2026/paths/task-status-list.yaml
   /task-status/pending-tasks:
     $ref: ./v2026/paths/task-status-pending.yaml
+  /account-requests/deletion:
+    $ref: ./v2026/paths/account-deletion-requests.yaml
+  /account-requests/account/{accountId}/delete:
+    $ref: ./v2026/paths/account-delete-request.yaml
+  /source-subtypes/{subtypeId}/machine-config:
+    $ref: ./v2026/paths/source-subtype-machine-config.yaml
+  /sources/{sourceId}/approval-config/machine-account-delete:
+    $ref: ./v2026/paths/source-machine-config.yaml
+  /sources/{sourceId}/approval-config/account-delete:
+    $ref: ./v2026/paths/account-delete-config.yaml
 security:
 - userAuth:
   - "sp:scopes:all"
@@ -76,3 +91,26 @@ components:
           scopes:
             "sp:scopes:default": "default scope"
             "sp:scopes:all": "access to all scopes"
+  schemas:
+    AccountActionRequestDto:
+      $ref: "./v2026/schemas/AccountActionRequestDto.yaml"
+    AccountDeleteAsyncResult:
+      $ref: "./v2026/schemas/AccountDeleteAsyncResult.yaml"
+    AccountDeleteRequestInput:
+      $ref: "./v2026/schemas/AccountDeleteRequestInput.yaml"
+    AccountDetails:
+      $ref: "./v2026/schemas/AccountDetails.yaml"
+    AccountRequestPhase:
+      $ref: "./v2026/schemas/AccountRequestPhase.yaml"
+    ApprovalDetails:
+      $ref: "./v2026/schemas/ApprovalDetails.yaml"
+    ApproverDto:
+      $ref: "./v2026/schemas/ApproverDto.yaml"
+    BaseReferenceDto:
+      $ref: "./v2026/schemas/BaseReferenceDto.yaml"
+    DtoType:
+      $ref: "./v2026/schemas/DtoType.yaml"
+    MachineAccountSubTypeConfigDto:
+      $ref: "./v2026/schemas/MachineAccountSubTypeConfigDto.yaml"
+    AccountDeleteConfigDto:
+      $ref: "./v2026/schemas/AccountDeleteConfigDto.yaml"

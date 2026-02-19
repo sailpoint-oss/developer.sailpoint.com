@@ -1,0 +1,56 @@
+get:
+  operationId: getAccountDeletionRequests
+  tags:
+    - Account Deletion Requests
+  summary: List of Account Deletion Requests
+  description: Retrieves a paginated list of account deletion requests filtered by the provided query parameters. When the "mine" parameter is set to true, the response includes only those deletion requests that were initiated by the currently authenticated user. If "mine" is false or not specified, the endpoint returns all account deletion requests associated with the current tenant, regardless of the initiator. This allows both users and administrators to view relevant deletion requests based on their access level and intent.
+  security:
+    - userAuth: [idn:account-requests:read, idn:account-requests:management]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - USER
+  parameters:
+  - in: header
+    name: X-SailPoint-Experimental
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  - $ref: '../parameters/limit.yaml'
+  - $ref: '../parameters/offset.yaml'
+  - $ref: '../parameters/count.yaml'
+  - in: query
+    name: mine
+    schema:
+      type: boolean
+      default: false
+    description: Determines whether to return only the account deletion requests initiated by the currently authenticated user. If set to true, the response includes only deletion requests created by the logged-in user. If set to false or not provided, the response includes all deletion requests for the tenant, regardless of the initiator. This parameter allows users to view their own requests, while administrators can view all requests within the tenant.
+    example: true
+    required: false
+  responses:
+    '200':
+      description: Account Action Request objects.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/AccountActionRequestDto.yaml
+          example:
+            $ref: ../schemas/examples/account-deletion-requests-details.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

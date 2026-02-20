@@ -5,7 +5,9 @@ get:
   tags:
     - identity proofing results
   parameters:
-    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/limit.yaml"
+    - $ref: "../parameters/query/offset.yaml"
+    - $ref: "../parameters/query/order.yaml"
     - $ref: "../parameters/query/profile_id.yaml"
     - $ref: "../parameters/query/workflow_session_id.yaml"
     - $ref: "../parameters/query/result.yaml"

@@ -5,7 +5,9 @@ get:
   tags:
     - risk levels
   parameters:
-    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/limit.yaml"
+    - $ref: "../parameters/query/offset.yaml"
+    - $ref: "../parameters/query/order.yaml"
     - $ref: "../parameters/query/label.yaml"
     - $ref: "../parameters/query/metadata.yaml"
   responses:

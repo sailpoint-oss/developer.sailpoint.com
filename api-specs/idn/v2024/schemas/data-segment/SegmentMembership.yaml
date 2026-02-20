@@ -1,0 +1,18 @@
+type: object
+description: Contains the segments and types that an identity is associated with
+properties:
+  segments:
+    type: array
+    items:
+      $ref: './SegmentId.yaml'
+    description: List of segment ids that the identity is associated with.
+  allAccessScopes:
+    type: array
+    items:
+      $ref: './ScopeType.yaml'
+    description: They type of scopes that are assigned to the identity.
+  refreshBy:
+    type: string
+    format: date-time
+    description: Date time string that lets you know when the membership data is going to be refreshed.
+    example: "2020-01-01T00:00:00.000000Z"

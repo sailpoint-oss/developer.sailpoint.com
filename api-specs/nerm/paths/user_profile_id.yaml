@@ -1,0 +1,19 @@
+delete:
+  summary: Delete a user profile assignment
+  operationId: deleteUserProfile
+  description: Delete a user profile assignment
+  tags:
+    - user profiles
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      description: "User profile was destroyed"
+      content:
+        application/json:
+          schema:
+            type: object
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

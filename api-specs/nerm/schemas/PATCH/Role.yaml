@@ -1,0 +1,21 @@
+type: object
+properties:
+  type:
+    type: string
+    enum: [NeprofileRole, NeaccessRole]
+    description: The type of role
+    example: NeprofileRole
+  name:
+    type: string
+    example: Sponsors
+    description: The name of the user role
+  archived:
+    type: boolean
+    description: Set to true to archive, false to unarchive 
+    example: true
+  groups:
+    type: array
+    description: Role groups
+    items:
+      type: string
+      example: "ad_group_name"

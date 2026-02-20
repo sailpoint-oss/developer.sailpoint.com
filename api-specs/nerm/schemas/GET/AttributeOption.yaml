@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  uid:
+    type: string
+    readOnly: true
+  ne_attribute_id:
+    type: string
+    format: uuid
+  option:
+    type: string

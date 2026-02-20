@@ -1,0 +1,36 @@
+get:
+  summary: Get specifications for parameter types.
+  description: |-
+    Get the specifications for all parameter types. All parameters must conform to this specification document.
+  operationId: getParameterStorageSpecification
+  security:
+    - userAuth: [sp:parameter-storage:read, sp:parameter-storage:update, sp:parameter-storage:create, sp:parameter-storage:delete]
+  parameters:
+    - name: Accept-Language
+      in: header
+      required: false
+      example: "en"
+      description: The i18n internationalization code for the language that the spec is in. Defaults to english.
+      schema:
+        type: string
+        default: "en"
+  tags:
+    - Parameter Storage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  x-audience:
+    - external-public
+
+  responses:
+    "200":
+      description: Returns the JSON spec in the language chosen.
+    "400":
+      $ref: '../responses/400.yaml'
+    "401":
+      $ref: '../responses/401.yaml'
+    "403":
+      $ref: '../responses/403.yaml'
+    "429":
+      $ref: '../responses/429.yaml'
+    "500":
+      $ref: '../responses/500.yaml'

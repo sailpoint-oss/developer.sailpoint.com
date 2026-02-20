@@ -1,0 +1,196 @@
+get:
+  operationId: getDiscoveredApplicationByID
+  tags:
+    - Application Discovery
+  summary: Get discovered application by id
+  description: >-
+    Get the discovered application, along with with its associated sources, based on the provided ID.
+  security:
+    - userAuth:
+        - 'idn:application-discovery:read'
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+  parameters:
+    - name: "id"
+      in: "path"
+      required: true
+      schema:
+        type: "string"
+      description: Discovered application's ID. 
+      example: "123e4567-e89b-12d3-a456-426655440000"
+      x-sailpoint-resource-operation-id: getDiscoveredApplications
+  responses:
+    '200':
+      description: Returns the discovered application, along with its associated sources.
+      content:
+        application/json:
+          example:
+            id: "app-123"
+            name: "Example App"
+            discoverySource: "csv"
+            discoveredVendor: "Example Vendor"
+            description: "An application for managing examples."
+            recommendedConnectors: [ "ConnectorA", "ConnectorB" ]
+            discoveredAt: "2023-07-01T12:00:00Z"
+            createdAt: "2024-06-01T12:00:00Z"
+            status: "ACTIVE"
+            associatedSources: [
+              "4e2d7605-833f-4c34-8d03-5b2c7d2f4f66",
+              "f9b7e2ce-aced-4117-a95f-4ffad8b33989",
+              "a3b159f2-5f09-43c9-b40e-a6f317aa5b8f"
+            ]
+            operationalStatus: "Operational"
+            datasetId: null
+            discoverySourceCategory: "csv"
+            licenseCount: 175
+            isSanctioned: true
+            logo: "https://spdojtest1.oktapreview.com/api/v1/apps/0oaeuef9hiipHcMgR0h7/logo"
+            appUrl: "https://spdojtest1.oktapreview.com/home/salesforce/0oaeuef9hiipHcMgR0h7/24"
+            groups:
+            - map:
+                id: "id"
+                name: "JIRA Users"
+                nativeIdentifiers:
+                  map:
+                    distinguishedName: "CN=Engineering users,OU=Engineering,DC=corp,DC=example,DC=com"
+                    id: "nativeId"
+                    objectSid: "S-1-5-21-717838489-685202119-709183397-1177"
+                type: "EXTERNAL_GROUP|LOCAL_GROUP"
+            usersCount: "175"
+            applicationOwner:
+                - "Mr. abel.tuter"
+            itApplicationOwner:
+                - "Mr. john doe"
+            businessCriticality: "High"
+            dataClassification: "Restricted"
+            businessUnit: "Finance"
+            installType: "On Premise"
+            environment: "Production"
+            riskScore: "ANY"
+            isPrivileged: false
+            warrantyExpiration: "2023-09-25T14:07:27.000+0000"
+            attributes:
+              features:
+              - "IMPORT_PROFILE_UPDATES"
+              - "IMPORT_USER_SCHEMA"
+              - "IMPORT_NEW_USERS"
+              identityStack: "NOT_SHARED"
+              selfService: false
+              signOnMode: "SAML_2_0"
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+patch:
+  operationId: patchDiscoveredApplicationByID
+  tags:
+    - Application Discovery
+  summary: Patch discovered application by id
+  description: >-
+    Update an existing discovered application by using a limited version of the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+
+    You can patch these fields:
+    - **associatedSources**
+    - **dismissed**
+  security:
+    - userAuth:
+        - 'idn:application-discovery:write'
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+  parameters:
+    - name: "id"
+      in: "path"
+      required: true
+      schema:
+        type: "string"
+      description: Discovered application's ID.
+      example: "123e4567-e89b-12d3-a456-426655440000"
+      x-sailpoint-resource-operation-id: getDiscoveredApplications
+  requestBody:
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../schemas/discovered-applications/JsonPatchOperations.yaml'
+          example: [
+            {
+              "op": "replace",
+              "path": "/dismissed",
+              "value": false
+            }
+          ]
+        examples:
+          Dismiss an app:
+            description: This example shows how use patch to set the dismissal status of a correlated application to true.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/dismissed",
+                  "value": true
+                },
+              ]
+          Replace associated sources:
+            description: This example shows how use patch to replace the values of the associatedSources field.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/associatedSources",
+                  "value": [
+                    "4e2d7605-833f-4c34-8d03-5b2c7d2f4f66",
+                    "f9b7e2ce-aced-4117-a95f-4ffad8b33989",
+                    "a3b159f2-5f09-43c9-b40e-a6f317aa5b8f"
+                  ]
+                },
+              ]
+          Add an associated source to a correlated application:
+            description: >-
+              This example shows how to use patch to add an associated source to a correlated application.
+            value:
+              [
+                {
+                  "op": "add",
+                  "path": "/associatedSources",
+                  "value": "123e4567-e89b-a456-42655440005"
+                }
+              ]
+  responses:
+    '200':
+      description: Returns the single patched discovered application.
+      content:
+        application/json:
+          example:
+            id: "app-123"
+            name: "Example App"
+            discoverySource: "csv"
+            discoveredVendor: "Example Vendor"
+            description: "An application for managing examples."
+            recommendedConnectors: [ "ConnectorA", "ConnectorB" ]
+            discoveredAt: "2023-07-01T12:00:00Z"
+            createdAt: "2024-06-01T12:00:00Z"
+            status: "ACTIVE"
+            associatedSources: [
+              "4e2d7605-833f-4c34-8d03-5b2c7d2f4f66",
+              "f9b7e2ce-aced-4117-a95f-4ffad8b33989",
+              "a3b159f2-5f09-43c9-b40e-a6f317aa5b8f"
+            ]
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

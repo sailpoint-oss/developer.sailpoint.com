@@ -1,0 +1,8 @@
+name: active_filter
+in: query
+description: Filter for profile type synced attributes
+required: false
+schema:
+  type: string
+  enum: [synced, unsynced, all]
+  example: all

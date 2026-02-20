@@ -1,0 +1,56 @@
+type: object
+properties:
+  name:
+    type: string
+    description: This is the name of the profile type.
+    example: Worker
+  category:
+    type: string
+    enum: ['employee', 'non-employee', 'organization', 'assignment', 'other']
+    description: This is the category the profile type falls into.
+    example: employee  
+  bypass_dup_protection:
+    type: boolean
+    description: Whether or not duplication protection is bypassed.
+    example: false
+  archived:
+    type: boolean
+    description: Whether or not the profile type is archived.
+    example: false
+  permitted_role_ids:
+    type: array
+    items: 
+      type: string
+      format: uuid
+    description: The role ids that are permitted for this profile type.
+    example: ['33f072dd-13b4-41e1-8ea0-16f2a59b57c8']
+  isc_synced:
+    type: boolean
+    default: false
+    description: Is this profile type synced with ics
+    example: false
+  profile_type_dup_attributes_attributes:
+    type: array
+    items: 
+      type: object
+      properties:
+        ne_attribute_id:
+          type: string
+          format: uuid
+          description: The ID of the ne attribute.
+          example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  profile_type_namings_attributes:
+    type: array
+    items: 
+      type: object
+      properties:
+        ne_attribute_id:
+          type: string
+          format: uuid
+          description: The ID of the associated ne attribute.
+          example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+        order:
+          type: integer
+          minimum: 0
+          description: The order that the namings are used in.
+          example: 0

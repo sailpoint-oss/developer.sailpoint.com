@@ -1,0 +1,72 @@
+type: object
+title: Account Details
+description: Contains detailed information about an account, including identifiers, type, status, source, and ownership details.
+properties:
+  accountId:
+    type: string
+    description: ID of account
+    example: 15e169acf21f4ae28e8a06198ce7f699
+  accountName:
+    type: string
+    description: Account name
+    example: walter.white
+  accountNativeIdentity:
+    type: string
+    description: Native identity of account
+    example: CN=Walter White,OU=BB,OU=org-data-service,DC=TestAutomationAD,DC=local
+  accountUuid:
+    type: string
+    description: UUID associated with account
+    example: {3bbeb846-e168-47d2-9e5d-bd46506c9280}
+  accountType:
+    type: string
+    nullable: false
+    description: Type of account
+    example: HUMAN
+  accountSubtypeId:
+    type: string
+    nullable: true
+    description: Sub Type ID of account
+    example: null
+  accountSubtype:
+    type: string
+    nullable: true
+    description: Subtype of account
+    example: null
+  description:
+    type: string
+    nullable: true
+    description: Account Description
+    example: This is human account for identity walter.white
+  sourceId:
+    type: string
+    description: ID of source
+    example: ee03924d95034cd088cbd5af068f1772
+  sourceName:
+    type: string
+    description: Name of source
+    example: BB AD
+  hasEntitlements:
+    type: boolean
+    default: false
+    description: Indicates entitlements assigned to identity or not
+    example: true
+  disabled:
+    type: boolean
+    default: false
+    description: Indicates account is enabled/disabled
+    example: false
+  locked:
+    type: boolean
+    default: false
+    description: Indicates account locked/unlocked
+    example: false
+  ownerIdentity:
+    nullable: true
+    allOf:
+      - $ref: './BaseReferenceDto.yaml'
+      - description: Owner identity reference.
+      - example:
+          type: IDENTITY
+          id: SailPoint Support
+          name: 85131bd73fdc423599e57f40b29f01fe

@@ -1,0 +1,27 @@
+properties:
+  outputSchema:
+    additionalProperties: { }
+    description: OutputSchema holds a JSON schema generated dynamically
+    example:
+      outputSchema:
+        $schema: https://json-schema.org/draft/2020-12/schema
+        additionalProperties: false
+        properties:
+          firstName:
+            title: First Name
+            type: string
+          fullName:
+            title: Full Name
+            type: string
+          lastName:
+            title: Last Name
+            type: string
+          startDate:
+            format: date-time
+            title: Start Date
+            type: string
+        type: object
+    type: object
+    x-go-name: OutputSchema
+type: object
+x-go-package: github.com/sailpoint/sp-forms/domain

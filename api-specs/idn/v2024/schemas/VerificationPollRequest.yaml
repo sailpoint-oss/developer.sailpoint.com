@@ -1,0 +1,10 @@
+type: object
+title: Verification Poll Request
+properties:
+  requestId:
+    type: string
+    nullable: false
+    description: Verification request Id
+    example: 089899f13a8f4da7824996191587bab9
+required:
+      - requestId

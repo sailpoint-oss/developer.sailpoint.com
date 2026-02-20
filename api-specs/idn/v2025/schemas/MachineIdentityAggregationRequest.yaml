@@ -1,0 +1,12 @@
+type: object
+title: Machine Identity Aggregation Request
+required:
+  - datasetIds
+properties:
+  datasetIds:
+    type: array
+    description: List of dataset Ids to aggregate machine identities
+    items:
+      type: string
+      description: The dataset Id of the source
+      example: 'source:datasetId12345'

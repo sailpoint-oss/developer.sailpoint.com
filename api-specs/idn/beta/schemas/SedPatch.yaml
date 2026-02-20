@@ -1,0 +1,15 @@
+description: Patch for Suggested Entitlement Description
+type: object
+title: Sed Patch
+properties:
+  op:
+    description: desired operation
+    type: string
+    example: replace
+  path:
+    description: field to be patched
+    type: string
+    example: status
+  value:
+    description: value to replace with
+    example: approved

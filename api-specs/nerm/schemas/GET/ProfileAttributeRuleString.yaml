@@ -1,0 +1,30 @@
+type: object
+required:
+  - type
+  - condition_object_type
+  - condition_object_id
+  - comparison_operator
+  - value
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  uid:
+    type: string
+    readOnly: true
+  type:
+    type: string
+    enum: [ProfileAttributeRule]
+  condition_object_type:
+    type: string
+    enum: [TextFieldAttribute, TextAreaAttribute]
+  condition_object_id:
+    type: string
+    format: uuid
+  comparison_operator:
+    type: string
+    enum: ['==', '!=', '>', '<', 'start_with?', 'end_with?', 'include?']
+  value:
+    type: string
+    example: Some value

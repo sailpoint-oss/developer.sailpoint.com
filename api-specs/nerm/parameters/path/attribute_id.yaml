@@ -1,0 +1,8 @@
+name: attribute_id
+in: path
+description: The id of the attachment attribute
+required: true
+schema:
+  type: string
+  format: uuid
+  example: 1246d8b3-ac29-4015-8154-dea4434a73fa

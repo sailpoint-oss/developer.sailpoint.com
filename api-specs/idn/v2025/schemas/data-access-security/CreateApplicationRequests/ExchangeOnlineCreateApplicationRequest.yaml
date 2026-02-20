@@ -1,0 +1,37 @@
+allOf:
+  - $ref: './BaseCreateApplicationRequest.yaml'
+  - required:
+      - appId
+      - certificateFile
+      - crawlMailboxes
+      - crawlPublicFolders
+      - domain
+    type: object
+    properties:
+      domain:
+        type: string
+        description: The domain associated with the Exchange Online application.
+        example: "contoso.com"
+      appId:
+        type: string
+        description: The application ID for Exchange Online.
+        example: "exchange-app-id-789"
+      certificateFile:
+        type: string
+        description: The path to the certificate file used for authentication.
+        example: "/path/to/cert.pfx"
+      certificatePassword:
+        type: string
+        nullable: true
+        description: The password for the certificate file.
+        example: "cert-password"
+      crawlMailboxes:
+        type: boolean
+        description: Indicates whether mailboxes should be crawled.
+        example: true
+        default: false
+      crawlPublicFolders:
+        type: boolean
+        description: Indicates whether public folders should be crawled.
+        example: false
+        default: false

@@ -1,0 +1,109 @@
+get:
+  summary: List all schedules.
+  security:
+    - userAuth: [ das:task:read, das:task:manage ]
+    - applicationAuth: [ das:task:read, das:task:manage ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+    - Data Access Security
+  description: >-
+    This end-point lists all the schedules in Data Access Security.
+  operationId: getSchedules
+  parameters:
+    - name: filters
+      in: query
+      schema:
+        type: string
+      required: false
+      example: ScheduleType eq "Daily" and startTime eq 1762237200
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **scheduleTaskIds**: *eq, in*
+
+
+        **taskTypeName**: *eq, in*
+
+
+        **status**: *eq*
+
+
+        **applicationId**: *eq*
+
+
+        **fullName**: *eq*
+
+
+        **nameSubString**: *eq*
+
+
+        **scheduleType**: *eq*
+
+
+        Supported composite operators are *and, or*
+    - $ref: '../../parameters/limit.yaml'
+    - $ref: '../../parameters/offset.yaml'
+    - $ref: '../../parameters/count.yaml'
+  responses:
+    '200':
+      description: >-
+        List of Schedule objects.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/data-access-security/ScheduleInfo.yaml'
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+post:
+  summary: Create a new schedule.
+  security:
+    - userAuth: [ das:task:manage ]
+    - applicationAuth: [ das:task:manage ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+    - Data Access Security
+  operationId: createSchedule
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/data-access-security/CreateScheduleRequest.yaml'
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: integer
+            format: int64
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

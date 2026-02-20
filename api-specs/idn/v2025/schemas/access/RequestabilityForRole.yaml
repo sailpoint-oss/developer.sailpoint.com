@@ -1,0 +1,35 @@
+type: object
+properties:
+  commentsRequired:
+    type: boolean 
+    description: Whether the requester of the containing object must provide comments justifying the request
+    example: true
+    nullable: true
+    default: false
+  denialCommentsRequired:
+    type: boolean
+    description: Whether an approver must provide comments when denying the request
+    example: true
+    nullable: true
+    default: false
+  reauthorizationRequired:
+    type: boolean
+    description: Indicates whether reauthorization is required for the request.
+    example: true
+    nullable: true
+    default: false
+  requireEndDate:
+    type: boolean
+    description: Indicates whether the requester of the containing object must provide access end date.
+    example: true
+    default: false
+  maxPermittedAccessDuration:
+    $ref: './AccessDuration.yaml'
+    nullable: true
+  approvalSchemes:
+    type: array
+    description: List describing the steps in approving the request
+    items:
+      $ref: './ApprovalSchemeForRole.yaml'
+  dimensionSchema:
+    $ref: './DimensionSchema.yaml'

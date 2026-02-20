@@ -1,0 +1,36 @@
+type: object
+title: Entitlement Bulk Update Request
+description: Object for specifying the bulk update request
+properties:
+  entitlementIds:
+    type: array
+    description: List of entitlement ids to update
+    maxItems: 50
+    items:
+      type: string
+    example:
+      [
+        "2c91808a7624751a01762f19d665220d",
+        "2c91808a7624751a01762f19d67c220e",
+        "2c91808a7624751a01762f19d692220f"
+      ]
+  jsonPatch:
+    type: array
+    items:
+      $ref: './JsonPatchOperation.yaml'
+    example:
+      [
+        {
+          "op": "replace",
+          "path": "/requestable",
+          "value": false
+        },
+        {
+          "op": "replace",
+          "path": "/privilegeOverride/level",
+          "value": "HIGH"
+        }
+      ]
+required:
+  - entitlementIds
+  - jsonPatch

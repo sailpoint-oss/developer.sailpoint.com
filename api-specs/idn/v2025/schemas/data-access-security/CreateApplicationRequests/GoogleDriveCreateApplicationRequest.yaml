@@ -1,0 +1,30 @@
+allOf:
+  - $ref: './BaseCreateApplicationRequest.yaml'
+  - required:
+      - certificateFile
+      - domainAdminUser
+      - googleDomain
+      - serviceAccountUser
+    type: object
+    properties:
+      domainAdminUser:
+        type: string
+        description: The Google Workspace domain admin user.
+        example: "admin@company.com"
+      googleDomain:
+        type: string
+        description: The Google Workspace domain name.
+        example: "company.com"
+      serviceAccountUser:
+        type: string
+        description: The service account user for Google Drive API access.
+        example: "service-account@company.iam.gserviceaccount.com"
+      certificateFile:
+        type: string
+        description: The path to the certificate file for authentication.
+        example: "/path/to/google-drive-cert.p12"
+      certificatePassword:
+        type: string
+        nullable: true
+        description: The password for the certificate file.
+        example: "cert-password"

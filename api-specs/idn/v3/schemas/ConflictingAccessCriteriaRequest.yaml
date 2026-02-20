@@ -1,0 +1,7 @@
+type: object
+title: Conflicting Access Criteria Request
+properties:
+  leftCriteria:
+    $ref: './AccessCriteriaRequest.yaml'
+  rightCriteria:
+    $ref: './AccessCriteriaRequest.yaml'

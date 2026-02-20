@@ -1,0 +1,23 @@
+post:
+  summary: Query for Audit events
+  description: |-
+    This endpoint provides a search engine for Audit Events by optionally combining subject_type, type, and subject_id to narrow down the audit events. A Subject Type of Profile links up to the AuditableProfile types. An Subject Type of WorkflowSession links up to the AuditableWorkflow types. An Subject Type of Get/Post/Patch/Delete links up to the AuditableApi types. The remaining Subject Types link up to the ActiveRecord types (configuration changes).
+    
+    - Any workflow audit event created as of 10/11/2024 will be able to be queried by workflow name, workflow uid, or workflow profile type.
+    - Any profile audit event created as of 10/11/2024 will be able to be queried by profile type.
+    - The entity_type parameter has been updated to subject_type, which now matches what is in the response object.
+    - With the additional query filters added, there is a max of 5 filter parameters at one time (aside from pagination parameters)
+    
+    To accommodate these changes, an API contract change was required.  Please read the updated API documentation for the new request syntax.
+  operationId: search
+  tags:
+    - audits
+  requestBody:
+    $ref: "../requestBodies/POST/AuditEvents.yaml"
+  responses:
+    "200":
+      $ref: "../responses/AuditEvents.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

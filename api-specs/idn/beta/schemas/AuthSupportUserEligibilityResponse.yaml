@@ -1,0 +1,6 @@
+type: object
+title: Auth Support User Eligibility Response
+properties:
+  authSupportUserEligible:
+    type: boolean
+    description: True if the logged-in user is eligible to provide admin-level support in a customer org.

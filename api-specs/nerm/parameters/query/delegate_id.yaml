@@ -1,0 +1,8 @@
+name: delegate_id
+in: query
+description: Filter by delegate ID
+required: false
+schema:
+  type: string
+  default: false
+  example: ac4aae0b-4140-49a4-a84c-126762fd0c8f

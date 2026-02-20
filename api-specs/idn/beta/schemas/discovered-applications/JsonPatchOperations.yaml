@@ -1,0 +1,34 @@
+type: object
+description: A limited JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
+required:
+  - "op"
+  - "path"
+properties:
+  op:
+    type: string
+    description: The operation to be performed
+    enum:
+      - "add"
+      - "remove"
+      - "replace"
+    example: "replace"
+  path:
+    type: string
+    description: A string representing the target path to an element to be affected by the operation
+    example: "/dismissed"
+  value:
+    oneOf:
+      - type: string
+        example: "New description"
+        title: string
+      - type: boolean
+        example: true
+        title: boolean
+      - type: array
+        title: array
+        items:
+          anyOf:
+            - type: string
+          example: ["4e2d7605-833f-4c34-8d03-5b2c7d2f4f66","f9b7e2ce-aced-4117-a95f-4ffad8b33989","a3b159f2-5f09-43c9-b40e-a6f317aa5b8f"]
+    description: The value to be used for the operation, required for "add" and "replace" operations
+    example: true

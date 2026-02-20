@@ -1,0 +1,10 @@
+description: Asynchronous response containing a unique tracking ID for the account deletion request
+required:
+  - accountRequestId
+type: object
+title: Account Delete Async Result
+properties:
+  accountRequestId:
+    description: Id of the deletion request
+    type: string
+    example: 2d81808474683da6017468693c260196

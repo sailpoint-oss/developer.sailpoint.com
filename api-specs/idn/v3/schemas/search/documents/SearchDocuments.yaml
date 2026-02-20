@@ -1,0 +1,8 @@
+type: object
+oneOf:
+  - $ref: '../model/access/profile/AccessProfileDocuments.yaml'
+  - $ref: '../model/account/activity/AccountActivityDocuments.yaml'
+  - $ref: '../model/entitlement/EntitlementDocuments.yaml'
+  - $ref: '../model/event/EventDocuments.yaml'
+  - $ref: '../model/identity/IdentityDocuments.yaml'
+  - $ref: '../model/role/RoleDocuments.yaml'

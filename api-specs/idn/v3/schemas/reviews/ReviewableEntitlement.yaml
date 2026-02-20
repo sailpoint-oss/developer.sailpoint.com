@@ -1,0 +1,150 @@
+type: object
+nullable: true
+properties:
+  id:
+    type: string
+    description: The id for the entitlement
+    example: 2c918085718230600171993742c63558
+  name:
+    type: string
+    description: The name of the entitlement
+    example: 'CN=entitlement.bbb7c650'
+  description:
+    nullable: true
+    type: string
+    description: Information about the entitlement
+    example: Gives read/write access to the company database
+  privileged:
+    type: boolean
+    example: false
+    default: false
+    description: Indicates if the entitlement is a privileged entitlement
+  owner:
+    $ref: '../IdentityReferenceWithNameAndEmail.yaml'
+  attributeName:
+    type: string
+    description: The name of the attribute on the source
+    example: memberOf
+  attributeValue:
+    type: string
+    description: The value of the attribute on the source
+    example: 'CN=entitlement.bbb7c650'
+  sourceSchemaObjectType:
+    type: string
+    description: The schema object type on the source used to represent the entitlement and its attributes
+    example: 'groups'
+  sourceName:
+    type: string
+    description: The name of the source for which this entitlement belongs
+    example: ODS-AD-Source
+  sourceType:
+    type: string
+    description: The type of the source for which the entitlement belongs
+    example: Active Directory - Direct
+  sourceId:
+    type: string
+    description: The ID of the source for which the entitlement belongs
+    example: 78ca6be511cb41fbb86dba2fcca7780c
+  hasPermissions:
+    type: boolean
+    default: false
+    description: Indicates if the entitlement has permissions
+    example: false
+  isPermission:
+    type: boolean
+    default: false
+    description: Indicates if the entitlement is a representation of an account permission
+    example: false
+  revocable:
+    type: boolean
+    default: false
+    description: Indicates whether the entitlement can be revoked
+    example: true
+  cloudGoverned:
+    type: boolean
+    default: false
+    description: True if the entitlement is cloud governed
+    example: false
+  containsDataAccess:
+    type: boolean
+    description: True if the entitlement has DAS data
+    default: false
+    example: true
+  dataAccess:
+    $ref: '../DataAccess.yaml'
+  account:
+    type: object
+    nullable: true
+    description: Information about the status of the entitlement
+    properties:
+      nativeIdentity:
+        type: string
+        description: The native identity for this account
+        example: 'CN=Alison Ferguso'
+      disabled:
+        type: boolean
+        default: false
+        example: false
+        description: Indicates whether this account is currently disabled
+      locked:
+        type: boolean
+        default: false
+        example: false
+        description: Indicates whether this account is currently locked
+      type:
+        $ref: '../DtoType.yaml'
+      id:
+        nullable: true
+        type: string
+        description: The id associated with the account
+        example: 2c9180857182305e0171993737eb29e6
+      name:
+        nullable: true
+        type: string
+        description: The account name
+        example: Alison Ferguso
+      created:
+        nullable: true
+        type: string
+        format: date-time
+        description: When the account was created
+        example: '2020-04-20T20:11:05.067Z'
+      modified:
+        nullable: true
+        type: string
+        format: date-time
+        description: When the account was last modified
+        example: '2020-05-20T18:57:16.987Z'
+      activityInsights:
+        $ref: '../ActivityInsights.yaml'
+      description:
+        nullable: true
+        type: string
+        description: Information about the account
+        example: Account for Read/write to the company database
+      governanceGroupId:
+        nullable: true
+        type: string
+        description: The id associated with the machine Account Governance Group
+        example: 2c9180857182305e0171993737eb29e6
+      owner:
+        type: object
+        nullable: true
+        description: Information about the machine account owner
+        properties:
+          id:
+            nullable: true
+            type: string
+            description: The id associated with the machine account owner
+            example: 2c9180857182305e0171993737eb29e8
+          type:
+            type: string
+            enum:
+              - IDENTITY
+            description: An enumeration of the types of Owner supported within the IdentityNow infrastructure.
+            example: IDENTITY
+          displayName:
+            nullable: true
+            type: string
+            description: The machine account owner's display name
+            example: Alison Ferguson

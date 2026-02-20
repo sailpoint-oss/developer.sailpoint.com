@@ -1,0 +1,29 @@
+type: object
+title: Import Object Response Body
+description: Response model for import of a single object.
+properties:
+  infos:
+    description: Informational messages returned from the target service on import.
+    type: array
+    items:
+      $ref: '../../beta/schemas/SpConfigMessage.yaml'
+  warnings:
+    description: Warning messages returned from the target service on import.
+    type: array
+    items:
+      $ref: '../../beta/schemas/SpConfigMessage.yaml'
+  errors:
+    description: Error messages returned from the target service on import.
+    type: array
+    items:
+      $ref: '../../beta/schemas/SpConfigMessage.yaml'
+  importedObjects:
+    description: References to objects that were created or updated by the import.
+    type: array
+    items:
+      $ref: '../../v3/schemas/ImportObject.yaml'
+required:
+  - infos
+  - warnings
+  - errors
+  - importedObjects

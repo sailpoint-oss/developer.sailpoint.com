@@ -853,6 +853,38 @@ tags:
       They can then select 'Create Token' at the bottom of the page to generate and view the Secret and Client ID. 
 
       Refer to [Managing Personal Access Tokens](https://documentation.sailpoint.com/saas/help/common/api_keys.html?h=token#generating-a-personal-access-token) for more information about PATs.
+  - name: Privilege Criteria
+    description: |
+      Use this API to create, retrieve, update, and delete privilege criteria.
+  - name: Privilege Criteria Configuration
+    description: |
+      Use this API to manage the configuration of privilege criteria.
+
+      **globalPrivilegeLevelEnabled**: Boolean flag indicating whether privilege classification is enabled.
+
+      
+      **privilegeClassificationMode**: Enum specifying the mode (CRITERIA_PRIVILEGE_LEVEL, SINGLE_PRIVILEGE_LEVEL) to use for privilege classification. CRITERIA_PRIVILEGE_LEVEL mode uses criteria to determine privilege levels, while SINGLE_PRIVILEGE_LEVEL assigns the same privilege level to all enititlements based on the value of singlePrivilegeLevel.privilegeLevel.
+
+
+      **singlePrivilegeLevel.privilegeLevel**: Enum specifying the privilege level (HIGH, MEDIUM, LOW) to assign to all privileges when the privilege classification mode is SINGLE_PRIVILEGE_LEVEL.
+
+
+      **criteriaPrivilegeLevel.connectorHighEnabled**: Boolean flag indicating whether HIGH level connector criteria is used for privilege classification.
+
+
+      **criteriaPrivilegeLevel.connectorMediumEnabled**: Boolean flag indicating whether MEDIUM level connector criteria is used for privilege classification.
+
+
+      **criteriaPrivilegeLevel.connectorLowEnabled**: Boolean flag indicating whether LOW level connector criteria is used for privilege classification.
+
+
+      **criteriaPrivilegeLevel.customHighEnabled**: Boolean flag indicating whether HIGH level custom criteria is used for privilege classification.
+
+
+      **criteriaPrivilegeLevel.customMediumEnabled**: Boolean flag indicating whether MEDIUM level custom criteria is used for privilege classification.
+
+      
+      **criteriaPrivilegeLevel.customLowEnabled**: Boolean flag indicating whether LOW level custom criteria is used for privilege classification.
   - name: Public Identities
     description: |
       Use this API in conjunction with [Public Identites Config](https://developer.sailpoint.com/docs/api/v2025/public-identities-config/) to enable non-administrators to view identities' publicly visible attributes. 
@@ -2466,6 +2498,14 @@ paths:
     $ref: './v2025/paths/role-access-model-metadata/role-bulk-update-status.yaml'
   /roles/filter:
     $ref: './v2025/paths/role-access-model-metadata/role-filter.yaml'
+  /criteria/privilege:
+    $ref: './v2025/paths/gov-criteria-privilege-criteria-no-id.yaml'
+  /criteria/privilege/{criteriaId}:
+    $ref: './v2025/paths/gov-criteria-privilege-criteria-id.yaml'
+  /criteria-config/privilege/{criteriaConfigId}:
+    $ref: './v2025/paths/gov-criteria-privilege-criteria-config-id.yaml'
+  /criteria-config/privilege:
+    $ref: './v2025/paths/gov-criteria-privilege-criteria-config-no-id.yaml'
 security:
 - userAuth:
   - "sp:scopes:all"

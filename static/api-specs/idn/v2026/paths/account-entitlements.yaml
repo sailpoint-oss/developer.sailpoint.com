@@ -22,6 +22,8 @@ get:
     - $ref: '../parameters/limit.yaml'
     - $ref: '../parameters/offset.yaml'
     - $ref: '../parameters/count.yaml'
+    - $ref: '../parameters/searchAfter.yaml'
+    - $ref: '../parameters/sorters.yaml'
   responses:
     '200':
       description: List of entitlements for the account

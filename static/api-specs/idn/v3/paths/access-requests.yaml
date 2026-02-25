@@ -2,6 +2,7 @@ post:
   operationId: createAccessRequest
   security:
     - userAuth: [ idn:access-request:manage ]
+    - userAuth: [ idn:access-request-self:manage ]
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - USER
@@ -9,17 +10,19 @@ post:
   tags:
     - Access Requests
   description: |
+    >**Required scopes:** ORG_ADMIN requires idn:access-request:manage. USER level requires idn:access-request-self:manage (Personal Access Token only).
+
     Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.
 
     :::info
-    The ability to request access using this API is constrained by the Access Request Segments defined in the API token’s user context.
+    The ability to request access using this API is constrained by the Access Request Segments defined in the API token's user context.
     :::
     
     Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request
-    has been submitted to ISC and is queued for processing. Because this endpoint is asynchronous, it doesn't return an error
+    has been submitted to ISC and is queued for processing. Because this endpoint is asynchronous, it does not return an error
     if you submit duplicate access requests in quick succession or submit an access request for access that is already in progress, approved, or rejected.
 
-    It's best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can
+    It is best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can
     be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [Pending Access Request Approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) APIs. You can also
     use the [Search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items an identity has before submitting
     an access request to ensure that you aren't requesting access that is already granted. If you use this API to request access that an identity already has, 

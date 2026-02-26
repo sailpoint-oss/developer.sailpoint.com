@@ -1,17 +1,19 @@
 post:
   operationId: createAccessRequest
   security:
-    - userAuth: [ idn:access-request:manage ]
-    - userAuth: [ idn:access-request-self:manage ]
+    - userAuth:
+        - idn:access-request:manage
+        - idn:access-request-self:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - USER
+  x-sailpoint-securityDescription: |
+    idn:access-request:manage is for ORG_ADMIN level.
+    idn:access-request-self:manage is for USER level.
   summary: Submit access request
   tags:
     - Access Requests
   description: |
-    >**Required scopes:** ORG_ADMIN requires idn:access-request:manage. USER level requires idn:access-request-self:manage (Personal Access Token only).
-
     Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.
 
     :::info

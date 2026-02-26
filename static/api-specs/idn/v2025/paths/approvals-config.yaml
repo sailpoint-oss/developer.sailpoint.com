@@ -23,10 +23,6 @@ put:
      
       [[accessProfileID]]:ACCESS_PROFILE
      
-      [[sourceID]]:SOURCE
-     
-      [[applicationID]]:APPLICATION
-     
       ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
      
       ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
@@ -44,12 +40,10 @@ put:
       enum:
       - DOMAIN_OBJECT
       - ROLE
-      - APPLICATION
       - ACCESS_PROFILE
       - ENTITLEMENT
       - APPROVAL_TYPE
       - TENANT
-      - SOURCE
     description: The scope of the field, where [[id]]:[[scope]] is the following
 
       [[roleID]]:ROLE
@@ -57,10 +51,6 @@ put:
       [[entitlementID]]:ENTITLEMENT
      
       [[accessProfileID]]:ACCESS_PROFILE
-     
-      [[sourceID]]:SOURCE
-     
-      [[applicationID]]:APPLICATION
      
       ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
      
@@ -121,10 +111,6 @@ delete:
      
       [[accessProfileID]]:ACCESS_PROFILE
      
-      [[sourceID]]:SOURCE
-     
-      [[applicationID]]:APPLICATION
-     
       ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
      
       ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
@@ -142,12 +128,10 @@ delete:
       enum:
       - DOMAIN_OBJECT
       - ROLE
-      - APPLICATION
       - ACCESS_PROFILE
       - ENTITLEMENT
       - APPROVAL_TYPE
       - TENANT
-      - SOURCE
     description:  The scope of the field, where [[id]]:[[scope]] is the following
 
       [[roleID]]:ROLE
@@ -155,10 +139,6 @@ delete:
       [[entitlementID]]:ENTITLEMENT
       
       [[accessProfileID]]:ACCESS_PROFILE
-      
-      [[sourceID]]:SOURCE
-      
-      [[applicationID]]:APPLICATION
       
       ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
       

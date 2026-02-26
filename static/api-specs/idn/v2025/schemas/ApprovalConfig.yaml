@@ -16,10 +16,6 @@ properties:
       
       [[accessProfileID]]:ACCESS_PROFILE
       
-      [[sourceID]]:SOURCE
-      
-      [[applicationID]]:APPLICATION
-      
       ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
       
       ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
@@ -38,10 +34,6 @@ properties:
       [[entitlementID]]:ENTITLEMENT
       
       [[accessProfileID]]:ACCESS_PROFILE
-      
-      [[sourceID]]:SOURCE
-      
-      [[applicationID]]:APPLICATION
       
       ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
       

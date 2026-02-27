@@ -50,10 +50,28 @@ properties:
     items:
       type: string
     example: ["07a0b4e2","13b4e2a0"]
+  identityGroupStatus:
+    type: string
+    description: The status for this identity group which can be OBTAINED or COMPRESSED
+    example: "OBTAINED"
+    nullable: true
   name:
     type: string
     description: Name of the potential role.
     example: "Saved Potential Role - 07/10"
+  potentialRoleRef:
+    type: object
+    nullable: true
+    description: The potential role reference
+    properties:
+      id:
+        type: string
+        description: Id of the potential role
+        example: "e0cc5d7d-bf7f-4f81-b2af-8885b09d9923"
+      name:
+        type: string
+        description: Name of the potential role
+        example: "Saved Potential Role - 07/10"
   provisionState:
     $ref: './RoleMiningPotentialRoleProvisionState.yaml'
     description: The provisioning state of a potential role.
@@ -72,6 +90,7 @@ properties:
     type: boolean
     description: The potential role's saved status.
     example: true
+    default: false
   session:
     $ref: './RoleMiningSessionParametersDto.yaml'
     description: The session parameters of the potential role.
@@ -86,7 +105,9 @@ properties:
     type: string
     format: 'date-time'
     description: The date-time when this potential role was created.
+    example: "2020-01-01T00:00:00.000Z"
   modifiedDate:
     type: string
     format: 'date-time'
     description: The date-time when this potential role was modified.
+    example: "2020-01-01T00:00:00.000Z"

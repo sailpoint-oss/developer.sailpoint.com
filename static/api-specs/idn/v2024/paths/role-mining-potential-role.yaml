@@ -11,6 +11,10 @@ get:
     - applicationAuth:
         - iai:access-modeling:read
         - iai:access-modeling:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
   parameters:
     - in: path
       name: potentialRoleId
@@ -66,6 +70,12 @@ patch:
   security:
     - userAuth:
         - iai:access-modeling:manage
+    - applicationAuth:
+        - iai:access-modeling:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
   parameters:
     - in: path
       name: sessionId
@@ -98,16 +108,7 @@ patch:
         schema:
           type: array
           items:
-            allOf:
-              - $ref: ../schemas/JsonPatchOperation.yaml
-            properties:
-              op:
-                type: string
-                description: The operation to be performed
-                enum:
-                  - remove
-                  - replace
-                example: replace
+            $ref: ../schemas/JsonPatchOperationRoleMining.yaml
         example:
           - op: remove
             path: /description

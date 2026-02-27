@@ -12,6 +12,7 @@ properties:
       properties:
         attributeValue:
           type: string
+          nullable: true
           description: The attribute value that identities are grouped by
           example: NM Tier 3
         count:

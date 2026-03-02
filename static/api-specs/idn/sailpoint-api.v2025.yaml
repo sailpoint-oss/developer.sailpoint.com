@@ -1088,6 +1088,15 @@ tags:
       - [ServiceNow Service Desk](https://documentation.sailpoint.com/connectors/servicenow/sdim/help/integrating_servicenow_sdim/intro.html)
 
       - [Zendesk Service Desk](https://documentation.sailpoint.com/connectors/zendesk/help/integrating_zendesk_sd/introduction.html)
+  - name: Shared Signals Framework (SSF)
+    description: |
+      The SSF Transmitter Service is a security event notification system that monitors identity attribute changes
+      and automatically triggers session revocation events when specific lifecycle conditions are met.
+
+      Use this API to implement transmitter functionality so administrators can discover the transmitter and manage streams.
+      Transmitters send identity data and events from Identity Security Cloud to external receivers over the Secure Sync Framework (SSF).
+      The SSF configuration and JWKS endpoints support discovery and verification; the stream management endpoints support creating, updating, and managing streams and verifying receivers.
+      In Identity Security Cloud, administrators can use the "Connections" > "Shared Signals" area to view and manage transmitters and their streams.
   - name: SIM Integrations
     description: |
       Use this API to administer IdentityNow's Service Integration Module, or SIM integration with ServiceNow, so that it converts IdentityNow provisioning actions into tickets in ServiceNow.
@@ -1900,6 +1909,16 @@ paths:
     $ref: ./v2025/paths/sod-download-default-report.yaml
   /sod-violation-report/{reportResultId}/download/{fileName}:
     $ref: ./v2025/paths/sod-download-custom-report.yaml
+  /.well-known/ssf-configuration:
+    $ref: ./v2025/paths/ssf-well-known-configuration.yaml
+  /ssf/jwks:
+    $ref: ./v2025/paths/ssf-jwks.yaml
+  /ssf/streams:
+    $ref: ./v2025/paths/ssf-streams.yaml
+  /ssf/streams/status:
+    $ref: ./v2025/paths/ssf-streams-status.yaml
+  /ssf/streams/verify:
+    $ref: ./v2025/paths/ssf-streams-verify.yaml
   /sources:
     $ref: ./v2025/paths/sources.yaml
   /sources/{id}:

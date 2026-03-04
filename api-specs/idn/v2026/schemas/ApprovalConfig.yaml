@@ -1,0 +1,15 @@
+type: object
+properties:
+  approvers:
+    type: string
+    example: sourceOwner, accountOwner, manager, workgroup:f76ff96a-0815-402a-be1a-18cdc693b79f
+    description: Approvers must be listed as a comma-separated string, with each entry representing an individual or group authorized to approve account creation or deletion requests.
+  comments:
+    type: string
+    enum:
+      - APPROVAL
+      - REJECTION
+      - ALL
+      - OFF
+    example: REJECTION
+    description: Specifies the approval status for an account creation or deletion request. Allowed values are APPROVAL, REJECTION, ALL, and OFF.

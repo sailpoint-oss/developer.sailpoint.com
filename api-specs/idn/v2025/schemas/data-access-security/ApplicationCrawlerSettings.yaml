@@ -1,0 +1,52 @@
+allOf:
+  - $ref: ./BaseSettings.yaml
+  - type: object
+    properties:
+      calculateResourceSize:
+        $ref: ./CrawlResourcesSizesOptions.yaml
+        description: Specifies when resource sizes should be calculated during the crawl operation.
+        example: 2
+      crawlSnapshotsFolder:
+        type: boolean
+        nullable: true
+        description: Indicates whether to crawl the snapshots folder.
+        example: true
+        default: false
+      crawlMailboxes:
+        type: boolean
+        nullable: true
+        description: Indicates whether to crawl mailboxes.
+        example: false
+        default: false
+      crawlPublicFolders:
+        type: boolean
+        nullable: true
+        description: Indicates whether to crawl public folders.
+        example: true
+        default: false
+      excludedPathsByRegex:
+        type: string
+        nullable: true
+        description: Regular expression pattern for paths to exclude from crawling.
+        example: "^/archive/.*"
+      crawlTopLevelShares:
+        type: array
+        items:
+          type: string
+        nullable: true
+        description: List of top-level shares to crawl.
+        example: ["share1", "share2"]
+      excludedResources:
+        type: array
+        items:
+          type: string
+        nullable: true
+        description: List of resource identifiers to exclude from crawling.
+        example: ["resourceA", "resourceB"]
+      includeResources:
+        type: array
+        items:
+          type: string
+        nullable: true
+        description: List of resource identifiers to include in crawling.
+        example: ["resourceX", "resourceY"]

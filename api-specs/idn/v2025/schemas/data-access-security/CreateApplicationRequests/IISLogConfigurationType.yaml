@@ -1,0 +1,8 @@
+enum:
+  - 0
+  - 1
+  - 2
+type: integer
+description: 'IIS log configuration type: 0 - Unspecified, 1 - Automatic, 2 - Manual'
+format: int32
+example: 1

@@ -27,6 +27,7 @@ servers:
       default: sailpoint.api.identitynow.com
       description: This is the api url of your tenant
 tags:
+  - name: Access Requests
   - name: Account Deletion Requests
   - name: Delete account
   - name: Entitlements
@@ -35,6 +36,8 @@ tags:
   - name: Machine Subtype Approval Config
   - name: Task Management
 paths:
+  /access-request-config:
+    $ref: ./v2026/paths/access-request-config.yaml
   /entitlements:
     $ref: ./v2026/paths/entitlements.yaml
   /entitlements/account/{accountId}/entitlements:
@@ -105,10 +108,14 @@ components:
             "sp:scopes:default": "default scope"
             "sp:scopes:all": "access to all scopes"
   schemas:
+    AccessRequestConfig:
+      $ref: "./v2026/schemas/AccessRequestConfig.yaml"
     AccountActionRequestDto:
       $ref: "./v2026/schemas/AccountActionRequestDto.yaml"
     AccountDeleteAsyncResult:
       $ref: "./v2026/schemas/AccountDeleteAsyncResult.yaml"
+    AccountDeleteConfigDto:
+      $ref: "./v2026/schemas/AccountDeleteConfigDto.yaml"
     AccountDeleteRequestInput:
       $ref: "./v2026/schemas/AccountDeleteRequestInput.yaml"
     AccountDetails:
@@ -123,7 +130,15 @@ components:
       $ref: "./v2026/schemas/BaseReferenceDto.yaml"
     DtoType:
       $ref: "./v2026/schemas/DtoType.yaml"
+    EntitlementAccessRequestConfig:
+      $ref: "./v2026/schemas/EntitlementAccessRequestConfig.yaml"
+    EntitlementApprovalScheme:
+      $ref: "./v2026/schemas/EntitlementApprovalScheme.yaml"
+    EntitlementRequestConfig:
+      $ref: "./v2026/schemas/EntitlementRequestConfig.yaml"
+    EntitlementRevocationRequestConfig:
+      $ref: "./v2026/schemas/EntitlementRevocationRequestConfig.yaml"
     MachineAccountSubTypeConfigDto:
       $ref: "./v2026/schemas/MachineAccountSubTypeConfigDto.yaml"
-    AccountDeleteConfigDto:
-      $ref: "./v2026/schemas/AccountDeleteConfigDto.yaml"
+    RequestOnBehalfOfConfig:
+      $ref: "./v2026/schemas/RequestOnBehalfOfConfig.yaml"

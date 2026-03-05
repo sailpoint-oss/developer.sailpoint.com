@@ -55,8 +55,6 @@ This rule gathers additional attributes from SAP systems to build accounts. This
 <Rule name="Example Rule" type="SAPBuildMap">
   <Description> This example SAP Build Map rule constructs an Initials attribute from the first character of the FirstName and LastName attributes and changes the name of the “InitDate” attribute to “HireDate”. </Description>
   <Source><![CDATA[
-  import java.util.HashMap;
-
   // Create initials
 
   String firstName = object.get("FirstName");

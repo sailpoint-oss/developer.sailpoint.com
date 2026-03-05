@@ -88,9 +88,9 @@ requestEndPoint.getBody().put(\"jsonBody\",requestXML); \n              }\n     
   - `version` - String indicating the rule's version. Typically, this is the same as `sourceVersion`.
   - `script` - Rule’s code the connector runs. This must be an escaped string. For help with formatting, use an escaping tool like [Escaping Tool Formatter.](/tools/escaping-tool-formatter)
 
-## Attaching connector-related Rules to sources
+## Attaching Rules to sources
 
-Once a connector-related rule has been imported to your tenant, you must configure any sources that need to reference that rule during the desired operation. You can accomplish this configuration through the execution of an API call on the source. The following examples all use a `PATCH` operation for a partial source update, but `PUT` operations work too, as long as the entire source object model is provided.
+Once a rule has been imported to your tenant, you must configure any sources that need to reference that rule during the desired operation. You can accomplish this configuration through the execution of an API call on the source. The following examples all use a `PATCH` operation for a partial source update, but `PUT` operations work too, as long as the entire source object model is provided.
 
 For the `PATCH` operations, you must provide an `op` key. For new configurations, this key is typically set to `add` as the example shows, but they can be any of the following:
 
@@ -99,26 +99,6 @@ For the `PATCH` operations, you must provide an `op` key. For new configurations
 - `remove` - Removes a value from the configuration. Use this operation if you want to unset a value. **Caution: Removals can be destructive if the path is improperly configured. This can negatively alter your source config.**
 
 ## Example API calls by Rule type
-
-### BeforeProvisioning Rule
-
-`PATCH` /v3/sources/[id]
-
-Content-Type: `application/json-patch+json`
-
-```json
-[
-  {
-    "op": "add",
-    "path": "/beforeProvisioningRule",
-    "value": {
-      "type": "RULE",
-      "id": "2c918085708c274401708c2a8a760001",
-      "name": "Example Rule"
-    }
-  }
-]
-```
 
 ### AfterCreate, AfterModify, AfterDelete, BeforeCreate, BeforeModify, BeforeDelete Rules
 
@@ -138,62 +118,6 @@ The value key is a list. All available AfterCreate, AfterModify, BeforeCreate, a
     "op": "add",
     "path": "/connectorAttributes/nativeRules",
     "value": ["Example Rule 1", "Example Rule 2"]
-  }
-]
-```
-
-### Correlation Rule
-
-`PATCH` /v3/sources/[id]
-
-Content-Type: `application/json-patch+json`
-
-```json
-[
-  {
-    "op": "add",
-    "path": "/accountCorrelationRule",
-    "value": {
-      "type": "RULE",
-      "id": "2c9180896fc824e5016fc827ea880005",
-      "name": "Example Rule"
-    }
-  }
-]
-```
-
-### ManagerCorrelation Rule
-
-`PATCH` /v3/sources/[id]
-
-Content-Type: `application/json-patch+json`
-
-```json
-[
-  {
-    "op": "replace",
-    "path": "/managerCorrelationRule",
-    "value": {
-      "type": "RULE",
-      "id": "2c9180836fb03f35016fb05dae3b0001",
-      "name": "Example Rule"
-    }
-  }
-]
-```
-
-### BuildMap Rule
-
-`PATCH` /v3/sources/[id]
-
-Content-Type: `application/json-patch+json`
-
-```json
-[
-  {
-    "op": "add",
-    "path": "/connectorAttributes/buildMapRule",
-    "value": "Example Rule"
   }
 ]
 ```
@@ -230,7 +154,23 @@ Content-Type: `application/json-patch+json`
 ]
 ```
 
-### SAP HR provisioning modify Rule
+### SAPBuildMap Rule
+
+`PATCH` /v3/sources/[id]
+
+Content-Type: `application/json-patch+json`
+
+```json
+[
+  {
+    "op": "add",
+    "path": "/connectorAttributes/SAPBuildMap",
+    "value": "Example Rule"
+  }
+]
+```
+
+### SAP HR Provisioning Modify Rule
 
 `PATCH` /v3/sources/[id]
 
@@ -241,6 +181,24 @@ Content-Type: `application/json-patch+json`
   {
     "op": "add",
     "path": "/connectorAttributes/saphrModifyProvisioningRule",
+    "value": "Example Rule"
+  }
+]
+```
+
+### WebServiceAfterOperation Rule
+
+`PATCH` /v3/sources/[id] 
+
+Content-Type: `application/json-patch+json`
+
+_Note: Replace \[\*\] with the index location of the operation the way it is configured on the source. For example, 0, 1, 2, etc. You can use a `GET` call on the source first to verify the index location prior to executing the `PATCH` call to attach the rule. This number will be 1 less than the value in "sequenceNumberForEndpoint", which is the UI Order value of this endpoint._
+
+```json
+[
+  {
+    "op": "replace",
+    "path": "/connectorAttributes/connectionParameters/[*]/afterRule",
     "value": "Example Rule"
   }
 ]
@@ -264,20 +222,3 @@ _Note: Replace \[\*\] with the index location of the operation the way it is con
 ]
 ```
 
-### WebServiceAfterOperation Rule
-
-`PATCH` /v3/sources/[id] 
-
-Content-Type: `application/json-patch+json`
-
-_Note: Replace \[\*\] with the index location of the operation the way it is configured on the source. For example, 0, 1, 2, etc. You can use a `GET` call on the source first to verify the index location prior to executing the `PATCH` call to attach the rule. This number will be 1 less than the value in "sequenceNumberForEndpoint", which is the UI Order value of this endpoint._
-
-```json
-[
-  {
-    "op": "replace",
-    "path": "/connectorAttributes/connectionParameters/[*]/afterRule",
-    "value": "Example Rule"
-  }
-]
-```

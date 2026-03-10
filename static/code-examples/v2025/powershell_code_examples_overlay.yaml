@@ -1731,6 +1731,48 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025Account"
             Write-Host $_.ErrorDetails
         }
+- path: /api-usage/count
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/api-usage#get-total-count
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Filters = "method eq "GET", startDate gt "2025-08-01"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional)
+        
+        # Total number of API requests
+        
+        try {
+            Get-V2025TotalCount -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025TotalCount -XSailPointExperimental $XSailPointExperimental -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025TotalCount"
+            Write-Host $_.ErrorDetails
+        }
+- path: /api-usage/summary
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/api-usage#list-api-summary
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Filters = "method eq "GET", startDate gt "2025-08-01"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional)
+        $Limit = 100 # Int32 | Max number of results to return. (optional) (default to 250)
+        $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
+        
+        # Get Api Summary
+        
+        try {
+            Get-V2025ApiSummary -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025ApiSummary -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ApiSummary"
+            Write-Host $_.ErrorDetails
+        }
 - path: /discovered-applications
   method: GET
   xCodeSample:
@@ -1820,6 +1862,60 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2025Approval"
             Write-Host $_.ErrorDetails
         }
+- path: /generic-approvals/bulk-approve
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#approve-approval-in-bulk
+      source: |
+        $BulkApproveRequestDTO = @"
+        {
+          "comment" : "Bulk approved by admin for monthly review",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ],
+          "additionalAttributes" : {
+            "source" : "automation",
+            "urgency" : "high"
+          }
+        }
+        "@
+        
+        # Post Bulk Approve Approvals
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToBulkApproveRequestDTO -Json $BulkApproveRequestDTO
+            Approve-V2025ApprovalInBulk -BulkApproveRequestDTO $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Approve-V2025ApprovalInBulk -BulkApproveRequestDTO $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2025ApprovalInBulk"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/bulk-cancel
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#cancel-approval
+      source: |
+        $BulkCancelRequestDTO = @"
+        {
+          "comment" : "Bulk cancellation by admin",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+        }
+        "@
+        
+        # Post Bulk Cancel Approvals
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToBulkCancelRequestDTO -Json $BulkCancelRequestDTO
+            Suspend-V2025Approval -BulkCancelRequestDTO $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Suspend-V2025Approval -BulkCancelRequestDTO $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-V2025Approval"
+            Write-Host $_.ErrorDetails
+        }
 - path: /generic-approvals/{id}
   method: GET
   xCodeSample:
@@ -1870,33 +1966,58 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Approvals"
             Write-Host $_.ErrorDetails
         }
-- path: /generic-approvals/config
+- path: /generic-approvals/config/{id}
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2025/methods/approvals#get-approvals-config-id-type
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#get-approvals-config
       source: |
-        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid)
+        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), (sourceID), (applicationID), ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", (tenantID)]
         
-        # Get Approval Config Type
+        # Get Approval Config
         
         try {
-            Get-V2025ApprovalsConfigIdType -Id $Id 
+            Get-V2025ApprovalsConfig -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025ApprovalsConfigIdType -Id $Id   
+            # Get-V2025ApprovalsConfig -Id $Id   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ApprovalsConfigIdType"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ApprovalsConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/bulk-reassign
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#move-approval
+      source: |
+        $BulkReassignRequestDTO = @"
+        {
+          "reassignTo" : "32454251-6ce2-5d8f-df93-5ce19e295238",
+          "comment" : "Bulk reassignment by admin",
+          "reassignFrom" : "12353251-6be2-5f8f-df93-5ce19b6e5837",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+        }
+        "@
+        
+        # Post Bulk Reassign Approvals
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToBulkReassignRequestDTO -Json $BulkReassignRequestDTO
+            Move-V2025Approval -BulkReassignRequestDTO $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Move-V2025Approval -BulkReassignRequestDTO $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Move-V2025Approval"
             Write-Host $_.ErrorDetails
         }
 - path: /generic-approvals/config
-  method: PATCH
+  method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2025/methods/approvals#patch-approvals-config-type
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#put-approvals-config
       source: |
-        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The ID defined by the scope field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
-        $Scope = "ROLE" # String | The scope of the field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
         $ApprovalConfig = @"
         {
           "timeoutConfig" : {
@@ -1942,7 +2063,7 @@
             "maxReminders" : 5,
             "enabled" : false
           },
-          "scope" : "APPROVAL_REQUEST",
+          "scope" : "DOMAIN_OBJECT",
           "tenantId" : "d3c10266-1a31-4acc-b01e-44a3d1c56615",
           "escalationConfig" : {
             "escalationCronSchedule" : "*/5 * * * *",
@@ -1975,17 +2096,19 @@
           "autoApprove" : "false"
         }
         "@
+        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT  (optional)
+        $Scope = "ROLE" # String | The scope of the field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT  (optional)
         
-        # Patch Approval Config Type
+        # Put Approval Config
         
         try {
             $Result = ConvertFrom-V2025JsonToApprovalConfig -Json $ApprovalConfig
-            Update-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result 
+            Send-V2025ApprovalsConfig -ApprovalConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result   
+            # Send-V2025ApprovalsConfig -ApprovalConfig $Result -Id $Id -Scope $Scope   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025ApprovalsConfigType"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025ApprovalsConfig"
             Write-Host $_.ErrorDetails
         }
 - path: /generic-approvals/{id}/reject
@@ -2010,6 +2133,31 @@
             # Deny-V2025Approval -Id $Id -ApprovalRejectRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-V2025Approval"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/bulk-reject
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#reject-approval-in-bulk
+      source: |
+        $BulkRejectRequestDTO = @"
+        {
+          "comment" : "Bulk reject by admin",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+        }
+        "@
+        
+        # Post Bulk Reject Approvals
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToBulkRejectRequestDTO -Json $BulkRejectRequestDTO
+            Deny-V2025ApprovalInBulk -BulkRejectRequestDTO $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Deny-V2025ApprovalInBulk -BulkRejectRequestDTO $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-V2025ApprovalInBulk"
             Write-Host $_.ErrorDetails
         }
 - path: /generic-approvals/{id}/attributes
@@ -2549,53 +2697,6 @@
             # Update-V2025AuthUser -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025AuthUser"
-            Write-Host $_.ErrorDetails
-        }
-- path: /authorization/user-levels/get-identity-count
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2025/methods/authorization#list-user-level-counts
-      source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $RequestBody = "MyRequestBody" # String[] | List of user level ids. Max 50 identifiers can be passed in a single request.
-        $RequestBody = @""@ 
-        
-        
-        # Count user levels identities
-        
-        try {
-            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
-            Get-V2025UserLevelCounts -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2025UserLevelCounts -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025UserLevelCounts"
-            Write-Host $_.ErrorDetails
-        }
-- path: /authorization/user-levels/{id}/identities
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2025/methods/authorization#list-user-level-identities
-      source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Id = "idn:access-request-administrator" # String | The unique identifier of the user level.
-        $Count = $true # Boolean | If true, X-Total-Count header with the the total number of identities for this user level will be included in the response. (optional) (default to $false)
-        $Sorters = "displayName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName** (optional)
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        
-        # List user level identities
-        
-        try {
-            Get-V2025UserLevelIdentities -XSailPointExperimental $XSailPointExperimental -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2025UserLevelIdentities -XSailPointExperimental $XSailPointExperimental -Id $Id -Count $Count -Sorters $Sorters -Limit $Limit -Offset $Offset   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025UserLevelIdentities"
             Write-Host $_.ErrorDetails
         }
 - path: /brandings
@@ -5513,6 +5614,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/custom-forms#search-form-instances-by-tenant
       source: |
+        $Filters = "formDefinitionId eq "351c1daa-56f6-4bbf-b32c-49844c0b716e"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq* (optional)
         
         # List form instances by tenant.
         
@@ -5520,7 +5622,7 @@
             Search-V2025FormInstancesByTenant 
     
             # Below is a request that includes all optional parameters
-            # Search-V2025FormInstancesByTenant   
+            # Search-V2025FormInstancesByTenant -Filters $Filters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-V2025FormInstancesByTenant"
             Write-Host $_.ErrorDetails
@@ -5759,6 +5861,30 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025AllAuthorizationRightSets"
             Write-Host $_.ErrorDetails
         }
+- path: /authorization/user-levels/{id}/identities
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/custom-user-levels#list-user-level-identities
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "idn:access-request-administrator" # String | The unique identifier of the user level.
+        $Count = $true # Boolean | If true, X-Total-Count header with the the total number of identities for this user level will be included in the response. (optional) (default to $false)
+        $Sorters = "displayName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName** (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List user level identities
+        
+        try {
+            Get-V2025UserLevelIdentities -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025UserLevelIdentities -XSailPointExperimental $XSailPointExperimental -Id $Id -Count $Count -Sorters $Sorters -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025UserLevelIdentities"
+            Write-Host $_.ErrorDetails
+        }
 - path: /authorization/custom-user-levels
   method: GET
   xCodeSample:
@@ -5803,6 +5929,29 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Publish-V2025CustomUserLevel"
             Write-Host $_.ErrorDetails
         }
+- path: /authorization/user-levels/get-identity-count
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/custom-user-levels#show-user-level-counts
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $RequestBody = "MyRequestBody" # String[] | List of user level ids. Max 50 identifiers can be passed in a single request.
+        $RequestBody = @""@ 
+        
+        
+        # Count user levels identities
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
+            Show-V2025UserLevelCounts -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Show-V2025UserLevelCounts -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Show-V2025UserLevelCounts"
+            Write-Host $_.ErrorDetails
+        }
 - path: /authorization/custom-user-levels/{id}
   method: PATCH
   xCodeSample:
@@ -5835,6 +5984,231 @@
             # Update-V2025UserLevel -XSailPointExperimental $XSailPointExperimental -Id $Id -JsonPatch $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025UserLevel"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/tasks/cancel/{id}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/data-access-security#cancel-task
+      source: |
+        $Id = 1001 # Int64 | The unique identifier of the task to cancel.
+        
+        # Cancel a DAS task.
+        
+        try {
+            Suspend-V2025Task -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Suspend-V2025Task -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-V2025Task"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/tasks/schedules
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/data-access-security#create-schedule
+      source: |
+        $CreateScheduleRequest = @"
+        {
+          "scheduleTaskName" : "Daily Data Sync",
+          "scheduleType" : "Daily",
+          "active" : true,
+          "interval" : 1440,
+          "startTime" : 1762237200,
+          "endTime" : 1762240800,
+          "taskTypeName" : "DataSync",
+          "daysOfWeek" : [ "Monday", "Wednesday", "Friday" ],
+          "applicationId" : 2001,
+          "runAfterScheduleTaskId" : 1000
+        }
+        "@
+        
+        # Create a new schedule.
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToCreateScheduleRequest -Json $CreateScheduleRequest
+            New-V2025Schedule -CreateScheduleRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2025Schedule -CreateScheduleRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025Schedule"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/tasks/schedules/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/data-access-security#delete-schedule
+      source: |
+        $Id = 1001 # Int64 | The unique identifier of the schedule to delete.
+        
+        # Delete a DAS schedule.
+        
+        try {
+            Remove-V2025Schedule -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2025Schedule -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025Schedule"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/tasks/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/data-access-security#delete-task
+      source: |
+        $Id = 1001 # Int64 | The unique identifier of the task to delete.
+        
+        # Delete a DAS task.
+        
+        try {
+            Remove-V2025Task -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2025Task -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025Task"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/tasks/schedules/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/data-access-security#get-schedule
+      source: |
+        $Id = 1001 # Int64 | The unique identifier of the schedule to retrieve.
+        
+        # Get a DAS schedule.
+        
+        try {
+            Get-V2025Schedule -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025Schedule -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Schedule"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/tasks/schedules
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/data-access-security#get-schedules
+      source: |
+        $Filters = "ScheduleType eq "Daily" and startTime eq 1762237200" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **scheduleTaskIds**: *eq, in*  **taskTypeName**: *eq, in*  **status**: *eq*  **applicationId**: *eq*  **fullName**: *eq*  **nameSubString**: *eq*  **scheduleType**: *eq*  Supported composite operators are *and, or* (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List all schedules.
+        
+        try {
+            Get-V2025Schedules 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025Schedules -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Schedules"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/tasks/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/data-access-security#get-task
+      source: |
+        $Id = 1001 # Int64 | The unique identifier of the task to retrieve.
+        
+        # Get a DAS task.
+        
+        try {
+            Get-V2025Task -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025Task -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Task"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/tasks
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/data-access-security#get-tasks
+      source: |
+        $Filters = "TaskTypeName eq "DataClassification and EndBeforeTime eq 1762240800" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **taskIds**: *eq, in*  **statuses**: *eq, in*  **taskTypeName**: *eq, in*  **taskName**: *eq*  **endBeforeTime**: *eq*  Supported composite operators are *and, or*  Example: taskTypeName eq ""DataSync"" and endBeforeTime eq 1762240800 (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # Lists all DAS tasks.
+        
+        try {
+            Get-V2025Tasks 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025Tasks -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Tasks"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/tasks/schedules/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/data-access-security#put-schedule
+      source: |
+        $Id = 1001 # Int64 | The unique identifier of the schedule to update.
+        $UpdateScheduleRequest = @"
+        {
+          "scheduleTaskName" : "Daily Data Sync",
+          "scheduleType" : "Daily",
+          "active" : true,
+          "interval" : 1440,
+          "startTime" : 1762237200,
+          "endTime" : 1762240800,
+          "taskTypeName" : "DataSync",
+          "daysOfWeek" : [ "Monday", "Wednesday", "Friday" ],
+          "applicationId" : 2001,
+          "runAfterScheduleTaskId" : 1000
+        }
+        "@
+        
+        # Update a schedule.
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToUpdateScheduleRequest -Json $UpdateScheduleRequest
+            Send-V2025Schedule -Id $Id -UpdateScheduleRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-V2025Schedule -Id $Id -UpdateScheduleRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025Schedule"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/tasks/rerun/{id}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/data-access-security#start-task-rerun
+      source: |
+        $Id = 1001 # Int64 | The unique identifier of the task to rerun.
+        
+        # Rerun a DAS task.
+        
+        try {
+            Start-V2025TaskRerun -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Start-V2025TaskRerun -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2025TaskRerun"
             Write-Host $_.ErrorDetails
         }
 - path: /data-segments
@@ -10177,7 +10551,7 @@
       source: |
         $SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw* (optional)
+        $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)   Filtering is supported for the following fields and operators:   **displayName**: *eq, sw*   **technicalName**: *eq, sw*  (optional)
         $Sorters = "displayName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** (optional)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)

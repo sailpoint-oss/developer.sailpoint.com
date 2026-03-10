@@ -374,7 +374,7 @@ try {
 [[Back to top]](#) 
 
 ## list-identity-certifications
-Use this API to get a list of identity campaign certifications for the specified query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned. This API does not support requests for certifications assigned to governance groups.
+Use this API to get a list of identity campaign certifications for the specified query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-identity-certifications)
 

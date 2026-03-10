@@ -1,0 +1,119 @@
+get:
+  tags:
+    - Machine Account Deletion Approval Config
+  summary: Machine Account Deletion Approval Config
+  operationId: getMachineAccountDeletionApprovalConfigBySource
+  description: Retrieves the machine account deletion approval configuration for a specific source. This endpoint returns details about the approval requirements, approvers, and comment settings that govern the deletion of machine accounts associated with the given source ID.
+  security:
+    - userAuth: [idn:source-config:read, idn:source-config:write]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - in: header
+      name: X-SailPoint-Experimental
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      description: source id.
+      example: gt38f94347e94562b5bb8424a56498d8
+      x-sailpoint-resource-operation-id: listSources
+  responses:
+    '200':
+      description: Responds with a AccountDeleteConfigDto for machine account deletion approval config by sourceId.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/AccountDeleteConfigDto.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+patch:
+  operationId: updateMachineAccountDeletionApprovalConfig
+  tags:
+    - Machine Account Deletion Approval Config
+  summary: Machine Account Deletion Approval Config
+  description: |
+    Use this endpoint to update the machine account deletion approval configuration for a specific source.
+    The update is performed using a JSON Patch payload, which allows partial modifications to the approval config.
+    This operation is typically used to change approval requirements, approvers, or comments settings for machine account deletion.
+    The endpoint expects the source ID as a path parameter and a valid JSON Patch array in the request body.
+  security:
+    - userAuth: [idn:source-config:read, idn:source-config:write]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - in: header
+      name: X-SailPoint-Experimental
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      description: machine account source ID.
+      required: true
+      example: 00eebcf881994e419d72e757fd30dc0e
+      x-sailpoint-resource-operation-id: listSources
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the object.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../schemas/JsonPatchOperation.yaml
+          example:
+            - op: replace
+              path: /approvalConfig/comments
+              value: ALL
+  responses:
+    '200':
+      description: This response indicates the PATCH operation succeeded and the
+        API returns the updated AccountDeleteConfigDto object.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/AccountDeleteConfigDto.yaml
+          example:
+            approvalRequired: false
+            approvalConfig:
+              approvers: sourceOwner
+              comments: ALL
+    '400':
+      $ref: ../responses/400.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

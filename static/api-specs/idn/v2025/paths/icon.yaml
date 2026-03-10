@@ -1,36 +1,35 @@
 put:
   operationId: setIcon
   tags:
-  - Icons
+    - Icons
   summary: Update an icon
-  description: This API endpoint updates an icon by object type and object id. A token
-    with ORG_ADMIN authority is required to call this API.
+  description: This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
   parameters:
-  - in: path
-    name: objectType
-    schema:
-      type: string
-      enum:
-       - application
-    required: true
-    description: Object type. Available options ['application']
-    example: application
-  - in: path
-    name: objectId
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: listSources
-    description: Object id.
-    example: a291e870-48c3-4953-b656-fb5ce2a93169
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - in: path
+      name: objectType
+      schema:
+        type: string
+        enum:
+          - application
+      required: true
+      description: Object type. Available options ['application']
+      example: application
+    - in: path
+      name: objectId
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      description: Object id.
+      example: a291e870-48c3-4953-b656-fb5ce2a93169
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   requestBody:
     required: true
     content:
@@ -38,7 +37,7 @@ put:
         schema:
           type: object
           required:
-          - image
+            - image
           properties:
             image:
               type: string
@@ -46,8 +45,10 @@ put:
               description: file with icon. Allowed mime-types ['image/png', 'image/jpeg']
               example: \x00\x00\x00\x02
   security:
-  - userAuth:
-    - idn:icons:manage
+    - userAuth:
+        - idn:icons:manage
+    - applicationAuth:
+        - idn:icons:manage
   responses:
     '200':
       description: Icon updated
@@ -75,39 +76,40 @@ put:
 delete:
   operationId: deleteIcon
   tags:
-  - Icons
+    - Icons
   summary: Delete an icon
-  description: This API endpoint delete an icon by object type and object id. A token
-    with ORG_ADMIN authority is required to call this API.
+  description: This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
   parameters:
-  - in: path
-    name: objectType
-    schema:
-      type: string
-      enum:
-        - application
-    required: true
-    description: Object type. Available options ['application']
-    example: application
-  - in: path
-    name: objectId
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: listSources
-    description: Object id.
-    example: a291e870-48c3-4953-b656-fb5ce2a93169
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - in: path
+      name: objectType
+      schema:
+        type: string
+        enum:
+          - application
+      required: true
+      description: Object type. Available options ['application']
+      example: application
+    - in: path
+      name: objectId
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      description: Object id.
+      example: a291e870-48c3-4953-b656-fb5ce2a93169
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   security:
-  - userAuth:
-    - idn:icons:manage
+    - userAuth:
+        - idn:icons:manage
+    - applicationAuth:
+        - idn:icons:manage
   responses:
     '204':
       $ref: ../responses/204.yaml

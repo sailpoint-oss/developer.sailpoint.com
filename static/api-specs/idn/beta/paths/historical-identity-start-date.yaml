@@ -3,9 +3,7 @@ get:
   tags:
     - Identity History
   summary: Gets the start date of the identity
-  description: >-
-    This method retrieves start date of the identity
-    Requires authorization scope of 'idn:identity-history:read' 
+  description: 'This method retrieves start date of the identity Requires authorization scope of ''idn:identity-history:read'' '
   parameters:
     - in: path
       name: id
@@ -24,12 +22,19 @@ get:
             type: string
             example: '2017-03-01T13:00:00.000Z'
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'  
+      $ref: ../../v3/responses/404.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth:
+        - idn:identity-history:read
+        - idn:identity-history:manage
+    - applicationAuth:
+        - idn:identity-history:read
+        - idn:identity-history:manage

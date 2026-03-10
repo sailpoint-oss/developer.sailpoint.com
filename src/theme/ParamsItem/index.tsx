@@ -6,8 +6,7 @@ import TabItem from "@theme/TabItem";
 /* eslint-disable import/no-extraneous-dependencies*/
 import clsx from "clsx";
 import { SchemaObject } from "docusaurus-theme-openapi-docs/src/types";
-import { ReactNode } from "react";
-import { useState, useEffect } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 
 function render(children: ReactNode) {
@@ -410,6 +409,7 @@ function ParamsItem({ param, ...rest }: Props) {
     useEffect(() => {
       async function fetchAvailableUrl() {
         const baseUrls = [
+          `https://developer.sailpoint.com/docs/api/v2026/${camelToKebab(operationId)}`,
           `https://developer.sailpoint.com/docs/api/v2025/${camelToKebab(operationId)}`,
           `https://developer.sailpoint.com/docs/api/v2024/${camelToKebab(operationId)}`,
           `https://developer.sailpoint.com/docs/api/v3/${camelToKebab(operationId)}`,

@@ -3,9 +3,7 @@ get:
   tags:
     - Identity History
   summary: Gets an identity snapshot at a given date
-  description: >-
-    This method retrieves a specified identity snapshot at a given date
-    Requires authorization scope of 'idn:identity-history:read' 
+  description: 'This method retrieves a specified identity snapshot at a given date Requires authorization scope of ''idn:identity-history:read'' '
   parameters:
     - in: path
       name: id
@@ -14,7 +12,7 @@ get:
       required: true
       x-sailpoint-resource-operation-id: listHistoricalIdentities
       description: The identity id
-      example: '8c190e6787aa4ed9a90bd9d5344523fb'
+      example: 8c190e6787aa4ed9a90bd9d5344523fb
     - in: path
       name: date
       schema:
@@ -28,14 +26,21 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/IdentityHistoryResponse.yaml'
+            $ref: ../schemas/IdentityHistoryResponse.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'  
+      $ref: ../../v3/responses/404.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth:
+        - idn:identity-history:read
+        - idn:identity-history:manage
+    - applicationAuth:
+        - idn:identity-history:read
+        - idn:identity-history:manage

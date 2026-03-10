@@ -8,7 +8,7 @@ properties:
   name:
     type: string
     description: The entitlement name
-    example: "LauncherTest2"
+    example: "PayrollControls"
   attribute:
     type: string
     description: The entitlement attribute name
@@ -16,7 +16,7 @@ properties:
   value:
     type: string
     description: The value of the entitlement
-    example: "CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local"
+    example: "CN=PayrollControls,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"
   sourceSchemaObjectType:
     type: string
     description: The object type of the entitlement from the source schema
@@ -24,7 +24,7 @@ properties:
   description:
     type: string
     description: The description of the entitlement
-    example: "CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local"
+    example: "Grants the ability to access and manage payroll-related controls and settings within the Corporate Active Directory system."
     nullable: true
   privileged:
     type: boolean
@@ -100,7 +100,7 @@ properties:
       name:
         type: string
         description: The source name
-        example: ODS-AD-Source
+        example: Corporate Active Directory
   attributes:
     type: object
     description: A map of free-form key-value pairs from the source system

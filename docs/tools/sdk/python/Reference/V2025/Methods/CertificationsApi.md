@@ -112,7 +112,7 @@ with ApiClient(configuration) as api_client:
 
 ## get-identity-certification
 Identity certification by id
-This API returns a single identity campaign certification by its ID. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
+This API returns a single identity campaign certification by its ID. Reviewers for this certification can also call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity-certification)
 

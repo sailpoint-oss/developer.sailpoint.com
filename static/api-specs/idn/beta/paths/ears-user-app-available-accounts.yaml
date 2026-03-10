@@ -4,9 +4,13 @@ get:
     - Apps
   summary: List available accounts for user app
   security:
-    - userAuth: [idn:app-roles:read]
-  description: >-
-    This API returns the list of available accounts for the specified user app. The user app needs to belong lo logged in user.
+    - userAuth:
+        - idn:app-roles:read
+        - idn:app-roles:manage
+    - applicationAuth:
+        - idn:app-roles:read
+        - idn:app-roles:manage
+  description: This API returns the list of available accounts for the specified user app. The user app needs to belong lo logged in user.
   parameters:
     - name: id
       in: path
@@ -16,9 +20,9 @@ get:
         type: string
         example: 2c91808a7813090a017814121e121518
       x-sailpoint-resource-operation-id: listAllUserApps
-    - $ref: '../../v3/parameters/limit.yaml'
-    - $ref: '../../v3/parameters/count.yaml'
-    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: ../../v3/parameters/limit.yaml
+    - $ref: ../../v3/parameters/count.yaml
+    - $ref: ../../v3/parameters/offset.yaml
   responses:
     '200':
       description: List of available accounts for the specified user app
@@ -27,14 +31,14 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/app/AppAccountDetails.yaml'
+              $ref: ../schemas/app/AppAccountDetails.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

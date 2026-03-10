@@ -2,8 +2,6 @@ type: object
 properties:
   uid:
     type: string
-    minLength: 32
-    maxLength: 32
     example: "sponsors_role"
   type:
     type: string

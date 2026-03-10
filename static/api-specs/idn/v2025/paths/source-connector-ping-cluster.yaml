@@ -1,25 +1,25 @@
 post:
   operationId: pingCluster
   tags:
-  - Sources
+    - Sources
   summary: Ping cluster for source connector
-  description: >-
-    This endpoint validates that the cluster being used by the source
-    is reachable from IdentityNow.
+  description: This endpoint validates that the cluster being used by the source is reachable from IdentityNow.
   security:
     - userAuth:
-      - idn:source-connector:manage
+        - idn:source-connector:manage
+    - applicationAuth:
+        - idn:source-connector:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
-  - in: path
-    name: sourceId
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: listSources
-    description: The ID of the Source
-    example: cef3ee201db947c5912551015ba0c679
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      description: The ID of the Source
+      example: cef3ee201db947c5912551015ba0c679
   responses:
     '200':
       description: The result of pinging connection with the source connector.

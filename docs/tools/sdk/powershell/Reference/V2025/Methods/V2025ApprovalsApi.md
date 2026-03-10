@@ -21,11 +21,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Approve-V2025Approval**](#approve-approval) | **POST** `/generic-approvals/{id}/approve` | Post Approvals Approve
+[**Approve-V2025ApprovalInBulk**](#approve-approval-in-bulk) | **POST** `/generic-approvals/bulk-approve` | Post Bulk Approve Approvals
+[**Suspend-V2025Approval**](#cancel-approval) | **POST** `/generic-approvals/bulk-cancel` | Post Bulk Cancel Approvals
 [**Get-V2025Approval**](#get-approval) | **GET** `/generic-approvals/{id}` | Get an approval
 [**Get-V2025Approvals**](#get-approvals) | **GET** `/generic-approvals` | Get approvals
-[**Get-V2025ApprovalsConfigIdType**](#get-approvals-config-id-type) | **GET** `/generic-approvals/config` | Get Approval Config Type
-[**Update-V2025ApprovalsConfigType**](#patch-approvals-config-type) | **PATCH** `/generic-approvals/config` | Patch Approval Config Type
+[**Get-V2025ApprovalsConfig**](#get-approvals-config) | **GET** `/generic-approvals/config/{id}` | Get Approval Config
+[**Move-V2025Approval**](#move-approval) | **POST** `/generic-approvals/bulk-reassign` | Post Bulk Reassign Approvals
+[**Send-V2025ApprovalsConfig**](#put-approvals-config) | **PUT** `/generic-approvals/config` | Put Approval Config
 [**Deny-V2025Approval**](#reject-approval) | **POST** `/generic-approvals/{id}/reject` | Post Approvals Reject
+[**Deny-V2025ApprovalInBulk**](#reject-approval-in-bulk) | **POST** `/generic-approvals/bulk-reject` | Post Bulk Reject Approvals
 [**Update-V2025ApprovalsAttributes**](#update-approvals-attributes) | **POST** `/generic-approvals/{id}/attributes` | Post Approvals Attributes
 [**Update-V2025ApprovalsComments**](#update-approvals-comments) | **POST** `/generic-approvals/{id}/comments` | Post Approvals Comments
 [**Update-V2025ApprovalsReassign**](#update-approvals-reassign) | **POST** `/generic-approvals/{id}/reassign` | Post Approvals Reassign
@@ -83,6 +87,110 @@ try {
     # Approve-V2025Approval -Id $Id -ApprovalApproveRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2025Approval"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## approve-approval-in-bulk
+Bulk Approves specified approval requests on behalf of the caller
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-approval-in-bulk)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | BulkApproveRequestDTO | [**BulkApproveRequestDTO**](../models/bulk-approve-request-dto) | True  | 
+
+### Return type
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$BulkApproveRequestDTO = @"{
+  "comment" : "Bulk approved by admin for monthly review",
+  "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ],
+  "additionalAttributes" : {
+    "source" : "automation",
+    "urgency" : "high"
+  }
+}"@
+
+# Post Bulk Approve Approvals
+
+try {
+    $Result = ConvertFrom-V2025JsonToBulkApproveRequestDTO -Json $BulkApproveRequestDTO
+    Approve-V2025ApprovalInBulk -BulkApproveRequestDTO $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Approve-V2025ApprovalInBulk -BulkApproveRequestDTO $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2025ApprovalInBulk"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## cancel-approval
+Bulk cancels specified approval requests on behalf of the caller
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/cancel-approval)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | BulkCancelRequestDTO | [**BulkCancelRequestDTO**](../models/bulk-cancel-request-dto) | True  | 
+
+### Return type
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$BulkCancelRequestDTO = @"{
+  "comment" : "Bulk cancellation by admin",
+  "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+}"@
+
+# Post Bulk Cancel Approvals
+
+try {
+    $Result = ConvertFrom-V2025JsonToBulkCancelRequestDTO -Json $BulkCancelRequestDTO
+    Suspend-V2025Approval -BulkCancelRequestDTO $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Suspend-V2025Approval -BulkCancelRequestDTO $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-V2025Approval"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -209,16 +317,15 @@ try {
 ```
 [[Back to top]](#) 
 
-## get-approvals-config-id-type
-Currently this endpoint only supports Entitlement Description Approvals.
+## get-approvals-config
 Retrieves a singular approval configuration that matches the given ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-approvals-config-id-type)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-approvals-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid)
+Path   | Id | **String** | True  | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), (sourceID), (applicationID), ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", (tenantID)]
 
 ### Return type
 [**ApprovalConfig**](../models/approval-config)
@@ -239,33 +346,85 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid)
+$Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), (sourceID), (applicationID), ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", (tenantID)]
 
-# Get Approval Config Type
+# Get Approval Config
 
 try {
-    Get-V2025ApprovalsConfigIdType -Id $Id 
+    Get-V2025ApprovalsConfig -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025ApprovalsConfigIdType -Id $Id  
+    # Get-V2025ApprovalsConfig -Id $Id  
 } catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ApprovalsConfigIdType"
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ApprovalsConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
 
-## patch-approvals-config-type
-Updates a singular approval configuration that matches the given configID and configScope
+## move-approval
+Bulk reassigns specified approval requests on behalf of the caller
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-approvals-config-type)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/move-approval)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | Id | **String** | True  | The ID defined by the scope field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
-  Query | Scope | **String** | True  | The scope of the field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
+ Body  | BulkReassignRequestDTO | [**BulkReassignRequestDTO**](../models/bulk-reassign-request-dto) | True  | 
+
+### Return type
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$BulkReassignRequestDTO = @"{
+  "reassignTo" : "32454251-6ce2-5d8f-df93-5ce19e295238",
+  "comment" : "Bulk reassignment by admin",
+  "reassignFrom" : "12353251-6be2-5f8f-df93-5ce19b6e5837",
+  "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+}"@
+
+# Post Bulk Reassign Approvals
+
+try {
+    $Result = ConvertFrom-V2025JsonToBulkReassignRequestDTO -Json $BulkReassignRequestDTO
+    Move-V2025Approval -BulkReassignRequestDTO $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Move-V2025Approval -BulkReassignRequestDTO $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Move-V2025Approval"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## put-approvals-config
+Upserts a singular approval configuration that matches the given configID and configScope. If id and scope are not provided, it will default to setting the tenant config.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-approvals-config)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
  Body  | ApprovalConfig | [**ApprovalConfig**](../models/approval-config) | True  | 
+  Query | Id | **String** |   (optional) | The ID defined by the scope field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT 
+  Query | Scope | **String** |   (optional) | The scope of the field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT 
 
 ### Return type
 [**ApprovalConfig**](../models/approval-config)
@@ -287,8 +446,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The ID defined by the scope field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
-$Scope = "ROLE" # String | The scope of the field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
 $ApprovalConfig = @"{
   "timeoutConfig" : {
     "daysUntilTimeout" : 2,
@@ -333,7 +490,7 @@ $ApprovalConfig = @"{
     "maxReminders" : 5,
     "enabled" : false
   },
-  "scope" : "APPROVAL_REQUEST",
+  "scope" : "DOMAIN_OBJECT",
   "tenantId" : "d3c10266-1a31-4acc-b01e-44a3d1c56615",
   "escalationConfig" : {
     "escalationCronSchedule" : "*/5 * * * *",
@@ -365,17 +522,19 @@ $ApprovalConfig = @"{
   } ],
   "autoApprove" : "false"
 }"@
+$Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT  (optional)
+$Scope = "ROLE" # String | The scope of the field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT  (optional)
 
-# Patch Approval Config Type
+# Put Approval Config
 
 try {
     $Result = ConvertFrom-V2025JsonToApprovalConfig -Json $ApprovalConfig
-    Update-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result 
+    Send-V2025ApprovalsConfig -ApprovalConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result  
+    # Send-V2025ApprovalsConfig -ApprovalConfig $Result -Id $Id -Scope $Scope  
 } catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025ApprovalsConfigType"
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025ApprovalsConfig"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -428,6 +587,56 @@ try {
     # Deny-V2025Approval -Id $Id -ApprovalRejectRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-V2025Approval"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## reject-approval-in-bulk
+Bulk reject specified approval requests on behalf of the caller
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/reject-approval-in-bulk)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | BulkRejectRequestDTO | [**BulkRejectRequestDTO**](../models/bulk-reject-request-dto) | True  | 
+
+### Return type
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Accepted - Returned if the request was successfully accepted into the system. | SystemCollectionsHashtable
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$BulkRejectRequestDTO = @"{
+  "comment" : "Bulk reject by admin",
+  "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+}"@
+
+# Post Bulk Reject Approvals
+
+try {
+    $Result = ConvertFrom-V2025JsonToBulkRejectRequestDTO -Json $BulkRejectRequestDTO
+    Deny-V2025ApprovalInBulk -BulkRejectRequestDTO $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Deny-V2025ApprovalInBulk -BulkRejectRequestDTO $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-V2025ApprovalInBulk"
     Write-Host $_.ErrorDetails
 }
 ```

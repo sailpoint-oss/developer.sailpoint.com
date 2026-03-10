@@ -2,13 +2,12 @@ get:
   tags:
     - Managed Clients
   summary: Get managed client status
-  description: >-
-    Get a managed client's status, using its ID.
+  description: Get a managed client's status, using its ID.
   operationId: getManagedClientStatus
   parameters:
     - name: id
       in: path
-      description: Managed client ID to get status for. 
+      description: Managed client ID to get status for.
       required: true
       x-sailpoint-resource-operation-id: getManagedClients
       schema:
@@ -16,29 +15,32 @@ get:
         example: aClientId
     - name: type
       in: query
-      description: Managed client type to get status for. 
+      description: Managed client type to get status for.
       required: true
       schema:
-        $ref: '../schemas/ManagedClientType.yaml'
+        $ref: ../schemas/ManagedClientType.yaml
         example: VA
   responses:
-    "200":
+    '200':
       description: Response with the managed client status, with the given ID and type.
       content:
         application/json:
           schema:
-            $ref: '../schemas/ManagedClientStatus.yaml'
+            $ref: ../schemas/ManagedClientStatus.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:managed-client-status:read]
+    - userAuth:
+        - idn:managed-client-status:read
+    - applicationAuth:
+        - idn:managed-client-status:read

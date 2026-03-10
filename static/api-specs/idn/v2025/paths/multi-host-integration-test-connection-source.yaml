@@ -2,10 +2,9 @@ get:
   tags:
     - Multi-Host Integration
   summary: Test configuration for multi-host integration's single source
-  description: >-
+  description: |-
     This endpoint performs a more detailed validation of the source's configuration.  
-  
-  
+
     A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
   operationId: testSourceConnectionMultihost
   parameters:
@@ -30,7 +29,7 @@ get:
         type: string
         example: 2c91808568c529f60168cca6f90c1324
   responses:
-    "200":
+    '200':
       description: OK. Returned if the request was successfully accepted into the system.
       content:
         application/json:
@@ -48,7 +47,7 @@ get:
               timing:
                 type: integer
                 description: Source's test connection timing.
-                example: 30437.
+                example: 30437
               resultType:
                 enum:
                   - SOURCE_STATE_ERROR_CLUSTER
@@ -69,16 +68,21 @@ get:
                 description: Source's human-readable test connection details.
                 example: null
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [idn:multihosts:read, idn:sources:read]
+    - userAuth:
+        - idn:sources:read
+        - idn:multihosts-admin:manage
+    - applicationAuth:
+        - idn:sources:read
+        - idn:multihosts-admin:manage

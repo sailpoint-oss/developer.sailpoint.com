@@ -64,7 +64,7 @@ $ManagedClient = Initialize-V2024ManagedClient  -Id 2c9180878eaf4204018eb019c357
  -CreatedAt 2023-08-04T20:48:01.865Z `
  -UpdatedAt 2023-08-04T20:48:01.865Z `
  -ProvisionStatus PROVISIONED `
- -HealthIndicators { "network": { "errors": [], "warnings": [] }, "memory": { "errors": [], "warnings": [] }, "cpu": { "errors": [], "warnings": [] } }
+ -HealthIndicators {network={errors=[], warnings=[]}, memory={errors=[], warnings=[]}, cpu={errors=[], warnings=[]}}
 ```
 
 - Convert the resource to JSON

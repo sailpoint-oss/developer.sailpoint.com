@@ -1,20 +1,22 @@
 post:
   tags:
-  - Search
-  description: >-
-    Performs a search with a provided query and returns the count of results in the X-Total-Count header.
+    - Search
+  description: Performs a search with a provided query and returns the count of results in the X-Total-Count header.
   operationId: searchCount
   security:
-    - userAuth: [ sp:search:read ]
-  summary: "Count documents satisfying a query"
+    - userAuth:
+        - sp:search:read
+    - applicationAuth:
+        - sp:search:read
+  summary: Count documents satisfying a query
   requestBody:
     content:
       application/json:
         schema:
-          $ref: '../schemas/search/Search.yaml'
+          $ref: ../schemas/search/Search.yaml
         examples:
           query-timeZone:
-            $ref: '../schemas/search/examples/query-timeZone.yaml'
+            $ref: ../schemas/search/examples/query-timeZone.yaml
     required: true
   responses:
     '204':
@@ -26,12 +28,12 @@ post:
             type: integer
           example: 5
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

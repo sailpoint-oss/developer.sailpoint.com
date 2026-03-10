@@ -17,6 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'AttributeDefinition', 'AttributeDefin
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | The name of the attribute. | [optional] 
+**native_name** | **str** | Attribute name in the native system. | [optional] 
 **type** | [**AttributeDefinitionType**](attribute-definition-type) |  | [optional] 
 **var_schema** | [**AttributeDefinitionSchema**](attribute-definition-schema) |  | [optional] 
 **description** | **str** | A human-readable description of the attribute. | [optional] 
@@ -32,6 +33,7 @@ from sailpoint.v3.models.attribute_definition import AttributeDefinition
 
 attribute_definition = AttributeDefinition(
 name='sAMAccountName',
+native_name='sAMAccountName',
 type='STRING',
 var_schema=sailpoint.v3.models.attribute_definition_schema.AttributeDefinition_schema(
                     type = 'CONNECTOR_SCHEMA', 

@@ -1,6 +1,6 @@
 patch:
   tags:
-  - SIM Integrations
+    - SIM Integrations
   summary: Patch a sim beforeprovisioningrule attribute.
   description: Patch a SIM beforeProvisioningRule attribute given a JsonPatch object.
   operationId: patchBeforeProvisioningRule
@@ -12,22 +12,22 @@ patch:
         schema:
           $ref: ../schemas/JsonPatch.yaml
   parameters:
-  - name: id
-    in: path
-    description: SIM integration id
-    schema:
-      type: string
-    example: 12345
-    required: true
-    x-sailpoint-resource-operation-id: getSIMIntegrations
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - name: id
+      in: path
+      description: SIM integration id
+      schema:
+        type: string
+      example: 12345
+      required: true
+      x-sailpoint-resource-operation-id: getSIMIntegrations
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   responses:
     '200':
       description: The updated DTO containing the details of the SIM integration.
@@ -48,7 +48,7 @@ patch:
     '500':
       $ref: ../responses/500.yaml
   security:
-  - userAuth:
-    - idn:service-desk-admin:write
+    - userAuth:
+        - idn:service-desk-integration:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN

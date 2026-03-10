@@ -1,35 +1,34 @@
 delete:
   operationId: deleteReassignmentConfiguration
   tags:
-  - Work Reassignment
+    - Work Reassignment
   summary: Delete reassignment configuration
-  description: >-
-    Deletes a single reassignment configuration for the specified identity
+  description: Deletes a single reassignment configuration for the specified identity
   security:
-  - userAuth:
-    - idn:reassignment-configuration:delete
+    - userAuth:
+        - idn:reassignment-configuration:manage
   parameters:
-  - in: path
-    name: identityId
-    schema:
-      type: string
-    description: unique identity id
-    required: true
-    x-sailpoint-resource-operation-id: listIdentities
-    example: 2c91808781a71ddb0181b9090b5c504e
-  - in: path
-    name: configType
-    schema:
-      $ref: '../schemas/work-reassignment/ConfigTypeEnum.yaml'
-    required: true
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - in: path
+      name: identityId
+      schema:
+        type: string
+      description: unique identity id
+      required: true
+      x-sailpoint-resource-operation-id: listIdentities
+      example: 2c91808781a71ddb0181b9090b5c504e
+    - in: path
+      name: configType
+      schema:
+        $ref: ../schemas/work-reassignment/ConfigTypeEnum.yaml
+      required: true
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   responses:
     '204':
       description: Reassignment Configuration deleted

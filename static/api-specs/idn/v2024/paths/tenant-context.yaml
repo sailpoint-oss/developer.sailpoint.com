@@ -2,7 +2,7 @@ get:
   summary: Retrieve tenant context
   tags:
     - Tenant Context
-  description: >
+  description: |
     Returns a list of key-value pairs representing the current state of the tenant's context.
   parameters:
     - name: X-SailPoint-Experimental
@@ -14,7 +14,10 @@ get:
         default: true
       required: true
   security:
-    - userAuth: [idn:tenant-context:read]
+    - userAuth:
+        - idn:tenant-context:read
+    - applicationAuth:
+        - idn:tenant-context:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -35,8 +38,8 @@ get:
                 value:
                   type: string
           example:
-            - key: "IAS"
-              value: "International Accounting Standards"
+            - key: IAS
+              value: International Accounting Standards
     '400':
       $ref: ../../v2024/responses/400.yaml
     '401':
@@ -51,14 +54,11 @@ patch:
   summary: Update tenant context
   tags:
     - Tenant Context
-  description: >
-    Allows the user to make incremental updates to tenant context records using [JSON Patch](https://tools.ietf.org/html/rfc6902)
-    syntax.
-
+  description: |
+    Allows the user to make incremental updates to tenant context records using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
     This endpoint is specifically designed to modify the `/Key/*` field, supporting operations such as `add`, `remove`, or `replace` to manage key-value pairs. 
-    
-    
+
     Note that each tenant is limited to a maximum of 100 key-value pairs.
   parameters:
     - name: X-SailPoint-Experimental
@@ -70,7 +70,10 @@ patch:
         default: true
       required: true
   security:
-    - userAuth: [idn:tenant-context:write]
+    - userAuth:
+        - idn:tenant-context:write
+    - applicationAuth:
+        - idn:tenant-context:write
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -80,56 +83,36 @@ patch:
     content:
       application/json-patch+json:
         schema:
-          $ref: '../schemas/JsonPatchOperation.yaml'
+          $ref: ../schemas/JsonPatchOperation.yaml
         examples:
           Multiple operations in one call:
             description: This example shows how multiple context keys may be updated with a single patch call.
             value:
-              [
-                {
-                  "op": "add",
-                  "path": "/Key/IAS",
-                  "value": "Integrated Automation System"
-                },
-                {
-                  "op": "replace",
-                  "path": "/Key/IAS",
-                  "value": "International Accounting Standards"
-                },
-                {
-                  "op": "remove",
-                  "path": "/Key/NDR"
-                }
-              ]
+              - op: add
+                path: /Key/IAS
+                value: Integrated Automation System
+              - op: replace
+                path: /Key/IAS
+                value: International Accounting Standards
+              - op: remove
+                path: /Key/NDR
           Add a single context:
             description: This example shows how a single context may be created with a single patch call.
             value:
-              [
-                {
-                  "op": "add",
-                  "path": "/Key/IAS",
-                  "value": "Integrated Automation System"
-                }
-              ]
+              - op: add
+                path: /Key/IAS
+                value: Integrated Automation System
           Update a single context:
             description: This example shows how a single context may be updated with a single patch call.
             value:
-              [
-                {
-                  "op": "replace",
-                  "path": "/Key/IAS",
-                  "value": "International Accounting Standards"
-                }
-              ]
+              - op: replace
+                path: /Key/IAS
+                value: International Accounting Standards
           Remove a single context:
             description: This example shows how a single context may be removed with a single patch call.
             value:
-              [
-                {
-                  "op": "remove",
-                  "path": "/Key/IAS"
-                }
-              ]
+              - op: remove
+                path: /Key/IAS
     required: true
   responses:
     '200':
@@ -139,44 +122,44 @@ patch:
       content:
         application/json:
           schema:
-            $ref: "../../v2024/schemas/ErrorResponseDto.yaml"
+            $ref: ../../v2024/schemas/ErrorResponseDto.yaml
           examples:
             incorrectPath:
               summary: Invalid path example
               value:
-                detailCode: "Bad Request"
-                trackingId: "e9eaaeac516643ffa087cc476e7577c5"
+                detailCode: Bad Request
+                trackingId: e9eaaeac516643ffa087cc476e7577c5
                 messages:
-                  - locale: "en-US"
-                    localeOrigin: "DEFAULT"
-                    text: "invalid patch request: field not patchable or does not contain key (/InvalidPath/IAS)"
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: 'invalid patch request: field not patchable or does not contain key (/InvalidPath/IAS)'
             invalidOperation:
               summary: Invalid operation example
               value:
-                detailCode: "Bad Request"
-                trackingId: "39cfb6a29d5a4522954d72124545d3c5"
+                detailCode: Bad Request
+                trackingId: 39cfb6a29d5a4522954d72124545d3c5
                 messages:
-                  - locale: "en-US"
-                    localeOrigin: "DEFAULT"
-                    text: "invalid patch request: operation not allowed (move)"
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: 'invalid patch request: operation not allowed (move)'
             noKeyInPath:
               summary: No key in path example
               value:
-                detailCode: "Bad Request"
-                trackingId: "6d3bdd67ac8a4382884875ed4abf1f13"
+                detailCode: Bad Request
+                trackingId: 6d3bdd67ac8a4382884875ed4abf1f13
                 messages:
-                  - locale: "en-US"
-                    localeOrigin: "DEFAULT"
-                    text: "invalid patch request: field not patchable or does not contain key (/Key/)"
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: 'invalid patch request: field not patchable or does not contain key (/Key/)'
             capacityExceeded:
               summary: Capacity exceeded example
               value:
-                detailCode: "Bad Request"
-                trackingId: "bd51a5e2f4ee4d5aa65ac2f7cd3c2445"
+                detailCode: Bad Request
+                trackingId: bd51a5e2f4ee4d5aa65ac2f7cd3c2445
                 messages:
-                  - locale: "en-US"
-                    localeOrigin: "DEFAULT"
-                    text: "unable to fulfill patch request: max tenant context capacity exceeded by 5 key/value pair(s)"
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: 'unable to fulfill patch request: max tenant context capacity exceeded by 5 key/value pair(s)'
     '401':
       $ref: ../../v2024/responses/401.yaml
     '403':

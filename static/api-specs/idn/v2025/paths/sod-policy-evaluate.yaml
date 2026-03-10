@@ -1,13 +1,14 @@
 post:
   security:
-    - userAuth: [idn:sod-violation:write]
+    - userAuth:
+        - idn:sod-violation:manage
+    - applicationAuth:
+        - idn:sod-violation:manage
   operationId: startEvaluateSodPolicy
   tags:
     - SOD Policies
   summary: Evaluate one policy by id
-  description: >-
-    Runs the scheduled report for the policy retrieved by passed policy ID. 
-    The report schedule is fetched from the policy retrieved by ID.
+  description: Runs the scheduled report for the policy retrieved by passed policy ID.  The report schedule is fetched from the policy retrieved by ID.
   parameters:
     - in: path
       name: id
@@ -23,20 +24,19 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../schemas/ReportResultReference.yaml'
-          example: {
-            "status": "PENDING",
-            "type": "REPORT_RESULT",
-            "id": "37b3b32a-f394-46f8-acad-b5223969fa68",
-            "name": "Multi Query Report"
-          }
+            $ref: ../schemas/ReportResultReference.yaml
+          example:
+            status: PENDING
+            type: REPORT_RESULT
+            id: 37b3b32a-f394-46f8-acad-b5223969fa68
+            name: Multi Query Report
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

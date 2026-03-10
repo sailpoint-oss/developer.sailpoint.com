@@ -3,11 +3,10 @@ get:
   tags:
     - Machine Accounts
   summary: Machine account details
-  description: >-
-    Use this API to return the details for a single machine account by its ID.  
+  description: 'Use this API to return the details for a single machine account by its ID.  '
   security:
     - userAuth:
-        - 'idn:mis-account:read'
+        - idn:mis-account:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -31,24 +30,24 @@ get:
         default: true
       required: true
   responses:
-    "200":
+    '200':
       description: Machine Account object.
       content:
         application/json:
           schema:
-            $ref: "../schemas/MachineAccount.yaml"
-    "400":
-      $ref: "../responses/400.yaml"
-    "401":
-      $ref: "../responses/401.yaml"
-    "403":
-      $ref: "../responses/403.yaml"
-    "404":
-      $ref: "../responses/404.yaml"
-    "429":
-      $ref: "../responses/429.yaml"
-    "500":
-      $ref: "../responses/500.yaml"
+            $ref: ../schemas/MachineAccount.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
 patch:
   operationId: updateMachineAccount
   tags:
@@ -58,7 +57,9 @@ patch:
     Use this API to update machine accounts details. 
   security:
     - userAuth:
-        - 'idn:mis-account:manage'
+        - idn:mis-account:manage
+    - applicationAuth:
+        - idn:mis-account:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -82,10 +83,8 @@ patch:
       required: true
   requestBody:
     required: true
-    description: >-
-      A JSON of updated values [JSON
-      Patch](https://tools.ietf.org/html/rfc6902) standard.
-      The following fields are patchable:
+    description: |-
+      A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable:
                 * description
                 * ownerIdentity
                 * subType
@@ -124,21 +123,21 @@ patch:
               - op: remove
                 path: /environment
   responses:
-    "200":
+    '200':
       description: Updated Machine Account object.
       content:
         application/json:
           schema:
-            $ref: "../schemas/MachineAccount.yaml"
-    "400":
-      $ref: "../responses/400.yaml"
-    "401":
-      $ref: "../responses/401.yaml"
-    "403":
-      $ref: "../responses/403.yaml"
-    "404":
-      $ref: "../responses/404.yaml"
-    "429":
-      $ref: "../responses/429.yaml"
-    "500":
-      $ref: "../responses/500.yaml"
+            $ref: ../schemas/MachineAccount.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

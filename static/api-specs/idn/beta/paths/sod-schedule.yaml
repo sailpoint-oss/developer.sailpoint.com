@@ -5,10 +5,11 @@ get:
   summary: Get sod policy schedule
   deprecated: true
   security:
-    - userAuth: [ idn:sod-policy:read ]
-  description: >-
+    - userAuth:
+        - idn:sod-policy:read
+        - idn:sod-policy:manage
+  description: |-
     This endpoint gets a specified SOD policy's schedule.
-
     Requires the role of ORG_ADMIN.
   parameters:
     - in: path
@@ -25,17 +26,17 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/SodPolicySchedule.yaml'
+            $ref: ../schemas/SodPolicySchedule.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
 put:
   operationId: putPolicySchedule
   tags:
@@ -43,10 +44,10 @@ put:
   summary: Update sod policy schedule
   deprecated: true
   security:
-    - userAuth: [ idn:sod-policy:write ]
-  description: >-
+    - userAuth:
+        - idn:sod-policy:manage
+  description: |-
     This updates schedule for a specified SOD policy.
-
     Requires role of ORG_ADMIN.
   parameters:
     - in: path
@@ -62,24 +63,24 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/SodPolicySchedule.yaml'
+          $ref: ../schemas/SodPolicySchedule.yaml
   responses:
     '200':
       description: SOD policy by ID.
       content:
         application/json:
           schema:
-            $ref: '../schemas/SodPolicySchedule.yaml'
+            $ref: ../schemas/SodPolicySchedule.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
 delete:
   operationId: deleteSodPolicySchedule
   tags:
@@ -87,10 +88,10 @@ delete:
   summary: Delete sod policy schedule
   deprecated: true
   security:
-    - userAuth: [idn:sod-policy:write]
-  description: >-
+    - userAuth:
+        - idn:sod-policy:manage
+  description: |-
     This deletes schedule for a specified SOD policy.
-
     Requires role of ORG_ADMIN.
   parameters:
     - in: path
@@ -105,14 +106,14 @@ delete:
     '204':
       description: No content.
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

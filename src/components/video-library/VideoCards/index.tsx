@@ -20,7 +20,7 @@ interface VideoCardsProps {
 interface VideoPost {
   key: number;
   title: string;
-  tags: string[];
+  tags: (string | { id: number; name: string; slug: string })[];
   body: string;
   thumbnail: string;
   avatar: string;

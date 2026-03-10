@@ -3,7 +3,7 @@ post:
   - userAuth: [ sp:approvals:write ]
   x-sailpoint-userLevels:
   - ORG_ADMIN
-  operationId: approveApproval
+  operationId: approveApprovalInBulk
   tags:
   - Approvals
   summary: Post Bulk Approve Approvals

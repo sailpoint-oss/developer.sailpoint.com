@@ -2,34 +2,33 @@ post:
   operationId: updateEntitlementsPotentialRole
   summary: Edit entitlements for a potential role to exclude some entitlements
   tags:
-  - IAI Role Mining
-  description: This endpoint adds or removes entitlements from an exclusion list for
-    a potential role.
+    - IAI Role Mining
+  description: This endpoint adds or removes entitlements from an exclusion list for a potential role.
   parameters:
-  - in: path
-    name: sessionId
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: getRoleMiningSessions
-    description: The role mining session id
-    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
-  - in: path
-    name: potentialRoleId
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: getPotentialRoleSummaries
-    description: A potential role id in a role mining session
-    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - in: path
+      name: sessionId
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: getRoleMiningSessions
+      description: The role mining session id
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+    - in: path
+      name: potentialRoleId
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: getPotentialRoleSummaries
+      description: A potential role id in a role mining session
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   requestBody:
     description: Role mining session parameters
     required: true
@@ -39,8 +38,7 @@ post:
           $ref: ../schemas/RoleMiningPotentialRoleEditEntitlements.yaml
   responses:
     '201':
-      description: Adds or removes entitlements from a potential role's entitlement
-        exclusion list.
+      description: Adds or removes entitlements from a potential role's entitlement exclusion list.
       content:
         application/json:
           schema:
@@ -53,3 +51,8 @@ post:
       $ref: ../responses/403.yaml
     '500':
       $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - iai:access-modeling:manage
+    - applicationAuth:
+        - iai:access-modeling:manage

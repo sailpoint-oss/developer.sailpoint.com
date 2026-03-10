@@ -1,13 +1,21 @@
-import React, {type ReactNode} from 'react';
-import clsx from 'clsx';
-import {ThemeClassNames} from '@docusaurus/theme-common';
-import {isActiveSidebarItem} from '@docusaurus/plugin-content-docs/client';
 import Link from '@docusaurus/Link';
 import isInternalUrl from '@docusaurus/isInternalUrl';
+import { isActiveSidebarItem } from '@docusaurus/plugin-content-docs/client';
+import { ThemeClassNames } from '@docusaurus/theme-common';
+import type { Props } from '@theme/DocSidebarItem/Link';
 import IconExternalLink from '@theme/Icon/ExternalLink';
-import type {Props} from '@theme/DocSidebarItem/Link';
+import clsx from 'clsx';
+import React, { type ReactNode } from 'react';
 
 import styles from './styles.module.css';
+
+function LinkLabel({label}: {label: string}) {
+  return (
+    <span title={label} className={styles.linkLabel}>
+      {label}
+    </span>
+  );
+}
 
 export default function DocSidebarItemLink({
   item,
@@ -50,7 +58,7 @@ export default function DocSidebarItemLink({
           onClick: onItemClick ? () => onItemClick(item) : undefined,
         })}
         {...props}>
-        {label}
+        <LinkLabel label={label} />
         {!isInternalLink && <IconExternalLink />}
       </Link>
     </li>

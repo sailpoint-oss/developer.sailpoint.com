@@ -1,37 +1,34 @@
 post:
   operationId: exportRoleMiningPotentialRoleAsync
-  summary: Asynchronously export details for a potential role in a role mining session
-    and upload to S3
+  summary: Asynchronously export details for a potential role in a role mining session and upload to S3
   tags:
-  - IAI Role Mining
-  description: This endpoint uploads all the information for a potential role in a
-    role mining session to S3 as a downloadable zip archive.  Includes identities
-    and entitlements in the potential role.
+    - IAI Role Mining
+  description: This endpoint uploads all the information for a potential role in a role mining session to S3 as a downloadable zip archive.  Includes identities and entitlements in the potential role.
   parameters:
-  - in: path
-    name: sessionId
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: getRoleMiningSessions
-    description: The role mining session id
-    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
-  - in: path
-    name: potentialRoleId
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: getPotentialRoleSummaries
-    description: A potential role id in a role mining session
-    example: 278359a6-04b7-4669-9468-924cf580964a
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - in: path
+      name: sessionId
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: getRoleMiningSessions
+      description: The role mining session id
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+    - in: path
+      name: potentialRoleId
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: getPotentialRoleSummaries
+      description: A potential role id in a role mining session
+      example: 278359a6-04b7-4669-9468-924cf580964a
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   requestBody:
     content:
       application/json:
@@ -39,8 +36,7 @@ post:
           $ref: ../schemas/RoleMiningPotentialRoleExportRequest.yaml
   responses:
     '202':
-      description: Job Submitted. Returns a reportId that can be used to download
-        the zip once complete
+      description: Job Submitted. Returns a reportId that can be used to download the zip once complete
       content:
         application/json:
           schema:
@@ -53,3 +49,8 @@ post:
       $ref: ../responses/403.yaml
     '500':
       $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - iai:access-modeling:manage
+    - applicationAuth:
+        - iai:access-modeling:manage

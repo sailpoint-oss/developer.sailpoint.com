@@ -4,13 +4,12 @@ post:
     - Certifications
   summary: Finalize identity certification decisions
   security:
-    - userAuth: []
+    - userAuth:
+        - idn:campaign:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - CERT_ADMIN
-  description: >-
-    This API finalizes all decisions made on an identity campaign certification and initiates any remediations required.
-    Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
+  description: This API finalizes all decisions made on an identity campaign certification and initiates any remediations required. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
   parameters:
     - in: path
       name: id
@@ -26,16 +25,16 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../schemas/IdentityCertificationDto.yaml'
+            $ref: ../schemas/IdentityCertificationDto.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

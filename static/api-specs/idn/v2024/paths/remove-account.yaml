@@ -2,34 +2,25 @@ post:
   operationId: deleteAccountAsync
   summary: Remove account
   tags:
-  - Accounts
-  description: 'Use this endpoint to remove accounts from the system without provisioning
-    changes to the source. Accounts that are removed could be re-created during the
-    next aggregation.
-
+    - Accounts
+  description: |
+    Use this endpoint to remove accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.
 
     This endpoint is good for:
-
     * Removing accounts that no longer exist on the source.
-
-    * Removing accounts that won''t be aggregated following updates to the source
-    configuration.
-
-    * Forcing accounts to be re-created following the next aggregation to re-run account
-    processing, support testing, etc.
-
-    '
+    * Removing accounts that won't be aggregated following updates to the source configuration.
+    * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc.
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
-  - in: path
-    name: id
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: listAccounts
-    description: The account id
-    example: c350d6aa4f104c61b062cb632421ad10
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listAccounts
+      description: The account id
+      example: c350d6aa4f104c61b062cb632421ad10
   responses:
     '202':
       description: Accepted. Returns task result details of removal request.
@@ -52,5 +43,7 @@ post:
     '500':
       $ref: ../responses/500.yaml
   security:
-  - userAuth:
-    - idn:accounts:manage
+    - userAuth:
+        - idn:accounts:manage
+    - applicationAuth:
+        - idn:accounts:manage

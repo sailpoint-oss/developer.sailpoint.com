@@ -3,8 +3,7 @@ post:
   summary: Reject access request approval
   tags:
     - Access Request Approvals
-  description: >-
-    Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
+  description: Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
   parameters:
     - in: path
       name: approvalId
@@ -20,19 +19,22 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../schemas/CommentDto.yaml"
+          $ref: ../schemas/CommentDto.yaml
   responses:
     '202':
-      $ref: '../responses/202.yaml'
+      $ref: ../responses/202.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - idn:access-request-approvals:manage

@@ -5,6 +5,7 @@ pagination_label: V2025
 sidebar_label: V2025
 sidebar_position: 2
 sidebar_class_name: v2025
+sidebar_key: v2025-golang-reference
 keywords: ['v2025', 'Golang']
 description: Golang SDK reference V2025.
 slug: /tools/go/reference/v2025

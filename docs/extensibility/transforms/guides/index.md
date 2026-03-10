@@ -3,6 +3,7 @@ id: guides
 title: Guides
 pagination_label: Guides
 sidebar_label: Guides
+sidebar_key: transform-guides
 sidebar_class_name: transforms
 keywords: ['transforms', 'guides']
 description: Transform Guides

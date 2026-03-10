@@ -1,19 +1,19 @@
 get:
   security:
-    - userAuth: [ sp:approvals:read ]
+    - userAuth:
+        - idn:access-request-approvals:read
+        - idn:access-request-administration:read
+        - idn:access-request-approvals:manage
   x-sailpoint-userLevels:
     - APPROVAL_OWNER
   operationId: getApprovals
   tags:
     - Approvals
   summary: Get approvals
-  description: >-
+  description: |-
     Currently this endpoint only supports Entitlement Description Approvals.
-    
     Get a list of approvals. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and does not include access-request-approvals. 
-    
     Absence of all query parameters for non admins will will default to mine=true. Admin will default to mine=false.
-    
     Absence of all query parameters for admins will return all approvals in the org.
   parameters:
     - in: query
@@ -22,57 +22,45 @@ get:
       schema:
         type: boolean
         default: false
-      description: >-
-        Returns the list of approvals for the current caller. Defaults to false if admin, true otherwise.
-      example:
-        "true"
+      description: Returns the list of approvals for the current caller. Defaults to false if admin, true otherwise.
+      example: 'true'
     - in: query
       name: requesterId
       required: false
       schema:
         type: string
-      description: >-
-        Returns the list of approvals for a given requester ID. Must match the calling user's identity ID unless they are an admin.
-      example:
-        "17e633e7d57e481569df76323169deb6a"
+      description: Returns the list of approvals for a given requester ID. Must match the calling user's identity ID unless they are an admin.
+      example: 17e633e7d57e481569df76323169deb6a
     - in: query
       name: requesteeId
       required: false
       schema:
         type: string
-      description: >-
-        Returns the list of approvals for a given requesteeId ID. Must match the calling user's identity ID unless they are an admin.
-      example:
-        "27e6334g757e481569df76323169db9sc"
+      description: Returns the list of approvals for a given requesteeId ID. Must match the calling user's identity ID unless they are an admin.
+      example: 27e6334g757e481569df76323169db9sc
     - in: query
       name: approverId
       required: false
       schema:
         type: string
-      description: >-
-        Returns the list of approvals for a given approverId ID. Must match the calling user's identity ID unless they are an admin.
-      example:
-        "37e6334g557e481569df7g2d3169db9sb"
+      description: Returns the list of approvals for a given approverId ID. Must match the calling user's identity ID unless they are an admin.
+      example: 37e6334g557e481569df7g2d3169db9sb
     - in: query
       name: count
       required: false
       schema:
         type: boolean
         default: false
-      description: >-
-        Adds X-Total-Count to the header to give the amount of total approvals returned from the query.
-      example:
-        "true"
+      description: Adds X-Total-Count to the header to give the amount of total approvals returned from the query.
+      example: 'true'
     - in: query
       name: count-only
       required: false
       schema:
         type: boolean
         default: false
-      description: >-
-        Adds X-Total-Count to the header to give the amount of total approvals returned from the query. Only returns the count and no approval objects.
-      example:
-        "true"
+      description: Adds X-Total-Count to the header to give the amount of total approvals returned from the query. Only returns the count and no approval objects.
+      example: 'true'
     - in: query
       name: include-comments
       required: false
@@ -80,7 +68,7 @@ get:
         type: boolean
         default: false
       description: If set to true in the query, the approval requests returned will include comments.
-      example: "true"
+      example: 'true'
     - in: query
       name: include-approvers
       required: false
@@ -88,7 +76,7 @@ get:
         type: boolean
         default: false
       description: If set to true in the query, the approval requests returned will include approvers.
-      example: "true"
+      example: 'true'
     - in: query
       name: include-batch-info
       required: false
@@ -96,93 +84,67 @@ get:
         type: boolean
         default: false
       description: If set to true in the query, the approval requests returned will include batch information.
-      example: "true"
+      example: 'true'
     - in: query
       name: filters
       required: false
       schema:
         type: string
-      description: >-
+      description: |-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
-
 
         Filtering is supported for the following fields and operators:
 
-
         **status**: *eq, ne, in, co, sw*
 
-
         **referenceType**: *eq, ne, in, co, sw*
-        
-        
+
         **name**: *eq, ne, in, co, sw*
-        
-        
+
         **priority**: *eq, ne, in, co, sw*
-        
-        
+
         **type**: *eq, ne, in, co, sw*
-        
-        
+
         **medium**: *eq, ne, in, co, sw*
-        
-        
+
         **description**: *eq, ne, in, co, sw*
-        
-        
+
         **batchId**: *eq, ne, in, co, sw*
-        
-        
+
         **approvalId**: *eq, ne, in, co, sw*
-        
-        
+
         **tenantId**: *eq, ne, in, co, sw*
-        
-        
+
         **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*
-        
-        
+
         **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*
-        
-        
+
         **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*
-        
-        
+
         **search**: *eq, ne, in, co, sw*
-        
-        
+
         **referenceId**: *eq, ne, in, co, sw*
-        
-        
+
         **referenceName**: *eq, ne, in, co, sw*
-        
-        
+
         **requestedTargetType**: *eq, ne, in, co, sw*
-        
-        
+
         **requestedTargetRequestType**: *eq, ne, in, co, sw*
-        
-        
+
         **requestedTargetId**: *eq, ne, in, co, sw*
-        
-        
+
         **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*
-        
-        
+
         **requesterId**: *eq, ne, in, co, sw*
-        
-        
+
         **requesteeId**: *eq, ne, in, co, sw*
-        
-        
+
         **approverId**: *eq, ne, in, co, sw*
-        
-        
+
         **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le*
-      example:
-        "filters=status eq PENDING"
-    - $ref: '../parameters/limit.yaml'
-    - $ref: '../parameters/offset.yaml'
+      example: filters=status eq PENDING
+    - $ref: ../parameters/limit.yaml
+    - $ref: ../parameters/offset.yaml
   responses:
     '200':
       description: List of approvals.
@@ -191,14 +153,14 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/Approval.yaml'
+              $ref: ../schemas/Approval.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

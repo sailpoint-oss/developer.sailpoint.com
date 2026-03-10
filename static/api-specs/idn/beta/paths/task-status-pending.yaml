@@ -2,7 +2,13 @@ get:
   tags:
     - Task Management
   summary: Retrieve pending task status list
-  description: Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
+  description: |
+    This API is being deprecated. Please use the [task-status-list](https://developer.sailpoint.com/docs/api/v2025/get-task-status-list) endpoint with isnull filtering on the completionStatus field to retrieve pending tasks. Example: /v2025/task-status?filters=completionStatus isnull 
+
+    Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [task-status-list](https://developer.sailpoint.com/docs/api/v2025/get-task-status-list) for the latest API.
   operationId: getPendingTasks
   parameters:
     - $ref: '../../v3/parameters/offset.yaml'
@@ -45,7 +51,14 @@ head:
   tags:
     - Task Management
   summary: Retrieve pending task list headers
-  description: Responds with headers only for list of task statuses for pending tasks.
+  description: |
+    This API is being deprecated. Please use the [task-status-list](https://developer.sailpoint.com/docs/api/v2025/get-task-status-list) endpoint with isnull filtering on the completionStatus field and count=true. Example: /v2025/task-status?count=true&filters=completionStatus isnull
+
+    Responds with headers only for list of task statuses for pending tasks.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [task-status-list](https://developer.sailpoint.com/docs/api/v2025/get-task-status-list) for the latest API.
+
   operationId: getPendingTaskHeaders
   parameters:
     - $ref: '../../v3/parameters/offset.yaml'

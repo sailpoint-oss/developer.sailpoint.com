@@ -476,6 +476,11 @@ h1 {
   background-color: var(--openapi-code-orange);
 }
 
+.head > .menu__link::before {
+  content: 'head';
+  background-color: var(--ifm-color-secondary);
+}
+
 .event > .menu__link::before {
   content: 'event';
   background-color: #8000a8;

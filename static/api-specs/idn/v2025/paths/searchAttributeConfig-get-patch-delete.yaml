@@ -1,30 +1,31 @@
 get:
   operationId: getSingleSearchAttributeConfig
   tags:
-  - Search Attribute Configuration
+    - Search Attribute Configuration
   summary: Get extended search attribute
   security:
-    - userAuth: []
+    - userAuth:
+        - idn:account-config:read
+        - idn:account-config:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
-  description: >-
-    Get an extended attribute configuration by name.
+  description: Get an extended attribute configuration by name.
   parameters:
-  - name: name
-    in: path
-    description: Name of the extended search attribute configuration to get.
-    required: true
-    schema:
-      type: string
-      example: newMailAttribute
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - name: name
+      in: path
+      description: Name of the extended search attribute configuration to get.
+      required: true
+      schema:
+        type: string
+        example: newMailAttribute
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   responses:
     '200':
       description: Specific attribute configuration in IdentityNow.
@@ -47,30 +48,30 @@ get:
 delete:
   operationId: deleteSearchAttributeConfig
   tags:
-  - Search Attribute Configuration
+    - Search Attribute Configuration
   summary: Delete extended search attribute
   security:
-    - userAuth: []
+    - userAuth:
+        - idn:account-config:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
-  description: >-
-    Delete an extended attribute configuration by name.
+  description: Delete an extended attribute configuration by name.
   parameters:
-  - name: name
-    in: path
-    description: Name of the extended search attribute configuration to delete.
-    required: true
-    schema:
-      type: string
-      example: newMailAttribute
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - name: name
+      in: path
+      description: Name of the extended search attribute configuration to delete.
+      required: true
+      schema:
+        type: string
+        example: newMailAttribute
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   responses:
     '204':
       $ref: ../responses/204.yaml
@@ -87,36 +88,33 @@ delete:
 patch:
   operationId: patchSearchAttributeConfig
   tags:
-  - Search Attribute Configuration
+    - Search Attribute Configuration
   summary: Update extended search attribute
   security:
-    - userAuth: []
+    - userAuth:
+        - idn:account-config:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
-  description: >-
+  description: |-
     Update an existing search attribute configuration. 
-    
     You can patch these fields:
-
-    * name 
-    * displayName
-    * applicationAttributes
+    * name  * displayName * applicationAttributes
   parameters:
-  - name: name
-    in: path
-    description: Name of the search attribute configuration to patch.
-    required: true
-    schema:
-      type: string
-      example: promotedMailAttribute
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - name: name
+      in: path
+      description: Name of the search attribute configuration to patch.
+      required: true
+      schema:
+        type: string
+        example: promotedMailAttribute
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   requestBody:
     content:
       application/json-patch+json:
@@ -125,16 +123,16 @@ patch:
           items:
             $ref: ../schemas/JsonPatchOperation.yaml
         example:
-        - op: replace
-          path: /name
-          value: newAttributeName
-        - op: replace
-          path: /displayName
-          value: new attribute display name
-        - op: add
-          path: /applicationAttributes
-          value:
-            2c91808b79fd2422017a0b35d30f3968: employeeNumber
+          - op: replace
+            path: /name
+            value: newAttributeName
+          - op: replace
+            path: /displayName
+            value: new attribute display name
+          - op: add
+            path: /applicationAttributes
+            value:
+              2c91808b79fd2422017a0b35d30f3968: employeeNumber
     required: true
   responses:
     '200':

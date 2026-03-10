@@ -1,48 +1,47 @@
 post:
   security:
-  - userAuth: [ sp:approvals:write ]
+    - userAuth:
+        - idn:access-request-approvals:manage
   x-sailpoint-userLevels:
-  - APPROVAL_OWNER
+    - APPROVAL_OWNER
   operationId: updateApprovalsComments
   tags:
-  - Approvals
+    - Approvals
   summary: Post Approvals Comments
-  description: >-
+  description: |-
     Currently this endpoint only supports Entitlement Description Approvals.
-    
     Adds comments to a specified approval request.
   parameters:
-  - in: path
-    name: id
-    required: true
-    schema:
-      type: string
-    description: >-
-      Approval ID that correlates to an existing approval request that a user wants to add a comment to.
-    example: 38453251-6be2-5f8f-df93-5ce19e295837
-    x-sailpoint-resource-operation-id: updateApprovalsComments
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: Approval ID that correlates to an existing approval request that a user wants to add a comment to.
+      example: 38453251-6be2-5f8f-df93-5ce19e295837
+      x-sailpoint-resource-operation-id: updateApprovalsComments
   requestBody:
     required: true
     content:
       application/json:
         schema:
-          $ref: '../schemas/ApprovalCommentsRequest.yaml'
+          $ref: ../schemas/ApprovalCommentsRequest.yaml
   responses:
     '200':
       description: Approval object
       content:
         application/json:
           schema:
-            $ref: '../schemas/Approval.yaml'
+            $ref: ../schemas/Approval.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

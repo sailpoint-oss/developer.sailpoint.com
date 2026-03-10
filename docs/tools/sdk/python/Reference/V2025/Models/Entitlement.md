@@ -43,11 +43,11 @@ from sailpoint.v2025.models.entitlement import Entitlement
 
 entitlement = Entitlement(
 id='2c91808874ff91550175097daaec161c',
-name='LauncherTest2',
+name='PayrollControls',
 attribute='memberOf',
-value='CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local',
+value='CN=PayrollControls,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com',
 source_schema_object_type='group',
-description='CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local',
+description='Grants the ability to access and manage payroll-related controls and settings within the Corporate Active Directory system.',
 privileged=True,
 cloud_governed=True,
 requestable=True,
@@ -78,7 +78,7 @@ modified='2020-10-08T18:33:52.029Z',
 source=sailpoint.v2025.models.entitlement_source.Entitlement_source(
                     id = '2c9180827ca885d7017ca8ce28a000eb', 
                     type = 'SOURCE', 
-                    name = 'ODS-AD-Source', ),
+                    name = 'Corporate Active Directory', ),
 attributes={fieldName=fieldValue},
 segments=[f7b1b8a3-5fed-4fd4-ad29-82014e137e19, 29cb6c06-1da8-43ea-8be4-b3125f248f2a],
 direct_permissions=[

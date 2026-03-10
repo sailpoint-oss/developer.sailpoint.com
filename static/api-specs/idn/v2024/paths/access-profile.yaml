@@ -36,7 +36,6 @@ get:
       $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:access-profile:read]
-    - applicationAuth: [idn:access-profile:read]
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - ROLE_ADMIN
@@ -190,7 +189,6 @@ patch:
       $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:access-profile:manage]
-    - applicationAuth: [idn:access-profile:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -246,7 +244,6 @@ delete:
       $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:access-profile:manage]
-    - applicationAuth: [idn:access-profile:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN

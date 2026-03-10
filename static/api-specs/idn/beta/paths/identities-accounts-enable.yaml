@@ -3,16 +3,18 @@ post:
   tags:
     - Accounts
   summary: Enable idn accounts for identities
-  description: >-
-    This API submits tasks to enable IDN account for each identity provided in the request body.
+  description: This API submits tasks to enable IDN account for each identity provided in the request body.
   deprecated: true
   x-deprecated-description: |
     This API has been deprecated, please refer to [Enable IDN Accounts for Identities](https://developer.sailpoint.com/docs/api/v2025/enable-accounts-for-identities) for latest API.
   externalDocs:
-    description: 'Learn more about enabling identities here'
-    url: 'https://documentation.sailpoint.com/saas/help/accounts/identities.html?h=disabling+identities#enabling-identities'
+    description: Learn more about enabling identities here
+    url: https://documentation.sailpoint.com/saas/help/accounts/identities.html?h=disabling+identities#enabling-identities
   security:
-    - userAuth: [idn:accounts-state:manage]
+    - userAuth:
+        - idn:accounts-state:manage
+    - applicationAuth:
+        - idn:accounts-state:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -22,7 +24,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../schemas/IdentitiesAccountsBulkRequest.yaml"
+          $ref: ../schemas/IdentitiesAccountsBulkRequest.yaml
   responses:
     '207':
       description: Bulk response details.
@@ -31,21 +33,21 @@ post:
           schema:
             type: array
             items:
-              $ref: '../schemas/BulkIdentitiesAccountsResponse.yaml'
+              $ref: ../schemas/BulkIdentitiesAccountsResponse.yaml
             example:
               - id: 2c9180858082150f0180893dbaf553fe
                 statusCode: 404
                 message: Referenced identity "2c9180858082150f0180893dbaf553fe" was not found.
               - id: 2c91808384203c2d018437e631158308
                 statusCode: 202
-                message:
+                message: null
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

@@ -22,9 +22,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
       - name: Checkout custom cloudflare purge action
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6
         with:
           repository: sailpoint-oss/cloudflare-purge-action-hosts
           path: cloudflare-purge-action-hosts

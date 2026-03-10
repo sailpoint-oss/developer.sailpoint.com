@@ -1,12 +1,16 @@
 get:
   security:
-    - userAuth: [idn:sod-violation:read]
+    - userAuth:
+        - idn:sod-violation:read
+        - idn:sod-violation:manage
+    - applicationAuth:
+        - idn:sod-violation:read
+        - idn:sod-violation:manage
   operationId: getDefaultViolationReport
   tags:
     - SOD Policies
   summary: Download violation report
-  description: >-
-    This allows to download a violation report for a given report reference.
+  description: This allows to download a violation report for a given report reference.
   parameters:
     - in: path
       name: reportResultId
@@ -25,14 +29,14 @@ get:
             type: string
             format: binary
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

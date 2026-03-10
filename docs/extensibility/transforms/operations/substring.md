@@ -34,22 +34,56 @@ In addition to the standard `type` and `name` attributes, the substring transfor
 }
 ```
 
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `substring`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
 ## Attributes
 
-- **Required Attributes**
+The substring transform uses the following structure:
 
-  - **type** - This must always be set to `substring.`
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **begin** - This is the integer value for the location within the input data that contains the first character of the substring you want to return.
-    - If `begin` is set to -1, the transform begins at character 0 of the input data.
+```json
+{
+  "type": "substring",
+  "name": "Transform Name",
+  "attributes": {
+    "begin": 0,
+    "end": 5
+  }
+}
+```
 
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
-  - **beginOffset** - This integer value is the number of characters to add to the `begin` attribute when the transform returns a substring. The transform only uses this attribute if `begin` is not -1.
-  - **end** - This is the integer value for the location within the input data that no longer contains the substring you want to return.
-    - If `end` is -1 or not provided at all, the substring transform returns everything up to the end of the input string.
-  - **endOffset** - This integer value is the number of characters to add to the `end` attribute when the transform returns a substring. The transform only uses this attribute if `end` is provided and is not -1.
-  - **input** - This is an optional attribute that can explicitly define the input data passed into the transform logic. If no input is provided, the transform takes its input from the source and attribute combination configured with the UI.
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the substring configuration.
+
+#### Required
+
+- **begin** `integer` _(required)_  
+  The index location within the input data that contains the first character of the substring to return. If set to `-1`, the transform begins at character 0.
+
+#### Optional
+
+- **beginOffset** `integer` _(optional)_  
+  The number of characters to add to the `begin` attribute. Only used if `begin` is not `-1`.
+
+- **end** `integer` _(optional)_  
+  The index location within the input data where the substring ends (exclusive). If `-1` or not provided, the transform returns everything up to the end of the input string.
+
+- **endOffset** `integer` _(optional)_  
+  The number of characters to add to the `end` attribute. Only used if `end` is provided and is not `-1`.
+
+- **input** `object` _(optional)_  
+  Explicitly defines the input data passed into the transform. If not provided, the transform uses input from the source and attribute combination configured in the UI.
 
 ## Examples
 

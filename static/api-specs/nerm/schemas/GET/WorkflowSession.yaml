@@ -8,8 +8,6 @@ properties:
     example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
   uid:
     type: string
-    minLength: 32
-    maxLength: 32
     readOnly: true
     description: The objects UID.
     example: wsUid

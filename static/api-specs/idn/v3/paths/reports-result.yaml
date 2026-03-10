@@ -1,13 +1,16 @@
 get:
   tags:
     - Reports Data Extraction
-  description: >-
-    Get the report results for a report that was run or is running.
-    Returns empty report result in case there are no active task definitions with used in payload task definition name.
+  description: Get the report results for a report that was run or is running. Returns empty report result in case there are no active task definitions with used in payload task definition name.
   operationId: getReportResult
-  summary: "Get report result"
+  summary: Get report result
   security:
-    - userAuth: [sp:report-result:read]
+    - userAuth:
+        - sp:report:read
+        - sp:report:manage
+    - applicationAuth:
+        - sp:report:read
+        - sp:report:manage
   parameters:
     - in: path
       name: taskResultId
@@ -31,17 +34,17 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/reports/ReportResults.yaml'
+            $ref: ../schemas/reports/ReportResults.yaml
           examples:
             identityDetailsReport:
-              $ref: '../schemas/reports/examples/identities-details-report-results.yaml'
+              $ref: ../schemas/reports/examples/identities-details-report-results.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

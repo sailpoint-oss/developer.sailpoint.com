@@ -2,9 +2,7 @@ get:
   tags:
     - Managed Cluster Types
   summary: List managed cluster types
-  description: >-
-    Get a list of Managed Cluster Types.
-
+  description: Get a list of Managed Cluster Types.
   operationId: getManagedClusterTypes
   parameters:
     - name: type
@@ -28,40 +26,41 @@ get:
       schema:
         type: string
         example: denali-xyz
-    - $ref: '../parameters/offset.yaml'
-    - $ref: '../parameters/limit.yaml'
+    - $ref: ../parameters/offset.yaml
+    - $ref: ../parameters/limit.yaml
   responses:
-    "200":
+    '200':
       description: Responds with a list of ManagedClusterType based on the query params provided
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../schemas/ManagedClusterType.yaml'
+              $ref: ../schemas/ManagedClusterType.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [idn:managed-cluster-types:read]
+    - userAuth:
+        - idn:managed-cluster-types:read
+        - idn:managed-cluster-types:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
 post:
   tags:
     - Managed Cluster Types
   summary: Create new managed cluster type
-  description: >-
+  description: |-
     Create a new Managed Cluster Type.
-
 
     The API returns a result that includes the Managed Cluster Type ID
   operationId: createManagedClusterType
@@ -70,27 +69,28 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/ManagedClusterType.yaml'
+          $ref: ../schemas/ManagedClusterType.yaml
   responses:
-    "200":
+    '200':
       description: The created ManagedClusterType
       content:
         application/json:
           schema:
-            $ref: '../schemas/ManagedClusterType.yaml'
+            $ref: ../schemas/ManagedClusterType.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [dn:managed-cluster-types:create]
+    - userAuth:
+        - idn:managed-cluster-types:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN

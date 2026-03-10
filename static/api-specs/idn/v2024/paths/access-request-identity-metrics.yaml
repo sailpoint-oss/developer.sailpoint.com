@@ -1,50 +1,50 @@
 get:
   tags:
-  - Access Request Identity Metrics
+    - Access Request Identity Metrics
   summary: Return access request identity metrics
   description: Use this API to return information access metrics.
   operationId: getAccessRequestIdentityMetrics
   parameters:
-  - name: identityId
-    in: path
-    description: Manager's identity ID.
-    required: true
-    x-sailpoint-resource-operation-id: listIdentities
-    schema:
-      type: string
-    example: 7025c863-c270-4ba6-beea-edf3cb091573
-  - name: requestedObjectId
-    in: path
-    description: Requested access item's ID.
-    required: true
-    schema:
-      type: string
-    example: 2db501be-f0fb-4cc5-a695-334133c52891
-    x-sailpoint-resource-operation-id: 
-      - listEntitlements
-      - listRoles
-      - listAccessProfiles
-  - name: type
-    in: path
-    description: Requested access item's type.
-    required: true
-    schema:
-      type: string
-      enum:
-      - ENTITLEMENT
-      - ROLE
-      - ACCESS_PROFILE
-    example: ENTITLEMENT
+    - name: identityId
+      in: path
+      description: Manager's identity ID.
+      required: true
+      x-sailpoint-resource-operation-id: listIdentities
+      schema:
+        type: string
+      example: 7025c863-c270-4ba6-beea-edf3cb091573
+    - name: requestedObjectId
+      in: path
+      description: Requested access item's ID.
+      required: true
+      schema:
+        type: string
+      example: 2db501be-f0fb-4cc5-a695-334133c52891
+      x-sailpoint-resource-operation-id:
+        - listEntitlements
+        - listRoles
+        - listAccessProfiles
+    - name: type
+      in: path
+      description: Requested access item's type.
+      required: true
+      schema:
+        type: string
+        enum:
+          - ENTITLEMENT
+          - ROLE
+          - ACCESS_PROFILE
+      example: ENTITLEMENT
   security:
-  - userAuth:
-    - idn:access-request-approvals:read
+    - userAuth:
+        - idn:access-request-approvals:read
+        - idn:access-request-approvals:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
   responses:
     '200':
-      description: Summary of the resource access and source activity for the direct
-        reports of the provided manager.
+      description: Summary of the resource access and source activity for the direct reports of the provided manager.
       content:
         application/json:
           schema:

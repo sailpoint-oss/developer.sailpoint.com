@@ -1,0 +1,129 @@
+get:
+  tags:
+    - Machine Subtype Approval Config
+  summary: Machine Subtype Approval Config
+  description: This endpoint retrieves the approval configuration for machine account deletion at the machine subtype level. By providing a specific subtypeId in the path, clients can fetch the approval rules and settings (such as required approvers and comments policy) that govern account deletion for that particular machine subtype. The response includes a MachineAccountSubtypeConfigDto object detailing these configurations, enabling clients to understand or display the approval workflow required for deleting machine accounts of the given subtype.
+    Use this endpoint to get machine subtype level approval config for account deletion.
+  operationId: getMachineAccountDeletionSubTypeApprovalConfig
+  security:
+    - userAuth: [idn:source-subtypes:read, idn:source-subtypes:management]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - API
+  parameters:
+  - in: header
+    name: X-SailPoint-Experimental
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  - in: path
+    name: subtypeId
+    schema:
+      type: string
+    description: machine subtype id.
+    required: true
+    example: ef38f94347e94562b5bb8424a56498d8
+    x-sailpoint-resource-operation-id: listMachineAccountSubtypes
+  responses:
+    '200':
+      description: Responds with a MachineAccountSubtypeConfigDto for machine account deletion approval config by subtypeId.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/MachineAccountSubTypeConfigDto.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+patch:
+  operationId: updateMachineAccountDeletionBySubTypeApprovalConfig
+  tags:
+    - Machine Subtype Approval Config
+  summary: Machine Subtype Approval Config
+  description: Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for deleting machine accounts of a particular subtype.
+  security:
+    - userAuth: [idn:source-subtypes:delete, idn:source-subtypes:update, idn:source-subtypes:management]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - API
+  parameters:
+    - in: header
+      name: X-SailPoint-Experimental
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+    - in: path
+      name: subtypeId
+      schema:
+        type: string
+      description: machine account subtype ID.
+      required: true
+      example: 00eebcf881994e419d72e757fd30dc0e
+      x-sailpoint-resource-operation-id: listMachineAccountSubtypes
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the object.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../schemas/JsonPatchOperation.yaml
+          example:
+            - op: replace
+              path: /machineAccountDelete/approvalConfig/approvers
+              value: sourceOwner
+  responses:
+    '200':
+      description: This response indicates the PATCH operation succeeded and the
+        API returns the updated MachineAccountSubtypeConfigDto object.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/MachineAccountSubTypeConfigDto.yaml
+          example:
+            subtypeId: 1419fc28-a8ed-4a07-9f5c-0cb5dfad6311
+            machineAccountCreate:
+               accountCreateEnabled: true
+               approvalRequired: true
+               formId: 4f1bb61b-a0ab-4c0a-b9fb-20f44407b75a
+               entitlementId: 858d2151-ff19-464b-ae0d-6938b3af2baf
+               approvalConfig:
+                 approvers: sourceOwner, manager, workgroup:f76ff96a-0815-402a-be1a-18cdc693b79f
+                 comments: ALL
+            machineAccountDelete:
+               approvalRequired: false
+               approvalConfig:
+                 approvers: sourceOwner
+                 comments: REJECTION
+    '400':
+      $ref: ../responses/400.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+

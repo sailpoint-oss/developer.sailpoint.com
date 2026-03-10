@@ -83,8 +83,8 @@ const pluginConfig = [
       docsPluginId: 'isc',
       config: {
         isc_versioned: {
-          specPath: 'static/code-examples/v2025/v2025.yaml',
-          outputDir: 'docs/api/v2025',
+          specPath: 'static/code-examples/v2026/v2026.yaml',
+          outputDir: 'docs/api/v2026',
           sidebarOptions: {
             groupPathsBy: 'tag',
             categoryLinkSource: 'tag',
@@ -121,22 +121,31 @@ const pluginConfig = [
                       ? `${id}`
                       : `${basePath}/${id}`,
                   label: (sidebar_label as string) ?? title ?? id,
+                  key: id + '-' + title.toLowerCase().replace(/ /g, '-'),
                   customProps: customProps,
                   className: className ? className : undefined,
                 };
               },
             },
           },
-          version: 'v2025',
-          label: 'v2025',
+          version: 'v2026',
+          label: 'v2026',
           downloadUrl:
-            'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.v2025.yaml',
-          baseUrl: '/docs/api/v2025',
+            'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.v2026.yaml',
+          baseUrl: '/docs/api/v2026',
           template: 'api.mustache',
           markdownGenerators: {
             createApiPageMD,
           },
           versions: {
+            v2025: {
+              specPath: 'static/code-examples/v2025/v2025.yaml',
+              outputDir: 'docs/api/v2025',
+              downloadUrl:
+                'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.v2025.yaml',
+              label: 'v2025',
+              baseUrl: '/docs/api/v2025',
+            },
             v2024: {
               specPath: 'static/code-examples/v2024/v2024.yaml',
               outputDir: 'docs/api/v2024',
@@ -203,6 +212,45 @@ const pluginConfig = [
           sidebarOptions: {
             groupPathsBy: 'tag',
             categoryLinkSource: 'tag',
+            sidebarGenerators: {
+              createDocItem(item, {sidebarOptions: {customProps}, basePath}) {
+                const sidebar_label = item.frontMatter.sidebar_label;
+                const title = item.title;
+                const id =
+                  item.type === 'schema' ? `schemas/${item.id}` : item.id;
+                const className =
+                  item.type === 'api'
+                    ? clsx(
+                        {
+                          'menu__list-item--deprecated': item.api.deprecated,
+                          'menu__list-item--experimental':
+                            !!item.api.parameters?.find(
+                              (header) =>
+                                header.name === 'X-SailPoint-Experimental',
+                            ), // checks for existence of extension and adds "experimental" class
+                          'api-method': !!item.api.method,
+                        },
+                        item.api.method,
+                      )
+                    : clsx(
+                        {
+                          'menu__list-item--deprecated': item.schema.deprecated,
+                        },
+                        'schema',
+                      );
+                return {
+                  type: 'doc' as const,
+                  id:
+                    basePath === '' || undefined
+                      ? `${id}`
+                      : `${basePath}/${id}`,
+                  label: (sidebar_label as string) ?? title ?? id,
+                  key: id + '-' + title.toLowerCase().replace(/ /g, '-'),
+                  customProps: customProps,
+                  className: className ? className : undefined,
+                };
+              },
+            },
           },
           template: 'api.mustache',
           versions: {

@@ -5,7 +5,9 @@ get:
   tags:
     - users
   parameters:
-    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/limit.yaml"
+    - $ref: "../parameters/query/offset.yaml"
+    - $ref: "../parameters/query/order.yaml"
     - $ref: "../parameters/query/name.yaml"
     - $ref: "../parameters/query/login.yaml"
     - $ref: "../parameters/query/title.yaml"

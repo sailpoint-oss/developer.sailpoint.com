@@ -45,22 +45,61 @@ The date compare transform takes as an input the two dates to compare, denoted a
 }
 ```
 
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `dateCompare`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
 ## Attributes
 
-- **Required Attributes**
-  - **type** - This must always be set to `dateCompare`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **firstDate** - This is the first date to consider (i.e., the date that would be on the left hand side of the comparison operation).
-  - **secondDate** - This is the second date to consider (i.e., the date that would be on the right hand side of the comparison operation).
-  - **operator** - This is the comparison to perform. The following values are valid:
-    - **LT**: Strictly less than: firstDate < secondDate
-    - **LTE**: Less than or equal to: firstDate \<= secondDate
-    - **GT**: Strictly greater than: firstDate > secondDate
-    - **GTE**: Greater than or equal to: firstDate >= secondDate
-  - **positiveCondition** - This is the value to return if the comparison is true.
-  - **negativeCondition** - This is the value to return if the comparison is false.
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process. The default value is `false`.
+The date compare transform uses the following structure:
+
+```json
+{
+  "type": "dateCompare",
+  "name": "Transform Name",
+  "attributes": {
+    "firstDate": "2024-01-01T00:00:00Z",
+    "secondDate": "now",
+    "operator": "gt",
+    "positiveCondition": "true",
+    "negativeCondition": "false"
+  }
+}
+```
+
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the date comparison configuration.
+
+#### Required
+
+- **firstDate** `string` | `object` _(required)_  
+  The first date to compare (left-hand side of the comparison). Must be in ISO8601 format or the keyword `"now"`.
+
+- **secondDate** `string` | `object` _(required)_  
+  The second date to compare (right-hand side of the comparison). Must be in ISO8601 format or the keyword `"now"`.
+
+- **operator** `string` _(required)_  
+  The comparison operator to perform:
+  - `LT` - Strictly less than: firstDate `<` secondDate
+  - `LTE` - Less than or equal to: firstDate `<=` secondDate
+  - `GT` - Strictly greater than: firstDate `>` secondDate
+  - `GTE` - Greater than or equal to: firstDate `>=` secondDate
+
+- **positiveCondition** `string` _(required)_  
+  The value to return if the comparison evaluates to true.
+
+- **negativeCondition** `string` _(required)_  
+  The value to return if the comparison evaluates to false.
 
 ## Examples
 

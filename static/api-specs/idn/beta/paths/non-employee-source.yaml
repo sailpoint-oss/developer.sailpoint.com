@@ -1,7 +1,10 @@
 get:
   operationId: getNonEmployeeSource
   security:
-    - userAuth: [idn:nelm:read]
+    - userAuth:
+        - idn:nelm:read
+    - applicationAuth:
+        - idn:nelm:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -9,40 +12,41 @@ get:
   tags:
     - Non-Employee Lifecycle Management
   summary: Get a non-employee source
-  description: >-
-    This gets a non-employee source.
+  description: This gets a non-employee source.
   deprecated: true
   parameters:
     - in: path
       example: 2c91808b7c28b350017c2a2ec5790aa1
       name: sourceId
-      description: >-
-        Source Id
+      description: Source Id
       required: true
       x-sailpoint-resource-operation-id: listNonEmployeeSources
       schema:
         type: string
   responses:
-    "200":
+    '200':
       description: Non-Employee source object.
       content:
         application/json:
           schema:
-            $ref: "../schemas/NonEmployeeSource.yaml"
-    "400":
-      $ref: "../../v3/responses/400.yaml"
-    "401":
-      $ref: "../../v3/responses/401.yaml"
-    "403":
-      $ref: "../../v3/responses/403.yaml"
-    "429":
-      $ref: "../../v3/responses/429.yaml"
-    "500":
-      $ref: "../../v3/responses/500.yaml"
+            $ref: ../schemas/NonEmployeeSource.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
 patch:
   operationId: patchNonEmployeeSource
   security:
-    - userAuth: [idn:nelm:manage]
+    - userAuth:
+        - idn:nelm:manage
+    - applicationAuth:
+        - idn:nelm:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -50,64 +54,60 @@ patch:
   tags:
     - Non-Employee Lifecycle Management
   summary: Patch a non-employee source
-  description: >-
-    patch a non-employee source. (Partial Update)  Patchable field: **name,
-    description, approvers, accountManagers**
+  description: 'patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers**'
   deprecated: true
-
   parameters:
     - in: path
       name: sourceId
-      description: >-
-        Source Id
+      description: Source Id
       required: true
       x-sailpoint-resource-operation-id: listNonEmployeeSources
       example: 2c91808b6ef1d43e016efba0ce470904
       schema:
         type: string
   requestBody:
-    description:
-      A list of non-employee source update operations according to the [JSON
-      Patch](https://tools.ietf.org/html/rfc6902) standard.
+    description: A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
     required: true
     content:
       application/json-patch+json:
         schema:
           type: array
           items:
-            $ref: "../schemas/JsonPatchOperation.yaml"
+            $ref: ../schemas/JsonPatchOperation.yaml
         example:
-          - op: "replace"
-            path: "/name"
-            value: { "new name" }
-          - op: "replace"
-            path: "/approvers"
+          - op: replace
+            path: /name
             value:
-              [
-                "2c91809f703bb37a017040a2fe8748c7",
-                "48b1f463c9e8427db5a5071bd81914b8",
-              ]
+              new name: null
+          - op: replace
+            path: /approvers
+            value:
+              - 2c91809f703bb37a017040a2fe8748c7
+              - 48b1f463c9e8427db5a5071bd81914b8
   responses:
-    "200":
+    '200':
       description: A patched non-employee source object.
       content:
         application/json:
           schema:
-            $ref: "../schemas/NonEmployeeSource.yaml"
-    "400":
-      $ref: "../../v3/responses/400.yaml"
-    "401":
-      $ref: "../../v3/responses/401.yaml"
-    "403":
-      $ref: "../../v3/responses/403.yaml"
-    "429":
-      $ref: "../../v3/responses/429.yaml"
-    "500":
-      $ref: "../../v3/responses/500.yaml"
+            $ref: ../schemas/NonEmployeeSource.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
 delete:
   operationId: deleteNonEmployeeSource
   security:
-    - userAuth: [idn:nelm:manage]
+    - userAuth:
+        - idn:nelm:manage
+    - applicationAuth:
+        - idn:nelm:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -115,30 +115,27 @@ delete:
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete non-employee source
-  description: >-
-    This request will delete a non-employee source.
+  description: This request will delete a non-employee source.
   deprecated: true
-
   parameters:
     - in: path
       name: sourceId
-      description: >-
-        Source Id
+      description: Source Id
       required: true
       x-sailpoint-resource-operation-id: listNonEmployeeSources
       example: 2c91808b6ef1d43e016efba0ce470904
       schema:
         type: string
   responses:
-    "204":
-      $ref: "../../v3/responses/204.yaml"
-    "400":
-      $ref: "../../v3/responses/400.yaml"
-    "401":
-      $ref: "../../v3/responses/401.yaml"
-    "403":
-      $ref: "../../v3/responses/403.yaml"
-    "429":
-      $ref: "../../v3/responses/429.yaml"
-    "500":
-      $ref: "../../v3/responses/500.yaml"
+    '204':
+      $ref: ../../v3/responses/204.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

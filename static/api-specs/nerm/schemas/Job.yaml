@@ -13,5 +13,5 @@ properties:
         type: string
         example: "queued"
   status:
-    type: int
+    type: integer
     example: 200

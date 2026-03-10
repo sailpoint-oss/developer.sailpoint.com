@@ -6,4 +6,4 @@ content:
       properties:
         info:
           type: string
-          default: "The option '{Option Value}' has been deleted"
+          default: "The option {Option Value} has been deleted"

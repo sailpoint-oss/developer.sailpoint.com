@@ -5,8 +5,21 @@ get:
   tags:
     - roles
   parameters:
-    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/limit.yaml"
+    - $ref: "../parameters/query/offset.yaml"
+    - $ref: "../parameters/query/order.yaml"
     - $ref: "../parameters/query/metadata.yaml"
+    - name: type
+      in: query
+      description: Filter roles by type.
+      required: false
+      schema:
+        type: string
+        enum:
+          - NeprofileRole
+          - NeaccessRole
+          - IdproxyRole
+        example: NeprofileRole
   responses:
     '200':
       $ref: "../responses/Roles_Meta.yaml"

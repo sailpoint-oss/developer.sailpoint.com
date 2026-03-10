@@ -3,11 +3,10 @@ post:
   tags:
     - Certification Campaign Filters
   summary: Deletes campaign filters
-  description: >-
-    Deletes campaign filters whose Ids are specified in the provided list of campaign filter Ids.
-    Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
+  description: Deletes campaign filters whose Ids are specified in the provided list of campaign filter Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
   security:
-    - userAuth: [idn:campaign-filter:delete]
+    - userAuth:
+        - idn:campaign-filter:manage
   requestBody:
     description: A json list of IDs of campaign filters to delete.
     required: true
@@ -17,19 +16,21 @@ post:
           type: array
           items:
             type: string
-          example: [ 0fbe863c063c4c88a35fd7f17e8a3df5, 2efb374d392c4d88a34sv7b11e8a4eq6 ]
+          example:
+            - 0fbe863c063c4c88a35fd7f17e8a3df5
+            - 2efb374d392c4d88a34sv7b11e8a4eq6
   responses:
     '204':
-      $ref: '../responses/204.yaml'
+      $ref: ../responses/204.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

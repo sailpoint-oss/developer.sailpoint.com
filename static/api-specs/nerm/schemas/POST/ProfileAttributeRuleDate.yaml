@@ -1,12 +1,14 @@
 type: object
+required:
+  - type
+  - condition_object_type
+  - value
 properties:
   type:
     type: string
-    required: true
     enum: [ProfileAttributeRule]
   condition_object_type:
     type: string
-    required: true
     enum: [DateAttribute]
   condition_object_id:
     type: string
@@ -22,7 +24,6 @@ properties:
     enum: ['>', '<', 'after', 'before']
   value:
     type: string
-    required: true
     enum: ['Today', '<uid>']
   secondary_value:
     type: string

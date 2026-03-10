@@ -164,6 +164,8 @@ tags:
       In Account Aggregation, administrators can view the account aggregations' statuses and details in the Account Activity Log.
 
       Refer to [Loading Account Data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html) for more information about account aggregations.
+      
+      If you are looking for the endpoint for account aggregations in a source, [click here](https://developer.sailpoint.com/docs/api/v2025/import-accounts)
   - name: Account Usages
     description: |
       Use this API to implement account usage insight functionality.
@@ -198,6 +200,10 @@ tags:
       Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
 
       Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/accounts/identities.html?h=disabling+identities#managing-access) for more information about accounts.
+  - name: Api Usage
+    description: |
+      Use this API to retrieve metrics about an org's API usage.
+      With this functionality in place, administrators can monitor the usage of APIs within a specified timespan, as well as a breakdown of commonly-used APIs sorted by number of requests.
   - name: Application Discovery
     description: |
       Use this API to implement application discovery functionality. 
@@ -226,9 +232,6 @@ tags:
       The user's capabilities refer to their access to different systems, or authorization, within the tenant, like access to certifications (CERT_ADMIN) or reports (REPORT_ADMIN). 
       These capabilities also determine a user's access to the different APIs. 
       This API provides users with a way to determine a user's access and make quick and easy changes to that access. 
-  - name: Authorization
-    description: |
-      Use this API to gather information related to the identities associated with a user level.
   - name: Branding
     description: |
       Use this API to implement and customize branding functionality. 
@@ -448,10 +451,15 @@ tags:
       Custom user levels allow administrators to create custom user levels that can be used to control access to Identity Security Cloud features and APIs.
       
       Refer to [User Levels](https://documentation.sailpoint.com/saas/help/common/users/index.html) for more information about User Levels.
+  - name: Data Access Security
+    description: |
+      Use this API to enable data ownership election campaigns, assign resource owners, and respond to identity lifecycle events to maintain continuous accountability.
+      This API can also trigger and manage DAS tasks such as scans-starting them on demand, updating configurations or schedules, and retrieving statuses. Additionally, you can onboard and manage applications at scale by creating and configuring them, setting scanning schedules, retrieving metadata, and associating them with Virtual Appliances and Identity Collectors.
   - name: Data Segmentation
     description: |
       This service is responsible for creating segments that will determine how access is delegated to identities
       withing the organization.
+  - name: Declassify Source
   - name: Dimensions
     description:
       Use this API to implement and customize dynamic role functionality.
@@ -845,6 +853,38 @@ tags:
       They can then select 'Create Token' at the bottom of the page to generate and view the Secret and Client ID. 
 
       Refer to [Managing Personal Access Tokens](https://documentation.sailpoint.com/saas/help/common/api_keys.html?h=token#generating-a-personal-access-token) for more information about PATs.
+  - name: Privilege Criteria
+    description: |
+      Use this API to create, retrieve, update, and delete privilege criteria.
+  - name: Privilege Criteria Configuration
+    description: |
+      Use this API to manage the configuration of privilege criteria.
+
+      **globalPrivilegeLevelEnabled**: Boolean flag indicating whether privilege classification is enabled.
+
+      
+      **privilegeClassificationMode**: Enum specifying the mode (CRITERIA_PRIVILEGE_LEVEL, SINGLE_PRIVILEGE_LEVEL) to use for privilege classification. CRITERIA_PRIVILEGE_LEVEL mode uses criteria to determine privilege levels, while SINGLE_PRIVILEGE_LEVEL assigns the same privilege level to all enititlements based on the value of singlePrivilegeLevel.privilegeLevel.
+
+
+      **singlePrivilegeLevel.privilegeLevel**: Enum specifying the privilege level (HIGH, MEDIUM, LOW) to assign to all privileges when the privilege classification mode is SINGLE_PRIVILEGE_LEVEL.
+
+
+      **criteriaPrivilegeLevel.connectorHighEnabled**: Boolean flag indicating whether HIGH level connector criteria is used for privilege classification.
+
+
+      **criteriaPrivilegeLevel.connectorMediumEnabled**: Boolean flag indicating whether MEDIUM level connector criteria is used for privilege classification.
+
+
+      **criteriaPrivilegeLevel.connectorLowEnabled**: Boolean flag indicating whether LOW level connector criteria is used for privilege classification.
+
+
+      **criteriaPrivilegeLevel.customHighEnabled**: Boolean flag indicating whether HIGH level custom criteria is used for privilege classification.
+
+
+      **criteriaPrivilegeLevel.customMediumEnabled**: Boolean flag indicating whether MEDIUM level custom criteria is used for privilege classification.
+
+      
+      **criteriaPrivilegeLevel.customLowEnabled**: Boolean flag indicating whether LOW level custom criteria is used for privilege classification.
   - name: Public Identities
     description: |
       Use this API in conjunction with [Public Identites Config](https://developer.sailpoint.com/docs/api/v2025/public-identities-config/) to enable non-administrators to view identities' publicly visible attributes. 
@@ -873,6 +913,12 @@ tags:
       With this functionality in place, administrators can determine which access items can be requested with the [Access Request APIs](https://developer.sailpoint.com/docs/api/v2025/access-requests/), along with their statuses. 
       This can be helpful for administrators who are implementing and customizing access request functionality as a way of checking which items are requestable as they are created, assigned, and made available.
   - name: Role Insights
+  - name: Role Propagation
+    description: |
+      Role Change Propagation ensures that any changes to the composition of a role’s access objects 
+      (entitlements, access profiles, or dimensions) are applied to all member identities. 
+      For example: If an entitlement is removed from a role, all identities assigned to that role 
+      should lose access to that entitlement as part of this process.
   - name: Roles
     description: |
       Use this API to implement and customize role functionality.
@@ -1042,6 +1088,15 @@ tags:
       - [ServiceNow Service Desk](https://documentation.sailpoint.com/connectors/servicenow/sdim/help/integrating_servicenow_sdim/intro.html)
 
       - [Zendesk Service Desk](https://documentation.sailpoint.com/connectors/zendesk/help/integrating_zendesk_sd/introduction.html)
+  - name: Shared Signals Framework (SSF)
+    description: |
+      The SSF Transmitter Service is a security event notification system that monitors identity attribute changes
+      and automatically triggers session revocation events when specific lifecycle conditions are met.
+
+      Use this API to implement transmitter functionality so administrators can discover the transmitter and manage streams.
+      Transmitters send identity data and events from Identity Security Cloud to external receivers over the Secure Sync Framework (SSF).
+      The SSF configuration and JWKS endpoints support discovery and verification; the stream management endpoints support creating, updating, and managing streams and verifying receivers.
+      In Identity Security Cloud, administrators can use the "Connections" > "Shared Signals" area to view and manage transmitters and their streams.
   - name: SIM Integrations
     description: |
       Use this API to administer IdentityNow's Service Integration Module, or SIM integration with ServiceNow, so that it converts IdentityNow provisioning actions into tickets in ServiceNow.
@@ -1050,7 +1105,7 @@ tags:
       
       You must have an IdentityNow ServiceNow ServiceDesk license to use this integration. Contact your Customer Success Manager for more information.
       
-      Service Desk integration for IdentityNow and in deprecation - not available for new implementation, as of July 21st, 2021. As per SailPoint’s [support policy](https://community.sailpoint.com/t5/Connector-Directory/SailPoint-Support-Policy-for-Connectivity/ta-p/79422), all existing SailPoint IdentityNow customers using this legacy integration will be supported until July 2022.
+      Service Desk integration for IdentityNow and in deprecation - not available for new implementation, as of July 21st, 2021. As per SailPoint's [support policy](https://community.sailpoint.com/t5/Connector-Directory/SailPoint-Support-Policy-for-Connectivity/ta-p/79422), all existing SailPoint IdentityNow customers using this legacy integration will be supported until July 2022.
   - name: SOD Policies
     description: |
       Use this API to implement and manage "separation of duties" (SOD) policies. 
@@ -1259,7 +1314,6 @@ tags:
       | Account Attributes Changed | idn:account-attributes-changed | FIRE_AND_FORGET | After an account aggregation, and one or more account attributes have changed. |
       | Account Correlated | idn:account-correlated | FIRE_AND_FORGET | After an account is added to an identity. |
       | Accounts Collected for Aggregation |  idn:aggregation-accounts-collected | FIRE_AND_FORGET | New, changed, and deleted accounts have been gathered during an aggregation and are being processed. |
-      | Account Uncorrelated | idn:account-uncorrelated | FIRE_AND_FORGET | After an account is removed from an identity. |
       | Campaign Activated | idn:campaign-activated | FIRE_AND_FORGET | After a campaign is activated. |
       | Campaign Ended | idn:campaign-ended | FIRE_AND_FORGET | After a campaign ends. |
       | Campaign Generated | idn:campaign-generated | FIRE_AND_FORGET | After a campaign finishes generating. |
@@ -1303,7 +1357,7 @@ tags:
       - Temporarily redirecting work for users who are out of office, such as on vacation or sick leave
       - Permanently redirecting work for users who should not be assigned these tasks at all, such as senior executives or service identities
       
-      Users can define reassignments for themselves, managers can add them for their team members, and administrators can configure them on any user’s behalf. Work assigned during the specified reassignment timeframes will be automatically reassigned to the designated user as it is created.
+      Users can define reassignments for themselves, managers can add them for their team members, and administrators can configure them on any user's behalf. Work assigned during the specified reassignment timeframes will be automatically reassigned to the designated user as it is created.
       
       Refer to [Work Reassignment](https://documentation.sailpoint.com/saas/help/users/work_reassignment.html) for more information about this topic.
   - name: Workflows
@@ -1318,6 +1372,14 @@ x-webhooks:
     $ref: './v2025/webhooks/access-request-submitted.yaml'
   AccountAggregationCompleted:
     $ref: './v2025/webhooks/account-aggregation-completed.yaml'
+  AccountsCollectedForAggregation:
+    $ref: './v2025/webhooks/accounts-collected-for-aggregation.yaml'
+  AccountCreated:
+    $ref: './v2025/webhooks/account-created.yaml'
+  AccountDeleted:
+    $ref: './v2025/webhooks/account-deleted.yaml'
+  AccountUpdated:
+    $ref: './v2025/webhooks/account-updated.yaml'
   CampaignActivated:
     $ref: './v2025/webhooks/campaign-activated.yaml'
   CampaignEnded:
@@ -1332,6 +1394,12 @@ x-webhooks:
     $ref: './v2025/webhooks/identity-attributes-changed.yaml'
   IdentityCreated:
     $ref: './v2025/webhooks/identity-created.yaml'
+  MachineIdentityCreated:
+    $ref: './v2025/webhooks/machine-identity-created.yaml'
+  MachineIdentityUpdated:
+    $ref: './v2025/webhooks/machine-identity-updated.yaml'
+  MachineIdentityDeleted:
+    $ref: './v2025/webhooks/machine-identity-deleted.yaml'
   NativeChangeAccountCreated:
     $ref: './v2025/webhooks/native-change-account-created.yaml'
   NativeChangeAccountDeleted:
@@ -1417,6 +1485,10 @@ paths:
     $ref: ./v2025/paths/account-activity-get-one.yaml
   /account-aggregations/{id}/status:
     $ref: ./v2025/paths/account-aggregation-status.yaml
+  /api-usage/count:
+    $ref: ./v2025/paths/api-usage/get-total-count.yaml
+  /api-usage/summary:
+    $ref: ./v2025/paths/api-usage/get-summary.yaml
   /auth-org/network-config:
     $ref: ./v2025/paths/auth-org-network-config.yaml
   /auth-org/lockout-config:
@@ -1547,6 +1619,34 @@ paths:
     $ref: ./v2025/paths/connector-rule.yaml
   /connector-rules/validate:
     $ref: ./v2025/paths/connector-rule-validate.yaml
+  /das/tasks:
+    $ref: ./v2025/paths/data-access-security/tasks.yaml
+  /das/tasks/{id}:
+    $ref: ./v2025/paths/data-access-security/tasks-id.yaml
+  /das/tasks/cancel/{id}:
+    $ref: ./v2025/paths/data-access-security/tasks-cancel-id.yaml
+  /das/tasks/rerun/{id}:
+    $ref: ./v2025/paths/data-access-security/tasks-rerun-id.yaml
+  /das/tasks/schedules:
+    $ref: ./v2025/paths/data-access-security/tasks-schedules.yaml
+  /das/tasks/schedules/{id}:
+    $ref: ./v2025/paths/data-access-security/tasks-schedules-id.yaml
+  /das/applications:
+    $ref: ./v2025/paths/data-access-security/applications.yaml
+  /das/applications/{id}:
+    $ref: ./v2025/paths/data-access-security/applications-id.yaml
+  /das/owners/applications/{appId}:
+    $ref: ./v2025/paths/data-access-security/owners-applications-appId.yaml
+  /das/owners/resources/{resourceId}:
+    $ref: ./v2025/paths/data-access-security/owners-resources-resourceId.yaml
+  /das/owners/{ownerIdentityId}/resources:
+    $ref: ./v2025/paths/data-access-security/owners-ownerIdentityId-resources.yaml
+  /das/owners/assign:
+    $ref: ./v2025/paths/data-access-security/owners-assign.yaml
+  /das/owners/{sourceIdentityId}/reassign/{destinationIdentityId}:
+    $ref: ./v2025/paths/data-access-security/owners-sourceIdentityId-reassign-destinationIdentityId.yaml
+  /das/owners/reelect:
+    $ref: ./v2025/paths/data-access-security/owners-reelect.yaml
   /data-segments/membership/{identityId}:
     $ref: "./v2025/paths/data-segment-membership.yaml"
   /data-segments/user-enabled/{identityId}:
@@ -1809,6 +1909,16 @@ paths:
     $ref: ./v2025/paths/sod-download-default-report.yaml
   /sod-violation-report/{reportResultId}/download/{fileName}:
     $ref: ./v2025/paths/sod-download-custom-report.yaml
+  /.well-known/ssf-configuration:
+    $ref: ./v2025/paths/ssf-well-known-configuration.yaml
+  /ssf/jwks:
+    $ref: ./v2025/paths/ssf-jwks.yaml
+  /ssf/streams:
+    $ref: ./v2025/paths/ssf-streams.yaml
+  /ssf/streams/status:
+    $ref: ./v2025/paths/ssf-streams-status.yaml
+  /ssf/streams/verify:
+    $ref: ./v2025/paths/ssf-streams-verify.yaml
   /sources:
     $ref: ./v2025/paths/sources.yaml
   /sources/{id}:
@@ -2073,8 +2183,10 @@ paths:
     $ref: ./v2025/paths/approvals-id-reassign.yaml
   /generic-approvals/{id}/reject:
     $ref: ./v2025/paths/approvals-id-reject.yaml
-  /generic-approvals/config:
-    $ref: ./v2025/paths/approvals-config-id-type.yaml
+  /generic-approvals/config/{id}:
+    $ref: ./v2025/paths/approvals-config-id.yaml
+  /generic-approvals/config/{id}/{scope}:
+    $ref: ./v2025/paths/approvals-config.yaml
   /generic-approvals/bulk-approve:
     $ref: ./v2025/paths/approvals-bulk-approve.yaml
   /generic-approvals/bulk-reject:
@@ -2095,13 +2207,15 @@ paths:
     $ref: "./v2025/paths/machine-mappings.yaml"
   /sources/{sourceId}/classify:
     $ref: "./v2025/paths/source-machine-account-classify.yaml"
+  /sources/{sourceId}/declassify:
+    $ref: "./v2025/paths/source-machine-account-declassify.yaml"
   /sources/{sourceId}/aggregate-agents:
     $ref: "./v2025/paths/aggregate-agents.yaml"
   /sources/{sourceId}/subtypes:
     $ref: "./v2025/paths/source-machine-account-subtypes.yaml"
   /sources/{sourceId}/subtypes/{technicalName}:
     $ref: "./v2025/paths/source-machine-account-subtype.yaml"
-  /sources/subtype/{subtypeId}:
+  /sources/subtypes/{subtypeId}:
     $ref: "./v2025/paths/source-machine-account-subtype-id.yaml"
   /accounts/{id}/classify:
     $ref: "./v2025/paths/machine-account-classify.yaml"
@@ -2233,6 +2347,14 @@ paths:
     $ref: ./v2025/paths/role-mining-potential-roles-draft.yaml
   /role-mining-potential-roles/{potentialRoleId}/sources/{sourceId}/identityUsage:
     $ref: ./v2025/paths/role-mining-potential-role-source-identity-usage.yaml
+  /role-propagation:
+    $ref: ./v2025/paths/role-change-propagation/role-propagation.yaml
+  /role-propagation/{rolePropagationId}/status:
+    $ref: ./v2025/paths/role-change-propagation/role-propagation-status.yaml
+  /role-propagation/is-running:
+    $ref: ./v2025/paths/role-change-propagation/role-propagation-ongoing.yaml
+  /role-propagation/terminate:
+    $ref: ./v2025/paths/role-change-propagation/role-propagation-terminate.yaml
   /roles/{id}/entitlements:
     $ref: ./v2025/paths/role-entitlements.yaml
   /send-test-notification:
@@ -2351,6 +2473,8 @@ paths:
     $ref: ./v2025/paths/suggested-entitlement-description-assignments.yaml
   /suggested-entitlement-descriptions:
     $ref: ./v2025/paths/suggested-entitlement-descriptions.yaml
+  /sources/{sourceId}/discover-applications:
+    $ref: "./v2025/paths/discover-applications.yaml"
   /discovered-applications:
     $ref: "./v2025/paths/discovered-applications.yaml"
   /manual-discover-applications-template:
@@ -2393,6 +2517,14 @@ paths:
     $ref: './v2025/paths/role-access-model-metadata/role-bulk-update-status.yaml'
   /roles/filter:
     $ref: './v2025/paths/role-access-model-metadata/role-filter.yaml'
+  /criteria/privilege:
+    $ref: './v2025/paths/gov-criteria-privilege-criteria-no-id.yaml'
+  /criteria/privilege/{criteriaId}:
+    $ref: './v2025/paths/gov-criteria-privilege-criteria-id.yaml'
+  /criteria-config/privilege/{criteriaConfigId}:
+    $ref: './v2025/paths/gov-criteria-privilege-criteria-config-id.yaml'
+  /criteria-config/privilege:
+    $ref: './v2025/paths/gov-criteria-privilege-criteria-config-no-id.yaml'
 security:
 - userAuth:
   - "sp:scopes:all"

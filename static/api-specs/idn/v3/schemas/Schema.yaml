@@ -28,6 +28,7 @@ properties:
   includePermissions:
     type: boolean
     description: Flag indicating whether or not the include permissions with the object data when aggregating the schema.
+    default: false
     example: false
   features:
     $ref: '../../v3/schemas/SourceFeature.yaml'

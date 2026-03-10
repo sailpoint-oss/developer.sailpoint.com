@@ -3,13 +3,10 @@ post:
     - Sources
   summary: Entitlement aggregation
   operationId: importEntitlements
-  description: >-
+  description: |-
     Starts an entitlement aggregation on the specified source. 
-    
     If the target source is a delimited file source, then the CSV file needs to be included in the request body. 
-    
     You will also need to set the Content-Type header to `multipart/form-data`.
-    
     A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
   parameters:
     - in: path
@@ -31,23 +28,24 @@ post:
               format: binary
               description: The CSV file containing the source entitlements to aggregate.
   responses:
-    "202":
+    '202':
       description: Aggregate Entitlements Task
       content:
         application/json:
           schema:
-            $ref: "../schemas/LoadEntitlementTask.yaml"
-    "400":
-      $ref: "../../v3/responses/400.yaml"
-    "401":
-      $ref: "../../v3/responses/401.yaml"
+            $ref: ../schemas/LoadEntitlementTask.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
-    "500":
-      $ref: "../../v3/responses/500.yaml"
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [ idn:entitlements:manage ]
+    - userAuth:
+        - idn:entitlement:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN

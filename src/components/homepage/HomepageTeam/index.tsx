@@ -12,11 +12,11 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
-    link: 'https://developer.sailpoint.com/discuss/u/taylor_wingfield/summary',
-    name: 'Taylor Wingfield',
-    title: ['Interim Manager', 'Developer Relations'],
-    expertise: 'Identity Security Cloud'.toUpperCase(),
-    image: '/homepage/taylor-wingfield.jpeg',
+    link: 'https://developer.sailpoint.com/discuss/u/heatherstorm/summary',
+    name: 'Heather Storm',
+    title: ['Senior Manager', 'Developer Relations'],
+    expertise: 'DEVELOPER TOOLS',
+    image: '/homepage/heather-storm.jpg',
   },
   {
     link: 'https://developer.sailpoint.com/discuss/u/tyler_mairose/summary',
@@ -41,17 +41,17 @@ const teamMembers: TeamMember[] = [
   },
   {
     link: 'https://developer.sailpoint.com/discuss/u/lukehagar/summary',
-    name: 'Luke Hagar',
+    name: 'Luke Parke',
     title: ['Software Engineer'],
     expertise: 'DEVELOPER TOOLS',
-    image: '/homepage/lukehagar.png',
+    image: '/homepage/lukeparke.png',
   },
-    {
-    link: 'https://developer.sailpoint.com/discuss/u/austin_grimes/summary',
-    name: 'Austin Grimes',
-    title: ['Community Evangelist'],
-    expertise: 'COMMUNITY',
-    image: '/homepage/austin-grimes.png',
+  {
+    link: 'https://developer.sailpoint.com/discuss/u/samantha_holstine/summary',
+    name: 'Samantha Holstine',
+    title: ['Software Engineer'],
+    expertise: 'DEVELOPER TOOLS',
+    image: '/homepage/samantha-holstine.png',
   },
 ];
 

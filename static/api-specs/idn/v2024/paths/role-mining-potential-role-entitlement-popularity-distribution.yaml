@@ -1,49 +1,45 @@
 get:
   operationId: getEntitlementDistributionPotentialRole
-  summary: Retrieves entitlement popularity distribution for a potential role in a
-    role mining session
+  summary: Retrieves entitlement popularity distribution for a potential role in a role mining session
   tags:
-  - IAI Role Mining
-  description: This method returns entitlement popularity distribution for a potential
-    role in a role mining session.
+    - IAI Role Mining
+  description: This method returns entitlement popularity distribution for a potential role in a role mining session.
   parameters:
-  - in: path
-    name: sessionId
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: getRoleMiningSessions
-    description: The role mining session id
-    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
-  - in: path
-    name: potentialRoleId
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: getPotentialRoleSummaries
-    description: A potential role id in a role mining session
-    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
-  - in: query
-    name: includeCommonAccess
-    description: Boolean determining whether common access entitlements will be included
-      or not
-    required: false
-    style: form
-    explode: true
-    schema:
-      type: boolean
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - in: path
+      name: sessionId
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: getRoleMiningSessions
+      description: The role mining session id
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+    - in: path
+      name: potentialRoleId
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: getPotentialRoleSummaries
+      description: A potential role id in a role mining session
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+    - in: query
+      name: includeCommonAccess
+      description: Boolean determining whether common access entitlements will be included or not
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: boolean
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   responses:
     '200':
-      description: Succeeded. Returns a map containing entitlement popularity distribution
-        for a potential role.
+      description: Succeeded. Returns a map containing entitlement popularity distribution for a potential role.
       content:
         application/json:
           schema:
@@ -58,3 +54,10 @@ get:
       $ref: ../responses/403.yaml
     '500':
       $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - iai:access-modeling:read
+        - iai:access-modeling:manage
+    - applicationAuth:
+        - iai:access-modeling:read
+        - iai:access-modeling:manage

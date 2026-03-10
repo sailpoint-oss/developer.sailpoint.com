@@ -3,12 +3,14 @@ post:
   tags:
     - Accounts
   summary: Unlock account
-  description: >-
+  description: |-
     This API submits a task to unlock an account and returns the task ID.  
-
     To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required. 
   security:
-    - userAuth: [idn:accounts-state:manage, idn:accounts-provisioning:manage]
+    - userAuth:
+        - idn:accounts-state:manage
+    - applicationAuth:
+        - idn:accounts-state:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -28,23 +30,23 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/AccountUnlockRequest.yaml'
+          $ref: ../schemas/AccountUnlockRequest.yaml
   responses:
     '202':
       description: Async task details
       content:
         application/json:
           schema:
-            $ref: '../schemas/AccountsAsyncResult.yaml'
+            $ref: ../schemas/AccountsAsyncResult.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

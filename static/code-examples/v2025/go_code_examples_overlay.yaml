@@ -2607,6 +2607,78 @@
           // response from `UpdateAccount`: map[string]interface{}
           fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.UpdateAccount`: %v\n", resp)
         }
+- path: /api-usage/count
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/api-usage#get-total-count
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+          filters := `method eq "GET", startDate gt "2025-08-01"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.ApiUsageAPI.GetTotalCount(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+          //resp, r, err := apiClient.V2025.ApiUsageAPI.GetTotalCount(context.Background()).XSailPointExperimental(xSailPointExperimental).Filters(filters).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `ApiUsageAPI.GetTotalCount``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetTotalCount`: map[string]interface{}
+          fmt.Fprintf(os.Stdout, "Response from `ApiUsageAPI.GetTotalCount`: %v\n", resp)
+        }
+- path: /api-usage/summary
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/api-usage#list-api-summary
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+          filters := `method eq "GET", startDate gt "2025-08-01"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional)
+          limit := 100 // int32 | Max number of results to return. (optional) (default to 250) # int32 | Max number of results to return. (optional) (default to 250)
+          offset := 10 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.ApiUsageAPI.ListApiSummary(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+          //resp, r, err := apiClient.V2025.ApiUsageAPI.ListApiSummary(context.Background()).XSailPointExperimental(xSailPointExperimental).Filters(filters).Limit(limit).Offset(offset).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `ApiUsageAPI.ListApiSummary``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `ListApiSummary`: []SummaryResponse
+          fmt.Fprintf(os.Stdout, "Response from `ApiUsageAPI.ListApiSummary`: %v\n", resp)
+        }
 - path: /discovered-applications
   method: Get
   xCodeSample:
@@ -2752,6 +2824,96 @@
           // response from `ApproveApproval`: Approval
           fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.ApproveApproval`: %v\n", resp)
         }
+- path: /generic-approvals/bulk-approve
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/approvals#approve-approval-in-bulk
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+           bulkapproverequestdto := []byte(`{
+          "comment" : "Bulk approved by admin for monthly review",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ],
+          "additionalAttributes" : {
+            "source" : "automation",
+            "urgency" : "high"
+          }
+        }`) // BulkApproveRequestDTO | 
+
+          
+          var bulkApproveRequestDTO v2025.BulkApproveRequestDTO
+          if err := json.Unmarshal(bulkapproverequestdto, &bulkApproveRequestDTO); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.ApprovalsAPI.ApproveApprovalInBulk(context.Background()).BulkApproveRequestDTO(bulkApproveRequestDTO).Execute()
+          //resp, r, err := apiClient.V2025.ApprovalsAPI.ApproveApprovalInBulk(context.Background()).BulkApproveRequestDTO(bulkApproveRequestDTO).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.ApproveApprovalInBulk``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `ApproveApprovalInBulk`: map[string]interface{}
+          fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.ApproveApprovalInBulk`: %v\n", resp)
+        }
+- path: /generic-approvals/bulk-cancel
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/approvals#cancel-approval
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+           bulkcancelrequestdto := []byte(`{
+          "comment" : "Bulk cancellation by admin",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+        }`) // BulkCancelRequestDTO | 
+
+          
+          var bulkCancelRequestDTO v2025.BulkCancelRequestDTO
+          if err := json.Unmarshal(bulkcancelrequestdto, &bulkCancelRequestDTO); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.ApprovalsAPI.CancelApproval(context.Background()).BulkCancelRequestDTO(bulkCancelRequestDTO).Execute()
+          //resp, r, err := apiClient.V2025.ApprovalsAPI.CancelApproval(context.Background()).BulkCancelRequestDTO(bulkCancelRequestDTO).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.CancelApproval``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `CancelApproval`: map[string]interface{}
+          fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.CancelApproval`: %v\n", resp)
+        }
 - path: /generic-approvals/{id}
   method: Get
   xCodeSample:
@@ -2832,11 +2994,11 @@
           // response from `GetApprovals`: []Approval
           fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.GetApprovals`: %v\n", resp)
         }
-- path: /generic-approvals/config
+- path: /generic-approvals/config/{id}
   method: Get
   xCodeSample:
     - lang: Go
-      label: SDK_tools/sdk/go/v2025/methods/approvals#get-approvals-config-id-type
+      label: SDK_tools/sdk/go/v2025/methods/approvals#get-approvals-config
       source: |
         package main
 
@@ -2850,27 +3012,27 @@
         )
 
         func main() {
-          id := `38453251-6be2-5f8f-df93-5ce19e295837` // string | ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid) # string | ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid)
+          id := `38453251-6be2-5f8f-df93-5ce19e295837` // string | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), (sourceID), (applicationID), \"ENTITLEMENT_DESCRIPTIONS\", \"ACCESS_REQUEST_APPROVAL\", (tenantID)] # string | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), (sourceID), (applicationID), \"ENTITLEMENT_DESCRIPTIONS\", \"ACCESS_REQUEST_APPROVAL\", (tenantID)]
 
           
 
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2025.ApprovalsAPI.GetApprovalsConfigIdType(context.Background(), id).Execute()
-          //resp, r, err := apiClient.V2025.ApprovalsAPI.GetApprovalsConfigIdType(context.Background(), id).Execute()
+          resp, r, err := apiClient.V2025.ApprovalsAPI.GetApprovalsConfig(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2025.ApprovalsAPI.GetApprovalsConfig(context.Background(), id).Execute()
           if err != nil {
-            fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.GetApprovalsConfigIdType``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.GetApprovalsConfig``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
           }
-          // response from `GetApprovalsConfigIdType`: ApprovalConfig
-          fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.GetApprovalsConfigIdType`: %v\n", resp)
+          // response from `GetApprovalsConfig`: ApprovalConfig
+          fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.GetApprovalsConfig`: %v\n", resp)
         }
-- path: /generic-approvals/config
-  method: Patch
+- path: /generic-approvals/bulk-reassign
+  method: Post
   xCodeSample:
     - lang: Go
-      label: SDK_tools/sdk/go/v2025/methods/approvals#patch-approvals-config-type
+      label: SDK_tools/sdk/go/v2025/methods/approvals#move-approval
       source: |
         package main
 
@@ -2884,8 +3046,51 @@
         )
 
         func main() {
-          id := `38453251-6be2-5f8f-df93-5ce19e295837` // string | The ID defined by the scope field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT # string | The ID defined by the scope field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
-          scope := `ROLE` // string | The scope of the field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT # string | The scope of the field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
+           bulkreassignrequestdto := []byte(`{
+          "reassignTo" : "32454251-6ce2-5d8f-df93-5ce19e295238",
+          "comment" : "Bulk reassignment by admin",
+          "reassignFrom" : "12353251-6be2-5f8f-df93-5ce19b6e5837",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+        }`) // BulkReassignRequestDTO | 
+
+          
+          var bulkReassignRequestDTO v2025.BulkReassignRequestDTO
+          if err := json.Unmarshal(bulkreassignrequestdto, &bulkReassignRequestDTO); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.ApprovalsAPI.MoveApproval(context.Background()).BulkReassignRequestDTO(bulkReassignRequestDTO).Execute()
+          //resp, r, err := apiClient.V2025.ApprovalsAPI.MoveApproval(context.Background()).BulkReassignRequestDTO(bulkReassignRequestDTO).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.MoveApproval``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `MoveApproval`: map[string]interface{}
+          fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.MoveApproval`: %v\n", resp)
+        }
+- path: /generic-approvals/config
+  method: Put
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/approvals#put-approvals-config
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
            approvalconfig := []byte(`{
           "timeoutConfig" : {
             "daysUntilTimeout" : 2,
@@ -2930,7 +3135,7 @@
             "maxReminders" : 5,
             "enabled" : false
           },
-          "scope" : "APPROVAL_REQUEST",
+          "scope" : "DOMAIN_OBJECT",
           "tenantId" : "d3c10266-1a31-4acc-b01e-44a3d1c56615",
           "escalationConfig" : {
             "escalationCronSchedule" : "*/5 * * * *",
@@ -2962,6 +3167,8 @@
           } ],
           "autoApprove" : "false"
         }`) // ApprovalConfig | 
+          id := `38453251-6be2-5f8f-df93-5ce19e295837` // string | The ID defined by the scope field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT  (optional) # string | The ID defined by the scope field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT  (optional)
+          scope := `ROLE` // string | The scope of the field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT  (optional) # string | The scope of the field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT  (optional)
 
           
           var approvalConfig v2025.ApprovalConfig
@@ -2974,14 +3181,14 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2025.ApprovalsAPI.PatchApprovalsConfigType(context.Background()).Id(id).Scope(scope).ApprovalConfig(approvalConfig).Execute()
-          //resp, r, err := apiClient.V2025.ApprovalsAPI.PatchApprovalsConfigType(context.Background()).Id(id).Scope(scope).ApprovalConfig(approvalConfig).Execute()
+          resp, r, err := apiClient.V2025.ApprovalsAPI.PutApprovalsConfig(context.Background()).ApprovalConfig(approvalConfig).Execute()
+          //resp, r, err := apiClient.V2025.ApprovalsAPI.PutApprovalsConfig(context.Background()).ApprovalConfig(approvalConfig).Id(id).Scope(scope).Execute()
           if err != nil {
-            fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.PatchApprovalsConfigType``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.PutApprovalsConfig``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
           }
-          // response from `PatchApprovalsConfigType`: ApprovalConfig
-          fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.PatchApprovalsConfigType`: %v\n", resp)
+          // response from `PutApprovalsConfig`: ApprovalConfig
+          fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.PutApprovalsConfig`: %v\n", resp)
         }
 - path: /generic-approvals/{id}/reject
   method: Post
@@ -3017,6 +3224,49 @@
             fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.RejectApproval``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
           }
+        }
+- path: /generic-approvals/bulk-reject
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/approvals#reject-approval-in-bulk
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+           bulkrejectrequestdto := []byte(`{
+          "comment" : "Bulk reject by admin",
+          "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+        }`) // BulkRejectRequestDTO | 
+
+          
+          var bulkRejectRequestDTO v2025.BulkRejectRequestDTO
+          if err := json.Unmarshal(bulkrejectrequestdto, &bulkRejectRequestDTO); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.ApprovalsAPI.RejectApprovalInBulk(context.Background()).BulkRejectRequestDTO(bulkRejectRequestDTO).Execute()
+          //resp, r, err := apiClient.V2025.ApprovalsAPI.RejectApprovalInBulk(context.Background()).BulkRejectRequestDTO(bulkRejectRequestDTO).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.RejectApprovalInBulk``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `RejectApprovalInBulk`: map[string]interface{}
+          fmt.Fprintf(os.Stdout, "Response from `ApprovalsAPI.RejectApprovalInBulk`: %v\n", resp)
         }
 - path: /generic-approvals/{id}/attributes
   method: Post
@@ -3885,86 +4135,6 @@
           }
           // response from `PatchAuthUser`: AuthUser
           fmt.Fprintf(os.Stdout, "Response from `AuthUsersAPI.PatchAuthUser`: %v\n", resp)
-        }
-- path: /authorization/user-levels/get-identity-count
-  method: Post
-  xCodeSample:
-    - lang: Go
-      label: SDK_tools/sdk/go/v2025/methods/authorization#list-user-level-counts
-      source: |
-        package main
-
-        import (
-          "context"
-          "fmt"
-          "os"
-             "encoding/json"
-            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
-        )
-
-        func main() {
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-          requestbody := []byte(``) // []string | List of user level ids. Max 50 identifiers can be passed in a single request.
-
-          
-          var requestBody []v2025.RequestBody
-          if err := json.Unmarshal(requestbody, &requestBody); err != nil {
-            fmt.Println("Error:", err)
-            return
-          }
-          
-
-
-          configuration := sailpoint.NewDefaultConfiguration()
-          apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2025.AuthorizationAPI.ListUserLevelCounts(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
-          //resp, r, err := apiClient.V2025.AuthorizationAPI.ListUserLevelCounts(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
-          if err != nil {
-            fmt.Fprintf(os.Stderr, "Error when calling `AuthorizationAPI.ListUserLevelCounts``: %v\n", err)
-            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-          }
-          // response from `ListUserLevelCounts`: []AuthUserLevelsIdentityCount
-          fmt.Fprintf(os.Stdout, "Response from `AuthorizationAPI.ListUserLevelCounts`: %v\n", resp)
-        }
-- path: /authorization/user-levels/{id}/identities
-  method: Get
-  xCodeSample:
-    - lang: Go
-      label: SDK_tools/sdk/go/v2025/methods/authorization#list-user-level-identities
-      source: |
-        package main
-
-        import (
-          "context"
-          "fmt"
-          "os"
-            
-            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
-        )
-
-        func main() {
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-          id := `idn:access-request-administrator` // string | The unique identifier of the user level. # string | The unique identifier of the user level.
-          count := true // bool | If true, X-Total-Count header with the the total number of identities for this user level will be included in the response. (optional) (default to false) # bool | If true, X-Total-Count header with the the total number of identities for this user level will be included in the response. (optional) (default to false)
-          sorters := `displayName` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName** (optional)
-          limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-          offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-
-          
-
-
-          configuration := sailpoint.NewDefaultConfiguration()
-          apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2025.AuthorizationAPI.ListUserLevelIdentities(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2025.AuthorizationAPI.ListUserLevelIdentities(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Count(count).Sorters(sorters).Limit(limit).Offset(offset).Execute()
-          if err != nil {
-            fmt.Fprintf(os.Stderr, "Error when calling `AuthorizationAPI.ListUserLevelIdentities``: %v\n", err)
-            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-          }
-          // response from `ListUserLevelIdentities`: []AuthUserSlimResponse
-          fmt.Fprintf(os.Stdout, "Response from `AuthorizationAPI.ListUserLevelIdentities`: %v\n", resp)
         }
 - path: /brandings
   method: Post
@@ -8542,6 +8712,7 @@
         )
 
         func main() {
+          filters := `formDefinitionId eq "351c1daa-56f6-4bbf-b32c-49844c0b716e"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq* (optional)
 
           
 
@@ -8549,7 +8720,7 @@
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
           resp, r, err := apiClient.V2025.CustomFormsAPI.SearchFormInstancesByTenant(context.Background()).Execute()
-          //resp, r, err := apiClient.V2025.CustomFormsAPI.SearchFormInstancesByTenant(context.Background()).Execute()
+          //resp, r, err := apiClient.V2025.CustomFormsAPI.SearchFormInstancesByTenant(context.Background()).Filters(filters).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.SearchFormInstancesByTenant``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8798,7 +8969,7 @@
           "rightSets" : [ "idn:ui-right-set-list-read-example", "idn:ui-right-set-write-example" ],
           "name" : "Custom User Level Name",
           "description" : "This is a description of the custom user level."
-        }`) // UserLevelRequest | Payload containing the details of the user level to be created.
+        }`) // UserLevelRequest | Payload containing the details of the user level to be created.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
 
           
           var userLevelRequest v2025.UserLevelRequest
@@ -8926,6 +9097,45 @@
           // response from `ListAllAuthorizationRightSets`: []HierarchicalRightSet
           fmt.Fprintf(os.Stdout, "Response from `CustomUserLevelsAPI.ListAllAuthorizationRightSets`: %v\n", resp)
         }
+- path: /authorization/user-levels/{id}/identities
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/custom-user-levels#list-user-level-identities
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+          id := `idn:access-request-administrator` // string | The unique identifier of the user level. # string | The unique identifier of the user level.
+          count := true // bool | If true, X-Total-Count header with the the total number of identities for this user level will be included in the response. (optional) (default to false) # bool | If true, X-Total-Count header with the the total number of identities for this user level will be included in the response. (optional) (default to false)
+          sorters := `displayName` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName** (optional)
+          limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.CustomUserLevelsAPI.ListUserLevelIdentities(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+          //resp, r, err := apiClient.V2025.CustomUserLevelsAPI.ListUserLevelIdentities(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Count(count).Sorters(sorters).Limit(limit).Offset(offset).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `CustomUserLevelsAPI.ListUserLevelIdentities``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `ListUserLevelIdentities`: []AuthUserSlimResponse
+          fmt.Fprintf(os.Stdout, "Response from `CustomUserLevelsAPI.ListUserLevelIdentities`: %v\n", resp)
+        }
 - path: /authorization/custom-user-levels
   method: Get
   xCodeSample:
@@ -9000,6 +9210,47 @@
           // response from `PublishCustomUserLevel`: UserLevelPublishSummary
           fmt.Fprintf(os.Stdout, "Response from `CustomUserLevelsAPI.PublishCustomUserLevel`: %v\n", resp)
         }
+- path: /authorization/user-levels/get-identity-count
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/custom-user-levels#show-user-level-counts
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+          requestbody := []byte(``) // []string | List of user level ids. Max 50 identifiers can be passed in a single request.
+
+          
+          var requestBody []v2025.RequestBody
+          if err := json.Unmarshal(requestbody, &requestBody); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.CustomUserLevelsAPI.ShowUserLevelCounts(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
+          //resp, r, err := apiClient.V2025.CustomUserLevelsAPI.ShowUserLevelCounts(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `CustomUserLevelsAPI.ShowUserLevelCounts``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `ShowUserLevelCounts`: []AuthUserLevelsIdentityCount
+          fmt.Fprintf(os.Stdout, "Response from `CustomUserLevelsAPI.ShowUserLevelCounts`: %v\n", resp)
+        }
 - path: /authorization/custom-user-levels/{id}
   method: Patch
   xCodeSample:
@@ -9030,7 +9281,7 @@
             "path" : "/description",
             "value" : "New description"
           } ]
-        }`) // JsonPatch | JSON Patch payload for updating the user level.
+        }`) // JsonPatch | JSON Patch payload for updating the user level.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
 
           
           var jsonPatch v2025.JsonPatch
@@ -9051,6 +9302,377 @@
           }
           // response from `UpdateUserLevel`: UserLevelSummaryDTO
           fmt.Fprintf(os.Stdout, "Response from `CustomUserLevelsAPI.UpdateUserLevel`: %v\n", resp)
+        }
+- path: /das/tasks/cancel/{id}
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#cancel-task
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := 1001 // int64 | The unique identifier of the task to cancel. # int64 | The unique identifier of the task to cancel.
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          r, err := apiClient.V2025.DataAccessSecurityAPI.CancelTask(context.Background(), id).Execute()
+          //r, err := apiClient.V2025.DataAccessSecurityAPI.CancelTask(context.Background(), id).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.CancelTask``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+        }
+- path: /das/tasks/schedules
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#create-schedule
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+           createschedulerequest := []byte(`{
+          "scheduleTaskName" : "Daily Data Sync",
+          "scheduleType" : "Daily",
+          "active" : true,
+          "interval" : 1440,
+          "startTime" : 1762237200,
+          "endTime" : 1762240800,
+          "taskTypeName" : "DataSync",
+          "daysOfWeek" : [ "Monday", "Wednesday", "Friday" ],
+          "applicationId" : 2001,
+          "runAfterScheduleTaskId" : 1000
+        }`) // CreateScheduleRequest | 
+
+          
+          var createScheduleRequest v2025.CreateScheduleRequest
+          if err := json.Unmarshal(createschedulerequest, &createScheduleRequest); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.DataAccessSecurityAPI.CreateSchedule(context.Background()).CreateScheduleRequest(createScheduleRequest).Execute()
+          //resp, r, err := apiClient.V2025.DataAccessSecurityAPI.CreateSchedule(context.Background()).CreateScheduleRequest(createScheduleRequest).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.CreateSchedule``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `CreateSchedule`: int64
+          fmt.Fprintf(os.Stdout, "Response from `DataAccessSecurityAPI.CreateSchedule`: %v\n", resp)
+        }
+- path: /das/tasks/schedules/{id}
+  method: Delete
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#delete-schedule
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := 1001 // int64 | The unique identifier of the schedule to delete. # int64 | The unique identifier of the schedule to delete.
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          r, err := apiClient.V2025.DataAccessSecurityAPI.DeleteSchedule(context.Background(), id).Execute()
+          //r, err := apiClient.V2025.DataAccessSecurityAPI.DeleteSchedule(context.Background(), id).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.DeleteSchedule``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+        }
+- path: /das/tasks/{id}
+  method: Delete
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#delete-task
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := 1001 // int64 | The unique identifier of the task to delete. # int64 | The unique identifier of the task to delete.
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          r, err := apiClient.V2025.DataAccessSecurityAPI.DeleteTask(context.Background(), id).Execute()
+          //r, err := apiClient.V2025.DataAccessSecurityAPI.DeleteTask(context.Background(), id).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.DeleteTask``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+        }
+- path: /das/tasks/schedules/{id}
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#get-schedule
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := 1001 // int64 | The unique identifier of the schedule to retrieve. # int64 | The unique identifier of the schedule to retrieve.
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.DataAccessSecurityAPI.GetSchedule(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2025.DataAccessSecurityAPI.GetSchedule(context.Background(), id).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.GetSchedule``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetSchedule`: ScheduleInfo
+          fmt.Fprintf(os.Stdout, "Response from `DataAccessSecurityAPI.GetSchedule`: %v\n", resp)
+        }
+- path: /das/tasks/schedules
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#get-schedules
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          filters := `ScheduleType eq "Daily" and startTime eq 1762237200` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **scheduleTaskIds**: *eq, in*  **taskTypeName**: *eq, in*  **status**: *eq*  **applicationId**: *eq*  **fullName**: *eq*  **nameSubString**: *eq*  **scheduleType**: *eq*  Supported composite operators are *and, or* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **scheduleTaskIds**: *eq, in*  **taskTypeName**: *eq, in*  **status**: *eq*  **applicationId**: *eq*  **fullName**: *eq*  **nameSubString**: *eq*  **scheduleType**: *eq*  Supported composite operators are *and, or* (optional)
+          limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+          count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.DataAccessSecurityAPI.GetSchedules(context.Background()).Execute()
+          //resp, r, err := apiClient.V2025.DataAccessSecurityAPI.GetSchedules(context.Background()).Filters(filters).Limit(limit).Offset(offset).Count(count).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.GetSchedules``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetSchedules`: []ScheduleInfo
+          fmt.Fprintf(os.Stdout, "Response from `DataAccessSecurityAPI.GetSchedules`: %v\n", resp)
+        }
+- path: /das/tasks/{id}
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#get-task
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := 1001 // int64 | The unique identifier of the task to retrieve. # int64 | The unique identifier of the task to retrieve.
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.DataAccessSecurityAPI.GetTask(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2025.DataAccessSecurityAPI.GetTask(context.Background(), id).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.GetTask``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetTask`: TaskInfo
+          fmt.Fprintf(os.Stdout, "Response from `DataAccessSecurityAPI.GetTask`: %v\n", resp)
+        }
+- path: /das/tasks
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#get-tasks
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          filters := `TaskTypeName eq "DataClassification and EndBeforeTime eq 1762240800` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **taskIds**: *eq, in*  **statuses**: *eq, in*  **taskTypeName**: *eq, in*  **taskName**: *eq*  **endBeforeTime**: *eq*  Supported composite operators are *and, or*  Example: taskTypeName eq \"DataSync\" and endBeforeTime eq 1762240800 (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **taskIds**: *eq, in*  **statuses**: *eq, in*  **taskTypeName**: *eq, in*  **taskName**: *eq*  **endBeforeTime**: *eq*  Supported composite operators are *and, or*  Example: taskTypeName eq \"DataSync\" and endBeforeTime eq 1762240800 (optional)
+          limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+          count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.DataAccessSecurityAPI.GetTasks(context.Background()).Execute()
+          //resp, r, err := apiClient.V2025.DataAccessSecurityAPI.GetTasks(context.Background()).Filters(filters).Limit(limit).Offset(offset).Count(count).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.GetTasks``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetTasks`: []TaskInfo
+          fmt.Fprintf(os.Stdout, "Response from `DataAccessSecurityAPI.GetTasks`: %v\n", resp)
+        }
+- path: /das/tasks/schedules/{id}
+  method: Put
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#put-schedule
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := 1001 // int64 | The unique identifier of the schedule to update. # int64 | The unique identifier of the schedule to update.
+           updateschedulerequest := []byte(`{
+          "scheduleTaskName" : "Daily Data Sync",
+          "scheduleType" : "Daily",
+          "active" : true,
+          "interval" : 1440,
+          "startTime" : 1762237200,
+          "endTime" : 1762240800,
+          "taskTypeName" : "DataSync",
+          "daysOfWeek" : [ "Monday", "Wednesday", "Friday" ],
+          "applicationId" : 2001,
+          "runAfterScheduleTaskId" : 1000
+        }`) // UpdateScheduleRequest | 
+
+          
+          var updateScheduleRequest v2025.UpdateScheduleRequest
+          if err := json.Unmarshal(updateschedulerequest, &updateScheduleRequest); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          r, err := apiClient.V2025.DataAccessSecurityAPI.PutSchedule(context.Background(), id).UpdateScheduleRequest(updateScheduleRequest).Execute()
+          //r, err := apiClient.V2025.DataAccessSecurityAPI.PutSchedule(context.Background(), id).UpdateScheduleRequest(updateScheduleRequest).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.PutSchedule``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+        }
+- path: /das/tasks/rerun/{id}
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/data-access-security#start-task-rerun
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := 1001 // int64 | The unique identifier of the task to rerun. # int64 | The unique identifier of the task to rerun.
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          r, err := apiClient.V2025.DataAccessSecurityAPI.StartTaskRerun(context.Background(), id).Execute()
+          //r, err := apiClient.V2025.DataAccessSecurityAPI.StartTaskRerun(context.Background(), id).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `DataAccessSecurityAPI.StartTaskRerun``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
         }
 - path: /data-segments
   method: Post
@@ -15961,7 +16583,7 @@
         func main() {
           sourceId := `6d0458373bec4b4b80460992b76016da` // string | The ID of the source. # string | The ID of the source.
           xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-          filters := `identityId eq "2c9180858082150f0180893dbaf44201"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw* (optional)
+          filters := `identityId eq "2c9180858082150f0180893dbaf44201"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)   Filtering is supported for the following fields and operators:   **displayName**: *eq, sw*   **technicalName**: *eq, sw*  (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)   Filtering is supported for the following fields and operators:   **displayName**: *eq, sw*   **technicalName**: *eq, sw*  (optional)
           sorters := `displayName` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** (optional)
           count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
           limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)

@@ -12,7 +12,7 @@ interface VideoCardProps {
   body?: string;
   avatar: string;
   username: string;
-  tags?: string[];
+  tags?: (string | { id: number; name: string; slug: string })[];
 }
 
 const VideoCard: React.FC<VideoCardProps> = ({
@@ -43,8 +43,8 @@ const VideoCard: React.FC<VideoCardProps> = ({
           </div>
           <div className={styles.tags}>
             {tags.map((tag) => (
-              <div key={tag} className={styles.tag}>
-                {tag}
+              <div key={typeof tag === 'object' ? tag.name : tag} className={styles.tag}>
+                {typeof tag === 'object' ? tag.name : tag}
               </div>
             ))}
           </div>

@@ -1,0 +1,16 @@
+type: object
+description: Delivery configuration for PATCH /ssf/streams (partial update). All fields are optional; only provided fields are updated.
+properties:
+  method:
+    type: string
+    description: Delivery method (optional for PATCH).
+    example: "urn:ietf:rfc:8935"
+  endpoint_url:
+    type: string
+    format: uri
+    description: Receiver endpoint URL (optional for PATCH).
+    example: "https://receiver.example.com/ssf/events"
+  authorization_header:
+    type: string
+    description: Optional authorization header value.
+    example: "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9..."

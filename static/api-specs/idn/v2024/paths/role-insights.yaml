@@ -2,60 +2,53 @@ get:
   operationId: getRoleInsights
   summary: Get role insights
   tags:
-  - Role Insights
+    - Role Insights
   description: This method returns detailed role insights for each role.
   parameters:
-  - $ref: ../parameters/offset.yaml
-  - $ref: ../parameters/limit.yaml
-  - $ref: ../parameters/count.yaml
-  - name: sorters
-    in: query
-    description: 'Sort results using the standard syntax described in [V3 API Standard
-      Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+    - $ref: ../parameters/offset.yaml
+    - $ref: ../parameters/limit.yaml
+    - $ref: ../parameters/count.yaml
+    - name: sorters
+      in: query
+      description: |-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
+        Sorting is supported for the following fields: **numberOfUpdates, identitiesWithAccess, totalNumberOfIdentities**
+      example: numberOfUpdates
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    - name: filters
+      in: query
+      description: |-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
-      Sorting is supported for the following fields: **numberOfUpdates, identitiesWithAccess,
-      totalNumberOfIdentities**'
-    example: numberOfUpdates
-    required: false
-    style: form
-    explode: true
-    schema:
-      type: string
-  - name: filters
-    in: query
-    description: 'Filter results using the standard syntax described in [V3 API Standard
-      Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+        Filtering is supported for the following fields and operators:
 
+        **name**: *sw*
 
-      Filtering is supported for the following fields and operators:
+        **ownerName**: *sw*
 
-
-      **name**: *sw*
-
-
-      **ownerName**: *sw*
-
-
-      **description**: *sw*'
-    required: false
-    style: form
-    explode: true
-    example: name sw "John"
-    schema:
-      type: string
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+        **description**: *sw*
+      required: false
+      style: form
+      explode: true
+      example: name sw "John"
+      schema:
+        type: string
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   responses:
     '200':
-      description: Succeeded. Returns a list of roles with information about insights
-        for each role.
+      description: Succeeded. Returns a list of roles with information about insights for each role.
       content:
         application/json:
           schema:
@@ -70,3 +63,8 @@ get:
       $ref: ../responses/403.yaml
     '500':
       $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - iai:role-insights
+    - applicationAuth:
+        - iai:role-insights

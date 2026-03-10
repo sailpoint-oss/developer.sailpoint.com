@@ -31,7 +31,8 @@
     "*www.unicode.org*",
     "*devtunnels*",
     "*ajaxorg*",
-    "*d1vrqvoe9hgpx0*"
+    "*d1vrqvoe9hgpx0*",
+    "https://developer.sailpoint.com/discuss/developerdays"
   ],
   "ignorePaths": [
     "static/rule-java-docs/**",

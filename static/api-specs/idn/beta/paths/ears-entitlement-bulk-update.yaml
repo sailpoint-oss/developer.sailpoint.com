@@ -4,7 +4,8 @@ post:
     - Entitlements
   summary: Bulk update an entitlement list
   security:
-    - userAuth: [idn:entitlement:update]
+    - userAuth:
+        - idn:entitlement:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   description: |
@@ -25,17 +26,17 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../schemas/EntitlementBulkUpdateRequest.yaml"
+          $ref: ../schemas/EntitlementBulkUpdateRequest.yaml
   responses:
-    "204":
-      $ref: "../../v3/responses/204.yaml"
-    "400":
-      $ref: "../../v3/responses/400.yaml"
-    "401":
-      $ref: "../../v3/responses/401.yaml"
-    "403":
-      $ref: "../../v3/responses/403.yaml"
-    "429":
-      $ref: "../../v3/responses/429.yaml"
-    "500":
-      $ref: "../../v3/responses/500.yaml"
+    '204':
+      $ref: ../../v3/responses/204.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

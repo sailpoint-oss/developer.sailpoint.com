@@ -1,14 +1,15 @@
 type: object
+required:
+  - workflow_id
+  - description
 properties:
   workflow_id:
     type: string
     format: uuid
-    required: true
     description: The workflow the workflow action belongs to.
     example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
   description:
     type: string
-    required: true
     description: The description of the workflow action.
     example: Finds a profile based on selected attributes and values found in the session.
   archived:
@@ -18,17 +19,16 @@ properties:
     example: false
   ne_attribute_ids:
     type: array
-    required: false
+    items:
+      type: string
     description: An array of ne_attribute_ids.
     example: ["33f072dd-13b4-41e1-8ea0-16f2a59b57c8"]
   handle_type:
     type: string
-    required: false
     enum: [session, attribute]
     description: The handle type for what should happen if an existing profile is found.
     example: session
   handle_id:
     type: string
-    required: false
     description: The handle id.  When handle type is session, this is the session id.
     example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8

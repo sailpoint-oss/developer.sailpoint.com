@@ -2,11 +2,9 @@ get:
   tags:
     - Managed Cluster Types
   summary: Get a managed cluster type
-  description: >-
+  description: |-
     Get a Managed Cluster Type.
-
-    AMS Security: Devops, Internal
-    A token with SaaS Platform Internal or DevOps is required to access this endpoint.
+    AMS Security: Devops, Internal A token with SaaS Platform Internal or DevOps is required to access this endpoint.
   operationId: getManagedClusterType
   parameters:
     - name: id
@@ -18,37 +16,37 @@ get:
         type: string
       example: aClusterTypeId
   responses:
-    "200":
+    '200':
       description: Responds with a ManagedClusterType
       content:
         application/json:
           schema:
-            $ref: '../schemas/ManagedClusterType.yaml'
+            $ref: ../schemas/ManagedClusterType.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [idn:managed-cluster-types:read]
+    - userAuth:
+        - idn:managed-cluster-types:read
+        - idn:managed-cluster-types:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
 patch:
   tags:
     - Managed Cluster Types
   summary: Update a managed cluster type
-  description: >-
+  description: |-
     Update an existing Managed Cluster Type.
-
-    AMS Security: Devops, Internal
-    A token with SaaS Platform Internal or DevOps is required to access this endpoint.
+    AMS Security: Devops, Internal A token with SaaS Platform Internal or DevOps is required to access this endpoint.
   operationId: updateManagedClusterType
   parameters:
     - in: path
@@ -65,28 +63,29 @@ patch:
     content:
       application/json-patch+json:
         schema:
-          $ref: '../schemas/JsonPatch.yaml'
+          $ref: ../schemas/JsonPatch.yaml
   responses:
-    "200":
+    '200':
       description: The updated ManagedClusterType
       content:
         application/json:
           schema:
-            $ref: '../schemas/ManagedClusterType.yaml'
+            $ref: ../schemas/ManagedClusterType.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [idn:managed-cluster-types:update]
+    - userAuth:
+        - idn:managed-cluster-types:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
 delete:
@@ -94,11 +93,9 @@ delete:
   tags:
     - Managed Cluster Types
   summary: Delete a managed cluster type
-  description: >-
+  description: |-
     Delete an existing Managed Cluster Type.
-
-    AMS Security: Devops, Internal
-    A token with SaaS Platform Internal or DevOps is required to access this endpoint.
+    AMS Security: Devops, Internal A token with SaaS Platform Internal or DevOps is required to access this endpoint.
   parameters:
     - in: path
       name: id
@@ -110,19 +107,20 @@ delete:
       example: aClusterTypeId
   responses:
     '204':
-      $ref: '../responses/204.yaml'
+      $ref: ../responses/204.yaml
       description: The Managed Cluster Type was successfully deleted.
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [idn:managed-cluster-types:delete]
+    - userAuth:
+        - idn:managed-cluster-types:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN

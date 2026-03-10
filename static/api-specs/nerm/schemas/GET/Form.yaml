@@ -5,7 +5,7 @@ properties:
     description: The user-specified identifier of the form
     example: form_uid
   description:
-    type: text
+    type: string
     example: Form for creating new profile
     description: The description of the form
   name:

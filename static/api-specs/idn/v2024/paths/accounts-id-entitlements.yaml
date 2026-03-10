@@ -3,19 +3,23 @@ get:
   tags:
     - Accounts
   summary: Account entitlements
-  description: >-
-    This API returns entitlements of the account.      
+  description: 'This API returns entitlements of the account.      '
   security:
-    - userAuth: [idn:accounts:read]
+    - userAuth:
+        - idn:accounts:read
+        - idn:accounts:manage
+    - applicationAuth:
+        - idn:accounts:read
+        - idn:accounts:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
     - SOURCE_SUBADMIN
     - HELPDESK
   parameters:
-    - $ref: '../parameters/limit.yaml'
-    - $ref: '../parameters/offset.yaml'
-    - $ref: '../parameters/count.yaml'
+    - $ref: ../parameters/limit.yaml
+    - $ref: ../parameters/offset.yaml
+    - $ref: ../parameters/count.yaml
     - in: path
       name: id
       schema:
@@ -32,16 +36,16 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/Entitlement.yaml'
+              $ref: ../schemas/Entitlement.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

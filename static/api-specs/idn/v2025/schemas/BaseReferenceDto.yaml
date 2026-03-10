@@ -2,7 +2,7 @@ type: object
 title: Base Reference Dto
 properties:
   type:
-    $ref: './DtoType.yaml'
+    $ref: "./DtoType.yaml"
     description: DTO type
   id:
     type: string

@@ -34,7 +34,7 @@ const trainingGuides: TrainingGuide[] = [
   },
   {
     product: 'iiq',
-    link: 'https://documentation.sailpoint.com/identityiq/help/plugins/identityiq_plugins.html',
+    link: 'https://documentation.sailpoint.com/identityiq/help/plugins/develop_plugins/index.html',
     title: 'Build an IIQ Plugin',
     image: '/homepage/puzzle.svg',
     isThemedImage: true,

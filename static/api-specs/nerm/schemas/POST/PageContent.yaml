@@ -1,4 +1,6 @@
 type: object
+required:
+  - type
 properties:
   uid:
     type: string
@@ -7,7 +9,6 @@ properties:
   type:
     type: string
     enum: [FormHeading, LargeHeading, MediumHeading, SmallHeading, Paragraph, HtmlContainer, Owner, RequestProgressBar]
-    required: true
     description: The type of content on the page.
     example: MediumHeading
   content:

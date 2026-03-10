@@ -1,0 +1,16 @@
+type: object
+title: Base Reference Dto
+description: Base object for referencing other DTOs, containing type, id, and name fields for identification and display purposes.
+properties:
+  type:
+    allOf:
+     - $ref: './DtoType.yaml'
+     - description: DTO type
+  id:
+    type: string
+    description: ID of the object to which this reference applies
+    example: 2c91808568c529c60168cca6f90c1313
+  name:
+    type: string
+    description: Human-readable display name of the object to which this reference applies
+    example: William Wilson

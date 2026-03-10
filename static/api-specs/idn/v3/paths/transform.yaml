@@ -2,8 +2,7 @@ get:
   tags:
     - Transforms
   summary: Transform by id
-  description: >-
-    This API returns the transform specified by the given ID.
+  description: This API returns the transform specified by the given ID.
   operationId: getTransform
   parameters:
     - name: id
@@ -17,35 +16,38 @@ get:
       schema:
         type: string
   responses:
-    "200":
+    '200':
       description: Transform with the given ID
       content:
         application/json:
           schema:
-            $ref: '../schemas/TransformRead.yaml'
-    "400":
-      $ref: '../../v3/responses/400.yaml'
-    "401":
-      $ref: '../../v3/responses/401.yaml'
-    "403":
-      $ref: '../../v3/responses/403.yaml'
-    "404":
-      $ref: '../../v3/responses/404.yaml'
-    "429":
-      $ref: '../../v3/responses/429.yaml'
-    "500":
-      $ref: '../../v3/responses/500.yaml'
+            $ref: ../schemas/TransformRead.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:transform:read, idn:transform:manage]
+    - userAuth:
+        - idn:transform:read
+        - idn:transform:manage
+    - applicationAuth:
+        - idn:transform:read
+        - idn:transform:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
 put:
   tags:
     - Transforms
   summary: Update a transform
-  description: >-
-    Replaces the transform specified by the given ID with the transform provided in the request body. Only the
-    "attributes" field is mutable. Attempting to change other properties (ex. "name" and "type") will result in an error.
+  description: Replaces the transform specified by the given ID with the transform provided in the request body. Only the "attributes" field is mutable. Attempting to change other properties (ex. "name" and "type") will result in an error.
   operationId: updateTransform
   parameters:
     - name: id
@@ -59,53 +61,56 @@ put:
         type: string
       example: 2cd78adghjkja34jh2b1hkjhasuecd
   requestBody:
-    description: >-
-      The updated transform object. Must include "name", "type", and "attributes" fields, but "name" and "type" must not be modified.
+    description: The updated transform object. Must include "name", "type", and "attributes" fields, but "name" and "type" must not be modified.
     content:
       application/json:
         schema:
-          $ref: '../schemas/Transform.yaml'
+          $ref: ../schemas/Transform.yaml
         example:
           name: Timestamp To Date
           type: dateFormat
-          attributes: { "inputFormat": "MMM-dd-yyyy, HH:mm:ss.SSS", "outputFormat": "yyyy/dd/MM" }
+          attributes:
+            inputFormat: MMM-dd-yyyy, HH:mm:ss.SSS
+            outputFormat: yyyy/dd/MM
   responses:
-    "200":
+    '200':
       description: Indicates the transform was successfully updated and returns its new representation.
       content:
         application/json:
           schema:
-            $ref: '../schemas/TransformRead.yaml'
+            $ref: ../schemas/TransformRead.yaml
           example:
             id: 2cd78adghjkja34jh2b1hkjhasuecd
             name: Timestamp To Date
             type: dateFormat
-            attributes: { "inputFormat": "MMM-dd-yyyy, HH:mm:ss.SSS", "outputFormat": "yyyy/dd/MM" }
+            attributes:
+              inputFormat: MMM-dd-yyyy, HH:mm:ss.SSS
+              outputFormat: yyyy/dd/MM
             internal: false
-    "400":
-      $ref: '../../v3/responses/400.yaml'
-    "401":
-      $ref: '../../v3/responses/401.yaml'
-    "403":
-      $ref: '../../v3/responses/403.yaml'
-    "404":
-      $ref: '../../v3/responses/404.yaml'
-    "429":
-      $ref: '../../v3/responses/429.yaml'
-    "500":
-      $ref: '../../v3/responses/500.yaml'
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:transform:manage]
+    - userAuth:
+        - idn:transform:manage
+    - applicationAuth:
+        - idn:transform:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
 delete:
   tags:
     - Transforms
   summary: Delete a transform
-  description: >-
-    Deletes the transform specified by the given ID.
-    Attempting to delete a transform that is used in one or more Identity Profile mappings will result in an error.
-    If this occurs, you must first remove the transform from all mappings before deleting the transform.
+  description: Deletes the transform specified by the given ID. Attempting to delete a transform that is used in one or more Identity Profile mappings will result in an error. If this occurs, you must first remove the transform from all mappings before deleting the transform.
   operationId: deleteTransform
   parameters:
     - name: id
@@ -119,21 +124,24 @@ delete:
         type: string
       example: 2cd78adghjkja34jh2b1hkjhasuecd
   responses:
-    "204":
-      $ref: '../../v3/responses/204.yaml'
-    "400":
-      $ref: '../../v3/responses/400.yaml'
-    "401":
-      $ref: '../../v3/responses/401.yaml'
-    "403":
-      $ref: '../../v3/responses/403.yaml'
-    "404":
-      $ref: '../../v3/responses/404.yaml'
-    "429":
-      $ref: '../../v3/responses/429.yaml'
-    "500":
-      $ref: '../../v3/responses/500.yaml'
+    '204':
+      $ref: ../../v3/responses/204.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:transform:manage]
+    - userAuth:
+        - idn:transform:manage
+    - applicationAuth:
+        - idn:transform:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN

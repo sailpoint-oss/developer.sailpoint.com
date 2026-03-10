@@ -3,9 +3,7 @@ get:
   tags:
     - Identity History
   summary: Gets a difference of count for each access item types for the given identity between 2 snapshots
-  description: >-
-    This method gets a difference of count for each access item types for the given identity between 2 snapshots
-    Requires authorization scope of 'idn:identity-history:read' 
+  description: 'This method gets a difference of count for each access item types for the given identity between 2 snapshots Requires authorization scope of ''idn:identity-history:read'' '
   parameters:
     - in: path
       name: id
@@ -33,12 +31,10 @@ get:
         type: array
         items:
           type: string
-      description: >- 
-        An optional list of access item types (app, account, entitlement, etc...) to return.  
-        If null or empty, all access items types are returned 
-    - $ref: '../../v3/parameters/limit.yaml'
-    - $ref: '../../v3/parameters/offset.yaml'
-    - $ref: '../../v3/parameters/count.yaml'    
+      description: 'An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned '
+    - $ref: ../../v3/parameters/limit.yaml
+    - $ref: ../../v3/parameters/offset.yaml
+    - $ref: ../../v3/parameters/count.yaml
   responses:
     '200':
       description: A IdentityCompare object with difference details for each access item type
@@ -47,14 +43,21 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/IdentityCompareResponse.yaml'
+              $ref: ../schemas/IdentityCompareResponse.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'  
+      $ref: ../../v3/responses/404.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
+  security:
+    - userAuth:
+        - idn:identity-history:read
+        - idn:identity-history:manage
+    - applicationAuth:
+        - idn:identity-history:read
+        - idn:identity-history:manage

@@ -27,29 +27,34 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/SourceSubtype.yaml'
+            $ref: ../schemas/SourceSubtype.yaml
           examples:
-            example:
+            SourceSubType:
               value:
                 id: 43bdd144-4b17-4fce-a744-17c7fd3e717b
                 sourceId: 6d0458373bec4b4b80460992b76016da
                 technicalName: foo
                 displayName: Mr Foo
                 description: fighters
-                created: 2025-07-28T16:13:42.801300Z
-                modified: 2025-07-28T16:13:42.750850Z
-    "400":
-      $ref: "../responses/400.yaml"
+                created: 2025-07-28T16:13:42.801Z
+                modified: 2025-07-28T16:13:42.750Z
+    '400':
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
-    "429":
-      $ref: "../responses/429.yaml"
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [idn:sources:manage]
+    - userAuth:
+        - idn:sources:read
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:read
+        - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN

@@ -3,12 +3,13 @@ get:
   tags:
     - Workflows
   summary: Get workflow execution
-  description: >-
-    Get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a "404 Not Found" response.
+  description: Get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a "404 Not Found" response.
   x-sailpoint-userLevels:
     - ORG_ADMIN
   security:
-    - userAuth: [sp:workflow:read]
+    - userAuth:
+        - sp:workflow:read
+        - sp:workflow:manage
   parameters:
     - name: id
       in: path
@@ -22,22 +23,21 @@ get:
         example: c17bea3a-574d-453c-9e04-4365fbf5af0b
   responses:
     '200':
-      description: >-
-        Workflow execution.
+      description: Workflow execution.
       content:
         application/json:
           schema:
             items:
-              $ref: '../../schemas/workflows/WorkflowExecution.yaml'
+              $ref: ../../schemas/workflows/WorkflowExecution.yaml
     '400':
-      $ref: '../../../v3/responses/400.yaml'
+      $ref: ../../../v3/responses/400.yaml
     '401':
-      $ref: '../../../v3/responses/401.yaml'
+      $ref: ../../../v3/responses/401.yaml
     '403':
-      $ref: '../../../v3/responses/403.yaml'
+      $ref: ../../../v3/responses/403.yaml
     '404':
-      $ref: '../../../v3/responses/404.yaml'
+      $ref: ../../../v3/responses/404.yaml
     '429':
-      $ref: '../../../v3/responses/429.yaml'
+      $ref: ../../../v3/responses/429.yaml
     '500':
-      $ref: '../../../v3/responses/500.yaml'
+      $ref: ../../../v3/responses/500.yaml

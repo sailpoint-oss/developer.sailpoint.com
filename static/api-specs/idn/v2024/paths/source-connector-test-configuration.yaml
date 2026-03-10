@@ -1,30 +1,28 @@
 post:
   operationId: testSourceConfiguration
   tags:
-  - Sources
+    - Sources
   summary: Test configuration for source connector
-  description: >-
-    This endpoint performs a more detailed validation of the source''s
-    configuration that can take longer than the lighter weight credential validation
-    performed by the checkConnection API.
+  description: This endpoint performs a more detailed validation of the source''s configuration that can take longer than the lighter weight credential validation performed by the checkConnection API.
   security:
     - userAuth:
-      - idn:source-connector:manage
+        - idn:source-connector:manage
+    - applicationAuth:
+        - idn:source-connector:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
-  - in: path
-    name: sourceId
-    schema:
-      type: string
-    required: true
-    x-sailpoint-resource-operation-id: listSources
-    description: The ID of the Source
-    example: cef3ee201db947c5912551015ba0c679
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      description: The ID of the Source
+      example: cef3ee201db947c5912551015ba0c679
   responses:
     '200':
-      description: The result of testing source connector configuration with response
-        from it.
+      description: The result of testing source connector configuration with response from it.
       content:
         application/json:
           schema:

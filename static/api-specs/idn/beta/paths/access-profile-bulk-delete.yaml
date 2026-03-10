@@ -82,7 +82,6 @@ post:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:access-profile:manage]
-    - applicationAuth: [idn:access-profile:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - ROLE_ADMIN

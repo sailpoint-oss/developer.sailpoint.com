@@ -4,9 +4,13 @@ get:
     - Apps
   summary: List available accounts for user app
   security:
-    - userAuth: [idn:app-roles:read]
-  description: >-
-    This API returns the list of available accounts for the specified user app. The user app needs to belong lo logged in user.
+    - userAuth:
+        - idn:app-roles:read
+        - idn:app-roles:manage
+    - applicationAuth:
+        - idn:app-roles:read
+        - idn:app-roles:manage
+  description: This API returns the list of available accounts for the specified user app. The user app needs to belong lo logged in user.
   parameters:
     - name: id
       in: path
@@ -16,8 +20,8 @@ get:
       schema:
         type: string
         example: 2c91808a7813090a017814121e121518
-    - $ref: '../parameters/limit.yaml'
-    - $ref: '../parameters/count.yaml'
+    - $ref: ../parameters/limit.yaml
+    - $ref: ../parameters/count.yaml
     - name: X-SailPoint-Experimental
       in: header
       description: Use this header to enable this experimental API.
@@ -34,14 +38,14 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/app/AppAccountDetails.yaml'
+              $ref: ../schemas/app/AppAccountDetails.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

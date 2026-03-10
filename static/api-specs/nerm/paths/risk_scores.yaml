@@ -5,7 +5,9 @@ get:
   tags:
     - risk scores
   parameters:
-    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/limit.yaml"
+    - $ref: "../parameters/query/offset.yaml"
+    - $ref: "../parameters/query/order.yaml"
     - $ref: "../parameters/query/object_id.yaml"
     - $ref: "../parameters/query/object_type.yaml"
     - $ref: "../parameters/query/overall_risk_level_id.yaml"

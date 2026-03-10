@@ -1102,12 +1102,15 @@ with ApiClient(configuration) as api_client:
 
 ## search-form-instances-by-tenant
 List form instances by tenant.
-No parameters required.
+Returns a list of form instances for the tenant. Optionally filter by form definition ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/search-form-instances-by-tenant)
 
 ### Parameters 
-This endpoint does not need any parameter. 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq*
 
 ### Return type
 [**List[ListFormInstancesByTenantResponse]**](../models/list-form-instances-by-tenant-response)
@@ -1137,13 +1140,14 @@ configuration = Configuration()
 
 
 with ApiClient(configuration) as api_client:
+    filters = 'formDefinitionId eq \"351c1daa-56f6-4bbf-b32c-49844c0b716e\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq* (optional)
 
     try:
         # List form instances by tenant.
         
         results = CustomFormsApi(api_client).search_form_instances_by_tenant()
         # Below is a request that includes all optional parameters
-        # results = CustomFormsApi(api_client).search_form_instances_by_tenant()
+        # results = CustomFormsApi(api_client).search_form_instances_by_tenant(filters)
         print("The response of CustomFormsApi->search_form_instances_by_tenant:\n")
         for item in results:
             print(item.model_dump_json(by_alias=True, indent=4))

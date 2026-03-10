@@ -35,18 +35,47 @@ In addition to the standard `type` and `name` attributes, the right pad transfor
 }
 ```
 
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `rightPad`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
 ## Attributes
 
-- **Required Attributes**
+The right pad transform uses the following structure:
 
-  - **type** - This must always be set to `rightPad`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **length** - This is an integer value for the final output string's desired length.
+```json
+{
+  "type": "rightPad",
+  "name": "Transform Name",
+  "attributes": {
+    "length": "8",
+    "padding": "0"
+  }
+}
+```
 
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
-  - **padding** - This string value represents the character the transform will pad the incoming data to to get to the desired length.
-    - If no padding value is provided, the transform defaults to a single space (" ") character for padding.
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the padding configuration.
+
+#### Required
+
+- **length** `string` _(required)_  
+  An integer value for the final output string's desired length.
+
+#### Optional
+
+- **padding** `string` _(optional)_  
+  The character to use for padding the incoming data to reach the desired length. Default is a single space `" "`.
 
 ## Examples
 

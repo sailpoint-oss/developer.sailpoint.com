@@ -5,13 +5,13 @@ get:
   description: No parameters required.
   operationId: searchPreDefinedSelectOptions
   responses:
-    "200":
+    '200':
       description: Returns a list of available predefined select options
       content:
         application/json:
           schema:
-            $ref: '../schemas/forms/ListPredefinedSelectOptionsResponse.yaml'
-    "400":
+            $ref: ../schemas/forms/ListPredefinedSelectOptionsResponse.yaml
+    '400':
       description: An error with the request occurred
       content:
         application/json:
@@ -24,7 +24,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -33,7 +33,7 @@ get:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "401":
+    '401':
       description: An error with the authorization occurred
       content:
         application/json:
@@ -46,7 +46,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -55,7 +55,7 @@ get:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "403":
+    '403':
       description: An error with the user permissions occurred
       content:
         application/json:
@@ -68,7 +68,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -77,13 +77,13 @@ get:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "429":
+    '429':
       description: Too many requests
       content:
         application/json:
           schema:
-            $ref: '../schemas/forms/Error.yaml'
-    "500":
+            $ref: ../schemas/forms/Error.yaml
+    '500':
       description: An internal server error occurred
       content:
         application/json:
@@ -96,7 +96,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -107,4 +107,5 @@ get:
                 x-go-name: TrackingID
   security:
     - userAuth:
+        - sp:forms:read
         - sp:forms:manage

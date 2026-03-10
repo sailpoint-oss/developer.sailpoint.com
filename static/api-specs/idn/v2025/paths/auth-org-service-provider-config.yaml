@@ -3,50 +3,43 @@ get:
   tags:
     - Global Tenant Security Settings
   summary: Get service provider configuration.
-  description: >-
-    This API returns the details of an org's service provider auth
-    configuration.
+  description: This API returns the details of an org's service provider auth configuration.
   responses:
-    "200":
+    '200':
       description: Service provider configuration for the tenant.
       content:
         application/json:
           schema:
-            $ref: "../schemas/ServiceProviderConfiguration.yaml"
-    "400":
-      $ref: "../responses/400.yaml"
-    "401":
-      $ref: "../responses/401.yaml"
-    "403":
-      $ref: "../responses/403.yaml"
-    "404":
-      $ref: "../responses/404.yaml"
-    "429":
-      $ref: "../responses/429.yaml"
-    "500":
-      $ref: "../responses/500.yaml"
+            $ref: ../schemas/ServiceProviderConfiguration.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
   security:
-   - userAuth: []
+    - userAuth:
+        - 'sp:auth-org:read '
+    - applicationAuth:
+        - 'sp:auth-org:read '
 patch:
   operationId: patchAuthOrgServiceProviderConfig
   tags:
     - Global Tenant Security Settings
   summary: Update service provider configuration
-  description: >-
-    This API updates an existing service provider configuration for an org using
-    PATCH.
+  description: This API updates an existing service provider configuration for an org using PATCH.
   requestBody:
     required: true
-    description: >-
-      A list of auth org service provider configuration update operations
-      according to the [JSON Patch](https://tools.ietf.org/html/rfc6902)
-      standard.
-
-      Note: /federationProtocolDetails/0 is IdpDetails
-      /federationProtocolDetails/1 is SpDetails
-
-      Ensures that the patched ServiceProviderConfig conforms to certain logical
-      guidelines, which are:
+    description: |-
+      A list of auth org service provider configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+      Note: /federationProtocolDetails/0 is IdpDetails /federationProtocolDetails/1 is SpDetails
+      Ensures that the patched ServiceProviderConfig conforms to certain logical guidelines, which are:
         1. Do not add or remove any elements in the federation protocol details
       in the service provider configuration.
         2. Do not modify, add, or delete the service provider details element in
@@ -57,8 +50,7 @@ patch:
       IDPDetails cannot be null. IDPDetails must include an entityID.
         5. Any JIT configuration update must be valid.
 
-      Just in time configuration update must be valid when enabled. This
-      includes:
+      Just in time configuration update must be valid when enabled. This includes:
         - A Source ID
         - Source attribute mappings
         - Source attribute maps have all the required key values (firstName,
@@ -68,38 +60,34 @@ patch:
         schema:
           type: array
           items:
-            $ref: "../schemas/JsonPatchOperation.yaml"
+            $ref: ../schemas/JsonPatchOperation.yaml
         example:
-          - op: "replace"
-            path: "/enabled"
+          - op: replace
+            path: /enabled
             value: true,
-          - op: "add"
-            path: "/federationProtocolDetails/0/jitConfiguration"
+          - op: add
+            path: /federationProtocolDetails/0/jitConfiguration
             value:
-              {
-                "enabled": true,
-                "sourceId": "2c9180857377ed2901739c12a2da5ac8",
-                "sourceAttributeMappings":
-                  {
-                    "firstName": "okta.firstName",
-                    "lastName": "okta.lastName",
-                    "email": "okta.email",
-                    "employeeNumber": "okta.employeeNumber",
-                  },
-              }
+              enabled: true
+              sourceId: 2c9180857377ed2901739c12a2da5ac8
+              sourceAttributeMappings:
+                firstName: okta.firstName
+                lastName: okta.lastName
+                email: okta.email
+                employeeNumber: okta.employeeNumber
   responses:
-    "200":
+    '200':
       description: Auth Org Service Provider configuration updated.
       content:
         application/json:
           schema:
-            $ref: "../schemas/ServiceProviderConfiguration.yaml"
-    "400":
+            $ref: ../schemas/ServiceProviderConfiguration.yaml
+    '400':
       description: Client Error - Returned if the request body is invalid.
       content:
         application/json:
           schema:
-            $ref: "../schemas/ErrorResponseDto.yaml"
+            $ref: ../schemas/ErrorResponseDto.yaml
           examples:
             400.1 Bad Request Content:
               description: Response for bad request content
@@ -119,15 +107,18 @@ patch:
                   - locale: en
                     localeOrigin: REQUEST
                     text: JIT source id is invalid.
-    "401":
-      $ref: "../responses/401.yaml"
-    "403":
-      $ref: "../responses/403.yaml"
-    "404":
-      $ref: "../responses/404.yaml"
-    "429":
-      $ref: "../responses/429.yaml"
-    "500":
-      $ref: "../responses/500.yaml"
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: []
+    - userAuth:
+        - sp:auth-org:manage
+    - applicationAuth:
+        - sp:auth-org:manage

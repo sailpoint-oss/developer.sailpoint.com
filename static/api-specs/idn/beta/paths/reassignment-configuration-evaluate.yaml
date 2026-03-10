@@ -3,16 +3,10 @@ get:
   tags:
     - Work Reassignment
   summary: Evaluate reassignment configuration
-  description: >-
-    Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type
-    should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup
-    is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more
-    results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned
-    identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found
-    for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value
-    and the lookupTrail node will be empty.
+  description: Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
   security:
-    - userAuth: [idn:reassignment-configuration:evaluate]
+    - userAuth:
+        - idn:reassignment-configuration:manage
   parameters:
     - in: path
       name: identityId
@@ -26,7 +20,7 @@ get:
       name: configType
       required: true
       schema:
-        $ref: '../schemas/work-reassignment/ConfigTypeEnum.yaml'
+        $ref: ../schemas/work-reassignment/ConfigTypeEnum.yaml
       description: Reassignment work type
       example: accessRequests
     - in: query
@@ -36,9 +30,7 @@ get:
         type: array
         items:
           type: string
-      description: >-
-        Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below:
-        - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments
+      description: 'Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments'
       example: SELF_REVIEW_DELEGATION
   responses:
     '200':
@@ -48,21 +40,21 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/work-reassignment/EvaluateResponse.yaml'
+              $ref: ../schemas/work-reassignment/EvaluateResponse.yaml
           examples:
             empty:
-              $ref: '../schemas/work-reassignment/examples/evaluateEmpty.yaml'
+              $ref: ../schemas/work-reassignment/examples/evaluateEmpty.yaml
             longTrail:
-              $ref: '../schemas/work-reassignment/examples/evaluateLong.yaml'
+              $ref: ../schemas/work-reassignment/examples/evaluateLong.yaml
             selfReview:
-              $ref: '../schemas/work-reassignment/examples/evaluateSelfReview.yaml'
+              $ref: ../schemas/work-reassignment/examples/evaluateSelfReview.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

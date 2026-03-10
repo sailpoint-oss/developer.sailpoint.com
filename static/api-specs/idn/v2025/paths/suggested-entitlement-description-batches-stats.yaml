@@ -1,23 +1,23 @@
 get:
   tags:
-  - Suggested Entitlement Description
+    - Suggested Entitlement Description
   operationId: getSedBatchStats
   summary: Submit sed batch stats request
   description: |
-   'Submit Sed Batch Stats Request.
+    'Submit Sed Batch Stats Request.
 
-    Submits batchId in the path param `(e.g. {batchId}/stats)`. API responses with stats
-    of the batchId.'
+     Submits batchId in the path param `(e.g. {batchId}/stats)`. API responses with stats
+     of the batchId.'
   parameters:
-  - name: batchId
-    in: path
-    description: Batch Id
-    schema:
-      type: string
-      format: uuid
-    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
-    required: true
-    x-sailpoint-resource-operation-id: getSedBatches
+    - name: batchId
+      in: path
+      description: Batch Id
+      schema:
+        type: string
+        format: uuid
+      example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+      required: true
+      x-sailpoint-resource-operation-id: getSedBatches
   responses:
     '200':
       description: Stats of Sed batch.
@@ -38,8 +38,10 @@ get:
     '500':
       $ref: ../responses/500.yaml
   security:
-  - userAuth:
-    - idn:sed:read
+    - userAuth:
+        - idn:sed:read
+    - applicationAuth:
+        - idn:sed:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN

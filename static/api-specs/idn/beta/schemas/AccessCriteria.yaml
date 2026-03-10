@@ -25,18 +25,16 @@ properties:
           type: string
           description: Human-readable display name of the object to which this reference applies to
           example: Administrator
-    # oneOf:
-    #   - minItems: 1
-    #   - maxItems: 50
-    example: [
-    {
-      type: "ENTITLEMENT",
-      id: "2c9180866166b5b0016167c32ef31a66",
-      name: "Administrator"
-    },
-    {
-      type: "ENTITLEMENT",
-      id: "2c9180866166b5b0016167c32ef31a67",
-      name: "Administrator"
-    }
-    ]
+    example:
+      [
+        {
+          type: "ENTITLEMENT",
+          id: "2c9180866166b5b0016167c32ef31a66",
+          name: "Administrator",
+        },
+        {
+          type: "ENTITLEMENT",
+          id: "2c9180866166b5b0016167c32ef31a67",
+          name: "Administrator",
+        },
+      ]

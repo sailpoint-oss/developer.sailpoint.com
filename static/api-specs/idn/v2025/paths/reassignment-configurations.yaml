@@ -1,12 +1,13 @@
 get:
   operationId: listReassignmentConfigurations
   tags:
-  - Work Reassignment
+    - Work Reassignment
   summary: List reassignment configurations
   description: Gets all Reassignment configuration for the current org.
   security:
-  - userAuth:
-    - idn:reassignment-configuration:read
+    - userAuth:
+        - idn:reassignment-configuration:read
+        - idn:reassignment-configuration:manage
   responses:
     '200':
       description: A list of Reassignment Configurations for an org
@@ -29,23 +30,23 @@ get:
     '500':
       $ref: ../responses/500.yaml
   parameters:
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
 post:
   operationId: createReassignmentConfiguration
   tags:
-  - Work Reassignment
+    - Work Reassignment
   summary: Create a reassignment configuration
   description: Creates a new Reassignment Configuration for the specified identity.
   security:
-  - userAuth:
-    - idn:reassignment-configuration:create
+    - userAuth:
+        - idn:reassignment-configuration:manage
   requestBody:
     required: true
     content:
@@ -70,11 +71,11 @@ post:
     '500':
       $ref: ../responses/500.yaml
   parameters:
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true

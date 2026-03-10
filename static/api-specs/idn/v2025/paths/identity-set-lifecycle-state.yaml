@@ -3,17 +3,18 @@ post:
   tags:
     - Lifecycle States
   summary: Set lifecycle state
-  description: >-
-    Use this API to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile.
+  description: Use this API to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile.
   security:
-    - userAuth: [idn:identity-lifecycle-state:manage]
+    - userAuth:
+        - idn:identity-lifecycle-state:manage
+    - applicationAuth:
+        - idn:identity-lifecycle-state:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
   parameters:
     - in: path
       name: identity-id
-      description: >-
-        ID of the identity to update.
+      description: ID of the identity to update.
       required: true
       x-sailpoint-resource-operation-id: listIdentities
       example: 2c9180857893f1290178944561990364
@@ -43,14 +44,14 @@ post:
                 example: 2c9180837ab5b716017ab7c6c9ef1e20
                 description: ID of the IdentityRequest object that is generated when the workflow launches. To follow the IdentityRequest, you can provide this ID with a [Get Account Activity request](https://developer.sailpoint.com/docs/api/v3/get-account-activity/). The response will contain relevant information about the IdentityRequest, such as its status.
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

@@ -3,14 +3,14 @@ post:
   tags:
     - IAI Access Request Recommendations
   security:
-    - userAuth: [ iai:access-request-recommender:manage ]
+    - userAuth:
+        - iai:access-request-recommender:manage
+    - applicationAuth:
+        - iai:access-request-recommender:manage
   x-sailpoint-userLevels:
     - Any
   summary: Bulk mark viewed access request recommendations
-  description: >-
-    This API consumes a notification that a set of recommended access request item were viewed.
-    Future recommendations with these items will be marked with viewed=true. This can be useful for the
-    consumer to determine if there are any new/unviewed recommendations.
+  description: This API consumes a notification that a set of recommended access request item were viewed. Future recommendations with these items will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
   requestBody:
     description: The recommended access items that were viewed for an identity.
     required: true
@@ -19,7 +19,7 @@ post:
         schema:
           type: array
           items:
-            $ref: '../../beta/schemas/AccessRequestRecommendationActionItemDto.yaml'
+            $ref: ../../beta/schemas/AccessRequestRecommendationActionItemDto.yaml
   responses:
     '201':
       description: Recommendations successfully stored as viewed.
@@ -28,14 +28,14 @@ post:
           schema:
             type: array
             items:
-              $ref: '../../beta/schemas/AccessRequestRecommendationActionItemResponseDto.yaml'
+              $ref: ../../beta/schemas/AccessRequestRecommendationActionItemResponseDto.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

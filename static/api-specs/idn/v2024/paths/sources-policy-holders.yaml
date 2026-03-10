@@ -25,26 +25,28 @@ patch:
     content:
       application/json:
         schema:
-          $ref: '../schemas/PasswordPolicyHoldersDto.yaml'
+          $ref: ../schemas/PasswordPolicyHoldersDto.yaml
   responses:
     '200':
-      description: >-
-        Updated Password Policies
+      description: Updated Password Policies
       content:
         application/json:
           schema:
-            $ref: '../schemas/PasswordPolicyHoldersDto.yaml'
+            $ref: ../schemas/PasswordPolicyHoldersDto.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [ idn:sources:update ]
+    - userAuth:
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:manage

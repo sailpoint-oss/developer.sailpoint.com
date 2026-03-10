@@ -14,7 +14,7 @@ interface MarketplaceCardProps {
     creatorImage: string;
     creatorName: string;
     creatorTitle: string;
-    tags: string[];
+    tags: (string | { id: number; name: string; slug: string })[];
   };
   featured?: boolean;
 }
@@ -22,7 +22,13 @@ interface MarketplaceCardProps {
 const MarketplaceCard: React.FC<MarketplaceCardProps> = ({ post, featured }) => {
   let badge: JSX.Element = <div></div>;
 
-  if (post.tags.includes('sailpoint-developed')) {
+  // Helper to check if a tag matches (handles both string and object tags)
+  const hasTag = (tagName: string) => 
+    post.tags.some(tag => 
+      typeof tag === 'string' ? tag === tagName : tag.name === tagName
+    );
+
+  if (hasTag('sailpoint-developed')) {
     badge = (
       <div className={styles.cardBadge}>
         <img
@@ -33,7 +39,7 @@ const MarketplaceCard: React.FC<MarketplaceCardProps> = ({ post, featured }) => 
         <span className={styles.cardBadgeText}>SailPoint Developed</span>
       </div>
     );
-  } else if (post.tags.includes('sailpoint-certified')) {
+  } else if (hasTag('sailpoint-certified')) {
     badge = (
       <div className={styles.badgeContainer}>
         <div title="SailPoint Certified" className={styles.cardBadgeCertified}>

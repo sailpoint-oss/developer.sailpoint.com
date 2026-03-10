@@ -3,6 +3,7 @@ id: guides
 title: Rule guides
 pagination_label: Guides
 sidebar_label: Guides
+sidebar_key: rules-guides
 sidebar_position: 1
 sidebar_class_name: Rules
 keywords: ['rules', 'guides']

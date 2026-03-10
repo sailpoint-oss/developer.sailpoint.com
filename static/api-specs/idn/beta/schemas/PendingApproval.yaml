@@ -97,4 +97,23 @@ properties:
     type: string
     description: The privilege level of the requested access item, if applicable.
     example: High
+  maxPermittedAccessDuration:
+    nullable: true
+    type: object
+    description: The maximum duration for which the access is permitted.
+    properties:
+      value:
+        type: integer
+        format: int32
+        description: The numeric value of the duration.
+        example: 5
+      timeUnit:
+        type: string
+        description: The time unit for the duration.
+        enum:
+          - HOURS
+          - DAYS
+          - WEEKS
+          - MONTHS
+        example: DAYS
 

@@ -1,12 +1,13 @@
 get:
   security:
-    - userAuth: [idn:sod-policy:read]
+    - userAuth:
+        - idn:sod-policy:read
+        - idn:sod-policy:manage
   operationId: getSodPolicySchedule
   tags:
     - SOD Policies
   summary: Get sod policy schedule
-  description: >-
-    This endpoint gets a specified SOD policy's schedule.
+  description: This endpoint gets a specified SOD policy's schedule.
   parameters:
     - in: path
       name: id
@@ -22,26 +23,26 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/SodPolicySchedule.yaml'
+            $ref: ../schemas/SodPolicySchedule.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
 put:
   security:
-    - userAuth: [idn:sod-policy:write]
+    - userAuth:
+        - idn:sod-policy:manage
   operationId: putPolicySchedule
   tags:
     - SOD Policies
   summary: Update sod policy schedule
-  description: >-
-    This updates schedule for a specified SOD policy.
+  description: This updates schedule for a specified SOD policy.
   parameters:
     - in: path
       name: id
@@ -56,33 +57,33 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/SodPolicySchedule.yaml'
+          $ref: ../schemas/SodPolicySchedule.yaml
   responses:
     '200':
       description: Created or updated SOD policy schedule.
       content:
         application/json:
           schema:
-            $ref: '../schemas/SodPolicySchedule.yaml'
+            $ref: ../schemas/SodPolicySchedule.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
 delete:
   security:
-    - userAuth: [idn:sod-policy:write]
+    - userAuth:
+        - idn:sod-policy:manage
   operationId: deleteSodPolicySchedule
   tags:
     - SOD Policies
   summary: Delete sod policy schedule
-  description: >-
-    This deletes schedule for a specified SOD policy by ID.
+  description: This deletes schedule for a specified SOD policy by ID.
   parameters:
     - in: path
       name: id
@@ -96,14 +97,14 @@ delete:
     '204':
       description: No content response.
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

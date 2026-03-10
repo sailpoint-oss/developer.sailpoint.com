@@ -1,22 +1,23 @@
 type: object
+required:
+  - type
+  - condition_object_type
+  - condition_object_id
+  - comparison_operator
+  - value
 properties:
   type:
     type: string
-    required: true
     enum: [ProfileAttributeRule]
   condition_object_type:
     type: string
-    required: true
     enum: [TextFieldAttribute, TextAreaAttribute]
   condition_object_id:
     type: string
-    required: true
     format: uuid
   comparison_operator:
     type: string
-    required: true
     enum: ['==', '!=', '>', '<', 'start_with?', 'end_with?', 'include?']
   value:
     type: string
-    required: true
     example: Some value

@@ -26,7 +26,7 @@ properties:
   cookbook:
     description: cookbook id for the Managed client
     nullable: true
-    type: string 
+    type: string
   ccId:
     description: Previous CC ID to be used in data migration. (This field will be deleted after CC migration!)
     nullable: true
@@ -44,7 +44,7 @@ properties:
   description:
     description: ManagedClient description
     type: string
-    default: ''
+    default: ""
     example: A short description of the ManagedClient
   ipAddress:
     description: The public IP address of the ManagedClient
@@ -85,8 +85,7 @@ properties:
       - ERROR
       - FAILED
       - null
-    example:
-      NORMAL
+    example: NORMAL
   type:
     description: Type of the ManagedClient (VA, CCG)
     type: string
@@ -105,8 +104,7 @@ properties:
       - das-rc
       - das-pc
       - das-dc
-    example:
-      idn
+    example: idn
   vaDownloadUrl:
     description: ManagedClient VA download URL
     readOnly: true
@@ -126,13 +124,13 @@ properties:
     example: ef878e15eaa8c8d3e2fa52f41125e2a0eeadadc6a14f931a33ad3e1b62d56381
   createdAt:
     description: The date/time this ManagedClient was created
-    example: '2023-08-04T20:48:01.865Z'
+    example: "2023-08-04T20:48:01.865Z"
     nullable: true
     type: string
     format: date-time
   updatedAt:
     description: The date/time this ManagedClient was last updated
-    example: '2023-08-04T20:48:01.865Z'
+    example: "2023-08-04T20:48:01.865Z"
     nullable: true
     type: string
     format: date-time
@@ -145,23 +143,14 @@ properties:
       - null
       - PROVISIONED
       - DRAFT
-    example:
-      PROVISIONED
+    example: PROVISIONED
   healthIndicators:
     description: The health indicators of the ManagedClient
     type: object
     nullable: true
-    example : '{
-      "network": {
-      "errors": [],
-      "warnings": []
-      },
-      "memory": {
-      "errors": [],
-      "warnings": []
-      },
-      "cpu": {
-      "errors": [],
-      "warnings": []
+    example:
+      {
+        "network": { "errors": [], "warnings": [] },
+        "memory": { "errors": [], "warnings": [] },
+        "cpu": { "errors": [], "warnings": [] },
       }
-    }'

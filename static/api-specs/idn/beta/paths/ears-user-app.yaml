@@ -3,13 +3,12 @@ patch:
   tags:
     - Apps
   summary: Patch user app by id
-  description: >-
+  description: |-
     This API updates an existing user app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
-
-    The following fields are patchable:
-    **account**
+    The following fields are patchable: **account**
   security:
-    - userAuth: [idn:app-roles:read]
+    - userAuth:
+        - idn:app-roles:manage
   parameters:
     - name: id
       in: path
@@ -25,33 +24,29 @@ patch:
         schema:
           type: array
           items:
-            $ref: '../schemas/JsonPatchOperation.yaml'
-          example: [
-            {
-              "op": "replace",
-              "path": "/account",
-              "value": {
-                "id": "0891808a7813090a017814121e121518",
-                "type": "ACCOUNT"
-              }
-            }
-          ]
+            $ref: ../schemas/JsonPatchOperation.yaml
+          example:
+            - op: replace
+              path: /account
+              value:
+                id: 0891808a7813090a017814121e121518
+                type: ACCOUNT
   responses:
     '200':
       description: Responds with the user app as updated.
       content:
         application/json:
           schema:
-            $ref: '../schemas/app/UserApp.yaml'
+            $ref: ../schemas/app/UserApp.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

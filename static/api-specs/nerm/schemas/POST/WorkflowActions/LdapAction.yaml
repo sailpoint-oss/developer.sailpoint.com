@@ -1,14 +1,16 @@
 type: object
+required:
+  - workflow_id
+  - description
+  - store_type
 properties:
   workflow_id:
     type: string
     format: uuid
-    required: true
     description: The workflow the workflow action belongs to.
     example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
   description:
     type: string
-    required: true
     description: The description of the workflow action.
     example: Create a Collaboration user account for this profile.
   archived:
@@ -18,7 +20,6 @@ properties:
     example: false
   store_type:
     type: string
-    required: true
     enum: [Local, Directory]
     description: the type of store.
     example: Local

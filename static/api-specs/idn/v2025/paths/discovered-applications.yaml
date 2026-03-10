@@ -8,9 +8,14 @@ get:
   security:
     - userAuth:
         - 'idn:application-discovery:read'
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
   parameters:
     - $ref: '../parameters/limit.yaml'
+      required: false
     - $ref: '../parameters/offset.yaml'
+      required: false
     - in: query
       name: detail
       schema:
@@ -20,37 +25,45 @@ get:
         Determines whether slim, or increased level of detail is provided for each discovered application in the returned list.
         SLIM is the default behavior.
       example: FULL
+      required: false
     - in: query
       name: filter
       schema:
         type: string
       description: >
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
-          
-          
+
+
         Filtering is supported for the following fields and operators:
-        
-        
+
+
         **name**: *eq, sw, co*
-        
-        
+
+
         **description**: *eq, sw, co*
-        
-        
+
+
         **createdAtStart**: *eq, le, ge*
 
 
         **createdAtEnd**: *eq, le, ge*
-        
-        
+
+
         **discoveredAtStart**: *eq, le, ge*
-        
-        
+
+
         **discoveredAtEnd**: *eq, le, ge*
 
 
         **discoverySource**: *eq, in*
+
+
+        **discoverySourceName**: *eq, in*
+
+
+        **discoverySourceCategory**: *eq, in*
       example: name eq "Okta" and description co "Okta" and discoverySource in ("csv", "Okta Saas")
+      x-sailpoint-resource-operation-id: getDiscoveredApplications
       required: false
       style: form
     - in: query
@@ -62,8 +75,9 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
 
-        Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource**
+        Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource, discoverySourceName, discoverySourceCategory**
       example: name
+      required: false
   responses:
     '200':
       description: List of discovered applications. By default, the API returns a list of SLIM discovered applications.

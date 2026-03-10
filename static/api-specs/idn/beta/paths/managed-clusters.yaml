@@ -21,6 +21,16 @@ get:
 
 
         **operational**: *eq*
+
+
+        **name**: *eq*
+
+
+        **type**: *eq*
+
+
+        **status**: *eq*
+      required: false
       example: operational eq operation
   responses:
     "200":
@@ -43,3 +53,5 @@ get:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:remote-client:read, idn:remote-client:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

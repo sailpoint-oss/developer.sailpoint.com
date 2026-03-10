@@ -21,11 +21,11 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ref: ${{ github.head_ref }}
       - name: Run Slinky
-        uses: LukeHagar/slinky@v1
+        uses: LukasParke/slinky@v1
         with:
           respect_gitignore: false
         env:

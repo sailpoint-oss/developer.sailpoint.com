@@ -5,6 +5,7 @@ pagination_label: V2025
 sidebar_label: V2025
 sidebar_position: 2
 sidebar_class_name: v2025
+sidebar_key: v2025-python-reference
 keywords: ['v2025', 'Python']
 description: Python SDK reference V2025.
 slug: /tools/python/reference/v2025

@@ -40,11 +40,11 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $Entitlement = Initialize-V2025Entitlement  -Id 2c91808874ff91550175097daaec161c `
- -Name LauncherTest2 `
+ -Name PayrollControls `
  -Attribute memberOf `
- -Value CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local `
+ -Value CN=PayrollControls,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com `
  -SourceSchemaObjectType group `
- -Description CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local `
+ -Description Grants the ability to access and manage payroll-related controls and settings within the Corporate Active Directory system. `
  -Privileged true `
  -CloudGoverned true `
  -Requestable true `

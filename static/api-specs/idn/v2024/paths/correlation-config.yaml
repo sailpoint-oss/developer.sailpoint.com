@@ -4,14 +4,17 @@ get:
     - Sources
   summary: Get source correlation configuration
   security:
-    - userAuth: [idn:sources:read, idn:sources:manage]
+    - userAuth:
+        - idn:sources:read
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:read
+        - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
     - SOURCE_SUBADMIN
-  description: >-
-    This API returns the existing correlation configuration for a source specified by the
-    given ID.
+  description: This API returns the existing correlation configuration for a source specified by the given ID.
   parameters:
     - in: path
       name: id
@@ -27,34 +30,34 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/CorrelationConfig.yaml'
+            $ref: ../schemas/CorrelationConfig.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
-
+      $ref: ../responses/500.yaml
 put:
   operationId: putCorrelationConfig
   tags:
     - Sources
   summary: Update source correlation configuration
   security:
-    - userAuth: [idn:sources:manage]
+    - userAuth:
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
     - SOURCE_SUBADMIN
-  description: >-
-    Replaces the correlation configuration for the source specified by the given ID with the
-    configuration provided in the request body.
+  description: Replaces the correlation configuration for the source specified by the given ID with the configuration provided in the request body.
   parameters:
     - in: path
       name: id
@@ -69,23 +72,23 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/CorrelationConfig.yaml'
+          $ref: ../schemas/CorrelationConfig.yaml
   responses:
     '200':
       description: Updated correlation configuration for a source
       content:
         application/json:
           schema:
-            $ref: '../schemas/CorrelationConfig.yaml'
+            $ref: ../schemas/CorrelationConfig.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

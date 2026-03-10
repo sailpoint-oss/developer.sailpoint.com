@@ -3,46 +3,45 @@ post:
   tags:
     - Triggers
   summary: Validate a subscription filter
-  description: >-
+  description: |-
     Validates a JSONPath filter expression against a provided mock input.
-
     Request requires a security scope of: 
   requestBody:
     required: true
     content:
       application/json:
         schema:
-          $ref: '../schemas/ValidateFilterInputDto.yaml'
+          $ref: ../schemas/ValidateFilterInputDto.yaml
           required:
             - input
             - filter
         example:
-          input: {
-            "identityId": "201327fda1c44704ac01181e963d463c"
-          }
-          filter: '$[?($.identityId == "201327fda1c44704ac01181e963d463c")]'
-
+          input:
+            identityId: 201327fda1c44704ac01181e963d463c
+          filter: $[?($.identityId == "201327fda1c44704ac01181e963d463c")]
   responses:
     '200':
-      description: >-
-        Boolean whether specified filter expression is valid against the input.
+      description: Boolean whether specified filter expression is valid against the input.
       content:
         application/json:
           schema:
-            $ref: '../schemas/ValidateFilterOutputDto.yaml'
+            $ref: ../schemas/ValidateFilterOutputDto.yaml
           example:
             isValid: true
             isValidJSONPath: true
-            isPathExist: true 
+            isPathExist: true
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [sp:trigger-service-subscriptions:manage]
+    - userAuth:
+        - sp:trigger-service-subscriptions:manage
+    - applicationAuth:
+        - sp:trigger-service-subscriptions:manage

@@ -1,6 +1,6 @@
 post:
   tags:
-  - Custom Forms
+    - Custom Forms
   summary: Import form definitions from export.
   operationId: importFormDefinitions
   requestBody:
@@ -22,58 +22,57 @@ post:
                 format: int32
                 x-go-name: Version
         example:
-        - version: 1
-          self:
-            name: All fields not required
-            id: 05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa
-            type: FORM_DEFINITION
-          object:
-            id: 05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa
-            name: All fields not required
-            description: description
-            owner:
-              type: IDENTITY
-              id: 3447d8ec2602455ab6f1e8408a0f0150
-            usedBy:
-            - type: WORKFLOW
-              id: 5008594c-dacc-4295-8fee-41df60477304
-            - type: WORKFLOW
-              id: 97e75a75-c179-4fbc-a2da-b5fa4aaa8743
-            formInput:
-            - type: STRING
-              label: input1
-              description: A single dynamic scalar value (i.e. number, string, date,
-                etc) that can be passed into the form for use in conditional logic
-            formElements:
-            - id: '3069272797630701'
-              elementType: SECTION
-              config:
-                label: First Section
-                formElements:
-                - id: '3069272797630700'
-                  elementType: TEXT
-                  key: firstName
+          - version: 1
+            self:
+              name: All fields not required
+              id: 05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa
+              type: FORM_DEFINITION
+            object:
+              id: 05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa
+              name: All fields not required
+              description: description
+              owner:
+                type: IDENTITY
+                id: 3447d8ec2602455ab6f1e8408a0f0150
+              usedBy:
+                - type: WORKFLOW
+                  id: 5008594c-dacc-4295-8fee-41df60477304
+                - type: WORKFLOW
+                  id: 97e75a75-c179-4fbc-a2da-b5fa4aaa8743
+              formInput:
+                - type: STRING
+                  label: input1
+                  description: A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic
+              formElements:
+                - id: '3069272797630701'
+                  elementType: SECTION
                   config:
-                    label: First Name
-                - id: '3498415402897539'
-                  elementType: TEXT
-                  key: lastName
-                  config:
-                    label: Last Name
-            formConditions:
-            - ruleOperator: AND
-              rules:
-              - sourceType: INPUT
-                source: Department
-                operator: EQ
-                valueType: STRING
-                value: Sales
-              effects:
-              - effectType: HIDE
-                config:
-                  element: '2614088730489570'
-            created: '2022-10-04T19:27:04.456Z'
-            modified: '2022-11-16T20:45:02.172Z'
+                    label: First Section
+                    formElements:
+                      - id: '3069272797630700'
+                        elementType: TEXT
+                        key: firstName
+                        config:
+                          label: First Name
+                      - id: '3498415402897539'
+                        elementType: TEXT
+                        key: lastName
+                        config:
+                          label: Last Name
+              formConditions:
+                - ruleOperator: AND
+                  rules:
+                    - sourceType: INPUT
+                      source: Department
+                      operator: EQ
+                      valueType: STRING
+                      value: Sales
+                  effects:
+                    - effectType: HIDE
+                      config:
+                        element: '2614088730489570'
+              created: '2022-10-04T19:27:04.456Z'
+              modified: '2022-11-16T20:45:02.172Z'
     required: false
   responses:
     '202':
@@ -244,6 +243,7 @@ post:
                 type: string
                 x-go-name: TrackingID
   security:
-  - userAuth:
-    - sp:forms:manage
+    - userAuth:
+        - sp:forms:manage
+        - sp:config:manage
   x-codegen-request-body-name: Body

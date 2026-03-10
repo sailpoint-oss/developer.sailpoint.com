@@ -89,9 +89,11 @@ which will result in a file similar to the following:
 ```yaml
 'region': 'us-east-1'
 'source_ips':
+  - '44.196.68.227/32'
   - '52.204.100.58/32'
   - '52.205.92.24/32'
   - '52.206.146.115/32'
+  - '54.243.179.37/32'
 ```
 
 These IP Address ranges can now be used as an allow list to permit any call from your Identity Security Cloud tenant to access your internal network.

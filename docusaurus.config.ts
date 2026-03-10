@@ -24,7 +24,6 @@ const config: Config = {
   baseUrl,
   favicon: 'img/SailPoint-Logo-Icon.ico',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
   onDuplicateRoutes: 'throw',
   i18n: {
     defaultLocale: 'en',
@@ -72,23 +71,26 @@ const config: Config = {
       { name: 'description', content: 'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.' },
 
       // Open Graph
-      { property: 'og:url',         content: 'https://developer.sailpoint.com' },
-      { property: 'og:type',        content: 'website' },
-      { property: 'og:title',       content: 'SailPoint Developer Community' },
+      { property: 'og:url', content: 'https://developer.sailpoint.com' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:title', content: 'SailPoint Developer Community' },
       { property: 'og:description', content: 'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.' },
-      { property: 'og:image',       content: 'https://developer.sailpoint.com/img/SailPoint-Logo-OG.png' },
+      { property: 'og:image', content: 'https://developer.sailpoint.com/img/SailPoint-Logo-OG.png' },
 
       // Twitter
-      { name: 'twitter:card',        content: 'summary_large_image' },
-      { name: 'twitter:domain',      content: 'developer.sailpoint.com' },
-      { name: 'twitter:url',         content: 'https://developer.sailpoint.com' },
-      { name: 'twitter:title',       content: 'SailPoint Developer Community' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:domain', content: 'developer.sailpoint.com' },
+      { name: 'twitter:url', content: 'https://developer.sailpoint.com' },
+      { name: 'twitter:title', content: 'SailPoint Developer Community' },
       { name: 'twitter:description', content: 'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.' },
-      { name: 'twitter:image',       content: 'https://developer.sailpoint.com/img/SailPoint-Logo-OG.png' },
+      { name: 'twitter:image', content: 'https://developer.sailpoint.com/img/SailPoint-Logo-OG.png' },
+
+      // Content Security Policy
+      { 'http-equiv': 'Content-Security-Policy', content: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://code.jquery.com https://www.googletagmanager.com https://cdn.jsdelivr.net https://cdn.cookielaw.org https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://p.typekit.net https://use.typekit.net; img-src 'self' data: https: http:; font-src 'self' data: https://cdn.jsdelivr.net https://use.typekit.net https://cdnjs.cloudflare.com; connect-src 'self' http://localhost:3000 https://nug87yusrg.execute-api.us-east-1.amazonaws.com https://*.algolia.net https://*.algolianet.com https://www.googletagmanager.com https://www.google.com https://analytics.google.com https://developer.sailpoint.com https://cdn.cookielaw.org https://stats.g.doubleclick.net https://googleads.g.doubleclick.net https://*.api.identitynow.com; frame-src 'self' https://www.googletagmanager.com https://www.youtube.com https://play.vidyard.com; worker-src 'self' blob:;" },
     ],
     algolia: {
       appId: 'TB01H1DFAM',
-      apiKey: '726952a7a9389c484b6c96808a3e0010',
+      apiKey: process.env.ALGOLIA_SEARCH_KEY || 'dummy-key',
       indexName: 'crawler_Developer_Documentation',
       searchPagePath: false,
       placeholder: 'Search the Developer Community',
@@ -145,6 +147,9 @@ const config: Config = {
 
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'throw'
+    }
   },
 
   themes: ['docusaurus-theme-openapi-docs', '@docusaurus/theme-mermaid'],

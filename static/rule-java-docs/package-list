@@ -1,7 +1,6 @@
 connector.common
 sailpoint.api
 sailpoint.connector
-sailpoint.connector.util
 sailpoint.connector.webservices
 sailpoint.object
 sailpoint.rule

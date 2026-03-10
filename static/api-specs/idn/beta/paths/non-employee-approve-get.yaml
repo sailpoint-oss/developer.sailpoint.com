@@ -1,7 +1,8 @@
 get:
   operationId: getNonEmployeeApproval
   security:
-    - userAuth: [idn:nelm:read]
+    - userAuth:
+        - idn:nelm:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -9,24 +10,21 @@ get:
   tags:
     - Non-Employee Lifecycle Management
   summary: A non-employee approval item detail
-  description: >-
-    Approves a non-employee approval request and notifies the next approver.
+  description: Approves a non-employee approval request and notifies the next approver.
   deprecated: true
   parameters:
     - in: path
       name: id
-      example: "ac10d20a-841e-1e7d-8184-32d2e22c0179"
-      description: >-
-        Non-Employee approval item id (UUID)
+      example: ac10d20a-841e-1e7d-8184-32d2e22c0179
+      description: Non-Employee approval item id (UUID)
       required: true
       x-sailpoint-resource-operation-id: listNonEmployeeApprovals
       schema:
         type: string
     - in: query
-      example: "include-detail=false"
+      example: include-detail=false
       name: include-detail
-      description: >-
-        The object nonEmployeeRequest will not be included detail when set to false. *Default value is true*
+      description: The object nonEmployeeRequest will not be included detail when set to false. *Default value is true*
       required: false
       schema:
         type: string
@@ -36,14 +34,14 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/NonEmployeeApprovalItemDetail.yaml'
+            $ref: ../schemas/NonEmployeeApprovalItemDetail.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

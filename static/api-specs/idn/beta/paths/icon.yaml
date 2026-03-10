@@ -3,9 +3,7 @@ put:
   tags:
     - Icons
   summary: Update an icon
-  description: >-
-    This API endpoint updates an icon by object type and object id.
-    A token with ORG_ADMIN authority is required to call this API.
+  description: This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
   parameters:
     - in: path
       name: objectType
@@ -39,10 +37,13 @@ put:
               description: file with icon. Allowed mime-types ['image/png', 'image/jpeg']
               example: \x00\x00\x00\x02
   security:
-    - userAuth: [idn:icons:manage]
+    - userAuth:
+        - idn:icons:manage
+    - applicationAuth:
+        - idn:icons:manage
   responses:
     '200':
-      description:  Icon updated
+      description: Icon updated
       content:
         application/json:
           schema:
@@ -51,27 +52,25 @@ put:
               icon:
                 type: string
                 description: url to file with icon
-                example: ""
+                example: ''
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
 delete:
   operationId: deleteIcon
   tags:
     - Icons
   summary: Delete an icon
-  description: >-
-    This API endpoint delete an icon by object type and object id.
-    A token with ORG_ADMIN authority is required to call this API.
+  description: This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
   parameters:
     - in: path
       name: objectType
@@ -91,19 +90,22 @@ delete:
       example: a291e870-48c3-4953-b656-fb5ce2a93169
       x-sailpoint-resource-operation-id: searchObjects
   security:
-    - userAuth: [idn:icons:manage]
+    - userAuth:
+        - idn:icons:manage
+    - applicationAuth:
+        - idn:icons:manage
   responses:
     '204':
-      $ref: '../../v3/responses/204.yaml'
+      $ref: ../../v3/responses/204.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

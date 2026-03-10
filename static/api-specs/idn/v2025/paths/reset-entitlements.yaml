@@ -1,22 +1,20 @@
 post:
   operationId: resetSourceEntitlements
   tags:
-  - Entitlements
+    - Entitlements
   summary: Reset source entitlements
-  description: >-
+  description: |-
     Remove all entitlements from a specific source.
-
-    To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation. 
-    To do so, use [Account Aggregation](https://developer.sailpoint.com/docs/api/v2024/import-accounts/) with `disableOptimization` = `true`. 
+    To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Account Aggregation](https://developer.sailpoint.com/docs/api/v2024/import-accounts/) with `disableOptimization` = `true`. 
   parameters:
-  - name: id
-    in: path
-    description: ID of source for the entitlement reset
-    required: true
-    x-sailpoint-resource-operation-id: listSources
-    schema:
-      type: string
-      example: 2c91808a7813090a017814121919ecca
+    - name: id
+      in: path
+      description: ID of source for the entitlement reset
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      schema:
+        type: string
+        example: 2c91808a7813090a017814121919ecca
   responses:
     '202':
       description: Entitlement source reset task result
@@ -35,7 +33,7 @@ post:
     '500':
       $ref: ../responses/500.yaml
   security:
-  - userAuth:
-    - idn:entitlement:update
+    - userAuth:
+        - idn:entitlement:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN

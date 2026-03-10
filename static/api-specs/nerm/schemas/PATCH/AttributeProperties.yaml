@@ -8,8 +8,6 @@ properties:
     example: ac4aae0b-4140-49a4-a84c-126762fd0c8f
   uid:
     type: string
-    minLength: 32
-    maxLength: 32
     readOnly: true
     description: The user-specified identifier of the attribute
     example: myattribute

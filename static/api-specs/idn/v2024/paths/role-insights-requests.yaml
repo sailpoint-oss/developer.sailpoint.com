@@ -3,10 +3,8 @@ post:
   summary: Generate insights for roles
   deprecated: true
   tags:
-  - Role Insights
-  description: Submits a create role insights request to the role insights application.
-    At this time there are no parameters. All business roles will be processed for
-    the customer.
+    - Role Insights
+  description: Submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
   responses:
     '201':
       description: Submitted a role insights generation request
@@ -25,11 +23,16 @@ post:
     '500':
       $ref: ../responses/500.yaml
   parameters:
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  security:
+    - userAuth:
+        - iai:role-insights
+    - applicationAuth:
+        - iai:role-insights

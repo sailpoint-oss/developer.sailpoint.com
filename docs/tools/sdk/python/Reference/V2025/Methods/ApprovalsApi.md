@@ -19,15 +19,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**approve-approval**](#approve-approval) | **POST** `/generic-approvals/{id}/approve` | Post Approvals Approve
-[**approve-approval-0**](#approve-approval-0) | **POST** `/generic-approvals/bulk-approve` | Post Bulk Approve Approvals
+[**approve-approval-in-bulk**](#approve-approval-in-bulk) | **POST** `/generic-approvals/bulk-approve` | Post Bulk Approve Approvals
 [**cancel-approval**](#cancel-approval) | **POST** `/generic-approvals/bulk-cancel` | Post Bulk Cancel Approvals
 [**get-approval**](#get-approval) | **GET** `/generic-approvals/{id}` | Get an approval
 [**get-approvals**](#get-approvals) | **GET** `/generic-approvals` | Get approvals
-[**get-approvals-config-id-type**](#get-approvals-config-id-type) | **GET** `/generic-approvals/config` | Get Approval Config Type
+[**get-approvals-config**](#get-approvals-config) | **GET** `/generic-approvals/config/{id}` | Get Approval Config
 [**move-approval**](#move-approval) | **POST** `/generic-approvals/bulk-reassign` | Post Bulk Reassign Approvals
-[**patch-approvals-config-type**](#patch-approvals-config-type) | **PATCH** `/generic-approvals/config` | Patch Approval Config Type
+[**put-approvals-config**](#put-approvals-config) | **PUT** `/generic-approvals/config` | Put Approval Config
 [**reject-approval**](#reject-approval) | **POST** `/generic-approvals/{id}/reject` | Post Approvals Reject
-[**reject-approval-0**](#reject-approval-0) | **POST** `/generic-approvals/bulk-reject` | Post Bulk Reject Approvals
+[**reject-approval-in-bulk**](#reject-approval-in-bulk) | **POST** `/generic-approvals/bulk-reject` | Post Bulk Reject Approvals
 [**update-approvals-attributes**](#update-approvals-attributes) | **POST** `/generic-approvals/{id}/attributes` | Post Approvals Attributes
 [**update-approvals-comments**](#update-approvals-comments) | **POST** `/generic-approvals/{id}/comments` | Post Approvals Comments
 [**update-approvals-reassign**](#update-approvals-reassign) | **POST** `/generic-approvals/{id}/reassign` | Post Approvals Reassign
@@ -104,11 +104,11 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
-## approve-approval-0
+## approve-approval-in-bulk
 Post Bulk Approve Approvals
 Bulk Approves specified approval requests on behalf of the caller
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-approval-0)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-approval-in-bulk)
 
 ### Parameters 
 
@@ -157,13 +157,13 @@ with ApiClient(configuration) as api_client:
     try:
         # Post Bulk Approve Approvals
         new_bulk_approve_request_dto = BulkApproveRequestDto.from_json(bulk_approve_request_dto)
-        results = ApprovalsApi(api_client).approve_approval_0(bulk_approve_request_dto=new_bulk_approve_request_dto)
+        results = ApprovalsApi(api_client).approve_approval_in_bulk(bulk_approve_request_dto=new_bulk_approve_request_dto)
         # Below is a request that includes all optional parameters
-        # results = ApprovalsApi(api_client).approve_approval_0(new_bulk_approve_request_dto)
-        print("The response of ApprovalsApi->approve_approval_0:\n")
+        # results = ApprovalsApi(api_client).approve_approval_in_bulk(new_bulk_approve_request_dto)
+        print("The response of ApprovalsApi->approve_approval_in_bulk:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
-        print("Exception when calling ApprovalsApi->approve_approval_0: %s\n" % e)
+        print("Exception when calling ApprovalsApi->approve_approval_in_bulk: %s\n" % e)
 ```
 
 
@@ -389,18 +389,17 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
-## get-approvals-config-id-type
-Get Approval Config Type
-Currently this endpoint only supports Entitlement Description Approvals.
+## get-approvals-config
+Get Approval Config
 Retrieves a singular approval configuration that matches the given ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-approvals-config-id-type)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-approvals-config)
 
 ### Parameters 
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid)
+Path   | id | **str** | True  | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), (sourceID), (applicationID), \"ENTITLEMENT_DESCRIPTIONS\", \"ACCESS_REQUEST_APPROVAL\", (tenantID)]
 
 ### Return type
 [**ApprovalConfig**](../models/approval-config)
@@ -430,18 +429,18 @@ configuration = Configuration()
 
 
 with ApiClient(configuration) as api_client:
-    id = '38453251-6be2-5f8f-df93-5ce19e295837' # str | ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid) # str | ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid)
+    id = '38453251-6be2-5f8f-df93-5ce19e295837' # str | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), (sourceID), (applicationID), \"ENTITLEMENT_DESCRIPTIONS\", \"ACCESS_REQUEST_APPROVAL\", (tenantID)] # str | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), (sourceID), (applicationID), \"ENTITLEMENT_DESCRIPTIONS\", \"ACCESS_REQUEST_APPROVAL\", (tenantID)]
 
     try:
-        # Get Approval Config Type
+        # Get Approval Config
         
-        results = ApprovalsApi(api_client).get_approvals_config_id_type(id=id)
+        results = ApprovalsApi(api_client).get_approvals_config(id=id)
         # Below is a request that includes all optional parameters
-        # results = ApprovalsApi(api_client).get_approvals_config_id_type(id)
-        print("The response of ApprovalsApi->get_approvals_config_id_type:\n")
+        # results = ApprovalsApi(api_client).get_approvals_config(id)
+        print("The response of ApprovalsApi->get_approvals_config:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
-        print("Exception when calling ApprovalsApi->get_approvals_config_id_type: %s\n" % e)
+        print("Exception when calling ApprovalsApi->get_approvals_config: %s\n" % e)
 ```
 
 
@@ -512,19 +511,19 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
-## patch-approvals-config-type
-Patch Approval Config Type
-Updates a singular approval configuration that matches the given configID and configScope
+## put-approvals-config
+Put Approval Config
+Upserts a singular approval configuration that matches the given configID and configScope. If id and scope are not provided, it will default to setting the tenant config.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-approvals-config-type)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-approvals-config)
 
 ### Parameters 
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | id | **str** | True  | The ID defined by the scope field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
-  Query | scope | **str** | True  | The scope of the field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
  Body  | approval_config | [**ApprovalConfig**](../models/approval-config) | True  | 
+  Query | id | **str** |   (optional) | The ID defined by the scope field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT 
+  Query | scope | **str** |   (optional) | The scope of the field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT 
 
 ### Return type
 [**ApprovalConfig**](../models/approval-config)
@@ -555,8 +554,6 @@ configuration = Configuration()
 
 
 with ApiClient(configuration) as api_client:
-    id = '38453251-6be2-5f8f-df93-5ce19e295837' # str | The ID defined by the scope field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT # str | The ID defined by the scope field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
-    scope = 'ROLE' # str | The scope of the field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT # str | The scope of the field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
     approval_config = '''{
           "timeoutConfig" : {
             "daysUntilTimeout" : 2,
@@ -601,7 +598,7 @@ with ApiClient(configuration) as api_client:
             "maxReminders" : 5,
             "enabled" : false
           },
-          "scope" : "APPROVAL_REQUEST",
+          "scope" : "DOMAIN_OBJECT",
           "tenantId" : "d3c10266-1a31-4acc-b01e-44a3d1c56615",
           "escalationConfig" : {
             "escalationCronSchedule" : "*/5 * * * *",
@@ -633,17 +630,19 @@ with ApiClient(configuration) as api_client:
           } ],
           "autoApprove" : "false"
         }''' # ApprovalConfig | 
+    id = '38453251-6be2-5f8f-df93-5ce19e295837' # str | The ID defined by the scope field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT  (optional) # str | The ID defined by the scope field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT  (optional)
+    scope = 'ROLE' # str | The scope of the field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT  (optional) # str | The scope of the field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT  (optional)
 
     try:
-        # Patch Approval Config Type
+        # Put Approval Config
         new_approval_config = ApprovalConfig.from_json(approval_config)
-        results = ApprovalsApi(api_client).patch_approvals_config_type(id=id, scope=scope, approval_config=new_approval_config)
+        results = ApprovalsApi(api_client).put_approvals_config(approval_config=new_approval_config)
         # Below is a request that includes all optional parameters
-        # results = ApprovalsApi(api_client).patch_approvals_config_type(id, scope, new_approval_config)
-        print("The response of ApprovalsApi->patch_approvals_config_type:\n")
+        # results = ApprovalsApi(api_client).put_approvals_config(new_approval_config, id, scope)
+        print("The response of ApprovalsApi->put_approvals_config:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
-        print("Exception when calling ApprovalsApi->patch_approvals_config_type: %s\n" % e)
+        print("Exception when calling ApprovalsApi->put_approvals_config: %s\n" % e)
 ```
 
 
@@ -713,11 +712,11 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
-## reject-approval-0
+## reject-approval-in-bulk
 Post Bulk Reject Approvals
 Bulk reject specified approval requests on behalf of the caller
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/reject-approval-0)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/reject-approval-in-bulk)
 
 ### Parameters 
 
@@ -762,13 +761,13 @@ with ApiClient(configuration) as api_client:
     try:
         # Post Bulk Reject Approvals
         new_bulk_reject_request_dto = BulkRejectRequestDto.from_json(bulk_reject_request_dto)
-        results = ApprovalsApi(api_client).reject_approval_0(bulk_reject_request_dto=new_bulk_reject_request_dto)
+        results = ApprovalsApi(api_client).reject_approval_in_bulk(bulk_reject_request_dto=new_bulk_reject_request_dto)
         # Below is a request that includes all optional parameters
-        # results = ApprovalsApi(api_client).reject_approval_0(new_bulk_reject_request_dto)
-        print("The response of ApprovalsApi->reject_approval_0:\n")
+        # results = ApprovalsApi(api_client).reject_approval_in_bulk(new_bulk_reject_request_dto)
+        print("The response of ApprovalsApi->reject_approval_in_bulk:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
-        print("Exception when calling ApprovalsApi->reject_approval_0: %s\n" % e)
+        print("Exception when calling ApprovalsApi->reject_approval_in_bulk: %s\n" % e)
 ```
 
 

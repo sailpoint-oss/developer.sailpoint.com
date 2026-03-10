@@ -9,8 +9,6 @@ properties:
   uid:
     type: string
     description: The user identifier for the object
-    minLength: 32
-    maxLength: 32
     readOnly: true
     enum: [profile_contributor, profile_owner]
     example: "profile_contributor"

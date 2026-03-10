@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 ```powershell
 $EntitlementSource = Initialize-V2025EntitlementSource  -Id 2c9180827ca885d7017ca8ce28a000eb `
  -Type SOURCE `
- -Name ODS-AD-Source
+ -Name Corporate Active Directory
 ```
 
 - Convert the resource to JSON

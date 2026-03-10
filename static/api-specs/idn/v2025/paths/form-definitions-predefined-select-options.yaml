@@ -1,6 +1,6 @@
 get:
   tags:
-  - Custom Forms
+    - Custom Forms
   summary: List predefined select options.
   description: No parameters required.
   operationId: searchPreDefinedSelectOptions
@@ -106,5 +106,6 @@ get:
                 type: string
                 x-go-name: TrackingID
   security:
-  - userAuth:
-    - sp:forms:manage
+    - userAuth:
+        - sp:forms:read
+        - sp:forms:manage

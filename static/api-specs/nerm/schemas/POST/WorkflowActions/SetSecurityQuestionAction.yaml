@@ -1,14 +1,16 @@
 type: object
+required:
+  - workflow_id
+  - description
+  - number_of_questions
 properties:
   workflow_id:
     type: string
     format: uuid
-    required: true
     description: The workflow the workflow action belongs to.
     example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
   description:
     type: string
-    required: true
     description: The description of the workflow action.
     example: Prompt the user to provide some personal security questions and answers.
   archived:
@@ -19,6 +21,5 @@ properties:
   number_of_questions:
     type: integer
     format: int32
-    required: true
     description: The number of questions the user should answer upon login.
     example: 1

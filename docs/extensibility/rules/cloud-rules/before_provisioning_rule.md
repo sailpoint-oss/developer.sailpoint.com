@@ -35,6 +35,7 @@ These are some examples of when to use this rule:
 | idn | sailpoint.server.IdnRuleUtil | Provides a read-only starting point for using the SailPoint API. From this passed reference, the rule can interrogate the Identity Security Cloud data model including identities or account information via helper methods as described in [IdnRuleUtil](../idn_rule_utility.md). |
 | plan | sailpoint.object.ProvisioningPlan | A set of provisioning instructions which are sent to the source connectors. |
 | application | sailpoint.object.Application | Read-only reference to application object that represents the source to which provisioning is being done. |
+| integration | sailpoint.object.IntegrationConfig | The target integration application object that references this rule. |
 
 ## Output
 

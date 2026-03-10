@@ -3,11 +3,11 @@ get:
   tags:
     - Machine Identities
   summary: List machine identities
-  description: >-
-    This API returns a list of machine identities.
+  description: This API returns a list of machine identities.
   security:
     - userAuth:
-        - 'idn:mis-identity:read'
+        - idn:mis-identity:read
+        - idn:mis-identity:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -20,38 +20,31 @@ get:
       schema:
         type: string
       example: identityId eq "2c9180858082150f0180893dbaf44201"
-      description: 'Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
-
+      description: |-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
         Filtering is supported for the following fields and operators:
 
-
         **id**: *eq, in, sw*
-
 
         **displayName**: *eq, in, sw*
 
-
         **cisIdentityId**: *eq, in, sw*
-
 
         **businessApplication**: *eq, in, sw*
 
-
         **attributes**: *eq*
 
-
-        **manuallyEdited**: *eq*'
+        **manuallyEdited**: *eq*
     - in: query
       name: sorters
       schema:
         type: string
         format: comma-separated
       required: false
-      description: >-
+      description: |-
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
-       
-        
+
         Sorting is supported for the following fields: **businessApplication, name, owners.primaryIdentity.name, source.name, created, modified**
       example: businessApplication
     - name: X-SailPoint-Experimental
@@ -62,30 +55,30 @@ get:
         type: string
         default: true
       required: true
-    - $ref: "../parameters/count.yaml"
-    - $ref: "../parameters/limit.yaml"
-    - $ref: "../parameters/offset.yaml"
+    - $ref: ../parameters/count.yaml
+    - $ref: ../parameters/limit.yaml
+    - $ref: ../parameters/offset.yaml
   responses:
-    "200":
+    '200':
       description: List of machine identities.
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: "../schemas/MachineIdentity.yaml"
-    "400":
-      $ref: "../responses/400.yaml"
-    "401":
-      $ref: "../responses/401.yaml"
-    "403":
-      $ref: "../responses/403.yaml"
+              $ref: ../schemas/MachineIdentity.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
-    "429":
-      $ref: "../responses/429.yaml"
-    "500":
-      $ref: "../responses/500.yaml"
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
 post:
   operationId: createMachineIdentity
   tags:
@@ -93,38 +86,39 @@ post:
   summary: Create machine identities
   security:
     - userAuth:
-        - 'idn:mis-identity:manage'
+        - idn:mis-identity:manage
+    - applicationAuth:
+        - idn:mis-identity:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
-  description: >-
+  description: |-
     Use this API to create a machine identity.
-
     The maximum supported length for the description field is 2000 characters.
   requestBody:
     required: true
     content:
       application/json:
         schema:
-          $ref: '../schemas/MachineIdentity.yaml'
+          $ref: ../schemas/MachineIdentity.yaml
   responses:
     '200':
       description: Machine Identity created.
       content:
         application/json:
           schema:
-            $ref: '../schemas/MachineIdentity.yaml'
+            $ref: ../schemas/MachineIdentity.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
   parameters:
     - name: X-SailPoint-Experimental
       in: header

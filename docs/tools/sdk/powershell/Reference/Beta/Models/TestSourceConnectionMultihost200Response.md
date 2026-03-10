@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 ```powershell
 $TestSourceConnectionMultihost200Response = Initialize-BetaTestSourceConnectionMultihost200Response  -Success true `
  -Message Tes. `
- -Timing null `
+ -Timing 30437 `
  -ResultType SOURCE_STATE_HEALTHY `
  -TestConnectionDetails null
 ```

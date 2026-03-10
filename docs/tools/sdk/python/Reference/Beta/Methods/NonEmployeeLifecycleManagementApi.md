@@ -1430,7 +1430,11 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 List schema attributes non-employee source
-This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned.
+This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8
+mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can
+add up to 10 custom attributes. This interface returns all the mandatory attributes followed by
+any custom attributes. At most, a total of 18 attributes will be returned.
+
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-source-schema-attributes)
 

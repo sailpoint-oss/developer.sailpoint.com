@@ -1,9 +1,9 @@
 post:
   tags:
-    - Authorization
+    - Custom User Levels
   summary: Count user levels identities
   description: List of user levels along with the number of identities associated to it.
-  operationId: listUserLevelCounts
+  operationId: showUserLevelCounts
   x-sailpoint-userLevels:
     - ORG_ADMIN
   security:

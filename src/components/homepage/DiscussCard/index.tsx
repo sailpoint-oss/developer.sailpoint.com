@@ -10,7 +10,7 @@ import { faSquareCheck, faEye } from '@fortawesome/free-solid-svg-icons';
 interface DiscussCardProps {
   link: string;
   title: string;
-  tags?: string[];
+  tags?: (string | { id: number; name: string; slug: string })[];
   views: number;
   liked: number;
   solution?: boolean;
@@ -54,8 +54,8 @@ const DiscussCard: React.FC<DiscussCardProps> = ({ link, title, tags, views, lik
 
         <div className={styles.tags}>
           {tags?.slice(0, 3).map((tag) => (
-            <div key={tag} className={styles.tag}>
-              {tag}
+            <div key={typeof tag === 'object' ? tag.name : tag} className={styles.tag}>
+              {typeof tag === 'object' ? tag.name : tag}
             </div>
           ))}
         </div>

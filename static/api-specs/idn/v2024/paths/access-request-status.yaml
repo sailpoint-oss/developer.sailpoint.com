@@ -104,13 +104,13 @@ get:
         Filtering is supported for the following fields and operators:
         
         
-        **accessRequestId**: *eq, in, ge, gt, le, lt, ne, sw*
+        **accessRequestId**: *eq, ge, gt, le, lt, ne, sw*
         
         
-        **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
+        **accountActivityItemId**: *eq, in, ge, gt, le, ne, sw*
         
         
-        **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
+        **created**: *eq, ge, gt, le, lt, ne*
       required: false
     - in: query
       name: sorters

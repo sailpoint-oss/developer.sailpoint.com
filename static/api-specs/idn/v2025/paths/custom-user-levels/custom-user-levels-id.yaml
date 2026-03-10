@@ -180,7 +180,10 @@ patch:
         type: string
       example: 6e110911-5984-491b-be74-2707980a46a7
   requestBody:
-    description: JSON Patch payload for updating the user level.
+    description: |
+      JSON Patch payload for updating the user level.
+        - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.
+        - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case.
     required: true
     content:
       application/json-patch+json:
@@ -237,13 +240,43 @@ patch:
                     "idn:identity-management-example"
                   ],
                   "uiAssignableChildRightSetIds": [
-                    "idn:ui-identity-details-read-example",
-                    "idn:ui-identity-list-read-example"
+                    "idn:ui-identity-manage-child-one-example",
+                    "idn:ui-identity-manage-child-two-example"
                   ],
                   "uiAssignable": true,
                   "translatedName": "Identity Management",
                   "translatedDescription": "Access to manage all identities.",
                   "parentId": null
+                },
+                {
+                  "id": "idn:ui-identity-manage-child-one-example",
+                  "name": "Identity Details Read",
+                  "description": "Read only access for identity details.",
+                  "category": "identity",
+                  "rights": [
+                    "idn:ui-identity-manage-child-one-example:read"
+                  ],
+                  "rightSetIds": [ ],
+                  "uiAssignableChildRightSetIds": [ ],
+                  "uiAssignable": true,
+                  "translatedName": "Identity Details Read",
+                  "translatedDescription": "Read only access for identity details.",
+                  "parentId": "idn:ui-identity-manage-example"
+                },
+                {
+                  "id": "idn:ui-identity-manage-child-two-example",
+                  "name": "Identity List Read",
+                  "description": "Read only access for identity list.",
+                  "category": "identity",
+                  "rights": [
+                    "idn:ui-identity-manage-child-two-example:read"
+                  ],
+                  "rightSetIds": [ ],
+                  "uiAssignableChildRightSetIds": [ ],
+                  "uiAssignable": true,
+                  "translatedName": "Identity List Read",
+                  "translatedDescription": "Read only access for identity list.",
+                  "parentId": "idn:ui-identity-manage-example"
                 }
               ],
               "custom": true,

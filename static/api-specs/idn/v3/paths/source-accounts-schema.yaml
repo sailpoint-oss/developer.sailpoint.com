@@ -2,9 +2,8 @@ get:
   tags:
     - Sources
   summary: Downloads source accounts schema template
-  description: >-
+  description: |-
     This API downloads the CSV schema that defines the account attributes on a source.
-    
     >**NOTE: This API is designated only for Delimited File sources.**
   operationId: getAccountsSchema
   parameters:
@@ -15,41 +14,40 @@ get:
       schema:
         type: string
       description: The Source id
-      example: '8c190e6787aa4ed9a90bd9d5344523fb'
+      example: 8c190e6787aa4ed9a90bd9d5344523fb
   responses:
     '200':
       description: Successfully downloaded the file
       content:
         text/csv:
-          example: "id,name,givenName,familyName,e-mail,location,manager,groups,startDate,endDate"
+          example: id,name,givenName,familyName,e-mail,location,manager,groups,startDate,endDate
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:source-schema:read]
+    - userAuth:
+        - idn:source-schema:read
+        - idn:source-schema:manage
 post:
   tags:
     - Sources
   summary: Uploads source accounts schema template
-  description: >-
+  description: |-
     This API uploads a source schema template file to configure a source's account attributes.
 
-
     To retrieve the file to modify and upload, log into Identity Now. 
-    
 
     Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**
 
-    
     >**NOTE: This API is designated only for Delimited File sources.**
   operationId: importAccountsSchema
   parameters:
@@ -60,7 +58,7 @@ post:
       schema:
         type: string
       description: The Source id
-      example: '8c190e6787aa4ed9a90bd9d5344523fb'
+      example: 8c190e6787aa4ed9a90bd9d5344523fb
   requestBody:
     required: true
     content:
@@ -77,16 +75,17 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../schemas/Schema.yaml'
+            $ref: ../schemas/Schema.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:source-schema:manage]
+    - userAuth:
+        - idn:source-schema:manage

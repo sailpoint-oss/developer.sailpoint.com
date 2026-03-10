@@ -39,22 +39,17 @@ get:
       x-go-name: Limit
     - name: filters
       in: query
-      description: >-
+      description: |-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
-
         Filtering is supported for the following fields and operators:
-        
-        
+
         **name**: *eq, gt, sw, in*
-        
-        
+
         **description**: *eq, gt, sw, in*
-        
-        
+
         **created**: *eq, gt, sw, in*
-        
-        
+
         **modified**: *eq, gt, sw, in*
       schema:
         type: string
@@ -64,9 +59,8 @@ get:
       x-go-name: Filters
     - name: sorters
       in: query
-      description: >-
+      description: |-
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
-
 
         Sorting is supported for the following fields: **name, description, created, modified**
       schema:
@@ -77,9 +71,8 @@ get:
       required: false
       x-go-name: Sorters
   responses:
-    "200":
-      description: Returns a list of form definition objects by tenant used by
-        SP-Config
+    '200':
+      description: Returns a list of form definition objects by tenant used by SP-Config
       content:
         application/json:
           schema:
@@ -88,13 +81,13 @@ get:
               type: object
               properties:
                 object:
-                  $ref: '../schemas/forms/FormDefinitionResponse.yaml'
+                  $ref: ../schemas/forms/FormDefinitionResponse.yaml
                 self:
-                  $ref: '../schemas/forms/FormDefinitionSelfImportExportDto.yaml'
+                  $ref: ../schemas/forms/FormDefinitionSelfImportExportDto.yaml
                 version:
                   type: integer
                   x-go-name: Version
-    "400":
+    '400':
       description: An error with the request occurred
       content:
         application/json:
@@ -107,7 +100,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -116,7 +109,7 @@ get:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "401":
+    '401':
       description: An error with the authorization occurred
       content:
         application/json:
@@ -129,7 +122,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -138,7 +131,7 @@ get:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "403":
+    '403':
       description: An error with the user permissions occurred
       content:
         application/json:
@@ -151,7 +144,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -160,13 +153,13 @@ get:
               trackingId:
                 type: string
                 x-go-name: TrackingID
-    "429":
+    '429':
       description: Too many requests
       content:
         application/json:
           schema:
-            $ref: '../schemas/forms/Error.yaml'
-    "500":
+            $ref: ../schemas/forms/Error.yaml
+    '500':
       description: An internal server error occurred
       content:
         application/json:
@@ -179,7 +172,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -190,4 +183,6 @@ get:
                 x-go-name: TrackingID
   security:
     - userAuth:
+        - sp:config:read
         - sp:forms:manage
+        - sp:config:manage

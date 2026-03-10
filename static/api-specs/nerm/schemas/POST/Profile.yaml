@@ -1,4 +1,7 @@
 type: object
+required:
+  - profile_type_id
+  - status
 properties:
   name:
     type: string
@@ -7,13 +10,11 @@ properties:
   profile_type_id:
     type: string
     format: uuid
-    required: true
     description: The profile type id.
     example: 79ed1cb6-9977-4965-9bfe-f2bcc2424444
   status:
     type: string
     enum: [Active, Inactive, On Leave, Terminated]
-    required: true
     description: The profile status.
     example: Active
   id_proofing_status:

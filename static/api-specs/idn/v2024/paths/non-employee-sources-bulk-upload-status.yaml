@@ -1,7 +1,5 @@
 get:
   operationId: getNonEmployeeBulkUploadStatus
-  # security:
-  #   - oauth2: [idn:nesr:read]
   tags:
     - Non-Employee Lifecycle Management
   summary: Obtain the status of bulk upload on the source
@@ -11,28 +9,31 @@ get:
   parameters:
     - in: path
       name: id
-      description: >-
-        Source ID (UUID)
+      description: Source ID (UUID)
       required: true
       x-sailpoint-resource-operation-id: listNonEmployeeSources
       schema:
         type: string
       example: e136567de87e4d029e60b3c3c55db56d
   responses:
-    "200":
-      description: >-
-        Status of the newest bulk-upload job, if any.
+    '200':
+      description: Status of the newest bulk-upload job, if any.
       content:
         application/json:
           schema:
-            $ref: "../schemas/non-employee/NonEmployeeBulkUploadStatus.yaml"
-    "400":
-      $ref: "../responses/400.yaml"
-    "401":
-      $ref: "../responses/401.yaml"
-    "403":
-      $ref: "../responses/403.yaml"
-    "429":
-      $ref: "../responses/429.yaml"
-    "500":
-      $ref: "../responses/500.yaml"
+            $ref: ../schemas/non-employee/NonEmployeeBulkUploadStatus.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - idn:nelm:read
+    - applicationAuth:
+        - idn:nelm:read

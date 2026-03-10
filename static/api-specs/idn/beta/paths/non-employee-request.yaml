@@ -1,7 +1,10 @@
 get:
   operationId: getNonEmployeeRequest
   security:
-    - userAuth: [idn:nelm:read]
+    - userAuth:
+        - idn:nelm:read
+    - applicationAuth:
+        - idn:nelm:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -9,15 +12,13 @@ get:
   tags:
     - Non-Employee Lifecycle Management
   summary: Get a non-employee request
-  description: >-
-    This gets a non-employee request.
+  description: This gets a non-employee request.
   deprecated: true
   parameters:
     - in: path
       name: id
       example: 2c91808b6ef1d43e016efba0ce470904
-      description: >-
-        Non-Employee request id (UUID)
+      description: Non-Employee request id (UUID)
       required: true
       x-sailpoint-resource-operation-id: listNonEmployeeRequests
       schema:
@@ -28,23 +29,26 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/NonEmployeeRequest.yaml'
+            $ref: ../schemas/NonEmployeeRequest.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
 delete:
   operationId: deleteNonEmployeeRequest
   security:
-    - userAuth: [idn:nelm:manage]
+    - userAuth:
+        - idn:nelm:manage
+    - applicationAuth:
+        - idn:nelm:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -52,14 +56,12 @@ delete:
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete non-employee request
-  description: >-
-    This request will delete a non-employee request.
+  description: This request will delete a non-employee request.
   deprecated: true
   parameters:
     - in: path
       name: id
-      description: >-
-        Non-Employee request id in the UUID format
+      description: Non-Employee request id in the UUID format
       required: true
       x-sailpoint-resource-operation-id: listNonEmployeeRequests
       example: 2c91808b6ef1d43e016efba0ce470904
@@ -68,16 +70,16 @@ delete:
         format: uuid
   responses:
     '204':
-      $ref: '../../v3/responses/204.yaml'
+      $ref: ../../v3/responses/204.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

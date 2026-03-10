@@ -5,6 +5,7 @@ pagination_label: Beta
 sidebar_label: Beta
 sidebar_position: 2
 sidebar_class_name: beta
+sidebar_key: golang-beta
 keywords: ['beta', 'Golang']
 description: Golang SDK reference Beta.
 slug: /tools/go/reference/beta

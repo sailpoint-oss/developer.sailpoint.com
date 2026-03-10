@@ -3,8 +3,7 @@ get:
   tags:
     - Identity Profiles
   summary: Get identity profile
-  description: >-
-    Get a single identity profile by ID.
+  description: Get a single identity profile by ID.
   parameters:
     - in: path
       name: identity-profile-id
@@ -21,22 +20,24 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/IdentityProfile.yaml'
+            $ref: ../schemas/IdentityProfile.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml
   security:
-    - userAuth: [idn:identity-profile:read]
-    - applicationAuth: [idn:identity-profile:read]
+    - userAuth:
+        - idn:identity-profile:read
+    - applicationAuth:
+        - idn:identity-profile:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
 delete:
@@ -44,9 +45,8 @@ delete:
   tags:
     - Identity Profiles
   summary: Delete identity profile
-  description: >-
+  description: |-
     Delete an identity profile by ID.
-
     On success, this endpoint will return a reference to the bulk delete task result.
   parameters:
     - in: path
@@ -64,22 +64,23 @@ delete:
       content:
         application/json:
           schema:
-            $ref: '../../v3/schemas/TaskResultSimplified.yaml'
+            $ref: ../../v3/schemas/TaskResultSimplified.yaml
             description: An object with a TaskResult reference of the delete job.
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:identity-profile:delete]
+    - userAuth:
+        - idn:identity-profile:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
 patch:
@@ -87,21 +88,15 @@ patch:
   tags:
     - Identity Profiles
   summary: Update identity profile
-  description: >-
+  description: |-
     Update a specified identity profile with this PATCH request.
       
     You cannot update these fields:
-
     * id
-
     * created
-
     * modified
-    
     * identityCount
-    
     * identityRefreshRequired
-    
     * Authoritative Source and Identity Attribute Configuration cannot be modified at the same time.
   parameters:
     - in: path
@@ -115,55 +110,48 @@ patch:
       example: ef38f94347e94562b5bb8424a56397d8
   requestBody:
     required: true
-    description: >-
-      List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    description: List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
     content:
       application/json-patch+json:
         schema:
           type: array
           items:
-            $ref: '../schemas/JsonPatchOperation.yaml'
+            $ref: ../schemas/JsonPatchOperation.yaml
         examples:
           add-attribute-transform:
             summary: Add an attribute transform
-            value: [
-              {
-                "op": "add",
-                "path": "/identityAttributeConfig/attributeTransforms/0",
-                "value": {
-                  "identityAttributeName": "location",
-                  "transformDefinition": {
-                    "type": "accountAttribute",
-                    "attributes": {
-                      "sourceName": "Employees",
-                      "attributeName": "location",
-                      "sourceId": "2c91808878b7d63b0178c66ffcdc4ce4"
-                    }
-                  }
-                }
-              }
-            ]
+            value:
+              - op: add
+                path: /identityAttributeConfig/attributeTransforms/0
+                value:
+                  identityAttributeName: location
+                  transformDefinition:
+                    type: accountAttribute
+                    attributes:
+                      sourceName: Employees
+                      attributeName: location
+                      sourceId: 2c91808878b7d63b0178c66ffcdc4ce4
   responses:
     '200':
-      description: >-
-        Updated identity profile.
+      description: Updated identity profile.
       content:
         application/json:
           schema:
-            $ref: '../schemas/IdentityProfile.yaml'
+            $ref: ../schemas/IdentityProfile.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: ../../v3/responses/404.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml
   security:
-    - userAuth: [idn:identity-profile:manage]
+    - userAuth:
+        - idn:identity-profile:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN

@@ -3,10 +3,12 @@ post:
   tags:
     - Accounts
   summary: Reload account
-  description: >-
-    This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.      
+  description: 'This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.      '
   security:
-    - userAuth: [idn:accounts-state:manage]
+    - userAuth:
+        - idn:accounts-state:manage
+    - applicationAuth:
+        - idn:accounts-state:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN
@@ -27,16 +29,16 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../schemas/AccountsAsyncResult.yaml'
+            $ref: ../schemas/AccountsAsyncResult.yaml
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
-      $ref: '../responses/404.yaml'
+      $ref: ../responses/404.yaml
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

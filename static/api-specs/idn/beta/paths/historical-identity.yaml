@@ -3,12 +3,14 @@ get:
   tags:
     - Identity History
   summary: Get latest snapshot of identity
-  description: >-
-    This method retrieves a specified identity
-    Requires authorization scope of 'idn:identity-history:read'
+  description: This method retrieves a specified identity Requires authorization scope of 'idn:identity-history:read'
   security:
     - userAuth:
-      - "idn:identity-history:read"    
+        - idn:identity-history:read
+        - idn:identity-history:manage
+    - applicationAuth:
+        - idn:identity-history:read
+        - idn:identity-history:manage
   parameters:
     - in: path
       name: id
@@ -17,21 +19,21 @@ get:
       required: true
       x-sailpoint-resource-operation-id: listHistoricalIdentities
       description: The identity id
-      example: '8c190e6787aa4ed9a90bd9d5344523fb'
+      example: 8c190e6787aa4ed9a90bd9d5344523fb
   responses:
     '200':
       description: The identity object.
       content:
         application/json:
           schema:
-            $ref: '../schemas/IdentityHistoryResponse.yaml'
+            $ref: ../schemas/IdentityHistoryResponse.yaml
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: ../../v3/responses/400.yaml
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: ../../v3/responses/401.yaml
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: ../../v3/responses/403.yaml
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: ../../v3/responses/429.yaml
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: ../../v3/responses/500.yaml

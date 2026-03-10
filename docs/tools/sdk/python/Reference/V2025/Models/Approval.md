@@ -92,7 +92,7 @@ batch_request={batchId=38453251-6be2-5f8f-df93-5ce19e295837, batchSize=100},
 approval_config=sailpoint.v2025.models.approval_config.ApprovalConfig(
                     tenant_id = 'd3c10266-1a31-4acc-b01e-44a3d1c56615', 
                     id = '5804e7d6-e04b-400f-9fb8-dff894419a2f', 
-                    scope = 'APPROVAL_REQUEST', 
+                    scope = 'DOMAIN_OBJECT', 
                     reminder_config = sailpoint.v2025.models.approval_config_reminder_config.ApprovalConfig_reminderConfig(
                         enabled = False, 
                         days_until_first_reminder = 0, 

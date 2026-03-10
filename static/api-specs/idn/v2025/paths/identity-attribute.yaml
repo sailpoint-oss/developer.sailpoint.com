@@ -1,21 +1,25 @@
 get:
   operationId: getIdentityAttribute
   tags:
-  - Identity Attributes
+    - Identity Attributes
   summary: Get identity attribute
   description: This gets an identity attribute for a given technical name.
   security:
-  - userAuth:
-    - idn:identity-profile-attribute:read
+    - userAuth:
+        - idn:identity-profile-attribute:read
+        - idn:identity-profile-attribute:manage
+    - applicationAuth:
+        - idn:identity-profile-attribute:read
+        - idn:identity-profile-attribute:manage
   parameters:
-  - in: path
-    name: name
-    schema:
-      type: string
-    description: The attribute's technical name.
-    required: true
-    x-sailpoint-resource-operation-id: listIdentityAttributes
-    example: displayName
+    - in: path
+      name: name
+      schema:
+        type: string
+      description: The attribute's technical name.
+      required: true
+      x-sailpoint-resource-operation-id: listIdentityAttributes
+      example: displayName
   responses:
     '200':
       description: The identity attribute with the given name
@@ -38,22 +42,21 @@ get:
 put:
   operationId: putIdentityAttribute
   tags:
-  - Identity Attributes
+    - Identity Attributes
   summary: Update identity attribute
-  description: This updates an existing identity attribute.  Making an attribute searchable
-    requires that the `system`, `standard`, and `multi` properties be set to false.
+  description: This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
   security:
-  - userAuth:
-    - idn:identity-profile-attribute:create
+    - userAuth:
+        - idn:identity-profile-attribute:manage
   parameters:
-  - in: path
-    name: name
-    schema:
-      type: string
-    description: The attribute's technical name.
-    required: true
-    x-sailpoint-resource-operation-id: listIdentityAttributes
-    example: displayName
+    - in: path
+      name: name
+      schema:
+        type: string
+      description: The attribute's technical name.
+      required: true
+      x-sailpoint-resource-operation-id: listIdentityAttributes
+      example: displayName
   requestBody:
     required: true
     content:
@@ -82,23 +85,21 @@ put:
 delete:
   operationId: deleteIdentityAttribute
   tags:
-  - Identity Attributes
+    - Identity Attributes
   summary: Delete identity attribute
-  description: This deletes an identity attribute with the given name.  The `system`
-    and `standard` properties must be set to false before you can delete an identity
-    attribute.
+  description: This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.
   security:
-  - userAuth:
-    - idn:identity-profile-attribute:delete
+    - userAuth:
+        - idn:identity-profile-attribute:manage
   parameters:
-  - in: path
-    name: name
-    schema:
-      type: string
-    description: The attribute's technical name.
-    required: true
-    x-sailpoint-resource-operation-id: listIdentityAttributes
-    example: displayName
+    - in: path
+      name: name
+      schema:
+        type: string
+      description: The attribute's technical name.
+      required: true
+      x-sailpoint-resource-operation-id: listIdentityAttributes
+      example: displayName
   responses:
     '204':
       $ref: ../responses/204.yaml

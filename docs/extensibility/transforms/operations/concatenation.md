@@ -28,14 +28,41 @@ The concatenation transform requires an array list of `values` that need to be j
 }
 ```
 
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `concat`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
 ## Attributes
 
-- **Required Attributes**
-  - **type** - This must always be set to `concat`.
-  - **name** - This is a required attribute for all transforms. It represents the name of the transform as it will appear in the UI's dropdown menus.
-  - **values** - This is the array of items to join.
-- **Optional Attributes**
-  - **requiresPeriodicRefresh** - This `true` or `false` value indicates whether the transform logic should be reevaluated every evening as part of the identity refresh process.
+The concatenation transform uses the following structure:
+
+```json
+{
+  "type": "concat",
+  "name": "Transform Name",
+  "attributes": {
+    "values": ["string1", "string2", ...]
+  }
+}
+```
+
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the values to concatenate.
+
+#### Required
+
+- **values** `array` _(required)_  
+  An array of items to join. Items can be static strings or the return values of other nested transforms.
 
 ## Examples
 

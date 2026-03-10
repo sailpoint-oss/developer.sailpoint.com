@@ -917,13 +917,14 @@ try {
 [[Back to top]](#) 
 
 ## search-form-instances-by-tenant
-No parameters required.
+Returns a list of form instances for the tenant. Optionally filter by form definition ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/search-form-instances-by-tenant)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq*
 
 ### Return type
 [**ListFormInstancesByTenantResponse[]**](../models/list-form-instances-by-tenant-response)
@@ -944,6 +945,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$Filters = 'formDefinitionId eq "351c1daa-56f6-4bbf-b32c-49844c0b716e"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq* (optional)
 
 # List form instances by tenant.
 
@@ -951,7 +953,7 @@ try {
     Search-V2024FormInstancesByTenant 
     
     # Below is a request that includes all optional parameters
-    # Search-V2024FormInstancesByTenant  
+    # Search-V2024FormInstancesByTenant -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-V2024FormInstancesByTenant"
     Write-Host $_.ErrorDetails

@@ -1,12 +1,16 @@
 get:
   tags:
     - Reports Data Extraction
-  description: >-
-    Gets a report in file format.
+  description: Gets a report in file format.
   operationId: getReport
-  summary: "Get report file"
+  summary: Get report file
   security:
-    - userAuth: [sp:report:read]
+    - userAuth:
+        - sp:report:read
+        - sp:report:manage
+    - applicationAuth:
+        - sp:report:read
+        - sp:report:manage
   parameters:
     - in: path
       name: taskResultId
@@ -31,7 +35,7 @@ get:
       required: false
       schema:
         type: string
-      example: 'Identities Details Report'
+      example: Identities Details Report
       description: preferred Report file name, by default will be used report name from task result.
     - in: query
       name: auditable
@@ -40,10 +44,7 @@ get:
         type: boolean
         default: false
       example: true
-      description: >-
-        Enables auditing for current report download.
-        Will create an audit event and sent it to the REPORT cloud-audit kafka topic. 
-        Event will be created if there is any result present by requested taskResultId.
+      description: Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId.
   responses:
     '200':
       description: Report file in selected format. CSV by default.
@@ -61,30 +62,30 @@ get:
           description: The requested report's filename
           schema:
             type: string
-          example: 'attachment;filename=\"fileName"'
+          example: attachment;filename=\"fileName"
     '400':
-      $ref: '../responses/400.yaml'
+      $ref: ../responses/400.yaml
     '401':
-      $ref: '../responses/401.yaml'
+      $ref: ../responses/401.yaml
     '403':
-      $ref: '../responses/403.yaml'
+      $ref: ../responses/403.yaml
     '404':
       description: Not Found - returned if the request URL refers to a resource or object that does not exist
       content:
         application/json:
           schema:
-            $ref: '../schemas/ErrorResponseDto.yaml'
+            $ref: ../schemas/ErrorResponseDto.yaml
           examples:
-            "404":
+            '404':
               summary: An example of a 404 response object
               value:
-                detailCode: "404 Not found"
-                trackingId: "b21b1f7ce4da4d639f2c62a57171b427"
+                detailCode: 404 Not found
+                trackingId: b21b1f7ce4da4d639f2c62a57171b427
                 messages:
-                  - locale: "en-US"
-                    localeOrigin: "DEFAULT"
-                    text: "<h1>File Not Found - 404 Error</h1> The requested file was not found."
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: <h1>File Not Found - 404 Error</h1> The requested file was not found.
     '429':
-      $ref: '../responses/429.yaml'
+      $ref: ../responses/429.yaml
     '500':
-      $ref: '../responses/500.yaml'
+      $ref: ../responses/500.yaml

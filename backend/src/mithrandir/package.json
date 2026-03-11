@@ -8,7 +8,7 @@
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.758.0",
     "@aws-sdk/lib-dynamodb": "^3.758.0",
-    "hono": "^4.12.4"
+    "hono": "^4.12.7"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.147",

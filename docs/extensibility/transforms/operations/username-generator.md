@@ -129,8 +129,8 @@ The `attributes` object contains the username generation configuration.
 
 - **sourceCheck** `boolean` _(optional)_  
   Whether the generator checks only the Identity Security Cloud database or queries the target system directly.
-  - `true` - Check the target system directly (only if the system supports `getObject`)
-  - `false` - Check only the Identity Security Cloud database (default)
+  - `true` - Check the target system directly (only if the system supports `getObject`). For systems that lack the ability to query for single account objects, the generator ignores this setting and defaults to `false`. The generator only checks the attribute identified in the account schema as the `accountID`.
+  - `false` - Check only the Identity Security Cloud database (default). The generator only checks the `accountID`.
 
 #### Optional (dynamic variables)
 

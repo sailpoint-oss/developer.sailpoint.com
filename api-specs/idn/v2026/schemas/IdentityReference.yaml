@@ -1,0 +1,22 @@
+type: object
+title: Identity Reference
+description: Contains detailed information about an identity, including unique identifier, name, email address, and registration status.
+properties:
+  id:
+    type: string
+    description: ID of identity
+    example: 117e169acf21f4ae28e8a06198ce7f69
+  name:
+    type: string
+    description: Name of Identity
+    example: Alfred
+  email:
+    type: string
+    nullable: true
+    description: mail id of identity
+    example: alfred@testmail.identitysoon.com
+  status:
+    type: string
+    nullable: true
+    description: status of identity UNREGISTERED/REGISTERED
+    example: UNREGISTERED

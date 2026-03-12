@@ -1,0 +1,8 @@
+summary: Metricaggregation using dsl
+value:
+  indices:  [ 'identities' ]
+  aggregationType: 'DSL'
+  aggregationsDsl:
+    How Many Locations:
+      cardinality:
+        field: 'attributes.city.exact'

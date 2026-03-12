@@ -1,0 +1,8 @@
+name: jit_provisioning
+in: body
+description: Sets if JIT is enabled or not.
+required: false
+schema:
+  type: boolean
+  format: boolean
+  example: true

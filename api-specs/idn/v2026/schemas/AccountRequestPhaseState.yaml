@@ -1,0 +1,10 @@
+type: string
+enum:
+  - PENDING
+  - CANCELLED
+  - APPROVED
+  - REJECTED
+  - PASSED
+  - FAILED
+description: The current phase state of the account request, indicating its progress or outcome in the approval workflow.
+example: APPROVED

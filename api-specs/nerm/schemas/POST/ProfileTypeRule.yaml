@@ -1,0 +1,15 @@
+type: object
+required:
+  - type
+  - comparison_operator
+  - value
+properties:
+  type:
+    type: string
+    enum: [ProfileTypeRule]
+  comparison_operator:
+    type: string
+    enum: ['==', '!=']
+  value:
+    type: string
+    format: uuid

@@ -1,0 +1,64 @@
+post:
+  operationId: deleteAccountRequest
+  tags:
+    - Delete account
+  summary: Delete account
+  description: |-
+    Initiates an account deletion request for the specified account.
+    This method validates the input data, processes the deletion request,
+    and generates an asynchronous result containing a tracking ID. 
+    >**NOTE: You can only delete accounts from sources of the "Connected" type. which supports account deletion**
+  security:
+    - userAuth:
+        - idn:account-requests:create
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - USER
+  parameters:
+    - in: header
+      name: X-SailPoint-Experimental
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+    - in: path
+      name: accountId
+      schema:
+        type: string
+      required: true
+      description: Account ID.
+      example: ef38f94347e94562b5bb8424a56498d8
+      x-sailpoint-resource-operation-id: listAccounts
+  requestBody:
+    required: false
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/AccountDeleteRequestInput.yaml"
+        example:
+          comments: I requested this account deletion.
+  responses:
+    '202':
+      description: Account deletion request details.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/AccountDeleteAsyncResult.yaml
+          example:
+            accountRequestId: 2d81808474683da6017468693c260196
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

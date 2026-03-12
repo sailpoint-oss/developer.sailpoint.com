@@ -1,0 +1,329 @@
+# /ssf/streams - Create, Read, Update, Replace, Delete streams
+post:
+  operationId: createStream
+  security:
+    - userAuth:
+        - sp:ssf-transmitter-streams:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Shared Signals Framework (SSF)
+  summary: Create stream
+  description: |
+    An SSF stream is associated with the client ID of the OAuth 2.0 access token used to create the stream.
+    One SSF stream is allowed for each client ID.
+
+    You can create a maximum of 10 SSF stream configurations for one org.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ssf/CreateStreamRequest.yaml'
+        example:
+          delivery:
+            method: "urn:ietf:rfc:8935"
+            endpoint_url: "https://receiver.example.com/ssf/events"
+          events_requested:
+            - "https://schemas.openid.net/secevent/caep/event-type/session-revoked"
+          description: "Production event stream for session revocation notifications"
+  responses:
+    '201':
+      description: Stream created.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ssf/StreamConfigResponse.yaml'
+          example:
+            stream_id: "550e8400-e29b-41d4-a716-446655440000"
+            iss: "https://tenant.sailpoint.com"
+            aud: "https://receiver.example.com"
+            delivery:
+              method: "urn:ietf:rfc:8935"
+              endpoint_url: "https://receiver.example.com/ssf/events"
+            events_supported:
+              - "https://schemas.openid.net/secevent/caep/event-type/{event-type}"
+            events_requested:
+              - "https://schemas.openid.net/secevent/caep/event-type/{event-type}"
+            events_delivered:
+              - "https://schemas.openid.net/secevent/caep/event-type/{event-type}"
+            description: "Production event stream"
+            inactivity_timeout: 3600
+            min_verification_interval: 300
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+
+get:
+  operationId: getStream
+  security:
+    - userAuth:
+        - sp:ssf-transmitter-streams:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Shared Signals Framework (SSF)
+  summary: Get stream(s)
+  description: |
+    Retrieves either a list of all SSF stream configurations or the individual configuration if specified by ID.
+
+    As stream configurations are tied to a client ID, you can only view the stream associated with the client ID
+    of the request OAuth 2.0 access token.
+
+    Query parameter `aud` (co filter) can be used to filter by audience.
+  parameters:
+    - in: query
+      name: stream_id
+      required: false
+      schema:
+        type: string
+      description: If provided, returns that stream; otherwise returns list of all streams.
+      example: "550e8400-e29b-41d4-a716-446655440000"
+  responses:
+    '200':
+      description: Single stream (when stream_id is provided) or list of streams (when stream_id is omitted).
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '../schemas/ssf/StreamConfigResponse.yaml'
+              - type: array
+                items:
+                  $ref: '../schemas/ssf/StreamConfigResponse.yaml'
+          examples:
+            single:
+              summary: Single stream (GET /ssf/streams?stream_id=...)
+              value:
+                stream_id: "550e8400-e29b-41d4-a716-446655440000"
+                iss: "https://tenant.sailpoint.com"
+                aud: "https://receiver.example.com"
+                delivery:
+                  method: "urn:ietf:rfc:8935"
+                  endpoint_url: "https://receiver.example.com/ssf/events"
+                events_supported:
+                  - "https://schemas.openid.net/secevent/caep/event-type/{event-type}"
+                events_requested:
+                  - "https://schemas.openid.net/secevent/caep/event-type/{event-type}"
+                events_delivered:
+                  - "https://schemas.openid.net/secevent/caep/event-type/{event-type}"
+                description: "Production event stream"
+                inactivity_timeout: 3600
+                min_verification_interval: 300
+            list:
+              summary: List of streams (GET /ssf/streams)
+              value:
+                - stream_id: "550e8400-e29b-41d4-a716-446655440000"
+                  iss: "https://tenant.sailpoint.com"
+                  aud: "https://receiver.example.com"
+                  delivery:
+                    method: "urn:ietf:rfc:8935"
+                    endpoint_url: "https://receiver.example.com/ssf/events"
+                  events_supported:
+                    - "https://schemas.openid.net/secevent/caep/event-type/{event-type}"
+                  events_requested:
+                    - "https://schemas.openid.net/secevent/caep/event-type/{event-type}"
+                  events_delivered:
+                    - "https://schemas.openid.net/secevent/caep/event-type/{event-type}"
+                  description: "Production stream"
+                  inactivity_timeout: 3600
+                  min_verification_interval: 300
+                - stream_id: "660e8400-e29b-41d4-a716-446655440001"
+                  iss: "https://tenant.sailpoint.com"
+                  aud: "https://other-receiver.example.com"
+                  delivery:
+                    method: "urn:ietf:rfc:8935"
+                    endpoint_url: "https://other-receiver.example.com/events"
+                  events_supported:
+                    - "https://schemas.openid.net/secevent/caep/event-type/{event-type}"
+                  events_requested:
+                    - "https://schemas.openid.net/secevent/caep/event-type/{event-type}"
+                  events_delivered:
+                    - "https://schemas.openid.net/secevent/caep/event-type/{event-type}"
+                  description: ""
+                  inactivity_timeout: 3600
+                  min_verification_interval: 300
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+
+patch:
+  operationId: updateStreamConfiguration
+  security:
+    - userAuth:
+        - sp:ssf-transmitter-streams:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Shared Signals Framework (SSF)
+  summary: Update stream configuration
+  description: |
+    Partially updates a stream's configuration (PATCH). Only provided fields are updated.
+
+    The associated stream with the client ID (through the request OAuth 2.0 access token) is updated.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ssf/UpdateStreamConfigurationRequest.yaml'
+        example:
+          stream_id: "550e8400-e29b-41d4-a716-446655440000"
+          description: "Updated production event stream configuration"
+  responses:
+    '200':
+      description: Updated stream configuration (same JSON shape as GET single stream, plus updatedAt).
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ssf/UpdateStreamConfigResponse.yaml'
+          example:
+            stream_id: "550e8400-e29b-41d4-a716-446655440000"
+            iss: "https://tenant.sailpoint.com"
+            aud: "https://receiver.example.com"
+            delivery:
+              method: "urn:ietf:rfc:8935"
+              endpoint_url: "https://receiver.example.com/ssf/events/v2"
+            events_supported:
+              - "https://schemas.openid.net/secevent/caep/event-type/{event-type}"
+            events_requested:
+              - "https://schemas.openid.net/secevent/caep/event-type/{event-type}"
+            events_delivered:
+              - "https://schemas.openid.net/secevent/caep/event-type/{event-type}"
+            description: "Updated description"
+            inactivity_timeout: 3600
+            min_verification_interval: 300
+            updatedAt: "2025-02-11T14:30:00Z"
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+
+put:
+  operationId: setStreamConfiguration
+  security:
+    - userAuth:
+        - sp:ssf-transmitter-streams:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Shared Signals Framework (SSF)
+  summary: Replace stream configuration
+  description: |
+    Replaces a stream's configuration (PUT). stream_id and delivery are required; full receiver-supplied properties.
+
+    The associated stream with the client ID (through the request OAuth 2.0 access token) is replaced.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ssf/ReplaceStreamConfigurationRequest.yaml'
+        example:
+          stream_id: "550e8400-e29b-41d4-a716-446655440000"
+          delivery:
+            method: "urn:ietf:rfc:8935"
+            endpoint_url: "https://receiver.example.com/ssf/events"
+          events_requested:
+            - "https://schemas.openid.net/secevent/caep/event-type/session-revoked"
+          description: "Replaced stream configuration for production event delivery"
+  responses:
+    '200':
+      description: Replaced stream configuration (same JSON shape as PATCH/GET single stream).
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ssf/UpdateStreamConfigResponse.yaml'
+          example:
+            stream_id: "550e8400-e29b-41d4-a716-446655440000"
+            iss: "https://tenant.sailpoint.com"
+            aud: "https://receiver.example.com"
+            delivery:
+              method: "urn:ietf:rfc:8935"
+              endpoint_url: "https://receiver.example.com/ssf/events"
+            events_supported:
+              - "https://schemas.openid.net/secevent/caep/event-type/{event-type}"
+            events_requested:
+              - "https://schemas.openid.net/secevent/caep/event-type/{event-type}"
+            events_delivered:
+              - "https://schemas.openid.net/secevent/caep/event-type/{event-type}"
+            description: "Replaced config"
+            inactivity_timeout: 3600
+            min_verification_interval: 300
+            updatedAt: "2025-02-11T14:35:00Z"
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+
+delete:
+  operationId: deleteStream
+  security:
+    - userAuth:
+        - sp:ssf-transmitter-streams:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Shared Signals Framework (SSF)
+  summary: Delete stream
+  description: |
+    Deletes a stream by its ID. There is no request body; the stream is identified by the required
+    query parameter `stream_id`. On success the response has no body (204 No Content).
+
+    The associated stream with the client ID (through the request OAuth 2.0 access token) is deleted.
+  parameters:
+    - in: query
+      name: stream_id
+      required: true
+      schema:
+        type: string
+      description: ID of the stream to delete. Required; omitted or empty returns 400.
+      example: "550e8400-e29b-41d4-a716-446655440000"
+  responses:
+    '204':
+      $ref: '../responses/204.yaml'
+    '400':
+      description: Bad Request - e.g. missing or empty `stream_id` query parameter.
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      description: Not Found - no stream exists for the given `stream_id` (or not in this tenant).
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

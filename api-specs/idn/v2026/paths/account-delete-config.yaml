@@ -1,0 +1,117 @@
+get:
+  tags:
+    - Human Account Deletion Approval Config
+  summary: Human Account Deletion Approval Config
+  description: |
+    The endpoint retrieves the approval configuration for deleting human accounts from a specified source. It returns details such as whether approval is required, who the approvers are, and any additional approval settings. This helps administrators understand and manage the approval workflow for human account deletions in their organization. The response is provided as an AccountDeleteConfigDto object.
+  operationId: getAccountDeleteApprovalConfig
+  security:
+    - userAuth: [idn:source-config:read, idn:source-config:write]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - in: header
+      name: X-SailPoint-Experimental
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+    - in: path
+      name: sourceId
+      schema:
+        type: string
+      required: true
+      description: The Source id
+      example: ha38f94347e94562b5bb8424a56498d8
+      x-sailpoint-resource-operation-id: listSources
+  responses:
+    '200':
+      description: Responds with a AccountDeleteConfigDto for human account deletion approval config by sourceId.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/AccountDeleteConfigDto.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+patch:
+  operationId: updateAccountDeletionApprovalConfig
+  tags:
+    - Human Account Deletion Approval Config
+  summary: Human Account Deletion Approval Config
+  description: |
+    Updates the approval configuration for deleting human accounts for a specific source, identified by source ID. This endpoint allows administrators to modify settings such as whether approval is required, who the approvers are, and other approval-related options. The update is performed using a JSON Patch payload, and the response returns the updated AccountDeleteConfigDto object reflecting the new approval workflow configuration.
+  security:
+    - userAuth: [idn:source-config:read, idn:source-config:write]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - in: header
+      name: X-SailPoint-Experimental
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+    - name: sourceId
+      in: path
+      schema:
+        type: string
+      description: Human account source ID.
+      required: true
+      example: 00eebcf881994e419d72e757fd30dc0e
+      x-sailpoint-resource-operation-id: listSources
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the object.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../schemas/JsonPatchOperation.yaml
+          example:
+            - op: replace
+              path: /approvalConfig/comments
+              value: ALL
+  responses:
+    '200':
+      description: This response indicates the PATCH operation succeeded and the
+        API returns the updated AccountDeleteConfigDto object.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/AccountDeleteConfigDto.yaml
+          example:
+            approvalRequired: false
+            approvalConfig:
+              approvers: sourceOwner
+              comments: ALL
+    '400':
+      $ref: ../responses/400.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

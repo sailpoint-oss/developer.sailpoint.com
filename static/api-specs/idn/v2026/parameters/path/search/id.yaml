@@ -11,3 +11,4 @@ x-sailpoint-resource-operation-id:
   - listEntitlements
   - listRoles
   - listIdentities
+  - listNotificationTemplates

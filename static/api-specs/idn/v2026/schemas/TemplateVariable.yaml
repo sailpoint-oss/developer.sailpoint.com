@@ -1,0 +1,35 @@
+type: object
+title: Template Variable
+description: |
+  A variable available for use in a notification template. Variables can be template-specific (from domain events)
+  or global (available to all templates like __recipient, __global, __util). Template variables provide
+  self-documenting metadata about what variables are available when customizing notification templates.
+properties:
+  key:
+    type: string
+    description: The variable name as used when rendering context in templates.
+    example: "recipientDisplayName"
+  type:
+    type: string
+    description: |
+      The data type for this variable. Use JSON Schema-like names for values (string, boolean, number, object, array)
+      or "function" for template utility/helper functions (e.g. __dateTool.format(), __esc.html()).
+    enum:
+      - string
+      - boolean
+      - number
+      - object
+      - array
+      - function
+    example: "string"
+  description:
+    type: string
+    description: Human-readable description explaining what this variable represents.
+    example: "Display name of the notification recipient"
+    nullable: true
+  example:
+    description: |
+      Example value demonstrating the format and usage. For type "function", often a Velocity-style call (e.g. $__esc.html($value)).
+      Can be a string, number, boolean, object, array, or null when no example is defined.
+    nullable: true
+    example: "John Doe"

@@ -34,6 +34,7 @@ tags:
   - name: Human Account Deletion Approval Config
   - name: Machine Account Deletion Approval Config
   - name: Machine Subtype Approval Config
+  - name: Notifications
   - name: Task Management
 paths:
   /access-request-config:
@@ -66,6 +67,8 @@ paths:
     $ref: ./v2026/paths/source-machine-config.yaml
   /sources/{sourceId}/approval-config/account-delete:
     $ref: ./v2026/paths/account-delete-config.yaml
+  /notification-template-variables/{key}/{medium}:
+    $ref: ./v2026/paths/notification-template-variables.yaml
 security:
 - userAuth:
   - "sp:scopes:all"
@@ -142,3 +145,9 @@ components:
       $ref: "./v2026/schemas/MachineAccountSubTypeConfigDto.yaml"
     RequestOnBehalfOfConfig:
       $ref: "./v2026/schemas/RequestOnBehalfOfConfig.yaml"
+    TemplateMediumDto:
+      $ref: "./v2026/schemas/TemplateMediumDto.yaml"
+    TemplateVariable:
+      $ref: "./v2026/schemas/TemplateVariable.yaml"
+    TemplateVariablesDto:
+      $ref: "./v2026/schemas/TemplateVariablesDto.yaml"

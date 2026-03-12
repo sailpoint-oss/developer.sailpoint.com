@@ -6,8 +6,8 @@
    "build": "tsc"
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.758.0",
-    "@aws-sdk/lib-dynamodb": "^3.758.0",
+    "@aws-sdk/client-dynamodb": "^3.1006.0",
+    "@aws-sdk/lib-dynamodb": "^3.1006.0",
     "hono": "^4.12.4"
   },
   "devDependencies": {

@@ -7,7 +7,7 @@ import {
   UpdateCommand,
   DeleteCommand,
 } from '@aws-sdk/lib-dynamodb';
-import {randomBytes, createCipheriv, createDecipheriv, publicEncrypt, privateDecrypt, constants, randomUUID, generateKeyPairSync} from 'crypto';
+import {randomBytes, createCipheriv, createDecipheriv, publicEncrypt, privateDecrypt, constants, randomUUID, generateKeyPairSync, createHash} from 'crypto';
 import {Hono} from 'hono';
 import {handle} from 'hono/aws-lambda';
 import {HTTPException} from 'hono/http-exception';
@@ -50,6 +50,24 @@ const ddbClient = process.env.ENDPOINT_OVERRIDE
   : new DynamoDBClient({});
 
 const ddbDocClient = DynamoDBDocumentClient.from(ddbClient);
+
+// PKCE helper functions (RFC 7636)
+function generateCodeVerifier(): string {
+  return randomBytes(32)
+    .toString('base64')
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_')
+    .replace(/=/g, '');
+}
+
+function generateCodeChallenge(verifier: string): string {
+  return createHash('sha256')
+    .update(verifier)
+    .digest('base64')
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_')
+    .replace(/=/g, '');
+}
 
 // Helper functions
 async function validateApiUrl(apiBaseURL?: string, tenant?: string): Promise<string> {
@@ -101,11 +119,11 @@ async function getAuthInfo(baseURL: string) {
   }
 }
 
-async function storeAuthData(uuid: string, baseURL: string) {
+async function storeAuthData(uuid: string, baseURL: string, codeVerifier: string) {
   try {
     // TTL 5 minutes
     const ttl = Math.floor(Date.now() / 1000) + 300;
-    const objectToPut = {id: uuid, baseURL, ttl};
+    const objectToPut = {id: uuid, baseURL, codeVerifier, ttl};
     await ddbDocClient.send(
       new PutCommand({TableName: validatedTableName, Item: objectToPut}),
     );
@@ -145,12 +163,14 @@ async function exchangeCodeForToken(
   baseURL: string,
   code: string,
   redirectUri: string,
+  codeVerifier: string,
 ) {
   const tokenExchangeURL = new URL(baseURL + `/oauth/token`);
   tokenExchangeURL.searchParams.set('grant_type', 'authorization_code');
   tokenExchangeURL.searchParams.set('client_id', validatedClientId);
   tokenExchangeURL.searchParams.set('code', code);
   tokenExchangeURL.searchParams.set('redirect_uri', redirectUri);
+  tokenExchangeURL.searchParams.set('code_verifier', codeVerifier);
 
   const tokenExchangeResp = await fetch(tokenExchangeURL, {
     method: 'POST',
@@ -358,7 +378,9 @@ app.post('/Prod/sailapps/auth', async (c) => {
   const authInfo = await getAuthInfo(baseURL);
 
   const uuid = randomUUID();
-  const objectToPut = await storeAuthData(uuid, baseURL);
+  const codeVerifier = generateCodeVerifier();
+  const codeChallenge = generateCodeChallenge(codeVerifier);
+  const objectToPut = await storeAuthData(uuid, baseURL, codeVerifier);
 
   const state = {id: uuid, publicKey};
   const authURL = new URL(authInfo.authorizeEndpoint);
@@ -370,10 +392,14 @@ app.post('/Prod/sailapps/auth', async (c) => {
     body.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl,
   );
   authURL.searchParams.set('state', btoa(JSON.stringify(state)));
+  authURL.searchParams.set('code_challenge', codeChallenge);
+  authURL.searchParams.set('code_challenge_method', 'S256');
 
   return c.json({
     authURL: authURL.toString(),
-    ...objectToPut,
+    id: objectToPut.id,
+    baseURL: objectToPut.baseURL,
+    ttl: objectToPut.ttl,
   });
 });
 
@@ -400,11 +426,15 @@ app.post('/Prod/sailapps/auth/code', async (c) => {
   if (!tableData.baseURL) {
     throw new HTTPException(400, {message: 'Invalid stored data'});
   }
+  if (!tableData.codeVerifier) {
+    throw new HTTPException(400, {message: 'Invalid stored data: missing PKCE verifier'});
+  }
 
   const tokenData = await exchangeCodeForToken(
     tableData.baseURL,
     code,
     body?.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl,
+    tableData.codeVerifier,
   );
 
   const encryptedToken = encryptToken(tokenData, atob(publicKey));

@@ -1,5 +1,7 @@
 type : object
 title: Approval Reminder And Escalation Config
+description: |
+  Configuration for approval reminder and escalation behavior. Important: Modifying this object will override the sp-approval service's reminderConfig and escalationConfig settings. Changes made here take precedence over any configuration set directly in the sp-approval service.
 properties:
   daysUntilEscalation:
     type: integer
@@ -15,9 +17,10 @@ properties:
     nullable: true
   maxReminders:
     type: integer
-    description: Maximum number of reminder notification to send to the reviewer before approval escalation. 
+    description: Maximum number of reminder notifications to send to the reviewer before approval escalation. The maximum allowed value is 20.
     format: int32
-    minimum: 1
+    minimum: 0
+    maximum: 20
     example: 1
     nullable: true
   fallbackApproverRef:

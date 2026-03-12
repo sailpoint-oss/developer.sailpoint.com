@@ -21,7 +21,7 @@ properties:
     description: Request On Behalf Of configuration.
   approvalReminderAndEscalationConfig:
     $ref: './ApprovalReminderAndEscalationConfig.yaml'
-    description: Approval reminder and escalation configuration.
+    description: Approval reminder and escalation configuration. Modifying this object will override the sp-approval service's reminderConfig and escalationConfig settings.
   entitlementRequestConfig:
     $ref: './EntitlementRequestConfig.yaml'
     description: Entitlement request configuration.

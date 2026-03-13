@@ -66,7 +66,7 @@ function generateCodeChallenge(verifier: string): string {
     .digest('base64')
     .replace(/\+/g, '-')
     .replace(/\//g, '_')
-    .replace(/=/g, '');
+    .replace(/=+$/, '');
 }
 
 // Helper functions

@@ -25,9 +25,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
       - name: Run Slinky
-        uses: LukasParke/slinky@v1
-        with:
-          respect_gitignore: false
+        uses: sailpoint-oss/slinky@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           

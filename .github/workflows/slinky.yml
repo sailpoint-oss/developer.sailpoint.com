@@ -24,6 +24,11 @@ jobs:
           
       - name: Run Slinky
         uses: sailpoint-oss/slinky@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          comment_pr: "true"
+          fail_on_failures: "true"
         
       - name: Upload artifacts
         if: always()

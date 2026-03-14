@@ -1,33 +1,41 @@
 name: Slinky - Crawl Docs for broken links
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
-    
-permissions:
-  contents: read
-  pull-requests: write
-  
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+
+# PR-specific concurrency: one active run per PR
 concurrency:
-  group: 'slinky'
+  group: slinky-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  pull-requests: write   # required for comment_pr
+  
 jobs:
   slinky:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
     steps:
-      - uses: actions/checkout@v6
-        with:
-          ref: ${{ github.head_ref }}
+      - name: Checkout
+        uses: actions/checkout@v4
+          
       - name: Run Slinky
-        uses: LukasParke/slinky@v1
-        with:
-          respect_gitignore: false
+        uses: sailpoint-oss/slinky@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          comment_pr: "true"
+          fail_on_failures: "true"
+        
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: slinky-results
+          path: |
+            results.json
+            results.md
           

@@ -162,59 +162,67 @@ async function deleteStoredData(uuid: string) {
 async function exchangeCodeForToken(
   baseURL: string,
   code: string,
-  redirectUri: string,
   codeVerifier: string,
 ) {
-  const tokenExchangeURL = new URL(baseURL + `/oauth/token`);
-  tokenExchangeURL.searchParams.set('grant_type', 'authorization_code');
-  tokenExchangeURL.searchParams.set('client_id', validatedClientId);
-  tokenExchangeURL.searchParams.set('code', code);
-  tokenExchangeURL.searchParams.set('redirect_uri', redirectUri);
-  tokenExchangeURL.searchParams.set('code_verifier', codeVerifier);
+  const tokenUrl = baseURL + `/oauth/token`;
+  const formData = new URLSearchParams();
+  formData.set('grant_type', 'authorization_code');
+  formData.set('client_id', validatedClientId);
+  formData.set('code', code);
+  formData.set('code_verifier', codeVerifier);
 
-  const tokenExchangeResp = await fetch(tokenExchangeURL, {
+  const tokenResp = await fetch(tokenUrl, {
     method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: formData.toString(),
   });
 
-  if (!tokenExchangeResp.ok) {
-    console.error('Token exchange failed:', await tokenExchangeResp.text());
+  if (!tokenResp.ok) {
+    console.error('Token request failed:', await tokenResp.text());
     throw new HTTPException(400, {message: 'Error exchanging code for token'});
   }
 
-  const tokenExchangeData = await tokenExchangeResp.json();
+  const tokenData = await tokenResp.json();
 
-  if (!tokenExchangeData.access_token) {
+  if (!tokenData.access_token) {
     throw new HTTPException(400, {message: 'Invalid token response'});
   }
 
-  return tokenExchangeData;
+  return tokenData;
 }
 
 async function exchangeRefreshToken(
   baseURL: string,
   refreshToken: string,
 ) {
-  const tokenExchangeURL = new URL(baseURL + `/oauth/token`);
-  tokenExchangeURL.searchParams.set('grant_type', 'refresh_token');
-  tokenExchangeURL.searchParams.set('client_id', validatedClientId);
-  tokenExchangeURL.searchParams.set('refresh_token', refreshToken);
+  const tokenUrl = baseURL + `/oauth/token`;
+  const formData = new URLSearchParams();
+  formData.set('grant_type', 'refresh_token');
+  formData.set('client_id', validatedClientId);
+  formData.set('refresh_token', refreshToken);
 
-  const tokenExchangeResp = await fetch(tokenExchangeURL, {
+  const tokenResp = await fetch(tokenUrl, {
     method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: formData.toString(),
   });
 
-  if (!tokenExchangeResp.ok) {
-    console.error('Refresh token exchange failed:', await tokenExchangeResp.text());
+  if (!tokenResp.ok) {
+    console.error('Refresh token request failed:', await tokenResp.text());
     throw new HTTPException(400, {message: 'Error exchanging refresh token'});
   }
 
-  const tokenExchangeData = await tokenExchangeResp.json();
+  const tokenData = await tokenResp.json();
 
-  if (!tokenExchangeData.access_token) {
+  if (!tokenData.access_token) {
     throw new HTTPException(400, {message: 'Invalid token response'});
   }
 
-  return tokenExchangeData;
+  return tokenData;
 }
 
 function encryptToken(tokenData: any, publicKey: string) {
@@ -433,7 +441,6 @@ app.post('/Prod/sailapps/auth/code', async (c) => {
   const tokenData = await exchangeCodeForToken(
     tableData.baseURL,
     code,
-    body?.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl,
     tableData.codeVerifier,
   );
 

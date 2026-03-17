@@ -13,7 +13,7 @@ get:
   description: This API returns the existing native change detection configuration for a source specified by the given ID.
   parameters:
     - in: path
-      name: id
+      name: sourceId
       required: true
       x-sailpoint-resource-operation-id: listSources
       schema:
@@ -54,7 +54,7 @@ put:
   description: Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
   parameters:
     - in: path
-      name: id
+      name: sourceId
       required: true
       x-sailpoint-resource-operation-id: listSources
       schema:
@@ -101,7 +101,7 @@ delete:
     - ORG_ADMIN
   parameters:
     - in: path
-      name: id
+      name: sourceId
       required: true
       x-sailpoint-resource-operation-id: listSources
       schema:

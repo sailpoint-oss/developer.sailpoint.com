@@ -1,0 +1,155 @@
+spam:
+  enabled: true
+  action: close
+  notifyComment: true
+  lockReason: spam
+  keywords: []
+  minAccountAgeDays: 1
+  maxLinks: 10
+  maxTemplateSimilarity: 90
+  allowUsers: ["dependabot[bot]"]
+  denyUsers: []
+
+greetings:
+  firstPRComment: >
+    Thanks for opening this pull request! Please be sure to check out our contributing guidelines.
+  firstPRMergeComment: >
+    Awesome work, congrats on your first merged pull request!
+  firstIssueComment: >
+    Thanks for opening your first issue here! Be sure to follow the issue template, and welcome to the community!
+
+labeler:
+  labelOnPRUpdates: true
+  paths:
+    Images:
+      - "docs/**/*.png"
+      - "docs/**/*.svg"
+      - "docs/**/*.jpg"
+      - "docs/**/*.jpeg"
+    Docs:
+      - "docs/**/*.md*"
+    Tools:
+      - "docs/tools/**/*"
+    CLI Docs:
+      - "docs/tools/cli/**/*"
+    SDK Docs:
+      - "docs/tools/sdk/**/*"
+    Rule Development Kit Docs:
+      - "docs/tools/rule-development-kit/**/*"
+    IdentityNow:
+      - "docs/extensibility/**/*"
+      - "docs/connectivity/**/*"
+      - "docs/api/**/*"
+      - "docs/guides/**/*"
+      - "docs/reporting/**/*"
+    NERM:
+      - "docs/nerm/**/*"
+    IdentityIQ:
+      - "docs/iiq/**/*"
+    Event Trigger Docs:
+      - "docs/extensibility/event-triggers/**/*"
+    SaaS Connectivity Docs:
+      - "docs/connectivity/saas-connectivity/**/*"
+    Secure Data Share (SDS):
+      - "docs/reporting/secure-data-share/**/*"
+    Access Intelligence Center (AIC):
+      - "docs/reporting/access-intelligence-center/**/*"
+    Transform Docs:
+      - "docs/extensibility/transforms/**/*"
+    Rules Docs:
+      - "docs/extensibility/rules/**/*"
+    SaaS Configuration Docs:
+      - "docs/extensibility/configuration-management/saas-configuration.md*"
+    Introduction Doc:
+      - "docs/index.md*"
+    Pages:
+      - "src/pages/**/*"
+    Static Files:
+      - "src/static/**/*"
+    Components:
+      - "src/components/**/*"
+    CSS:
+      - "src/**/*.css"
+    Swizzled Components:
+      - "src/theme/**/*"
+    Sidebar:
+      - "sidebars.js"
+      - "products/**/sidebar.js"
+    Firebase:
+      - "firebase.json"
+    Prettier:
+      - ".prettier*"
+    Docusaurus Config:
+      - "docusaurus.config.js"
+    Footer:
+      - "footer.js"
+    Navbar:
+      - "navbar.js"
+    Plugins:
+      - "plugins.js"
+
+reviewer:
+  defaultReviewers: []
+  labels:
+    Images:
+      - sailpoint-oss/developer-relations
+    Docs:
+      - james-haytko-sp
+    Tools:
+      - sailpoint-oss/devrel-advocates
+    CLI Docs:
+      - sailpoint-oss/devrel-advocates
+    SDK Docs:
+      - sailpoint-oss/devrel-advocates
+    Rule Development Kit Docs:
+      - sailpoint-oss/devrel-advocates
+    IdentityNow:
+      - sailpoint-oss/devrel-advocates
+    NERM:
+      - sailpoint-oss/devrel-advocates
+    IdentityIQ:
+      - sailpoint-oss/devrel-advocates
+    Event Trigger Docs:
+      - sailpoint-oss/devrel-advocates
+    SaaS Connectivity Docs:
+      - philip-ellis-sp
+    Secure Data Share (SDS):
+      - philip-ellis-sp
+    Access Intelligence Center (AIC):
+      - philip-ellis-sp
+    Transform Docs:
+      - sailpoint-oss/devrel-advocates
+    Rules Docs:
+      - sailpoint-oss/devrel-advocates
+    SaaS Configuration Docs:
+      - sailpoint-oss/devrel-advocates
+    Introduction Doc:
+      - sailpoint-oss/devrel-advocates
+    Pages:
+      - sailpoint-oss/developer-relations
+    Static Files:
+      - sailpoint-oss/developer-relations
+    Components:
+      - sailpoint-oss/devrel-engineering
+    CSS:
+      - sailpoint-oss/devrel-engineering
+    Swizzled Components:
+      - sailpoint-oss/devrel-engineering
+    Sidebar:
+      - sailpoint-oss/developer-relations
+    Firebase:
+      - sailpoint-oss/devrel-engineering
+      - jordan-violet-sp
+    Prettier:
+      - jordan-violet-sp
+    Docusaurus Config:
+      - sailpoint-oss/devrel-engineering
+    Footer:
+      - sailpoint-oss/developer-relations
+    Navbar:
+      - sailpoint-oss/developer-relations
+    Plugins:
+      - sailpoint-oss/devrel-engineering
+
+stale:
+  enabled: false

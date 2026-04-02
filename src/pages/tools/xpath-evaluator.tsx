@@ -30,7 +30,7 @@ const documentationLinks: Record<
   },
 };
   const sampleXmlFile = require('./sample.xml.json')
-  let buffer = new Buffer(sampleXmlFile.xml, 'base64');
+  let buffer = Buffer.from(sampleXmlFile.xml, 'base64')
   const sampleXml = buffer.toString();
   
   const XPathEvaluator: React.FC = () => {
@@ -150,6 +150,12 @@ const documentationLinks: Record<
                   onFocus={handleRootFocus}
                   onBlur={handleRootBlur}
                 />
+                <XPathQueryInput
+                  value={query}
+                  onChange={handleQueryChange}
+                  onFocus={handleQueryFocus}
+                  onBlur={handleQueryBlur}
+                />
                 {documentationLinks[implementation] && (
                   <Link
                     id="xpathDocumentationLink"
@@ -159,14 +165,6 @@ const documentationLinks: Record<
                     {documentationLinks[implementation].text}
                   </Link>
                 )}
-              </Stack>
-              <Stack sx={{justifyContent: 'flex-start'}} spacing={1}>
-                <XPathQueryInput
-                  value={query}
-                  onChange={handleQueryChange}
-                  onFocus={handleQueryFocus}
-                  onBlur={handleQueryBlur}
-                />
                 {queryParseError && (
                   <div className={styles.alertContainer}>
                     <Alert id="xpathalert" severity="error">

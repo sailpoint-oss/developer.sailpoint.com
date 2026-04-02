@@ -12,7 +12,7 @@ import styles from '../../../pages/tools/xpath.module.css';
 declare const ace: any;
 if (typeof ace !== 'undefined' && ace.config) {
   ace.config.setModuleUrl(
-    'ace/mode/json_worker',
+    'ace/mode/xml_worker',
     new URL(
       'https://ajaxorg.github.io/ace-builds/src-noconflict/worker-xml.js'
     ).toString(),
@@ -23,7 +23,7 @@ interface InputTerminalProps {
   fontSize: string;
   value: string;
   onChange: (value: string) => void;
-  hasJsonParseError?: boolean;
+  hasXmlParseError?: boolean;
   mode?: 'xml' | 'text'; // 🔄 new optional mode prop
 }
 
@@ -31,12 +31,12 @@ const InputTerminal: React.FC<InputTerminalProps> = ({
   fontSize,
   value,
   onChange,
-  hasJsonParseError = false,
-  mode = 'xml', // default to 'json' for backward compatibility
+  hasXmlParseError = false,
+  mode = 'xml',
 }) => {
   const { colorMode } = useColorMode();
 
-  const terminalClass = hasJsonParseError
+  const terminalClass = hasXmlParseError
     ? styles.inputTerminalContainer
     : styles.terminalContainerDefault;
 

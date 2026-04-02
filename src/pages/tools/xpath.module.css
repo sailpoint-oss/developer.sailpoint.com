@@ -2,19 +2,9 @@
   margin: 20px;
 }
 
-.title {
-  text-align: center;
-}
-
 .actionBar {
   margin-top: 2%;
   margin-bottom: 2%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap; /* optional: allows wrapping on smaller screens */
-  gap: 1rem; /* optional: adds spacing between elements */
-  margin-bottom: 1.5rem;
 }
 
 .alertContainer {
@@ -37,7 +27,7 @@ a[id^='xpathDocumentationLink'] {
 }
 
 a[id^='xpathDocumentationLink']:hover {
-  text-decoration: none !important;
+  text-decoration: none!important;
 }
 
 li[class^='MuiButtonBase-root'] {

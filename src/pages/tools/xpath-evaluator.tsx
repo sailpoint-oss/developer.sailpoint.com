@@ -35,8 +35,8 @@ const documentationLinks: Record<
   
   const XPathEvaluator: React.FC = () => {
   const [result, setResult] = useState<string>(JSON.stringify([], null, 4));
-  const [query, setQuery] = useState<string>('wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Legal_Name_Data/wd:Name_Detail_Data/wd:Last_Name | wd:Applicant_Data/wd:Personal_Data/wd:Name_Data/wd:Legal_Name_Data/wd:Name_Detail_Data/wd:Last_Name');
-  const [root, setRoot] = useState<string>('//wd:Response_Data/wd:Worker');
+  const [query, setQuery] = useState<string>('xhr:Employee_Data/xhr:Personal_Data/xhr:Name_Data/xhr:Legal_Name/xhr:Name_Detail/xhr:Last_Name');
+  const [root, setRoot] = useState<string>('//xhr:Response_Data/xhr:Employee');
   const [queryParseError, setQueryParseError] = useState<string>('');
   const [fontSize, setFontSize] = useState<string>('16');
   const [inputXml, setInputXml] = useState<string>(sampleXml);

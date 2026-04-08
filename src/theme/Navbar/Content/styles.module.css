@@ -1,0 +1,18 @@
+/**
+ * Swizzled from @docusaurus/theme-classic to raise the color-mode-toggle
+ * hide breakpoint from 996px to 1410px, matching the custom navbar breakpoint.
+ */
+
+@media (max-width: 1410px) {
+  .colorModeToggle {
+    display: none;
+  }
+}
+
+/*
+Restore some Infima style that broke with CSS Cascade Layers
+See https://github.com/facebook/docusaurus/pull/11142
+ */
+:global(.navbar__items--right) > :last-child {
+  padding-right: 0;
+}

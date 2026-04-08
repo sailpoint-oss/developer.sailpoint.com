@@ -434,6 +434,8 @@ h1 {
 
 /*
  * Custom navbar breakpoint: hamburger menu at 1410px so nav items never overlap the logo.
+ * The matching JS breakpoint lives in src/theme/Navbar/MobileSidebar/index.js
+ * and the color-mode toggle is hidden via src/theme/Navbar/Content/styles.module.css.
  */
 @media only screen and (max-width: 1410px) {
   .navbar__toggle {
@@ -441,14 +443,6 @@ h1 {
   }
 
   .navbar__item {
-    display: none;
-  }
-
-  .navbar__logo img {
-    max-height: 28px;
-  }
-
-  .colorModeToggle {
     display: none;
   }
 }
@@ -828,5 +822,6 @@ td a:link:hover {
   font-style: normal;
   font-weight: 900;
   font-display: swap;
-  src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2') format('woff2');
+  src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2')
+    format('woff2');
 }

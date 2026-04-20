@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Operation** | Pointer to [**DimensionCriteriaOperation**](dimension-criteria-operation) |  | [optional] 
 **Key** | Pointer to [**NullableDimensionCriteriaKey**](dimension-criteria-key) |  | [optional] 
 **StringValue** | Pointer to **NullableString** | String value to test the Identity attribute specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is  EQUALS, this field is required. Otherwise, specifying it is an error. | [optional] 
-**Children** | Pointer to [**[]DimensionCriteriaLevel2**](dimension-criteria-level2) | Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes. Additionally, AND nodes can only be children or OR nodes and vice-versa. | [optional] 
+**Children** | Pointer to [**[]DimensionCriteriaLevel2**](dimension-criteria-level2) | Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes. Additionally, AND nodes can only be children of OR nodes and vice-versa. | [optional] 
 
 ## Methods
 

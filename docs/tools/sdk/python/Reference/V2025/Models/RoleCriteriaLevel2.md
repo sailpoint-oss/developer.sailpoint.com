@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **operation** | [**RoleCriteriaOperation**](role-criteria-operation) |  | [optional] 
 **key** | [**RoleCriteriaKey**](role-criteria-key) |  | [optional] 
 **string_value** | **str** | String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error. | [optional] 
-**children** | [**[]RoleCriteriaLevel3**](role-criteria-level3) | Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes. Additionally, AND nodes can only be children or OR nodes and vice-versa. | [optional] 
+**children** | [**[]RoleCriteriaLevel3**](role-criteria-level3) | Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes. Additionally, AND nodes can only be children of OR nodes and vice-versa. | [optional] 
 }
 
 ## Example

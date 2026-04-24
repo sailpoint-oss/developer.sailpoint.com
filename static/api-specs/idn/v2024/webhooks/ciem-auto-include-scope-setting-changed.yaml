@@ -1,0 +1,19 @@
+post:
+  summary: CIEM auto-include scope setting changed
+  operationId: ciemAutoIncludeScopeSettingChangedEvent
+  description: >-
+    This event trigger fires when a user disables or enables the Auto-Include Scope functionality for a source. When auto-include scope is disabled, SailPoint CIEM will not check for newly added AWS accounts, Azure subscriptions, or GCP projects.
+
+    This is a `FIRE_AND_FORGET` event trigger.
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [CIEM Auto-Include Scope Setting Changed](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/ciem-auto-include-scope-setting-changed).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/trigger/example-input/CiemAutoIncludeScopeSettingChanged.yaml'

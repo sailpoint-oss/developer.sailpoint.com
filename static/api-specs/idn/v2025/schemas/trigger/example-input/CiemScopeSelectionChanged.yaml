@@ -1,0 +1,59 @@
+title: CIEM Scope Selection Changed
+type: object
+additionalProperties: true
+properties:
+  event:
+    type: string
+    description: The name of the CIEM event that was emitted.
+    example: ScopeSelectionChanged
+  identityDisplayName:
+    type: string
+    description: The display name of the identity who changed the scope selection.
+    example: William Wilson
+  identityId:
+    type: string
+    description: The ID of the identity who changed the scope selection.
+    example: 2c7180a46faadee4016fb4e018c20648
+  scopesModified:
+    type: array
+    description: The cloud scopes (AWS accounts, Azure subscriptions, or GCP projects) whose selection was changed for this CIEM source.
+    items:
+      type: object
+      additionalProperties: true
+      required:
+        - name
+        - nativeId
+      properties:
+        name:
+          type: string
+          description: The human friendly name of the cloud scope.
+          example: aws-prod-payments
+        nativeId:
+          type: string
+          description: The cloud-native identifier of the scope (AWS account ID, Azure subscription ID, or GCP project ID).
+          example: "123456789012"
+  sourceIscId:
+    type: string
+    description: The unique ID of the source in Identity Security Cloud (ISC) whose scope selection was changed.
+    example: 2c9180866166b5b0016167c32ef31a66
+  sourceName:
+    type: string
+    description: The human friendly name of the source.
+    example: AWS Production
+  sourceNativeId:
+    type: string
+    description: The cloud-native identifier of the source (for example, the AWS organization ID or Azure tenant ID).
+    example: o-abcd1234ef
+  timestamp:
+    type: string
+    description: The date and time the scope selection was changed.
+    example: "2024-03-29T22:01:50.474Z"
+  total:
+    type: integer
+    minimum: 1
+    description: The total number of scopes modified in this event.
+    example: 2
+  truncated:
+    type: boolean
+    description: Whether the `scopesModified` list was truncated because the total number of modified scopes exceeded the payload limit.
+    example: false

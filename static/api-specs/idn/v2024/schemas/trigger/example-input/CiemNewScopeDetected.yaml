@@ -1,0 +1,59 @@
+title: CIEM New Scope Detected
+type: object
+additionalProperties: true
+properties:
+  event:
+    type: string
+    description: The name of the CIEM event that was emitted.
+    example: NewScopeDetected
+  org:
+    type: string
+    description: The ISC tenant (org) where the event occurred.
+    example: acme-sb
+  scopesDiscovered:
+    type: array
+    description: The cloud scopes (AWS accounts, Azure subscriptions, or GCP projects) that were newly discovered by SailPoint CIEM.
+    items:
+      type: object
+      additionalProperties: true
+      required:
+        - name
+        - nativeId
+      properties:
+        name:
+          type: string
+          description: The human friendly name of the discovered cloud scope.
+          example: aws-prod-payments
+        nativeId:
+          type: string
+          description: The cloud-native identifier of the scope (AWS account ID, Azure subscription ID, or GCP project ID).
+          example: "123456789012"
+  scopesEnabled:
+    type: boolean
+    description: Whether the newly discovered scopes have been automatically enabled for monitoring by SailPoint CIEM.
+    example: true
+  sourceIscId:
+    type: string
+    description: The unique ID of the source in Identity Security Cloud (ISC) that the scopes were detected on.
+    example: 2c9180866166b5b0016167c32ef31a66
+  sourceName:
+    type: string
+    description: The human friendly name of the source.
+    example: AWS Production
+  sourceNativeId:
+    type: string
+    description: The cloud-native identifier of the source (for example, the AWS organization ID or Azure tenant ID).
+    example: o-abcd1234ef
+  timestamp:
+    type: string
+    description: The date and time the new scope(s) were detected by SailPoint CIEM.
+    example: "2024-03-29T22:01:50.474Z"
+  total:
+    type: integer
+    minimum: 1
+    description: The total number of scopes discovered in this event.
+    example: 3
+  truncated:
+    type: boolean
+    description: Whether the `scopesDiscovered` list was truncated because the total number of discovered scopes exceeded the payload limit.
+    example: false

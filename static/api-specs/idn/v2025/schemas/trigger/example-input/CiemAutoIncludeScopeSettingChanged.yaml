@@ -1,0 +1,32 @@
+title: CIEM Auto-Include Scope Setting Changed
+type: object
+additionalProperties: true
+properties:
+  event:
+    type: string
+    description: The name of the CIEM event that was emitted.
+    example: AutoIncludeScopeSettingChanged
+  identityDisplayName:
+    type: string
+    description: The display name of the identity who changed the Auto-Include Scope setting.
+    example: William Wilson
+  identityId:
+    type: string
+    description: The ID of the identity who changed the Auto-Include Scope setting.
+    example: 2c7180a46faadee4016fb4e018c20648
+  sourceIscId:
+    type: string
+    description: The unique ID of the source in Identity Security Cloud (ISC) whose Auto-Include Scope setting was changed.
+    example: 2c9180866166b5b0016167c32ef31a66
+  sourceName:
+    type: string
+    description: The human friendly name of the source.
+    example: AWS Production
+  sourceNativeId:
+    type: string
+    description: The cloud-native identifier of the source (for example, the AWS organization ID or Azure tenant ID).
+    example: o-abcd1234ef
+  timestamp:
+    type: string
+    description: The date and time the Auto-Include Scope setting was changed.
+    example: "2024-03-29T22:01:50.474Z"

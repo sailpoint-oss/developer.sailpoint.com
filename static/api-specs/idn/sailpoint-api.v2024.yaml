@@ -1302,6 +1302,12 @@ x-webhooks:
     $ref: './v2024/webhooks/campaign-generated.yaml'
   CertificationSignedOff:
     $ref: './v2024/webhooks/certification-signed-off.yaml'
+  CiemAutoIncludeScopeSettingChanged:
+    $ref: './v2024/webhooks/ciem-auto-include-scope-setting-changed.yaml'
+  CiemNewScopeDetected:
+    $ref: './v2024/webhooks/ciem-new-scope-detected.yaml'
+  CiemScopeSelectionChanged:
+    $ref: './v2024/webhooks/ciem-scope-selection-changed.yaml'
   FormSubmitted:
     $ref: './v2024/webhooks/form-submitted.yaml'
   IdentityAttributesChanged:

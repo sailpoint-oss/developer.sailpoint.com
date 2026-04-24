@@ -1,0 +1,19 @@
+post:
+  summary: CIEM scope selection changed
+  operationId: ciemScopeSelectionChangedEvent
+  description: >-
+    This event trigger fires when a user changes the scope selection for a source. If a cloud scope is deselected, SailPoint CIEM will no longer check for changes to that specific AWS account, Azure subscription, or GCP project.
+
+    This is a `FIRE_AND_FORGET` event trigger.
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [CIEM Scope Selection Changed](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/ciem-scope-selection-changed).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/trigger/example-input/CiemScopeSelectionChanged.yaml'

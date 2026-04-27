@@ -13,7 +13,7 @@ tags: ['Connectivity']
 
 # Overview
 
-SaaS Connectivity Customizers are cloud-based connector customizers that make customizing out of the box SaaS connectors possible. The customizers allow you to customize the out of the box connectors in a similar way to how you can use rules to customize VA (virtual appliance) based connectors. By using a customizer, you can change a connector's input before the connector ingests the data, or you can change the connector's output before to the output is sent to Identity Security Cloud.
+SaaS Connectivity Customizers are cloud-based connector customizers that make customizing few out of the box SaaS connectors possible. The customizers allow you to customize the out of the box connectors in a similar way to how you can use rules to customize VA (virtual appliance) based connectors. By using a customizer, you can change a connector's input before the connector ingests the data, or you can change the connector's output before to the output is sent to Identity Security Cloud.
 
 <div className="text--center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bYQakKlKilY?si=o9vtqKLvcyGkHVjS" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
@@ -61,7 +61,7 @@ Customizers can only be used on SaaS Connectors that are built natively on the S
  - [GitHub](https://documentation.sailpoint.com/connectors/saas/github/help/)
  - [LastPass](https://documentation.sailpoint.com/connectors/saas/lastpass/help/)
  - [Lucidchart](https://documentation.sailpoint.com/connectors/saas/lucidchart/help/)
- - [Microsoft Entra](https://documentation.sailpoint.com/connectors/saas/msentraid/help/)
+ - [Microsoft Entra ID](https://documentation.sailpoint.com/connectors/saas/msentraid/help/)
  - [PagerDuty](https://documentation.sailpoint.com/connectors/saas/pagerduty/help/)
  - [PingOne](https://documentation.sailpoint.com/connectors/saas/pingone/help/)
  - [Proofpoint](https://documentation.sailpoint.com/connectors/saas/proofpoint/help/)

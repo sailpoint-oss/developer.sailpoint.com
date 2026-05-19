@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalIdentity', 'V2026ApprovalIden
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Email** | Pointer to **string** | Email address. | [optional] 
-**IdentityID** | Pointer to **string** | Identity ID. | [optional] 
+**IdentityID** | Pointer to **string** | Identity ID of the type of identity defined in the 'type' field. | [optional] 
 **Members** | Pointer to [**[]ApprovalIdentityMembersInner**](approval-identity-members-inner) | List of members of a governance group. Will be omitted if the identity is not a governance group. | [optional] 
 **Name** | Pointer to **string** | Name of the identity. | [optional] 
 **OwnerOf** | Pointer to [**[]ApprovalIdentityOwnerOfInner**](approval-identity-owner-of-inner) | List of owned items. For example, will show the items in which a ROLE_OWNER owns. Omitted if not an owner of anything. | [optional] 
 **SerialOrder** | Pointer to **int64** | The serial step of the identity in the approval. For example serialOrder 1 is the first identity to action in an approval request chain. Parallel approvals are set to 0. | [optional] 
-**Type** | Pointer to **string** | Type of identity. | [optional] 
+**Type** | Pointer to **string** | Type of identityID. | [optional] 
 
 ## Methods
 

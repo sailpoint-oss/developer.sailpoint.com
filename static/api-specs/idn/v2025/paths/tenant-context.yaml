@@ -3,16 +3,8 @@ get:
   tags:
     - Tenant Context
   description: |
-    Returns a list of key-value pairs representing the current state of the tenant's context.
-  parameters:
-    - name: X-SailPoint-Experimental
-      in: header
-      description: Use this header to enable this experimental API.
-      example: true
-      schema:
-        type: string
-        default: true
-      required: true
+    Returns all key-value pairs representing the current state of the tenant's context.
+    Each tenant is limited to a maximum of 100 key-value pairs.
   security:
     - userAuth:
         - idn:tenant-context:read
@@ -41,15 +33,15 @@ get:
             - key: IAS
               value: International Accounting Standards
     '400':
-      $ref: ../../v2024/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v2024/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v2024/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v2024/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v2024/responses/500.yaml
+      $ref: ../responses/500.yaml
 patch:
   summary: Update tenant context
   tags:
@@ -60,15 +52,6 @@ patch:
     This endpoint is specifically designed to modify the `/Key/*` field, supporting operations such as `add`, `remove`, or `replace` to manage key-value pairs. 
 
     Note that each tenant is limited to a maximum of 100 key-value pairs.
-  parameters:
-    - name: X-SailPoint-Experimental
-      in: header
-      description: Use this header to enable this experimental API.
-      example: true
-      schema:
-        type: string
-        default: true
-      required: true
   security:
     - userAuth:
         - idn:tenant-context:write
@@ -122,7 +105,7 @@ patch:
       content:
         application/json:
           schema:
-            $ref: ../../v2024/schemas/ErrorResponseDto.yaml
+            $ref: ../schemas/ErrorResponseDto.yaml
           examples:
             incorrectPath:
               summary: Invalid path example
@@ -161,12 +144,12 @@ patch:
                     localeOrigin: DEFAULT
                     text: 'unable to fulfill patch request: max tenant context capacity exceeded by 5 key/value pair(s)'
     '401':
-      $ref: ../../v2024/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v2024/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v2024/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v2024/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v2024/responses/500.yaml
+      $ref: ../responses/500.yaml

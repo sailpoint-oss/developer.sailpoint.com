@@ -2,6 +2,7 @@ type: object
 title: JIT Activation Deactivate Response
 required:
   - id
+  - activationId
   - connectionId
   - status
   - startTime
@@ -10,6 +11,11 @@ properties:
     type: string
     description: Workflow or business identifier for this activation.
     example: jit-activation-abc123
+  activationId:
+    type: string
+    format: uuid
+    description: Persistent activation record identifier for this JIT activation.
+    example: 8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d
   connectionId:
     type: string
     format: uuid

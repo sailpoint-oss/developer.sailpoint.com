@@ -2420,6 +2420,16 @@ paths:
     $ref: ./v2026/paths/icon.yaml
   /suggested-entitlement-descriptions/auto-write-settings:
     $ref: ./v2026/paths/suggested-entitlement-descriptions-auto-write-settings.yaml
+  /entitlement-recommendations/pending-approvals:
+    $ref: ./v2026/paths/entitlement-recommendations-pending-approvals.yaml
+  /privileged-recommendations:
+    $ref: ./v2026/paths/privileged-recommendations.yaml
+  /entitlement-recommendations/bulk-approve:
+    $ref: ./v2026/paths/entitlement-recommendations-bulk-approve.yaml
+  /entitlement-recommendations/assign:
+    $ref: ./v2026/paths/entitlement-recommendations-assign.yaml
+  /entitlement-recommendations/{id}:
+    $ref: ./v2026/paths/entitlement-recommendations-id.yaml
   /suggested-entitlement-description-batches/{batchId}/stats:
     $ref: ./v2026/paths/suggested-entitlement-description-batches-stats.yaml
   /suggested-entitlement-description-batches:

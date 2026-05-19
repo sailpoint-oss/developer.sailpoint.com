@@ -14,7 +14,7 @@ get:
   tags:
     - Parameter Storage
   security:
-    - userAuth: [sp:parameter-storage:read]
+    - userAuth: [sp:parameter-storage:read, sp:parameter-storage:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
   x-audience:
@@ -56,7 +56,7 @@ patch:
   tags:
     - Parameter Storage
   security:
-    - userAuth: [sp:parameter-storage:update]
+    - userAuth: [sp:parameter-storage:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
   x-audience:
@@ -112,7 +112,7 @@ delete:
   tags:
     - Parameter Storage
   security:
-    - userAuth: [sp:parameter-storage:delete]
+    - userAuth: [sp:parameter-storage:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
   x-audience:

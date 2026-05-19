@@ -4,7 +4,7 @@ get:
     Get the specifications for all parameter types. All parameters must conform to this specification document.
   operationId: getParameterStorageSpecification
   security:
-    - userAuth: [sp:parameter-storage:read, sp:parameter-storage:update, sp:parameter-storage:create, sp:parameter-storage:delete]
+    - userAuth: [sp:parameter-storage:read, sp:parameter-storage:manage]
   parameters:
     - name: Accept-Language
       in: header

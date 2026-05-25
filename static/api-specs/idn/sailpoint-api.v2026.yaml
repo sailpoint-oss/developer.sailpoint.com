@@ -502,6 +502,12 @@ tags:
       They can select an identity profile to view its settings, its mappings between identity attributes and correlating source account attributes, and its provisioning settings. 
 
       Refer to [Creating Identity Profiles](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html) for more information about identity profiles.
+  - name: Intelligence Package
+    description: |
+      Read-only HTTP API that returns the Intelligence Package (identity context)
+      for SecOps enrichment use cases (SIEM/SOAR connectors, MCP, browser
+      extension). Backed by Atlas internal-REST calls to MICE, Shelby List Accounts,
+      SDS Search, and identity-history.
   - name: JIT Access
     description: |
       Use these APIs to configure JIT provisioning activation policy for the tenant.
@@ -1660,6 +1666,12 @@ paths:
     $ref: ./v2026/paths/identity-profile-default-config.yaml
   /identity-profiles/{identity-profile-id}/process-identities:
     $ref: ./v2026/paths/identity-profile-process-identities.yaml
+  /intelligence/identities:
+    $ref: ./v2026/paths/intelligence-identities.yaml
+  /intelligence/identities/{identityID}/access:
+    $ref: ./v2026/paths/intelligence-identities-id-access.yaml
+  /intelligence/identities/{identityID}/access-history:
+    $ref: ./v2026/paths/intelligence-identities-id-access-history.yaml
   /jit-activations/activate:
     $ref: ./v2026/paths/jit-activations-activate.yaml
   /jit-activations/deactivate:

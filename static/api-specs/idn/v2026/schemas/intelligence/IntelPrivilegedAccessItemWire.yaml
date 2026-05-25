@@ -1,0 +1,51 @@
+type: object
+required:
+  - privileged
+  - id
+  - type
+properties:
+  privileged:
+    type: boolean
+    description: True when SDS Search classifies this item as privileged access for the identity.
+    example: true
+  displayName:
+    type: string
+    description: Display label for the privileged access item in administrative experiences.
+    example: Absence_Administrator
+  name:
+    type: string
+    description: Technical name of the privileged access item from SDS Search.
+    example: Absence_Administrator
+  standalone:
+    type: boolean
+    description: True when the privileged item is modeled as a standalone entitlement or access object.
+    default: false
+    example: true
+  id:
+    type: string
+    description: Identifier of the privileged access item returned by SDS Search.
+    example: ent-1
+  source:
+    type: object
+    description: Source metadata associated with the privileged access item when present.
+    properties:
+      name:
+        type: string
+        description: Human-readable source name for the privileged access item.
+        example: Workday
+      id:
+        type: string
+        description: Source identifier for the privileged access item.
+        example: src-2
+  attribute:
+    type: string
+    description: Source attribute name that carries the privileged value when applicable.
+    example: USER_BASED_SECURITY_GROUPS
+  type:
+    type: string
+    description: Object type classification from SDS Search (for example ENTITLEMENT).
+    example: ENTITLEMENT
+  value:
+    type: string
+    description: Privileged value on the source attribute when applicable.
+    example: Absence_Administrator

@@ -17925,6 +17925,92 @@
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
           }
         }
+- path: /machine-accounts/bulk-disable
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2026/methods/machine-accounts#disable-machine-accounts-in-bulk
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+           misbulkrequest := []byte(`{
+          "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c91808a7813090a017814121919ecca" ]
+        }`) // MisBulkRequest | 
+
+          
+          var misBulkRequest v2026.MisBulkRequest
+          if err := json.Unmarshal(misbulkrequest, &misBulkRequest); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2026.MachineAccountsAPI.DisableMachineAccountsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).MisBulkRequest(misBulkRequest).Execute()
+          //resp, r, err := apiClient.V2026.MachineAccountsAPI.DisableMachineAccountsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).MisBulkRequest(misBulkRequest).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.DisableMachineAccountsInBulk``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `DisableMachineAccountsInBulk`: AccountRequestAsyncResult
+          fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.DisableMachineAccountsInBulk`: %v\n", resp)
+        }
+- path: /machine-accounts/bulk-enable
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2026/methods/machine-accounts#enable-machine-accounts-in-bulk
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+           misbulkrequest := []byte(`{
+          "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c91808a7813090a017814121919ecca" ]
+        }`) // MisBulkRequest | 
+
+          
+          var misBulkRequest v2026.MisBulkRequest
+          if err := json.Unmarshal(misbulkrequest, &misBulkRequest); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2026.MachineAccountsAPI.EnableMachineAccountsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).MisBulkRequest(misBulkRequest).Execute()
+          //resp, r, err := apiClient.V2026.MachineAccountsAPI.EnableMachineAccountsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).MisBulkRequest(misBulkRequest).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.EnableMachineAccountsInBulk``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `EnableMachineAccountsInBulk`: AccountRequestAsyncResult
+          fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.EnableMachineAccountsInBulk`: %v\n", resp)
+        }
 - path: /machine-accounts/{id}
   method: Get
   xCodeSample:
@@ -18229,6 +18315,49 @@
           // response from `PatchMachineAccountSubtypeByTechnicalName`: SourceSubtype
           fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.PatchMachineAccountSubtypeByTechnicalName`: %v\n", resp)
         }
+- path: /machine-accounts/bulk-reload
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2026/methods/machine-accounts#reload-machine-accounts-in-bulk
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+           misbulkrequest := []byte(`{
+          "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c91808a7813090a017814121919ecca" ]
+        }`) // MisBulkRequest | 
+
+          
+          var misBulkRequest v2026.MisBulkRequest
+          if err := json.Unmarshal(misbulkrequest, &misBulkRequest); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2026.MachineAccountsAPI.ReloadMachineAccountsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).MisBulkRequest(misBulkRequest).Execute()
+          //resp, r, err := apiClient.V2026.MachineAccountsAPI.ReloadMachineAccountsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).MisBulkRequest(misBulkRequest).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.ReloadMachineAccountsInBulk``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `ReloadMachineAccountsInBulk`: []MisBulkResponse
+          fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.ReloadMachineAccountsInBulk`: %v\n", resp)
+        }
 - path: /machine-accounts/{id}
   method: Patch
   xCodeSample:
@@ -18312,6 +18441,54 @@
           }
           // response from `UpdateMachineAccountSubtypeApprovalConfig`: MachineAccountSubtypeConfigDto
           fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.UpdateMachineAccountSubtypeApprovalConfig`: %v\n", resp)
+        }
+- path: /machine-accounts/bulk-update
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2026/methods/machine-accounts#update-machine-accounts-in-bulk
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+           misbulkupdaterequest := []byte(`{
+          "ids" : [ "ef38f94347e94562b5bb8424a56397d8" ],
+          "jsonPatch" : [ {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "Updated description"
+          } ]
+        }`) // MisBulkUpdateRequest | 
+
+          
+          var misBulkUpdateRequest v2026.MisBulkUpdateRequest
+          if err := json.Unmarshal(misbulkupdaterequest, &misBulkUpdateRequest); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2026.MachineAccountsAPI.UpdateMachineAccountsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).MisBulkUpdateRequest(misBulkUpdateRequest).Execute()
+          //resp, r, err := apiClient.V2026.MachineAccountsAPI.UpdateMachineAccountsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).MisBulkUpdateRequest(misBulkUpdateRequest).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.UpdateMachineAccountsInBulk``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `UpdateMachineAccountsInBulk`: []MisBulkResponse
+          fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.UpdateMachineAccountsInBulk`: %v\n", resp)
         }
 - path: /sources/{sourceId}/machine-classification-config
   method: Delete

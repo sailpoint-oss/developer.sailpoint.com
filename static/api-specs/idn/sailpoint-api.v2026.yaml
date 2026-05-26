@@ -2174,6 +2174,14 @@ paths:
     $ref: ./v2026/paths/machine-accounts.yaml
   /machine-accounts/{id}:
     $ref: ./v2026/paths/machine-account.yaml
+  /machine-accounts/bulk-update:
+    $ref: ./v2026/paths/machine-accounts-bulk-update.yaml
+  /machine-accounts/bulk-enable:
+    $ref: ./v2026/paths/machine-accounts-bulk-enable.yaml
+  /machine-accounts/bulk-disable:
+    $ref: ./v2026/paths/machine-accounts-bulk-disable.yaml
+  /machine-accounts/bulk-reload:
+    $ref: ./v2026/paths/machine-accounts-bulk-reload.yaml
   /sources/{sourceId}/machine-classification-config:
     $ref: "./v2026/paths/machine-classification-config.yaml"
   /sources/{sourceId}/machine-account-mappings:
@@ -2592,6 +2600,14 @@ components:
       $ref: "./v2026/schemas/MachineAccountCreateRequestInput.yaml"
     MachineAccountSubtypeConfigDto:
       $ref: "./v2026/schemas/MachineAccountSubtypeConfigDto.yaml"
+    MisBulkRequest:
+      $ref: "./v2026/schemas/MisBulkRequest.yaml"
+    MisBulkResponse:
+      $ref: "./v2026/schemas/MisBulkResponse.yaml"
+    MisBulkResponseList:
+      $ref: "./v2026/schemas/MisBulkResponseList.yaml"
+    MisBulkUpdateRequest:
+      $ref: "./v2026/schemas/MisBulkUpdateRequest.yaml"
     RequestOnBehalfOfConfig:
       $ref: "./v2026/schemas/RequestOnBehalfOfConfig.yaml"
     TemplateMediumDto:

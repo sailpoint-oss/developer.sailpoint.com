@@ -1,0 +1,43 @@
+post:
+  tags:
+    - Suggested Entitlement Description
+  operationId: submitEntitlementRecommendationsAssignment
+  summary: Assign entitlement recommendations for review
+  description: >-
+    Assign a set of entitlement recommendation records to a reviewer. The assignee
+    can be a specific identity, a governance group, or a role-based assignee such as
+    source owner or entitlement owner. Returns a batch ID that can be used to track
+    the assignment.
+  requestBody:
+    description: The recommendation IDs and the target assignee.
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/EntitlementRecommendationAssignRequest.yaml
+    required: true
+  responses:
+    '202':
+      description: Assignment queued successfully. Returns the batch ID for tracking.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/EntitlementRecommendationAssignResult.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - idn:sed:manage
+    - applicationAuth:
+        - idn:sed:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

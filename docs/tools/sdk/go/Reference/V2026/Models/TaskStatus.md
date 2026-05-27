@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **Launcher** | **string** | Service to execute the task this TaskStatus represents | 
 **Target** | Pointer to [**NullableTarget**](target) |  | [optional] 
 **Created** | **SailPointTime** | Creation date of the task this TaskStatus represents | 
-**Modified** | **SailPointTime** | Last modification date of the task this TaskStatus represents | 
+**Modified** | **NullableTime** | Last modification date of the task this TaskStatus represents | 
 **Launched** | **NullableTime** | Launch date of the task this TaskStatus represents | 
 **Completed** | **NullableTime** | Completion date of the task this TaskStatus represents | 
 **CompletionStatus** | **NullableString** | Completion status of the task this TaskStatus represents | 
@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 ### NewTaskStatus
 
-`func NewTaskStatus(id string, type_ string, uniqueName string, description string, parentName NullableString, launcher string, created SailPointTime, modified SailPointTime, launched NullableTime, completed NullableTime, completionStatus NullableString, messages []TaskStatusMessage, returns []TaskReturnDetails, attributes map[string]interface{}, progress NullableString, percentComplete int32, ) *TaskStatus`
+`func NewTaskStatus(id string, type_ string, uniqueName string, description string, parentName NullableString, launcher string, created SailPointTime, modified NullableTime, launched NullableTime, completed NullableTime, completionStatus NullableString, messages []TaskStatusMessage, returns []TaskReturnDetails, attributes map[string]interface{}, progress NullableString, percentComplete int32, ) *TaskStatus`
 
 NewTaskStatus instantiates a new TaskStatus object
 This constructor will assign default values to properties that have it defined,
@@ -258,6 +258,16 @@ and a boolean to check if the value has been set.
 SetModified sets Modified field to given value.
 
 
+### SetModifiedNil
+
+`func (o *TaskStatus) SetModifiedNil(b bool)`
+
+ SetModifiedNil sets the value for Modified to be an explicit nil
+
+### UnsetModified
+`func (o *TaskStatus) UnsetModified()`
+
+UnsetModified ensures that no value is present for Modified, not even an explicit nil
 ### GetLaunched
 
 `func (o *TaskStatus) GetLaunched() SailPointTime`

@@ -18,17 +18,99 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2026*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**approve-bulk-entitlement-recommendations**](#approve-bulk-entitlement-recommendations) | **Post** `/entitlement-recommendations/bulk-approve` | Bulk approve entitlement recommendations
 [**create-auto-write-settings**](#create-auto-write-settings) | **Post** `/suggested-entitlement-descriptions/auto-write-settings` | Create auto-write settings for SED
 [**get-auto-write-settings**](#get-auto-write-settings) | **Get** `/suggested-entitlement-descriptions/auto-write-settings` | Get auto-write settings for SED
 [**get-sed-batch-stats**](#get-sed-batch-stats) | **Get** `/suggested-entitlement-description-batches/{batchId}/stats` | Submit sed batch stats request
 [**get-sed-batches**](#get-sed-batches) | **Get** `/suggested-entitlement-description-batches` | List Sed Batch Record
+[**list-pending-entitlement-recommendation-approvals**](#list-pending-entitlement-recommendation-approvals) | **Get** `/entitlement-recommendations/pending-approvals` | List pending entitlement recommendation approvals
+[**list-privileged-entitlement-recommendations**](#list-privileged-entitlement-recommendations) | **Get** `/privileged-recommendations` | List privileged entitlement recommendations
 [**list-seds**](#list-seds) | **Get** `/suggested-entitlement-descriptions` | List suggested entitlement descriptions
+[**patch-entitlement-recommendation**](#patch-entitlement-recommendation) | **Patch** `/entitlement-recommendations/{id}` | Update an entitlement recommendation
 [**patch-sed**](#patch-sed) | **Patch** `/suggested-entitlement-descriptions` | Patch suggested entitlement description
+[**submit-entitlement-recommendations-assignment**](#submit-entitlement-recommendations-assignment) | **Post** `/entitlement-recommendations/assign` | Assign entitlement recommendations for review
 [**submit-sed-approval**](#submit-sed-approval) | **Post** `/suggested-entitlement-description-approvals` | Submit bulk approval request
 [**submit-sed-assignment**](#submit-sed-assignment) | **Post** `/suggested-entitlement-description-assignments` | Submit sed assignment request
 [**submit-sed-batch-request**](#submit-sed-batch-request) | **Post** `/suggested-entitlement-description-batches` | Submit sed batch request
 [**update-auto-write-settings**](#update-auto-write-settings) | **Patch** `/suggested-entitlement-descriptions/auto-write-settings` | Update auto-write settings for SED
 
+
+## approve-bulk-entitlement-recommendations
+Bulk approve entitlement recommendations
+Approve multiple entitlement recommendations in a single request. Each item in the request must include the recommendation ID and, depending on the record type, either an approved description (SED items) or an approved privilege level (privilege items). Returns a per-item result indicating success or failure.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/approve-bulk-entitlement-recommendations)
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApproveBulkEntitlementRecommendationsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bulkApproveEntitlementRecommendationRequest** | [**BulkApproveEntitlementRecommendationRequest**](../models/bulk-approve-entitlement-recommendation-request) | The list of recommendation items to approve. | 
+
+### Return type
+
+[**[]BulkApproveEntitlementRecommendationResult**](../models/bulk-approve-entitlement-recommendation-result)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  "encoding/json"
+    v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    bulkapproveentitlementrecommendationrequest := []byte(`{
+          "items" : [ {
+            "id" : "79db50d4-723c-4aa0-a824-83c2205d82d1",
+            "recordType" : "SED",
+            "description" : "Provides access and permissions related to the Delinea Secret Server Cloud system."
+          }, {
+            "id" : "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+            "recordType" : "privilege",
+            "privilegeLevel" : "high"
+          } ]
+        }`) // BulkApproveEntitlementRecommendationRequest | The list of recommendation items to approve.
+
+    var bulkApproveEntitlementRecommendationRequest v2026.BulkApproveEntitlementRecommendationRequest
+    if err := json.Unmarshal(bulkapproveentitlementrecommendationrequest, &bulkApproveEntitlementRecommendationRequest); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2026.SuggestedEntitlementDescriptionAPI.ApproveBulkEntitlementRecommendations(context.Background()).BulkApproveEntitlementRecommendationRequest(bulkApproveEntitlementRecommendationRequest).Execute()
+	  //resp, r, err := apiClient.V2026.SuggestedEntitlementDescriptionAPI.ApproveBulkEntitlementRecommendations(context.Background()).BulkApproveEntitlementRecommendationRequest(bulkApproveEntitlementRecommendationRequest).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.ApproveBulkEntitlementRecommendations``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApproveBulkEntitlementRecommendations`: []BulkApproveEntitlementRecommendationResult
+    fmt.Fprintf(os.Stdout, "Response from `SuggestedEntitlementDescriptionAPI.ApproveBulkEntitlementRecommendations`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
 
 ## create-auto-write-settings
 Create auto-write settings for SED
@@ -299,6 +381,134 @@ func main() {
 
 [[Back to top]](#)
 
+## list-pending-entitlement-recommendation-approvals
+List pending entitlement recommendation approvals
+Returns a list of entitlement recommendations (SED and/or privilege) that are currently awaiting review or approval. Each record includes the recommendation type, entitlement details, and any AI-generated suggestions.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-pending-entitlement-recommendation-approvals)
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListPendingEntitlementRecommendationApprovalsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+
+### Return type
+
+[**[]EntitlementRecommendationRecord**](../models/entitlement-recommendation-record)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2026.SuggestedEntitlementDescriptionAPI.ListPendingEntitlementRecommendationApprovals(context.Background()).Execute()
+	  //resp, r, err := apiClient.V2026.SuggestedEntitlementDescriptionAPI.ListPendingEntitlementRecommendationApprovals(context.Background()).Offset(offset).Limit(limit).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.ListPendingEntitlementRecommendationApprovals``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListPendingEntitlementRecommendationApprovals`: []EntitlementRecommendationRecord
+    fmt.Fprintf(os.Stdout, "Response from `SuggestedEntitlementDescriptionAPI.ListPendingEntitlementRecommendationApprovals`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## list-privileged-entitlement-recommendations
+List privileged entitlement recommendations
+Returns a list of privileged entitlement recommendation groups. Each group aggregates individual entitlement instances that share the same entitlement name and connector type, along with a recommendation score and instance count.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-privileged-entitlement-recommendations)
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListPrivilegedEntitlementRecommendationsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+
+### Return type
+
+[**[]PrivilegedRecommendationGroup**](../models/privileged-recommendation-group)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2026.SuggestedEntitlementDescriptionAPI.ListPrivilegedEntitlementRecommendations(context.Background()).Execute()
+	  //resp, r, err := apiClient.V2026.SuggestedEntitlementDescriptionAPI.ListPrivilegedEntitlementRecommendations(context.Background()).Offset(offset).Limit(limit).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.ListPrivilegedEntitlementRecommendations``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListPrivilegedEntitlementRecommendations`: []PrivilegedRecommendationGroup
+    fmt.Fprintf(os.Stdout, "Response from `SuggestedEntitlementDescriptionAPI.ListPrivilegedEntitlementRecommendations`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
 ## list-seds
 List suggested entitlement descriptions
 List of Suggested Entitlement Descriptions (SED)
@@ -389,6 +599,79 @@ func main() {
 
 [[Back to top]](#)
 
+## patch-entitlement-recommendation
+Update an entitlement recommendation
+Partially update a single entitlement recommendation record by its ID. Use this endpoint to update the status, description, or privilege level of a specific SED or privilege recommendation.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/patch-entitlement-recommendation)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The unique identifier of the entitlement recommendation to update. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchEntitlementRecommendationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **jsonPatchOperation** | [**[]JsonPatchOperation**](../models/json-patch-operation) | The patch operations to apply to the entitlement recommendation record. | 
+
+### Return type
+
+[**EntitlementRecommendationRecord**](../models/entitlement-recommendation-record)
+
+### HTTP request headers
+
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  "encoding/json"
+    v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    id := `79db50d4-723c-4aa0-a824-83c2205d82d1` // string | The unique identifier of the entitlement recommendation to update. # string | The unique identifier of the entitlement recommendation to update.
+    jsonpatchoperation := []byte(``) // []JsonPatchOperation | The patch operations to apply to the entitlement recommendation record.
+
+    var jsonPatchOperation []v2026.JsonPatchOperation
+    if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2026.SuggestedEntitlementDescriptionAPI.PatchEntitlementRecommendation(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
+	  //resp, r, err := apiClient.V2026.SuggestedEntitlementDescriptionAPI.PatchEntitlementRecommendation(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.PatchEntitlementRecommendation``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PatchEntitlementRecommendation`: EntitlementRecommendationRecord
+    fmt.Fprintf(os.Stdout, "Response from `SuggestedEntitlementDescriptionAPI.PatchEntitlementRecommendation`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
 ## patch-sed
 Patch suggested entitlement description
 Patch Suggested Entitlement Description
@@ -457,6 +740,79 @@ func main() {
     }
     // response from `PatchSed`: Sed
     fmt.Fprintf(os.Stdout, "Response from `SuggestedEntitlementDescriptionAPI.PatchSed`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## submit-entitlement-recommendations-assignment
+Assign entitlement recommendations for review
+Assign a set of entitlement recommendation records to a reviewer. The assignee can be a specific identity, a governance group, or a role-based assignee such as source owner or entitlement owner. Returns a batch ID that can be used to track the assignment.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/submit-entitlement-recommendations-assignment)
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSubmitEntitlementRecommendationsAssignmentRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entitlementRecommendationAssignRequest** | [**EntitlementRecommendationAssignRequest**](../models/entitlement-recommendation-assign-request) | The recommendation IDs and the target assignee. | 
+
+### Return type
+
+[**EntitlementRecommendationAssignResult**](../models/entitlement-recommendation-assign-result)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  "encoding/json"
+    v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    entitlementrecommendationassignrequest := []byte(`{
+          "assignee" : {
+            "type" : "IDENTITY",
+            "value" : "2c91808a7f3b2e8a017f3c3e5f6d0099"
+          },
+          "items" : [ "79db50d4-723c-4aa0-a824-83c2205d82d1", "a1b2c3d4-e5f6-7890-abcd-ef1234567890" ]
+        }`) // EntitlementRecommendationAssignRequest | The recommendation IDs and the target assignee.
+
+    var entitlementRecommendationAssignRequest v2026.EntitlementRecommendationAssignRequest
+    if err := json.Unmarshal(entitlementrecommendationassignrequest, &entitlementRecommendationAssignRequest); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2026.SuggestedEntitlementDescriptionAPI.SubmitEntitlementRecommendationsAssignment(context.Background()).EntitlementRecommendationAssignRequest(entitlementRecommendationAssignRequest).Execute()
+	  //resp, r, err := apiClient.V2026.SuggestedEntitlementDescriptionAPI.SubmitEntitlementRecommendationsAssignment(context.Background()).EntitlementRecommendationAssignRequest(entitlementRecommendationAssignRequest).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.SubmitEntitlementRecommendationsAssignment``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SubmitEntitlementRecommendationsAssignment`: EntitlementRecommendationAssignResult
+    fmt.Fprintf(os.Stdout, "Response from `SuggestedEntitlementDescriptionAPI.SubmitEntitlementRecommendationsAssignment`: %v\n", resp)
 }
 ```
 

@@ -13,7 +13,7 @@ get:
       schema:
         type: string
   security:
-    - userAuth: [sp:parameter-storage:read, sp:parameter-storage:create, sp:parameter-storage:update, sp:parameter-storage:delete]
+    - userAuth: [sp:parameter-storage:read, sp:parameter-storage:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
   x-audience:

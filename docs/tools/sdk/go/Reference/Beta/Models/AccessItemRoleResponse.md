@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **DisplayName** | Pointer to **string** | the role display name | [optional] 
 **SourceName** | Pointer to **NullableString** | the associated source name if it exists | [optional] 
 **Description** | Pointer to **string** | the description for the role | [optional] 
+**StartDate** | Pointer to **NullableString** | the date the access profile will be assigned to the specified identity, in case requested with a future start date | [optional] 
 **RemoveDate** | Pointer to **string** | the date the role is no longer assigned to the specified identity | [optional] 
 **Revocable** | **bool** | indicates whether the role is revocable | 
 
@@ -177,6 +178,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetStartDate
+
+`func (o *AccessItemRoleResponse) GetStartDate() string`
+
+GetStartDate returns the StartDate field if non-nil, zero value otherwise.
+
+### GetStartDateOk
+
+`func (o *AccessItemRoleResponse) GetStartDateOk() (*string, bool)`
+
+GetStartDateOk returns a tuple with the StartDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartDate
+
+`func (o *AccessItemRoleResponse) SetStartDate(v string)`
+
+SetStartDate sets StartDate field to given value.
+
+### HasStartDate
+
+`func (o *AccessItemRoleResponse) HasStartDate() bool`
+
+HasStartDate returns a boolean if a field has been set.
+
+### SetStartDateNil
+
+`func (o *AccessItemRoleResponse) SetStartDateNil(b bool)`
+
+ SetStartDateNil sets the value for StartDate to be an explicit nil
+
+### UnsetStartDate
+`func (o *AccessItemRoleResponse) UnsetStartDate()`
+
+UnsetStartDate ensures that no value is present for StartDate, not even an explicit nil
 ### GetRemoveDate
 
 `func (o *AccessItemRoleResponse) GetRemoveDate() string`

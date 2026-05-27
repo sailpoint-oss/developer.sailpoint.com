@@ -15,10 +15,9 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalConfigSerialChainInner', 'V20
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ChainId** | Pointer to **string** | ID of the serial chain. | [optional] 
 **Tier** | Pointer to **int64** | Starting at 1 defines the order in which the identities will get assigned | [optional] 
-**IdentityId** | Pointer to **string** | Identity ID in the serial chain. | [optional] 
-**IdentityType** | Pointer to **string** | Type of identity in the serial chain. | [optional] 
+**IdentityId** | Pointer to **string** | Optional Identity ID of the type of identity defined in the 'identityType' field. | [optional] 
+**IdentityType** | Pointer to **string** | Type of identityId in the serial chain. | [optional] 
 
 ## Methods
 
@@ -38,31 +37,6 @@ will change when the set of required properties is changed
 NewApprovalConfigSerialChainInnerWithDefaults instantiates a new ApprovalConfigSerialChainInner object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetChainId
-
-`func (o *ApprovalConfigSerialChainInner) GetChainId() string`
-
-GetChainId returns the ChainId field if non-nil, zero value otherwise.
-
-### GetChainIdOk
-
-`func (o *ApprovalConfigSerialChainInner) GetChainIdOk() (*string, bool)`
-
-GetChainIdOk returns a tuple with the ChainId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetChainId
-
-`func (o *ApprovalConfigSerialChainInner) SetChainId(v string)`
-
-SetChainId sets ChainId field to given value.
-
-### HasChainId
-
-`func (o *ApprovalConfigSerialChainInner) HasChainId() bool`
-
-HasChainId returns a boolean if a field has been set.
 
 ### GetTier
 

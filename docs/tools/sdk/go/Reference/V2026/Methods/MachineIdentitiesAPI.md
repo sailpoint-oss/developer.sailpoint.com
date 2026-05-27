@@ -478,6 +478,10 @@ Starts a machine identity (AI Agents) aggregation on the specified source.
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**sourceId** | **string** | Source ID. | 
 
 ### Other Parameters
 
@@ -486,6 +490,7 @@ Other parameters are passed through a pointer to a apiStartMachineIdentityAggreg
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **machineIdentityAggregationRequest** | [**MachineIdentityAggregationRequest**](../models/machine-identity-aggregation-request) |  | 
 
@@ -513,6 +518,7 @@ import (
 )
 
 func main() {
+    sourceId := `ef38f94347e94562b5bb8424a56397d8` // string | Source ID. # string | Source ID.
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     machineidentityaggregationrequest := []byte(`{
           "datasetIds" : [ "source:datasetId12345", "source:datasetId12345" ],
@@ -528,8 +534,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2026.MachineIdentitiesAPI.StartMachineIdentityAggregation(context.Background()).XSailPointExperimental(xSailPointExperimental).MachineIdentityAggregationRequest(machineIdentityAggregationRequest).Execute()
-	  //resp, r, err := apiClient.V2026.MachineIdentitiesAPI.StartMachineIdentityAggregation(context.Background()).XSailPointExperimental(xSailPointExperimental).MachineIdentityAggregationRequest(machineIdentityAggregationRequest).Execute()
+    resp, r, err := apiClient.V2026.MachineIdentitiesAPI.StartMachineIdentityAggregation(context.Background(), sourceId).XSailPointExperimental(xSailPointExperimental).MachineIdentityAggregationRequest(machineIdentityAggregationRequest).Execute()
+	  //resp, r, err := apiClient.V2026.MachineIdentitiesAPI.StartMachineIdentityAggregation(context.Background(), sourceId).XSailPointExperimental(xSailPointExperimental).MachineIdentityAggregationRequest(machineIdentityAggregationRequest).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `MachineIdentitiesAPI.StartMachineIdentityAggregation``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **JobId** | **string** | Unique id assigned to this job. | 
 **Status** | **string** | Status of the job. | 
 **Type** | **string** | Type of the job, either export or import. | 
-**Expiration** | **SailPointTime** | The time until which the artifacts will be available for download. | 
+**Expiration** | Pointer to **SailPointTime** | The time until which the artifacts will be available for download. | [optional] 
 **Created** | **SailPointTime** | The time the job was started. | 
 **Modified** | **SailPointTime** | The time of the last update to the job. | 
 **Description** | Pointer to **string** | Optional user defined description/name for export job. | [optional] 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 ### NewSpConfigExportJob
 
-`func NewSpConfigExportJob(jobId string, status string, type_ string, expiration SailPointTime, created SailPointTime, modified SailPointTime, ) *SpConfigExportJob`
+`func NewSpConfigExportJob(jobId string, status string, type_ string, created SailPointTime, modified SailPointTime, ) *SpConfigExportJob`
 
 NewSpConfigExportJob instantiates a new SpConfigExportJob object
 This constructor will assign default values to properties that have it defined,
@@ -121,6 +121,11 @@ and a boolean to check if the value has been set.
 
 SetExpiration sets Expiration field to given value.
 
+### HasExpiration
+
+`func (o *SpConfigExportJob) HasExpiration() bool`
+
+HasExpiration returns a boolean if a field has been set.
 
 ### GetCreated
 

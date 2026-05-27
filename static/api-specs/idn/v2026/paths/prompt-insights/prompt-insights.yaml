@@ -1,0 +1,101 @@
+get:
+  tags:
+    - Prompt Insights
+  operationId: listPromptInsights
+  summary: List prompt insights
+  description: >-
+    Returns a paginated list of prompt insights within a lookback window, with optional structured filters.
+    Results are sorted by timestamp descending (most recent first).
+  parameters:
+    - in: query
+      name: interval
+      required: true
+      description: Relative lookback window for prompt insights.
+      example: "-30d"
+      schema:
+        type: string
+        enum:
+          - "-1h"
+          - "-1d"
+          - "-7d"
+          - "-30d"
+    - $ref: ../../parameters/limit.yaml
+    - $ref: ../../parameters/offset.yaml
+    - in: query
+      name: filters
+      required: false
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **policyDecision**: *eq*
+
+
+        **category**: *eq*
+
+
+        **severity**: *eq*
+
+
+        **user**: *eq, sw, co*
+
+
+        **agent**: *eq, sw, co*
+
+
+        **reason**: *eq, sw, co*
+
+
+        **rule**: *eq, sw, co*
+
+
+        **policy**: *eq, sw, co*
+      example: policyDecision eq "REDACTED" and severity eq "CRITICAL"
+      schema:
+        type: string
+  responses:
+    '200':
+      description: A paginated list of prompt insight events.
+      headers:
+        X-Total-Count:
+          description: Total matching insights for the interval and filters, not limited by limit or offset.
+          schema:
+            type: integer
+            format: int32
+            example: 1
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../schemas/prompt-insights/PromptInsight.yaml
+          example:
+            - timestamp: "2026-05-14T10:01:02.345Z"
+              user: jdoe@example.com
+              agent: ChatGPT
+              policyDecision: REDACTED
+              category: ANOMALIES
+              severity: HIGH
+              reason: Policy matched suspicious system override pattern
+              rule: Prompt Guard - Clean
+              policy: PG-INFO:None
+    '400':
+      $ref: ../../responses/400.yaml
+    '401':
+      $ref: ../../responses/401.yaml
+    '403':
+      $ref: ../../responses/403.yaml
+    '429':
+      $ref: ../../responses/429.yaml
+    '500':
+      $ref: ../../responses/500.yaml
+  security:
+    - userAuth:
+        - idn:prompt-insights:read
+    - applicationAuth:
+        - idn:prompt-insights:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

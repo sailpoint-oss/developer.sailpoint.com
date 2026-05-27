@@ -23,7 +23,7 @@ Connectors are the bridges between the SailPoint Identity Security Cloud (ISC) S
 
 ## Why we are introducing SaaS Connectivity
 
-The primary driver for indroducing the SaaS Connectivity framework is to allow a way to connect to other cloud based sources in a truly SaaS architecture, without the need to rely on a VA. There are also other benefits that come with the SaaS Connectivity framework:
+The primary driver for introducing the SaaS Connectivity framework is to allow a way to connect to other cloud based sources in a truly SaaS architecture, without the need to rely on a VA. There are also other benefits that come with the SaaS Connectivity framework:
 
 - Ability to develop, debug and test custom connectors locally without any dependencies on Identity Security Cloud
 - Features to customize the user interface when configuring the connector that are specific to the source

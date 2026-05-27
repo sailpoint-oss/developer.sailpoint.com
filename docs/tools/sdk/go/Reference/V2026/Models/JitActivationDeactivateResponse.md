@@ -16,6 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'JitActivationDeactivateResponse', 'V2
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Workflow or business identifier for this activation. | 
+**ActivationId** | **string** | Persistent activation record identifier for this JIT activation. | 
 **ConnectionId** | **string** | Entitlement connection identifier for the activation. | 
 **Status** | [**ActivationWorkflowStatus**](activation-workflow-status) |  | 
 **StartTime** | **SailPointTime** | Time associated with this deactivation request (ISO-8601). | 
@@ -24,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewJitActivationDeactivateResponse
 
-`func NewJitActivationDeactivateResponse(id string, connectionId string, status ActivationWorkflowStatus, startTime SailPointTime, ) *JitActivationDeactivateResponse`
+`func NewJitActivationDeactivateResponse(id string, activationId string, connectionId string, status ActivationWorkflowStatus, startTime SailPointTime, ) *JitActivationDeactivateResponse`
 
 NewJitActivationDeactivateResponse instantiates a new JitActivationDeactivateResponse object
 This constructor will assign default values to properties that have it defined,
@@ -57,6 +58,26 @@ and a boolean to check if the value has been set.
 `func (o *JitActivationDeactivateResponse) SetId(v string)`
 
 SetId sets Id field to given value.
+
+
+### GetActivationId
+
+`func (o *JitActivationDeactivateResponse) GetActivationId() string`
+
+GetActivationId returns the ActivationId field if non-nil, zero value otherwise.
+
+### GetActivationIdOk
+
+`func (o *JitActivationDeactivateResponse) GetActivationIdOk() (*string, bool)`
+
+GetActivationIdOk returns a tuple with the ActivationId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActivationId
+
+`func (o *JitActivationDeactivateResponse) SetActivationId(v string)`
+
+SetActivationId sets ActivationId field to given value.
 
 
 ### GetConnectionId

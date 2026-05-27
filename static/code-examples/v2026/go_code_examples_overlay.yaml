@@ -24084,6 +24084,77 @@
           // response from `PatchPrivilegeCriteriaConfig`: PrivilegeCriteriaConfigDTO
           fmt.Fprintf(os.Stdout, "Response from `PrivilegeCriteriaConfigurationAPI.PatchPrivilegeCriteriaConfig`: %v\n", resp)
         }
+- path: /prompt-insights/metrics
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2026/methods/prompt-insights#get-prompt-insights-metrics
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          interval := `-7d` // string | Relative lookback window for metrics aggregation. # string | Relative lookback window for metrics aggregation.
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2026.PromptInsightsAPI.GetPromptInsightsMetrics(context.Background()).Interval(interval).Execute()
+          //resp, r, err := apiClient.V2026.PromptInsightsAPI.GetPromptInsightsMetrics(context.Background()).Interval(interval).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `PromptInsightsAPI.GetPromptInsightsMetrics``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetPromptInsightsMetrics`: PromptInsightsMetrics
+          fmt.Fprintf(os.Stdout, "Response from `PromptInsightsAPI.GetPromptInsightsMetrics`: %v\n", resp)
+        }
+- path: /prompt-insights
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2026/methods/prompt-insights#list-prompt-insights
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          interval := `-30d` // string | Relative lookback window for prompt insights. # string | Relative lookback window for prompt insights.
+          limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+          filters := `policyDecision eq "REDACTED" and severity eq "CRITICAL"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **policyDecision**: *eq*  **category**: *eq*  **severity**: *eq*  **user**: *eq, sw, co*  **agent**: *eq, sw, co*  **reason**: *eq, sw, co*  **rule**: *eq, sw, co*  **policy**: *eq, sw, co* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **policyDecision**: *eq*  **category**: *eq*  **severity**: *eq*  **user**: *eq, sw, co*  **agent**: *eq, sw, co*  **reason**: *eq, sw, co*  **rule**: *eq, sw, co*  **policy**: *eq, sw, co* (optional)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2026.PromptInsightsAPI.ListPromptInsights(context.Background()).Interval(interval).Execute()
+          //resp, r, err := apiClient.V2026.PromptInsightsAPI.ListPromptInsights(context.Background()).Interval(interval).Limit(limit).Offset(offset).Filters(filters).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `PromptInsightsAPI.ListPromptInsights``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `ListPromptInsights`: []PromptInsight
+          fmt.Fprintf(os.Stdout, "Response from `PromptInsightsAPI.ListPromptInsights`: %v\n", resp)
+        }
 - path: /public-identities
   method: Get
   xCodeSample:

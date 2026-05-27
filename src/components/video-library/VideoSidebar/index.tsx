@@ -74,6 +74,20 @@ const VideoSidebar: React.FC<MarketplaceSidebarProps> = ({ filterCallback }) => 
         }
       }
     }
+
+    // Replace generic developer-days with year-specific tags discovered from all available tags
+    if (uniqueTags.has('developer-days') && Array.isArray(data.tags)) {
+      const yearTags: string[] = data.tags
+        .map((tag: { name: string }) => tag.name)
+        .filter((name: string) => /^developer-days-\d{4}/.test(name))
+        .sort();
+
+      if (yearTags.length > 0) {
+        uniqueTags.delete('developer-days');
+        yearTags.forEach((tag: string) => uniqueTags.add(tag));
+      }
+    }
+
     setTagProductData(Array.from(uniqueProductTags));
     setVideoTag(Array.from(uniqueTags));
   };

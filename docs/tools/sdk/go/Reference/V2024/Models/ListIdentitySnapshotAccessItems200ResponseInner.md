@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** | the description for the role | [optional] 
 **SourceId** | Pointer to **string** | the id of the source | [optional] 
 **AppRefs** | [**[]AccessItemAccessProfileResponseAppRefsInner**](access-item-access-profile-response-app-refs-inner) | the list of app ids associated with the access profile | 
+**StartDate** | Pointer to **NullableString** | the date the access profile will be assigned to the specified identity, in case requested with a future start date | [optional] 
 **RemoveDate** | Pointer to **string** | the date the role is no longer assigned to the specified identity | [optional] 
 **Standalone** | **NullableBool** | indicates whether the entitlement is standalone | 
 **Revocable** | **bool** | indicates whether the role is revocable | 
@@ -253,6 +254,41 @@ and a boolean to check if the value has been set.
 SetAppRefs sets AppRefs field to given value.
 
 
+### GetStartDate
+
+`func (o *ListIdentitySnapshotAccessItems200ResponseInner) GetStartDate() string`
+
+GetStartDate returns the StartDate field if non-nil, zero value otherwise.
+
+### GetStartDateOk
+
+`func (o *ListIdentitySnapshotAccessItems200ResponseInner) GetStartDateOk() (*string, bool)`
+
+GetStartDateOk returns a tuple with the StartDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartDate
+
+`func (o *ListIdentitySnapshotAccessItems200ResponseInner) SetStartDate(v string)`
+
+SetStartDate sets StartDate field to given value.
+
+### HasStartDate
+
+`func (o *ListIdentitySnapshotAccessItems200ResponseInner) HasStartDate() bool`
+
+HasStartDate returns a boolean if a field has been set.
+
+### SetStartDateNil
+
+`func (o *ListIdentitySnapshotAccessItems200ResponseInner) SetStartDateNil(b bool)`
+
+ SetStartDateNil sets the value for StartDate to be an explicit nil
+
+### UnsetStartDate
+`func (o *ListIdentitySnapshotAccessItems200ResponseInner) UnsetStartDate()`
+
+UnsetStartDate ensures that no value is present for StartDate, not even an explicit nil
 ### GetRemoveDate
 
 `func (o *ListIdentitySnapshotAccessItems200ResponseInner) GetRemoveDate() string`

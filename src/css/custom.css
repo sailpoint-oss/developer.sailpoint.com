@@ -863,6 +863,12 @@ td a:link:hover {
   font-size: var(--ifm-code-font-size);
 }
 
+/* AI Policy page — hide unlisted doc banner (keep unlisted: true behavior) */
+.col:has(#ai-policy-page) .theme-unlisted-banner,
+.docMainContainer:has(#ai-policy-page) .theme-unlisted-banner {
+  display: none !important;
+}
+
 /* AI Policy page — hide edit link and last-updated footer */
 #ai-policy-page ~ footer,
 article:has(#ai-policy-page) footer,

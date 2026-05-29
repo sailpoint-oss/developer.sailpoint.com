@@ -44,6 +44,10 @@ const pluginConfig = [
           from: ['/ambassador-program', '/ambassador'],
         },
         {
+          to: '/docs/ai-policy',
+          from: ['/ai-policy'],
+        },
+        {
           to: '/docs/tools/ui-development-kit',
           from: ['/docs/tools/community-toolbox', '/idn/tools/community-toolbox'],
         },

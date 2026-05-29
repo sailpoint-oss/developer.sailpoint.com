@@ -825,3 +825,53 @@ td a:link:hover {
   src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2')
     format('woff2');
 }
+
+/* AI Policy page — show in-page outline on the left (desktop) */
+@media (min-width: 997px) {
+  .row:has(.ai-policy-page-marker) {
+    flex-direction: row-reverse;
+    align-items: stretch;
+  }
+
+  .row:has(.ai-policy-page-marker) > .col--3:has(.theme-doc-toc-desktop) {
+    border-right: 1px solid var(--ifm-toc-border-color);
+    padding-right: 0.75rem;
+    margin-right: 1rem;
+  }
+
+  .row:has(.ai-policy-page-marker) .theme-doc-toc-desktop {
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+  }
+
+  .row:has(.ai-policy-page-marker) .table-of-contents__left-border {
+    border-left: none;
+  }
+}
+
+/* AI Policy examples — force monospace (overrides global Poppins on html *) */
+.markdown:has(.ai-policy-page-marker) pre,
+.markdown:has(.ai-policy-page-marker) pre code,
+.markdown:has(.ai-policy-page-marker) pre *,
+.markdown:has(.ai-policy-page-marker) [class*='codeBlockContent'],
+.markdown:has(.ai-policy-page-marker) [class*='codeBlockContent'] *,
+.markdown:has(.ai-policy-page-marker) [class*='codeBlockLines'],
+.markdown:has(.ai-policy-page-marker) [class*='codeBlockLines'] * {
+  font-family: 'input-mono', monospace !important;
+  font-size: var(--ifm-code-font-size);
+}
+
+/* AI Policy page — hide edit link and last-updated footer */
+#ai-policy-page ~ footer,
+article:has(#ai-policy-page) footer,
+.docItemContainer:has(#ai-policy-page) footer,
+.docItemContainer:has(.ai-policy-page-marker) footer,
+article:has(.ai-policy-page-marker) footer,
+.docItemContainer:has(#ai-policy-page) .theme-last-updated,
+article:has(#ai-policy-page) .theme-last-updated,
+.docItemContainer:has(.ai-policy-page-marker) .theme-last-updated,
+article:has(.ai-policy-page-marker) .theme-last-updated {
+  display: none !important;
+}

@@ -189,16 +189,31 @@ patch:
       application/json-patch+json:
         schema:
           $ref: '../../schemas/JsonPatch.yaml'
-        example:
-          [
-            {
-              "op": "replace",
-              "path": "/rightSets",
-              "value": [
-                "idn:ui-identity-manage-example"
+        examples:
+          identity:
+            summary: Identity custom user level patch
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/rightSets",
+                  "value": [
+                    "idn:ui-identity-manage-example"
+                  ]
+                }
               ]
-            }
-          ]
+          governanceGroups:
+            summary: Governance groups custom user level patch
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/rightSets",
+                  "value": [
+                    "idn:ui-workgroup-management"
+                  ]
+                }
+              ]
   responses:
     '200':
       description: Successfully updated the user level.

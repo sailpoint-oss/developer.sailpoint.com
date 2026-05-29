@@ -27,19 +27,37 @@ post:
       application/json:
         schema:
           $ref: '../../schemas/ams/UserLevelRequest.yaml'
-        example:
-          {
-            "name": "Identity And Access Management",
-            "description": "This is a description of the custom user level.",
-            "owner": {
-              "id": "29b9da8273b441239238bc041c386817",
-              "name": "John Doe"
-            },
-            "rightSets": [
-              "idn:ui-identity-manage-example",
-              "idn:ui-identity-manage-child-one-example"
-            ]
-          }
+        examples:
+          identity:
+            summary: Identity custom user level
+            value:
+              {
+                "name": "Identity And Access Management",
+                "description": "This is a description of the custom user level.",
+                "owner": {
+                  "id": "29b9da8273b441239238bc041c386817",
+                  "name": "John Doe"
+                },
+                "rightSets": [
+                  "idn:ui-identity-manage-example",
+                  "idn:ui-identity-manage-child-one-example"
+                ]
+              }
+          governanceGroups:
+            summary: Governance groups custom user level
+            value:
+              {
+                "name": "Governance Group Membership Management",
+                "description": "This is a description of the governance group custom user level.",
+                "owner": {
+                  "id": "29b9da8273b441239238bc041c386817",
+                  "name": "John Doe"
+                },
+                "rightSets": [
+                  "idn:ui-workgroup-management",
+                  "idn:workgroup-membership-manage"
+                ]
+              }
   responses:
     '200':
       description: The user level summary.

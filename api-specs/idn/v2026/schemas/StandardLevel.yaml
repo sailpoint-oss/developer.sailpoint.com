@@ -1,0 +1,11 @@
+description: Standard Log4j log level
+type: string
+example: INFO
+enum:
+  - OFF
+  - FATAL
+  - ERROR
+  - WARN
+  - INFO
+  - DEBUG
+  - TRACE

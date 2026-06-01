@@ -1,0 +1,7 @@
+allOf:
+- $ref: 'Reference.yaml'
+- type : object
+  properties:
+    displayName:
+      type : string 
+      example: 'John Q. Doe'

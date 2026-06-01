@@ -1,0 +1,7 @@
+type: object
+properties:
+  master_record_id:
+    type: string    
+    description: The id of the master record
+    example: "456738c9ba999a0076cf8a9b"
+  

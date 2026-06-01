@@ -1,0 +1,45 @@
+post:
+  operationId: startExtendWorkflow
+  tags:
+    - JIT Activations
+  summary: Extend JIT activation workflow
+  description: |
+    Sends a signal to a running JIT Privileged (JIT P) activation workflow to extend the activation period
+    by the requested number of minutes.
+
+    This request cannot be applied to a workflow that does not exist or whose execution has already completed.
+    The client receives an error response in those cases.
+
+    The response is returned with HTTP 202 Accepted after the signal is sent.
+  security:
+    - userAuth:
+        - idn:jit-activation-workflow:extend
+        - idn:jit-activation-workflow:manage
+  x-sailpoint-userLevels:
+    - USER
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/JitActivationExtendRequest.yaml
+  responses:
+    '202':
+      description: |
+        Accepted. The extend signal was sent to the workflow.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/JitActivationExtendResponse.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

@@ -1,0 +1,11 @@
+type: string
+enum:
+    - EQUALS
+    - NOT_EQUALS
+    - CONTAINS
+    - STARTS_WITH
+    - ENDS_WITH
+    - AND
+    - OR
+description: An operation
+example: EQUALS

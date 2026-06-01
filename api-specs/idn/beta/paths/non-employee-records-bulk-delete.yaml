@@ -1,0 +1,48 @@
+post:
+  operationId: deleteNonEmployeeRecordInBulk
+  security:
+    - userAuth:
+        - idn:nelm:manage
+    - applicationAuth:
+        - idn:nelm:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Delete multiple non-employee records
+  description: |-
+    This request will delete multiple non-employee records based on the non-employee ids provided.
+    Request will require the following scope:
+    'idn:nesr:delete'
+  deprecated: true
+  requestBody:
+    description: Non-Employee bulk delete request body.
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            ids:
+              description: List of non-employee ids.
+              type: array
+              items:
+                type: string
+                format: uuid
+          required:
+            - ids
+  responses:
+    '204':
+      $ref: ../../v3/responses/204.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

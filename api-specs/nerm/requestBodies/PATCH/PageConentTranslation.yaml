@@ -1,0 +1,9 @@
+required: true
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        page_content_translation:
+          type: object
+          $ref: "../../schemas/PATCH/PageContent.yaml"

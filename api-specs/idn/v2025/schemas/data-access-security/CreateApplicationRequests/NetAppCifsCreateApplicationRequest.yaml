@@ -1,0 +1,91 @@
+allOf:
+  - $ref: './BaseCreateApplicationRequest.yaml'
+  - required:
+      - domain
+      - filer
+      - password
+      - user
+    type: object
+    properties:
+      filer:
+        type: string
+        description: The NetApp filer name or address.
+        example: "netapp-filer-01"
+      domain:
+        type: string
+        description: The domain for NetApp authentication.
+        example: "CORP"
+      user:
+        type: string
+        description: The username for NetApp authentication.
+        example: "netappuser"
+      password:
+        type: string
+        description: The password for NetApp authentication.
+        example: "netapppassword"
+      managementIp:
+        type: string
+        nullable: true
+        description: The management IP address for the NetApp filer.
+        example: "10.0.0.1"
+      isTunneling:
+        type: boolean
+        description: Indicates whether tunneling is enabled.
+        example: false
+        default: false
+      vserverName:
+        type: string
+        nullable: true
+        description: The vserver name for NetApp.
+        example: "vserver1"
+      isVersion82AndAbove:
+        type: boolean
+        description: Indicates if NetApp version is 8.2 or above.
+        example: true
+        default: false
+      netappVersion82Port:
+        type: integer
+        format: int32
+        nullable: true
+        description: The port for NetApp version 8.2 and above.
+        example: 445
+      crawlSnapshotsFolder:
+        type: boolean
+        description: Indicates whether to crawl the snapshots folder.
+        example: true
+        default: false
+      protocol:
+        type: integer
+        format: int32
+        nullable: true
+        description: The protocol type for NetApp.
+        example: 1
+      vserverUuid:
+        type: string
+        nullable: true
+        description: The UUID of the vserver.
+        example: "uuid-1234-5678"
+      fPolicySslOption:
+        $ref: './FPolicySslOption.yaml'
+        description: SSL option for FPolicy.
+        example: 1
+      fPolicyServerCertFile:
+        type: string
+        nullable: true
+        description: The path to the FPolicy server certificate file.
+        example: "/path/to/fpolicy-server-cert.pem"
+      serviceCertFile:
+        type: string
+        nullable: true
+        description: The path to the service certificate file.
+        example: "/path/to/service-cert.pem"
+      certificatePassword:
+        type: string
+        nullable: true
+        description: The password for the certificate file.
+        example: "cert-password"
+      vserverCertFile:
+        type: string
+        nullable: true
+        description: The path to the vserver certificate file.
+        example: "/path/to/vserver-cert.pem"

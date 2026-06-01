@@ -1,0 +1,9 @@
+type: object
+title: Reassignment
+properties:
+  from:
+    $ref: './CertificationReference.yaml'
+  comment:
+    type: string
+    description: Comments from the previous reviewer.
+    example: Please review

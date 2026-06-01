@@ -1,0 +1,15 @@
+post:
+  summary: Create a profile page
+  operationId: createProfilePage
+  description: Create a profile page
+  tags:
+    - pages
+  requestBody:
+    $ref: "../../requestBodies/POST/Pages/ProfilePage.yaml"
+  responses:
+    '200':
+      $ref: "../../responses/Pages.yaml"
+    '400':
+      $ref: "../../responses/400.yaml"
+    '500':
+      $ref: "../../responses/500.yaml"

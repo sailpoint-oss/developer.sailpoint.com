@@ -1,0 +1,7 @@
+description: Role Propagation Response
+type: object
+properties:
+  rolePropagationId:
+    description: Id of the Role Propagation process triggered.
+    type: string
+    example: "47b9fb02-e12e-42ba-8bfe-1860d78c88eb"

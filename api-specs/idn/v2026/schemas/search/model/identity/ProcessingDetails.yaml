@@ -1,0 +1,17 @@
+type: object
+properties:
+  date:
+    $ref: '../base/DateTime.yaml'
+  stage:
+    type: string
+    example: In Process
+  retryCount:
+    type: integer
+    example: 0
+    format: int32
+  stackTrace:
+    type: string
+    example: <stack trace>
+  message:
+    type: string
+    example: <message>

@@ -1,0 +1,21 @@
+type: object
+required:
+  - events
+properties:
+  events:
+    type: array
+    description: |
+      Each event is relayed from identity-history. Schema varies by event type;
+      consumers should treat unknown fields as opaque using additionalProperties.
+    items:
+      type: object
+      additionalProperties: true
+      description: Single historical access or lifecycle event payload from identity-history.
+      example:
+        id: evt-001
+        type: LOGIN
+        dateTime: "2024-05-01T12:00:00Z"
+    example:
+      - id: evt-001
+        type: LOGIN
+        dateTime: "2024-05-01T12:00:00Z"

@@ -1,0 +1,12 @@
+type: object
+title: Application Discovery Request
+required:
+  - datasetIds
+properties:
+  datasetIds:
+    type: array
+    description: List of dataset Ids to discover applications
+    items:
+      type: string
+      description: The dataset Id of the source
+      example: 'source:datasetId12345'

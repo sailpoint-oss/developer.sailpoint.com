@@ -1,0 +1,23 @@
+description: EntitlementReference
+allOf:
+  - $ref: "Access.yaml"
+  - type: object
+    properties:
+      source:
+        $ref: "../base/Reference.yaml"
+      type:
+        type: string
+        description: Type of the access item.
+        example: ENTITLEMENT
+      privileged:
+        type: boolean
+        example: false
+      attribute:
+        type: string
+        example: memberOf
+      value:
+        type: string
+        example: "CN=Buyer,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"
+      standalone:
+        type: boolean
+        example: false

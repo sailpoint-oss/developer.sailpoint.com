@@ -1,0 +1,57 @@
+post:
+  security:
+    - userAuth: [ das:owners:manage ]
+    - applicationAuth: [ das:owners:manage ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  summary: Reassign resource owner.
+  tags:
+    - Data Access Security
+  parameters:
+    - name: sourceIdentityId
+      in: path
+      required: true
+      x-sailpoint-resource-operation-id: getOwners
+      description: >-
+        Unique identifier for the source owner.
+        This should be a UUID representing the identity to reassign from.
+      example: "a3f1c2d4-5678-4e9b-8c2d-123456789abc"
+      schema:
+        type: string
+        format: uuid
+    - name: destinationIdentityId
+      in: path
+      required: true
+      x-sailpoint-resource-operation-id: getOwners
+      description: >-
+        Unique identifier for the destination owner.
+        This should be a UUID representing the identity to reassign to.
+      example: "b4e2d3c5-6789-4f0a-9d3e-234567890bcd"
+      schema:
+        type: string
+        format: uuid
+  responses:
+    '200':
+      description: >-
+        The number of resources whose owners were overwritten.
+      content:
+        application/json:
+          schema:
+            type: integer
+            format: int32
+          examples:
+            example1:
+              summary: Example number of resources overwritten
+              value: 1
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

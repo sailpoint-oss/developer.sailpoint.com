@@ -1,0 +1,7 @@
+type: object
+title: Form Item Details
+properties:
+  name:
+    type: string
+    description: Name of the FormItem
+    example: Field1

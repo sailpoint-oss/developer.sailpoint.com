@@ -1,0 +1,145 @@
+get:
+  summary: Get subtype by ID
+  description: Get a machine account subtype by subtype ID.
+  operationId: getSourceSubtypeById
+  tags:
+    - Machine Account Subtypes
+  parameters:
+    - in: path
+      name: subtypeId
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listMachineAccountSubtypes
+      description: The ID of the subtype.
+      example: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa
+  responses:
+    '200':
+      description: Machine account subtype object.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/SourceSubtypeWithSource.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - idn:sources:read
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:read
+        - idn:sources:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+patch:
+  summary: Patch subtype by ID
+  description: |-
+    Update fields of a machine account subtype by subtype ID.
+    Patchable fields only include: `displayName`, `description`.
+  operationId: patchMachineAccountSubtype
+  tags:
+    - Machine Account Subtypes
+  parameters:
+    - in: path
+      name: subtypeId
+      description: The ID of the subtype.
+      required: true
+      x-sailpoint-resource-operation-id: listMachineAccountSubtypes
+      schema:
+        type: string
+        example: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa
+  requestBody:
+    required: true
+    description: >-
+      A JSON of updated values [JSON
+      Patch](https://tools.ietf.org/html/rfc6902) standard.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            type: object
+        examples:
+          Update display name:
+            value:
+              - op: replace
+                path: /displayName
+                value: Test New DisplayName
+  responses:
+    '200':
+      description: Updated machine account subtype.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/SourceSubtypeWithSource.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+delete:
+  summary: Delete subtype by ID
+  description: |-
+    Delete a machine account subtype by subtype ID.
+    
+    Note: If subtype has approval settings or entitlement for machine account creation enablement then it'll be also deleted.
+  operationId: deleteMachineAccountSubtype
+  tags:
+    - Machine Account Subtypes
+  parameters:
+    - in: path
+      name: subtypeId
+      description: The ID of the subtype.
+      required: true
+      x-sailpoint-resource-operation-id: listMachineAccountSubtypes
+      schema:
+        type: string
+        example: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa
+  responses:
+    '204':
+      description: Subtype deleted successfully.
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

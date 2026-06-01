@@ -1,0 +1,11 @@
+type: array
+title: Bulk Retrieve Request for Source Subtypes
+description: List of source subtype IDs.
+minItems: 1
+maxItems: 100
+items:
+  type: string
+  description: Subtype ID.
+  example: "38453251-6be2-5f8f-df93-5ce19e295838"
+example:
+  - "38453251-6be2-5f8f-df93-5ce19e295838"

@@ -1,0 +1,42 @@
+post:
+  operationId: createEntitlement
+  tags:
+    - Entitlements
+  summary: Creates an entitlement
+  description: >-
+    This internal endpoint creates an entitlement using the given entitlement payload
+  security:
+    - userAuth: [idn:entitlement:manage]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/gov-entitlement/EntitlementDTO.yaml'
+  responses:
+    '201':
+      description: Returns the created entitlement DTO object.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/gov-entitlement/EntitlementDTO.yaml'
+    '400':
+      description: |
+        * Source is missing
+        * Source schema is missing
+        * Entitlement value is missing and source schema object type is not of the permission type
+        * Attribute is missing
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/ErrorResponseDto.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

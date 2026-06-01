@@ -1,0 +1,19 @@
+type: object
+description: Full delivery configuration. method and endpoint_url are required.
+required:
+  - method
+  - endpoint_url
+properties:
+  method:
+    type: string
+    description: Delivery method (only push is supported).
+    example: "urn:ietf:rfc:8935"
+  endpoint_url:
+    type: string
+    format: uri
+    description: Receiver endpoint URL for push delivery.
+    example: "https://receiver.example.com/ssf/events"
+  authorization_header:
+    type: string
+    description: Authorization header value for delivery requests.
+    example: "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9..."

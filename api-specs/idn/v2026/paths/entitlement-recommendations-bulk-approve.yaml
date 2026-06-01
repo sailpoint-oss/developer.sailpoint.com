@@ -1,0 +1,45 @@
+post:
+  tags:
+    - Suggested Entitlement Description
+  operationId: approveBulkEntitlementRecommendations
+  summary: Bulk approve entitlement recommendations
+  description: >-
+    Approve multiple entitlement recommendations in a single request. Each item
+    in the request must include the recommendation ID and, depending on the record
+    type, either an approved description (SED items) or an approved privilege level
+    (privilege items). Returns a per-item result indicating success or failure.
+  requestBody:
+    description: The list of recommendation items to approve.
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/BulkApproveEntitlementRecommendationRequest.yaml
+    required: true
+  responses:
+    '200':
+      description: Per-item approval results.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/BulkApproveEntitlementRecommendationResult.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - idn:sed:manage
+    - applicationAuth:
+        - idn:sed:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

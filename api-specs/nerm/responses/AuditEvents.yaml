@@ -1,0 +1,10 @@
+description: AuditEvents
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        audit_events:
+          type: array
+          items:
+            $ref: '../schemas/POST/AuditEvent.yaml'

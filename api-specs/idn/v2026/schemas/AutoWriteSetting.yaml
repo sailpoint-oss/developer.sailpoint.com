@@ -1,0 +1,26 @@
+description: Auto-Write Setting for SED
+type: object
+title: Auto-Write Setting
+properties:
+  enabled:
+    description: Whether auto-write is currently enabled for the tenant
+    type: boolean
+    default: false
+    example: true
+  includedSourceIds:
+    description: Source IDs in the allowlist. Empty array means not in allowlist mode.
+    type: array
+    nullable: true
+    items:
+      type: string
+    example:
+      - "2c91808a7813090a017814552e526349"
+      - "2c91808a7813090a017814552e52634a"
+  excludedSourceIds:
+    description: Source IDs to exclude from auto-write. Always applied.
+    type: array
+    nullable: true
+    items:
+      type: string
+    example:
+      - "2c91808a7813090a017814552e526350"

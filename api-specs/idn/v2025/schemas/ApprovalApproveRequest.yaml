@@ -1,0 +1,16 @@
+type: object
+properties:
+  additionalAttributes:
+    type: object
+    additionalProperties:
+      type: string
+    description: Additional attributes as key-value pairs that are not part of the standard schema but can be included for custom data.
+    example:
+      additionalProp1: "string"
+      additionalProp2: "string"
+      additionalProp3: "string"
+  comment:
+    type: string
+    description: Comment associated with the request.
+    example: "comment"
+description: Approval Approve Request

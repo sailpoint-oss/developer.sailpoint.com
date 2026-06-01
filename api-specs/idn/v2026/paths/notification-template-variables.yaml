@@ -1,0 +1,100 @@
+get:
+  operationId: getNotificationTemplateVariables
+  tags:
+  - Notifications
+  summary: Get notification template variables
+  description: |
+    Returns global variables and template-specific variables for a given notification template key and medium.
+    Use these variable names in template content; they are replaced at send time with the corresponding values.
+    Variable lists can be sorted by key, type, or description via the sorters query parameter (default ascending by key).
+  security:
+  - userAuth:
+    - idn:notification-templates:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - USER
+  parameters:
+  - in: query
+    name: sorters
+    required: false
+    schema:
+      type: string
+      format: comma-separated
+    style: form
+    explode: true
+    description: >-
+      Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+      Sorting is supported for the following fields: **key, type, description**
+    example: "-description"
+  - in: path
+    name: key
+    required: true
+    schema:
+      type: string
+    x-sailpoint-resource-operation-id: listNotificationTemplates
+    description: |
+      The notification template key. Valid keys (and key/medium pairs) are available from the list notification templates operation.
+    example: "approval_request_notification"
+  - in: path
+    name: medium
+    required: true
+    schema:
+      type: string
+      enum:
+        - EMAIL
+        - SLACK
+        - TEAMS
+    x-sailpoint-resource-operation-id: listNotificationTemplates
+    description: |
+      The notification template medium (e.g. EMAIL, SLACK, TEAMS). Valid key/medium pairs are available from the list notification templates operation.
+    example: EMAIL
+  responses:
+    '200':
+      description: Global and template-specific variables for the given key and medium.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/TemplateVariablesDto.yaml
+          example:
+            key: "approval_request_notification"
+            medium: "EMAIL"
+            globalVariables:
+              - key: "__esc.html()"
+                type: "function"
+                description: "Escapes the characters in a string using HTML entities (e.g. &quot;, &amp;)."
+                example: "$__esc.html($value)"
+              - key: "__global.productName"
+                type: "string"
+                description: "The human-readable name of the product or application."
+                example: "SailPoint Identity Security Cloud"
+              - key: "__global.standardLogoURL"
+                type: "string"
+                description: "URL for the standard size logo displayed on various pages."
+                example: null
+            templateVariables:
+              - key: "approvalName"
+                type: "string"
+                description: "Display name of the approval request"
+                example: "Request for Access to Sales Application"
+              - key: "requester"
+                type: "object"
+                description: "Identity who submitted the approval request"
+                example:
+                  identityID: "4701645331ee4e578ca7884da99452fc"
+                  type: "IDENTITY"
+                  name: "Rebecca Requester"
+                  email: "rebecca@testmail.identitysoon.com"
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

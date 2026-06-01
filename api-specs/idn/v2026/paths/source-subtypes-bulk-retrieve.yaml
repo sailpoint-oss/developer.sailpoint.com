@@ -1,0 +1,51 @@
+post:
+  tags:
+    - Machine Accounts
+  summary: Bulk Retrieve of Source Subtypes
+  description: This endpoint retrieves the subtypes for given subtypeIds.
+  operationId: loadBulkSourceSubtypes
+  security:
+    - userAuth:
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - in: header
+      name: X-SailPoint-Experimental
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/BulkRetrieveSourceSubtypesRequest.yaml
+  responses:
+    '200':
+      description: List of source subtypes.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/SourceSubtypeWithSource.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

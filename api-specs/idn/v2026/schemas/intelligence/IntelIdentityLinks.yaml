@@ -1,0 +1,19 @@
+type: object
+required:
+  - access
+  - accessHistory
+properties:
+  access:
+    type: object
+    description: Hyperlink to the Intelligence Package access document for this identity.
+    allOf:
+      - $ref: ./IntelHref.yaml
+    example:
+      href: /v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/access
+  accessHistory:
+    type: object
+    description: Hyperlink to the Intelligence Package access history document for this identity.
+    allOf:
+      - $ref: ./IntelHref.yaml
+    example:
+      href: /v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/access-history

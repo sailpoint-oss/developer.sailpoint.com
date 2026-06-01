@@ -1,0 +1,39 @@
+value:
+  id: e7dbec99d49349c8951bd84f58a05120
+  name: Manager Review
+  created: 2022-08-02T19:16:42.632Z
+  modified: null
+  description: A review of everyone's access by their manager.
+  deadlineDuration: P14D
+  ownerRef:
+    email: support@testmail.identitysoon.com
+    type: IDENTITY
+    id: 7ec252acbd4245548bc25df22348cb75
+    name: SailPoint Support
+  scheduled: false
+  campaign:
+    created: null
+    modified: null
+    filter:
+      type: CAMPAIGN_FILTER
+      id: e0adaae69852e8fe8b8a3d48e5ce757c
+      name: Test Manager Filter
+    sunsetCommentsRequired: true
+    sourceOwnerCampaignInfo: null
+    searchCampaignInfo: null
+    roleCompositionCampaignInfo: null
+    alerts: null
+    totalCertifications: null
+    completedCertifications: null
+    sourcesWithOrphanEntitlements: null
+    id: null
+    name: Manager Review
+    description: Review everyone's access.
+    deadline: null
+    type: MANAGER
+    status: null
+    emailNotificationEnabled: true
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    correlatedStatus: CORRELATED
+    mandatoryCommentRequirement: NO_DECISIONS

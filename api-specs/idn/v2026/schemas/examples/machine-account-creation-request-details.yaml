@@ -1,0 +1,20 @@
+accountRequestId: 18104e7e499b4e23882d6323344ab6bc
+requestType: CREATE_MACHINE_ACCOUNT
+createdAt: 2026-01-14T08:08:27.195Z
+completedAt: 2026-01-14T08:38:45.932Z
+overallStatus: SUCCESS
+requester:
+  type: IDENTITY
+  id: 85131bd73fdc423599e57f40b29f01fe
+  name: SailPoint Support
+approvalRequestId: 90a7b947-578b-4285-98dc-5d5d01c7b736
+accountRequestPhases:
+  - name: APPROVAL_PHASE
+    state: APPROVED
+    started: 2026-01-14T08:08:28.644090559Z
+    finished: 2026-01-14T08:38:42.707043142Z
+  - name: PROVISIONING_PHASE
+    state: PASSED
+    started: 2026-01-14T08:38:42.785577841Z
+    finished: 2026-01-14T08:38:45.932606296Z
+errorDetails: null

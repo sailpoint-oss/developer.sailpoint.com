@@ -1,0 +1,23 @@
+delete:
+  summary: Delete a master record
+  operationId: deleteMasterRecord
+  description: Consolidation is a deprecated feature, this endpoint provides a mechanism to delete a master record to assist customers.
+  tags:
+    - consolidation
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      description: Master record deleted.
+    '400':
+      description: Error deleting master record
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                description: A message describing the error that occurred
+                type: string
+    '500':
+      $ref: "../responses/500.yaml"

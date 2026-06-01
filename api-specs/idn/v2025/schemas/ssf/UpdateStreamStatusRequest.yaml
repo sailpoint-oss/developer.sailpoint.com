@@ -1,0 +1,22 @@
+type: object
+description: Request body for POST /ssf/streams/status.
+required:
+  - stream_id
+  - status
+properties:
+  stream_id:
+    type: string
+    description: ID of the stream whose status to update.
+    example: "550e8400-e29b-41d4-a716-446655440000"
+  status:
+    type: string
+    enum:
+      - enabled
+      - paused
+      - disabled
+    description: Desired stream status.
+    example: "paused"
+  reason:
+    type: string
+    description: Optional reason for the status change.
+    example: "manually paused"

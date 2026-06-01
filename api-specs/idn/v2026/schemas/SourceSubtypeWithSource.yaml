@@ -1,0 +1,57 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Unique identifier for the subtype.
+    example: 38453251-6be2-5f8f-df93-5ce19e295838
+  sourceId:
+    type: string
+    format: uuid
+    description: The ID of the source.
+    example: 6d0458373bec4b4b80460992b76016da
+    readOnly: true
+  technicalName:
+    type: string
+    description: Technical name of the subtype.
+    example: foo
+  displayName:
+    type: string
+    description: Display name of the subtype.
+    example: Mr Foo
+  description:
+    type: string
+    description: Description of the subtype.
+    example: fighters
+  created:
+    type: string
+    format: date-time
+    description: Creation timestamp.
+    example: 2025-07-28T16:13:42.801300Z
+  modified:
+    type: string
+    format: date-time
+    description: Last modified timestamp.
+    example: 2025-07-28T16:13:42.750850Z
+  type:
+    type: string
+    description: Type of the subtype. Either MACHINE OR null.
+    example: MACHINE
+  source:
+    type: object
+    description: Source reference of the subtype.
+    properties:
+      type:
+        type: string
+        enum:
+          - SOURCE
+        description: Type of the reference object.
+        example: SOURCE
+      id:
+        type: string
+        description: Unique identifier for the source.
+        example: 6d0458373bec4b4b80460992b76016da
+      name:
+        type: string
+        description: Name of the source.
+        example: Test Source

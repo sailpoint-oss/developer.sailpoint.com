@@ -1,0 +1,16 @@
+value:
+  name: Search Campaign
+  description: Search Campaign
+  deadline: 2020-12-25T06:00:00.468Z
+  type: SEARCH
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  filter: 
+    type: CAMPAIGN_FILTER
+    id: 0c46fb26c6b20967a55517ee90d15b93
+  searchCampaignInfo: 
+    type: ACCESS
+    query: user
+  mandatoryCommentRequirement: NO_DECISIONS
+  

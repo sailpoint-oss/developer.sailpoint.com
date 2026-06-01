@@ -67,7 +67,6 @@ function versionPipeline(version) {
     await runCommand(`npm run ${version}-merge-code-examples`);
     await runCommand(`npm run speecy-${version}-spec`);
     await runCommand(`npm run overlay-code-examples-${version}`);
-    await runCommand(`npm run sentence-case-${version}`);
   };
 }
 
@@ -105,6 +104,8 @@ async function runAll() {
   for (const command of docusaurusDocCommands) {
     await runCommand(command);
   }
+
+  await runSentenceCaseOnly();
 }
 
 const runners = {

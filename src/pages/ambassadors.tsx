@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import {useColorMode} from '@docusaurus/theme-common';
 import styles from './ambassador.module.css';
-import AmbassadorCards from '../components/ambassador/AmbassadorCards';
 
 const benefits = [
   {
@@ -34,16 +34,8 @@ const benefits = [
   {
     title: 'And more!',
     description:
-      'Exclusive swag, priority speaking consideration at Developer Days, office hours with the Developer Relations team, and other perks as the program grows.',
+      'Exclusive swag, office hours with the Developer Relations team, and other perks as the program grows.',
   },
-];
-
-const whyJoin = [
-  'Grow your reputation as a recognized SailPoint expert among your peers and potential employers.',
-  'Expand your network with identity professionals, architects, and developers from around the world.',
-  'Deepen your product knowledge through direct engagement with SailPoint engineering and product teams.',
-  'Make a real impact by helping others succeed with identity governance and the SailPoint platform.',
-  'Naturally step into a leadership role — mentor newcomers, shape best practices, and leave your mark on the community.',
 ];
 
 const howToJoinSteps = [
@@ -84,14 +76,16 @@ const placeholderAmbassadors = [
   { name: 'Drew Okafor', since: '2024', solutions: 97 },
 ];
 
-const Ambassador: React.FC = () => {
-  useEffect(() => {
-    document.body.classList.add('ambassador-dark-page');
-    return () => document.body.classList.remove('ambassador-dark-page');
-  }, []);
+const AmbassadorContent: React.FC = () => {
+  const {colorMode} = useColorMode();
+  const codeyBust = useBaseUrl(
+    colorMode === 'dark'
+      ? '/ambassador/codey-bust-dark.png'
+      : '/ambassador/codey-bust.png',
+  );
+
   return (
-    <Layout title="Ambassadors" description="The SailPoint Ambassador Program has everything you need to build, extend, and automate scalable identity solutions.">
-      <main className={styles.darkPage}>
+    <main className={styles.page}>
 
         {/* Hero */}
         <div className={styles.hero}>
@@ -102,7 +96,7 @@ const Ambassador: React.FC = () => {
               <span className={styles.heroHeadingAccent}>has the power to empower others.</span>
             </h1>
             <p className={styles.heroBody}>
-              Become a SailPoint Ambassador and help shape the future of SailPoint.
+              Help us chart the future of identity security.
             </p>
             <Link
               to="https://developer.sailpoint.com/discuss/t/announcing-the-developer-community-ambassador-program/10634"
@@ -113,7 +107,7 @@ const Ambassador: React.FC = () => {
           </div>
           <img
             className={styles.heroImage}
-            src={useBaseUrl('/ambassador/codey-bust-dark.png')}
+            src={codeyBust}
             alt="Codey the SailPoint Ambassador"
           />
         </div>
@@ -123,16 +117,22 @@ const Ambassador: React.FC = () => {
           <div className={styles.sectionInner}>
             <h2 className={styles.sectionHeading}>What is the Ambassador Program?</h2>
             <p className={styles.sectionBody}>
-              The SailPoint Ambassador Program recognizes exceptional members who go above
+              The SailPoint Ambassador Program recognizes exceptional community members who go above
               and beyond to share knowledge, answer questions, and help others build on the SailPoint platform.
               Ambassadors are trusted voices in the community — developers, architects, and identity professionals
               who lead by example. There are two tiers: <strong>Ambassadors</strong>, who are active contributors
               making a consistent positive impact, and <strong>Expert Ambassadors</strong>, who represent the
               highest level of community leadership and SailPoint expertise.
             </p>
-            <h3 className={styles.subHeading}>As an Ambassador you will:</h3>
+            <h3 className={styles.subHeading}>A SailPoint Ambassador is someone who:</h3>
             <ul className={styles.whyJoinList}>
-              {whyJoin.map((reason) => (
+              {[
+                'Actively contributes by answering questions and sharing knowledge with the community',
+                'Passionate about identity security and the SailPoint platform',
+                'Leads by example and helps newcomers find their footing',
+                'Consistently shows up — in discussions, in solutions, and in the community',
+                'Eager to grow and share their expertise with others',
+              ].map((reason) => (
                 <li key={reason} className={styles.whyJoinItem}>{reason}</li>
               ))}
             </ul>
@@ -175,7 +175,7 @@ const Ambassador: React.FC = () => {
             <div className={styles.ctaContainer}>
               <div className={styles.policyLinks}>
                 <span className={styles.policyLabel}>Before you apply, please review:</span>
-                <a href="#" className={styles.policyLink}>Code of Conduct</a>
+                <a href="#" className={styles.policyLink}>Ambassador Code of Conduct</a>
                 <a href="#" className={styles.policyLink}>Forum guidelines</a>
                 <a href="https://developer.sailpoint.com/discuss/t/getting-started-as-a-developer-community-ambassador/11665" className={styles.policyLink}>Getting started guide</a>
               </div>
@@ -199,7 +199,7 @@ const Ambassador: React.FC = () => {
               <div className={styles.spanLeft}></div>
               <img
                 className={styles.expertAmbassadorImage}
-                src={useBaseUrl('/icons/ExpertAmbassador.png')}
+                src={useBaseUrl('/icons/ExpBadge.png')}
                 alt="Expert Ambassador Icon"
               />
               <div className={styles.spanLeft}></div>
@@ -209,11 +209,13 @@ const Ambassador: React.FC = () => {
                 {placeholderExpertAmbassadors.map((a) => (
                   <div key={a.name} className={styles.placeholderCard}>
                     <div className={styles.placeholderGradBorder}>
-                      <img
-                        className={styles.placeholderAvatar}
-                        src={useBaseUrl('/ambassador/codey-bust-dark.png')}
-                        alt={a.name}
-                      />
+                      <div className={styles.placeholderAvatarInner}>
+                        <img
+                          className={styles.placeholderAvatar}
+                          src={useBaseUrl('/ambassador/codey-bust-dark.png')}
+                          alt={a.name}
+                        />
+                      </div>
                     </div>
                     <div className={styles.placeholderName}>{a.name}</div>
                     <div className={styles.placeholderMeta}>Expert Ambassador since {a.since}</div>
@@ -238,7 +240,7 @@ const Ambassador: React.FC = () => {
               <div className={styles.spanLeft}></div>
               <img
                 className={styles.ambassadorImage}
-                src={useBaseUrl('/icons/Ambassador.png')}
+                src={useBaseUrl('/icons/AmbBadge.png')}
                 alt="Ambassador Icon"
               />
               <div className={styles.spanLeft}></div>
@@ -248,11 +250,13 @@ const Ambassador: React.FC = () => {
                 {placeholderAmbassadors.map((a) => (
                   <div key={a.name} className={styles.placeholderCard}>
                     <div className={styles.placeholderGradBorder}>
-                      <img
-                        className={styles.placeholderAvatar}
-                        src={useBaseUrl('/ambassador/codey-bust-dark.png')}
-                        alt={a.name}
-                      />
+                      <div className={styles.placeholderAvatarInner}>
+                        <img
+                          className={styles.placeholderAvatar}
+                          src={useBaseUrl('/ambassador/codey-bust-dark.png')}
+                          alt={a.name}
+                        />
+                      </div>
                     </div>
                     <div className={styles.placeholderName}>{a.name}</div>
                     <div className={styles.placeholderMeta}>Ambassador since {a.since}</div>
@@ -268,8 +272,13 @@ const Ambassador: React.FC = () => {
         </div>
 
       </main>
-    </Layout>
   );
 };
+
+const Ambassador: React.FC = () => (
+  <Layout title="Ambassadors" description="The SailPoint Ambassador Program has everything you need to build, extend, and automate scalable identity solutions.">
+    <AmbassadorContent />
+  </Layout>
+);
 
 export default Ambassador;

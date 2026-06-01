@@ -152,10 +152,79 @@ function sanitizeLogContext(context?: LogContext): LogContext | undefined {
 	return sanitized;
 }
 
-type OAuthErrorSummary = {
-	oauthError?: string;
-	oauthErrorDescription?: string;
+type OAuthFailureReason = {
+	reason: string;
 };
+
+function simplifyOAuthCodeError(
+	error?: string,
+	errorDescription?: string,
+): string {
+	const err = error?.toLowerCase() ?? "";
+	const desc = errorDescription?.toLowerCase() ?? "";
+
+	if (err === "invalid_grant") {
+		if (
+			desc.includes("already") &&
+			(desc.includes("used") || desc.includes("redeemed"))
+		) {
+			return "Code already used";
+		}
+		if (desc.includes("expired")) {
+			return "Code expired";
+		}
+		return "Invalid authorization code";
+	}
+	if (err === "invalid_client") {
+		return "Invalid OAuth client configuration";
+	}
+	if (err === "invalid_request") {
+		return "Invalid OAuth request";
+	}
+	if (err === "unauthorized_client") {
+		return "Unauthorized OAuth client";
+	}
+	if (err === "access_denied") {
+		return "Access denied";
+	}
+	if (err === "unsupported_grant_type") {
+		return "Unsupported grant type";
+	}
+	return "Code exchange failed";
+}
+
+function simplifyOAuthRefreshError(
+	error?: string,
+	errorDescription?: string,
+): string {
+	const err = error?.toLowerCase() ?? "";
+	const desc = errorDescription?.toLowerCase() ?? "";
+
+	if (err === "invalid_grant") {
+		if (desc.includes("expired") || desc.includes("revoked")) {
+			return "Refresh token expired or revoked";
+		}
+		return "Invalid refresh token";
+	}
+	if (err === "invalid_client") {
+		return "Invalid OAuth client configuration";
+	}
+	if (err === "invalid_request") {
+		return "Invalid OAuth request";
+	}
+	return "Token refresh failed";
+}
+
+function simplifyOAuthInfoError(
+	error?: string,
+	_errorDescription?: string,
+): string {
+	const err = error?.toLowerCase() ?? "";
+	if (err === "invalid_client") {
+		return "Invalid OAuth client configuration";
+	}
+	return "Tenant OAuth info unavailable";
+}
 
 function formatError(err: unknown): { name: string; message: string } {
 	if (err instanceof Error) {
@@ -198,35 +267,55 @@ function log(
 }
 
 /**
- * Extract only OAuth RFC 6749 error fields — never log raw token endpoint bodies.
+ * Parse OAuth error responses into short, safe messages — never log raw bodies.
  */
-async function readOAuthErrorSummary(
+async function parseOAuthFailureReason(
 	response: Response,
-): Promise<OAuthErrorSummary | undefined> {
+	kind: "authorization_code" | "refresh_token" | "info",
+): Promise<OAuthFailureReason> {
 	try {
 		const text = (await response.text()).trim();
 		if (text.length === 0) {
-			return undefined;
+			return { reason: defaultOAuthFailureReason(kind) };
 		}
 		try {
 			const body = JSON.parse(text) as Record<string, unknown>;
-			const summary: OAuthErrorSummary = {};
-			if (typeof body.error === "string") {
-				summary.oauthError = sanitizeString(body.error);
+			const error = typeof body.error === "string" ? body.error : undefined;
+			const errorDescription =
+				typeof body.error_description === "string"
+					? body.error_description
+					: undefined;
+
+			if (kind === "authorization_code") {
+				return {
+					reason: simplifyOAuthCodeError(error, errorDescription),
+				};
 			}
-			if (typeof body.error_description === "string") {
-				summary.oauthErrorDescription = sanitizeString(body.error_description);
+			if (kind === "refresh_token") {
+				return {
+					reason: simplifyOAuthRefreshError(error, errorDescription),
+				};
 			}
-			if (summary.oauthError || summary.oauthErrorDescription) {
-				return summary;
-			}
-			return { oauthError: "unknown_oauth_error" };
+			return { reason: simplifyOAuthInfoError(error, errorDescription) };
 		} catch {
-			return { oauthError: "non_json_error_response" };
+			return { reason: defaultOAuthFailureReason(kind) };
 		}
 	} catch (readErr) {
 		log("warn", "oauth_error_body_read_failed", undefined, readErr);
-		return undefined;
+		return { reason: defaultOAuthFailureReason(kind) };
+	}
+}
+
+function defaultOAuthFailureReason(
+	kind: "authorization_code" | "refresh_token" | "info",
+): string {
+	switch (kind) {
+		case "authorization_code":
+			return "Code exchange failed";
+		case "refresh_token":
+			return "Token refresh failed";
+		case "info":
+			return "Tenant OAuth info unavailable";
 	}
 }
 
@@ -363,16 +452,14 @@ async function getAuthInfo(baseURL: string, requestId?: string) {
 	try {
 		const authInfoResp = await fetch(infoUrl);
 		if (!authInfoResp.ok) {
-			const oauthErrorSummary = await readOAuthErrorSummary(authInfoResp);
+			const { reason } = await parseOAuthFailureReason(authInfoResp, "info");
 			log("error", "oauth_info_request_failed", {
 				requestId,
 				baseURL,
 				status: authInfoResp.status,
-				...oauthErrorSummary,
+				reason,
 			});
-			throw new HTTPException(400, {
-				message: "Error retrieving tenant information",
-			});
+			throw new HTTPException(400, { message: reason });
 		}
 		const authInfo = await authInfoResp.json();
 
@@ -521,17 +608,18 @@ async function exchangeCodeForToken(
 	}
 
 	if (!tokenResp.ok) {
-		const oauthErrorSummary = await readOAuthErrorSummary(tokenResp);
+		const { reason } = await parseOAuthFailureReason(
+			tokenResp,
+			"authorization_code",
+		);
 		log("error", "oauth_token_exchange_failed", {
 			requestId,
 			baseURL,
 			status: tokenResp.status,
 			redirectUri,
-			...oauthErrorSummary,
+			reason,
 		});
-		throw new HTTPException(400, {
-			message: "Error exchanging code for token",
-		});
+		throw new HTTPException(400, { message: reason });
 	}
 
 	let tokenData: { access_token?: string };
@@ -585,14 +673,17 @@ async function exchangeRefreshToken(
 	}
 
 	if (!tokenResp.ok) {
-		const oauthErrorSummary = await readOAuthErrorSummary(tokenResp);
+		const { reason } = await parseOAuthFailureReason(
+			tokenResp,
+			"refresh_token",
+		);
 		log("error", "oauth_refresh_failed", {
 			requestId,
 			baseURL,
 			status: tokenResp.status,
-			...oauthErrorSummary,
+			reason,
 		});
-		throw new HTTPException(400, { message: "Error exchanging refresh token" });
+		throw new HTTPException(400, { message: reason });
 	}
 
 	let tokenData: { access_token?: string };

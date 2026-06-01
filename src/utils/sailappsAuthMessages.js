@@ -128,6 +128,12 @@ const API_ERRORS = {
     hint: 'Start sign-in again from your application.',
     severity: 'error',
   },
+  'Invalid stored data: missing redirect URI': {
+    title: 'Incomplete session',
+    message: 'Your sign-in session is missing redirect verification data.',
+    hint: 'Start sign-in again from your application.',
+    severity: 'error',
+  },
   'Failed to encrypt token': {
     title: 'Could not secure token',
     message: 'The access token could not be encrypted for your application.',

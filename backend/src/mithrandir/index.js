@@ -397,11 +397,11 @@ async function getAuthInfo(baseURL, requestId) {
         });
     }
 }
-async function storeAuthData(uuid, baseURL, codeVerifier, requestId) {
+async function storeAuthData(uuid, baseURL, codeVerifier, redirectUri, requestId) {
     try {
         // TTL 5 minutes
         const ttl = Math.floor(Date.now() / 1000) + 300;
-        const objectToPut = { id: uuid, baseURL, codeVerifier, ttl };
+        const objectToPut = { id: uuid, baseURL, codeVerifier, redirectUri, ttl };
         await ddbDocClient.send(new lib_dynamodb_1.PutCommand({ TableName: validatedTableName, Item: objectToPut }));
         log("info", "auth_session_stored", {
             requestId,
@@ -722,12 +722,13 @@ app.post("/Prod/sailapps/auth", async (c) => {
     const uuid = (0, crypto_1.randomUUID)();
     const codeVerifier = generateCodeVerifier();
     const codeChallenge = generateCodeChallenge(codeVerifier);
-    const objectToPut = await storeAuthData(uuid, baseURL, codeVerifier, requestId);
+    const redirectUri = body.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl;
+    const objectToPut = await storeAuthData(uuid, baseURL, codeVerifier, redirectUri, requestId);
     const state = { id: uuid, publicKey: body.publicKey };
     const authURL = new URL(authInfo.authorizeEndpoint);
     authURL.searchParams.set("client_id", validatedClientId);
     authURL.searchParams.set("response_type", "code");
-    authURL.searchParams.set("redirect_uri", body.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl);
+    authURL.searchParams.set("redirect_uri", redirectUri);
     authURL.searchParams.set("state", btoa(JSON.stringify(state)));
     authURL.searchParams.set("code_challenge", codeChallenge);
     authURL.searchParams.set("code_challenge_method", "S256");
@@ -783,7 +784,16 @@ app.post("/Prod/sailapps/auth/code", async (c) => {
             message: "Invalid stored data: missing PKCE verifier",
         });
     }
-    const tokenData = await exchangeCodeForToken(tableData.baseURL, code, body?.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl, tableData.codeVerifier, requestId);
+    if (!tableData.redirectUri) {
+        log("warn", "auth_code_missing_redirect_uri", {
+            requestId,
+            uuid: maskUuid(uuid),
+        });
+        throw new http_exception_1.HTTPException(400, {
+            message: "Invalid stored data: missing redirect URI",
+        });
+    }
+    const tokenData = await exchangeCodeForToken(tableData.baseURL, code, tableData.redirectUri, tableData.codeVerifier, requestId);
     let encryptedToken;
     try {
         encryptedToken = encryptToken(tokenData, atob(publicKey));

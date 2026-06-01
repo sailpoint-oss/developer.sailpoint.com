@@ -16,6 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'JitActivationExtendResponse', 'V2026J
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Workflow or business identifier for this activation. | 
+**ActivationId** | **string** | Persistent activation record identifier for this JIT activation. | 
 **ConnectionId** | **string** | Entitlement connection identifier for the activation. | 
 **ActivationPeriodExtensionMins** | **int32** | Extension applied to the activation period, in minutes. | 
 **Status** | [**ActivationWorkflowStatus**](activation-workflow-status) |  | 
@@ -25,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewJitActivationExtendResponse
 
-`func NewJitActivationExtendResponse(id string, connectionId string, activationPeriodExtensionMins int32, status ActivationWorkflowStatus, startTime SailPointTime, ) *JitActivationExtendResponse`
+`func NewJitActivationExtendResponse(id string, activationId string, connectionId string, activationPeriodExtensionMins int32, status ActivationWorkflowStatus, startTime SailPointTime, ) *JitActivationExtendResponse`
 
 NewJitActivationExtendResponse instantiates a new JitActivationExtendResponse object
 This constructor will assign default values to properties that have it defined,
@@ -58,6 +59,26 @@ and a boolean to check if the value has been set.
 `func (o *JitActivationExtendResponse) SetId(v string)`
 
 SetId sets Id field to given value.
+
+
+### GetActivationId
+
+`func (o *JitActivationExtendResponse) GetActivationId() string`
+
+GetActivationId returns the ActivationId field if non-nil, zero value otherwise.
+
+### GetActivationIdOk
+
+`func (o *JitActivationExtendResponse) GetActivationIdOk() (*string, bool)`
+
+GetActivationIdOk returns a tuple with the ActivationId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActivationId
+
+`func (o *JitActivationExtendResponse) SetActivationId(v string)`
+
+SetActivationId sets ActivationId field to given value.
 
 
 ### GetConnectionId

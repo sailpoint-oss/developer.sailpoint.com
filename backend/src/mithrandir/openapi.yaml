@@ -36,7 +36,10 @@ paths:
   /sailapps/auth:
     post:
       summary: Initiate authentication
-      description: Starts the authentication flow with tenant info and public key
+      description: >-
+        Starts the authentication flow with tenant info and public key.
+        Internally generates a PKCE code challenge (S256) and includes it in the authorization URL.
+        The code verifier is stored server-side and used during the token exchange.
       operationId: initiateAuth
       tags:
         - Authentication
@@ -63,7 +66,9 @@ paths:
   /sailapps/auth/code:
     post:
       summary: Exchange authorization code for token
-      description: Exchanges an OAuth authorization code for an access token
+      description: >-
+        Exchanges an OAuth authorization code for an access token.
+        Automatically includes the PKCE code verifier (stored during auth initiation) in the token exchange request.
       operationId: exchangeCode
       tags:
         - Authentication

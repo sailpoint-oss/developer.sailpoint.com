@@ -25478,6 +25478,7 @@
         )
 
         func main() {
+          id := `8c190e6787aa4ed9a90bd9d5344523fb` // string | The Source id # string | The Source id
           xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
           
@@ -25485,8 +25486,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.SourcesAPI.GetSourceEntitlementRequestConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2024.SourcesAPI.GetSourceEntitlementRequestConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+          resp, r, err := apiClient.V2024.SourcesAPI.GetSourceEntitlementRequestConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+          //resp, r, err := apiClient.V2024.SourcesAPI.GetSourceEntitlementRequestConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSourceEntitlementRequestConfig``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -26765,6 +26766,7 @@
         )
 
         func main() {
+          id := `8c190e6787aa4ed9a90bd9d5344523fb` // string | The Source id # string | The Source id
           xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
            sourceentitlementrequestconfig := []byte(`{
           "accessRequestConfig" : {
@@ -26806,8 +26808,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.SourcesAPI.UpdateSourceEntitlementRequestConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).SourceEntitlementRequestConfig(sourceEntitlementRequestConfig).Execute()
-          //resp, r, err := apiClient.V2024.SourcesAPI.UpdateSourceEntitlementRequestConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).SourceEntitlementRequestConfig(sourceEntitlementRequestConfig).Execute()
+          resp, r, err := apiClient.V2024.SourcesAPI.UpdateSourceEntitlementRequestConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).SourceEntitlementRequestConfig(sourceEntitlementRequestConfig).Execute()
+          //resp, r, err := apiClient.V2024.SourcesAPI.UpdateSourceEntitlementRequestConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).SourceEntitlementRequestConfig(sourceEntitlementRequestConfig).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.UpdateSourceEntitlementRequestConfig``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -27930,15 +27932,14 @@
         )
 
         func main() {
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
           
 
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.TenantContextAPI.GetTenantContext(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2024.TenantContextAPI.GetTenantContext(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+          resp, r, err := apiClient.V2024.TenantContextAPI.GetTenantContext(context.Background()).Execute()
+          //resp, r, err := apiClient.V2024.TenantContextAPI.GetTenantContext(context.Background()).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `TenantContextAPI.GetTenantContext``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -27964,7 +27965,6 @@
         )
 
         func main() {
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
            jsonpatchoperation := []byte(`{
           "op" : "replace",
           "path" : "/description",
@@ -27982,8 +27982,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          r, err := apiClient.V2024.TenantContextAPI.PatchTenantContext(context.Background()).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
-          //r, err := apiClient.V2024.TenantContextAPI.PatchTenantContext(context.Background()).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
+          r, err := apiClient.V2024.TenantContextAPI.PatchTenantContext(context.Background()).JsonPatchOperation(jsonPatchOperation).Execute()
+          //r, err := apiClient.V2024.TenantContextAPI.PatchTenantContext(context.Background()).JsonPatchOperation(jsonPatchOperation).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `TenantContextAPI.PatchTenantContext``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -5,7 +5,7 @@ get:
   tags:
     - Parameter Storage
   security:
-    - userAuth: [sp:parameter-storage:read]
+    - userAuth: [sp:parameter-storage:read, sp:parameter-storage:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
   x-audience:

@@ -16,6 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'JitActivationActivateResponse', 'V202
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Workflow or business identifier for this activation. | 
+**ActivationId** | **string** | Persistent activation record identifier for this JIT activation. | 
 **ConnectionId** | **string** | Entitlement connection identifier for the activation. | 
 **ActivationPeriodMins** | **int32** | Activation duration in minutes for this workflow. | 
 **Status** | [**ActivationWorkflowStatus**](activation-workflow-status) |  | 
@@ -25,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewJitActivationActivateResponse
 
-`func NewJitActivationActivateResponse(id string, connectionId string, activationPeriodMins int32, status ActivationWorkflowStatus, startTime SailPointTime, ) *JitActivationActivateResponse`
+`func NewJitActivationActivateResponse(id string, activationId string, connectionId string, activationPeriodMins int32, status ActivationWorkflowStatus, startTime SailPointTime, ) *JitActivationActivateResponse`
 
 NewJitActivationActivateResponse instantiates a new JitActivationActivateResponse object
 This constructor will assign default values to properties that have it defined,
@@ -58,6 +59,26 @@ and a boolean to check if the value has been set.
 `func (o *JitActivationActivateResponse) SetId(v string)`
 
 SetId sets Id field to given value.
+
+
+### GetActivationId
+
+`func (o *JitActivationActivateResponse) GetActivationId() string`
+
+GetActivationId returns the ActivationId field if non-nil, zero value otherwise.
+
+### GetActivationIdOk
+
+`func (o *JitActivationActivateResponse) GetActivationIdOk() (*string, bool)`
+
+GetActivationIdOk returns a tuple with the ActivationId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActivationId
+
+`func (o *JitActivationActivateResponse) SetActivationId(v string)`
+
+SetActivationId sets ActivationId field to given value.
 
 
 ### GetConnectionId

@@ -15,10 +15,9 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalConfigEscalationConfigEscalat
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ChainId** | Pointer to **string** | ID of the escalation chain. | [optional] 
 **Tier** | Pointer to **int64** | Starting at 1 defines the order in which the identities will get assigned | [optional] 
-**IdentityId** | Pointer to **string** | Identity ID in the escalation chain. | [optional] 
-**IdentityType** | Pointer to **string** | Type of identity in the escalation chain. | [optional] 
+**IdentityId** | Pointer to **string** | Optional Identity ID of the type of identity defined in the 'identityType' field. | [optional] 
+**IdentityType** | Pointer to **string** | Type of identityId in the escalation chain. | [optional] 
 
 ## Methods
 
@@ -38,31 +37,6 @@ will change when the set of required properties is changed
 NewApprovalConfigEscalationConfigEscalationChainInnerWithDefaults instantiates a new ApprovalConfigEscalationConfigEscalationChainInner object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetChainId
-
-`func (o *ApprovalConfigEscalationConfigEscalationChainInner) GetChainId() string`
-
-GetChainId returns the ChainId field if non-nil, zero value otherwise.
-
-### GetChainIdOk
-
-`func (o *ApprovalConfigEscalationConfigEscalationChainInner) GetChainIdOk() (*string, bool)`
-
-GetChainIdOk returns a tuple with the ChainId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetChainId
-
-`func (o *ApprovalConfigEscalationConfigEscalationChainInner) SetChainId(v string)`
-
-SetChainId sets ChainId field to given value.
-
-### HasChainId
-
-`func (o *ApprovalConfigEscalationConfigEscalationChainInner) HasChainId() bool`
-
-HasChainId returns a boolean if a field has been set.
 
 ### GetTier
 

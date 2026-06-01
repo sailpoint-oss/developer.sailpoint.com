@@ -41,6 +41,5 @@ required:
   - jobId
   - status
   - type
-  - expiration
   - created
   - modified

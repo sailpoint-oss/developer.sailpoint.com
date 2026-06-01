@@ -301,3 +301,16 @@ Below is an example of how to use these endpoints to implement the complete auth
 - Use HTTPS for all API calls
 - Refresh tokens before they expire
 - Consider using a higher key size (3072 or 4096) for increased security
+
+## PKCE (Proof Key for Code Exchange)
+
+This service implements [PKCE (RFC 7636)](https://datatracker.ietf.org/doc/html/rfc7636) to protect the OAuth 2.0 Authorization Code flow against authorization code interception attacks. PKCE binds the authorization request to the token exchange request via a cryptographic proof, ensuring that an intercepted authorization code cannot be exchanged by an attacker.
+
+### How it works
+
+PKCE is handled entirely within this service — **no changes are needed by API consumers**.
+
+1. **Auth initiation** (`POST /sailapps/auth`): The service generates a random `code_verifier` and computes a `code_challenge` using SHA-256 (S256 method). The challenge is included in the authorization URL, and the verifier is stored in DynamoDB alongside the session data.
+2. **Token exchange** (`POST /sailapps/auth/code`): The stored `code_verifier` is retrieved from DynamoDB and sent to the OAuth server along with the authorization code. The OAuth server verifies that the verifier matches the challenge from step 1 before issuing tokens.
+
+The `code_verifier` is never exposed in API responses or logs.

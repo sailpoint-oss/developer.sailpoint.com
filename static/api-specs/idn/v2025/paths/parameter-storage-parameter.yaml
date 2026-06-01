@@ -5,7 +5,7 @@ post:
   tags:
     - Parameter Storage
   security:
-    - userAuth: [sp:parameter-storage:create]
+    - userAuth: [sp:parameter-storage:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
   x-audience:
@@ -84,7 +84,7 @@ get:
     - $ref: '../parameters/offset.yaml'
     - $ref: '../parameters/limit.yaml'
   security:
-    - userAuth: [sp:parameter-storage:read]
+    - userAuth: [sp:parameter-storage:read, sp:parameter-storage:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
   x-audience:

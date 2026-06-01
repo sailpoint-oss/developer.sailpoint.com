@@ -13,11 +13,12 @@
   }
 
   .gettingStartedTwo {
-    color: red;
+    color: var(--ifm-font-color-base);
     font-size: 16px;
     font-weight: 500;
-    max-width: 400px;
+    max-width: 480px;
     margin: 20px auto;
+    line-height: 1.5;
   }
   
   .gettingStartedThree {
@@ -79,4 +80,78 @@
 
   .hideNavbar :global(.navbar navbar--fixed-top) {
     display: none;
+  }
+
+  .resultSuccess,
+  .resultWarning,
+  .resultError {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    text-align: left;
+    margin: 24px auto 0;
+    padding: 16px 18px;
+    border-radius: 8px;
+    max-width: 480px;
+    border: 1px solid;
+  }
+
+  .resultSuccess {
+    background: rgba(46, 133, 64, 0.12);
+    border-color: rgba(46, 133, 64, 0.35);
+    color: var(--ifm-font-color-base);
+  }
+
+  .resultWarning {
+    background: rgba(180, 120, 0, 0.12);
+    border-color: rgba(180, 120, 0, 0.35);
+    color: var(--ifm-font-color-base);
+  }
+
+  .resultError {
+    background: rgba(200, 50, 50, 0.1);
+    border-color: rgba(200, 50, 50, 0.35);
+    color: var(--ifm-font-color-base);
+  }
+
+  .resultIcon {
+    flex-shrink: 0;
+    margin-top: 2px;
+    font-size: 1.25rem;
+  }
+
+  .resultSuccess .resultIcon {
+    color: #2e8540;
+  }
+
+  .resultWarning .resultIcon {
+    color: #b47800;
+  }
+
+  .resultError .resultIcon {
+    color: #c83232;
+  }
+
+  .resultText {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .resultTitle {
+    font-weight: 700;
+    font-size: 17px;
+    margin: 0 0 6px;
+  }
+
+  .resultMessage {
+    font-size: 15px;
+    margin: 0 0 8px;
+    line-height: 1.45;
+  }
+
+  .resultHint {
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.9;
+    line-height: 1.4;
   }

@@ -43,7 +43,7 @@ function generateCodeVerifier() {
         .toString('base64')
         .replace(/\+/g, '-')
         .replace(/\//g, '_')
-        .replace(/=/g, '');
+        .replace(/=+$/, '');
 }
 function generateCodeChallenge(verifier) {
     return (0, crypto_1.createHash)('sha256')
@@ -51,7 +51,7 @@ function generateCodeChallenge(verifier) {
         .digest('base64')
         .replace(/\+/g, '-')
         .replace(/\//g, '_')
-        .replace(/=/g, '');
+        .replace(/=+$/, '');
 }
 // Helper functions
 async function validateApiUrl(apiBaseURL, tenant) {
@@ -132,12 +132,13 @@ async function deleteStoredData(uuid) {
         console.error('Error deleting item:', err);
     }
 }
-async function exchangeCodeForToken(baseURL, code, codeVerifier) {
+async function exchangeCodeForToken(baseURL, code, redirectUri, codeVerifier) {
     const tokenUrl = baseURL + `/oauth/token`;
     const formData = new URLSearchParams();
     formData.set('grant_type', 'authorization_code');
     formData.set('client_id', validatedClientId);
     formData.set('code', code);
+    formData.set('redirect_uri', redirectUri);
     formData.set('code_verifier', codeVerifier);
     const tokenResp = await fetch(tokenUrl, {
         method: 'POST',
@@ -352,7 +353,7 @@ app.post('/Prod/sailapps/auth/code', async (c) => {
     if (!tableData.codeVerifier) {
         throw new http_exception_1.HTTPException(400, { message: 'Invalid stored data: missing PKCE verifier' });
     }
-    const tokenData = await exchangeCodeForToken(tableData.baseURL, code, tableData.codeVerifier);
+    const tokenData = await exchangeCodeForToken(tableData.baseURL, code, body?.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl, tableData.codeVerifier);
     const encryptedToken = encryptToken(tokenData, atob(publicKey));
     await storeEncryptedToken(uuid, encryptedToken);
     return c.json({ message: 'Token added successfully' }, 200);

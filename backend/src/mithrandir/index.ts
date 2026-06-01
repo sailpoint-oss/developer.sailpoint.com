@@ -423,7 +423,7 @@ async function validateApiUrl(
 		});
 	}
 
-	let apiURL;
+	let apiURL: URL;
 	if (apiBaseURL) {
 		apiURL = new URL(apiBaseURL);
 		if (!apiURL.hostname) {
@@ -489,12 +489,13 @@ async function storeAuthData(
 	uuid: string,
 	baseURL: string,
 	codeVerifier: string,
+	redirectUri: string,
 	requestId?: string,
 ) {
 	try {
 		// TTL 5 minutes
 		const ttl = Math.floor(Date.now() / 1000) + 300;
-		const objectToPut = { id: uuid, baseURL, codeVerifier, ttl };
+		const objectToPut = { id: uuid, baseURL, codeVerifier, redirectUri, ttl };
 		await ddbDocClient.send(
 			new PutCommand({ TableName: validatedTableName, Item: objectToPut }),
 		);
@@ -703,7 +704,7 @@ async function exchangeRefreshToken(
 	return tokenData;
 }
 
-function encryptToken(tokenData: any, publicKey: string) {
+function encryptToken(tokenData: unknown, publicKey: string) {
 	const tokenString = JSON.stringify(tokenData);
 	const symmetricKey = randomBytes(32); // 256 bits
 
@@ -921,10 +922,13 @@ app.post("/Prod/sailapps/auth", async (c) => {
 	const uuid = randomUUID();
 	const codeVerifier = generateCodeVerifier();
 	const codeChallenge = generateCodeChallenge(codeVerifier);
+	const redirectUri =
+		body.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl;
 	const objectToPut = await storeAuthData(
 		uuid,
 		baseURL,
 		codeVerifier,
+		redirectUri,
 		requestId,
 	);
 
@@ -933,10 +937,7 @@ app.post("/Prod/sailapps/auth", async (c) => {
 
 	authURL.searchParams.set("client_id", validatedClientId);
 	authURL.searchParams.set("response_type", "code");
-	authURL.searchParams.set(
-		"redirect_uri",
-		body.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl,
-	);
+	authURL.searchParams.set("redirect_uri", redirectUri);
 	authURL.searchParams.set("state", btoa(JSON.stringify(state)));
 	authURL.searchParams.set("code_challenge", codeChallenge);
 	authURL.searchParams.set("code_challenge_method", "S256");
@@ -998,11 +999,20 @@ app.post("/Prod/sailapps/auth/code", async (c) => {
 			message: "Invalid stored data: missing PKCE verifier",
 		});
 	}
+	if (!tableData.redirectUri) {
+		log("warn", "auth_code_missing_redirect_uri", {
+			requestId,
+			uuid: maskUuid(uuid),
+		});
+		throw new HTTPException(400, {
+			message: "Invalid stored data: missing redirect URI",
+		});
+	}
 
 	const tokenData = await exchangeCodeForToken(
 		tableData.baseURL,
 		code,
-		body?.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl,
+		tableData.redirectUri,
 		tableData.codeVerifier,
 		requestId,
 	);

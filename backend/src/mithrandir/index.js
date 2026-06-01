@@ -3,12 +3,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.handler = void 0;
 // Create a DocumentClient that represents the query to add an item
 const client_dynamodb_1 = require("@aws-sdk/client-dynamodb");
+const promises_1 = require("node:dns/promises");
+const node_net_1 = require("node:net");
 const lib_dynamodb_1 = require("@aws-sdk/lib-dynamodb");
 const crypto_1 = require("crypto");
 const hono_1 = require("hono");
 const aws_lambda_1 = require("hono/aws-lambda");
 const http_exception_1 = require("hono/http-exception");
 const SERVICE_NAME = "mithrandir";
+const MAX_JSON_BODY_BYTES = 16 * 1024;
+const MAX_STATE_CHARS = 4096;
 const REDACTED = "[REDACTED]";
 /** Context keys that must never appear in logs (values replaced unconditionally). */
 const SENSITIVE_CONTEXT_KEYS = new Set([
@@ -22,6 +26,8 @@ const SENSITIVE_CONTEXT_KEYS = new Set([
     "code_verifier",
     "privateKey",
     "publicKey",
+    "pickupSecret",
+    "pickupSecretHash",
     "tokenInfo",
     "encryptedToken",
     "client_secret",
@@ -64,6 +70,37 @@ function maskUuid(uuid) {
         return "***";
     }
     return `${uuid.slice(0, 8)}…`;
+}
+function generateSecret() {
+    return (0, crypto_1.randomBytes)(32)
+        .toString("base64")
+        .replace(/\+/g, "-")
+        .replace(/\//g, "_")
+        .replace(/=+$/, "");
+}
+function hashSecret(secret) {
+    return (0, crypto_1.createHash)("sha256").update(secret).digest("hex");
+}
+function safeEqual(a, b) {
+    const left = Buffer.from(a, "hex");
+    const right = Buffer.from(b, "hex");
+    return left.length === right.length && (0, crypto_1.timingSafeEqual)(left, right);
+}
+function encodeOAuthState(state) {
+    return btoa(JSON.stringify(state));
+}
+function hashOAuthState(state) {
+    return hashSecret(state);
+}
+function verifyOAuthState(state, expectedHash) {
+    return safeEqual(hashOAuthState(state), expectedHash);
+}
+function getBearerToken(authorizationHeader) {
+    if (!authorizationHeader?.startsWith("Bearer ")) {
+        return undefined;
+    }
+    const token = authorizationHeader.slice("Bearer ".length).trim();
+    return token.length > 0 ? token : undefined;
 }
 function sanitizeLogPath(path) {
     return path.replace(UUID_IN_PATH, (match) => maskUuid(match) ?? "***");
@@ -286,6 +323,14 @@ app.use("*", async (c, next) => {
         path: c.req.path,
     });
     try {
+        const contentLengthHeader = c.req.header("content-length");
+        const contentLength = contentLengthHeader
+            ? Number.parseInt(contentLengthHeader, 10)
+            : 0;
+        if (Number.isFinite(contentLength) &&
+            contentLength > MAX_JSON_BODY_BYTES) {
+            throw new http_exception_1.HTTPException(413, { message: "Request body too large" });
+        }
         await next();
     }
     finally {
@@ -332,8 +377,77 @@ function generateCodeChallenge(verifier) {
         .replace(/\//g, "_")
         .replace(/=+$/, "");
 }
+function isPrivateIpv4(address) {
+    const parts = address.split(".").map((part) => Number.parseInt(part, 10));
+    if (parts.length !== 4 || parts.some((part) => Number.isNaN(part))) {
+        return true;
+    }
+    const [first, second] = parts;
+    return (first === 0 ||
+        first === 10 ||
+        first === 127 ||
+        first >= 224 ||
+        (first === 100 && second >= 64 && second <= 127) ||
+        (first === 169 && second === 254) ||
+        (first === 172 && second >= 16 && second <= 31) ||
+        (first === 192 && second === 168));
+}
+function isUnsafeIpAddress(address) {
+    const ipVersion = (0, node_net_1.isIP)(address);
+    if (ipVersion === 4) {
+        return isPrivateIpv4(address);
+    }
+    if (ipVersion === 6) {
+        const normalized = address.toLowerCase();
+        if (normalized.startsWith("::ffff:")) {
+            return isPrivateIpv4(normalized.slice("::ffff:".length));
+        }
+        return (normalized === "::" ||
+            normalized === "::1" ||
+            normalized.startsWith("fc") ||
+            normalized.startsWith("fd") ||
+            normalized.startsWith("fe80") ||
+            normalized.startsWith("ff"));
+    }
+    return true;
+}
+async function assertPublicHttpsUrl(url, label, requestId) {
+    if (url.protocol !== "https:") {
+        throw new http_exception_1.HTTPException(400, { message: `${label} must use HTTPS` });
+    }
+    if (url.username || url.password) {
+        throw new http_exception_1.HTTPException(400, { message: `${label} must not include credentials` });
+    }
+    const hostname = url.hostname.toLowerCase();
+    if (hostname === "localhost" || hostname.endsWith(".localhost")) {
+        throw new http_exception_1.HTTPException(400, { message: "Unsafe API URL" });
+    }
+    if ((0, node_net_1.isIP)(hostname) && isUnsafeIpAddress(hostname)) {
+        throw new http_exception_1.HTTPException(400, { message: "Unsafe API URL" });
+    }
+    try {
+        const addresses = await (0, promises_1.lookup)(hostname, { all: true });
+        if (addresses.length === 0) {
+            throw new http_exception_1.HTTPException(400, { message: "Unsafe API URL" });
+        }
+        if (addresses.some(({ address }) => isUnsafeIpAddress(address))) {
+            log("warn", "unsafe_url_resolved_private_address", {
+                requestId,
+                baseURL: url.origin,
+            });
+            throw new http_exception_1.HTTPException(400, { message: "Unsafe API URL" });
+        }
+    }
+    catch (err) {
+        if (isHTTPException(err)) {
+            throw err;
+        }
+        log("warn", "url_dns_validation_failed", { requestId, baseURL: url.origin }, err);
+        throw new http_exception_1.HTTPException(400, { message: "Unsafe API URL" });
+    }
+}
 // Helper functions
-async function validateApiUrl(apiBaseURL, tenant) {
+async function validateApiUrl(apiBaseURL, tenant, requestId) {
     if (!apiBaseURL && !tenant) {
         throw new http_exception_1.HTTPException(400, {
             message: "apiBaseURL or tenant must be provided",
@@ -341,8 +455,10 @@ async function validateApiUrl(apiBaseURL, tenant) {
     }
     let apiURL;
     if (apiBaseURL) {
-        apiURL = new URL(apiBaseURL);
-        if (!apiURL.hostname) {
+        try {
+            apiURL = new URL(apiBaseURL);
+        }
+        catch {
             throw new http_exception_1.HTTPException(400, {
                 message: "apiBaseURL is not a valid URL",
             });
@@ -354,17 +470,18 @@ async function validateApiUrl(apiBaseURL, tenant) {
             throw new http_exception_1.HTTPException(400, { message: "tenant is not valid" });
         }
     }
-    if (!apiURL.origin) {
+    if (!apiURL.origin || !apiURL.hostname) {
         throw new http_exception_1.HTTPException(400, {
             message: "apiBaseURL or tenant provided is invalid",
         });
     }
+    await assertPublicHttpsUrl(apiURL, "apiBaseURL", requestId);
     return apiURL.origin;
 }
 async function getAuthInfo(baseURL, requestId) {
     const infoUrl = `${baseURL}/oauth/info`;
     try {
-        const authInfoResp = await fetch(infoUrl);
+        const authInfoResp = await fetch(infoUrl, { redirect: "manual" });
         if (!authInfoResp.ok) {
             const { reason } = await parseOAuthFailureReason(authInfoResp, "info");
             log("error", "oauth_info_request_failed", {
@@ -385,6 +502,21 @@ async function getAuthInfo(baseURL, requestId) {
                 message: "Error retrieving tenant information",
             });
         }
+        try {
+            await assertPublicHttpsUrl(new URL(authInfo.authorizeEndpoint), "authorizeEndpoint", requestId);
+        }
+        catch (err) {
+            if (isHTTPException(err)) {
+                throw err;
+            }
+            log("error", "oauth_info_invalid_authorize_endpoint", {
+                requestId,
+                baseURL,
+            });
+            throw new http_exception_1.HTTPException(400, {
+                message: "Authorization endpoint must use HTTPS",
+            });
+        }
         return authInfo;
     }
     catch (err) {
@@ -397,11 +529,20 @@ async function getAuthInfo(baseURL, requestId) {
         });
     }
 }
-async function storeAuthData(uuid, baseURL, codeVerifier, redirectUri, requestId) {
+async function storeAuthData(uuid, baseURL, codeVerifier, redirectUri, publicKey, pickupSecretHash, stateHash, requestId) {
     try {
         // TTL 5 minutes
         const ttl = Math.floor(Date.now() / 1000) + 300;
-        const objectToPut = { id: uuid, baseURL, codeVerifier, redirectUri, ttl };
+        const objectToPut = {
+            id: uuid,
+            baseURL,
+            codeVerifier,
+            redirectUri,
+            publicKey,
+            pickupSecretHash,
+            stateHash,
+            ttl,
+        };
         await ddbDocClient.send(new lib_dynamodb_1.PutCommand({ TableName: validatedTableName, Item: objectToPut }));
         log("info", "auth_session_stored", {
             requestId,
@@ -443,18 +584,51 @@ async function getStoredData(uuid, requestId) {
         throw new http_exception_1.HTTPException(400, { message: "Error retrieving data" });
     }
 }
-async function deleteStoredData(uuid, requestId) {
+async function consumeStoredToken(uuid, pickupSecret, requestId) {
     try {
-        await ddbDocClient.send(new lib_dynamodb_1.DeleteCommand({ TableName: validatedTableName, Key: { id: uuid } }));
-        log("info", "auth_session_deleted", { requestId, uuid: maskUuid(uuid) });
+        const data = await ddbDocClient.send(new lib_dynamodb_1.DeleteCommand({
+            TableName: validatedTableName,
+            Key: { id: uuid },
+            ConditionExpression: "attribute_exists(tokenInfo) AND pickupSecretHash = :pickupSecretHash",
+            ExpressionAttributeValues: {
+                ":pickupSecretHash": hashSecret(pickupSecret),
+            },
+            ReturnValues: "ALL_OLD",
+        }));
+        if (!data.Attributes?.tokenInfo) {
+            throw new http_exception_1.HTTPException(400, {
+                message: "Token not found or pickup secret invalid",
+            });
+        }
+        log("info", "encrypted_token_consumed", {
+            requestId,
+            uuid: maskUuid(uuid),
+        });
+        return {
+            id: data.Attributes.id,
+            tokenInfo: data.Attributes.tokenInfo,
+            ttl: data.Attributes.ttl,
+        };
     }
     catch (err) {
-        log("error", "dynamodb_delete_auth_session_failed", {
+        if (isHTTPException(err)) {
+            throw err;
+        }
+        if (err instanceof Error && err.name === "ConditionalCheckFailedException") {
+            log("warn", "encrypted_token_consume_rejected", {
+                requestId,
+                uuid: maskUuid(uuid),
+            });
+            throw new http_exception_1.HTTPException(400, {
+                message: "Token not found or pickup secret invalid",
+            });
+        }
+        log("error", "dynamodb_consume_encrypted_token_failed", {
             requestId,
             uuid: maskUuid(uuid),
             tableName: validatedTableName,
         }, err);
-        throw new http_exception_1.HTTPException(500, { message: "Error deleting session data" });
+        throw new http_exception_1.HTTPException(400, { message: "Error retrieving data" });
     }
 }
 async function exchangeCodeForToken(baseURL, code, redirectUri, codeVerifier, requestId) {
@@ -469,6 +643,7 @@ async function exchangeCodeForToken(baseURL, code, redirectUri, codeVerifier, re
     try {
         tokenResp = await fetch(tokenUrl, {
             method: "POST",
+            redirect: "manual",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
             },
@@ -520,6 +695,7 @@ async function exchangeRefreshToken(baseURL, refreshToken, requestId) {
     try {
         tokenResp = await fetch(tokenUrl, {
             method: "POST",
+            redirect: "manual",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
             },
@@ -585,75 +761,6 @@ function encryptToken(tokenData, publicKey) {
     };
     return JSON.stringify(result);
 }
-function generateRsaKeyPair(modulusLength = 2048) {
-    try {
-        // Generate the key pair
-        const { publicKey, privateKey } = (0, crypto_1.generateKeyPairSync)("rsa", {
-            modulusLength, // Key size in bits
-            publicKeyEncoding: {
-                type: "spki", // SubjectPublicKeyInfo
-                format: "pem", // PEM format
-            },
-            privateKeyEncoding: {
-                type: "pkcs8", // Private key in PKCS#8 format
-                format: "pem", // PEM format
-            },
-        });
-        return {
-            publicKey,
-            privateKey,
-            // Also return base64 encoded versions for ease of use
-            publicKeyBase64: btoa(publicKey),
-            privateKeyBase64: btoa(privateKey),
-            algorithm: "RSA",
-            modulusLength,
-            format: {
-                public: "spki/pem",
-                private: "pkcs8/pem",
-            },
-        };
-    }
-    catch (error) {
-        log("error", "rsa_key_pair_generation_failed", { modulusLength }, error);
-        throw new Error("Failed to generate key pair");
-    }
-}
-function decryptToken(encryptedTokenData, privateKey) {
-    try {
-        const tokenData = JSON.parse(encryptedTokenData);
-        // Check token format version
-        if (tokenData.version !== "1.0") {
-            throw new Error("Unsupported token format version");
-        }
-        // Verify the encryption algorithms used
-        if (tokenData.algorithm?.symmetric !== "AES-256-GCM" ||
-            tokenData.algorithm?.asymmetric !== "RSA-OAEP-SHA256") {
-            throw new Error("Unsupported encryption algorithm");
-        }
-        // Extract required data
-        const { ciphertext, encryptedKey, iv, authTag } = tokenData.data;
-        if (!ciphertext || !encryptedKey || !iv || !authTag) {
-            throw new Error("Invalid encrypted token format");
-        }
-        // Decrypt the symmetric key with the private key
-        const encryptedSymmetricKey = Buffer.from(encryptedKey, "base64");
-        const symmetricKey = (0, crypto_1.privateDecrypt)({
-            key: privateKey,
-            padding: crypto_1.constants.RSA_PKCS1_OAEP_PADDING,
-            oaepHash: "sha256",
-        }, encryptedSymmetricKey);
-        // Decrypt the data with the symmetric key
-        const decipher = (0, crypto_1.createDecipheriv)("aes-256-gcm", symmetricKey, Buffer.from(iv, "base64"));
-        decipher.setAuthTag(Buffer.from(authTag, "base64"));
-        let decryptedData = decipher.update(ciphertext, "base64", "utf8");
-        decryptedData += decipher.final("utf8");
-        return JSON.parse(decryptedData);
-    }
-    catch (error) {
-        log("error", "token_decryption_failed", undefined, error);
-        throw new Error("Failed to decrypt token");
-    }
-}
 async function storeEncryptedToken(uuid, encryptedToken, requestId) {
     try {
         // TTL 5 minutes
@@ -682,13 +789,17 @@ async function storeEncryptedToken(uuid, encryptedToken, requestId) {
     }
 }
 function parseOAuthState(state, requestId) {
+    if (state.length > MAX_STATE_CHARS) {
+        log("warn", "oauth_state_too_large", { requestId });
+        throw new http_exception_1.HTTPException(400, { message: "Invalid state parameter" });
+    }
     try {
         const decoded = JSON.parse(atob(state));
-        if (!decoded.id || !decoded.publicKey) {
+        if (!decoded.id) {
             log("warn", "oauth_state_missing_fields", { requestId });
             throw new http_exception_1.HTTPException(400, { message: "Invalid state parameter" });
         }
-        return { id: decoded.id, publicKey: decoded.publicKey };
+        return decoded;
     }
     catch (err) {
         if (isHTTPException(err)) {
@@ -717,19 +828,20 @@ app.post("/Prod/sailapps/auth", async (c) => {
     if (!body.publicKey) {
         throw new http_exception_1.HTTPException(400, { message: "publicKey is required" });
     }
-    const baseURL = await validateApiUrl(body.apiBaseURL, body.tenant);
+    const baseURL = await validateApiUrl(body.apiBaseURL, body.tenant, requestId);
     const authInfo = await getAuthInfo(baseURL, requestId);
     const uuid = (0, crypto_1.randomUUID)();
     const codeVerifier = generateCodeVerifier();
     const codeChallenge = generateCodeChallenge(codeVerifier);
+    const pickupSecret = generateSecret();
     const redirectUri = body.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl;
-    const objectToPut = await storeAuthData(uuid, baseURL, codeVerifier, redirectUri, requestId);
-    const state = { id: uuid, publicKey: body.publicKey };
+    const state = encodeOAuthState({ id: uuid, baseURL });
+    const objectToPut = await storeAuthData(uuid, baseURL, codeVerifier, redirectUri, body.publicKey, hashSecret(pickupSecret), hashOAuthState(state), requestId);
     const authURL = new URL(authInfo.authorizeEndpoint);
     authURL.searchParams.set("client_id", validatedClientId);
     authURL.searchParams.set("response_type", "code");
     authURL.searchParams.set("redirect_uri", redirectUri);
-    authURL.searchParams.set("state", btoa(JSON.stringify(state)));
+    authURL.searchParams.set("state", state);
     authURL.searchParams.set("code_challenge", codeChallenge);
     authURL.searchParams.set("code_challenge_method", "S256");
     log("info", "auth_flow_initiated", {
@@ -742,6 +854,7 @@ app.post("/Prod/sailapps/auth", async (c) => {
         authURL: authURL.toString(),
         id: objectToPut.id,
         baseURL: objectToPut.baseURL,
+        pickupSecret,
         ttl: objectToPut.ttl,
     });
 });
@@ -766,8 +879,15 @@ app.post("/Prod/sailapps/auth/code", async (c) => {
     if (!state) {
         throw new http_exception_1.HTTPException(400, { message: "State not provided" });
     }
-    const { id: uuid, publicKey } = parseOAuthState(state, requestId);
+    const { id: uuid } = parseOAuthState(state, requestId);
     const tableData = await getStoredData(uuid, requestId);
+    if (!tableData.stateHash || !verifyOAuthState(state, tableData.stateHash)) {
+        log("warn", "oauth_state_verification_failed", {
+            requestId,
+            uuid: maskUuid(uuid),
+        });
+        throw new http_exception_1.HTTPException(400, { message: "Invalid state parameter" });
+    }
     if (!tableData.baseURL) {
         log("warn", "auth_code_missing_base_url", {
             requestId,
@@ -793,10 +913,19 @@ app.post("/Prod/sailapps/auth/code", async (c) => {
             message: "Invalid stored data: missing redirect URI",
         });
     }
+    if (!tableData.publicKey) {
+        log("warn", "auth_code_missing_public_key", {
+            requestId,
+            uuid: maskUuid(uuid),
+        });
+        throw new http_exception_1.HTTPException(400, {
+            message: "Invalid stored data: missing public key",
+        });
+    }
     const tokenData = await exchangeCodeForToken(tableData.baseURL, code, tableData.redirectUri, tableData.codeVerifier, requestId);
     let encryptedToken;
     try {
-        encryptedToken = encryptToken(tokenData, atob(publicKey));
+        encryptedToken = encryptToken(tokenData, atob(tableData.publicKey));
     }
     catch (err) {
         log("error", "token_encryption_failed", { requestId, uuid: maskUuid(uuid) }, err);
@@ -816,17 +945,17 @@ app.get("/Prod/sailapps/auth/token/:uuid", async (c) => {
     if (!uuid) {
         throw new http_exception_1.HTTPException(400, { message: "UUID not provided" });
     }
-    const data = await getStoredData(uuid, requestId);
-    if (!data.tokenInfo) {
-        log("warn", "encrypted_token_not_found", {
+    const pickupSecret = getBearerToken(c.req.header("authorization"));
+    if (!pickupSecret) {
+        log("warn", "pickup_secret_missing", {
             requestId,
             uuid: maskUuid(uuid),
         });
-        throw new http_exception_1.HTTPException(400, { message: "Token not found" });
+        throw new http_exception_1.HTTPException(401, { message: "Pickup secret required" });
     }
-    await deleteStoredData(uuid, requestId);
+    const tokenData = await consumeStoredToken(uuid, pickupSecret, requestId);
     log("info", "encrypted_token_retrieved", { requestId, uuid: maskUuid(uuid) });
-    return c.json(data, 200);
+    return c.json(tokenData, 200);
 });
 // Refresh token endpoint
 app.post("/Prod/sailapps/auth/refresh", async (c) => {
@@ -847,102 +976,8 @@ app.post("/Prod/sailapps/auth/refresh", async (c) => {
     if (!body.refreshToken) {
         throw new http_exception_1.HTTPException(400, { message: "refreshToken is required" });
     }
-    const baseURL = await validateApiUrl(body.apiBaseURL, body.tenant);
+    const baseURL = await validateApiUrl(body.apiBaseURL, body.tenant, requestId);
     const tokenData = await exchangeRefreshToken(baseURL, body.refreshToken, requestId);
     return c.json(tokenData, 200);
-});
-// Decrypt token endpoint
-app.post("/Prod/sailapps/auth/token/decrypt", async (c) => {
-    const requestId = c.get("requestId");
-    if (c.req.header("Content-Type") !== "application/json") {
-        throw new http_exception_1.HTTPException(400, {
-            message: "Content-Type must be application/json",
-        });
-    }
-    let body;
-    try {
-        body = await c.req.json();
-    }
-    catch (err) {
-        log("warn", "token_decrypt_invalid_json", { requestId }, err);
-        throw new http_exception_1.HTTPException(400, { message: "Invalid JSON body" });
-    }
-    // Validate required fields
-    if (!body.privateKey) {
-        throw new http_exception_1.HTTPException(400, { message: "privateKey is required" });
-    }
-    if (!body.encryptedToken) {
-        throw new http_exception_1.HTTPException(400, { message: "encryptedToken is required" });
-    }
-    try {
-        // If UUID is provided, get the encrypted token from the database
-        let tokenInfo;
-        if (body.uuid) {
-            const data = await getStoredData(body.uuid, requestId);
-            if (!data.tokenInfo) {
-                log("warn", "token_decrypt_uuid_not_found", {
-                    requestId,
-                    uuid: maskUuid(body.uuid),
-                });
-                throw new http_exception_1.HTTPException(400, {
-                    message: "Token not found for the provided UUID",
-                });
-            }
-            tokenInfo = data.tokenInfo;
-        }
-        else {
-            // Otherwise use the provided encrypted token directly
-            tokenInfo = body.encryptedToken;
-        }
-        // Decode the private key if it's base64-encoded
-        const privateKey = body.isBase64Encoded
-            ? atob(body.privateKey)
-            : body.privateKey;
-        // Decrypt the token
-        const decryptedToken = decryptToken(tokenInfo, privateKey);
-        log("info", "token_decrypt_succeeded", {
-            requestId,
-            uuid: maskUuid(body.uuid),
-        });
-        return c.json({
-            token: decryptedToken,
-            tokenInfo: {
-                expiresAt: decryptedToken.expires_in
-                    ? new Date(Date.now() + decryptedToken.expires_in * 1000).toISOString()
-                    : undefined,
-                tokenType: decryptedToken.token_type || "Bearer",
-            },
-        }, 200);
-    }
-    catch (error) {
-        if (isHTTPException(error)) {
-            throw error;
-        }
-        log("error", "token_decrypt_endpoint_failed", {
-            requestId,
-            uuid: maskUuid(body.uuid),
-        }, error);
-        throw new http_exception_1.HTTPException(400, { message: "Failed to decrypt token" });
-    }
-});
-// Generate RSA key pair endpoint
-app.post("/Prod/sailapps/auth/keypair", async (c) => {
-    const requestId = c.get("requestId");
-    try {
-        const keySize = 2048;
-        const keyPair = generateRsaKeyPair(keySize);
-        log("info", "rsa_key_pair_generated", { requestId, keySize });
-        return c.json({
-            message: `Successfully generated ${keySize}-bit RSA key pair`,
-            ...keyPair,
-        }, 200);
-    }
-    catch (error) {
-        if (isHTTPException(error)) {
-            throw error;
-        }
-        log("error", "rsa_key_pair_endpoint_failed", { requestId }, error);
-        throw new http_exception_1.HTTPException(500, { message: "Failed to generate key pair" });
-    }
 });
 exports.handler = (0, aws_lambda_1.handle)(app);

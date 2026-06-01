@@ -52,6 +52,7 @@ Resources:
           - "POST"
         AllowHeaders: 
           - "Content-Type"
+          - "Authorization"
         AllowOrigins:
           - "https://developer.sailpoint.com"
       DefaultRouteSettings:
@@ -119,24 +120,6 @@ Resources:
           Type: HttpApi
           Properties:
             Path: /sailapps/auth/refresh
-            Method: POST
-            ApiId:
-              Ref: DeveloperSailpointApiGatewayApiv2
-            Auth:
-              Authorizer: NONE
-        PerformSailAppsTokenDecryption:
-          Type: HttpApi
-          Properties:
-            Path: /sailapps/auth/token/decrypt
-            Method: POST
-            ApiId:
-              Ref: DeveloperSailpointApiGatewayApiv2
-            Auth:
-              Authorizer: NONE
-        GenerateKeyPair:
-          Type: HttpApi
-          Properties:
-            Path: /sailapps/auth/keypair
             Method: POST
             ApiId:
               Ref: DeveloperSailpointApiGatewayApiv2

@@ -12,37 +12,7 @@ This document describes the complete flow for securely authenticating with SailP
 
 ## API Endpoints
 
-### 1. Generate RSA Key Pair (Optional)
-
-If you don't have an existing RSA key pair, you can generate one using this endpoint.
-
-**Endpoint:** `POST /Prod/sailapps/auth/keypair`
-
-**Request:**
-```json
-{}
-```
-
-**Response:**
-```json
-{
-  "message": "Successfully generated 2048-bit RSA key pair",
-  "publicKey": "-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----",
-  "privateKey": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----",
-  "publicKeyBase64": "LS0tLS1CRUdJTiBQVUJM...",
-  "privateKeyBase64": "LS0tLS1CRUdJTiBQUklW...",
-  "algorithm": "RSA",
-  "modulusLength": 2048,
-  "format": {
-    "public": "spki/pem",
-    "private": "pkcs8/pem"
-  }
-}
-```
-
-**Important:** Store your private key securely. It should never be shared or transmitted.
-
-### 2. Initiate Authentication Flow
+### 1. Initiate Authentication Flow
 
 Start the authentication flow by providing your tenant information and public key.
 
@@ -63,17 +33,21 @@ Start the authentication flow by providing your tenant information and public ke
 {
   "authURL": "https://your-tenant.identitynow.com/oauth/authorize?client_id=...",
   "id": "12345678-90ab-cdef-1234-567890abcdef",
-  "baseURL": "https://your-tenant.api.identitynow.com"
+  "baseURL": "https://your-tenant.api.identitynow.com",
+  "pickupSecret": "BvvfLP_1m4u5p7UTgVk3b1U_ZvR2tiixc-3S3eCXV78",
+  "ttl": 1717267200
 }
 ```
 
-### 3. Complete OAuth Authentication
+Store `pickupSecret` in the initiating application. It is required to retrieve the encrypted token and is not sent through the browser callback.
+
+### 2. Complete OAuth Authentication
 
 Open the `authURL` from the previous response in a browser. The user will be prompted to log in and authorize your application.
 
 > **Note:** This step happens in the browser and is handled by the OAuth server. After successful authentication, the user will be redirected to the configured redirect URL with a code and state parameter. The web application will handle this redirect and automatically submit the code to the next endpoint.
 
-### 4. Exchange Code for Token (Automatic)
+### 3. Exchange Code for Token (Automatic)
 
 This endpoint is automatically called by our web application after the user completes authentication.
 
@@ -83,65 +57,35 @@ This endpoint is automatically called by our web application after the user comp
 ```json
 {
   "code": "4/0AQlEd8yZgFjQXDhE...",
-  "state": "eyJpZCI6IjEyMzQ1Njc4LTkwYWItY2RlZi0xMjM0LTU2Nzg5MGFiY2RlZiIsInB1YmxpY0tleSI6IkxTMHRMUzFDUlVkSlRpQlFWVUpNSUMuLi4ifQ==",
-  "dev": false  // Optional: Set to true for development environment
+  "state": "eyJpZCI6IjEyMzQ1Njc4LTkwYWItY2RlZi0xMjM0LTU2Nzg5MGFiY2RlZiJ9"
 }
 ```
 
 > **Note:** As an application developer, you do not need to call this endpoint directly. It's handled automatically when the user completes authentication.
 
-### 5. Retrieve Encrypted Token
+### 4. Retrieve Encrypted Token
 
-After authentication is complete, retrieve the encrypted token using the UUID from step 2.
+After authentication is complete, retrieve the encrypted token using the UUID and pickup secret from step 1.
 
 **Endpoint:** `GET /Prod/sailapps/auth/token/{uuid}`
+
+**Headers:**
+```http
+Authorization: Bearer BvvfLP_1m4u5p7UTgVk3b1U_ZvR2tiixc-3S3eCXV78
+```
 
 **Response:**
 ```json
 {
   "id": "12345678-90ab-cdef-1234-567890abcdef",
-  "baseURL": "https://your-tenant.api.identitynow.com",
-  "tokenInfo": "{\"version\":\"1.0\",\"algorithm\":{\"symmetric\":\"AES-256-GCM\",\"asymmetric\":\"RSA-OAEP-SHA256\"},\"data\":{\"ciphertext\":\"...\",\"encryptedKey\":\"...\",\"iv\":\"...\",\"authTag\":\"...\"}}"
+  "tokenInfo": "{\"version\":\"1.0\",\"algorithm\":{\"symmetric\":\"AES-256-GCM\",\"asymmetric\":\"RSA-OAEP-SHA256\"},\"data\":{\"ciphertext\":\"...\",\"encryptedKey\":\"...\",\"iv\":\"...\",\"authTag\":\"...\"}}",
+  "ttl": 1717267200
 }
 ```
 
-### 6. Decrypt the Token (Optional Server-Side Approach)
+### 5. Decrypt the Token Client-Side
 
-The server provides an endpoint to decrypt the token using your private key. However, this is **optional** - you can also decrypt the token client-side in your application for enhanced security.
-
-**Endpoint:** `POST /Prod/sailapps/auth/token/decrypt`
-
-**Request:**
-```json
-{
-  "privateKey": "LS0tLS1CRUdJTiBQUklW...",  // Your private key in Base64 format
-  "isBase64Encoded": true,  // Indicate if the privateKey is Base64 encoded
-  "uuid": "12345678-90ab-cdef-1234-567890abcdef"  // Optional: UUID to retrieve token from database
-  // OR
-  "encryptedToken": "{\"version\":\"1.0\",\"algorithm\":{...}}"  // If not using UUID
-}
-```
-
-**Response:**
-```json
-{
-  "token": {
-    "access_token": "eyJhbGciOiJIUzI1NiIs...",
-    "token_type": "Bearer",
-    "refresh_token": "def502...",
-    "expires_in": 3600,
-    "scope": "..."
-  },
-  "tokenInfo": {
-    "expiresAt": "2023-09-30T15:30:45.123Z",
-    "tokenType": "Bearer"
-  }
-}
-```
-
-#### Client-Side Decryption (TypeScript Example)
-
-For enhanced security, you may prefer to decrypt the token client-side in your application rather than sending your private key to the server. Here's how to do it using Node.js:
+Decrypt the token client-side in your application. Private keys should not be sent to this service. Here's how to do it using Node.js:
 
 ```typescript
 import * as crypto from 'crypto';
@@ -207,7 +151,11 @@ function decryptToken(encryptedTokenData: string, privateKeyPem: string): any {
 // Usage example
 async function fetchAndDecryptToken(uuid: string, privateKey: string): Promise<any> {
   // Fetch the encrypted token from the server
-  const response = await fetch(`https://api.example.com/Prod/sailapps/auth/token/${uuid}`);
+  const response = await fetch(`https://api.example.com/Prod/sailapps/auth/token/${uuid}`, {
+    headers: {
+      Authorization: `Bearer ${pickupSecret}`,
+    },
+  });
   const data = await response.json();
   
   // Decrypt the token client-side
@@ -218,7 +166,7 @@ async function fetchAndDecryptToken(uuid: string, privateKey: string): Promise<a
 }
 ```
 
-### 7. Token Refresh (When Needed)
+### 6. Token Refresh (When Needed)
 
 When your access token expires, use the refresh token to obtain a new one.
 
@@ -248,14 +196,7 @@ When your access token expires, use the refresh token to obtain a new one.
 
 Below is an example of how to use these endpoints to implement the complete authentication flow:
 
-1. Generate a key pair (if you don't have one):
-   ```bash
-   curl -X POST https://api.example.com/Prod/sailapps/auth/keypair \
-     -H "Content-Type: application/json" \
-     -d '{"keySize": 2048}'
-   ```
-
-2. Store the private key securely and use the public key to initiate authentication:
+1. Generate or load an RSA key pair in your application. Store the private key securely and use the public key to initiate authentication:
    ```bash
    curl -X POST https://api.example.com/Prod/sailapps/auth \
      -H "Content-Type: application/json" \
@@ -265,39 +206,32 @@ Below is an example of how to use these endpoints to implement the complete auth
      }'
    ```
 
-3. Open the returned `authURL` in a browser for the user to authenticate.
+2. Open the returned `authURL` in a browser for the user to authenticate.
 
-4. After authentication is complete, retrieve the encrypted token:
+3. After authentication is complete, retrieve the encrypted token:
    ```bash
-   curl -X GET https://api.example.com/Prod/sailapps/auth/token/12345678-90ab-cdef-1234-567890abcdef
+   curl -X GET https://api.example.com/Prod/sailapps/auth/token/12345678-90ab-cdef-1234-567890abcdef \
+     -H "Authorization: Bearer $PICKUP_SECRET"
    ```
 
-5. Choose one of these methods to decrypt the token:
-
-   **Option A: Server-side decryption** (easier but requires sending your private key to the server):
-   ```bash
-   curl -X POST https://api.example.com/Prod/sailapps/auth/token/decrypt \
-     -H "Content-Type: application/json" \
-     -d '{
-       "privateKey": "LS0tLS1CRUdJTiBQUklW...",
-       "isBase64Encoded": true,
-       "uuid": "12345678-90ab-cdef-1234-567890abcdef"
-     }'
-   ```
-
-   **Option B: Client-side decryption** (recommended for enhanced security):
+4. Decrypt the token client-side:
    ```typescript
    // Using the decryptToken function from the TypeScript example above
-   const response = await fetch(`https://api.example.com/Prod/sailapps/auth/token/12345678-90ab-cdef-1234-567890abcdef`);
+   const response = await fetch(`https://api.example.com/Prod/sailapps/auth/token/12345678-90ab-cdef-1234-567890abcdef`, {
+     headers: {
+       Authorization: `Bearer ${pickupSecret}`,
+     },
+   });
    const data = await response.json();
    const decryptedToken = decryptToken(data.tokenInfo, privateKeyPem);
    ```
 
-6. Use the returned access token to make authenticated API calls to SailPoint.
+5. Use the returned access token to make authenticated API calls to SailPoint.
 
 ## Security Considerations
 
 - Always store your private key securely
+- Store the pickup secret securely in the initiating application and never send it through the browser callback
 - Use HTTPS for all API calls
 - Refresh tokens before they expire
 - Consider using a higher key size (3072 or 4096) for increased security
@@ -310,7 +244,8 @@ This service implements [PKCE (RFC 7636)](https://datatracker.ietf.org/doc/html/
 
 PKCE is handled entirely within this service — **no changes are needed by API consumers**.
 
-1. **Auth initiation** (`POST /sailapps/auth`): The service generates a random `code_verifier` and computes a `code_challenge` using SHA-256 (S256 method). The challenge is included in the authorization URL, and the verifier is stored in DynamoDB alongside the session data.
+1. **Auth initiation** (`POST /sailapps/auth`): The service generates a random `code_verifier` and computes a `code_challenge` using SHA-256 (S256 method). The challenge is included in the authorization URL, and the verifier is stored in DynamoDB alongside the session data. The service also returns a pickup secret to the initiating application and stores only its hash.
 2. **Token exchange** (`POST /sailapps/auth/code`): The stored `code_verifier` is retrieved from DynamoDB and sent to the OAuth server along with the authorization code. The OAuth server verifies that the verifier matches the challenge from step 1 before issuing tokens.
+3. **Token pickup** (`GET /sailapps/auth/token/{uuid}`): The initiating application must present the pickup secret to retrieve and consume the encrypted token.
 
-The `code_verifier` is never exposed in API responses or logs.
+The `code_verifier`, pickup secret hash, and token material are never exposed in logs.

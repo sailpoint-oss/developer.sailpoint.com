@@ -57,7 +57,7 @@ function generateCodeVerifier(): string {
     .toString('base64')
     .replace(/\+/g, '-')
     .replace(/\//g, '_')
-    .replace(/=/g, '');
+    .replace(/=+$/, '');
 }
 
 function generateCodeChallenge(verifier: string): string {
@@ -162,6 +162,7 @@ async function deleteStoredData(uuid: string) {
 async function exchangeCodeForToken(
   baseURL: string,
   code: string,
+  redirectUri: string,
   codeVerifier: string,
 ) {
   const tokenUrl = baseURL + `/oauth/token`;
@@ -169,6 +170,7 @@ async function exchangeCodeForToken(
   formData.set('grant_type', 'authorization_code');
   formData.set('client_id', validatedClientId);
   formData.set('code', code);
+  formData.set('redirect_uri', redirectUri);
   formData.set('code_verifier', codeVerifier);
 
   const tokenResp = await fetch(tokenUrl, {
@@ -441,6 +443,7 @@ app.post('/Prod/sailapps/auth/code', async (c) => {
   const tokenData = await exchangeCodeForToken(
     tableData.baseURL,
     code,
+    body?.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl,
     tableData.codeVerifier,
   );
 

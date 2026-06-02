@@ -1,0 +1,138 @@
+get:
+  operationId: searchIntelIdentitiesV1
+  security:
+  - userAuth:
+    - sp:identity-sec-intel:read
+  - applicationAuth:
+    - sp:identity-sec-intel:read
+  x-required-right: sp:identity-sec-intel:read
+  x-sailpoint-userLevels:
+  - Any
+  tags:
+  - Intelligence Package
+  summary: Resolve one identity by filter
+  description: |
+    Requires tenant license idn:response-and-remediation.
+
+    Returns the Intelligence Package envelope for the identity that matches the SCIM-style filters expression.
+    Supported queryable fields are id and email only.
+
+    A single match returns HTTP 200 with IntelIdentityResponse.
+
+    Zero matches returns HTTP 404 with detailCode IDC_IDENTITY_NOT_FOUND. 
+
+    Multiple matches returns HTTP 409 with detailCode IDC_IDENTITY_AMBIGUOUS and candidates listing each match.
+  parameters:
+  - in: query
+    name: filters
+    required: true
+    schema:
+      type: string
+    examples:
+      byId:
+        value: id eq "00000000-0000-0000-0000-000000000000"
+      byEmail:
+        value: email eq "user@example.com"
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection
+      Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **id**: *eq*
+
+
+      **email**: *eq*
+  responses:
+    '200':
+      description: One identity matched.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/intelidentityresponse.yaml
+          examples:
+            human:
+              value:
+                id: 00000000-0000-0000-0000-000000000000
+                type: HUMAN
+                displayName: Pat Example
+                subtype: Employee
+                timestamps:
+                  createdAt: '2026-05-12T08:00:00Z'
+                  modifiedAt: '2026-05-12T09:15:30Z'
+                human:
+                  alias: pat.example
+                  email: pat@example.com
+                  identityStatus: ENABLED
+                  isProtected: false
+                  isManager: false
+                _links:
+                  access:
+                    href: /v2026/intelligence/identities/00000000-0000-0000-0000-000000000000/access
+                  accessHistory:
+                    href: /v2026/intelligence/identities/00000000-0000-0000-0000-000000000000/access-history
+            machine:
+              value:
+                id: e1feccee-a9d4-4909-8131-6ed67d79ff07
+                type: MACHINE
+                displayName: DEMO_AGENT1
+                subtype: AI Agent
+                timestamps:
+                  createdAt: '2026-03-31T08:20:53.031936Z'
+                  modifiedAt: '2026-03-31T08:20:52.969356Z'
+                machine:
+                  nativeIdentity: DEMO_AGENT1
+                  sourceId: 8433902684054f09ae024c06cf5091c1
+                  source:
+                    id: 8433902684054f09ae024c06cf5091c1
+                    name: Snowflake SaaS - Suraj2
+                    type: SOURCE
+                  existsOnSource: true
+                  manuallyCreated: false
+                  manuallyEdited: false
+    '400':
+      description: Missing or invalid filters.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/errorbody.yaml
+          example:
+            detailCode: INVALID_REQUEST
+            message: filters must be supplied and non-empty
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      description: No identity matched the filter.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/intelidentitynotfoundbody.yaml
+          example:
+            detailCode: IDC_IDENTITY_NOT_FOUND
+            message: no identity matched the supplied filter
+    '409':
+      description: Multiple identities matched the filter.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/intelidentityambiguousbody.yaml
+          example:
+            detailCode: IDC_IDENTITY_AMBIGUOUS
+            message: multiple identities matched the supplied filter
+            candidates:
+            - id: cand-1
+              displayName: Pat A
+            - id: cand-2
+              displayName: Pat B
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      description: Upstream or internal failure.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/errorbody.yaml

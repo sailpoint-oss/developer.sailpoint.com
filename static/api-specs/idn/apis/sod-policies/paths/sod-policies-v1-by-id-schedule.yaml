@@ -1,0 +1,110 @@
+get:
+  security:
+  - userAuth:
+    - idn:sod-policy:read
+    - idn:sod-policy:manage
+  operationId: getSodPolicyScheduleV1
+  tags:
+  - SOD Policies
+  summary: Get sod policy schedule
+  description: This endpoint gets a specified SOD policy's schedule.
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    x-sailpoint-resource-operation-id: listSodPolicies
+    description: The ID of the SOD policy schedule to retrieve.
+    example: ef38f943-47e9-4562-b5bb-8424a56397d8
+  responses:
+    '200':
+      description: SOD policy schedule.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/sodpolicyschedule.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+put:
+  security:
+  - userAuth:
+    - idn:sod-policy:manage
+  operationId: putPolicyScheduleV1
+  tags:
+  - SOD Policies
+  summary: Update sod policy schedule
+  description: This updates schedule for a specified SOD policy.
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    x-sailpoint-resource-operation-id: listSodPolicies
+    description: The ID of the SOD policy to update its schedule.
+    example: ef38f943-47e9-4562-b5bb-8424a56397d8
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/sodpolicyschedule.yaml
+  responses:
+    '200':
+      description: Created or updated SOD policy schedule.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/sodpolicyschedule.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+delete:
+  security:
+  - userAuth:
+    - idn:sod-policy:manage
+  operationId: deleteSodPolicyScheduleV1
+  tags:
+  - SOD Policies
+  summary: Delete sod policy schedule
+  description: This deletes schedule for a specified SOD policy by ID.
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    x-sailpoint-resource-operation-id: listSodPolicies
+    description: The ID of the SOD policy the schedule must be deleted for.
+    example: ef38f943-47e9-4562-b5bb-8424a56397d8
+  responses:
+    '204':
+      description: No content response.
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

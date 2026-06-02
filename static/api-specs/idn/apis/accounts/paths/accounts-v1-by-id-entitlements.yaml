@@ -1,0 +1,51 @@
+get:
+  operationId: getAccountEntitlementsV1
+  tags:
+  - Accounts
+  summary: Account entitlements
+  description: 'This API returns entitlements of the account.      '
+  security:
+  - userAuth:
+    - idn:accounts:read
+    - idn:accounts:manage
+  - applicationAuth:
+    - idn:accounts:read
+    - idn:accounts:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  - HELPDESK
+  parameters:
+  - $ref: ../../shared/parameters/limit.yaml
+  - $ref: ../../shared/parameters/offset.yaml
+  - $ref: ../../shared/parameters/count.yaml
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    x-sailpoint-resource-operation-id: listAccounts
+    description: The account id
+    example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      description: An array of account entitlements
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../shared/schemas/entitlement.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

@@ -1,0 +1,47 @@
+post:
+  security:
+  - userAuth:
+    - idn:access-request-approvals:manage
+  x-sailpoint-userLevels:
+  - APPROVAL_OWNER
+  operationId: updateApprovalsAttributesV1
+  tags:
+  - Approvals
+  summary: Post Approvals Attributes
+  description: >-
+    Allows for the edit/addition/removal of the key/value pair additional attributes map for an existing approval
+    request. This endpoint does not support access request IDs.
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+    description: Approval ID that correlates to an existing approval request that a user wants to change the attributes of.
+    example: 38453251-6be2-5f8f-df93-5ce19e295837
+    x-sailpoint-resource-operation-id: getApprovals
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/approvalattributesrequest.yaml
+  responses:
+    '200':
+      description: Approval object
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/approval-2.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

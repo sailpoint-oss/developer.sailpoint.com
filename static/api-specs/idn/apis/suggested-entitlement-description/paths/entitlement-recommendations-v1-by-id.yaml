@@ -1,0 +1,55 @@
+patch:
+  tags:
+  - Suggested Entitlement Description
+  operationId: patchEntitlementRecommendationV1
+  summary: Update an entitlement recommendation
+  description: >-
+    Partially update a single entitlement recommendation record by its ID. Use this endpoint to update the status,
+    description, or privilege level of a specific SED or privilege recommendation.
+  parameters:
+  - in: path
+    name: id
+    x-sailpoint-resource-operation-id: listPendingEntitlementRecommendationApprovals
+    schema:
+      type: string
+      format: uuid
+    required: true
+    description: The unique identifier of the entitlement recommendation to update.
+    example: 79db50d4-723c-4aa0-a824-83c2205d82d1
+  requestBody:
+    description: The patch operations to apply to the entitlement recommendation record.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../shared/schemas/jsonpatchoperation.yaml
+    required: true
+  responses:
+    '200':
+      description: The updated entitlement recommendation record.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/entitlementrecommendationrecord.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:sed:manage
+  - applicationAuth:
+    - idn:sed:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN

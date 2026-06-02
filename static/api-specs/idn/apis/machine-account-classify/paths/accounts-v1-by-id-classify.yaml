@@ -1,0 +1,51 @@
+post:
+  operationId: sendClassifyMachineAccountV1
+  tags:
+  - Machine Account Classify
+  summary: Classify single machine account
+  security:
+  - userAuth:
+    - idn:account:update
+  - applicationAuth:
+    - idn:account:update
+  x-sailpoint-userLevels:
+  - API
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  description: |-
+    Use this API to classify a single machine account.
+    A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    description: Account ID.
+    x-sailpoint-resource-operation-id: listAccounts
+    example: ef38f94347e94562b5bb8424a56397d8
+  - $ref: ../parameters/classificationmode.yaml
+  responses:
+    '200':
+      description: Account classified as Machine.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              isMachine:
+                type: boolean
+                description: Indicates if account is classified as machine
+                default: false
+                example: true
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

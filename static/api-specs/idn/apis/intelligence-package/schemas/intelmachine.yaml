@@ -1,0 +1,55 @@
+type: object
+description: MACHINE-specific block; subtype is only on the top-level IntelIdentityResponse.
+properties:
+  businessApplication:
+    type: string
+    description: Business application name associated with the non-human identity.
+    example: Payroll Bot
+  nativeIdentity:
+    type: string
+    description: Native identifier value on the authoritative source for the machine identity.
+    example: DEMO_AGENT1
+  uuid:
+    type: string
+    nullable: true
+    description: Optional globally unique identifier for the machine identity when assigned.
+    example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+  sourceId:
+    type: string
+    description: Identifier of the correlated source for this machine identity.
+    example: 8433902684054f09ae024c06cf5091c1
+  source:
+    type: object
+    description: Correlated source summary for the machine identity when available.
+    allOf:
+      - $ref: ./intelmachinesource.yaml
+  datasetId:
+    type: string
+    description: Dataset identifier used by machine identity correlation logic.
+    example: dataset-001
+  existsOnSource:
+    type: boolean
+    description: True when a matching account still exists on the connected source.
+    default: false
+    example: true
+  manuallyCreated:
+    type: boolean
+    description: True when the machine identity was created through a manual administrative action.
+    default: false
+    example: false
+  manuallyEdited:
+    type: boolean
+    description: True when the machine identity attributes were manually edited after creation.
+    default: false
+    example: false
+  owners:
+    type: object
+    description: Structured owner references for the machine identity when populated by the service.
+    example: {}
+  userEntitlements:
+    type: array
+    description: Entitlements or fine-grained rights linked to the machine identity when available.
+    items:
+      type: object
+      description: Opaque entitlement payload element returned from upstream services.
+      example: {}

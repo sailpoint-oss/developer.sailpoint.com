@@ -1,0 +1,41 @@
+get:
+  security:
+  - userAuth:
+    - idn:access-request-approvals:read
+    - idn:access-request-administration:read
+    - idn:access-request-approvals:manage
+  x-sailpoint-userLevels:
+  - APPROVAL_OWNER
+  operationId: getApprovalV1
+  tags:
+  - Approvals
+  summary: Get an approval
+  description: |-
+    Fetches an approval request by it's approval ID. For lookups by access request ID please use the following:
+    /generic-approvals?filters=referenceType+eq+"accessRequestId"+and+referenceId+eq+"12345678901234567890123456789012"
+  parameters:
+  - in: path
+    name: id
+    required: true
+    x-sailpoint-resource-operation-id: getApprovals
+    schema:
+      type: string
+    description: ID of the approval that is to be returned
+    example: 38453251-6be2-5f8f-df93-5ce19e295837
+  responses:
+    '200':
+      description: Approval object
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/approval-2.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

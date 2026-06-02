@@ -1,0 +1,44 @@
+get:
+  tags:
+  - Suggested Entitlement Description
+  operationId: listPendingEntitlementRecommendationApprovalsV1
+  summary: List pending entitlement recommendation approvals
+  description: >-
+    Returns a list of entitlement recommendations (SED and/or privilege) that are currently awaiting review or approval.
+    Each record includes the recommendation type, entitlement details, and any AI-generated suggestions.
+  parameters:
+  - $ref: ../../shared/parameters/offset.yaml
+  - $ref: ../../shared/parameters/limit.yaml
+  responses:
+    '200':
+      description: A list of pending entitlement recommendation records.
+      headers:
+        X-Total-Count:
+          description: The total number of pending approval records available.
+          schema:
+            type: integer
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/entitlementrecommendationrecord.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:sed:read
+  - applicationAuth:
+    - idn:sed:read
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN

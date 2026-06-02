@@ -1,0 +1,37 @@
+get:
+  operationId: getSSFConfigurationV1
+  security:
+  - {}
+  tags:
+  - Shared Signals Framework (SSF)
+  summary: Get SSF configuration
+  description: Returns the SSF transmitter discovery metadata (well-known configuration).
+  responses:
+    '200':
+      description: SSF transmitter configuration (issuer, jwks_uri, endpoints, authorization_schemes).
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/transmittermetadata.yaml
+          example:
+            spec_version: '1_0'
+            issuer: https://tenant.api.identitynow.com
+            jwks_uri: https://tenant.api.identitynow.com/ssf/jwks
+            delivery_methods_supported:
+            - urn:ietf:rfc:8935
+            configuration_endpoint: https://tenant.api.identitynow.com/latest/ssf/streams
+            status_endpoint: https://tenant.api.identitynow.com/latest/ssf/streams/status
+            verification_endpoint: https://tenant.api.identitynow.com/latest/ssf/streams/verify
+            authorization_schemes:
+            - spec_urn: urn:ietf:rfc:6749
+            - spec_urn: urn:ietf:rfc:6750
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

@@ -1,0 +1,63 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Account Aggregations
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Account Aggregations
+    description: >
+      Use this API to implement account aggregation progress tracking functionality.
+
+      With this functionality in place, administrators can view in-progress account aggregations, their statuses, and
+      their relevant details.
+
+
+      An account aggregation refers to the process Identity Security Cloud uses to gather and load account data from a
+      source into Identity Security Cloud.
+
+
+      Whenever Identity Security Cloud is in the process of aggregating a source, it adds an entry to the Aggregation
+      Activity Log, along with its relevant details.
+
+      To view aggregation activity, administrators can select the Connections drop-down menu, select Sources, and select
+      the relevant source, select its Import Data tab, and select Account Aggregation.
+
+      In Account Aggregation, administrators can view the account aggregations' statuses and details in the Account
+      Activity Log.
+
+
+      Refer to [Loading Account Data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html) for more
+      information about account aggregations.
+
+
+      If you are looking for the endpoint for account aggregations in a source, [click
+      here](https://developer.sailpoint.com/docs/api/v2025/import-accounts)
+paths:
+  /account-aggregations/v1/{id}/status:
+    $ref: ./paths/account-aggregations-v1-by-id-status.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

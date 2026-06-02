@@ -1,0 +1,49 @@
+get:
+  tags:
+  - Suggested Entitlement Description
+  operationId: listPrivilegedEntitlementRecommendationsV1
+  summary: List privileged entitlement recommendations
+  description: >-
+    Returns a list of privileged entitlement recommendation groups. Each group aggregates individual entitlement
+    instances that share the same entitlement name and connector type, along with a recommendation score and instance
+    count.
+  parameters:
+  - $ref: ../../shared/parameters/offset.yaml
+  - $ref: ../../shared/parameters/limit.yaml
+  responses:
+    '200':
+      description: A list of privileged recommendation groups.
+      headers:
+        X-Total-Count:
+          description: The total number of recommendation groups available.
+          schema:
+            type: integer
+        X-Total-Entitlements:
+          description: The total number of individual entitlement instances across all groups.
+          schema:
+            type: integer
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/privilegedrecommendationgroup.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:sed:read
+  - applicationAuth:
+    - idn:sed:read
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN

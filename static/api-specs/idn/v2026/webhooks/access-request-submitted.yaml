@@ -20,8 +20,9 @@ post:
         schema: 
           $ref: '../schemas/trigger/example-input/AccessRequestPreApproval.yaml'
   responses:
-    required: true
-    content:
-      application/json:
-        schema: 
-          $ref: '../schemas/trigger/example-input/AccessRequestSubmittedResponse.yaml'
+    '200':
+      description: Expected response to a valid request
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/trigger/example-input/AccessRequestSubmittedResponse.yaml'

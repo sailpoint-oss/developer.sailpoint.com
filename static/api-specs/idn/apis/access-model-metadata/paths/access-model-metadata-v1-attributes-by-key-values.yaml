@@ -1,0 +1,96 @@
+get:
+  summary: List access model metadata values
+  description: Get a list of Access Model Metadata Attribute Values
+  tags:
+  - Access Model Metadata
+  operationId: listAccessModelMetadataAttributeValueV1
+  security:
+  - userAuth:
+    - idn:access-model-metadata:read
+    - idn:access-model-metadata:manage
+  - applicationAuth:
+    - idn:access-model-metadata:read
+    - idn:access-model-metadata:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  parameters:
+  - name: key
+    in: path
+    required: true
+    x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
+    schema:
+      type: string
+    description: Technical name of the Attribute.
+    example: iscPrivacy
+  - $ref: ../../shared/parameters/limit.yaml
+  - $ref: ../../shared/parameters/count.yaml
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../shared/schemas/attributevaluedto.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+post:
+  summary: Create access model metadata value
+  description: |
+    Create a new value for an existing Access Model Metadata Attribute.    
+  operationId: createAccessModelMetadataAttributeValueV1
+  tags:
+  - Access Model Metadata
+  security:
+  - userAuth:
+    - idn:access-model-metadata:create
+  - applicationAuth:
+    - idn:access-model-metadata:create
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  parameters:
+  - name: key
+    in: path
+    required: true
+    x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
+    schema:
+      type: string
+    description: Technical name of the Attribute.
+    example: iscPrivacy
+  requestBody:
+    required: true
+    description: Attribute value to create
+    content:
+      application/json:
+        schema:
+          $ref: ../../shared/schemas/attributevaluedto.yaml
+  responses:
+    '201':
+      description: Created
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/attributevaluedto.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

@@ -1,0 +1,47 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Connector Customizers
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Connector Customizers
+    description: >
+      Saas Connectivity Customizers are cloud-based connector customizers. The customizers allow you to customize the
+      out of the box connectors in a similar way to how you can use rules to customize VA (virtual appliance) based
+      connectors.
+
+
+      Use these APIs to implement connector customizers functionality.
+paths:
+  /connector-customizers/v1:
+    $ref: ./paths/connector-customizers-v1.yaml
+  /connector-customizers/v1/{id}:
+    $ref: ./paths/connector-customizers-v1-by-id.yaml
+  /connector-customizers/v1/{id}/versions:
+    $ref: ./paths/connector-customizers-v1-by-id-versions.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

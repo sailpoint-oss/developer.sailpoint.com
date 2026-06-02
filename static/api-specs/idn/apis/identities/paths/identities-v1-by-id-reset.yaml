@@ -1,0 +1,38 @@
+post:
+  operationId: resetIdentityV1
+  tags:
+  - Identities
+  summary: Reset an identity
+  description: >-
+    Use this endpoint to reset a user's identity if they have forgotten their authentication information like their
+    answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user
+    levels they have.
+  security:
+  - userAuth:
+    - idn:identity:manage
+  - applicationAuth:
+    - idn:identity:manage
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    x-sailpoint-resource-operation-id: listIdentities
+    description: Identity Id
+    example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '202':
+      description: Accepted. The reset request accepted and is in progress.
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

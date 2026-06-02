@@ -1,0 +1,69 @@
+get:
+  operationId: getCreateMachineAccountRequestV1
+  tags:
+  - Machine Account Creation Request
+  summary: Get Machine Account Creation Request
+  description: >-
+    Retrieves a account request details for machine account creation. This allows the user to view all details for given
+    account request.
+  security:
+  - userAuth: []
+  x-sailpoint-userLevels:
+  - USER
+  parameters:
+  - in: header
+    name: X-SailPoint-Experimental
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  - in: path
+    name: accountRequestId
+    schema:
+      type: string
+    required: true
+    x-sailpoint-resource-operation-id: createMachineAccountRequest
+    description: Account Request ID
+    example: gt38f94347e94562b5bb8424a56498d8
+  responses:
+    '200':
+      description: Account Request Details object
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/accountrequestdetailsdto.yaml
+          example:
+            accountRequestId: 18104e7e499b4e23882d6323344ab6bc
+            requestType: CREATE_MACHINE_ACCOUNT
+            createdAt: '2026-01-14T08:08:27.195Z'
+            completedAt: '2026-01-14T08:38:45.932Z'
+            overallStatus: SUCCESS
+            requester:
+              type: IDENTITY
+              id: 85131bd73fdc423599e57f40b29f01fe
+              name: SailPoint Support
+            approvalRequestId: 90a7b947-578b-4285-98dc-5d5d01c7b736
+            accountRequestPhases:
+            - name: APPROVAL_PHASE
+              state: APPROVED
+              started: '2026-01-14T08:08:28.644090559Z'
+              finished: '2026-01-14T08:38:42.707043142Z'
+            - name: PROVISIONING_PHASE
+              state: PASSED
+              started: '2026-01-14T08:38:42.785577841Z'
+              finished: '2026-01-14T08:38:45.932606296Z'
+            errorDetails:
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

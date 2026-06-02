@@ -1,0 +1,338 @@
+get:
+  operationId: getProvisioningPolicyV1
+  tags:
+  - Sources
+  summary: Get provisioning policy by usagetype
+  description: This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
+  security:
+  - userAuth:
+    - idn:provisioning-policy-source:read
+    - idn:provisioning-policy:read
+    - idn:provisioning-policy-source-admin-operations:manage
+    - idn:provisioning-policy:manage
+  - applicationAuth:
+    - idn:provisioning-policy-source:read
+    - idn:provisioning-policy:read
+    - idn:provisioning-policy-source-admin-operations:manage
+    - idn:provisioning-policy:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  parameters:
+  - in: path
+    name: sourceId
+    required: true
+    x-sailpoint-resource-operation-id: listSources
+    schema:
+      type: string
+    description: The Source ID.
+    example: 2c9180835d191a86015d28455b4a2329
+  - in: path
+    name: usageType
+    required: true
+    description: >-
+      The type of provisioning policy usage. 
+
+      In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a
+      source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a
+      provisioning policy.  A source can have any number of these provisioning policies defined. 
+
+      These are the common usage types: 
+
+      CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be
+      created. For example, this would be used for a joiner on a source.  
+
+      UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update'
+      connector operations. For example, this would be used for an attribute sync on a source.
+
+      ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be
+      enabled. For example, this could be used for a joiner on a source once the joiner's account is created. 
+
+      DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be
+      disabled. For example, this could be used when a leaver is removed temporarily from a source. 
+
+      You can use these four usage types for all your provisioning policy needs.
+    example: CREATE
+    schema:
+      $ref: ../schemas/usagetype.yaml
+    x-sailpoint-resource-operation-id: listProvisioningPolicies
+  responses:
+    '200':
+      description: The requested ProvisioningPolicyDto was successfully retrieved.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/provisioningpolicydto.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+put:
+  operationId: putProvisioningPolicyV1
+  tags:
+  - Sources
+  summary: Update provisioning policy by usagetype
+  description: >-
+    This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow.
+
+    Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
+
+    Refer to [Transforms in Provisioning
+    Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies)
+    for more information.
+  security:
+  - userAuth:
+    - idn:provisioning-policy-source-admin-operations:manage
+    - idn:provisioning-policy:manage
+  - applicationAuth:
+    - idn:provisioning-policy-source-admin-operations:manage
+    - idn:provisioning-policy:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  parameters:
+  - in: path
+    name: sourceId
+    required: true
+    x-sailpoint-resource-operation-id: listSources
+    schema:
+      type: string
+    description: The Source ID.
+    example: 2c9180835d191a86015d28455b4a2329
+  - in: path
+    name: usageType
+    required: true
+    description: >-
+      The type of provisioning policy usage. 
+
+      In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a
+      source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a
+      provisioning policy.  A source can have any number of these provisioning policies defined. 
+
+      These are the common usage types: 
+
+      CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be
+      created. For example, this would be used for a joiner on a source.  
+
+      UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update'
+      connector operations. For example, this would be used for an attribute sync on a source.
+
+      ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be
+      enabled. For example, this could be used for a joiner on a source once the joiner's account is created. 
+
+      DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be
+      disabled. For example, this could be used when a leaver is removed temporarily from a source. 
+
+      You can use these four usage types for all your provisioning policy needs.
+    example: CREATE
+    schema:
+      $ref: ../schemas/usagetype.yaml
+    x-sailpoint-resource-operation-id: listProvisioningPolicies
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/provisioningpolicydto.yaml
+  responses:
+    '200':
+      description: The ProvisioningPolicyDto was successfully replaced.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/provisioningpolicydto.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+patch:
+  operationId: updateProvisioningPolicyV1
+  tags:
+  - Sources
+  summary: Partial update of provisioning policy
+  description: >-
+    This API selectively updates an existing Provisioning Policy using a JSONPatch payload.
+
+    Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
+
+    Refer to [Transforms in Provisioning
+    Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies)
+    for more information.
+  security:
+  - userAuth:
+    - idn:provisioning-policy-source-admin-operations:manage
+    - idn:provisioning-policy:manage
+  - applicationAuth:
+    - idn:provisioning-policy-source-admin-operations:manage
+    - idn:provisioning-policy:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  parameters:
+  - in: path
+    name: sourceId
+    required: true
+    x-sailpoint-resource-operation-id: listSources
+    schema:
+      type: string
+    description: The Source id.
+    example: 2c9180835d191a86015d28455b4a2329
+  - in: path
+    name: usageType
+    required: true
+    description: >-
+      The type of provisioning policy usage. 
+
+      In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a
+      source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a
+      provisioning policy.  A source can have any number of these provisioning policies defined. 
+
+      These are the common usage types: 
+
+      CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be
+      created. For example, this would be used for a joiner on a source.  
+
+      UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update'
+      connector operations. For example, this would be used for an attribute sync on a source.
+
+      ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be
+      enabled. For example, this could be used for a joiner on a source once the joiner's account is created. 
+
+      DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be
+      disabled. For example, this could be used when a leaver is removed temporarily from a source. 
+
+      You can use these four usage types for all your provisioning policy needs.
+    example: CREATE
+    schema:
+      $ref: ../schemas/usagetype.yaml
+    x-sailpoint-resource-operation-id: listProvisioningPolicies
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the schema.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../shared/schemas/jsonpatchoperation.yaml
+        examples:
+          add-field:
+            summary: Add a field to the beginning of the list
+            value:
+            - op: add
+              path: /fields/0
+              value:
+                name: email
+                transform:
+                  type: identityAttribute
+                  attributes:
+                    name: email
+                attributes: {}
+                isRequired: false
+                type: string
+                isMultiValued: false
+  responses:
+    '200':
+      description: The ProvisioningPolicyDto was successfully updated.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/provisioningpolicydto.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+delete:
+  operationId: deleteProvisioningPolicyV1
+  tags:
+  - Sources
+  summary: Delete provisioning policy by usagetype
+  description: Deletes the provisioning policy with the specified usage on an application.
+  security:
+  - userAuth:
+    - idn:provisioning-policy:manage
+  - applicationAuth:
+    - idn:provisioning-policy:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  parameters:
+  - in: path
+    name: sourceId
+    required: true
+    x-sailpoint-resource-operation-id: listSources
+    schema:
+      type: string
+    description: The Source ID.
+    example: 2c9180835d191a86015d28455b4a2329
+  - in: path
+    name: usageType
+    required: true
+    description: >-
+      The type of provisioning policy usage. 
+
+      In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a
+      source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a
+      provisioning policy.  A source can have any number of these provisioning policies defined. 
+
+      These are the common usage types: 
+
+      CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be
+      created. For example, this would be used for a joiner on a source.  
+
+      UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update'
+      connector operations. For example, this would be used for an attribute sync on a source.
+
+      ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be
+      enabled. For example, this could be used for a joiner on a source once the joiner's account is created. 
+
+      DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be
+      disabled. For example, this could be used when a leaver is removed temporarily from a source. 
+
+      You can use these four usage types for all your provisioning policy needs.
+    example: CREATE
+    schema:
+      $ref: ../schemas/usagetype.yaml
+    x-sailpoint-resource-operation-id: listProvisioningPolicies
+  responses:
+    '204':
+      $ref: ../../shared/responses/204.yaml
+      description: The ProvisioningPolicyDto was successfully deleted.
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

@@ -1,0 +1,41 @@
+post:
+  operationId: deleteIdentityProfilesV1
+  tags:
+  - Identity Profiles
+  summary: Delete identity profiles
+  description: |-
+    This deletes multiple Identity Profiles via a list of supplied IDs.
+
+    On success, this endpoint will return a reference to the bulk delete task result.
+
+    The following rights are required to access this endpoint: idn:identity-profile:delete
+  requestBody:
+    description: Identity Profile bulk delete request body.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/identityprofilebulkdelete.yaml
+  responses:
+    '202':
+      description: Accepted - Returns a TaskResult object referencing the bulk delete job created.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/taskresultsimplified.yaml
+            description: An object with a TaskResult reference of the bulk delete job
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:identity-profile:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN

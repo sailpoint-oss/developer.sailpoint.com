@@ -1,0 +1,56 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Machine Accounts
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Machine Accounts
+paths:
+  /machine-accounts/v1:
+    $ref: ./paths/machine-accounts-v1.yaml
+  /machine-accounts/v1/{id}:
+    $ref: ./paths/machine-accounts-v1-by-id.yaml
+  /machine-accounts/v1/bulk-update:
+    $ref: ./paths/machine-accounts-v1-bulk-update.yaml
+  /machine-accounts/v1/bulk-enable:
+    $ref: ./paths/machine-accounts-v1-bulk-enable.yaml
+  /machine-accounts/v1/bulk-disable:
+    $ref: ./paths/machine-accounts-v1-bulk-disable.yaml
+  /machine-accounts/v1/bulk-reload:
+    $ref: ./paths/machine-accounts-v1-bulk-reload.yaml
+  /sources/v1/{sourceId}/subtypes:
+    $ref: ./paths/sources-v1-by-sourceid-subtypes.yaml
+  /sources/v1/{sourceId}/subtypes/{technicalName}:
+    $ref: ./paths/sources-v1-by-sourceid-subtypes-by-technicalname.yaml
+  /sources/v1/subtypes/{subtypeId}:
+    $ref: ./paths/sources-v1-subtypes-by-subtypeid.yaml
+  /source-subtypes/v1/bulk-retrieve:
+    $ref: ./paths/source-subtypes-v1-bulk-retrieve.yaml
+  /source-subtypes/v1/{subtypeId}/machine-config:
+    $ref: ./paths/source-subtypes-v1-by-subtypeid-machine-config.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

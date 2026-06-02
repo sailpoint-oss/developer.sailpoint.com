@@ -1,0 +1,39 @@
+post:
+  operationId: createConnectorCustomizerVersionV1
+  security:
+  - userAuth:
+    - sp:connector:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+  - Connector Customizers
+  summary: Creates a connector customizer version
+  description: Creates a new version for the customizer.
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    description: The id of the connector customizer.
+    example: b07dc46a-1498-4de8-bfbb-259a68e70c8a
+    x-sailpoint-resource-operation-id: listConnectorCustomizers
+  responses:
+    '200':
+      description: The created connector customizer version object.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/connectorcustomizerversioncreateresponse.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

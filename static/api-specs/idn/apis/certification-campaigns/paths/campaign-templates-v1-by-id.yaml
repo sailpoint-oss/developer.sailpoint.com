@@ -1,0 +1,165 @@
+patch:
+  operationId: patchCampaignTemplateV1
+  tags:
+  - Certification Campaigns
+  summary: Update a campaign template
+  description: >
+    Use this API to update individual fields on a certification campaign template, using the [JSON
+    Patch](https://tools.ietf.org/html/rfc6902) standard.
+  security:
+  - userAuth:
+    - idn:campaign-template:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - CERT_ADMIN
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    x-sailpoint-resource-operation-id: getCampaignTemplates
+    description: ID of the campaign template being modified.
+    example: 2c9180835d191a86015d28455b4a2329
+  requestBody:
+    required: true
+    description: |
+      A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+      The following fields are patchable:
+      * name
+      * description
+      * deadlineDuration
+      * campaign (all fields that are allowed during create)
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../shared/schemas/jsonpatchoperation.yaml
+        example:
+        - op: replace
+          path: /description
+          value: Updated description!
+        - op: replace
+          path: /campaign/filter/id
+          value: ff80818155fe8c080155fe8d925b0316
+  responses:
+    '200':
+      description: >-
+        This response indicates that the PATCH operation succeeded, and the API returns the template's new
+        representation.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/campaigntemplate.yaml
+          examples:
+            Manager:
+              $ref: ../examples/campaigntemplatemanager.yaml
+            Search:
+              $ref: ../examples/campaigntemplatesearch.yaml
+            Source Owner:
+              $ref: ../examples/campaigntemplatesourceowner.yaml
+            RoleComposition:
+              $ref: ../examples/campaigntemplaterolecomposition.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+get:
+  operationId: getCampaignTemplateV1
+  tags:
+  - Certification Campaigns
+  summary: Get a campaign template
+  description: |
+    Use this API to fetch a certification campaign template by ID.
+  security:
+  - userAuth:
+    - idn:campaign-template:read
+    - idn:campaign-template:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - CERT_ADMIN
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    x-sailpoint-resource-operation-id: getCampaignTemplates
+    description: Requested campaign template's ID.
+    example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '200':
+      description: Data for the campaign matching the given ID.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/campaigntemplate.yaml
+          examples:
+            Manager:
+              $ref: ../examples/campaigntemplatemanager.yaml
+            Search:
+              $ref: ../examples/campaigntemplatesearch.yaml
+            Source Owner:
+              $ref: ../examples/campaigntemplatesourceowner.yaml
+            RoleComposition:
+              $ref: ../examples/campaigntemplaterolecomposition.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+delete:
+  operationId: deleteCampaignTemplateV1
+  tags:
+  - Certification Campaigns
+  summary: Delete a campaign template
+  description: |
+    Use this API to delete a certification campaign template by ID.
+  security:
+  - userAuth:
+    - idn:campaign-template:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - CERT_ADMIN
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    x-sailpoint-resource-operation-id: getCampaignTemplates
+    description: ID of the campaign template being deleted.
+    example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '204':
+      $ref: ../../shared/responses/204.yaml
+      description: The campaign template was successfully deleted.
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

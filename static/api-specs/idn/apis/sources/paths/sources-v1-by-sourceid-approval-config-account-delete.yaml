@@ -1,0 +1,112 @@
+get:
+  tags:
+  - Sources
+  summary: Human Account Deletion Approval Config
+  description: >
+    The endpoint retrieves the approval configuration for deleting human accounts from a specified source. It returns
+    details such as whether approval is required, who the approvers are, and any additional approval settings. This
+    helps administrators understand and manage the approval workflow for human account deletions in their organization.
+    The response is provided as an AccountDeleteConfigDto object.
+  operationId: getAccountDeleteApprovalConfigV1
+  security:
+  - userAuth:
+    - idn:source-config:read
+    - idn:source-config:write
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  parameters:
+  - in: path
+    name: sourceId
+    schema:
+      type: string
+    required: true
+    description: The Source id
+    example: ha38f94347e94562b5bb8424a56498d8
+    x-sailpoint-resource-operation-id: listSources
+  responses:
+    '200':
+      description: Responds with a AccountDeleteConfigDto for human account deletion approval config by sourceId.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/accountdeleteconfigdto.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+patch:
+  operationId: updateAccountDeletionApprovalConfigV1
+  tags:
+  - Sources
+  summary: Human Account Deletion Approval Config
+  description: >
+    Updates the approval configuration for deleting human accounts for a specific source, identified by source ID. This
+    endpoint allows administrators to modify settings such as whether approval is required, who the approvers are, and
+    other approval-related options. The update is performed using a JSON Patch payload, and the response returns the
+    updated AccountDeleteConfigDto object reflecting the new approval workflow configuration.
+  security:
+  - userAuth:
+    - idn:source-config:read
+    - idn:source-config:write
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  parameters:
+  - name: sourceId
+    in: path
+    schema:
+      type: string
+    description: Human account source ID.
+    required: true
+    example: 00eebcf881994e419d72e757fd30dc0e
+    x-sailpoint-resource-operation-id: listSources
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the object.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../shared/schemas/jsonpatchoperation.yaml
+          example:
+          - op: replace
+            path: /approvalConfig/comments
+            value: ALL
+  responses:
+    '200':
+      description: >-
+        This response indicates the PATCH operation succeeded and the API returns the updated AccountDeleteConfigDto
+        object.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/accountdeleteconfigdto.yaml
+          example:
+            approvalRequired: false
+            approvalConfig:
+              approvers: sourceOwner
+              comments: ALL
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

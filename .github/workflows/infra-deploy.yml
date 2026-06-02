@@ -9,6 +9,7 @@ on:
   pull_request:
     branches:
       - main
+    types: [opened, synchronize, reopened, ready_for_review, labeled]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -20,6 +21,11 @@ concurrency:
 
 env:
   BASE_URL: '/'
+  API_DOCS_CONCURRENCY: 5
+  DOCUSAURUS_IGNORE_SSG_WARNINGS: true
+  DOCUSAURUS_SSG_WORKER_THREAD_COUNT: 10
+  DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: 1000000000
+  NODE_OPTIONS: --max_old_space_size=60000
 
 permissions:
   id-token: write # This is required for requesting the JWT
@@ -27,10 +33,87 @@ permissions:
   pull-requests: write
   pages: write
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  publish:
+  build-site:
     runs-on: developer_site_runner
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Prepare site environment
+        run: |
+          echo "CMS_APP_API_ENDPOINT=" >> .env
+          echo "ALGOLIA_SEARCH_KEY=${{ secrets.ALGOLIA_SEARCH_KEY }}" >> .env
+          echo "SECRET_MESSAGE=${{ secrets.SECRET_MESSAGE }}" >> .env
+          printf '%s' "${{ secrets.NPM_FONTAWESOME_CONFIG }}" | base64 -d >> .npmrc
+
+      - name: Install site dependencies
+        run: |
+          start=$(date +%s)
+          npm ci
+          echo "site dependency install completed in $(( $(date +%s) - start )) seconds"
+
+      - name: Restore generated API docs cache
+        id: generated-api-docs-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            static/code-examples/beta/beta.yaml
+            static/code-examples/beta/merged_code_examples.yaml
+            static/code-examples/v3/v3.yaml
+            static/code-examples/v3/merged_code_examples.yaml
+            static/code-examples/v2024/v2024.yaml
+            static/code-examples/v2024/merged_code_examples.yaml
+            static/code-examples/v2025/v2025.yaml
+            static/code-examples/v2025/merged_code_examples.yaml
+            static/code-examples/v2026/v2026.yaml
+            static/code-examples/v2026/merged_code_examples.yaml
+            docs/api/**/*.mdx
+            docs/api/**/sidebar.ts
+            docs/api/**/versions.json
+          key: generated-api-docs-${{ runner.os }}-${{ hashFiles('static/api-specs/**', 'static/code-examples/**/*_code_examples_overlay.yaml', 'plugins.ts', 'api.mustache', 'createApiPageMD.ts', 'src/components/mergeoverlayfiles.js', 'src/components/overlay.js', 'src/components/updateSpecsSentenceCase.js', 'scripts/generateApiDocs.mjs', 'package-lock.json') }}
+
+      - name: Generate API docs
+        if: steps.generated-api-docs-cache.outputs.cache-hit != 'true'
+        run: |
+          start=$(date +%s)
+          npm run gen-api-docs-all
+          echo "API docs generation completed in $(( $(date +%s) - start )) seconds"
+
+      - name: Save generated API docs cache
+        if: steps.generated-api-docs-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        continue-on-error: true
+        with:
+          path: |
+            static/code-examples/beta/beta.yaml
+            static/code-examples/beta/merged_code_examples.yaml
+            static/code-examples/v3/v3.yaml
+            static/code-examples/v3/merged_code_examples.yaml
+            static/code-examples/v2024/v2024.yaml
+            static/code-examples/v2024/merged_code_examples.yaml
+            static/code-examples/v2025/v2025.yaml
+            static/code-examples/v2025/merged_code_examples.yaml
+            static/code-examples/v2026/v2026.yaml
+            static/code-examples/v2026/merged_code_examples.yaml
+            docs/api/**/*.mdx
+            docs/api/**/sidebar.ts
+            docs/api/**/versions.json
+          key: generated-api-docs-${{ runner.os }}-${{ hashFiles('static/api-specs/**', 'static/code-examples/**/*_code_examples_overlay.yaml', 'plugins.ts', 'api.mustache', 'createApiPageMD.ts', 'src/components/mergeoverlayfiles.js', 'src/components/overlay.js', 'src/components/updateSpecsSentenceCase.js', 'scripts/generateApiDocs.mjs', 'package-lock.json') }}
+
+      - name: Build Developer Community site
+        run: |
+          start=$(date +%s)
+          npm run build
+          echo "Docusaurus build completed in $(( $(date +%s) - start )) seconds"
+
+  deploy-site:
+    runs-on: developer_site_runner
+    needs:
+      - build-site
+    if: ${{ (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'deploy-preview')) }}
     steps:
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v4
@@ -40,76 +123,121 @@ jobs:
           aws-region: us-east-1
           role-duration-seconds: 14400
 
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out repo
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-      
+
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
           go-version: 1.21
 
-      - name: build backend
+      - name: Build backend
         run: |
-          ls -la
+          start=$(date +%s)
           cd ./backend/src/mithrandir
           npm ci
           npm run build
+          echo "backend build completed in $(( $(date +%s) - start )) seconds"
 
-      - name: setup SAM
+      - name: Setup SAM
         uses: aws-actions/setup-sam@v2
-      - name: set env vars
+
+      - name: Set env vars
         run: |
-          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+          if [ "$GITHUB_EVENT_NAME" = "push" ] && [ "$GITHUB_REF" = "refs/heads/main" ]; then
             echo "STACK=developer-sailpoint-site" >> $GITHUB_ENV
-          elif [[ ${{ github.ref }} == refs/pull/* ]]; then
-            PR_NUMBER=$(echo ${{ github.ref }} | awk -F '/' '{print $3}')
-            echo "STACK=developer-sailpoint-site-$PR_NUMBER" >> $GITHUB_ENV
+          elif [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            echo "STACK=developer-sailpoint-site-${{ github.event.pull_request.number }}" >> $GITHUB_ENV
           fi
 
-      # push these files to AWS
-      - name: run SAM build
+      - name: Run SAM build and deploy
         run: |
+          start=$(date +%s)
           sam build
           sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name $STACK --s3-prefix $STACK --parameter-overrides ParameterKey=AuthUsername,ParameterValue='${{ secrets.AUTH_USERNAME }}' ParameterKey=AuthPassword,ParameterValue='${{ secrets.AUTH_PASSWORD }}'
+          echo "SAM build and deploy completed in $(( $(date +%s) - start )) seconds"
+
       - name: Get S3 bucket location, cloudfront url, and api gateway url
+        id: stack-outputs
         run: |
           export S3_BUCKET=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointWebS3BucketName'].OutputValue" --output text)
           echo "S3_BUCKET=$S3_BUCKET" >> $GITHUB_ENV
+          export CLOUDFRONT_DISTRIBUTION_ID=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointCloudFrontDistributionId'].OutputValue" --output text)
+          echo "CLOUDFRONT_DISTRIBUTION_ID=$CLOUDFRONT_DISTRIBUTION_ID" >> $GITHUB_ENV
           export CLOUDFRONT_URL=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointCloudFrontDistributionDomainName'].OutputValue" --output text)
           echo "CLOUDFRONT_URL=$CLOUDFRONT_URL" >> $GITHUB_ENV
+          echo "cloudfront-url=$CLOUDFRONT_URL" >> $GITHUB_OUTPUT
           export API_GATEWAY_URL=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='DeveloperSailpointAPIGatewayEndpoint'].OutputValue" --output text)
           echo "API_GATEWAY_URL=$API_GATEWAY_URL" >> $GITHUB_ENV
           export API_GATEWAY_ID=$(aws cloudformation describe-stacks --stack-name $STACK --query "Stacks[0].Outputs[?OutputKey=='ApiGatewayRestApiId'].OutputValue" --output text)
           echo "API_GATEWAY_ID=$API_GATEWAY_ID" >> $GITHUB_ENV
       - name: set CORS policy on API Gateway
         run: |
-          aws apigatewayv2 update-api --api-id $API_GATEWAY_ID --cors-configuration AllowOrigins='["https://${{ env.CLOUDFRONT_URL }}","https://developer.sailpoint.com"]',AllowMethods='["OPTIONS","GET","POST"]',AllowHeaders='["Content-Type","Authorization"]'
+          aws apigatewayv2 update-api \
+            --api-id "$API_GATEWAY_ID" \
+            --cors-configuration "AllowOrigins=[\"https://$CLOUDFRONT_URL\",\"https://developer.sailpoint.com\"],AllowMethods=[\"OPTIONS\",\"GET\",\"POST\"],AllowHeaders=[\"Content-Type\",\"Authorization\"]"
 
-      # Install and build Developer Community site
-      - name: Build Developer Community site
+      - name: Prepare site environment
         run: |
           echo "CMS_APP_API_ENDPOINT=$API_GATEWAY_URL" >> .env
           echo "ALGOLIA_SEARCH_KEY=${{ secrets.ALGOLIA_SEARCH_KEY }}" >> .env
           echo "SECRET_MESSAGE=${{ secrets.SECRET_MESSAGE }}" >> .env
-          echo ${{ secrets.NPM_FONTAWESOME_CONFIG }} | base64 -d >> .npmrc
-          export NODE_OPTIONS="--max_old_space_size=60000"
-          export DOCUSAURUS_IGNORE_SSG_WARNINGS=true
-          export DOCUSAURUS_SSG_WORKER_THREAD_COUNT=10
-          export DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY=1000000000
+          printf '%s' "${{ secrets.NPM_FONTAWESOME_CONFIG }}" | base64 -d >> .npmrc
 
-          npm ci 
-          npm run gen-api-docs-all
-          npm run sentence-case-all
-          npm run build
-      # push these files to AWS
-      - name: Copy files to the test website with the AWS CLI
+      - name: Install site dependencies
         run: |
-          aws configure set default.s3.max_concurrent_requests 64
-          aws s3 sync ./build "s3://$S3_BUCKET" --only-show-errors
+          start=$(date +%s)
+          npm ci
+          echo "site dependency install completed in $(( $(date +%s) - start )) seconds"
+
+      - name: Restore generated API docs cache
+        id: generated-api-docs-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            static/code-examples/beta/beta.yaml
+            static/code-examples/beta/merged_code_examples.yaml
+            static/code-examples/v3/v3.yaml
+            static/code-examples/v3/merged_code_examples.yaml
+            static/code-examples/v2024/v2024.yaml
+            static/code-examples/v2024/merged_code_examples.yaml
+            static/code-examples/v2025/v2025.yaml
+            static/code-examples/v2025/merged_code_examples.yaml
+            static/code-examples/v2026/v2026.yaml
+            static/code-examples/v2026/merged_code_examples.yaml
+            docs/api/**/*.mdx
+            docs/api/**/sidebar.ts
+            docs/api/**/versions.json
+          key: generated-api-docs-${{ runner.os }}-${{ hashFiles('static/api-specs/**', 'static/code-examples/**/*_code_examples_overlay.yaml', 'plugins.ts', 'api.mustache', 'createApiPageMD.ts', 'src/components/mergeoverlayfiles.js', 'src/components/overlay.js', 'src/components/updateSpecsSentenceCase.js', 'scripts/generateApiDocs.mjs', 'package-lock.json') }}
+
+      - name: Generate API docs
+        if: steps.generated-api-docs-cache.outputs.cache-hit != 'true'
+        run: |
+          start=$(date +%s)
+          npm run gen-api-docs-all
+          echo "API docs generation completed in $(( $(date +%s) - start )) seconds"
+
+      - name: Build Developer Community site
+        run: |
+          start=$(date +%s)
+          npm run build
+          echo "Docusaurus build completed in $(( $(date +%s) - start )) seconds"
+
+      - name: Copy files to the website with the AWS CLI
+        run: |
+          start=$(date +%s)
+          aws configure set default.s3.max_concurrent_requests 128
+          aws configure set default.s3.multipart_threshold 64MB
+          aws configure set default.s3.multipart_chunksize 16MB
+          aws s3 sync ./build/assets "s3://$S3_BUCKET/assets" --only-show-errors --delete --size-only --cache-control "public,max-age=31536000,immutable"
+          aws s3 sync ./build "s3://$S3_BUCKET" --only-show-errors --delete --exclude "assets/*" --cache-control "public,max-age=0,must-revalidate"
+          aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths "/*" >/dev/null
+          echo "S3 sync and CloudFront invalidation request completed in $(( $(date +%s) - start )) seconds"
+
       - name: Find Comment
+        if: github.event_name == 'pull_request'
         uses: peter-evans/find-comment@v3
         id: find-comment
         with:
@@ -124,7 +252,7 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           edit-mode: replace
           body: |
-            🌎🌎🌎 Visit the preview URL for this PR [HERE](https://${{ env.CLOUDFRONT_URL }})
+            🌎🌎🌎 Visit the preview URL for this PR [HERE](https://${{ steps.stack-outputs.outputs.cloudfront-url }})
             built from commit ${{ github.event.pull_request.head.sha }}
         continue-on-error: true
       - name: deploy to prod
@@ -136,11 +264,13 @@ jobs:
           build_dir: build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   publish-failure:
     runs-on: ubuntu-latest
-    if: ${{ always() && (needs.publish.result == 'failure' || needs.publish.result == 'timed_out') }}
+    if: ${{ always() && (needs.build-site.result == 'failure' || needs.build-site.result == 'timed_out' || needs.deploy-site.result == 'failure' || needs.deploy-site.result == 'timed_out') }}
     needs:
-      - publish
+      - build-site
+      - deploy-site
     steps:
       - name: Invoke GithubNotificationsFunction Lambda
         run: |

@@ -2184,14 +2184,6 @@ paths:
     $ref: ./v2026/paths/machine-accounts.yaml
   /machine-accounts/{id}:
     $ref: ./v2026/paths/machine-account.yaml
-  /machine-accounts/bulk-update:
-    $ref: ./v2026/paths/machine-accounts-bulk-update.yaml
-  /machine-accounts/bulk-enable:
-    $ref: ./v2026/paths/machine-accounts-bulk-enable.yaml
-  /machine-accounts/bulk-disable:
-    $ref: ./v2026/paths/machine-accounts-bulk-disable.yaml
-  /machine-accounts/bulk-reload:
-    $ref: ./v2026/paths/machine-accounts-bulk-reload.yaml
   /sources/{sourceId}/machine-classification-config:
     $ref: "./v2026/paths/machine-classification-config.yaml"
   /sources/{sourceId}/machine-account-mappings:

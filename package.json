@@ -92,7 +92,9 @@
     "react-markdown": "^8.0.7",
     "react-spinners": "^0.13.8",
     "react-tabs": "^4.3.0",
-    "velocityjs": "^2.1.5"
+    "velocityjs": "^2.1.5",
+    "xmldom-ts": "^0.3.1",
+    "xpath-ts": "^1.3.13"
   },
   "overrides": {
     "mermaid": "10.9.3",

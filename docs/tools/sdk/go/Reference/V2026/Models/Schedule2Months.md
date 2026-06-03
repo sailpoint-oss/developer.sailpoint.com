@@ -15,14 +15,15 @@ tags: ['SDK', 'Software Development Kit', 'Schedule2Months', 'V2026Schedule2Mont
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** | Pointer to **string** | The application id | [optional] 
-**AccountMatchConfig** | Pointer to [**SelectorAccountMatchConfig**](selector-account-match-config) |  | [optional] 
+**Type** | [**SelectorType**](selector-type) |  | 
+**Values** | **[]string** | The selected values.  | 
+**Interval** | Pointer to **NullableInt32** | The selected interval for RANGE selectors.  | [optional] 
 
 ## Methods
 
 ### NewSchedule2Months
 
-`func NewSchedule2Months() *Schedule2Months`
+`func NewSchedule2Months(type_ SelectorType, values []string, ) *Schedule2Months`
 
 NewSchedule2Months instantiates a new Schedule2Months object
 This constructor will assign default values to properties that have it defined,
@@ -37,54 +38,79 @@ NewSchedule2MonthsWithDefaults instantiates a new Schedule2Months object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetApplicationId
+### GetType
 
-`func (o *Schedule2Months) GetApplicationId() string`
+`func (o *Schedule2Months) GetType() SelectorType`
 
-GetApplicationId returns the ApplicationId field if non-nil, zero value otherwise.
+GetType returns the Type field if non-nil, zero value otherwise.
 
-### GetApplicationIdOk
+### GetTypeOk
 
-`func (o *Schedule2Months) GetApplicationIdOk() (*string, bool)`
+`func (o *Schedule2Months) GetTypeOk() (*SelectorType, bool)`
 
-GetApplicationIdOk returns a tuple with the ApplicationId field if it's non-nil, zero value otherwise
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetApplicationId
+### SetType
 
-`func (o *Schedule2Months) SetApplicationId(v string)`
+`func (o *Schedule2Months) SetType(v SelectorType)`
 
-SetApplicationId sets ApplicationId field to given value.
+SetType sets Type field to given value.
 
-### HasApplicationId
 
-`func (o *Schedule2Months) HasApplicationId() bool`
+### GetValues
 
-HasApplicationId returns a boolean if a field has been set.
+`func (o *Schedule2Months) GetValues() []string`
 
-### GetAccountMatchConfig
+GetValues returns the Values field if non-nil, zero value otherwise.
 
-`func (o *Schedule2Months) GetAccountMatchConfig() SelectorAccountMatchConfig`
+### GetValuesOk
 
-GetAccountMatchConfig returns the AccountMatchConfig field if non-nil, zero value otherwise.
+`func (o *Schedule2Months) GetValuesOk() (*[]string, bool)`
 
-### GetAccountMatchConfigOk
-
-`func (o *Schedule2Months) GetAccountMatchConfigOk() (*SelectorAccountMatchConfig, bool)`
-
-GetAccountMatchConfigOk returns a tuple with the AccountMatchConfig field if it's non-nil, zero value otherwise
+GetValuesOk returns a tuple with the Values field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAccountMatchConfig
+### SetValues
 
-`func (o *Schedule2Months) SetAccountMatchConfig(v SelectorAccountMatchConfig)`
+`func (o *Schedule2Months) SetValues(v []string)`
 
-SetAccountMatchConfig sets AccountMatchConfig field to given value.
+SetValues sets Values field to given value.
 
-### HasAccountMatchConfig
 
-`func (o *Schedule2Months) HasAccountMatchConfig() bool`
+### GetInterval
 
-HasAccountMatchConfig returns a boolean if a field has been set.
+`func (o *Schedule2Months) GetInterval() int32`
 
+GetInterval returns the Interval field if non-nil, zero value otherwise.
+
+### GetIntervalOk
+
+`func (o *Schedule2Months) GetIntervalOk() (*int32, bool)`
+
+GetIntervalOk returns a tuple with the Interval field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInterval
+
+`func (o *Schedule2Months) SetInterval(v int32)`
+
+SetInterval sets Interval field to given value.
+
+### HasInterval
+
+`func (o *Schedule2Months) HasInterval() bool`
+
+HasInterval returns a boolean if a field has been set.
+
+### SetIntervalNil
+
+`func (o *Schedule2Months) SetIntervalNil(b bool)`
+
+ SetIntervalNil sets the value for Interval to be an explicit nil
+
+### UnsetInterval
+`func (o *Schedule2Months) UnsetInterval()`
+
+UnsetInterval ensures that no value is present for Interval, not even an explicit nil
 

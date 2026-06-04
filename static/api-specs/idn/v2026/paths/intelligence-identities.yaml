@@ -53,37 +53,39 @@ get:
               value:
                 id: 00000000-0000-0000-0000-000000000000
                 type: HUMAN
-                displayName: Pat Example
+                displayName: Example User
                 subtype: Employee
                 timestamps:
                   createdAt: "2026-05-12T08:00:00Z"
                   modifiedAt: "2026-05-12T09:15:30Z"
                 human:
-                  alias: pat.example
-                  email: pat@example.com
+                  alias: example.user
+                  email: user@example.com
                   identityStatus: ENABLED
                   isProtected: false
                   isManager: false
                 _links:
                   access:
                     href: /v2026/intelligence/identities/00000000-0000-0000-0000-000000000000/access
+                  risk:
+                    href: /v2026/intelligence/identities/00000000-0000-0000-0000-000000000000/risk
                   accessHistory:
                     href: /v2026/intelligence/identities/00000000-0000-0000-0000-000000000000/access-history
             machine:
               value:
                 id: e1feccee-a9d4-4909-8131-6ed67d79ff07
                 type: MACHINE
-                displayName: DEMO_AGENT1
-                subtype: AI Agent
+                displayName: example-agent-1
+                subtype: Example Agent
                 timestamps:
                   createdAt: "2026-03-31T08:20:53.031936Z"
                   modifiedAt: "2026-03-31T08:20:52.969356Z"
                 machine:
-                  nativeIdentity: DEMO_AGENT1
+                  nativeIdentity: example-agent-1
                   sourceId: 8433902684054f09ae024c06cf5091c1
                   source:
                     id: 8433902684054f09ae024c06cf5091c1
-                    name: Snowflake SaaS - Suraj2
+                    name: Example SaaS Source
                     type: SOURCE
                   existsOnSource: true
                   manuallyCreated: false
@@ -121,9 +123,9 @@ get:
             message: multiple identities matched the supplied filter
             candidates:
               - id: cand-1
-                displayName: Pat A
+                displayName: Example A
               - id: cand-2
-                displayName: Pat B
+                displayName: Example B
     '429':
       $ref: ../responses/429.yaml
     '500':

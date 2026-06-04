@@ -11,11 +11,11 @@ properties:
   displayName:
     type: string
     description: Display label for the privileged access item in administrative experiences.
-    example: Absence_Administrator
+    example: Example_Admin_Access
   name:
     type: string
     description: Technical name of the privileged access item from SDS Search.
-    example: Absence_Administrator
+    example: Example_Admin_Access
   standalone:
     type: boolean
     description: True when the privileged item is modeled as a standalone entitlement or access object.
@@ -32,7 +32,7 @@ properties:
       name:
         type: string
         description: Human-readable source name for the privileged access item.
-        example: Workday
+        example: Example HR Source
       id:
         type: string
         description: Source identifier for the privileged access item.
@@ -40,7 +40,7 @@ properties:
   attribute:
     type: string
     description: Source attribute name that carries the privileged value when applicable.
-    example: USER_BASED_SECURITY_GROUPS
+    example: EXAMPLE_PERMISSION_GROUPS
   type:
     type: string
     description: Object type classification from SDS Search (for example ENTITLEMENT).
@@ -48,4 +48,4 @@ properties:
   value:
     type: string
     description: Privileged value on the source attribute when applicable.
-    example: Absence_Administrator
+    example: Example_Admin_Access

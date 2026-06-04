@@ -1,0 +1,78 @@
+get:
+  operationId: getIntelIdentityRisk
+  security:
+    - userAuth:
+        - sp:identity-sec-intel-risk:read
+    - applicationAuth:
+        - sp:identity-sec-intel-risk:read
+  x-required-right: sp:identity-sec-intel-risk:read
+  x-sailpoint-userLevels:
+    - Any
+  tags:
+    - Intelligence Package
+  summary: Identity risk snapshot
+  description: |
+    Risk snapshot envelope for the identity. The service resolves the first matching
+    outlier for identityID and returns one page of access-items plus an optional
+    continuation link for additional pages.
+
+    Clients should continue paging using _links.outliers.href when provided.
+    Requires tenant license idn:response-and-remediation.
+  parameters:
+    - $ref: '../parameters/intelligence-identity-id-path.yaml'
+  responses:
+    '200':
+      description: Risk envelope with first page and optional continuation link.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/intelligence/IntelIdentityRiskBody.yaml'
+          examples:
+            hasMore:
+              summary: First page with continuation
+              value:
+                outliers:
+                  - id: outlier-access-001
+                    displayName: Example_Admin_Access
+                    description: null
+                    accessType: ENTITLEMENT
+                    sourceName: Example SaaS Source
+                    extremelyRare: false
+                outliersTotal: 312
+                _links:
+                  outliers:
+                    href: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/00000000000000000000000000000000/risk/outliers?limit=250&offset=250
+            lastPage:
+              summary: Single page result
+              value:
+                outliers:
+                  - id: outlier-access-001
+                    displayName: Example_Admin_Access
+                    description: null
+                    accessType: ENTITLEMENT
+                    sourceName: Example SaaS Source
+                    extremelyRare: false
+                outliersTotal: 1
+            noOutlier:
+              summary: Identity with no outlier
+              value:
+                outliers: []
+                outliersTotal: 0
+    '400':
+      description: Invalid path parameter.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/intelligence/ErrorBody.yaml'
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      description: Internal or upstream server failure.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/intelligence/ErrorBody.yaml'

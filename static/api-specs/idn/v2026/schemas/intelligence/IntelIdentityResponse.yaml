@@ -1,7 +1,7 @@
 type: object
 description: |
   HUMAN responses include human, top-level subtype (NERM classification:
-  Employee, Non Employee, or Cannot Determine), and _links (access and accessHistory only).
+  Employee, Non Employee, or Cannot Determine), and _links (access, risk, and accessHistory).
   MACHINE responses include machine and top-level subtype (connector subtype string);
   _links is omitted.
 required:

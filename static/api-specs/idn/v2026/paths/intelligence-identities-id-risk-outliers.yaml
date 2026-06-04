@@ -1,0 +1,96 @@
+get:
+  operationId: getIntelIdentityRiskOutliers
+  security:
+    - userAuth:
+        - sp:identity-sec-intel-risk:read
+    - applicationAuth:
+        - sp:identity-sec-intel-risk:read
+  x-required-right: sp:identity-sec-intel-risk:read
+  x-sailpoint-userLevels:
+    - Any
+  tags:
+    - Intelligence Package
+  summary: Risk outliers continuation paging
+  description: |
+    Continuation endpoint for risk outlier access-items. Returns one page based on
+    the supplied limit and offset values and includes an optional continuation link
+    when more rows remain. Requires tenant license idn:response-and-remediation.
+  parameters:
+    - $ref: '../parameters/intelligence-identity-id-path.yaml'
+    - name: limit
+      in: query
+      required: false
+      description: Maximum number of outlier rows to return for this page.
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 250
+        default: 250
+      example: 250
+    - name: offset
+      in: query
+      required: false
+      description: Zero-based row index for the first returned outlier item.
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        default: 0
+      example: 0
+  responses:
+    '200':
+      description: One page of outlier items plus optional continuation link.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/intelligence/IntelIdentityRiskBody.yaml'
+          examples:
+            intermediate:
+              summary: Intermediate page response
+              value:
+                outliers:
+                  - id: outlier-access-001
+                    displayName: Example_Admin_Access
+                    description: null
+                    accessType: ENTITLEMENT
+                    sourceName: Example SaaS Source
+                    extremelyRare: false
+                outliersTotal: 312
+                _links:
+                  outliers:
+                    href: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/00000000000000000000000000000000/risk/outliers?limit=250&offset=500
+            lastPage:
+              summary: Last page response
+              value:
+                outliers:
+                  - id: outlier-access-001
+                    displayName: Example_Admin_Access
+                    description: null
+                    accessType: ENTITLEMENT
+                    sourceName: Example SaaS Source
+                    extremelyRare: false
+                outliersTotal: 312
+            noOutlier:
+              summary: Identity with no outlier
+              value:
+                outliers: []
+                outliersTotal: 0
+    '400':
+      description: Invalid path or query parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/intelligence/ErrorBody.yaml'
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      description: Internal or upstream server failure.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/intelligence/ErrorBody.yaml'

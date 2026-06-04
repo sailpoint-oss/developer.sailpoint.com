@@ -13,7 +13,7 @@ tags: ['SDK', 'Software Development Kit', 'IntelligencePackage', 'V2026Intellige
   Read-only HTTP API that returns the Intelligence Package (identity context)
 for SecOps enrichment use cases (SIEM/SOAR connectors, MCP, browser
 extension). Backed by Atlas internal-REST calls to MICE, Shelby List Accounts,
-SDS Search, and identity-history.
+SDS Search, IDA-outliers, and identity-history.
  
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2026*
 
@@ -21,6 +21,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get-intel-identity-access**](#get-intel-identity-access) | **Get** `/intelligence/identities/{identityID}/access` | Accounts merged with privileged data
 [**get-intel-identity-access-history**](#get-intel-identity-access-history) | **Get** `/intelligence/identities/{identityID}/access-history` | Return identity access-history events
+[**get-intel-identity-risk**](#get-intel-identity-risk) | **Get** `/intelligence/identities/{identityID}/risk` | Identity risk snapshot
+[**get-intel-identity-risk-outliers**](#get-intel-identity-risk-outliers) | **Get** `/intelligence/identities/{identityID}/risk/outliers` | Risk outliers continuation paging
 [**search-intel-identities**](#search-intel-identities) | **Get** `/intelligence/identities` | Resolve one identity by filter
 
 
@@ -166,6 +168,151 @@ func main() {
     }
     // response from `GetIntelIdentityAccessHistory`: IntelIdentityAccessHistoryBody
     fmt.Fprintf(os.Stdout, "Response from `IntelligencePackageAPI.GetIntelIdentityAccessHistory`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## get-intel-identity-risk
+Identity risk snapshot
+Risk snapshot envelope for the identity. The service resolves the first matching
+outlier for identityID and returns one page of access-items plus an optional
+continuation link for additional pages.
+
+Clients should continue paging using _links.outliers.href when provided.
+Requires tenant license idn:response-and-remediation.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-intel-identity-risk)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**identityID** | **string** | Non-empty identity id path segment for Intelligence Package sub-resources. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetIntelIdentityRiskRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**IntelIdentityRiskBody**](../models/intel-identity-risk-body)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    identityID := `ef38f94347e94562b5bb8424a56397d8` // string | Non-empty identity id path segment for Intelligence Package sub-resources. # string | Non-empty identity id path segment for Intelligence Package sub-resources.
+
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2026.IntelligencePackageAPI.GetIntelIdentityRisk(context.Background(), identityID).Execute()
+	  //resp, r, err := apiClient.V2026.IntelligencePackageAPI.GetIntelIdentityRisk(context.Background(), identityID).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IntelligencePackageAPI.GetIntelIdentityRisk``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetIntelIdentityRisk`: IntelIdentityRiskBody
+    fmt.Fprintf(os.Stdout, "Response from `IntelligencePackageAPI.GetIntelIdentityRisk`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## get-intel-identity-risk-outliers
+Risk outliers continuation paging
+Continuation endpoint for risk outlier access-items. Returns one page based on
+the supplied limit and offset values and includes an optional continuation link
+when more rows remain. Requires tenant license idn:response-and-remediation.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-intel-identity-risk-outliers)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**identityID** | **string** | Non-empty identity id path segment for Intelligence Package sub-resources. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetIntelIdentityRiskOutliersRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **limit** | **int32** | Maximum number of outlier rows to return for this page. | [default to 250]
+ **offset** | **int32** | Zero-based row index for the first returned outlier item. | [default to 0]
+
+### Return type
+
+[**IntelIdentityRiskBody**](../models/intel-identity-risk-body)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    identityID := `ef38f94347e94562b5bb8424a56397d8` // string | Non-empty identity id path segment for Intelligence Package sub-resources. # string | Non-empty identity id path segment for Intelligence Package sub-resources.
+    limit := 250 // int32 | Maximum number of outlier rows to return for this page. (optional) (default to 250) # int32 | Maximum number of outlier rows to return for this page. (optional) (default to 250)
+    offset := 0 // int32 | Zero-based row index for the first returned outlier item. (optional) (default to 0) # int32 | Zero-based row index for the first returned outlier item. (optional) (default to 0)
+
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2026.IntelligencePackageAPI.GetIntelIdentityRiskOutliers(context.Background(), identityID).Execute()
+	  //resp, r, err := apiClient.V2026.IntelligencePackageAPI.GetIntelIdentityRiskOutliers(context.Background(), identityID).Limit(limit).Offset(offset).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IntelligencePackageAPI.GetIntelIdentityRiskOutliers``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetIntelIdentityRiskOutliers`: IntelIdentityRiskBody
+    fmt.Fprintf(os.Stdout, "Response from `IntelligencePackageAPI.GetIntelIdentityRiskOutliers`: %v\n", resp)
 }
 ```
 

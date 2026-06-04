@@ -16,13 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'IntelIdentityLinks', 'V2026IntelIdent
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Access** | [**IntelHref**](intel-href) | Hyperlink to the Intelligence Package access document for this identity. | 
+**Risk** | [**IntelHref**](intel-href) | Hyperlink to the Intelligence Package risk document for this identity. | 
 **AccessHistory** | [**IntelHref**](intel-href) | Hyperlink to the Intelligence Package access history document for this identity. | 
 
 ## Methods
 
 ### NewIntelIdentityLinks
 
-`func NewIntelIdentityLinks(access IntelHref, accessHistory IntelHref, ) *IntelIdentityLinks`
+`func NewIntelIdentityLinks(access IntelHref, risk IntelHref, accessHistory IntelHref, ) *IntelIdentityLinks`
 
 NewIntelIdentityLinks instantiates a new IntelIdentityLinks object
 This constructor will assign default values to properties that have it defined,
@@ -55,6 +56,26 @@ and a boolean to check if the value has been set.
 `func (o *IntelIdentityLinks) SetAccess(v IntelHref)`
 
 SetAccess sets Access field to given value.
+
+
+### GetRisk
+
+`func (o *IntelIdentityLinks) GetRisk() IntelHref`
+
+GetRisk returns the Risk field if non-nil, zero value otherwise.
+
+### GetRiskOk
+
+`func (o *IntelIdentityLinks) GetRiskOk() (*IntelHref, bool)`
+
+GetRiskOk returns a tuple with the Risk field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRisk
+
+`func (o *IntelIdentityLinks) SetRisk(v IntelHref)`
+
+SetRisk sets Risk field to given value.
 
 
 ### GetAccessHistory

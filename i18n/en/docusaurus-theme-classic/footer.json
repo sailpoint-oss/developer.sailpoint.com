@@ -43,9 +43,17 @@
     "message": "Build A Plugin",
     "description": "The label of footer link with label=Build A Plugin linking to https://documentation.sailpoint.com/"
   },
-  "link.item.label.Discuss": {
-    "message": "Discuss",
-    "description": "The label of footer link with label=Discuss linking to https://developer.sailpoint.com/discuss"
+  "link.item.label.Developer Forum": {
+    "message": "Developer Forum",
+    "description": "The label of footer link with label=Developer forum linking to https://developer.sailpoint.com/discuss"
+  },
+  "link.item.label.Videos": {
+    "message": "Videos",
+    "description": "The label of footer link with label=Videos linking to /videos"
+  },
+  "link.item.label.Community Policies": {
+    "message": "Community Policies",
+    "description": "The label of footer link with label=Community policies linking to /community-policies"
   },
   "link.item.label.Submit an Idea": {
     "message": "Submit an Idea",
@@ -55,13 +63,13 @@
     "message": "Contact Our Team",
     "description": "The label of footer link with label=Contact Our Team linking to https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations"
   },
+  "link.item.label.Developer Relations Team": {
+    "message": "Developer Relations Team",
+    "description": "The label of footer link with label=Developer Relations team linking to /devrel-team"
+  },
   "link.item.label.GitHub": {
     "message": "GitHub",
     "description": "The label of footer link with label=GitHub linking to https://github.com/sailpoint-oss"
-  },
-  "link.item.label.Twitter": {
-    "message": "Twitter",
-    "description": "The label of footer link with label=Twitter linking to https://twitter.com/sailpoint"
   },
   "link.item.label.The SailPoint Story": {
     "message": "The SailPoint Story",

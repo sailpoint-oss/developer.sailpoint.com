@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import {useState} from 'react';
+import type {FC} from 'react';
 import Layout from '@theme/Layout';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import VideoCards from '../components/video-library/VideoCards';
 import VideoSidebar from '../components/video-library/VideoSidebar';
 import styles from './videos.module.css';
@@ -12,19 +12,20 @@ interface FilterState {
 
 // Define the type for the callback function
 interface FilterData {
-  tag: string[];
+  tag: string[] | string | null;
 }
 
-const VideoLibrary: React.FC = () => {
+const VideoLibrary: FC = () => {
   const [filteredProduct, setFilteredProduct] = useState<FilterState>({ tags: [] });
-  const { siteConfig } = useDocusaurusContext();
 
   const handleClick = (data: FilterData) => {
-    setFilteredProduct({ tags: data.tag });
+    setFilteredProduct({
+      tags: Array.isArray(data.tag) ? data.tag : data.tag ? [data.tag] : [],
+    });
   };
 
   return (
-    <Layout title="Video Library" description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout title="Videos" description="Watch SailPoint developer videos, livestreams, conference sessions, and community walkthroughs.">
       <main>
         <div>
           <div className={styles.titleContainer}></div>
@@ -32,17 +33,19 @@ const VideoLibrary: React.FC = () => {
             <div className={styles.mainCard}>
               <div className={styles.contentContainer}>
                 <div className={styles.gettingStartedText}>
-                  <div className={styles.gettingStartedOne}>Video library</div>
+                  <div className={styles.gettingStartedOne}>Videos</div>
                   <div className={styles.gettingStartedThree}>
                     <span>
-                      Our video library is a collection of educational videos
-                      from our Developer Relations team, live streams,
-                      conferences, and other community members.
+                      Watch educational videos from Developer Relations,
+                      Developer Days, livestreams, conference sessions, and
+                      community contributors. Videos stay hosted here so you can
+                      watch without ads and keep discussion connected to the
+                      developer forum.
                     </span>
                     <br />
                     <br />
-                    <a href="https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations&title=Proposal%20for%20Developer%20Community%20Video&body=Write%20your%20request%20here.">
-                      Contribute to our library &#8594;
+                    <a href="https://developer.sailpoint.com/discuss/new-topic?category=content/video-library&title=Video%20library%20contribution&body=Share%20the%20video%20title,%20source,%20and%20why%20it%20should%20be%20included.">
+                      Suggest a video &#8594;
                     </a>
                   </div>
                 </div>

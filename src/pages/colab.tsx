@@ -47,7 +47,7 @@ const Marketplace: React.FC = () => {
   });
 
   return (
-    <Layout title="CoLab" description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout title="CoLab" description="Find community-built SailPoint solutions in the CoLab marketplace.">
       <main>
         <MarketplaceBanner />
         <div>
@@ -58,11 +58,10 @@ const Marketplace: React.FC = () => {
                 <div className={styles.gettingStartedTwo}>What is the CoLab?</div>
                 <div className={styles.gettingStartedThree}>
                   <span>
-                    The community CoLab is a place where members of our
-                    community can build fully-featured solutions on our platform
-                    and share those solutions with each other. Users collaborate
-                    on these solutions to benefit both themselves and the
-                    community at large.
+                    The CoLab marketplace is where SailPoint developers share
+                    community-built plugins, rules, connectors, transforms,
+                    workflows, and tools. Use it to find examples, collaborate
+                    on reusable solutions, and contribute your own work.
                   </span>
                   <br />
                   <br />

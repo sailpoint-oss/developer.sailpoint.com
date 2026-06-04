@@ -1,4 +1,4 @@
-import React from 'react';
+import type {FC} from 'react';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -15,7 +15,24 @@ interface VideoCardProps {
   tags?: (string | { id: number; name: string; slug: string })[];
 }
 
-const VideoCard: React.FC<VideoCardProps> = ({
+const displayTag = (tag: string): string => {
+  const textMap: Record<string, string> = {
+    'identity-security-cloud': 'Identity Security Cloud',
+    'access-intelligence-center': 'Access Intelligence Center',
+    'identityiq': 'IdentityIQ',
+    'identity-iq': 'IdentityIQ',
+    'iiq': 'IIQ',
+    'live-stream': 'Live stream',
+    'community-live-stream': 'Live stream',
+    'developer-days-2023': 'Developer Days 2023',
+    'developer-days-2023-iiq': 'Developer Days 2023',
+    'developer-days-2024': 'Developer Days 2024',
+  };
+
+  return textMap[tag] || tag.replace(/-/g, ' ');
+};
+
+const VideoCard: FC<VideoCardProps> = ({
   featured = false,
   videoURL,
   thumbnail,
@@ -44,7 +61,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
           <div className={styles.tags}>
             {tags.map((tag) => (
               <div key={typeof tag === 'object' ? tag.name : tag} className={styles.tag}>
-                {typeof tag === 'object' ? tag.name : tag}
+                {displayTag(typeof tag === 'object' ? tag.name : tag)}
               </div>
             ))}
           </div>

@@ -1,7 +1,32 @@
-import React from 'react';
-import type {ReactNode} from 'react';
+import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
-import HomepageCard from '../HomepageCard';
+
+const primaryLinks = [
+  {
+    label: 'Documentation',
+    title: 'Build with SailPoint',
+    description: 'Explore guides, reference material, and product-specific developer resources.',
+    link: '/docs',
+  },
+  {
+    label: 'API specifications',
+    title: 'Automate identity workflows',
+    description: 'Find REST API specs, authentication details, versioning, and examples.',
+    link: '/docs/api/v2026',
+  },
+  {
+    label: 'Tools',
+    title: 'Install developer tools',
+    description: 'Set up SDKs, the CLI, development kits, and helpful utilities.',
+    link: '/docs/tools',
+  },
+  {
+    label: 'Community',
+    title: 'Get answers from developers',
+    description: 'Join forum discussions, browse community content, and connect with programs.',
+    link: 'https://developer.sailpoint.com/discuss/',
+  },
+];
 
 export default function HomepageGettingStarted(): JSX.Element {
   return (
@@ -10,41 +35,27 @@ export default function HomepageGettingStarted(): JSX.Element {
         <div className={styles.contentContainer}>
           <div className={styles.gettingStartedText}>
             <div className={styles.gettingStartedOne}>
-              SailPoint Developer Community
+              SailPoint Developers
             </div>
             <div className={styles.gettingStartedTwo}>
-              Don't know where to get started?
+              Build, extend, and automate identity security.
             </div>
             <div className={styles.gettingStartedThree}>
-              Jump into our{' '}
-              <span className={styles.bold}>Get started Guides</span> for more
-              information.
+              Start with developer documentation, API specifications, tools,
+              and community resources for SailPoint platforms.
             </div>
           </div>
-          <div className={styles.gridContainer}>
-            <HomepageCard
-              link="/docs"
-              title="Get started with Identity Security Cloud"
-              image="/homepage/SailPointIdentitySecurityCloud.svg"
-              product="isc"
-            />
-            <HomepageCard
-              link="https://documentation.sailpoint.com/identityiq/help/iiqlandingpage.html"
-              title="Get started with IdentityIQ"
-              image="/homepage/IdentityIQ.svg"
-              product="iiq"
-            />
+          <div className={styles.resourceGrid}>
+            {primaryLinks.map((item) => (
+              <Link key={item.label} className={styles.resourceCard} to={item.link}>
+                <div className={styles.resourceLabel}>{item.label}</div>
+                <div className={styles.resourceTitle}>{item.title}</div>
+                <div className={styles.resourceDescription}>
+                  {item.description}
+                </div>
+              </Link>
+            ))}
           </div>
-        </div>
-        <div className={styles.carousel}>
-          <iframe
-            className={styles.video}
-            src="https://www.youtube.com/embed/44R4iXTazUQ?si=kHALvSCvKz_cBKGK"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen></iframe>
         </div>
       </div>
     </div>

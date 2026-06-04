@@ -7,6 +7,22 @@
     "message": "IdentityIQ",
     "description": "Navbar item with label IdentityIQ"
   },
+  "item.label.Identity Security Cloud developer docs": {
+    "message": "Identity Security Cloud developer docs",
+    "description": "Navbar item with label Identity Security Cloud developer docs"
+  },
+  "item.label.IdentityIQ plugin developer guide": {
+    "message": "IdentityIQ plugin developer guide",
+    "description": "Navbar item with label IdentityIQ plugin developer guide"
+  },
+  "item.label.IdentityIQ product documentation": {
+    "message": "IdentityIQ product documentation",
+    "description": "Navbar item with label IdentityIQ product documentation"
+  },
+  "item.label.SailPoint product documentation": {
+    "message": "SailPoint product documentation",
+    "description": "Navbar item with label SailPoint product documentation"
+  },
   "item.label.Ideas": {
     "message": "Ideas",
     "description": "Navbar item with label Ideas"
@@ -47,6 +63,14 @@
     "message": "Training",
     "description": "Navbar item with label Training"
   },
+  "item.label.Getting started": {
+    "message": "Getting started",
+    "description": "Navbar item with label Getting started"
+  },
+  "item.label.Developer tools overview": {
+    "message": "Developer tools overview",
+    "description": "Navbar item with label Developer tools overview"
+  },
   "item.label.IdentityNow Certifications": {
     "message": "IdentityNow Certifications",
     "description": "Navbar item with label IdentityNow Certifications"
@@ -66,5 +90,17 @@
   "item.label.Submit Support Ticket": {
     "message": "Submit Support Ticket",
     "description": "Navbar item with label Submit Support Ticket"
+  },
+  "item.label.Videos": {
+    "message": "Videos",
+    "description": "Navbar item with label Videos"
+  },
+  "item.label.Community policies": {
+    "message": "Community policies",
+    "description": "Navbar item with label Community policies"
+  },
+  "item.label.Developer Relations team": {
+    "message": "Developer Relations team",
+    "description": "Navbar item with label Developer Relations team"
   }
 }

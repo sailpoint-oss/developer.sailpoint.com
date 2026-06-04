@@ -24,7 +24,7 @@ const Blog: React.FC = () => {
   };
 
   return (
-    <Layout title="Blog" description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout title="Blog" description="Read technical articles from SailPoint developers and community authors.">
       <main className={styles.main}>
         <BlogBanner />
         <div>
@@ -35,7 +35,7 @@ const Blog: React.FC = () => {
                 <div className={styles.gettingStartedThree}>
                   <span>
                     Our community blog is a collection of technical writings
-                    provided by members of our community—your peers—discussing
+                    provided by members of our community, your peers, discussing
                     detailed walkthroughs, challenges faced (and how they were
                     overcome), and thoughts on managing identity in a meaningful
                     way.

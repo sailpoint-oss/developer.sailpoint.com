@@ -29,10 +29,16 @@ const footerConfig = {
       {
         title: 'Community',
         items: [
-          { label: 'Discuss', to: 'https://developer.sailpoint.com/discuss' },
+          { label: 'Developer forum', to: 'https://developer.sailpoint.com/discuss' },
+          { label: 'Videos', to: '/videos' },
+          { label: 'Community policies', to: '/community-policies' },
           { label: 'Submit an idea', to: 'https://developer-sailpoint.ideas.aha.io/' },
           { 
-            label: 'Contact our team', 
+            label: 'Developer Relations team',
+            to: '/devrel-team',
+          },
+          {
+            label: 'Contact our team',
             to: 'https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations' 
           },
         ],
@@ -41,7 +47,6 @@ const footerConfig = {
         title: 'More',
         items: [
           { label: 'GitHub', href: 'https://github.com/sailpoint-oss' },
-          { label: 'Twitter', href: 'https://twitter.com/sailpoint' },
         ],
       },
       {
@@ -64,7 +69,7 @@ const footerConfig = {
       },
     ],
     logo: {
-      alt: 'SailPoint Developer Community Logo',
+      alt: 'SailPoint Developers Logo',
       src: '/img/SailPoint-Developer-Community-Lockup.png',
       srcDark: 'img/SailPoint-Developer-Community-Inverse-Lockup.png',
       href: 'https://developer.sailpoint.com',

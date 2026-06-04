@@ -2,7 +2,8 @@
 id: ootb-transforms
 title: Out of the box transforms
 pagination_label: Out of the Box Transforms
-sidebar_label: OOTB Transforms
+sidebar_label: Out of the box transforms
+sidebar_position: 3
 sidebar_class_name: operations
 keywords: ['transforms', 'operations']
 description: A list of out of the box transforms.

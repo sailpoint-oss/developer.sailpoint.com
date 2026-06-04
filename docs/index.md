@@ -27,6 +27,12 @@ The SailPoint Developer Documentation provides developers with all the informati
 
 Check out the developer documentation and see what's possible!
 
+## Choose the right type of content
+
+- **Reference documentation** explains the available APIs, transform operations, rule types, SDK methods, and product behaviors. Use it when you already know what you need to build and need exact syntax or capabilities.
+- **Getting started content** helps you install tools, configure authentication, and make your first working request or local project.
+- **Guides and tutorials** walk through opinionated implementation paths. Domain-specific guides live with their domain, such as [transform guides](/docs/extensibility/transforms/guides) and [rule guides](/docs/extensibility/rules/guides). The [solution guides](/docs/guides) section is reserved for tasks that span multiple domains or do not fit one product area cleanly.
+
 :::info Are you a partner?
 
 The developer documentation is written for customers and partners who already have access to ISC. If you're interested in becoming a partner, go [here](https://www.sailpoint.com/partners/become-partner/).

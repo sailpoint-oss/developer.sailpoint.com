@@ -71,6 +71,14 @@
     "message": "Developer tools overview",
     "description": "Navbar item with label Developer tools overview"
   },
+  "item.label.Build a transform": {
+    "message": "Build a transform",
+    "description": "Navbar item with label Build a transform"
+  },
+  "item.label.Build a rule": {
+    "message": "Build a rule",
+    "description": "Navbar item with label Build a rule"
+  },
   "item.label.IdentityNow Certifications": {
     "message": "IdentityNow Certifications",
     "description": "Navbar item with label IdentityNow Certifications"

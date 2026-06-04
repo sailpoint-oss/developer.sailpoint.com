@@ -46,6 +46,14 @@ const navbarConfig = {
           { label: 'Developer tools overview', to: '/docs/tools' },
           { label: 'SDKs', to: '/docs/tools/sdk' },
           { label: 'CLI', to: '/docs/tools/cli' },
+          {
+            label: 'Build a transform',
+            to: '/docs/extensibility/transforms/guides/your-first-transform',
+          },
+          {
+            label: 'Build a rule',
+            to: '/docs/extensibility/rules/guides/your-first-rule',
+          },
           { label: 'Rule Development Kit', to: '/docs/tools/rule-development-kit' },
           { label: 'UI Development Kit', to: '/docs/tools/ui-development-kit' },
           { label: 'Escaping Tool Formatter', to: '/tools/escaping-tool-formatter' },

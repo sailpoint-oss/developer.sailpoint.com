@@ -77,7 +77,7 @@ const AmbassadorContent: React.FC = () => {
       {/* Hero */}
       <div className={styles.heroWrapper}>
         <div className={styles.hero}>
-        <div className={styles.heroContent}>
+          <div className={styles.heroContent}>
           <h1 className={styles.heroHeading}>
             Your experience and expertise has the power to empower others.
           </h1>
@@ -91,15 +91,15 @@ const AmbassadorContent: React.FC = () => {
             Become an Ambassador
           </Link>
         </div>
-        <img
-          className={styles.heroImage}
-          src={codeyBust}
-          alt="Codey the SailPoint Ambassador"
-        />
+          <img
+            className={styles.heroImage}
+            src={codeyBust}
+            alt="Codey the SailPoint Ambassador"
+          />
         </div>
       </div>
 
-        {/* What Is the Program */}
+      {/* What Is the Program */}
         <div className={`${styles.section} ${styles.sectionNoBorder} ${styles.sectionAlt}`}>
         <div className={styles.sectionInner}>
           <h2 className={styles.sectionHeading}>What is the Ambassador Program?</h2>

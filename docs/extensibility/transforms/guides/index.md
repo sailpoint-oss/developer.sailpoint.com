@@ -1,8 +1,8 @@
 ---
 id: guides
-title: Transform guides
-pagination_label: Transform guides
-sidebar_label: Transform guides
+title: Transform Guides
+pagination_label: Transform Guides
+sidebar_label: Transform Guides
 sidebar_position: 1
 sidebar_key: transform-guides
 sidebar_class_name: transforms

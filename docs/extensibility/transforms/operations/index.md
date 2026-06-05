@@ -1,8 +1,8 @@
 ---
 id: operations
-title: Transform operations
-pagination_label: Transform operations
-sidebar_label: Transform operations
+title: Transform Operations
+pagination_label: Transform Operations
+sidebar_label: Transform Operations
 sidebar_position: 2
 sidebar_class_name: operations
 keywords: ['transforms', 'operations']

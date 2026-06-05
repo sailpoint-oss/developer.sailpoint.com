@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState, type FC} from 'react';
 import Layout from '@theme/Layout';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -25,7 +25,7 @@ const unescapeJavaDotNet = (str: string): string =>
     .replace(/\\"/g, '"')
     .replace(/\\\\/g, '\\');
 
-const EscapeTool: React.FC = () => {
+const EscapeTool: FC = () => {
   const [fontSize, setFontSize] = useState<string>('16');
   const [isDropdownFocused, setIsDropdownFocused] = useState<boolean>(false);
   const [inputJson, setInputJson] =
@@ -96,7 +96,7 @@ requestEndPoint.setFullUrl(fullUrl);`);
   return (
     <Layout
       title="Java/.NET String Escaper"
-      description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+      description="Escape and unescape strings for Java and .NET SailPoint developer workflows.">
       <main>
         <div className={styles.containerFluid}>
           <h2 className={styles.title}>Java/.NET String Escaper</h2>

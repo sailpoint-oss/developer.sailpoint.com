@@ -35,7 +35,7 @@ const navbarConfig = {
         items: [
           { label: 'Identity Security Cloud', to: '/docs/api/v2026' },
           { label: 'IdentityIQ', to: '/docs/api/iiq' },
-          { label: 'NERM', to: '/docs/api/nerm/v1' },
+          { label: 'NERM APIs', to: '/docs/api/nerm/v1' },
         ],
       },
       {
@@ -56,9 +56,9 @@ const navbarConfig = {
           },
           { label: 'Rule Development Kit', to: '/docs/tools/rule-development-kit' },
           { label: 'UI Development Kit', to: '/docs/tools/ui-development-kit' },
-          { label: 'Escaping Tool Formatter', to: '/tools/escaping-tool-formatter' },
-          { label: 'JSON Path Evaluator', to: '/tools/json-path-evaluator' },
-          { label: 'Velocity PlayGround', to: '/tools/velocity-playground' },
+          { label: 'Java/.NET string escaper', to: '/tools/escaping-tool-formatter' },
+          { label: 'JSON path evaluator', to: '/tools/json-path-evaluator' },
+          { label: 'Velocity playground', to: '/tools/velocity-playground' },
         ],
       },
       {
@@ -80,12 +80,12 @@ const navbarConfig = {
         position: 'right',
         items: [
           {
-            label: 'Submit Support Ticket',
+            label: 'Submit a support ticket',
             href: 'https://support.sailpoint.com/csm?id=sc_cat_item&sys_id=a78364e81bec151050bcc8866e4bcb5c&referrer=popular_items',
           },
           { label: 'Developer Relations team', to: '/devrel-team' },
-          { label: 'Compass', href: 'https://community.sailpoint.com' },
-          { label: 'Platform Status', href: 'https://status.sailpoint.com/' },
+          { label: 'SailPoint Compass', href: 'https://community.sailpoint.com' },
+          { label: 'Platform status', href: 'https://status.sailpoint.com/' },
         ],
       },
       {

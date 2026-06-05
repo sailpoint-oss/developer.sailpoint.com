@@ -26,9 +26,9 @@ SailPoint developer tools help you install, configure, test, and extend Identity
 
 These tools are hosted directly on the developer site and do not require local installation:
 
-- [Escaping Tool Formatter](/tools/escaping-tool-formatter): Format and escape values for use in configuration and templates.
-- [JSON Path Evaluator](/tools/json-path-evaluator): Test JSONPath expressions against sample data.
-- [Velocity PlayGround](/tools/velocity-playground): Experiment with Velocity templates before using them in SailPoint configurations.
+- [Java/.NET string escaper](/tools/escaping-tool-formatter): Format and escape values for use in configuration and templates.
+- [JSON path evaluator](/tools/json-path-evaluator): Test JSONPath expressions against sample data.
+- [Velocity playground](/tools/velocity-playground): Experiment with Velocity templates before using them in SailPoint configurations.
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

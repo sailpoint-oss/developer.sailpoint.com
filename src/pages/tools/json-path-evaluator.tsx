@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState, type FC} from 'react';
 import Layout from '@theme/Layout';
 import styles from './json-path.module.css';
 import Alert from '@mui/material/Alert';
@@ -34,7 +34,7 @@ const documentationLinks: Record<
   },
 };
 
-const JsonPathEvaluator: React.FC = () => {
+const JsonPathEvaluator: FC = () => {
   const [result, setResult] = useState<string>(JSON.stringify([], null, 4));
   const [query, setQuery] = useState<string>('$.requestedItemsStatus[*].name');
   const [queryParseError, setQueryParseError] = useState<string>('');
@@ -141,7 +141,7 @@ const JsonPathEvaluator: React.FC = () => {
   };
 
   return (
-    <Layout title="Json Path Evaluator" description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout title="JSON Path Evaluator" description="Evaluate JSONPath expressions for SailPoint developer workflows.">
       <main>
         <div className={styles.containerFluid}>
           <div className={styles.actionBar}>

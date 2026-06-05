@@ -8,8 +8,8 @@
 //   - Plugins imported from plugins.ts with iiq-api, nerm-api, GTM, and redirects filtered out
 //   - Simplified navbar with only ISC API-spec link
 
-import { ThemeConfig } from '@docusaurus/preset-classic';
-import { Config } from '@docusaurus/types';
+import type { ThemeConfig } from '@docusaurus/preset-classic';
+import type { Config } from '@docusaurus/types';
 import 'dotenv/config';
 import { themes } from 'prism-react-renderer';
 import allPlugins from './plugins';
@@ -39,9 +39,9 @@ const config: Config = {
     v4: true,
     experimental_faster: true,
   },
-  title: 'SailPoint Developer Community',
+  title: 'SailPoint Developers',
   tagline:
-    'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.',
+    'SailPoint Developers gives you everything you need to build, extend, and automate scalable identity solutions.',
   url: 'https://developer.sailpoint.com',
   baseUrl,
   favicon: 'img/SailPoint-Logo-Icon.ico',
@@ -123,12 +123,12 @@ const config: Config = {
       id: 'newAnnouncement3',
       isCloseable: true,
       content:
-        'our latest announcement in the SailPoint Developer Community Forum: <a target="_blank" rel="noopener noreferrer" href="https://developer.sailpoint.com/discuss/t/the-developer-community-colab-a-new-way-to-find-build-and-collaborate-on-extensibility-solutions/18847">Announcing the Developer Community CoLab!</a> 🎉',
+        'See our latest announcement in the SailPoint Developer Forum: <a target="_blank" rel="noopener noreferrer" href="https://developer.sailpoint.com/discuss/t/the-developer-community-colab-a-new-way-to-find-build-and-collaborate-on-extensibility-solutions/18847">Announcing the Developer Community CoLab!</a> 🎉',
     },
     navbar: {
       title: '',
       logo: {
-        alt: 'SailPoint Developer Community',
+        alt: 'SailPoint Developers',
         src: 'img/SailPoint-Developer-Community-Lockup.png',
         srcDark: 'img/SailPoint-Developer-Community-Inverse-Lockup.png',
       },

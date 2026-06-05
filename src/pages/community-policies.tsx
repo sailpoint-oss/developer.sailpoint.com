@@ -5,7 +5,7 @@ import HomepageBasics from '@site/src/components/homepage/HomepageBasics';
 export default function CommunityPolicies(): JSX.Element {
   return (
     <Layout
-      title="Community Policies"
+      title="Community policies"
       description="Policies and guidelines for participating in the SailPoint developer community.">
       <main>
         <HomepageBasics

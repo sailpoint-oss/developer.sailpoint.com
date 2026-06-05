@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect, type FC } from 'react';
 import Video from '../../Video';
 import styles from './styles.module.css';
 import Layout from '@theme/Layout';
@@ -16,7 +16,7 @@ interface VideoCardDetailProps {
   };
 }
 
-const VideoCardDetail: React.FC<VideoCardDetailProps> = ({ route }) => {
+const VideoCardDetail: FC<VideoCardDetailProps> = ({ route }) => {
   const base = 'https://play.vidyard.com/';
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const VideoCardDetail: React.FC<VideoCardDetailProps> = ({ route }) => {
   }, []);
 
   return (
-    <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout description="SailPoint Developers gives you everything you need to build, extend, and automate scalable identity solutions.">
       <main>
         <div className={styles.videoPlayer}>
           <Video source={`${base}${route.customProps.uuid}`} container="vidyard" />

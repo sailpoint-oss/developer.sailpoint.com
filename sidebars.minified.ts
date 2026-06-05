@@ -56,12 +56,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'V2026 APIs',
+      label: 'Identity Security Cloud v2026 APIs',
       link: {
         type: 'generated-index',
-        title: 'v2026 APIs',
+        title: 'Identity Security Cloud v2026 APIs',
         description:
-          'Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
+          'Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
         slug: '/api/v2026',
       },
       items: require('./docs/api/v2026/sidebar.ts'),
@@ -113,12 +113,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'V2025 APIs',
+      label: 'Identity Security Cloud v2025 APIs',
       link: {
         type: 'generated-index',
-        title: 'v2025 APIs',
+        title: 'Identity Security Cloud v2025 APIs',
         description:
-          'Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
+          'Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
         slug: '/api/v2025',
       },
       items: require('./docs/api/v2025/sidebar.ts'),
@@ -170,12 +170,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'V2024 APIs',
+      label: 'Identity Security Cloud v2024 APIs',
       link: {
         type: 'generated-index',
-        title: 'v2024 APIs',
+        title: 'Identity Security Cloud v2024 APIs',
         description:
-          'Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
+          'Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
         slug: '/api/v2024',
       },
       items: require('./docs/api/v2024/sidebar.ts'),
@@ -227,12 +227,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Beta APIs',
+      label: 'Identity Security Cloud beta APIs',
       link: {
         type: 'generated-index',
-        title: 'Beta APIs',
+        title: 'Identity Security Cloud beta APIs',
         description:
-          'Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
+          'Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
         slug: '/api/beta',
       },
       items: require('./docs/api/beta/sidebar.ts'),
@@ -284,12 +284,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'V3 APIs',
+      label: 'Identity Security Cloud v3 APIs',
       link: {
         type: 'generated-index',
-        title: 'V3 APIs',
+        title: 'Identity Security Cloud v3 APIs',
         description:
-          'Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
+          'Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
         slug: '/api/v3',
       },
       items: require('./docs/api/v3/sidebar.ts'),

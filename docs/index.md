@@ -1,8 +1,8 @@
 ---
 id: docs
 title: Identity Security Cloud
-pagination_label: Docs
-sidebar_label: Docs
+pagination_label: Identity Security Cloud
+sidebar_label: Identity Security Cloud
 sidebar_position: 1
 sidebar_class_name: docs
 keywords: ['docs']

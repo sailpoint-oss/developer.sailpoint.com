@@ -8,7 +8,7 @@ const footerConfig = {
           { label: 'Build a transform', to: 'docs/extensibility/transforms/guides/your-first-transform' },
           { label: 'Build a SaaS connector', to: 'docs/connectivity/saas-connectivity' },
           { 
-            label: 'Get certified', 
+            label: 'SailPoint certifications',
             href: 'https://university.sailpoint.com/page/professional-certifications-and-knowledge-credentials' 
           },
         ],
@@ -17,11 +17,11 @@ const footerConfig = {
         title: 'IdentityIQ',
         items: [
           { 
-            label: 'Build a plugin', 
+            label: 'Build an IdentityIQ plugin',
             to: 'https://documentation.sailpoint.com/identityiq/help/plugins/develop_plugins/index.html' 
           },
           { 
-            label: 'Get certified', 
+            label: 'SailPoint certifications',
             href: 'https://university.sailpoint.com/page/professional-certifications-and-knowledge-credentials' 
           },
         ],
@@ -34,17 +34,17 @@ const footerConfig = {
           { label: 'Community policies', to: '/community-policies' },
           { label: 'Submit an idea', to: 'https://developer-sailpoint.ideas.aha.io/' },
           { 
-            label: 'Developer Relations team',
+            label: 'Meet the Developer Relations team',
             to: '/devrel-team',
           },
           {
-            label: 'Contact our team',
+            label: 'Contact Developer Relations',
             to: 'https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations' 
           },
         ],
       },
       {
-        title: 'More',
+        title: 'Open source',
         items: [
           { label: 'GitHub', href: 'https://github.com/sailpoint-oss' },
         ],
@@ -69,7 +69,7 @@ const footerConfig = {
       },
     ],
     logo: {
-      alt: 'SailPoint Developers Logo',
+      alt: 'SailPoint Developers',
       src: '/img/SailPoint-Developer-Community-Lockup.png',
       srcDark: 'img/SailPoint-Developer-Community-Inverse-Lockup.png',
       href: 'https://developer.sailpoint.com',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, type FC } from 'react';
 import Layout from '@theme/Layout';
 import styles from './filter.module.css';
 import MarketplaceCards from '../../components/marketplace/MarketplaceCards';
@@ -10,14 +10,14 @@ interface FilterState {
   tags: string[];
 }
 
-const Plugins: React.FC = () => {
+const Plugins: FC = () => {
   const [filteredProduct] = useState<FilterState>({
     category: 'colab-iiq-plugins',
     tags: ['Identityiq'],
   });
 
   return (
-    <Layout title="Plugins" description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout title="IdentityIQ plugins" description="Find community-built IdentityIQ plugins in the CoLab marketplace.">
       <main>
         <MarketplaceBanner />
         <div className={styles.container}>

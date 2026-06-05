@@ -1,8 +1,8 @@
 ---
 id: reference
-title: Reference transform
-pagination_label: Reference transform
-sidebar_label: Reference transform
+title: Reference Transform
+pagination_label: Reference Transform
+sidebar_label: Reference Transform
 sidebar_class_name: reference
 sidebar_key: transforms-reference
 keywords: ['transforms', 'operations', 'reference']

@@ -110,7 +110,7 @@ const config: Config = {
       id: 'newAnnouncement3',
       isCloseable: true,
       content:
-        'our latest announcement in the SailPoint Developer Forum: <a target="_blank" rel="noopener noreferrer" href="https://developer.sailpoint.com/discuss/t/the-developer-community-colab-a-new-way-to-find-build-and-collaborate-on-extensibility-solutions/18847">Announcing the Developer Community CoLab!</a> 🎉',
+        'See our latest announcement in the SailPoint Developer Forum: <a target="_blank" rel="noopener noreferrer" href="https://developer.sailpoint.com/discuss/t/the-developer-community-colab-a-new-way-to-find-build-and-collaborate-on-extensibility-solutions/18847">Announcing the Developer Community CoLab!</a> 🎉',
     },
     navbar: navbar,
     footer: footer,

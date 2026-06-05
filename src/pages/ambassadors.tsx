@@ -1,13 +1,13 @@
-import React from 'react';
+import type { FC } from 'react';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './ambassador.module.css';
 import AmbassadorCards from '../components/ambassador/AmbassadorCards';
 
-const Ambassador: React.FC = () => {
+const Ambassador: FC = () => {
   return (
-    <Layout title="Ambassadors" description="Learn about SailPoint developer community ambassadors and expert ambassadors.">
+    <Layout title="Ambassador program" description="Learn about SailPoint developer community ambassadors and expert ambassadors.">
       <main>
         {/* <AmbassadorBanner /> */}
         <div className={styles.ambassadorPurposeContainer}>

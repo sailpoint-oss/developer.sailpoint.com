@@ -10,9 +10,7 @@ import ResultTerminal from '../../components/xpath/ResultTerminal';
 import ImplementationDropdown from '../../components/xpath/ImplementationDropdown';
 import XPathQueryInput from '../../components/xpath/XPathQueryInput';
 import XPathRootInput from '../../components/xpath/XPathRootInput';
-import {
-  evaluateXPath,
-} from '../../services/XPathService';
+import {evaluateXPath, XPathEvaluationError} from '../../services/XPathService';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Button from '@mui/material/Button';
 
@@ -29,13 +27,15 @@ const documentationLinks: Record<
     text: 'XPath Documentation',
   },
 };
-  const sampleXmlFile = require('./sample.xml.json')
-  let buffer = Buffer.from(sampleXmlFile.xml, 'base64')
-  const sampleXml = buffer.toString();
-  
-  const XPathEvaluator: React.FC = () => {
+const sampleXmlFile = require('./sample.xml.json');
+let buffer = Buffer.from(sampleXmlFile.xml, 'base64');
+const sampleXml = buffer.toString();
+
+const XPathEvaluator: React.FC = () => {
   const [result, setResult] = useState<string>(JSON.stringify([], null, 4));
-  const [query, setQuery] = useState<string>('xhr:Employee_Data/xhr:Personal_Data/xhr:Name_Data/xhr:Legal_Name/xhr:Name_Detail/xhr:Last_Name');
+  const [query, setQuery] = useState<string>(
+    'xhr:Employee_Data/xhr:Personal_Data/xhr:Name_Data/xhr:Legal_Name/xhr:Name_Detail/xhr:Last_Name',
+  );
   const [root, setRoot] = useState<string>('//xhr:Response_Data/xhr:Employee');
   const [queryParseError, setQueryParseError] = useState<string>('');
   const [fontSize, setFontSize] = useState<string>('16');
@@ -50,7 +50,7 @@ const documentationLinks: Record<
   const {siteConfig} = useDocusaurusContext();
 
   // Apply XPath query
-  const applyXPathQuery = async (xml: string, xPath: string, root: string) => {
+  const applyXPathQuery = (xml: string, xPath: string, root: string) => {
     if (xPath.length === 0 || xPath === '//') {
       setResult('[]');
       return;
@@ -58,22 +58,12 @@ const documentationLinks: Record<
 
     try {
       let result: any;
-      let tempResult: any;
 
-      try {
-        switch (implementation) {
-          case 'XPath':
-            tempResult = await evaluateXPath(
-              'https://o2352gowwy55a4vviyswr76lxu0ednjs.lambda-url.us-east-2.on.aws/',
-              xPath,
-			  root,
-              xml,
-            );
-            result = tempResult.error ? tempResult.error : tempResult;
-            break;
-        }
-      } catch (error: any) {
-        result = error.message;
+      switch (implementation) {
+        case 'XPath':
+          // Evaluated entirely in the browser; no Lambda round trip.
+          result = evaluateXPath(xPath, root, xml);
+          break;
       }
 
       setResult(
@@ -88,7 +78,11 @@ const documentationLinks: Record<
       setXmlParseError(false);
     } catch (error: any) {
       setResult('No match');
-      setXmlParseError(true);
+      // Only flag the XML input terminal when the XML itself failed to
+      // parse; query/root-path syntax errors surface via the alert only.
+      setXmlParseError(
+        error instanceof XPathEvaluationError && error.kind === 'xml-parse',
+      );
       setQueryParseError(error.message || 'Error executing XPath query');
     }
   };
@@ -129,7 +123,9 @@ const documentationLinks: Record<
   };
 
   return (
-    <Layout title="XPath Evaluator" description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout
+      title="XPath Evaluator"
+      description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
         <div className={styles.containerFluid}>
           <div className={styles.actionBar}>
@@ -174,18 +170,18 @@ const documentationLinks: Record<
                 )}
               </Stack>
 
-			  <Stack
+              <Stack
                 sx={{justifyContent: 'flex-start'}}
                 direction={'row'}
                 spacing={1}>
-			  {(false && 
-				<ImplementationDropdown
-                  implementation={implementation}
-                  onImplementationChange={handleImplementationChange}
-                  onFocus={handleDropdownFocus}
-                  onBlur={handleDropdownBlur}
-				/>
-			  )}
+                {false && (
+                  <ImplementationDropdown
+                    implementation={implementation}
+                    onImplementationChange={handleImplementationChange}
+                    onFocus={handleDropdownFocus}
+                    onBlur={handleDropdownBlur}
+                  />
+                )}
                 <Button
                   className={styles.runButton}
                   variant="contained"

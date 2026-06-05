@@ -1,6 +1,7 @@
 import React from 'react';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-xml';
+import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/mode-text';
 import 'ace-builds/src-noconflict/theme-github_dark';
 import 'ace-builds/src-noconflict/theme-github_light_default';
@@ -23,26 +24,28 @@ interface InputTerminalProps {
   fontSize: string;
   value: string;
   onChange: (value: string) => void;
-  hasXmlParseError?: boolean;
-  mode?: 'xml' | 'text'; // 🔄 new optional mode prop
+  hasParseError?: boolean;
+  mode?: 'xml' | 'json' | 'text';
+  title?: string;
 }
 
 const InputTerminal: React.FC<InputTerminalProps> = ({
   fontSize,
   value,
   onChange,
-  hasXmlParseError = false,
+  hasParseError = false,
   mode = 'xml',
+  title = 'Inputs',
 }) => {
   const { colorMode } = useColorMode();
 
-  const terminalClass = hasXmlParseError
+  const terminalClass = hasParseError
     ? styles.inputTerminalContainer
     : styles.terminalContainerDefault;
 
   return (
     <div className="col">
-      <h2>Inputs</h2>
+      <h2>{title}</h2>
       <AceEditor
         className={terminalClass}
         mode={mode}

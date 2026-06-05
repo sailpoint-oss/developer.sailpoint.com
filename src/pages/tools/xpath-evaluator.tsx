@@ -7,11 +7,12 @@ import Link from '@mui/material/Link';
 import TerminalFontSizeDropdown from '../../components/xpath/TerminalFontSizeDropdown';
 import InputTerminal from '../../components/xpath/InputTerminal';
 import ResultTerminal from '../../components/xpath/ResultTerminal';
-import ImplementationDropdown from '../../components/xpath/ImplementationDropdown';
-import XPathQueryInput from '../../components/xpath/XPathQueryInput';
 import XPathRootInput from '../../components/xpath/XPathRootInput';
-import {evaluateXPath, XPathEvaluationError} from '../../services/XPathService';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import {
+  evaluateXPathMappings,
+  XPathEvaluationError,
+  type AttributeMappings,
+} from '../../services/XPathService';
 import Button from '@mui/material/Button';
 
 // Define the type for implementation options
@@ -33,25 +34,87 @@ const sampleXml = buffer.toString();
 
 const XPathEvaluator: React.FC = () => {
   const [result, setResult] = useState<string>(JSON.stringify([], null, 4));
-  const [query, setQuery] = useState<string>(
-    'xhr:Employee_Data/xhr:Personal_Data/xhr:Name_Data/xhr:Legal_Name/xhr:Name_Detail/xhr:Last_Name',
+  const [attributeMappingsInput, setAttributeMappingsInput] = useState<string>(
+    JSON.stringify(
+      {
+        firstName:
+          'xhr:Employee_Data/xhr:Personal_Data/xhr:Name_Data/xhr:Legal_Name/xhr:Name_Detail/xhr:First_Name',
+        lastName:
+          'xhr:Employee_Data/xhr:Personal_Data/xhr:Name_Data/xhr:Legal_Name/xhr:Name_Detail/xhr:Last_Name',
+        employeeId:
+          "xhr:Employee_Reference/xhr:ID[@xhr:type='Employee_Number']",
+        phoneNumber:
+          'xhr:Employee_Data/xhr:Personal_Data/xhr:Contact_Data/xhr:Phone/xhr:Formatted_Number',
+        workRegion:
+          "xhr:Employee_Data/xhr:Employment_Data/xhr:Worker_Job_Data/xhr:Position_Data/xhr:Business_Site_Summary_Data[xhr:Usage/xhr:Type_Info/@xhr:Primary='true']/xhr:Address/xhr:Region_Reference/xhr:ID[@xhr:type='Region_Code']",
+        ssnNationalId:
+          "xhr:Employee_Data/xhr:Personal_Data/xhr:Identification_Data/xhr:National_ID[xhr:National_ID_Detail/xhr:ID_Type_Reference/xhr:ID[@xhr:type='National_ID_Type']='USA-SSN']/xhr:National_ID_Detail/xhr:Value"
+      },
+      null,
+      2,
+    ),
   );
   const [root, setRoot] = useState<string>('//xhr:Response_Data/xhr:Employee');
   const [queryParseError, setQueryParseError] = useState<string>('');
+  const [isAttributeMappingsParseError, setIsAttributeMappingsParseError] =
+    useState<boolean>(false);
   const [fontSize, setFontSize] = useState<string>('16');
-  const [inputXml, setInputXml] = useState<string>(sampleXml);
-  const [implementation, setImplementation] =
-    useState<ImplementationType>('XPath');
+  const implementation: ImplementationType = 'XPath';
+  const inputXml = sampleXml;
   const [localXml, setLocalXml] = useState<string>(inputXml);
   const [xmlParseError, setXmlParseError] = useState<boolean>(false);
-  const [isQueryFocused, setIsQueryFocused] = useState<boolean>(false);
-  const [isRootFocused, setIsRootFocused] = useState<boolean>(false);
-  const [isDropdownFocused, setIsDropdownFocused] = useState<boolean>(false);
-  const {siteConfig} = useDocusaurusContext();
 
   // Apply XPath query
-  const applyXPathQuery = (xml: string, xPath: string, root: string) => {
-    if (xPath.length === 0 || xPath === '//') {
+  const parseAttributeMappings = (
+    mappingsJson: string,
+  ): AttributeMappings | null => {
+    try {
+      const parsed = JSON.parse(mappingsJson) as unknown;
+
+      if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+        setQueryParseError(
+          'Attribute mappings must be a JSON object (for example: {"id":"./id"}).',
+        );
+        setIsAttributeMappingsParseError(true);
+        return null;
+      }
+
+      const mappings: AttributeMappings = {};
+      for (const [attributeId, expression] of Object.entries(parsed)) {
+        if (typeof expression !== 'string') {
+          setQueryParseError(
+            `Attribute mapping '${attributeId}' must be an XPath string value.`,
+          );
+          setIsAttributeMappingsParseError(true);
+          return null;
+        }
+        mappings[attributeId] = expression;
+      }
+
+      if (Object.keys(mappings).length === 0) {
+        setQueryParseError('Add at least one attribute mapping XPath pair.');
+        setIsAttributeMappingsParseError(true);
+        return null;
+      }
+
+      return mappings;
+    } catch (_error) {
+      setQueryParseError(
+        'Attribute mappings must be valid JSON (for example: {"id":"./id"}).',
+      );
+      setIsAttributeMappingsParseError(true);
+      return null;
+    }
+  };
+
+  // Apply XPath query
+  const applyXPathQuery = (
+    xml: string,
+    root: string,
+    attributeMappingsJson: string,
+  ) => {
+    const attributeMappings = parseAttributeMappings(attributeMappingsJson);
+    if (!attributeMappings) {
       setResult('[]');
       return;
     }
@@ -62,7 +125,7 @@ const XPathEvaluator: React.FC = () => {
       switch (implementation) {
         case 'XPath':
           // Evaluated entirely in the browser; no Lambda round trip.
-          result = evaluateXPath(xPath, root, xml);
+          result = evaluateXPathMappings(attributeMappings, root, xml);
           break;
       }
 
@@ -75,6 +138,7 @@ const XPathEvaluator: React.FC = () => {
           : 'No match',
       );
       setQueryParseError('');
+      setIsAttributeMappingsParseError(false);
       setXmlParseError(false);
     } catch (error: any) {
       setResult('No match');
@@ -92,34 +156,14 @@ const XPathEvaluator: React.FC = () => {
     setLocalXml(newxml);
   };
 
-  // Handle query input change
-  const handleQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value);
-  };
-
   // Handle root input change
   const handleRootChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRoot(event.target.value);
   };
 
-  // Handle implementation change
-  const handleImplementationChange = (
-    newImplementation: ImplementationType,
-  ) => {
-    setImplementation(newImplementation);
-  };
-
-  // Handle focus events
-  const handleQueryFocus = () => setIsQueryFocused(true);
-  const handleQueryBlur = () => setIsQueryFocused(false);
-  const handleRootFocus = () => setIsRootFocused(true);
-  const handleRootBlur = () => setIsRootFocused(false);
-  const handleDropdownFocus = () => setIsDropdownFocused(true);
-  const handleDropdownBlur = () => setIsDropdownFocused(false);
-
   // Run button handler
   const handleRunQuery = () => {
-    applyXPathQuery(localXml, query, root);
+    applyXPathQuery(localXml, root, attributeMappingsInput);
   };
 
   return (
@@ -143,14 +187,6 @@ const XPathEvaluator: React.FC = () => {
                 <XPathRootInput
                   value={root}
                   onChange={handleRootChange}
-                  onFocus={handleRootFocus}
-                  onBlur={handleRootBlur}
-                />
-                <XPathQueryInput
-                  value={query}
-                  onChange={handleQueryChange}
-                  onFocus={handleQueryFocus}
-                  onBlur={handleQueryBlur}
                 />
                 {documentationLinks[implementation] && (
                   <Link
@@ -174,14 +210,6 @@ const XPathEvaluator: React.FC = () => {
                 sx={{justifyContent: 'flex-start'}}
                 direction={'row'}
                 spacing={1}>
-                {false && (
-                  <ImplementationDropdown
-                    implementation={implementation}
-                    onImplementationChange={handleImplementationChange}
-                    onFocus={handleDropdownFocus}
-                    onBlur={handleDropdownBlur}
-                  />
-                )}
                 <Button
                   className={styles.runButton}
                   variant="contained"
@@ -193,8 +221,6 @@ const XPathEvaluator: React.FC = () => {
                 <TerminalFontSizeDropdown
                   fontSize={fontSize}
                   onFontSizeChange={setFontSize}
-                  onFocus={handleDropdownFocus}
-                  onBlur={handleDropdownBlur}
                 />
               </Stack>
             </Stack>
@@ -214,7 +240,16 @@ const XPathEvaluator: React.FC = () => {
               fontSize={fontSize}
               value={localXml}
               onChange={handleXmlChange}
-              hasXmlParseError={xmlParseError}
+              hasParseError={xmlParseError}
+              title="XML input"
+            />
+            <InputTerminal
+              fontSize={fontSize}
+              value={attributeMappingsInput}
+              onChange={setAttributeMappingsInput}
+              hasParseError={isAttributeMappingsParseError}
+              mode="json"
+              title="Attribute mappings"
             />
             <ResultTerminal result={result} fontSize={fontSize} />
           </Stack>

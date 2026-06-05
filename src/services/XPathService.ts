@@ -232,21 +232,46 @@ export function evaluateXPath(
   xmlData: string,
   namespaceMappings: NamespaceMappings = {},
 ): XPathResource[] {
-  try {
-    // xpath.parse() is a documented public API of the xpath package, but is
-    // missing from its bundled type declarations (as of 0.0.34), hence the
-    // narrow cast.
-    (xpath as unknown as {parse: (expr: string) => unknown}).parse(xPathQuery);
-  } catch (error) {
-    throw new XPathEvaluationError(
-      `Invalid XPath query: ${error instanceof Error ? error.message : String(error)}`,
-      'xpath',
-    );
-  }
-  return parseResources(
-    xmlData,
-    rootPath,
+  return evaluateXPathMappings(
     {'XPath Query Result': xPathQuery},
+    rootPath,
+    xmlData,
     namespaceMappings,
   );
+}
+
+/**
+ * Convenience wrapper for the XPath Evaluator tool: evaluates one or more
+ * attribute-mapping XPath expressions against each node matched by `rootPath`.
+ */
+export function evaluateXPathMappings(
+  attributeMappings: AttributeMappings,
+  rootPath: string,
+  xmlData: string,
+  namespaceMappings: NamespaceMappings = {},
+): XPathResource[] {
+  for (const [attributeName, xPathQuery] of Object.entries(attributeMappings)) {
+    if (!xPathQuery || !xPathQuery.trim()) {
+      throw new XPathEvaluationError(
+        `XPath query for attribute '${attributeName}' is empty`,
+        'xpath',
+      );
+    }
+
+    try {
+      // xpath.parse() is a documented public API of the xpath package, but is
+      // missing from its bundled type declarations (as of 0.0.34), hence the
+      // narrow cast.
+      (xpath as unknown as {parse: (expr: string) => unknown}).parse(xPathQuery);
+    } catch (error) {
+      throw new XPathEvaluationError(
+        `Invalid XPath query for attribute '${attributeName}': ${
+          error instanceof Error ? error.message : String(error)
+        }`,
+        'xpath',
+      );
+    }
+  }
+
+  return parseResources(xmlData, rootPath, attributeMappings, namespaceMappings);
 }

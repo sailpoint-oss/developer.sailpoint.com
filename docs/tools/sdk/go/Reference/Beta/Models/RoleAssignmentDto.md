@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **AssignedDimensions** | Pointer to [**[]BaseReferenceDto1**](base-reference-dto1) | Dimensions assigned related to this role | [optional] 
 **AssignmentContext** | Pointer to [**RoleAssignmentDtoAssignmentContext**](role-assignment-dto-assignment-context) |  | [optional] 
 **AccountTargets** | Pointer to [**[]RoleTargetDto**](role-target-dto) |  | [optional] 
+**StartDate** | Pointer to **NullableTime** | Date when assignment will be active, if access was requested with a future start date. If null, assignment is active immediately | [optional] 
 **RemoveDate** | Pointer to **NullableTime** | Date that the assignment will be removed | [optional] 
 **AddedDate** | Pointer to **SailPointTime** | Date that the assignment was added | [optional] 
 
@@ -255,6 +256,41 @@ SetAccountTargets sets AccountTargets field to given value.
 
 HasAccountTargets returns a boolean if a field has been set.
 
+### GetStartDate
+
+`func (o *RoleAssignmentDto) GetStartDate() SailPointTime`
+
+GetStartDate returns the StartDate field if non-nil, zero value otherwise.
+
+### GetStartDateOk
+
+`func (o *RoleAssignmentDto) GetStartDateOk() (*SailPointTime, bool)`
+
+GetStartDateOk returns a tuple with the StartDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartDate
+
+`func (o *RoleAssignmentDto) SetStartDate(v SailPointTime)`
+
+SetStartDate sets StartDate field to given value.
+
+### HasStartDate
+
+`func (o *RoleAssignmentDto) HasStartDate() bool`
+
+HasStartDate returns a boolean if a field has been set.
+
+### SetStartDateNil
+
+`func (o *RoleAssignmentDto) SetStartDateNil(b bool)`
+
+ SetStartDateNil sets the value for StartDate to be an explicit nil
+
+### UnsetStartDate
+`func (o *RoleAssignmentDto) UnsetStartDate()`
+
+UnsetStartDate ensures that no value is present for StartDate, not even an explicit nil
 ### GetRemoveDate
 
 `func (o *RoleAssignmentDto) GetRemoveDate() SailPointTime`

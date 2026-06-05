@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** | Assignment Id | [optional] 
 **Role** | Pointer to [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
 **AddedDate** | Pointer to **SailPointTime** | Date that the assignment was added | [optional] 
+**StartDate** | Pointer to **NullableTime** | Date when assignment will be active, if access was requested with a future start date. If null, assignment is active immediately | [optional] 
 **RemoveDate** | Pointer to **NullableTime** | Date that the assignment will be removed | [optional] 
 **Comments** | Pointer to **NullableString** | Comments added by the user when the assignment was made | [optional] 
 **AssignmentSource** | Pointer to **string** | Source describing how this assignment was made | [optional] 
@@ -120,6 +121,41 @@ SetAddedDate sets AddedDate field to given value.
 
 HasAddedDate returns a boolean if a field has been set.
 
+### GetStartDate
+
+`func (o *GetRoleAssignments200ResponseInner) GetStartDate() SailPointTime`
+
+GetStartDate returns the StartDate field if non-nil, zero value otherwise.
+
+### GetStartDateOk
+
+`func (o *GetRoleAssignments200ResponseInner) GetStartDateOk() (*SailPointTime, bool)`
+
+GetStartDateOk returns a tuple with the StartDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartDate
+
+`func (o *GetRoleAssignments200ResponseInner) SetStartDate(v SailPointTime)`
+
+SetStartDate sets StartDate field to given value.
+
+### HasStartDate
+
+`func (o *GetRoleAssignments200ResponseInner) HasStartDate() bool`
+
+HasStartDate returns a boolean if a field has been set.
+
+### SetStartDateNil
+
+`func (o *GetRoleAssignments200ResponseInner) SetStartDateNil(b bool)`
+
+ SetStartDateNil sets the value for StartDate to be an explicit nil
+
+### UnsetStartDate
+`func (o *GetRoleAssignments200ResponseInner) UnsetStartDate()`
+
+UnsetStartDate ensures that no value is present for StartDate, not even an explicit nil
 ### GetRemoveDate
 
 `func (o *GetRoleAssignments200ResponseInner) GetRemoveDate() SailPointTime`

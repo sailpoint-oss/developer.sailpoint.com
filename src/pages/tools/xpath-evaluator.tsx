@@ -267,7 +267,7 @@ const XPathEvaluator: React.FC = () => {
   // Handle input change
   const handleXmlChange = (newxml: string) => {
     setLocalXml(newxml);
-    setHoverXPathHintMessage('Hover an XML value to see its XPath.');
+    setHoverXPathHintMessage('Hover over an XML value to see its XPath.');
     setHoverXPathMatches([]);
     setIsHoverLocked(false);
     setLockedHoverValue(null);
@@ -289,7 +289,7 @@ const XPathEvaluator: React.FC = () => {
     if (!hoveredNode) {
       // Prevent visual jitter when the cursor briefly crosses XML punctuation.
       hoverClearTimeoutRef.current = window.setTimeout(() => {
-        setHoverXPathHintMessage('Hover an XML value to see its XPath.');
+        setHoverXPathHintMessage('Hover over an XML value to see its XPath.');
         setHoverXPathMatches([]);
         lastRenderedHoverKeyRef.current = '';
         hoverClearTimeoutRef.current = null;
@@ -455,6 +455,7 @@ const XPathEvaluator: React.FC = () => {
                 Reset Hover
               </button>
             </div>
+            <div>Click a selected XML value to lock output to that variable.</div>
             <div>{hoverXPathHintMessage}</div>
             <div className={styles.hoverResultsSectionTitle}>
               Exact selected node XPath

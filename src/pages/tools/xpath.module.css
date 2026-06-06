@@ -94,3 +94,75 @@ div [id^='xpathalert'] {
   color: var(--text-on-primary) !important;
   border: 1px solid var(--ifm-button-colors) !important;
 }
+
+.hoverHint {
+  margin-top: 8px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: var(--ifm-font-color-base);
+  word-break: break-word;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 8px;
+  height: 240px;
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+  overflow-anchor: none;
+}
+
+.hoverHintMatch {
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px solid var(--dev-card-background);
+  border-radius: 4px;
+}
+
+.hoverResultsSectionTitle {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.hoverHintLocked {
+  border-color: var(--ifm-color-warning);
+  box-shadow: 0 0 0 1px var(--ifm-color-warning);
+}
+
+.hoverHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.resetHoverButton {
+  border: 1px solid;
+  border-radius: 4px;
+  background: transparent;
+  font-size: 0.85rem;
+  padding: 4px 8px;
+}
+
+.resetHoverButtonActive {
+  color: var(--ifm-color-warning-dark);
+  border-color: var(--ifm-color-warning-dark);
+  background-color: var(--ifm-color-warning-lightest);
+  cursor: pointer;
+}
+
+.resetHoverButtonDisabled {
+  color: var(--ifm-color-emphasis-500);
+  border-color: var(--ifm-color-emphasis-300);
+  background-color: var(--ifm-color-emphasis-100);
+  cursor: not-allowed;
+}
+
+:global(.ace_marker-layer .locked-hover-selection) {
+  position: absolute;
+  background-color: rgba(255, 193, 7, 0.35);
+  border-bottom: 2px solid var(--ifm-color-warning-dark);
+  z-index: 20;
+}

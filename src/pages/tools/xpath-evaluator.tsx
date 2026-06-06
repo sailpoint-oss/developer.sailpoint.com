@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Layout from '@theme/Layout';
 import styles from './xpath.module.css';
 import Alert from '@mui/material/Alert';
@@ -6,6 +6,7 @@ import Stack from '@mui/material/Stack';
 import Link from '@mui/material/Link';
 import TerminalFontSizeDropdown from '../../components/xpath/TerminalFontSizeDropdown';
 import InputTerminal from '../../components/xpath/InputTerminal';
+import type {HoverValuePayload} from '../../components/xpath/InputTerminal';
 import ResultTerminal from '../../components/xpath/ResultTerminal';
 import XPathRootInput from '../../components/xpath/XPathRootInput';
 import {
@@ -17,6 +18,11 @@ import Button from '@mui/material/Button';
 
 // Define the type for implementation options
 type ImplementationType = 'XPath';
+type HoverXPathMatch = {
+  occurrence: number;
+  elementPath: string;
+  exactNodePath: string;
+};
 
 // Define the documentation links type
 const documentationLinks: Record<
@@ -63,6 +69,113 @@ const XPathEvaluator: React.FC = () => {
   const inputXml = sampleXml;
   const [localXml, setLocalXml] = useState<string>(inputXml);
   const [xmlParseError, setXmlParseError] = useState<boolean>(false);
+  const [hoverXPathHintMessage, setHoverXPathHintMessage] = useState<string>(
+    'Hover an XML value to see its XPath.',
+  );
+  const [hoverXPathMatches, setHoverXPathMatches] = useState<HoverXPathMatch[]>(
+    [],
+  );
+  const [isHoverLocked, setIsHoverLocked] = useState<boolean>(false);
+  const [lockedHoverValue, setLockedHoverValue] =
+    useState<HoverValuePayload | null>(null);
+  const hoverClearTimeoutRef = useRef<number | null>(null);
+  const lastRenderedHoverKeyRef = useRef<string>('');
+
+  const getElementXPath = (element: Element): string => {
+    const segments: string[] = [];
+    let current: Element | null = element;
+
+    while (current) {
+      segments.unshift(current.tagName);
+      current = current.parentElement;
+    }
+
+    return `/${segments.join('/')}`;
+  };
+
+  const resolveXPathForValue = (
+    xml: string,
+    hoveredNode: HoverValuePayload,
+  ): {
+    matches: HoverXPathMatch[];
+    message: string;
+  } => {
+    const value = hoveredNode.value.trim();
+    if (!value) {
+      return {
+        matches: [],
+        message: 'Hover an XML value to see its XPath.',
+      };
+    }
+
+    try {
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(xml, 'application/xml');
+      if (xmlDoc.getElementsByTagName('parsererror').length > 0) {
+        return {
+          matches: [],
+          message: 'XPath hint unavailable (invalid XML).',
+        };
+      }
+
+      const matches: HoverXPathMatch[] = [];
+      const elements = Array.from(xmlDoc.getElementsByTagName('*'));
+
+      for (const element of elements) {
+        const elementPath = getElementXPath(element);
+
+        if (hoveredNode.nodeKind === 'attribute') {
+          for (const attribute of Array.from(element.attributes)) {
+            if (attribute.value === value) {
+              const exactNodePath = `${elementPath}/@${attribute.name}`;
+              matches.push({
+                occurrence: matches.length + 1,
+                elementPath,
+                exactNodePath,
+              });
+            }
+          }
+        } else {
+          for (const childNode of Array.from(element.childNodes)) {
+            if (
+              childNode.nodeType === Node.TEXT_NODE &&
+              childNode.textContent?.trim() === value
+            ) {
+              const exactNodePath = `${elementPath}/text()`;
+              matches.push({
+                occurrence: matches.length + 1,
+                elementPath,
+                exactNodePath,
+              });
+            }
+          }
+        }
+      }
+
+      if (matches.length === 0) {
+        return {
+          matches: [],
+          message: `No XPath match found for "${value}".`,
+        };
+      }
+
+      const selectedIndex = Math.min(
+        Math.max(hoveredNode.occurrenceIndex, 0),
+        matches.length - 1,
+      );
+      const selectedMatch = matches[selectedIndex];
+
+      return {
+        matches: [selectedMatch],
+        message: `Showing selected node match for "${value}" (${matches.length} total matches).`,
+      };
+    } catch (_error) {
+      return {
+        matches: [],
+        message: 'XPath hint unavailable.',
+      };
+    }
+  };
 
   // Apply XPath query
   const parseAttributeMappings = (
@@ -154,7 +267,75 @@ const XPathEvaluator: React.FC = () => {
   // Handle input change
   const handleXmlChange = (newxml: string) => {
     setLocalXml(newxml);
+    setHoverXPathHintMessage('Hover an XML value to see its XPath.');
+    setHoverXPathMatches([]);
+    setIsHoverLocked(false);
+    setLockedHoverValue(null);
+    if (hoverClearTimeoutRef.current !== null) {
+      window.clearTimeout(hoverClearTimeoutRef.current);
+      hoverClearTimeoutRef.current = null;
+    }
+    lastRenderedHoverKeyRef.current = '';
   };
+
+  const handleXmlHoverValueChange = (hoveredNode: HoverValuePayload | null) => {
+    if (isHoverLocked) {
+      return;
+    }
+    if (hoverClearTimeoutRef.current !== null) {
+      window.clearTimeout(hoverClearTimeoutRef.current);
+      hoverClearTimeoutRef.current = null;
+    }
+    if (!hoveredNode) {
+      // Prevent visual jitter when the cursor briefly crosses XML punctuation.
+      hoverClearTimeoutRef.current = window.setTimeout(() => {
+        setHoverXPathHintMessage('Hover an XML value to see its XPath.');
+        setHoverXPathMatches([]);
+        lastRenderedHoverKeyRef.current = '';
+        hoverClearTimeoutRef.current = null;
+      }, 120);
+      return;
+    }
+    const hoverKey = `${hoveredNode.nodeKind}:${hoveredNode.value}:${hoveredNode.occurrenceIndex}`;
+    if (lastRenderedHoverKeyRef.current === hoverKey) {
+      return;
+    }
+    const hoverData = resolveXPathForValue(localXml, hoveredNode);
+    setHoverXPathHintMessage(hoverData.message);
+    setHoverXPathMatches(hoverData.matches);
+    lastRenderedHoverKeyRef.current = hoverKey;
+  };
+
+  const handleXmlHoverLock = (hoveredNode: HoverValuePayload | null) => {
+    if (!hoveredNode) {
+      return;
+    }
+    if (hoverClearTimeoutRef.current !== null) {
+      window.clearTimeout(hoverClearTimeoutRef.current);
+      hoverClearTimeoutRef.current = null;
+    }
+    const hoverData = resolveXPathForValue(localXml, hoveredNode);
+    setHoverXPathHintMessage(`LOCKED: ${hoverData.message}`);
+    setHoverXPathMatches(hoverData.matches);
+    setIsHoverLocked(true);
+    setLockedHoverValue(hoveredNode);
+  };
+
+  const resetHoverLock = () => {
+    setIsHoverLocked(false);
+    setHoverXPathHintMessage('Hover an XML value to see its XPath.');
+    setHoverXPathMatches([]);
+    setLockedHoverValue(null);
+    lastRenderedHoverKeyRef.current = '';
+  };
+
+  useEffect(() => {
+    return () => {
+      if (hoverClearTimeoutRef.current !== null) {
+        window.clearTimeout(hoverClearTimeoutRef.current);
+      }
+    };
+  }, []);
 
   // Handle root input change
   const handleRootChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -242,6 +423,9 @@ const XPathEvaluator: React.FC = () => {
               onChange={handleXmlChange}
               hasParseError={xmlParseError}
               title="XML input"
+              onHoverValueChange={handleXmlHoverValueChange}
+              onHoverLock={handleXmlHoverLock}
+              lockedHoverValue={lockedHoverValue}
             />
             <InputTerminal
               fontSize={fontSize}
@@ -253,6 +437,41 @@ const XPathEvaluator: React.FC = () => {
             />
             <ResultTerminal result={result} fontSize={fontSize} />
           </Stack>
+          <div
+            className={`${styles.hoverHint} ${
+              isHoverLocked ? styles.hoverHintLocked : ''
+            }`}>
+            <div className={styles.hoverHeader}>
+              <strong>{isHoverLocked ? 'XPath Hover (Locked)' : 'XPath Hover'}</strong>
+              <button
+                type="button"
+                onClick={resetHoverLock}
+                disabled={!isHoverLocked}
+                className={`${styles.resetHoverButton} ${
+                  isHoverLocked
+                    ? styles.resetHoverButtonActive
+                    : styles.resetHoverButtonDisabled
+                }`}>
+                Reset Hover
+              </button>
+            </div>
+            <div>{hoverXPathHintMessage}</div>
+            <div className={styles.hoverResultsSectionTitle}>
+              Exact selected node XPath
+            </div>
+            {hoverXPathMatches.map((match, index) => (
+              <div
+                key={`selected-${index}-${match.occurrence}-${match.exactNodePath}`}
+                className={styles.hoverHintMatch}>
+                <div>
+                  Element path: <code>{match.elementPath}</code>
+                </div>
+                <div>
+                  Exact node path: <code>{match.exactNodePath}</code>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </main>
     </Layout>

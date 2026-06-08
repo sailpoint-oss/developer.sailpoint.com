@@ -12,7 +12,7 @@ get:
     in: path
     description: ID of the Multi-Host Integration
     required: true
-    x-sailpoint-resource-operation-id: getMultiHostIntegrations
+    x-sailpoint-resource-operation-id: getMultiHostIntegrationsV1
     style: simple
     explode: false
     schema:
@@ -22,7 +22,7 @@ get:
     in: path
     description: ID of the source within the Multi-Host Integration
     required: true
-    x-sailpoint-resource-operation-id: getSourcesWithinMultiHost
+    x-sailpoint-resource-operation-id: getSourcesWithinMultiHostV1
     style: simple
     explode: false
     schema:

@@ -9,7 +9,7 @@ get:
     in: path
     description: Manager's identity ID.
     required: true
-    x-sailpoint-resource-operation-id: listIdentities
+    x-sailpoint-resource-operation-id: listIdentitiesV1
     schema:
       type: string
     example: 7025c863-c270-4ba6-beea-edf3cb091573

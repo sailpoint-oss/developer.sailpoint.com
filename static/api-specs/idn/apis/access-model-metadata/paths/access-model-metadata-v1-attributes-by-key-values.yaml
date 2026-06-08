@@ -17,7 +17,7 @@ get:
   - name: key
     in: path
     required: true
-    x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
+    x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeV1
     schema:
       type: string
     description: Technical name of the Attribute.
@@ -63,7 +63,7 @@ post:
   - name: key
     in: path
     required: true
-    x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
+    x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeV1
     schema:
       type: string
     description: Technical name of the Attribute.

@@ -17,7 +17,7 @@ get:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: getSodAllReportRunStatus
+    x-sailpoint-resource-operation-id: getSodAllReportRunStatusV1
     description: The ID of the report reference to retrieve.
     example: 2e8d8180-24bc-4d21-91c6-7affdb473b0d
   responses:

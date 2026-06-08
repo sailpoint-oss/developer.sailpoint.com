@@ -16,7 +16,7 @@ post:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
     description: The Source id
   - name: X-SailPoint-Experimental
     in: header

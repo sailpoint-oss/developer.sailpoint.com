@@ -23,7 +23,7 @@ get:
     required: true
     description: source id.
     example: gt38f94347e94562b5bb8424a56498d8
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
   responses:
     '200':
       description: Responds with a AccountDeleteConfigDto for machine account deletion approval config by sourceId.
@@ -73,7 +73,7 @@ patch:
     description: machine account source ID.
     required: true
     example: 00eebcf881994e419d72e757fd30dc0e
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
   requestBody:
     required: true
     description: The JSONPatch payload used to update the object.

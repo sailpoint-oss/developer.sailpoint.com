@@ -20,7 +20,7 @@ get:
   - in: path
     name: sourceId
     required: true
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
     schema:
       type: string
     description: The Source id.
@@ -78,7 +78,7 @@ patch:
   - in: path
     name: sourceId
     required: true
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
     schema:
       type: string
     description: The Source id.
@@ -146,7 +146,7 @@ delete:
   - in: path
     name: sourceId
     required: true
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
     schema:
       type: string
     description: The Source id.

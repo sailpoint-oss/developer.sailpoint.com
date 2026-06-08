@@ -38,7 +38,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../shared/schemas/accountrequestasyncresult.yaml
+            $ref: ../schemas/accountrequestasyncresult.yaml
           example:
             accountRequestId: 2d81808474683da6017468693c260196
     '400':

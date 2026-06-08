@@ -12,7 +12,7 @@ get:
       type: string
     example: 43bdd144-4b17-4fce-a744-17c7fd3e717b
     description: The ID of the machine account subtype.
-    x-sailpoint-resource-operation-id: listMachineAccountSubtypes
+    x-sailpoint-resource-operation-id: listMachineAccountSubtypesV1
   - name: X-SailPoint-Experimental
     in: header
     description: Use this header to enable this experimental API.

@@ -13,7 +13,7 @@ put:
       type: string
     required: true
     example: 2c91808568c529c60168cca6f90c1313
-    x-sailpoint-resource-operation-id: listScheduledSearch
+    x-sailpoint-resource-operation-id: listScheduledSearchV1
   requestBody:
     description: The scheduled search to persist.
     content:
@@ -57,7 +57,7 @@ get:
       type: string
     required: true
     example: 2c91808568c529c60168cca6f90c1313
-    x-sailpoint-resource-operation-id: listScheduledSearch
+    x-sailpoint-resource-operation-id: listScheduledSearchV1
   responses:
     '200':
       description: The requested scheduled search.
@@ -93,7 +93,7 @@ delete:
       type: string
     required: true
     example: 2c91808568c529c60168cca6f90c1313
-    x-sailpoint-resource-operation-id: listScheduledSearch
+    x-sailpoint-resource-operation-id: listScheduledSearchV1
   responses:
     '204':
       description: No Content - Indicates the request was successful but there is no content to be returned in the response.

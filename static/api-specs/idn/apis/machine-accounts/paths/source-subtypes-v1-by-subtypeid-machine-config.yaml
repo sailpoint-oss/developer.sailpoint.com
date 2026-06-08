@@ -35,7 +35,7 @@ get:
     description: machine subtype id.
     required: true
     example: ef38f94347e94562b5bb8424a56498d8
-    x-sailpoint-resource-operation-id: listMachineAccountSubtypes
+    x-sailpoint-resource-operation-id: listMachineAccountSubtypesV1
   responses:
     '200':
       description: >-
@@ -93,7 +93,7 @@ patch:
     description: machine account subtype ID.
     required: true
     example: 00eebcf881994e419d72e757fd30dc0e
-    x-sailpoint-resource-operation-id: listMachineAccountSubtypes
+    x-sailpoint-resource-operation-id: listMachineAccountSubtypesV1
   requestBody:
     required: true
     description: The JSONPatch payload used to update the object.

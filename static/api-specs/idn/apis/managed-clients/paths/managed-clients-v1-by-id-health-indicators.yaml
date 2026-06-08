@@ -9,7 +9,7 @@ get:
     in: path
     description: Managed client ID to get health indicators for.
     required: true
-    x-sailpoint-resource-operation-id: getManagedClients
+    x-sailpoint-resource-operation-id: getManagedClientsV1
     schema:
       type: string
       example: 4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7

@@ -14,7 +14,7 @@ get:
     in: path
     description: Id of the Notification Template
     required: true
-    x-sailpoint-resource-operation-id: listNotificationTemplates
+    x-sailpoint-resource-operation-id: listNotificationTemplatesV1
     style: simple
     explode: false
     schema:

@@ -36,5 +36,7 @@ properties:
   formDefinitionId:
     type: string
     nullable: true
-    description: The ID of the form definition used for the access request. If specified, the form is presented to the requester during the access request process.
+    description: >-
+      The ID of the form definition used for the access request. If specified, the form is presented to the requester
+      during the access request process.
     example: 78258e80-e9e2-4e1a-a11f-ce0b7c62f25d

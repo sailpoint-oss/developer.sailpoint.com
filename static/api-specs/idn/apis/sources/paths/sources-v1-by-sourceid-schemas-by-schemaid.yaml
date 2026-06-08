@@ -9,7 +9,7 @@ get:
   - in: path
     name: sourceId
     required: true
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
     schema:
       type: string
     description: The Source id.
@@ -19,7 +19,7 @@ get:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: getSourceSchemas
+    x-sailpoint-resource-operation-id: getSourceSchemasV1
     description: The Schema id.
     example: 2c9180835d191a86015d28455b4a2329
   responses:
@@ -73,7 +73,7 @@ put:
   - in: path
     name: sourceId
     required: true
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
     schema:
       type: string
     description: The Source id.
@@ -83,7 +83,7 @@ put:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: getSourceSchemas
+    x-sailpoint-resource-operation-id: getSourceSchemasV1
     description: The Schema id.
     example: 2c9180835d191a86015d28455b4a2329
   requestBody:
@@ -166,7 +166,7 @@ patch:
   - in: path
     name: sourceId
     required: true
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
     schema:
       type: string
     description: The Source id.
@@ -176,7 +176,7 @@ patch:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: getSourceSchemas
+    x-sailpoint-resource-operation-id: getSourceSchemasV1
     description: The Schema id.
     example: 2c9180835d191a86015d28455b4a2329
   requestBody:
@@ -233,7 +233,7 @@ delete:
   - in: path
     name: sourceId
     required: true
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
     schema:
       type: string
     description: The Source id.
@@ -243,7 +243,7 @@ delete:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: getSourceSchemas
+    x-sailpoint-resource-operation-id: getSourceSchemasV1
     description: The Schema id.
     example: 2c9180835d191a86015d28455b4a2329
   responses:

@@ -19,7 +19,7 @@ post:
   - in: path
     name: roleId
     required: true
-    x-sailpoint-resource-operation-id: listRoles
+    x-sailpoint-resource-operation-id: listRolesV1
     schema:
       type: string
     description: Parent Role Id of the dimensions.

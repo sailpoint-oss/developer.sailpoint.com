@@ -23,7 +23,7 @@ post:
       type: string
     description: ID of the approval request to cancel.
     example: 38453251-6be2-5f8f-df93-5ce19e295837
-    x-sailpoint-resource-operation-id: getApprovals
+    x-sailpoint-resource-operation-id: getApprovalsV1
   requestBody:
     required: false
     content:

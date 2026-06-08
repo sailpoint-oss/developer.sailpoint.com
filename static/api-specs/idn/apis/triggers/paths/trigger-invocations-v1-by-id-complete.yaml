@@ -10,7 +10,7 @@ post:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listTriggerInvocationStatus
+    x-sailpoint-resource-operation-id: listTriggerInvocationStatusV1
     description: The ID of the invocation to complete.
     example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
   requestBody:

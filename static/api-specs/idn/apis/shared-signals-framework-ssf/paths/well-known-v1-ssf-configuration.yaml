@@ -14,7 +14,7 @@ get:
           schema:
             $ref: ../schemas/transmittermetadata.yaml
           example:
-            spec_version: '1_0'
+            spec_version: 1_0
             issuer: https://tenant.api.identitynow.com
             jwks_uri: https://tenant.api.identitynow.com/ssf/jwks
             delivery_methods_supported:

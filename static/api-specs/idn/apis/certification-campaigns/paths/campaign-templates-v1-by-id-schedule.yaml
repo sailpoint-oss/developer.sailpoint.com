@@ -18,7 +18,7 @@ get:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: getCampaignTemplates
+    x-sailpoint-resource-operation-id: getCampaignTemplatesV1
     description: ID of the campaign template whose schedule is being fetched.
     example: 04bedce387bd47b2ae1f86eb0bb36dee
   responses:
@@ -62,7 +62,7 @@ put:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: getCampaignTemplates
+    x-sailpoint-resource-operation-id: getCampaignTemplatesV1
     description: ID of the campaign template being scheduled.
     example: 04bedce387bd47b2ae1f86eb0bb36dee
   requestBody:
@@ -172,7 +172,7 @@ delete:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: getCampaignTemplates
+    x-sailpoint-resource-operation-id: getCampaignTemplatesV1
     description: ID of the campaign template whose schedule is being deleted.
     example: 04bedce387bd47b2ae1f86eb0bb36dee
   responses:

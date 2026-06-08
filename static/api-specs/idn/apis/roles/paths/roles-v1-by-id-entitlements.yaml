@@ -9,7 +9,7 @@ get:
     in: path
     description: Containing role's ID.
     required: true
-    x-sailpoint-resource-operation-id: listRoles
+    x-sailpoint-resource-operation-id: listRolesV1
     schema:
       type: string
       example: 2c91808a7813090a017814121919ecca

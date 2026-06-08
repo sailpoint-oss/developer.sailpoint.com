@@ -11,7 +11,7 @@ get:
     in: path
     description: Form instance ID
     required: true
-    x-sailpoint-resource-operation-id: searchFormDefinitionsByTenant
+    x-sailpoint-resource-operation-id: searchFormDefinitionsByTenantV1
     schema:
       type: string
       x-go-name: FormInstanceID
@@ -21,7 +21,7 @@ get:
     in: path
     description: Form element ID
     required: true
-    x-sailpoint-resource-operation-id: getFormInstanceByKey
+    x-sailpoint-resource-operation-id: getFormInstanceByKeyV1
     schema:
       type: string
       x-go-name: FormElementID

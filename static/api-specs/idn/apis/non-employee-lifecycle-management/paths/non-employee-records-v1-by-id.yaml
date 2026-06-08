@@ -11,7 +11,7 @@ get:
     name: id
     description: Non-Employee record id (UUID)
     required: true
-    x-sailpoint-resource-operation-id: listNonEmployeeRecords
+    x-sailpoint-resource-operation-id: listNonEmployeeRecordsV1
     example: ef38f94347e94562b5bb8424a56397d8
     schema:
       type: string
@@ -57,7 +57,7 @@ put:
     description: Non-employee record id (UUID)
     example: ef38f94347e94562b5bb8424a56397d8
     required: true
-    x-sailpoint-resource-operation-id: listNonEmployeeRecords
+    x-sailpoint-resource-operation-id: listNonEmployeeRecordsV1
     schema:
       type: string
   requestBody:
@@ -108,7 +108,7 @@ patch:
     description: Non-employee record id (UUID)
     example: ef38f94347e94562b5bb8424a56397d8
     required: true
-    x-sailpoint-resource-operation-id: listNonEmployeeRecords
+    x-sailpoint-resource-operation-id: listNonEmployeeRecordsV1
     schema:
       type: string
   requestBody:
@@ -160,7 +160,7 @@ delete:
     description: Non-Employee record id (UUID)
     example: ef38f94347e94562b5bb8424a56397d8
     required: true
-    x-sailpoint-resource-operation-id: listNonEmployeeRecords
+    x-sailpoint-resource-operation-id: listNonEmployeeRecordsV1
     schema:
       type: string
   responses:

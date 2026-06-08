@@ -7,7 +7,7 @@ get:
     in: path
     required: true
     example: 58de858b-83d9-4563-9e15-7393594c684a
-    x-sailpoint-resource-operation-id: searchParameters
+    x-sailpoint-resource-operation-id: searchParametersV1
     description: The ID of the parameter to be fetched
     schema:
       type: string
@@ -51,7 +51,7 @@ patch:
     in: path
     required: true
     example: 58de858b-83d9-4563-9e15-7393594c684a
-    x-sailpoint-resource-operation-id: searchParameters
+    x-sailpoint-resource-operation-id: searchParametersV1
     description: The ID of the parameter to be updated.
     schema:
       type: string
@@ -107,7 +107,7 @@ delete:
     in: path
     required: true
     example: 58de858b-83d9-4563-9e15-7393594c684a
-    x-sailpoint-resource-operation-id: searchParameters
+    x-sailpoint-resource-operation-id: searchParametersV1
     description: The ID of the parameter to be deleted.
     schema:
       type: string

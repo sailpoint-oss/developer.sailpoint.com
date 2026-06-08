@@ -24,7 +24,7 @@ get:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: createMachineAccountRequest
+    x-sailpoint-resource-operation-id: createMachineAccountRequestV1
     description: Account Request ID
     example: gt38f94347e94562b5bb8424a56498d8
   responses:

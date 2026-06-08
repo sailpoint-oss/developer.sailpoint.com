@@ -22,7 +22,7 @@ post:
     in: path
     required: true
     description: The unique identifier of the user level to publish.
-    x-sailpoint-resource-operation-id: listUserLevels
+    x-sailpoint-resource-operation-id: listUserLevelsV1
     schema:
       type: string
     example: 6e110911-5984-491b-be74-2707980a46a7

@@ -33,7 +33,7 @@ get:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listTaggedObjects
+    x-sailpoint-resource-operation-id: listTaggedObjectsV1
     description: The ID of the object reference to retrieve.
     example: ef38f94347e94562b5bb8424a56397d8
   responses:
@@ -86,7 +86,7 @@ put:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listTaggedObjects
+    x-sailpoint-resource-operation-id: listTaggedObjectsV1
     description: The ID of the object reference to update.
     example: ef38f94347e94562b5bb8424a56397d8
   requestBody:
@@ -145,7 +145,7 @@ delete:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listTaggedObjects
+    x-sailpoint-resource-operation-id: listTaggedObjectsV1
     description: The ID of the object to delete tags from.
     example: ef38f94347e94562b5bb8424a56397d8
   responses:

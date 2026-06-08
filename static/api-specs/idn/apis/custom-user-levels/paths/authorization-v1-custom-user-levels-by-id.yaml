@@ -22,7 +22,7 @@ get:
     in: path
     required: true
     description: The unique identifier of the user level.
-    x-sailpoint-resource-operation-id: listUserLevels
+    x-sailpoint-resource-operation-id: listUserLevelsV1
     schema:
       type: string
     example: 6e110911-5984-491b-be74-2707980a46a7
@@ -121,7 +121,7 @@ delete:
     in: path
     required: true
     description: The unique identifier of the user level.
-    x-sailpoint-resource-operation-id: listUserLevels
+    x-sailpoint-resource-operation-id: listUserLevelsV1
     schema:
       type: string
     example: 6e110911-5984-491b-be74-2707980a46a7
@@ -164,7 +164,7 @@ patch:
     in: path
     required: true
     description: The unique identifier of the user level.
-    x-sailpoint-resource-operation-id: listUserLevels
+    x-sailpoint-resource-operation-id: listUserLevelsV1
     schema:
       type: string
     example: 6e110911-5984-491b-be74-2707980a46a7
@@ -178,11 +178,21 @@ patch:
       application/json-patch+json:
         schema:
           $ref: ../../shared/schemas/jsonpatch.yaml
-        example:
-        - op: replace
-          path: /rightSets
-          value:
-          - idn:ui-identity-manage-example
+        examples:
+          identity:
+            summary: Identity custom user level patch
+            value:
+            - op: replace
+              path: /rightSets
+              value:
+              - idn:ui-identity-manage-example
+          governanceGroups:
+            summary: Governance groups custom user level patch
+            value:
+            - op: replace
+              path: /rightSets
+              value:
+              - idn:ui-workgroup-management
   responses:
     '200':
       description: Successfully updated the user level.

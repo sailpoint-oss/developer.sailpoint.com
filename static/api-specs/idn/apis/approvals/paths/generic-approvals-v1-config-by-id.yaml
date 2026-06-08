@@ -21,7 +21,7 @@ get:
       "ACCOUNT_CREATE_APPROVAL_REQUEST", "ACCOUNT_DELETE_APPROVAL_REQUEST", "MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST",
       "MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST", (tenantID)]
     example: 1.2345678901234566e+31
-    x-sailpoint-resource-operation-id: getApprovals
+    x-sailpoint-resource-operation-id: getApprovalsV1
   responses:
     '200':
       description: Approval object

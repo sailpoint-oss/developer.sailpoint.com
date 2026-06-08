@@ -8,7 +8,7 @@ properties:
   nativeIdentity:
     type: string
     description: Native identifier value on the authoritative source for the machine identity.
-    example: DEMO_AGENT1
+    example: example-agent-1
   uuid:
     type: string
     nullable: true

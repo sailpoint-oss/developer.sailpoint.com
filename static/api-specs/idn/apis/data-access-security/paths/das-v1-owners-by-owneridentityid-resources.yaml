@@ -15,7 +15,7 @@ get:
   - name: ownerIdentityId
     in: path
     required: true
-    x-sailpoint-resource-operation-id: getOwners
+    x-sailpoint-resource-operation-id: getOwnersV1
     description: Unique identifier for the owner. This should be a UUID representing the owner's identity.
     example: a3f1c2d4-5678-4e9b-8c2d-123456789abc
     schema:

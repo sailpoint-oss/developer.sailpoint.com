@@ -51,7 +51,7 @@ patch:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listPersonalAccessTokens
+    x-sailpoint-resource-operation-id: listPersonalAccessTokensV1
     description: The Personal Access Token id
     example: ef38f94347e94562b5bb8424a56397d8
   requestBody:
@@ -128,7 +128,7 @@ delete:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listPersonalAccessTokens
+    x-sailpoint-resource-operation-id: listPersonalAccessTokensV1
     description: The personal access token id
     example: ef38f94347e94562b5bb8424a56397d8
   responses:

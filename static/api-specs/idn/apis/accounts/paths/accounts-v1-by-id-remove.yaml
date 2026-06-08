@@ -24,7 +24,7 @@ post:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listAccounts
+    x-sailpoint-resource-operation-id: listAccountsV1
     description: The account id
     example: c350d6aa4f104c61b062cb632421ad10
   responses:

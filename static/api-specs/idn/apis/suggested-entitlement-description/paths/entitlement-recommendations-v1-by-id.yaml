@@ -9,7 +9,7 @@ patch:
   parameters:
   - in: path
     name: id
-    x-sailpoint-resource-operation-id: listPendingEntitlementRecommendationApprovals
+    x-sailpoint-resource-operation-id: listPendingEntitlementRecommendationApprovalsV1
     schema:
       type: string
       format: uuid

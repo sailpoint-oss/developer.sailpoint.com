@@ -14,7 +14,7 @@ post:
     in: path
     description: ID of the Multi-Host Integration.
     required: true
-    x-sailpoint-resource-operation-id: getMultiHostIntegrations
+    x-sailpoint-resource-operation-id: getMultiHostIntegrationsV1
     style: simple
     explode: false
     schema:
@@ -65,7 +65,7 @@ get:
     in: path
     description: ID of the Multi-Host Integration.
     required: true
-    x-sailpoint-resource-operation-id: getMultiHostIntegrations
+    x-sailpoint-resource-operation-id: getMultiHostIntegrationsV1
     style: simple
     explode: false
     schema:
@@ -111,7 +111,7 @@ delete:
     in: path
     description: ID of Multi-Host Integration to delete.
     required: true
-    x-sailpoint-resource-operation-id: getMultiHostIntegrations
+    x-sailpoint-resource-operation-id: getMultiHostIntegrationsV1
     style: simple
     explode: false
     schema:
@@ -153,7 +153,7 @@ patch:
     in: path
     description: ID of the Multi-Host Integration to update.
     required: true
-    x-sailpoint-resource-operation-id: getMultiHostIntegrations
+    x-sailpoint-resource-operation-id: getMultiHostIntegrationsV1
     style: simple
     explode: false
     schema:

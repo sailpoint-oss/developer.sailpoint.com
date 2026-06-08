@@ -11,7 +11,7 @@ get:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: getRoleInsights
+    x-sailpoint-resource-operation-id: getRoleInsightsV1
     description: The role insights request id
     example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
   - name: X-SailPoint-Experimental

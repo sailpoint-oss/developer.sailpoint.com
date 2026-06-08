@@ -12,7 +12,7 @@ get:
       type: string
     example: 6d0458373bec4b4b80460992b76016da
     description: The ID of the source.
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
   - in: query
     name: filters
     required: false
@@ -110,7 +110,7 @@ post:
       type: string
     example: 6d0458373bec4b4b80460992b76016da
     description: The ID of the source.
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
   - name: X-SailPoint-Experimental
     in: header
     description: Use this header to enable this experimental API.

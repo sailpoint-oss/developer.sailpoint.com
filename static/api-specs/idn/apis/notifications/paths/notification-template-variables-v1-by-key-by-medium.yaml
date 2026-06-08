@@ -37,7 +37,7 @@ get:
     required: true
     schema:
       type: string
-    x-sailpoint-resource-operation-id: listNotificationTemplates
+    x-sailpoint-resource-operation-id: listNotificationTemplatesV1
     description: >
       The notification template key. Valid keys (and key/medium pairs) are available from the list notification
       templates operation.
@@ -51,7 +51,7 @@ get:
       - EMAIL
       - SLACK
       - TEAMS
-    x-sailpoint-resource-operation-id: listNotificationTemplates
+    x-sailpoint-resource-operation-id: listNotificationTemplatesV1
     description: >
       The notification template medium (e.g. EMAIL, SLACK, TEAMS). Valid key/medium pairs are available from the list
       notification templates operation.

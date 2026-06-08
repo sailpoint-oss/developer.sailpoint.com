@@ -11,7 +11,7 @@ get:
     description: ID of the Role for which the assigned Identities are to be listed
     example: 2c91808a7813090a017814121e121518
     required: true
-    x-sailpoint-resource-operation-id: listRoles
+    x-sailpoint-resource-operation-id: listRolesV1
   - $ref: ../../shared/parameters/limit.yaml
   - $ref: ../../shared/parameters/offset.yaml
   - $ref: ../../shared/parameters/count.yaml

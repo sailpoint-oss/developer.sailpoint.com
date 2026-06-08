@@ -17,7 +17,7 @@ get:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listOauthClients
+    x-sailpoint-resource-operation-id: listOauthClientsV1
     description: The OAuth client id
     example: ef38f94347e94562b5bb8424a56397d8
   responses:
@@ -54,7 +54,7 @@ delete:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listOauthClients
+    x-sailpoint-resource-operation-id: listOauthClientsV1
     description: The OAuth client id
     example: ef38f94347e94562b5bb8424a56397d8
   responses:
@@ -87,7 +87,7 @@ patch:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listOauthClients
+    x-sailpoint-resource-operation-id: listOauthClientsV1
     description: The OAuth client id
     example: ef38f94347e94562b5bb8424a56397d8
   requestBody:

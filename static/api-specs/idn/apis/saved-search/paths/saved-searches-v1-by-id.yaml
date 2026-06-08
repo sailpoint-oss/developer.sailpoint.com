@@ -16,7 +16,7 @@ put:
       type: string
     required: true
     example: 2c91808568c529c60168cca6f90c1313
-    x-sailpoint-resource-operation-id: listSavedSearches
+    x-sailpoint-resource-operation-id: listSavedSearchesV1
   requestBody:
     description: The saved search to persist.
     content:
@@ -59,7 +59,7 @@ get:
       type: string
     required: true
     example: 2c91808568c529c60168cca6f90c1313
-    x-sailpoint-resource-operation-id: listSavedSearches
+    x-sailpoint-resource-operation-id: listSavedSearchesV1
   responses:
     '200':
       description: The requested saved search.
@@ -97,7 +97,7 @@ delete:
       type: string
     required: true
     example: 2c91808568c529c60168cca6f90c1313
-    x-sailpoint-resource-operation-id: listSavedSearches
+    x-sailpoint-resource-operation-id: listSavedSearchesV1
   responses:
     '204':
       description: No Content - Indicates the request was successful but there is no content to be returned in the response.

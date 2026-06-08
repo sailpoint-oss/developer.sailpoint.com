@@ -15,7 +15,7 @@ get:
   - in: path
     name: roleId
     required: true
-    x-sailpoint-resource-operation-id: listRoles
+    x-sailpoint-resource-operation-id: listRolesV1
     schema:
       type: string
     description: Parent Role Id of the dimension.
@@ -25,7 +25,7 @@ get:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listDimensions
+    x-sailpoint-resource-operation-id: listDimensionsV1
     description: Id of the Dimension
     example: 2c9180835d191a86015d28455b4a2329
   responses:
@@ -78,7 +78,7 @@ patch:
   - in: path
     name: roleId
     required: true
-    x-sailpoint-resource-operation-id: listRoles
+    x-sailpoint-resource-operation-id: listRolesV1
     schema:
       type: string
     description: Parent Role Id of the dimension.
@@ -88,7 +88,7 @@ patch:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listDimensions
+    x-sailpoint-resource-operation-id: listDimensionsV1
     description: Id of the Dimension
     example: 2c9180835d191a86015d28455b4a2329
   requestBody:
@@ -191,7 +191,7 @@ delete:
   - in: path
     name: roleId
     required: true
-    x-sailpoint-resource-operation-id: listRoles
+    x-sailpoint-resource-operation-id: listRolesV1
     schema:
       type: string
     description: Parent Role Id of the dimension.
@@ -201,7 +201,7 @@ delete:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listDimensions
+    x-sailpoint-resource-operation-id: listDimensionsV1
     description: Id of the Dimension
     example: 2c9180835d191a86015d28455b4a2329
   responses:

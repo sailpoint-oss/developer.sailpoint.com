@@ -22,7 +22,7 @@ get:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: importSpConfig
+    x-sailpoint-resource-operation-id: importSpConfigV1
     description: The ID of the import job whose results will be downloaded.
     example: ef38f94347e94562b5bb8424a56397d8
   responses:

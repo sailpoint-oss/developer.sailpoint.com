@@ -24,7 +24,7 @@ get:
   - name: rolePropagationId
     in: path
     description: The ID of the role propagation process to retrieve the status for.
-    x-sailpoint-resource-operation-id: startRolePropagation
+    x-sailpoint-resource-operation-id: startRolePropagationV1
     required: true
     schema:
       type: string

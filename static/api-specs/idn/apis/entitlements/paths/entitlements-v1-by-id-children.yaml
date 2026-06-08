@@ -23,7 +23,7 @@ get:
     required: true
     description: Entitlement Id
     example: 2c91808874ff91550175097daaec161c
-    x-sailpoint-resource-operation-id: listEntitlements
+    x-sailpoint-resource-operation-id: listEntitlementsV1
   - in: query
     name: filters
     schema:

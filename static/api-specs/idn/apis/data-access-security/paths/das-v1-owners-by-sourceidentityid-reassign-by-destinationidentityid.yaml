@@ -13,7 +13,7 @@ post:
   - name: sourceIdentityId
     in: path
     required: true
-    x-sailpoint-resource-operation-id: getOwners
+    x-sailpoint-resource-operation-id: getOwnersV1
     description: Unique identifier for the source owner. This should be a UUID representing the identity to reassign from.
     example: a3f1c2d4-5678-4e9b-8c2d-123456789abc
     schema:
@@ -22,7 +22,7 @@ post:
   - name: destinationIdentityId
     in: path
     required: true
-    x-sailpoint-resource-operation-id: getOwners
+    x-sailpoint-resource-operation-id: getOwnersV1
     description: Unique identifier for the destination owner. This should be a UUID representing the identity to reassign to.
     example: b4e2d3c5-6789-4f0a-9d3e-234567890bcd
     schema:

@@ -18,7 +18,7 @@ get:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listMachineIdentities
+    x-sailpoint-resource-operation-id: listMachineIdentitiesV1
     description: Machine Identity ID
     example: ef38f94347e94562b5bb8424a56397d8
   - name: X-SailPoint-Experimental
@@ -68,7 +68,7 @@ patch:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listMachineIdentities
+    x-sailpoint-resource-operation-id: listMachineIdentitiesV1
     description: Machine Identity ID.
     example: ef38f94347e94562b5bb8424a56397d8
   - name: X-SailPoint-Experimental
@@ -141,7 +141,7 @@ delete:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listMachineIdentities
+    x-sailpoint-resource-operation-id: listMachineIdentitiesV1
     description: Machine Identity ID
     example: ef38f94347e94562b5bb8424a56397d8
   - name: X-SailPoint-Experimental

@@ -18,7 +18,7 @@ get:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: getPendingCertificationTasks
+    x-sailpoint-resource-operation-id: getPendingCertificationTasksV1
     description: The task ID
     example: 63b32151-26c0-42f4-9299-8898dc1c9daa
   responses:

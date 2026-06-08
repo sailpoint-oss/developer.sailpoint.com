@@ -12,7 +12,7 @@ get:
       type: string
     example: 6d0458373bec4b4b80460992b76016da
     description: The ID of the source.
-    x-sailpoint-resource-operation-id: listMachineAccountSubtypes
+    x-sailpoint-resource-operation-id: listMachineAccountSubtypesV1
   - in: path
     name: technicalName
     required: true
@@ -20,7 +20,7 @@ get:
       type: string
     example: foo
     description: The technical name of the subtype.
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
   - name: X-SailPoint-Experimental
     in: header
     description: Use this header to enable this experimental API.
@@ -84,7 +84,7 @@ patch:
       type: string
     example: 6d0458373bec4b4b80460992b76016da
     description: The ID of the source.
-    x-sailpoint-resource-operation-id: listMachineAccountSubtypes
+    x-sailpoint-resource-operation-id: listMachineAccountSubtypesV1
   - in: path
     name: technicalName
     required: true
@@ -92,7 +92,7 @@ patch:
       type: string
     example: foo
     description: The technical name of the subtype.
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
   - name: X-SailPoint-Experimental
     in: header
     description: Use this header to enable this experimental API.
@@ -167,7 +167,7 @@ delete:
       type: string
     example: 6d0458373bec4b4b80460992b76016da
     description: The ID of the source.
-    x-sailpoint-resource-operation-id: listMachineAccountSubtypes
+    x-sailpoint-resource-operation-id: listMachineAccountSubtypesV1
   - in: path
     name: technicalName
     required: true
@@ -175,7 +175,7 @@ delete:
       type: string
     example: foo
     description: The technical name of the subtype.
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
   - name: X-SailPoint-Experimental
     in: header
     description: Use this header to enable this experimental API.

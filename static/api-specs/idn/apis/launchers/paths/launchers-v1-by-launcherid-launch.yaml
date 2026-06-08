@@ -9,7 +9,7 @@ post:
     in: path
     description: ID of the Launcher to be launched
     required: true
-    x-sailpoint-resource-operation-id: getLaunchers
+    x-sailpoint-resource-operation-id: getLaunchersV1
     schema:
       type: string
       format: uuid

@@ -18,7 +18,7 @@ get:
     in: path
     description: ID of the Governance Group.
     required: true
-    x-sailpoint-resource-operation-id: listWorkgroups
+    x-sailpoint-resource-operation-id: listWorkgroupsV1
     schema:
       type: string
       example: 2c91808a7813090a017814121919ecca

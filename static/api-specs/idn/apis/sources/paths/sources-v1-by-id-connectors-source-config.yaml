@@ -18,7 +18,7 @@ get:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
     description: The Source id
     example: cef3ee201db947c5912551015ba0c679
   - in: query

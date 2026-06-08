@@ -29,10 +29,10 @@ get:
           example:
             accounts:
             - id: acc-1
-              name: pat.example
+              name: example.user
               source:
                 id: src-1
-                name: Active Directory
+                name: Example Directory
               disabled: false
               locked: false
               uncorrelated: false
@@ -42,21 +42,21 @@ get:
               hasEntitlements: true
               manuallyCorrelated: false
               connectionType: direct
-              nativeIdentity: CN=pat,OU=users
+              nativeIdentity: CN=example.user,OU=users
               created: '2026-01-01T00:00:00Z'
               modified: '2026-05-01T00:00:00Z'
             privilegedAccessItems:
             - privileged: true
-              displayName: Absence_Administrator
-              name: Absence_Administrator
+              displayName: Example_Admin_Access
+              name: Example_Admin_Access
               standalone: true
               id: ent-1
               source:
-                name: Workday
+                name: Example HR Source
                 id: src-2
-              attribute: USER_BASED_SECURITY_GROUPS
+              attribute: EXAMPLE_PERMISSION_GROUPS
               type: ENTITLEMENT
-              value: Absence_Administrator
+              value: Example_Admin_Access
     '400':
       description: Invalid path parameter.
       content:

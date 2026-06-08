@@ -17,7 +17,7 @@ put:
       type: string
     description: The Id of the privilege criteria record to return.
     example: 6d123044-5834-4e8d-a49f-9c70089b0de1
-    x-sailpoint-resource-operation-id: listPrivilegeCriteria
+    x-sailpoint-resource-operation-id: listPrivilegeCriteriaV1
   requestBody:
     description: The new version of the custom privilege criteria. This overwrites the existing privilege criteria.
     required: true
@@ -62,7 +62,7 @@ get:
       type: string
     description: The Id of the privilege criteria record to return.
     example: 6d123044-5834-4e8d-a49f-9c70089b0de1
-    x-sailpoint-resource-operation-id: listPrivilegeCriteria
+    x-sailpoint-resource-operation-id: listPrivilegeCriteriaV1
   responses:
     '200':
       description: OK
@@ -99,7 +99,7 @@ delete:
       type: string
     description: The Id of the custom privilege criteria to delete.
     example: 6d123044-5834-4e8d-a49f-9c70089b0de1
-    x-sailpoint-resource-operation-id: listPrivilegeCriteria
+    x-sailpoint-resource-operation-id: listPrivilegeCriteriaV1
   responses:
     '204':
       description: Success

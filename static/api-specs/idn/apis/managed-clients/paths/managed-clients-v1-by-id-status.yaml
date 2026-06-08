@@ -9,7 +9,7 @@ get:
     in: path
     description: Managed client ID to get status for.
     required: true
-    x-sailpoint-resource-operation-id: getManagedClients
+    x-sailpoint-resource-operation-id: getManagedClientsV1
     schema:
       type: string
       example: aClientId

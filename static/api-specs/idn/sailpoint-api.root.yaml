@@ -953,7 +953,7 @@ tags:
     Read-only HTTP API that returns the Intelligence Package (identity context)
     for SecOps enrichment use cases (SIEM/SOAR connectors, MCP, browser
     extension). Backed by Atlas internal-REST calls to MICE, Shelby List Accounts,
-    SDS Search, and identity-history.
+    SDS Search, IDA-outliers, and identity-history.
 - name: JIT Access
   description: >
     Use these APIs to configure JIT provisioning activation policy for the tenant.
@@ -1531,6 +1531,16 @@ tags:
 
     **criteriaPrivilegeLevel.customLowEnabled**: Boolean flag indicating whether LOW level custom criteria is used for
     privilege classification.
+- name: Prompt Insights
+  description: |
+    Use this API to retrieve prompt security insights and aggregate metrics for AI agent prompt activity.
+    With this functionality in place, administrators can review prompt events and their policy decisions,
+    filter insights by policy decision, category, severity, and other attributes, and view summary metrics
+    for scanned and redacted prompts over configurable time windows.
+
+    Policy decisions indicate whether a prompt was allowed or redacted. Insight categories include anomalies,
+    data uploads, and MCP tool calls. Supported filter fields include policy decision, category, severity,
+    user, agent, reason, rule, and policy.
 - name: Public Identities
   description: >
     Use this API in conjunction with [Public Identites
@@ -3077,6 +3087,10 @@ paths:
     $ref: ./apis/intelligence-package/paths/intelligence-v1-identities-by-identityid-access.yaml
   /intelligence/v1/identities/{identityID}/access-history:
     $ref: ./apis/intelligence-package/paths/intelligence-v1-identities-by-identityid-access-history.yaml
+  /intelligence/v1/identities/{identityID}/risk:
+    $ref: ./apis/intelligence-package/paths/intelligence-v1-identities-by-identityid-risk.yaml
+  /intelligence/v1/identities/{identityID}/risk/outliers:
+    $ref: ./apis/intelligence-package/paths/intelligence-v1-identities-by-identityid-risk-outliers.yaml
   /jit-activation-config/v1/{configType}:
     $ref: ./apis/jit-access/paths/jit-activation-config-v1-by-configtype.yaml
   /jit-activations/v1/activate:
@@ -3115,14 +3129,6 @@ paths:
     $ref: ./apis/machine-accounts/paths/machine-accounts-v1.yaml
   /machine-accounts/v1/{id}:
     $ref: ./apis/machine-accounts/paths/machine-accounts-v1-by-id.yaml
-  /machine-accounts/v1/bulk-update:
-    $ref: ./apis/machine-accounts/paths/machine-accounts-v1-bulk-update.yaml
-  /machine-accounts/v1/bulk-enable:
-    $ref: ./apis/machine-accounts/paths/machine-accounts-v1-bulk-enable.yaml
-  /machine-accounts/v1/bulk-disable:
-    $ref: ./apis/machine-accounts/paths/machine-accounts-v1-bulk-disable.yaml
-  /machine-accounts/v1/bulk-reload:
-    $ref: ./apis/machine-accounts/paths/machine-accounts-v1-bulk-reload.yaml
   /sources/v1/{sourceId}/subtypes:
     $ref: ./apis/machine-accounts/paths/sources-v1-by-sourceid-subtypes.yaml
   /sources/v1/{sourceId}/subtypes/{technicalName}:
@@ -3307,6 +3313,10 @@ paths:
     $ref: ./apis/privilege-criteria-configuration/paths/criteria-config-v1-privilege-by-criteriaconfigid.yaml
   /criteria-config/v1/privilege:
     $ref: ./apis/privilege-criteria-configuration/paths/criteria-config-v1-privilege.yaml
+  /prompt-insights/v1/metrics:
+    $ref: ./apis/prompt-insights/paths/prompt-insights-v1-metrics.yaml
+  /prompt-insights/v1:
+    $ref: ./apis/prompt-insights/paths/prompt-insights-v1.yaml
   /public-identities/v1:
     $ref: ./apis/public-identities/paths/public-identities-v1.yaml
   /public-identities-config/v1:

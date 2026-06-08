@@ -21,7 +21,7 @@ get:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listIdentities
+    x-sailpoint-resource-operation-id: listIdentitiesV1
     description: Identity ID.
     example: ff8081814d2a8036014d701f3fbf53fa
   responses:

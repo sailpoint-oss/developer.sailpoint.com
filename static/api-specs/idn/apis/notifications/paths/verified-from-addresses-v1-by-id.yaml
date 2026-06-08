@@ -14,7 +14,7 @@ delete:
     name: id
     description: Unique identifier of the verified sender address to delete.
     required: true
-    x-sailpoint-resource-operation-id: listFromAddresses
+    x-sailpoint-resource-operation-id: listFromAddressesV1
     schema:
       type: string
       example: c17bea3a-574d-453c-9e04-4365fbf5af0b

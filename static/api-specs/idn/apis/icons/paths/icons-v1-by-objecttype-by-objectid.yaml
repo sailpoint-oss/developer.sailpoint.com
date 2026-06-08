@@ -21,7 +21,7 @@ put:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
     description: Object id.
     example: a291e870-48c3-4953-b656-fb5ce2a93169
   - name: X-SailPoint-Experimental
@@ -98,7 +98,7 @@ delete:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
     description: Object id.
     example: a291e870-48c3-4953-b656-fb5ce2a93169
   - name: X-SailPoint-Experimental

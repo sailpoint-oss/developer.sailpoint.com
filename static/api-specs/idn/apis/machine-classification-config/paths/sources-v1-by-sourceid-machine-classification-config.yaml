@@ -23,7 +23,7 @@ get:
     required: true
     description: Source ID
     example: ef38f94347e94562b5bb8424a56397d8
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
   responses:
     '200':
       description: A Config Object
@@ -68,7 +68,7 @@ put:
     required: true
     description: Source ID.
     example: ef38f94347e94562b5bb8424a56397d8
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
   requestBody:
     required: true
     content:
@@ -119,7 +119,7 @@ delete:
     required: true
     description: Source ID.
     example: ef38f94347e94562b5bb8424a56397d8
-    x-sailpoint-resource-operation-id: listSources
+    x-sailpoint-resource-operation-id: listSourcesV1
   responses:
     '200':
       $ref: ../../shared/responses/204.yaml

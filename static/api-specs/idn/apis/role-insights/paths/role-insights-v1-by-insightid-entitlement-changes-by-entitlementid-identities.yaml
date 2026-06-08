@@ -13,7 +13,7 @@ get:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: getRoleInsights
+    x-sailpoint-resource-operation-id: getRoleInsightsV1
     description: The role insight id
     example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
   - in: path
@@ -21,7 +21,7 @@ get:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listEntitlements
+    x-sailpoint-resource-operation-id: listEntitlementsV1
     description: The entitlement id
     example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
   - in: query

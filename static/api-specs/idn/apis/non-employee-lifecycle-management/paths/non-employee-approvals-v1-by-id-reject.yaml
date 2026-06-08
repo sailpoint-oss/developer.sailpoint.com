@@ -12,7 +12,7 @@ post:
     name: id
     description: Non-Employee approval item id (UUID)
     required: true
-    x-sailpoint-resource-operation-id: listNonEmployeeApprovals
+    x-sailpoint-resource-operation-id: listNonEmployeeApprovalsV1
     schema:
       type: string
     example: e136567de87e4d029e60b3c3c55db56d

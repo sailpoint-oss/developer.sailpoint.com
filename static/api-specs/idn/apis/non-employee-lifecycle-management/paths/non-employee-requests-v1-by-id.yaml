@@ -20,7 +20,7 @@ get:
     description: Non-Employee request id (UUID)
     example: ac110005-7156-1150-8171-5b292e3e0084
     required: true
-    x-sailpoint-resource-operation-id: listNonEmployeeRequests
+    x-sailpoint-resource-operation-id: listNonEmployeeRequestsV1
     schema:
       type: string
   responses:
@@ -55,7 +55,7 @@ delete:
     name: id
     description: Non-Employee request id in the UUID format
     required: true
-    x-sailpoint-resource-operation-id: listNonEmployeeRequests
+    x-sailpoint-resource-operation-id: listNonEmployeeRequestsV1
     schema:
       type: string
       format: uuid

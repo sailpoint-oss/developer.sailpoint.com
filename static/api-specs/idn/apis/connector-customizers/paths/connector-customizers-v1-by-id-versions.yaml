@@ -17,7 +17,7 @@ post:
     required: true
     description: The id of the connector customizer.
     example: b07dc46a-1498-4de8-bfbb-259a68e70c8a
-    x-sailpoint-resource-operation-id: listConnectorCustomizers
+    x-sailpoint-resource-operation-id: listConnectorCustomizersV1
   responses:
     '200':
       description: The created connector customizer version object.

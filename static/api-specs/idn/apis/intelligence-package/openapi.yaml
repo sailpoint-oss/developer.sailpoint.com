@@ -32,7 +32,7 @@ tags:
       Read-only HTTP API that returns the Intelligence Package (identity context)
       for SecOps enrichment use cases (SIEM/SOAR connectors, MCP, browser
       extension). Backed by Atlas internal-REST calls to MICE, Shelby List Accounts,
-      SDS Search, and identity-history.
+      SDS Search, IDA-outliers, and identity-history.
 paths:
   /intelligence/v1/identities:
     $ref: ./paths/intelligence-v1-identities.yaml
@@ -40,6 +40,10 @@ paths:
     $ref: ./paths/intelligence-v1-identities-by-identityid-access.yaml
   /intelligence/v1/identities/{identityID}/access-history:
     $ref: ./paths/intelligence-v1-identities-by-identityid-access-history.yaml
+  /intelligence/v1/identities/{identityID}/risk:
+    $ref: ./paths/intelligence-v1-identities-by-identityid-risk.yaml
+  /intelligence/v1/identities/{identityID}/risk/outliers:
+    $ref: ./paths/intelligence-v1-identities-by-identityid-risk-outliers.yaml
 security:
   - userAuth:
       - sp:scopes:all

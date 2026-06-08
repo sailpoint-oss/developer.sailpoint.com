@@ -11,7 +11,7 @@ get:
       type: string
       format: uuid
     required: true
-    x-sailpoint-resource-operation-id: getRoleMiningSessions
+    x-sailpoint-resource-operation-id: getRoleMiningSessionsV1
     description: The role mining session id
     example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
   - in: path
@@ -20,7 +20,7 @@ get:
       type: string
       format: uuid
     required: true
-    x-sailpoint-resource-operation-id: getPotentialRoleSummaries
+    x-sailpoint-resource-operation-id: getPotentialRoleSummariesV1
     description: A potential role id in a role mining session
     example: 278359a6-04b7-4669-9468-924cf580964a
   - in: path
@@ -29,7 +29,7 @@ get:
       type: string
       format: uuid
     required: true
-    x-sailpoint-resource-operation-id: exportRoleMiningPotentialRoleAsync
+    x-sailpoint-resource-operation-id: exportRoleMiningPotentialRoleAsyncV1
     description: The id of a previously run export job for this potential role
     example: 4940ffd4-836f-48a3-b2b0-6d498c3fdf40
   - name: X-SailPoint-Experimental

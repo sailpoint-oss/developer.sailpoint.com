@@ -17,7 +17,7 @@ patch:
     required: true
     description: The ID of the scheduled action.
     example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
-    x-sailpoint-resource-operation-id: listScheduledActions
+    x-sailpoint-resource-operation-id: listScheduledActionsV1
   requestBody:
     description: The JSON Patch document containing the changes to apply to the scheduled action.
     required: true
@@ -87,7 +87,7 @@ delete:
     required: true
     description: The ID of the scheduled action.
     example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
-    x-sailpoint-resource-operation-id: listScheduledActions
+    x-sailpoint-resource-operation-id: listScheduledActionsV1
   responses:
     '204':
       $ref: ../../shared/responses/204.yaml

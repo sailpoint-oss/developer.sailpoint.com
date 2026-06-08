@@ -18,7 +18,7 @@ get:
       type: string
     description: The attribute's technical name.
     required: true
-    x-sailpoint-resource-operation-id: listIdentityAttributes
+    x-sailpoint-resource-operation-id: listIdentityAttributesV1
     example: displayName
   responses:
     '200':
@@ -57,7 +57,7 @@ put:
       type: string
     description: The attribute's technical name.
     required: true
-    x-sailpoint-resource-operation-id: listIdentityAttributes
+    x-sailpoint-resource-operation-id: listIdentityAttributesV1
     example: displayName
   requestBody:
     required: true
@@ -102,7 +102,7 @@ delete:
       type: string
     description: The attribute's technical name.
     required: true
-    x-sailpoint-resource-operation-id: listIdentityAttributes
+    x-sailpoint-resource-operation-id: listIdentityAttributesV1
     example: displayName
   responses:
     '204':

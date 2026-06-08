@@ -9,7 +9,7 @@ get:
     in: path
     description: Managed client ID.
     required: true
-    x-sailpoint-resource-operation-id: getManagedClients
+    x-sailpoint-resource-operation-id: getManagedClientsV1
     example: 4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7
     schema:
       type: string
@@ -57,7 +57,7 @@ patch:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: getManagedClients
+    x-sailpoint-resource-operation-id: getManagedClientsV1
     description: Managed client ID.
     example: 4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7
   requestBody:
@@ -105,7 +105,7 @@ delete:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: getManagedClients
+    x-sailpoint-resource-operation-id: getManagedClientsV1
     description: Managed client ID.
     example: 4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7
   responses:

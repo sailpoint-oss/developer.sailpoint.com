@@ -17,7 +17,7 @@ get:
       type: string
     description: Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
     example: bobsmith@sailpoint.com
-    x-sailpoint-resource-operation-id: listFromAddresses
+    x-sailpoint-resource-operation-id: listFromAddressesV1
   responses:
     '200':
       description: MAIL FROM Attributes object

@@ -1,6 +1,7 @@
 type: object
 required:
   - access
+  - risk
   - accessHistory
 properties:
   access:
@@ -10,6 +11,13 @@ properties:
       - $ref: ./intelhref.yaml
     example:
       href: /v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/access
+  risk:
+    type: object
+    description: Hyperlink to the Intelligence Package risk document for this identity.
+    allOf:
+      - $ref: ./intelhref.yaml
+    example:
+      href: /v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/risk
   accessHistory:
     type: object
     description: Hyperlink to the Intelligence Package access history document for this identity.

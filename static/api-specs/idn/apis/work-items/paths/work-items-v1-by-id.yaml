@@ -10,7 +10,7 @@ get:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listWorkItems
+    x-sailpoint-resource-operation-id: listWorkItemsV1
     description: ID of the work item.
     example: 2c9180835d191a86015d28455b4a2329
   responses:
@@ -42,7 +42,7 @@ post:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listWorkItems
+    x-sailpoint-resource-operation-id: listWorkItemsV1
     description: The ID of the work item
     example: ef38f94347e94562b5bb8424a56397d8
   requestBody:

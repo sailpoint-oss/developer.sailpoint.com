@@ -17,7 +17,7 @@ patch:
       type: string
     description: The Id of the privilege criteria configuration to update.
     example: 6d123044-5834-4e8d-a49f-9c70089b0de1
-    x-sailpoint-resource-operation-id: listPrivilegeCriteriaConfig
+    x-sailpoint-resource-operation-id: listPrivilegeCriteriaConfigV1
   requestBody:
     description: >-
       A list of criteria configuration operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902)
@@ -72,7 +72,7 @@ get:
       type: string
     description: The Id of the privilege criteria configuration record to retrieve.
     example: 6d123044-5834-4e8d-a49f-9c70089b0de1
-    x-sailpoint-resource-operation-id: listPrivilegeCriteriaConfig
+    x-sailpoint-resource-operation-id: listPrivilegeCriteriaConfigV1
   responses:
     '200':
       description: OK

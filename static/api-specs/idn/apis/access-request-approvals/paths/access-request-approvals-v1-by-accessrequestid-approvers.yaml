@@ -15,7 +15,7 @@ get:
     name: accessRequestId
     description: Access Request ID.
     required: true
-    x-sailpoint-resource-operation-id: listPendingApprovals
+    x-sailpoint-resource-operation-id: listPendingApprovalsV1
     schema:
       type: string
     example: 2c91808568c529c60168cca6f90c1313

@@ -13,7 +13,7 @@ get:
   - in: path
     name: id
     required: true
-    x-sailpoint-resource-operation-id: listRoles
+    x-sailpoint-resource-operation-id: listRolesV1
     schema:
       type: string
     description: ID of the Role
@@ -105,7 +105,7 @@ patch:
     in: path
     description: ID of the Role to patch
     required: true
-    x-sailpoint-resource-operation-id: listRoles
+    x-sailpoint-resource-operation-id: listRolesV1
     schema:
       type: string
       example: 2c91808a7813090a017814121e121518
@@ -242,7 +242,7 @@ delete:
   - in: path
     name: id
     required: true
-    x-sailpoint-resource-operation-id: listRoles
+    x-sailpoint-resource-operation-id: listRolesV1
     schema:
       type: string
     description: ID of the Role

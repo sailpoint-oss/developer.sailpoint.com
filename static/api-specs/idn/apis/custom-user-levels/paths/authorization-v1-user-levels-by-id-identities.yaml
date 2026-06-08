@@ -26,7 +26,7 @@ get:
     schema:
       type: string
     example: idn:access-request-administrator
-    x-sailpoint-resource-operation-id: listUserLevels
+    x-sailpoint-resource-operation-id: listUserLevelsV1
   - name: count
     in: query
     schema:

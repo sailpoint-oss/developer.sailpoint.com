@@ -12,7 +12,7 @@ get:
     schema:
       type: string
       example: b07dc46a-1498-4de8-bfbb-259a68e70c8a
-    x-sailpoint-resource-operation-id: listConnectorCustomizers
+    x-sailpoint-resource-operation-id: listConnectorCustomizersV1
   responses:
     '200':
       description: Connector customizer with the given ID.
@@ -53,7 +53,7 @@ put:
     schema:
       type: string
       example: b07dc46a-1498-4de8-bfbb-259a68e70c8a
-    x-sailpoint-resource-operation-id: listConnectorCustomizers
+    x-sailpoint-resource-operation-id: listConnectorCustomizersV1
   requestBody:
     description: Connector rule with updated data.
     content:
@@ -98,7 +98,7 @@ delete:
     schema:
       type: string
       example: b07dc46a-1498-4de8-bfbb-259a68e70c8a
-    x-sailpoint-resource-operation-id: listConnectorCustomizers
+    x-sailpoint-resource-operation-id: listConnectorCustomizersV1
   responses:
     '204':
       $ref: ../../shared/responses/204.yaml

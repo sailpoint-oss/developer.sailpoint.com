@@ -67,7 +67,7 @@ get:
 
       **discoverySourceCategory**: *eq, in*
     example: name eq "Okta" and description co "Okta" and discoverySource in ("csv", "Okta Saas")
-    x-sailpoint-resource-operation-id: getDiscoveredApplications
+    x-sailpoint-resource-operation-id: getDiscoveredApplicationsV1
     required: false
     style: form
   - in: query

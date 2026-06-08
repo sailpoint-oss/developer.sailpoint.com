@@ -18,7 +18,7 @@ get:
   - in: path
     name: identityId
     required: true
-    x-sailpoint-resource-operation-id: listIdentities
+    x-sailpoint-resource-operation-id: listIdentitiesV1
     schema:
       type: string
     description: unique identity id

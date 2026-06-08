@@ -9,8 +9,6 @@ post:
   security:
   - userAuth:
     - idn:identity-lifecycle-state:manage
-  - applicationAuth:
-    - idn:identity-lifecycle-state:manage
   x-sailpoint-userLevels:
   - ORG_ADMIN
   parameters:
@@ -18,7 +16,7 @@ post:
     name: identity-id
     description: ID of the identity to update.
     required: true
-    x-sailpoint-resource-operation-id: listIdentities
+    x-sailpoint-resource-operation-id: listIdentitiesV1
     example: 2c9180857893f1290178944561990364
     schema:
       type: string

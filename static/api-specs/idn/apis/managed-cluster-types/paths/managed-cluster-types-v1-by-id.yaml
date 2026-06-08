@@ -9,7 +9,7 @@ get:
     in: path
     description: The Managed Cluster Type ID
     required: true
-    x-sailpoint-resource-operation-id: getManagedClusterTypes
+    x-sailpoint-resource-operation-id: getManagedClusterTypesV1
     schema:
       type: string
     example: aClusterTypeId
@@ -50,7 +50,7 @@ patch:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: getManagedClusterTypes
+    x-sailpoint-resource-operation-id: getManagedClusterTypesV1
     description: The Managed Cluster Type ID
     example: aClusterTypeId
   requestBody:
@@ -96,7 +96,7 @@ delete:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: getManagedClusterTypes
+    x-sailpoint-resource-operation-id: getManagedClusterTypesV1
     description: The Managed Cluster Type ID
     example: aClusterTypeId
   responses:

@@ -13,7 +13,7 @@ get:
     in: path
     description: Id of the workflow
     required: true
-    x-sailpoint-resource-operation-id: listWorkflows
+    x-sailpoint-resource-operation-id: listWorkflowsV1
     style: simple
     explode: false
     schema:
@@ -52,7 +52,7 @@ put:
     in: path
     description: Id of the Workflow
     required: true
-    x-sailpoint-resource-operation-id: listWorkflows
+    x-sailpoint-resource-operation-id: listWorkflowsV1
     style: simple
     explode: false
     schema:
@@ -95,7 +95,7 @@ patch:
     in: path
     description: Id of the Workflow
     required: true
-    x-sailpoint-resource-operation-id: listWorkflows
+    x-sailpoint-resource-operation-id: listWorkflowsV1
     style: simple
     explode: false
     schema:
@@ -182,7 +182,7 @@ delete:
     in: path
     description: Id of the Workflow
     required: true
-    x-sailpoint-resource-operation-id: listWorkflows
+    x-sailpoint-resource-operation-id: listWorkflowsV1
     style: simple
     explode: false
     schema:

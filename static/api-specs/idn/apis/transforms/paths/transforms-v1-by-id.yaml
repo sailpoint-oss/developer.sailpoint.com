@@ -9,7 +9,7 @@ get:
     in: path
     description: ID of the transform to retrieve
     required: true
-    x-sailpoint-resource-operation-id: listTransforms
+    x-sailpoint-resource-operation-id: listTransformsV1
     style: simple
     explode: false
     example: 2cd78adghjkja34jh2b1hkjhasuecd
@@ -57,7 +57,7 @@ put:
     in: path
     description: ID of the transform to update
     required: true
-    x-sailpoint-resource-operation-id: listTransforms
+    x-sailpoint-resource-operation-id: listTransformsV1
     style: simple
     explode: false
     schema:
@@ -125,7 +125,7 @@ delete:
     in: path
     description: ID of the transform to delete
     required: true
-    x-sailpoint-resource-operation-id: listTransforms
+    x-sailpoint-resource-operation-id: listTransformsV1
     style: simple
     explode: false
     schema:

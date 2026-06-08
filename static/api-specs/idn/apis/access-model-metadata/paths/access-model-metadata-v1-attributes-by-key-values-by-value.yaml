@@ -17,7 +17,7 @@ get:
   - name: key
     in: path
     required: true
-    x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
+    x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeV1
     schema:
       type: string
     description: Technical name of the Attribute.
@@ -25,7 +25,7 @@ get:
   - name: value
     in: path
     required: true
-    x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeValue
+    x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeValueV1
     schema:
       type: string
     description: Technical name of the Attribute value.
@@ -68,7 +68,7 @@ patch:
   - name: key
     in: path
     required: true
-    x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
+    x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeV1
     schema:
       type: string
     description: Technical name of the Attribute.
@@ -76,7 +76,7 @@ patch:
   - name: value
     in: path
     required: true
-    x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeValue
+    x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeValueV1
     schema:
       type: string
     description: Technical name of the Attribute value.

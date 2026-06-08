@@ -12,7 +12,7 @@ get:
     in: path
     description: ID of the access profile containing the entitlements.
     required: true
-    x-sailpoint-resource-operation-id: listAccessProfiles
+    x-sailpoint-resource-operation-id: listAccessProfilesV1
     schema:
       type: string
       example: 2c91808a7813090a017814121919ecca

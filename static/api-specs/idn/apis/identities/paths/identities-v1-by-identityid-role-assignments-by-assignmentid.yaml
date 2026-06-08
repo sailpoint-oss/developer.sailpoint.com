@@ -14,7 +14,7 @@ get:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: listIdentities
+    x-sailpoint-resource-operation-id: listIdentitiesV1
     description: Identity Id
     example: ef38f94347e94562b5bb8424a56397d8
   - in: path
@@ -22,7 +22,7 @@ get:
     schema:
       type: string
     required: true
-    x-sailpoint-resource-operation-id: getRoleAssignments
+    x-sailpoint-resource-operation-id: getRoleAssignmentsV1
     description: Assignment Id
     example: 1cbb0705b38c4226b1334eadd8874086
   responses:

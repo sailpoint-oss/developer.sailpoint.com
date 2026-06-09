@@ -470,7 +470,6 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       link: { type: 'doc', id: 'community-policies' },
       items: [
-        { type: 'doc', id: 'community-policies', label: 'Overview' },
         { type: 'doc', id: 'ai-policy', label: 'AI Usage Policy' },
         { type: 'doc', id: 'community-code-of-conduct', label: 'Community Code of Conduct' },
         { type: 'doc', id: 'event-code-of-conduct', label: 'Event Code of Conduct' },

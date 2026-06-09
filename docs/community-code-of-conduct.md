@@ -14,9 +14,9 @@ toc_max_heading_level: 2
 
 ## Our commitment
 
-The SailPoint Community is dedicated to providing a welcoming, inclusive, and harassment-free experience for everyone. We are committed to fostering an environment where questions are met with helpful responses, knowledge is shared openly, diverse perspectives are respected, and technical excellence is celebrated — regardless of age, disability, ethnicity, gender identity, level of experience, nationality, race, religion, or sexual orientation.
+SailPoint is dedicated to providing a welcoming, inclusive, and harassment-free community experience for everyone. We are committed to fostering an environment where questions are met with helpful responses, knowledge is shared openly, diverse perspectives are respected, and technical excellence is celebrated — regardless of age, disability, ethnicity, gender identity, level of experience, nationality, race, religion, or sexual orientation.
 
-By participating, you agree to uphold the standards in this document.
+By participating, you agree to uphold the standards outlined in this document.
 
 ## Scope
 
@@ -24,7 +24,7 @@ This Code of Conduct applies to all members of the SailPoint Developer Community
 
 - Community members
 - Ambassadors and Expert Ambassadors
-- SailPoint employees participating in community discussions
+- SailPoint employees
 - Partner representatives
 - Any person posting content in community forums including chat
 
@@ -56,26 +56,28 @@ This Code of Conduct applies to all members of the SailPoint Developer Community
 
 ## Unacceptable behavior
 
-The following are prohibited:
+The following behaviors are prohibited:
 
 - Harassment, discrimination, or offensive comments of any kind
 - Sexual attention, personal attacks, or threats
 - Doxxing or publishing private information without consent
 - Spam, flooding, or deliberate derailment of discussions
-- Plagiarism or misrepresenting others' work
+- Plagiarism
 - Sharing false, misleading, or unverified technical information
 - Manipulating community systems
 - Malicious code, phishing, or social engineering
 - Content that violates laws or regulations
 - Impersonating others or creating duplicate accounts
-- Using "SailPoint" in your username or display name — this applies to all members, including SailPoint employees (official employees are identified by their SailPoint badge, not their username)
-- Using a username or display name that impersonates a SailPoint product, team, or official account
+- Using "SailPoint" in your username or display name
+  - This applies to all members, including SailPoint employees
+  - Official employees are identified by their SailPoint badge, not their username
+- Using a username or display name that impersonates a SailPoint employee, product, team, or official account
 
 ---
 
 ## Posting guidelines
 
-Before posting, search existing discussions and check SailPoint documentation and the [AI Usage Policy](/docs/ai-policy). When you do post:
+Before posting, search existing discussions and check SailPoint documentation, including the [AI Usage Policy](/docs/ai-policy). When posting:
 
 **Do:**
 - Write a clear, specific title that describes the actual problem
@@ -88,32 +90,21 @@ Before posting, search existing discussions and check SailPoint documentation an
 - Post entire customer implementations or NDA-covered configurations
 - Request that others do your work for free
 - Post off-topic, political, religious, or inflammatory content
-- Advertise or promote services outside of designated categories
+- Advertise or promote services
 
 ## Respectful disagreement
 
-Technical discussions often involve differing opinions — that's healthy. Focus on ideas, not people. Explain your reasoning, acknowledge valid points, and be willing to be convinced. Avoid dismissive language ("just Google it"), personal attacks, or continuing to argue after an impasse.
+Technical discussions often involve differing opinions. Focus on ideas, not people. Explain your reasoning, acknowledge valid points, and be willing to be convinced. Avoid dismissive language ("just Google it"), personal attacks, or continuing to argue after an impasse.
 
-## Community roles
+---
 
-| Role | Description |
-|---|---|
-| **Member** | All registered community participants. Can ask questions, provide answers, and engage in discussions. |
-| **Ambassador** | Recognized contributors who consistently provide high-quality assistance. Subject to the [Ambassador Code of Conduct](#). |
-| **Expert Ambassador** | Top-tier contributors with proven deep expertise. Additional privileges and responsibilities per the Ambassador Code of Conduct. |
-| **SailPoint Employee** | Identified by SailPoint badge. Moderate discussions, provide official guidance, and escalate issues internally. |
+## Reporting and enforcement
 
-## Reporting violations
+### How to report
 
-| Type | How to report |
-|---|---|
-| General violations | Use the "Report" flag on any post — moderators review within 2 business days |
-| Private concerns | Email [developer-relations@sailpoint.com](mailto:developer-relations@sailpoint.com) or message @developer_relations_team on the forum |
-| Moderator issues | *Escalation email TBD* |
+To report content that violates this policy, please flag the post, this will notify our community moderators. For private concerns, email [developer-relations@sailpoint.com](mailto:developer-relations@sailpoint.com) or message @developer_relations_team on the forum.
 
 Reports are kept confidential. Retaliation against reporters is prohibited. Reporters receive confirmation their report was received.
-
-## Enforcement
 
 We believe in education first, but repeat violations will result in escalating consequences.
 
@@ -139,22 +130,10 @@ Some behaviors result in an **immediate permanent ban**, regardless of prior his
 - Coordinated manipulation, fraud, or sock-puppet accounts
 - Illegal activity
 
----
+## Appeals
 
-## Appeals & reinstatement
-
-Any enforcement action of the 2nd violation or above may be appealed within 14 days. Email [community-appeals@sailpoint.com](mailto:community-appeals@sailpoint.com) with your perspective and any relevant context. DevRel leadership reviews within 5 business days — one appeal per incident, decision is final.
-
-Temporary bans are automatically lifted after the suspension period. Permanent bans may be petitioned for reconsideration after 1 year with demonstrated reform.
+Any enforcement action of the 2nd violation or above may be appealed within 14 days. Email [developer-relations@sailpoint.com](mailto:developer-relations@sailpoint.com) with your perspective and any relevant context. DevRel leadership will review within 5 business days. One appeal per incident, decision is final.
 
 ---
 
-## Questions & updates
-
-**Questions:** Post in the Community Feedback category on the forum.
-
-**Updates:** This policy is reviewed annually. Changes are communicated via community announcements.
-
----
-
-*Thank you for being part of the SailPoint Community. Together, we're building the most helpful, knowledgeable, and welcoming identity governance community in the industry.*
+Thank you for being a part of the SailPoint Community.

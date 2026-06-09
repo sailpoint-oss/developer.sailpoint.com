@@ -2,14 +2,14 @@
 id: ai-policy
 title: AI Usage Policy
 description: Guidelines for the responsible use of AI tools in the SailPoint Developer Community.
-slug: ai-policy
+slug: /ai-policy
+displayed_sidebar: communityPoliciesSidebar
+hide_table_of_contents: false
 unlisted: true
 custom_edit_url: null
 toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---
-
-<div id="ai-policy-page" class="ai-policy-page-marker" hidden aria-hidden="true"></div>
 
 ## Purpose
 

@@ -878,6 +878,12 @@ article:has(.ai-policy-page-marker) footer,
 .docItemContainer:has(#ai-policy-page) .theme-last-updated,
 article:has(#ai-policy-page) .theme-last-updated,
 .docItemContainer:has(.ai-policy-page-marker) .theme-last-updated,
-article:has(.ai-policy-page-marker) .theme-last-updated {
+article:has(.ai-policy-page-marker) .theme-last-updated,
+article:has(.community-policy-page) .theme-last-updated,
+article:has(.community-policy-page) footer {
+  display: none !important;
+}
+
+.theme-unlisted-banner {
   display: none !important;
 }

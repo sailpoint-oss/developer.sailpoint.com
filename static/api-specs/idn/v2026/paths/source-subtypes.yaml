@@ -1,21 +1,10 @@
 get:
-  summary: Retrieve all subtypes by source
-  description: Get all machine account subtypes for a given source.
-  deprecated: true
-  x-deprecated-description: |
-    This API has been deprecated, please refer to [Retrieve all subtypes](https://developer.sailpoint.com/docs/api/v2026/list-source-subtypes) for the latest API.
-  operationId: listMachineAccountSubtypes
+  summary: Retrieve all subtypes
+  description: Get all machine account subtypes.
+  operationId: listSourceSubtypes
   tags:
-    - Machine Accounts
+    - Machine Account Subtypes
   parameters:
-    - in: path
-      name: sourceId
-      required: true
-      schema:
-        type: string
-      example: 6d0458373bec4b4b80460992b76016da
-      description: The ID of the source.
-      x-sailpoint-resource-operation-id: listSources
     - in: query
       name: filters
       required: false
@@ -23,15 +12,21 @@ get:
         type: string
       description: >-
         Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
-
+        
 
         Filtering is supported for the following fields and operators:
-
-
+        
+        
+        **id**: *eq, in, sw*
+        
+        
         **displayName**: *eq, sw*
-
+        
 
         **technicalName**: *eq, sw*
+        
+        
+        **source.id**: *eq, in*
       example: displayName eq "sail"
     - in: query
       name: sorters
@@ -63,7 +58,7 @@ get:
           schema:
             type: array
             items:
-              $ref: ../schemas/SourceSubtype.yaml
+              $ref: ../schemas/SourceSubtypeWithSource.yaml
           examples:
             SourceSubtype:
               value:
@@ -75,6 +70,11 @@ get:
                   created: 2025-07-28T16:13:42.801Z
                   modified: 2025-07-28T16:13:42.750Z
                   type: MACHINE
+                  source:
+                    type: SOURCE
+                    id: 6d0458373bec4b4b80460992b76016da
+                    name: Test Source
+                  systemManaged: false
     '400':
       $ref: ../responses/400.yaml
     '401':
@@ -98,22 +98,11 @@ get:
     - SOURCE_SUBADMIN
 post:
   summary: Create subtype
-  description: Create a new machine account subtype for a source.
-  deprecated: true
-  x-deprecated-description: |
-    This API has been deprecated, please refer to [Create subtype](https://developer.sailpoint.com/docs/api/v2026/create-source-subtype) for the latest API.
-  operationId: createMachineAccountSubtype
+  description: Create a new machine account subtype.
+  operationId: createSourceSubtype
   tags:
-    - Machine Accounts
+    - Machine Account Subtypes
   parameters:
-    - in: path
-      name: sourceId
-      required: true
-      schema:
-        type: string
-      example: 6d0458373bec4b4b80460992b76016da
-      description: The ID of the source.
-      x-sailpoint-resource-operation-id: listSources
     - name: X-SailPoint-Experimental
       in: header
       description: Use this header to enable this experimental API.
@@ -129,10 +118,15 @@ post:
         schema:
           type: object
           required:
+            - sourceId
             - technicalName
             - displayName
             - description
           properties:
+            sourceId:
+              type: string
+              description: ID of the source where subtype is created.
+              example: 6d0458373bec4b4b80460992b76016da
             technicalName:
               type: string
               description: Technical name of the subtype.
@@ -152,6 +146,7 @@ post:
         examples:
           SourceSubtype:
             value:
+              sourceId: 6d0458373bec4b4b80460992b76016da
               technicalName: foo
               displayName: Mr Foo
               description: fighters
@@ -162,7 +157,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../schemas/SourceSubtype.yaml
+            $ref: ../schemas/SourceSubtypeWithSource.yaml
           examples:
             SourceSubtype:
               value:
@@ -174,6 +169,11 @@ post:
                 created: 2025-07-28T16:13:42.801Z
                 modified: 2025-07-28T16:13:42.750Z
                 type: MACHINE
+                source:
+                  type: SOURCE
+                  id: 6d0458373bec4b4b80460992b76016da
+                  name: Test Source
+                systemManaged: false
     '400':
       $ref: ../responses/400.yaml
     '401':

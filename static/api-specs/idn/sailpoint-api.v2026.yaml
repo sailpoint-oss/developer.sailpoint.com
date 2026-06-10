@@ -2476,6 +2476,8 @@ paths:
     $ref: ./v2026/paths/source-subtypes-bulk-retrieve.yaml
   /source-subtypes/machine-account-create-access:
     $ref: ./v2026/paths/source-subtypes-machine-account-create-access.yaml
+  /source-subtypes:
+    $ref: ./v2026/paths/source-subtypes.yaml
   /source-subtypes/{subtypeId}:
     $ref: ./v2026/paths/machine-account-subtypes.yaml
   /source-subtypes/{subtypeId}/machine-config:

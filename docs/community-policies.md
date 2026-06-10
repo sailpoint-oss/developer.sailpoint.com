@@ -4,7 +4,6 @@ title: Community policies
 description: The SailPoint Developer Community operates under a set of complementary policy documents designed to maintain quality, foster collaboration, and ensure professional conduct.
 slug: /community-policies
 displayed_sidebar: communityPoliciesSidebar
-unlisted: true
 custom_edit_url: null
 hide_table_of_contents: true
 ---

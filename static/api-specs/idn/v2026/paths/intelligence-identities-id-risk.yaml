@@ -10,10 +10,10 @@ get:
     - Any
   tags:
     - Intelligence Package
-  summary: Identity risk snapshot
+  summary: List identity risks
   description: |
     Risk snapshot envelope for the identity. The service resolves the first matching
-    outlier for identityID and returns one page of access-items plus an optional
+    outlier for the identity and returns one page of access-items plus an optional
     continuation link for additional pages.
 
     Clients should continue paging using _links.outliers.href when provided.
@@ -27,37 +27,14 @@ get:
         application/json:
           schema:
             $ref: '../schemas/intelligence/IntelIdentityRiskBody.yaml'
-          examples:
-            hasMore:
-              summary: First page with continuation
-              value:
-                outliers:
-                  - id: outlier-access-001
-                    displayName: Example_Admin_Access
-                    description: null
-                    accessType: ENTITLEMENT
-                    sourceName: Example SaaS Source
-                    extremelyRare: false
-                outliersTotal: 312
-                _links:
-                  outliers:
-                    href: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/00000000000000000000000000000000/risk/outliers?limit=250&offset=250
-            lastPage:
-              summary: Single page result
-              value:
-                outliers:
-                  - id: outlier-access-001
-                    displayName: Example_Admin_Access
-                    description: null
-                    accessType: ENTITLEMENT
-                    sourceName: Example SaaS Source
-                    extremelyRare: false
-                outliersTotal: 1
-            noOutlier:
-              summary: Identity with no outlier
-              value:
-                outliers: []
-                outliersTotal: 0
+          example:
+            outliers:
+              - id: outlier-access-001
+                displayName: Example_Admin_Access
+                accessType: ENTITLEMENT
+                sourceName: Example SaaS Source
+                extremelyRare: false
+            outliersTotal: 1
     '400':
       description: Invalid path parameter.
       content:

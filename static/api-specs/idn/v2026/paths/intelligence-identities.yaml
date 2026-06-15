@@ -10,7 +10,7 @@ get:
     - Any
   tags:
     - Intelligence Package
-  summary: Resolve one identity by filter
+  summary: Get identity by filter
   description: |
     Requires tenant license idn:response-and-remediation.
 
@@ -30,7 +30,7 @@ get:
         type: string
       examples:
         byId:
-          value: id eq "00000000-0000-0000-0000-000000000000"
+          value: id eq "ef38f94347e94562b5bb8424a56397d8"
         byEmail:
           value: email eq "user@example.com"
       description: |-
@@ -51,7 +51,7 @@ get:
           examples:
             human:
               value:
-                id: 00000000-0000-0000-0000-000000000000
+                id: ef38f94347e94562b5bb8424a56397d8
                 type: HUMAN
                 displayName: Example User
                 subtype: Employee
@@ -66,14 +66,14 @@ get:
                   isManager: false
                 _links:
                   access:
-                    href: /v2026/intelligence/identities/00000000-0000-0000-0000-000000000000/access
+                    href: /v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/access
                   risk:
-                    href: /v2026/intelligence/identities/00000000-0000-0000-0000-000000000000/risk
+                    href: /v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/risk
                   accessHistory:
-                    href: /v2026/intelligence/identities/00000000-0000-0000-0000-000000000000/access-history
+                    href: /v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/access-history
             machine:
               value:
-                id: e1feccee-a9d4-4909-8131-6ed67d79ff07
+                id: 2c91808874ff91550175097daaec161c
                 type: MACHINE
                 displayName: example-agent-1
                 subtype: Example Agent

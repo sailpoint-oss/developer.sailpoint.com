@@ -10,7 +10,7 @@ get:
     - Any
   tags:
     - Intelligence Package
-  summary: Accounts merged with privileged data
+  summary: List identity access
   description: |
     Requires tenant license idn:response-and-remediation.
 

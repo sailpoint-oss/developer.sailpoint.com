@@ -43,8 +43,10 @@ properties:
     example: EXAMPLE_PERMISSION_GROUPS
   type:
     type: string
-    description: Object type classification from SDS Search (for example ENTITLEMENT).
-    example: ENTITLEMENT
+    description: |
+      Type of privileged access object.
+      Possible values: [accessprofile, entitlement, role]
+    example: entitlement
   value:
     type: string
     description: Privileged value on the source attribute when applicable.

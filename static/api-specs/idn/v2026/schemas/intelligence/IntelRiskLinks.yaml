@@ -7,4 +7,4 @@ properties:
     allOf:
       - $ref: ./IntelHref.yaml
     example:
-      href: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/00000000000000000000000000000000/risk/outliers?limit=250&offset=250
+      href: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/risk/outliers?limit=250&offset=250

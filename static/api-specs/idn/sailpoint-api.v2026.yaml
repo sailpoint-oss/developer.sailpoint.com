@@ -1676,16 +1676,6 @@ paths:
     $ref: ./v2026/paths/identity-profile-default-config.yaml
   /identity-profiles/{identity-profile-id}/process-identities:
     $ref: ./v2026/paths/identity-profile-process-identities.yaml
-  /intelligence/identities:
-    $ref: ./v2026/paths/intelligence-identities.yaml
-  /intelligence/identities/{identityID}/access:
-    $ref: ./v2026/paths/intelligence-identities-id-access.yaml
-  /intelligence/identities/{identityID}/access-history:
-    $ref: ./v2026/paths/intelligence-identities-id-access-history.yaml
-  /intelligence/identities/{identityID}/risk:
-    $ref: ./v2026/paths/intelligence-identities-id-risk.yaml
-  /intelligence/identities/{identityID}/risk/outliers:
-    $ref: ./v2026/paths/intelligence-identities-id-risk-outliers.yaml
   /jit-activations/activate:
     $ref: ./v2026/paths/jit-activations-activate.yaml
   /jit-activations/deactivate:

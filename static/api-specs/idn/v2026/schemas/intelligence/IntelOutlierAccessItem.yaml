@@ -22,7 +22,9 @@ properties:
     example: null
   accessType:
     type: string
-    description: Access item type (for example ENTITLEMENT, ROLE, ACCESS_PROFILE, ACCOUNT, or APP).
+    description: |
+      Access item type.
+      Possible values: [ENTITLEMENT, ACCESS_PROFILE, ROLE]
     example: ENTITLEMENT
   sourceName:
     type: string

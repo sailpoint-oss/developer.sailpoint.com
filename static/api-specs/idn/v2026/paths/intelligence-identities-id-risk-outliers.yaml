@@ -10,7 +10,7 @@ get:
     - Any
   tags:
     - Intelligence Package
-  summary: Risk outliers continuation paging
+  summary: Get identity risk outliers page
   description: |
     Continuation endpoint for risk outlier access-items. Returns one page based on
     the supplied limit and offset values and includes an optional continuation link
@@ -45,37 +45,14 @@ get:
         application/json:
           schema:
             $ref: '../schemas/intelligence/IntelIdentityRiskBody.yaml'
-          examples:
-            intermediate:
-              summary: Intermediate page response
-              value:
-                outliers:
-                  - id: outlier-access-001
-                    displayName: Example_Admin_Access
-                    description: null
-                    accessType: ENTITLEMENT
-                    sourceName: Example SaaS Source
-                    extremelyRare: false
-                outliersTotal: 312
-                _links:
-                  outliers:
-                    href: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/00000000000000000000000000000000/risk/outliers?limit=250&offset=500
-            lastPage:
-              summary: Last page response
-              value:
-                outliers:
-                  - id: outlier-access-001
-                    displayName: Example_Admin_Access
-                    description: null
-                    accessType: ENTITLEMENT
-                    sourceName: Example SaaS Source
-                    extremelyRare: false
-                outliersTotal: 312
-            noOutlier:
-              summary: Identity with no outlier
-              value:
-                outliers: []
-                outliersTotal: 0
+          example:
+            outliers:
+              - id: outlier-access-001
+                displayName: Example_Admin_Access
+                accessType: ENTITLEMENT
+                sourceName: Example SaaS Source
+                extremelyRare: false
+            outliersTotal: 1
     '400':
       description: Invalid path or query parameters.
       content:

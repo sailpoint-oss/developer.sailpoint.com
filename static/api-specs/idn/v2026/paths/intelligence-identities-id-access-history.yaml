@@ -10,7 +10,7 @@ get:
     - Any
   tags:
     - Intelligence Package
-  summary: Return identity access-history events
+  summary: List identity access history events
   description: |
     Requires tenant license idn:response-and-remediation.
 
@@ -55,10 +55,10 @@ get:
             events:
               - dateTime: "2026-05-04T12:00:00Z"
                 eventType: ACCESS_GRANTED
-                identityId: 00000000-0000-0000-0000-000000000000
+                identityId: ef38f94347e94562b5bb8424a56397d8
               - dateTime: "2026-05-06T08:00:00Z"
                 eventType: ACCESS_REVOKED
-                identityId: 00000000-0000-0000-0000-000000000000
+                identityId: ef38f94347e94562b5bb8424a56397d8
     '400':
       description: Invalid path or query parameters.
       content:

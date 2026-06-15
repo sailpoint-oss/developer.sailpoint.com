@@ -1,0 +1,44 @@
+name: Generate Legacy API Docs
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to commit generated docs to'
+        required: false
+        default: 'main'
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install redoc-cli
+        run: npm install -g redoc-cli
+
+      - name: Generate HTML docs
+        run: bash ./scripts/generate-legacy-api-docs.sh
+
+      - name: Commit generated docs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add static/redoc/
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: regenerate legacy API docs"
+            git push
+          fi

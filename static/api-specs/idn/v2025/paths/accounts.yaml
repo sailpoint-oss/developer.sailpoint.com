@@ -75,6 +75,8 @@ get:
 
         **recommendation.method**: *eq, in, isnull*
 
+        **recommendation.type**: *eq, in, isnull*
+
         **created**: *eq, ge, gt, le, lt*
 
         **modified**: *eq, ge, gt, le, lt*

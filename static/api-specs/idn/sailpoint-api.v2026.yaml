@@ -507,7 +507,7 @@ tags:
       Read-only HTTP API that returns the Intelligence Package (identity context)
       for SecOps enrichment use cases (SIEM/SOAR connectors, MCP, browser
       extension). Backed by Atlas internal-REST calls to MICE, Shelby List Accounts,
-      SDS Search, and identity-history.
+      SDS Search, IDA-outliers, and identity-history.
   - name: JIT Access
     description: |
       Use these APIs to configure JIT provisioning activation policy for the tenant.
@@ -1676,12 +1676,6 @@ paths:
     $ref: ./v2026/paths/identity-profile-default-config.yaml
   /identity-profiles/{identity-profile-id}/process-identities:
     $ref: ./v2026/paths/identity-profile-process-identities.yaml
-  /intelligence/identities:
-    $ref: ./v2026/paths/intelligence-identities.yaml
-  /intelligence/identities/{identityID}/access:
-    $ref: ./v2026/paths/intelligence-identities-id-access.yaml
-  /intelligence/identities/{identityID}/access-history:
-    $ref: ./v2026/paths/intelligence-identities-id-access-history.yaml
   /jit-activations/activate:
     $ref: ./v2026/paths/jit-activations-activate.yaml
   /jit-activations/deactivate:
@@ -2184,14 +2178,6 @@ paths:
     $ref: ./v2026/paths/machine-accounts.yaml
   /machine-accounts/{id}:
     $ref: ./v2026/paths/machine-account.yaml
-  /machine-accounts/bulk-update:
-    $ref: ./v2026/paths/machine-accounts-bulk-update.yaml
-  /machine-accounts/bulk-enable:
-    $ref: ./v2026/paths/machine-accounts-bulk-enable.yaml
-  /machine-accounts/bulk-disable:
-    $ref: ./v2026/paths/machine-accounts-bulk-disable.yaml
-  /machine-accounts/bulk-reload:
-    $ref: ./v2026/paths/machine-accounts-bulk-reload.yaml
   /sources/{sourceId}/machine-classification-config:
     $ref: "./v2026/paths/machine-classification-config.yaml"
   /sources/{sourceId}/machine-account-mappings:
@@ -2480,6 +2466,8 @@ paths:
     $ref: ./v2026/paths/source-subtypes-bulk-retrieve.yaml
   /source-subtypes/machine-account-create-access:
     $ref: ./v2026/paths/source-subtypes-machine-account-create-access.yaml
+  /source-subtypes:
+    $ref: ./v2026/paths/source-subtypes.yaml
   /source-subtypes/{subtypeId}:
     $ref: ./v2026/paths/machine-account-subtypes.yaml
   /source-subtypes/{subtypeId}/machine-config:

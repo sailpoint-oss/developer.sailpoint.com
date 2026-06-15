@@ -17,23 +17,19 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create-machine-account-subtype**](#create-machine-account-subtype) | **Post** `/sources/{sourceId}/subtypes` | Create subtype
 [**delete-machine-account-subtype-by-technical-name**](#delete-machine-account-subtype-by-technical-name) | **Delete** `/sources/{sourceId}/subtypes/{technicalName}` | Delete subtype
-[**disable-machine-accounts-in-bulk**](#disable-machine-accounts-in-bulk) | **Post** `/machine-accounts/bulk-disable` | Bulk disable machine accounts
-[**enable-machine-accounts-in-bulk**](#enable-machine-accounts-in-bulk) | **Post** `/machine-accounts/bulk-enable` | Bulk enable machine accounts
 [**get-machine-account**](#get-machine-account) | **Get** `/machine-accounts/{id}` | Get machine account details
-[**get-machine-account-subtype-approval-config**](#get-machine-account-subtype-approval-config) | **Get** `/source-subtypes/{subtypeId}/machine-config` | Machine Subtype Approval Config
 [**get-machine-account-subtype-by-id**](#get-machine-account-subtype-by-id) | **Get** `/sources/subtypes/{subtypeId}` | Retrieve subtype by subtype id
 [**get-machine-account-subtype-by-technical-name**](#get-machine-account-subtype-by-technical-name) | **Get** `/sources/{sourceId}/subtypes/{technicalName}` | Retrieve subtype by source and technicalName
 [**list-machine-account-subtypes**](#list-machine-account-subtypes) | **Get** `/sources/{sourceId}/subtypes` | Retrieve all subtypes by source
 [**list-machine-accounts**](#list-machine-accounts) | **Get** `/machine-accounts` | List machine accounts
-[**load-bulk-source-subtypes**](#load-bulk-source-subtypes) | **Post** `/source-subtypes/bulk-retrieve` | Bulk Retrieve of Source Subtypes
 [**patch-machine-account-subtype-by-technical-name**](#patch-machine-account-subtype-by-technical-name) | **Patch** `/sources/{sourceId}/subtypes/{technicalName}` | Patch subtype
-[**reload-machine-accounts-in-bulk**](#reload-machine-accounts-in-bulk) | **Post** `/machine-accounts/bulk-reload` | Bulk reload machine accounts
 [**update-machine-account**](#update-machine-account) | **Patch** `/machine-accounts/{id}` | Update machine account details
-[**update-machine-account-subtype-approval-config**](#update-machine-account-subtype-approval-config) | **Patch** `/source-subtypes/{subtypeId}/machine-config` | Machine Subtype Approval Config
-[**update-machine-accounts-in-bulk**](#update-machine-accounts-in-bulk) | **Post** `/machine-accounts/bulk-update` | Bulk update machine accounts
 
 
 ## create-machine-account-subtype
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
@@ -120,6 +116,9 @@ func main() {
 [[Back to top]](#)
 
 ## delete-machine-account-subtype-by-technical-name
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
@@ -195,178 +194,6 @@ func main() {
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     
-}
-```
-
-[[Back to top]](#)
-
-## disable-machine-accounts-in-bulk
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.Experimental = true
- ```
-:::
-Bulk disable machine accounts
-Submits an asynchronous request to disable up to 100 machine accounts.
-
-The response returns HTTP 202 Accepted with an **accountRequestId** task identifier. Use the account request APIs to track completion.
-
-Callers without the **idn:mis-account:disable** right may still disable accounts they own. Non-owned IDs are excluded from the task.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/disable-machine-accounts-in-bulk)
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDisableMachineAccountsInBulkRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
- **misBulkRequest** | [**MisBulkRequest**](../models/mis-bulk-request) |  | 
-
-### Return type
-
-[**AccountRequestAsyncResult**](../models/account-request-async-result)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-  "encoding/json"
-    v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
-	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
-)
-
-func main() {
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    misbulkrequest := []byte(`{
-          "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c91808a7813090a017814121919ecca" ]
-        }`) // MisBulkRequest | 
-
-    var misBulkRequest v2026.MisBulkRequest
-    if err := json.Unmarshal(misbulkrequest, &misBulkRequest); err != nil {
-      fmt.Println("Error:", err)
-      return
-    }
-    
-
-    configuration := sailpoint.NewDefaultConfiguration()
-    apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2026.MachineAccountsAPI.DisableMachineAccountsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).MisBulkRequest(misBulkRequest).Execute()
-	  //resp, r, err := apiClient.V2026.MachineAccountsAPI.DisableMachineAccountsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).MisBulkRequest(misBulkRequest).Execute()
-    if err != nil {
-	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.DisableMachineAccountsInBulk``: %v\n", err)
-	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `DisableMachineAccountsInBulk`: AccountRequestAsyncResult
-    fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.DisableMachineAccountsInBulk`: %v\n", resp)
-}
-```
-
-[[Back to top]](#)
-
-## enable-machine-accounts-in-bulk
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.Experimental = true
- ```
-:::
-Bulk enable machine accounts
-Submits an asynchronous request to enable up to 100 machine accounts.
-
-The response returns HTTP 202 Accepted with an **accountRequestId** task identifier. Use the account request APIs to track completion.
-
-Callers without the **idn:mis-account:enable** right may still enable accounts they own. Non-owned IDs are excluded from the task.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/enable-machine-accounts-in-bulk)
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiEnableMachineAccountsInBulkRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
- **misBulkRequest** | [**MisBulkRequest**](../models/mis-bulk-request) |  | 
-
-### Return type
-
-[**AccountRequestAsyncResult**](../models/account-request-async-result)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-  "encoding/json"
-    v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
-	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
-)
-
-func main() {
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    misbulkrequest := []byte(`{
-          "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c91808a7813090a017814121919ecca" ]
-        }`) // MisBulkRequest | 
-
-    var misBulkRequest v2026.MisBulkRequest
-    if err := json.Unmarshal(misbulkrequest, &misBulkRequest); err != nil {
-      fmt.Println("Error:", err)
-      return
-    }
-    
-
-    configuration := sailpoint.NewDefaultConfiguration()
-    apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2026.MachineAccountsAPI.EnableMachineAccountsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).MisBulkRequest(misBulkRequest).Execute()
-	  //resp, r, err := apiClient.V2026.MachineAccountsAPI.EnableMachineAccountsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).MisBulkRequest(misBulkRequest).Execute()
-    if err != nil {
-	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.EnableMachineAccountsInBulk``: %v\n", err)
-	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EnableMachineAccountsInBulk`: AccountRequestAsyncResult
-    fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.EnableMachineAccountsInBulk`: %v\n", resp)
 }
 ```
 
@@ -451,86 +278,10 @@ func main() {
 
 [[Back to top]](#)
 
-## get-machine-account-subtype-approval-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.Experimental = true
- ```
-:::
-Machine Subtype Approval Config
-This endpoint retrieves the approval configuration for machine account creation and deletion at the machine subtype level. By providing a specific subtypeId in the path, clients can fetch the approval rules and settings (such as required approvers and comments policy) that govern account creation and deletion for that particular machine subtype. The response includes a MachineAccountSubtypeConfigDto object detailing these configurations, enabling clients to understand or display the approval workflow required for creating and deleting machine accounts of the given subtype. Use this endpoint to get machine subtype level approval config for account creation and deletion.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-machine-account-subtype-approval-config)
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**subtypeId** | **string** | machine subtype id. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetMachineAccountSubtypeApprovalConfigRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
-
-
-### Return type
-
-[**MachineAccountSubtypeConfigDto**](../models/machine-account-subtype-config-dto)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-  
-    
-	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
-)
-
-func main() {
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    subtypeId := `ef38f94347e94562b5bb8424a56498d8` // string | machine subtype id. # string | machine subtype id.
-
-    
-
-    configuration := sailpoint.NewDefaultConfiguration()
-    apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2026.MachineAccountsAPI.GetMachineAccountSubtypeApprovalConfig(context.Background(), subtypeId).XSailPointExperimental(xSailPointExperimental).Execute()
-	  //resp, r, err := apiClient.V2026.MachineAccountsAPI.GetMachineAccountSubtypeApprovalConfig(context.Background(), subtypeId).XSailPointExperimental(xSailPointExperimental).Execute()
-    if err != nil {
-	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.GetMachineAccountSubtypeApprovalConfig``: %v\n", err)
-	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMachineAccountSubtypeApprovalConfig`: MachineAccountSubtypeConfigDto
-    fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.GetMachineAccountSubtypeApprovalConfig`: %v\n", resp)
-}
-```
-
-[[Back to top]](#)
-
 ## get-machine-account-subtype-by-id
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
@@ -610,6 +361,9 @@ func main() {
 [[Back to top]](#)
 
 ## get-machine-account-subtype-by-technical-name
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
@@ -692,6 +446,9 @@ func main() {
 [[Back to top]](#)
 
 ## list-machine-account-subtypes
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
@@ -863,87 +620,10 @@ func main() {
 
 [[Back to top]](#)
 
-## load-bulk-source-subtypes
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.Experimental = true
- ```
-:::
-Bulk Retrieve of Source Subtypes
-This endpoint retrieves the subtypes for given subtypeIds.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/load-bulk-source-subtypes)
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiLoadBulkSourceSubtypesRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
- **requestBody** | **[]string** |  | 
-
-### Return type
-
-[**[]SourceSubtypeWithSource**](../models/source-subtype-with-source)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-  "encoding/json"
-    v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
-	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
-)
-
-func main() {
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    requestbody := []byte(``) // []string | 
-
-    var requestBody []v2026.RequestBody
-    if err := json.Unmarshal(requestbody, &requestBody); err != nil {
-      fmt.Println("Error:", err)
-      return
-    }
-    
-
-    configuration := sailpoint.NewDefaultConfiguration()
-    apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2026.MachineAccountsAPI.LoadBulkSourceSubtypes(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
-	  //resp, r, err := apiClient.V2026.MachineAccountsAPI.LoadBulkSourceSubtypes(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
-    if err != nil {
-	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.LoadBulkSourceSubtypes``: %v\n", err)
-	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `LoadBulkSourceSubtypes`: []SourceSubtypeWithSource
-    fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.LoadBulkSourceSubtypes`: %v\n", resp)
-}
-```
-
-[[Back to top]](#)
-
 ## patch-machine-account-subtype-by-technical-name
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
@@ -1033,92 +713,6 @@ func main() {
 
 [[Back to top]](#)
 
-## reload-machine-accounts-in-bulk
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.Experimental = true
- ```
-:::
-Bulk reload machine accounts
-Queues a reload for up to 100 machine accounts in one request.
-
-The response uses HTTP 207 Multi-Status. Each array element reports the result for one requested ID in its **status** field.
-
-Callers without the **idn:mis-account:reload** right may still reload accounts they own.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/reload-machine-accounts-in-bulk)
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiReloadMachineAccountsInBulkRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
- **misBulkRequest** | [**MisBulkRequest**](../models/mis-bulk-request) |  | 
-
-### Return type
-
-[**[]MisBulkResponse**](../models/mis-bulk-response)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-  "encoding/json"
-    v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
-	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
-)
-
-func main() {
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    misbulkrequest := []byte(`{
-          "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c91808a7813090a017814121919ecca" ]
-        }`) // MisBulkRequest | 
-
-    var misBulkRequest v2026.MisBulkRequest
-    if err := json.Unmarshal(misbulkrequest, &misBulkRequest); err != nil {
-      fmt.Println("Error:", err)
-      return
-    }
-    
-
-    configuration := sailpoint.NewDefaultConfiguration()
-    apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2026.MachineAccountsAPI.ReloadMachineAccountsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).MisBulkRequest(misBulkRequest).Execute()
-	  //resp, r, err := apiClient.V2026.MachineAccountsAPI.ReloadMachineAccountsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).MisBulkRequest(misBulkRequest).Execute()
-    if err != nil {
-	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.ReloadMachineAccountsInBulk``: %v\n", err)
-	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ReloadMachineAccountsInBulk`: []MisBulkResponse
-    fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.ReloadMachineAccountsInBulk`: %v\n", resp)
-}
-```
-
-[[Back to top]](#)
-
 ## update-machine-account
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
@@ -1201,185 +795,6 @@ func main() {
     }
     // response from `UpdateMachineAccount`: MachineAccount
     fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.UpdateMachineAccount`: %v\n", resp)
-}
-```
-
-[[Back to top]](#)
-
-## update-machine-account-subtype-approval-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.Experimental = true
- ```
-:::
-Machine Subtype Approval Config
-Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account creation and deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for creating and deleting machine accounts of a particular subtype.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/update-machine-account-subtype-approval-config)
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**subtypeId** | **string** | machine account subtype ID. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiUpdateMachineAccountSubtypeApprovalConfigRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
-
- **jsonPatchOperation** | [**[]JsonPatchOperation**](../models/json-patch-operation) | The JSONPatch payload used to update the object. | 
-
-### Return type
-
-[**MachineAccountSubtypeConfigDto**](../models/machine-account-subtype-config-dto)
-
-### HTTP request headers
-
-- **Content-Type**: application/json-patch+json
-- **Accept**: application/json
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-  "encoding/json"
-    v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
-	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
-)
-
-func main() {
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    subtypeId := `00eebcf881994e419d72e757fd30dc0e` // string | machine account subtype ID. # string | machine account subtype ID.
-    jsonpatchoperation := []byte(``) // []JsonPatchOperation | The JSONPatch payload used to update the object.
-
-    var jsonPatchOperation []v2026.JsonPatchOperation
-    if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
-      fmt.Println("Error:", err)
-      return
-    }
-    
-
-    configuration := sailpoint.NewDefaultConfiguration()
-    apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2026.MachineAccountsAPI.UpdateMachineAccountSubtypeApprovalConfig(context.Background(), subtypeId).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
-	  //resp, r, err := apiClient.V2026.MachineAccountsAPI.UpdateMachineAccountSubtypeApprovalConfig(context.Background(), subtypeId).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
-    if err != nil {
-	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.UpdateMachineAccountSubtypeApprovalConfig``: %v\n", err)
-	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateMachineAccountSubtypeApprovalConfig`: MachineAccountSubtypeConfigDto
-    fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.UpdateMachineAccountSubtypeApprovalConfig`: %v\n", resp)
-}
-```
-
-[[Back to top]](#)
-
-## update-machine-accounts-in-bulk
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.Experimental = true
- ```
-:::
-Bulk update machine accounts
-Applies the same JSON Patch document to up to 100 machine accounts in one request.
-
-The response uses HTTP 207 Multi-Status. Each array element reports the result for one requested ID in its **status** field (for example, 200 for success, 404 if the account was not found or is not accessible to the caller, 409 for a duplicate ID in the batch).
-
-Callers without the **idn:mis-account:update** right may still update accounts they own. IDs the caller cannot operate on are reported as not found or failed in the per-row results.
-
-Patchable fields include **description**, **subtype**, **environment**, **machineIdentity**, **ownerIdentity**, and **manuallyEdited** only.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/update-machine-accounts-in-bulk)
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiUpdateMachineAccountsInBulkRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
- **misBulkUpdateRequest** | [**MisBulkUpdateRequest**](../models/mis-bulk-update-request) |  | 
-
-### Return type
-
-[**[]MisBulkResponse**](../models/mis-bulk-response)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-  "encoding/json"
-    v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
-	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
-)
-
-func main() {
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    misbulkupdaterequest := []byte(`{
-          "ids" : [ "ef38f94347e94562b5bb8424a56397d8" ],
-          "jsonPatch" : [ {
-            "op" : "replace",
-            "path" : "/description",
-            "value" : "Updated description"
-          } ]
-        }`) // MisBulkUpdateRequest | 
-
-    var misBulkUpdateRequest v2026.MisBulkUpdateRequest
-    if err := json.Unmarshal(misbulkupdaterequest, &misBulkUpdateRequest); err != nil {
-      fmt.Println("Error:", err)
-      return
-    }
-    
-
-    configuration := sailpoint.NewDefaultConfiguration()
-    apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2026.MachineAccountsAPI.UpdateMachineAccountsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).MisBulkUpdateRequest(misBulkUpdateRequest).Execute()
-	  //resp, r, err := apiClient.V2026.MachineAccountsAPI.UpdateMachineAccountsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).MisBulkUpdateRequest(misBulkUpdateRequest).Execute()
-    if err != nil {
-	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.UpdateMachineAccountsInBulk``: %v\n", err)
-	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateMachineAccountsInBulk`: []MisBulkResponse
-    fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.UpdateMachineAccountsInBulk`: %v\n", resp)
 }
 ```
 

@@ -1,4 +1,4 @@
-      name: identityID
+      name: id
       in: path
       required: true
       description: Non-empty identity id path segment for Intelligence Package sub-resources.
@@ -8,4 +8,3 @@
         type: string
         minLength: 1
         maxLength: 128
-        pattern: '^([0-9a-fA-F]{32}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$'

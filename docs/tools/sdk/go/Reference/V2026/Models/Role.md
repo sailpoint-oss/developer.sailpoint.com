@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **Dimensional** | Pointer to **NullableBool** | Whether the Role is dimensional. | [optional] [default to false]
 **DimensionRefs** | Pointer to [**[]DimensionRef**](dimension-ref) | List of references to dimensions to which this Role is assigned. This field is only relevant if the Role is dimensional. | [optional] 
 **AccessModelMetadata** | Pointer to [**AttributeDTOList**](attribute-dto-list) |  | [optional] 
+**PrivilegeLevel** | Pointer to **NullableString** | The privilege level of the role, if applicable. | [optional] 
 
 ## Methods
 
@@ -609,4 +610,39 @@ SetAccessModelMetadata sets AccessModelMetadata field to given value.
 
 HasAccessModelMetadata returns a boolean if a field has been set.
 
+### GetPrivilegeLevel
+
+`func (o *Role) GetPrivilegeLevel() string`
+
+GetPrivilegeLevel returns the PrivilegeLevel field if non-nil, zero value otherwise.
+
+### GetPrivilegeLevelOk
+
+`func (o *Role) GetPrivilegeLevelOk() (*string, bool)`
+
+GetPrivilegeLevelOk returns a tuple with the PrivilegeLevel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrivilegeLevel
+
+`func (o *Role) SetPrivilegeLevel(v string)`
+
+SetPrivilegeLevel sets PrivilegeLevel field to given value.
+
+### HasPrivilegeLevel
+
+`func (o *Role) HasPrivilegeLevel() bool`
+
+HasPrivilegeLevel returns a boolean if a field has been set.
+
+### SetPrivilegeLevelNil
+
+`func (o *Role) SetPrivilegeLevelNil(b bool)`
+
+ SetPrivilegeLevelNil sets the value for PrivilegeLevel to be an explicit nil
+
+### UnsetPrivilegeLevel
+`func (o *Role) UnsetPrivilegeLevel()`
+
+UnsetPrivilegeLevel ensures that no value is present for PrivilegeLevel, not even an explicit nil
 

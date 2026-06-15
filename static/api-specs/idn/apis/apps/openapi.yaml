@@ -1,0 +1,59 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Apps
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Apps
+    description: |
+      Use this API to implement source application functionality. 
+      With this functionality in place, you can create, customize, and manage applications within sources.
+paths:
+  /source-apps/v1/{id}:
+    $ref: ./paths/source-apps-v1-by-id.yaml
+  /source-apps/v1/bulk-update:
+    $ref: ./paths/source-apps-v1-bulk-update.yaml
+  /source-apps/v1/assigned:
+    $ref: ./paths/source-apps-v1-assigned.yaml
+  /source-apps/v1:
+    $ref: ./paths/source-apps-v1.yaml
+  /source-apps/v1/all:
+    $ref: ./paths/source-apps-v1-all.yaml
+  /source-apps/v1/{id}/access-profiles:
+    $ref: ./paths/source-apps-v1-by-id-access-profiles.yaml
+  /source-apps/v1/{id}/access-profiles/bulk-remove:
+    $ref: ./paths/source-apps-v1-by-id-access-profiles-bulk-remove.yaml
+  /user-apps/v1/{id}:
+    $ref: ./paths/user-apps-v1-by-id.yaml
+  /user-apps/v1/{id}/available-accounts:
+    $ref: ./paths/user-apps-v1-by-id-available-accounts.yaml
+  /user-apps/v1:
+    $ref: ./paths/user-apps-v1.yaml
+  /user-apps/v1/all:
+    $ref: ./paths/user-apps-v1-all.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

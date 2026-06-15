@@ -71,6 +71,10 @@ The `attributes` object contains the replacement table configuration.
 - **table** `object` _(required)_  
   A JSON object of key-value pairs. Each pair identifies the pattern to search for (key) and the replacement string (value). Supports standard regex syntax.
 
+  :::info
+  Replace All transform no longer errors when the table attribute is missing or empty. In that situation, no text replacements are applied and the original value is returned. If your configuration intentionally omitted table, confirm that behavior still matches your intent.
+  :::
+
 #### Optional
 
 - **input** `object` _(optional)_  

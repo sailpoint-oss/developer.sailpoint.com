@@ -124,5 +124,5 @@ properties:
         type: array
         nullable: true
         items:
-          $ref: './selector.yaml'
+          $ref: './AppAccessProfileSelector.yaml'
 

@@ -3221,6 +3221,20 @@ const sidebar: SidebarsConfig = {
           key: "get-intel-identity-access-history-v-1-return-identity-access-history-events",
           className: "api-method get menu__list-item--v1",
         },
+        {
+          type: "doc",
+          id: "api/get-intel-identity-risk-v-1",
+          label: "Identity risk snapshot",
+          key: "get-intel-identity-risk-v-1-identity-risk-snapshot",
+          className: "api-method get menu__list-item--v1",
+        },
+        {
+          type: "doc",
+          id: "api/get-intel-identity-risk-outliers-v-1",
+          label: "Risk outliers continuation paging",
+          key: "get-intel-identity-risk-outliers-v-1-risk-outliers-continuation-paging",
+          className: "api-method get menu__list-item--v1",
+        },
       ],
     },
     {

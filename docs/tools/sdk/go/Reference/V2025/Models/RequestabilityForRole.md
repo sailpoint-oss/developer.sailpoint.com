@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **MaxPermittedAccessDuration** | Pointer to [**NullableAccessDuration**](access-duration) |  | [optional] 
 **ApprovalSchemes** | Pointer to [**[]ApprovalSchemeForRole**](approval-scheme-for-role) | List describing the steps in approving the request | [optional] 
 **DimensionSchema** | Pointer to [**DimensionSchema**](dimension-schema) |  | [optional] 
+**FormDefinitionId** | Pointer to **NullableString** | The ID of the form definition used for the access request. If specified, the form is presented to the requester during the access request process. | [optional] 
 
 ## Methods
 
@@ -257,4 +258,39 @@ SetDimensionSchema sets DimensionSchema field to given value.
 
 HasDimensionSchema returns a boolean if a field has been set.
 
+### GetFormDefinitionId
+
+`func (o *RequestabilityForRole) GetFormDefinitionId() string`
+
+GetFormDefinitionId returns the FormDefinitionId field if non-nil, zero value otherwise.
+
+### GetFormDefinitionIdOk
+
+`func (o *RequestabilityForRole) GetFormDefinitionIdOk() (*string, bool)`
+
+GetFormDefinitionIdOk returns a tuple with the FormDefinitionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFormDefinitionId
+
+`func (o *RequestabilityForRole) SetFormDefinitionId(v string)`
+
+SetFormDefinitionId sets FormDefinitionId field to given value.
+
+### HasFormDefinitionId
+
+`func (o *RequestabilityForRole) HasFormDefinitionId() bool`
+
+HasFormDefinitionId returns a boolean if a field has been set.
+
+### SetFormDefinitionIdNil
+
+`func (o *RequestabilityForRole) SetFormDefinitionIdNil(b bool)`
+
+ SetFormDefinitionIdNil sets the value for FormDefinitionId to be an explicit nil
+
+### UnsetFormDefinitionId
+`func (o *RequestabilityForRole) UnsetFormDefinitionId()`
+
+UnsetFormDefinitionId ensures that no value is present for FormDefinitionId, not even an explicit nil
 

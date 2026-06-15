@@ -1,0 +1,81 @@
+get:
+  operationId: getIntelIdentityAccessHistoryV1
+  security:
+  - userAuth:
+    - sp:identity-sec-intel-access-history:read
+  - applicationAuth:
+    - sp:identity-sec-intel-access-history:read
+  x-required-right: sp:identity-sec-intel-access-history:read
+  x-sailpoint-userLevels:
+  - Any
+  tags:
+  - Intelligence Package
+  summary: Return identity access-history events
+  description: |
+    Requires tenant license idn:response-and-remediation.
+
+    Events are relayed from identity-history; optional limit, offset, and count
+    are forwarded to the upstream when supplied.
+  parameters:
+  - $ref: ../parameters/intelligence-identity-id-path.yaml
+  - name: limit
+    in: query
+    required: false
+    description: Maximum number of historical events to return in this page of results.
+    schema:
+      type: integer
+      format: int32
+      minimum: 1
+    example: 100
+  - name: offset
+    in: query
+    required: false
+    description: Zero-based index of the first event row to return for pagination.
+    schema:
+      type: integer
+      format: int32
+      minimum: 0
+    example: 0
+  - name: count
+    in: query
+    required: false
+    description: When true, the service may include total count metadata alongside the result list.
+    schema:
+      type: boolean
+      default: false
+    example: false
+  responses:
+    '200':
+      description: Events relayed from identity-history.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/intelidentityaccesshistorybody.yaml
+          example:
+            events:
+            - dateTime: '2026-05-04T12:00:00Z'
+              eventType: ACCESS_GRANTED
+              identityId: 00000000-0000-0000-0000-000000000000
+            - dateTime: '2026-05-06T08:00:00Z'
+              eventType: ACCESS_REVOKED
+              identityId: 00000000-0000-0000-0000-000000000000
+    '400':
+      description: Invalid path or query parameters.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/errorbody.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      description: Internal or upstream server failure.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/errorbody.yaml
+    4XX:
+      description: Upstream non-success passed through as-is.

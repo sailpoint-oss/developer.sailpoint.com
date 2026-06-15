@@ -15,14 +15,15 @@ tags: ['SDK', 'Software Development Kit', 'Selector', 'V2026Selector']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** | Pointer to **string** | The application id | [optional] 
-**AccountMatchConfig** | Pointer to [**SelectorAccountMatchConfig**](selector-account-match-config) |  | [optional] 
+**Type** | [**SelectorType**](selector-type) |  | 
+**Values** | **[]string** | The selected values.  | 
+**Interval** | Pointer to **NullableInt32** | The selected interval for RANGE selectors.  | [optional] 
 
 ## Methods
 
 ### NewSelector
 
-`func NewSelector() *Selector`
+`func NewSelector(type_ SelectorType, values []string, ) *Selector`
 
 NewSelector instantiates a new Selector object
 This constructor will assign default values to properties that have it defined,
@@ -37,54 +38,79 @@ NewSelectorWithDefaults instantiates a new Selector object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetApplicationId
+### GetType
 
-`func (o *Selector) GetApplicationId() string`
+`func (o *Selector) GetType() SelectorType`
 
-GetApplicationId returns the ApplicationId field if non-nil, zero value otherwise.
+GetType returns the Type field if non-nil, zero value otherwise.
 
-### GetApplicationIdOk
+### GetTypeOk
 
-`func (o *Selector) GetApplicationIdOk() (*string, bool)`
+`func (o *Selector) GetTypeOk() (*SelectorType, bool)`
 
-GetApplicationIdOk returns a tuple with the ApplicationId field if it's non-nil, zero value otherwise
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetApplicationId
+### SetType
 
-`func (o *Selector) SetApplicationId(v string)`
+`func (o *Selector) SetType(v SelectorType)`
 
-SetApplicationId sets ApplicationId field to given value.
+SetType sets Type field to given value.
 
-### HasApplicationId
 
-`func (o *Selector) HasApplicationId() bool`
+### GetValues
 
-HasApplicationId returns a boolean if a field has been set.
+`func (o *Selector) GetValues() []string`
 
-### GetAccountMatchConfig
+GetValues returns the Values field if non-nil, zero value otherwise.
 
-`func (o *Selector) GetAccountMatchConfig() SelectorAccountMatchConfig`
+### GetValuesOk
 
-GetAccountMatchConfig returns the AccountMatchConfig field if non-nil, zero value otherwise.
+`func (o *Selector) GetValuesOk() (*[]string, bool)`
 
-### GetAccountMatchConfigOk
-
-`func (o *Selector) GetAccountMatchConfigOk() (*SelectorAccountMatchConfig, bool)`
-
-GetAccountMatchConfigOk returns a tuple with the AccountMatchConfig field if it's non-nil, zero value otherwise
+GetValuesOk returns a tuple with the Values field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAccountMatchConfig
+### SetValues
 
-`func (o *Selector) SetAccountMatchConfig(v SelectorAccountMatchConfig)`
+`func (o *Selector) SetValues(v []string)`
 
-SetAccountMatchConfig sets AccountMatchConfig field to given value.
+SetValues sets Values field to given value.
 
-### HasAccountMatchConfig
 
-`func (o *Selector) HasAccountMatchConfig() bool`
+### GetInterval
 
-HasAccountMatchConfig returns a boolean if a field has been set.
+`func (o *Selector) GetInterval() int32`
 
+GetInterval returns the Interval field if non-nil, zero value otherwise.
+
+### GetIntervalOk
+
+`func (o *Selector) GetIntervalOk() (*int32, bool)`
+
+GetIntervalOk returns a tuple with the Interval field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInterval
+
+`func (o *Selector) SetInterval(v int32)`
+
+SetInterval sets Interval field to given value.
+
+### HasInterval
+
+`func (o *Selector) HasInterval() bool`
+
+HasInterval returns a boolean if a field has been set.
+
+### SetIntervalNil
+
+`func (o *Selector) SetIntervalNil(b bool)`
+
+ SetIntervalNil sets the value for Interval to be an explicit nil
+
+### UnsetInterval
+`func (o *Selector) UnsetInterval()`
+
+UnsetInterval ensures that no value is present for Interval, not even an explicit nil
 

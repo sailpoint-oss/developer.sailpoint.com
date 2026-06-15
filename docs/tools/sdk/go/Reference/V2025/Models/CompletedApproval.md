@@ -35,6 +35,9 @@ Name | Type | Description | Notes
 **RemoveDate** | Pointer to **NullableTime** | The date the role or access profile or entitlement is no longer assigned to the specified identity. | [optional] 
 **RemoveDateUpdateRequested** | Pointer to **bool** | If true, then the request was to change the remove date or sunset date. | [optional] [default to false]
 **CurrentRemoveDate** | Pointer to **NullableTime** | The remove date or sunset date that was assigned at the time of the request. | [optional] 
+**StartDate** | Pointer to **SailPointTime** | The date the role or access profile or entitlement is/will assigned to the specified identity. | [optional] 
+**StartUpdateRequested** | Pointer to **bool** | If true, then the request is to change the start date or sunrise date. | [optional] [default to false]
+**CurrentStartDate** | Pointer to **SailPointTime** | The start date or sunrise date that was assigned at the time of the request. | [optional] 
 **SodViolationContext** | Pointer to [**NullableSodViolationContextCheckCompleted**](sod-violation-context-check-completed) |  | [optional] 
 **PreApprovalTriggerResult** | Pointer to [**NullableCompletedApprovalPreApprovalTriggerResult**](completed-approval-pre-approval-trigger-result) |  | [optional] 
 **ClientMetadata** | Pointer to **map[string]string** | Arbitrary key-value pairs provided during the request. | [optional] 
@@ -591,6 +594,81 @@ HasCurrentRemoveDate returns a boolean if a field has been set.
 `func (o *CompletedApproval) UnsetCurrentRemoveDate()`
 
 UnsetCurrentRemoveDate ensures that no value is present for CurrentRemoveDate, not even an explicit nil
+### GetStartDate
+
+`func (o *CompletedApproval) GetStartDate() SailPointTime`
+
+GetStartDate returns the StartDate field if non-nil, zero value otherwise.
+
+### GetStartDateOk
+
+`func (o *CompletedApproval) GetStartDateOk() (*SailPointTime, bool)`
+
+GetStartDateOk returns a tuple with the StartDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartDate
+
+`func (o *CompletedApproval) SetStartDate(v SailPointTime)`
+
+SetStartDate sets StartDate field to given value.
+
+### HasStartDate
+
+`func (o *CompletedApproval) HasStartDate() bool`
+
+HasStartDate returns a boolean if a field has been set.
+
+### GetStartUpdateRequested
+
+`func (o *CompletedApproval) GetStartUpdateRequested() bool`
+
+GetStartUpdateRequested returns the StartUpdateRequested field if non-nil, zero value otherwise.
+
+### GetStartUpdateRequestedOk
+
+`func (o *CompletedApproval) GetStartUpdateRequestedOk() (*bool, bool)`
+
+GetStartUpdateRequestedOk returns a tuple with the StartUpdateRequested field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartUpdateRequested
+
+`func (o *CompletedApproval) SetStartUpdateRequested(v bool)`
+
+SetStartUpdateRequested sets StartUpdateRequested field to given value.
+
+### HasStartUpdateRequested
+
+`func (o *CompletedApproval) HasStartUpdateRequested() bool`
+
+HasStartUpdateRequested returns a boolean if a field has been set.
+
+### GetCurrentStartDate
+
+`func (o *CompletedApproval) GetCurrentStartDate() SailPointTime`
+
+GetCurrentStartDate returns the CurrentStartDate field if non-nil, zero value otherwise.
+
+### GetCurrentStartDateOk
+
+`func (o *CompletedApproval) GetCurrentStartDateOk() (*SailPointTime, bool)`
+
+GetCurrentStartDateOk returns a tuple with the CurrentStartDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrentStartDate
+
+`func (o *CompletedApproval) SetCurrentStartDate(v SailPointTime)`
+
+SetCurrentStartDate sets CurrentStartDate field to given value.
+
+### HasCurrentStartDate
+
+`func (o *CompletedApproval) HasCurrentStartDate() bool`
+
+HasCurrentStartDate returns a boolean if a field has been set.
+
 ### GetSodViolationContext
 
 `func (o *CompletedApproval) GetSodViolationContext() SodViolationContextCheckCompleted`

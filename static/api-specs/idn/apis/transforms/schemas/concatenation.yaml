@@ -1,0 +1,18 @@
+title: concat
+type: object
+required:
+  - values
+properties:
+  values:
+    type: array
+    items:
+      type: object
+    description: An array of items to join together
+    example:
+      - John
+      - ' '
+      - Smith
+  requiresPeriodicRefresh:
+    $ref: ./requiresperiodicrefresh.yaml
+  input:
+    $ref: ./input.yaml

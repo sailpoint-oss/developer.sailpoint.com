@@ -22,8 +22,8 @@ post:
         schema: 
           $ref: '../schemas/trigger/example-input/AccessRequestDynamicApprover.yaml'
   responses:
-    required: true
-    content: 
-      application/json:
-        schema:
-          $ref: '../schemas/trigger/example-input/AccessRequestDynamicApprovalResponse.yaml'
+    '200':
+      content: 
+        application/json:
+          schema:
+            $ref: '../schemas/trigger/example-input/AccessRequestDynamicApprovalResponse.yaml'

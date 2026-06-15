@@ -20,9 +20,19 @@ tags: ['SDK', 'Software Development Kit', 'RoleCriteriaOperation', 'BetaRoleCrit
 
 * `CONTAINS` (value: `"CONTAINS"`)
 
+* `DOES_NOT_CONTAIN` (value: `"DOES_NOT_CONTAIN"`)
+
 * `STARTS_WITH` (value: `"STARTS_WITH"`)
 
 * `ENDS_WITH` (value: `"ENDS_WITH"`)
+
+* `GREATER_THAN` (value: `"GREATER_THAN"`)
+
+* `LESS_THAN` (value: `"LESS_THAN"`)
+
+* `GREATER_THAN_EQUALS` (value: `"GREATER_THAN_EQUALS"`)
+
+* `LESS_THAN_EQUALS` (value: `"LESS_THAN_EQUALS"`)
 
 * `AND` (value: `"AND"`)
 

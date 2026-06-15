@@ -1,0 +1,56 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Dimensions
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Dimensions
+    description: >-
+      Use this API to implement and customize dynamic role functionality. With this functionality in place,
+      administrators can create dimensions and configure them for use throughout Identity Security Cloud. Identity
+      Security Cloud can use established criteria to automatically assign the dimensions to qualified users. This
+      enables users to get all the access they need quickly and securely and administrators to spend their time on other
+      tasks. Entitlements represent the most granular level of access in Identity Security Cloud.
+
+      Access profiles represent the next level and often group entitlements. Dimension represent access selectively
+      based on the evaluation of contextual information that is available or provided. Each Dimension include context
+      attributes and access selection expressions which map criteria to access right assignments. Each dimension can
+      contain up to 5 context attributes. Dynamic Access Roles represent the broadest level of access and often group
+      access profiles ,entitlements and dimensions.Each Dynamic Access Role may contain one or more Dimensions.
+paths:
+  /roles/v1/{roleId}/dimensions:
+    $ref: ./paths/roles-v1-by-roleid-dimensions.yaml
+  /roles/v1/{roleId}/dimensions/{dimensionId}:
+    $ref: ./paths/roles-v1-by-roleid-dimensions-by-dimensionid.yaml
+  /roles/v1/{roleId}/dimensions/bulk-delete:
+    $ref: ./paths/roles-v1-by-roleid-dimensions-bulk-delete.yaml
+  /roles/v1/{roleId}/dimensions/{dimensionId}/access-profiles:
+    $ref: ./paths/roles-v1-by-roleid-dimensions-by-dimensionid-access-profiles.yaml
+  /roles/v1/{roleId}/dimensions/{dimensionId}/entitlements:
+    $ref: ./paths/roles-v1-by-roleid-dimensions-by-dimensionid-entitlements.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

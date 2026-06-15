@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'AccessProfileDetailsAccountSelector',
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Selectors** | Pointer to [**[]Selector**](selector) |  | [optional] 
+**Selectors** | Pointer to [**[]AppAccessProfileSelector**](app-access-profile-selector) |  | [optional] 
 
 ## Methods
 
@@ -38,20 +38,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetSelectors
 
-`func (o *AccessProfileDetailsAccountSelector) GetSelectors() []Selector`
+`func (o *AccessProfileDetailsAccountSelector) GetSelectors() []AppAccessProfileSelector`
 
 GetSelectors returns the Selectors field if non-nil, zero value otherwise.
 
 ### GetSelectorsOk
 
-`func (o *AccessProfileDetailsAccountSelector) GetSelectorsOk() (*[]Selector, bool)`
+`func (o *AccessProfileDetailsAccountSelector) GetSelectorsOk() (*[]AppAccessProfileSelector, bool)`
 
 GetSelectorsOk returns a tuple with the Selectors field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSelectors
 
-`func (o *AccessProfileDetailsAccountSelector) SetSelectors(v []Selector)`
+`func (o *AccessProfileDetailsAccountSelector) SetSelectors(v []AppAccessProfileSelector)`
 
 SetSelectors sets Selectors field to given value.
 

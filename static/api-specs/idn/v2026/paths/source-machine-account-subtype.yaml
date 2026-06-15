@@ -1,6 +1,9 @@
 get:
   summary: Retrieve subtype by source and technicalName
   description: Get a machine account subtype by source ID and technical name.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Retrieve all subtypes](https://developer.sailpoint.com/docs/api/v2026/list-source-subtypes) for the latest API.
   operationId: getMachineAccountSubtypeByTechnicalName
   tags:
     - Machine Accounts
@@ -73,6 +76,9 @@ patch:
   description: |-
     Update fields of a machine account subtype by source ID and technical name.
     Patchable fields include: `displayName`, `description`.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Patch subtype by ID](https://developer.sailpoint.com/docs/api/v2026/patch-machine-account-subtype) for the latest API.
   operationId: patchMachineAccountSubtypeByTechnicalName
   tags:
     - Machine Accounts
@@ -158,6 +164,9 @@ patch:
 delete:
   summary: Delete subtype
   description: Delete a machine account subtype by source ID and technical name.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Delete subtype by ID](https://developer.sailpoint.com/docs/api/v2026/delete-machine-account-subtype) for the latest API.
   operationId: deleteMachineAccountSubtypeByTechnicalName
   tags:
     - Machine Accounts

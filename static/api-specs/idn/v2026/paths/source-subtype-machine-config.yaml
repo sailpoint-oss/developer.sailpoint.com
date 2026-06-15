@@ -1,6 +1,6 @@
 get:
   tags:
-    - Machine Accounts
+    - Machine Account Subtypes
   summary: Machine Subtype Approval Config
   description: This endpoint retrieves the approval configuration for machine account creation and deletion at the machine subtype level. By providing a specific subtypeId in the path, clients can fetch the approval rules and settings (such as required approvers and comments policy) that govern account creation and deletion for that particular machine subtype. The response includes a MachineAccountSubtypeConfigDto object detailing these configurations, enabling clients to understand or display the approval workflow required for creating and deleting machine accounts of the given subtype.
     Use this endpoint to get machine subtype level approval config for account creation and deletion.
@@ -28,7 +28,7 @@ get:
     description: machine subtype id.
     required: true
     example: ef38f94347e94562b5bb8424a56498d8
-    x-sailpoint-resource-operation-id: listMachineAccountSubtypes
+    x-sailpoint-resource-operation-id: listSourceSubtypes
   responses:
     '200':
       description: Responds with a MachineAccountSubtypeConfigDto for machine account creation and deletion approval config by subtypeId.
@@ -51,7 +51,7 @@ get:
 patch:
   operationId: updateMachineAccountSubtypeApprovalConfig
   tags:
-    - Machine Accounts
+    - Machine Account Subtypes
   summary: Machine Subtype Approval Config
   description: Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account creation and deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for creating and deleting machine accounts of a particular subtype.
   security:
@@ -77,7 +77,7 @@ patch:
       description: machine account subtype ID.
       required: true
       example: 00eebcf881994e419d72e757fd30dc0e
-      x-sailpoint-resource-operation-id: listMachineAccountSubtypes
+      x-sailpoint-resource-operation-id: listSourceSubtypes
   requestBody:
     required: true
     description: The JSONPatch payload used to update the object.

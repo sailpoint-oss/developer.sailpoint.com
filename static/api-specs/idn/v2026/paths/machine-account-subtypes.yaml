@@ -10,9 +10,17 @@ get:
       schema:
         type: string
       required: true
-      x-sailpoint-resource-operation-id: listMachineAccountSubtypes
+      x-sailpoint-resource-operation-id: listSourceSubtypes
       description: The ID of the subtype.
       example: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   responses:
     '200':
       description: Machine account subtype object.
@@ -56,10 +64,18 @@ patch:
       name: subtypeId
       description: The ID of the subtype.
       required: true
-      x-sailpoint-resource-operation-id: listMachineAccountSubtypes
+      x-sailpoint-resource-operation-id: listSourceSubtypes
       schema:
         type: string
         example: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   requestBody:
     required: true
     description: >-
@@ -117,10 +133,18 @@ delete:
       name: subtypeId
       description: The ID of the subtype.
       required: true
-      x-sailpoint-resource-operation-id: listMachineAccountSubtypes
+      x-sailpoint-resource-operation-id: listSourceSubtypes
       schema:
         type: string
         example: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
   responses:
     '204':
       description: Subtype deleted successfully.

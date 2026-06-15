@@ -1,0 +1,80 @@
+type: object
+required:
+  - id
+  - name
+  - disabled
+  - locked
+  - uncorrelated
+  - authoritative
+  - systemAccount
+  - isMachine
+  - hasEntitlements
+  - manuallyCorrelated
+  - connectionType
+  - created
+  - modified
+properties:
+  id:
+    type: string
+    description: Unique account identifier in Identity Security Cloud.
+    example: 2c91808874ff91550175097daaec161c
+  name:
+    type: string
+    description: Account name or login value on the correlated source.
+    example: jdoe
+  source:
+    type: object
+    description: Source metadata for the account as returned by List Accounts wire format.
+    allOf:
+      - $ref: ./intelaccesssourcewire.yaml
+  disabled:
+    type: boolean
+    description: True when the account is administratively disabled on the source.
+    example: false
+  locked:
+    type: boolean
+    description: True when the account is locked from interactive sign-in on the source.
+    example: false
+  uncorrelated:
+    type: boolean
+    description: True when the account is not correlated to an authoritative identity.
+    example: false
+  authoritative:
+    type: boolean
+    description: True when the account is treated as authoritative for attribute synchronization.
+    example: true
+  systemAccount:
+    type: boolean
+    description: True when the account represents a non-interactive or system principal.
+    example: false
+  isMachine:
+    type: boolean
+    description: True when the account belongs to a machine or service identity.
+    example: false
+  hasEntitlements:
+    type: boolean
+    description: True when the account currently has one or more entitlements assigned.
+    example: true
+  manuallyCorrelated:
+    type: boolean
+    description: True when an administrator manually correlated the account to an identity.
+    example: false
+  connectionType:
+    type: string
+    description: Connector connection type identifier for the backing source system.
+    example: direct
+  nativeIdentity:
+    type: string
+    nullable: true
+    description: Native identifier string on the source directory or application.
+    example: CN=jdoe,OU=Users,DC=example,DC=com
+  created:
+    type: string
+    format: date-time
+    description: Timestamp when the account record was created in Identity Security Cloud.
+    example: '2023-11-01T10:00:00Z'
+  modified:
+    type: string
+    format: date-time
+    description: Timestamp when the account record was last modified in Identity Security Cloud.
+    example: '2024-02-15T16:20:00Z'

@@ -104,7 +104,7 @@ get:
         Filtering is supported for the following fields and operators:
 
 
-        **accessRequestId**: *eq, ge, gt, le, lt, ne, sw*
+        **accessRequestId**: *eq, ge, gt, le, lt, ne, in, sw*
 
 
         **accountActivityItemId**: *eq, in, ge, gt, le, ne, sw*

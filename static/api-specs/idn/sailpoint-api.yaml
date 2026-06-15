@@ -508,7 +508,7 @@ tags:
       Read-only HTTP API that returns the Intelligence Package (identity context)
       for SecOps enrichment use cases (SIEM/SOAR connectors, MCP, browser
       extension). Backed by Atlas internal-REST calls to MICE, Shelby List Accounts,
-      SDS Search, and identity-history.
+      SDS Search, IDA-outliers, and identity-history.
   - name: JIT Access
     description: |
       Use these APIs to configure JIT provisioning activation policy for the tenant.
@@ -27352,37 +27352,39 @@ paths:
                   value:
                     id: 00000000-0000-0000-0000-000000000000
                     type: HUMAN
-                    displayName: Pat Example
+                    displayName: Example User
                     subtype: Employee
                     timestamps:
                       createdAt: '2026-05-12T08:00:00Z'
                       modifiedAt: '2026-05-12T09:15:30Z'
                     human:
-                      alias: pat.example
-                      email: pat@example.com
+                      alias: example.user
+                      email: user@example.com
                       identityStatus: ENABLED
                       isProtected: false
                       isManager: false
                     _links:
                       access:
                         href: /v2026/intelligence/identities/00000000-0000-0000-0000-000000000000/access
+                      risk:
+                        href: /v2026/intelligence/identities/00000000-0000-0000-0000-000000000000/risk
                       accessHistory:
                         href: /v2026/intelligence/identities/00000000-0000-0000-0000-000000000000/access-history
                 machine:
                   value:
                     id: e1feccee-a9d4-4909-8131-6ed67d79ff07
                     type: MACHINE
-                    displayName: DEMO_AGENT1
-                    subtype: AI Agent
+                    displayName: example-agent-1
+                    subtype: Example Agent
                     timestamps:
                       createdAt: '2026-03-31T08:20:53.031936Z'
                       modifiedAt: '2026-03-31T08:20:52.969356Z'
                     machine:
-                      nativeIdentity: DEMO_AGENT1
+                      nativeIdentity: example-agent-1
                       sourceId: 8433902684054f09ae024c06cf5091c1
                       source:
                         id: 8433902684054f09ae024c06cf5091c1
-                        name: Snowflake SaaS - Suraj2
+                        name: Example SaaS Source
                         type: SOURCE
                       existsOnSource: true
                       manuallyCreated: false
@@ -27420,9 +27422,9 @@ paths:
                 message: multiple identities matched the supplied filter
                 candidates:
                   - id: cand-1
-                    displayName: Pat A
+                    displayName: Example A
                   - id: cand-2
-                    displayName: Pat B
+                    displayName: Example B
         '429':
           $ref: '#/components/responses/429'
         '500':
@@ -27463,10 +27465,10 @@ paths:
               example:
                 accounts:
                   - id: acc-1
-                    name: pat.example
+                    name: example.user
                     source:
                       id: src-1
-                      name: Active Directory
+                      name: Example Directory
                     disabled: false
                     locked: false
                     uncorrelated: false
@@ -27476,21 +27478,21 @@ paths:
                     hasEntitlements: true
                     manuallyCorrelated: false
                     connectionType: direct
-                    nativeIdentity: CN=pat,OU=users
+                    nativeIdentity: CN=example.user,OU=users
                     created: '2026-01-01T00:00:00Z'
                     modified: '2026-05-01T00:00:00Z'
                 privilegedAccessItems:
                   - privileged: true
-                    displayName: Absence_Administrator
-                    name: Absence_Administrator
+                    displayName: Example_Admin_Access
+                    name: Example_Admin_Access
                     standalone: true
                     id: ent-1
                     source:
-                      name: Workday
+                      name: Example HR Source
                       id: src-2
-                    attribute: USER_BASED_SECURITY_GROUPS
+                    attribute: EXAMPLE_PERMISSION_GROUPS
                     type: ENTITLEMENT
-                    value: Absence_Administrator
+                    value: Example_Admin_Access
         '400':
           description: Invalid path parameter.
           content:
@@ -27593,6 +27595,182 @@ paths:
                 $ref: '#/components/schemas/errorbody'
         4XX:
           description: Upstream non-success passed through as-is.
+  /intelligence/v1/identities/{identityID}/risk:
+    get:
+      operationId: getIntelIdentityRiskV1
+      security:
+        - userAuth:
+            - sp:identity-sec-intel-risk:read
+        - applicationAuth:
+            - sp:identity-sec-intel-risk:read
+      x-required-right: sp:identity-sec-intel-risk:read
+      x-sailpoint-userLevels:
+        - Any
+      tags:
+        - Intelligence Package
+      summary: Identity risk snapshot
+      description: |
+        Risk snapshot envelope for the identity. The service resolves the first matching
+        outlier for identityID and returns one page of access-items plus an optional
+        continuation link for additional pages.
+
+        Clients should continue paging using _links.outliers.href when provided.
+        Requires tenant license idn:response-and-remediation.
+      parameters:
+        - $ref: '#/components/parameters/intelligence-identity-id-path'
+      responses:
+        '200':
+          description: Risk envelope with first page and optional continuation link.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/intelidentityriskbody'
+              examples:
+                hasMore:
+                  summary: First page with continuation
+                  value:
+                    outliers:
+                      - id: outlier-access-001
+                        displayName: Example_Admin_Access
+                        description: null
+                        accessType: ENTITLEMENT
+                        sourceName: Example SaaS Source
+                        extremelyRare: false
+                    outliersTotal: 312
+                    _links:
+                      outliers:
+                        href: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/00000000000000000000000000000000/risk/outliers?limit=250&offset=250
+                lastPage:
+                  summary: Single page result
+                  value:
+                    outliers:
+                      - id: outlier-access-001
+                        displayName: Example_Admin_Access
+                        description: null
+                        accessType: ENTITLEMENT
+                        sourceName: Example SaaS Source
+                        extremelyRare: false
+                    outliersTotal: 1
+                noOutlier:
+                  summary: Identity with no outlier
+                  value:
+                    outliers: []
+                    outliersTotal: 0
+        '400':
+          description: Invalid path parameter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorbody'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          description: Internal or upstream server failure.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorbody'
+  /intelligence/v1/identities/{identityID}/risk/outliers:
+    get:
+      operationId: getIntelIdentityRiskOutliersV1
+      security:
+        - userAuth:
+            - sp:identity-sec-intel-risk:read
+        - applicationAuth:
+            - sp:identity-sec-intel-risk:read
+      x-required-right: sp:identity-sec-intel-risk:read
+      x-sailpoint-userLevels:
+        - Any
+      tags:
+        - Intelligence Package
+      summary: Risk outliers continuation paging
+      description: |
+        Continuation endpoint for risk outlier access-items. Returns one page based on
+        the supplied limit and offset values and includes an optional continuation link
+        when more rows remain. Requires tenant license idn:response-and-remediation.
+      parameters:
+        - $ref: '#/components/parameters/intelligence-identity-id-path'
+        - name: limit
+          in: query
+          required: false
+          description: Maximum number of outlier rows to return for this page.
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+            maximum: 250
+            default: 250
+          example: 250
+        - name: offset
+          in: query
+          required: false
+          description: Zero-based row index for the first returned outlier item.
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            default: 0
+          example: 0
+      responses:
+        '200':
+          description: One page of outlier items plus optional continuation link.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/intelidentityriskbody'
+              examples:
+                intermediate:
+                  summary: Intermediate page response
+                  value:
+                    outliers:
+                      - id: outlier-access-001
+                        displayName: Example_Admin_Access
+                        description: null
+                        accessType: ENTITLEMENT
+                        sourceName: Example SaaS Source
+                        extremelyRare: false
+                    outliersTotal: 312
+                    _links:
+                      outliers:
+                        href: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/00000000000000000000000000000000/risk/outliers?limit=250&offset=500
+                lastPage:
+                  summary: Last page response
+                  value:
+                    outliers:
+                      - id: outlier-access-001
+                        displayName: Example_Admin_Access
+                        description: null
+                        accessType: ENTITLEMENT
+                        sourceName: Example SaaS Source
+                        extremelyRare: false
+                    outliersTotal: 312
+                noOutlier:
+                  summary: Identity with no outlier
+                  value:
+                    outliers: []
+                    outliersTotal: 0
+        '400':
+          description: Invalid path or query parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorbody'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          description: Internal or upstream server failure.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorbody'
   /jit-activation-config/v1/{configType}:
     get:
       operationId: getJitActivationConfigV1
@@ -52426,7 +52604,7 @@ components:
       in: path
       required: true
       description: Non-empty identity id path segment for Intelligence Package sub-resources.
-      x-sailpoint-resource-operation-id: listIdentities
+      x-sailpoint-resource-operation-id: listIdentitiesV1
       example: ef38f94347e94562b5bb8424a56397d8
       schema:
         type: string
@@ -53345,6 +53523,9 @@ components:
             - MANAGER
             - GOVERNANCE_GROUP
             - WORKFLOW
+            - ALL_OWNERS
+            - ADDITIONAL_OWNER
+            - ADDITIONAL_GOVERNANCE_GROUP
           description: |-
             Describes the individual or group that is responsible for an approval step. These are the possible values:
             **APP_OWNER**: The owner of the Application
@@ -53357,12 +53538,18 @@ components:
 
             **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field
 
-            **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field. Workflow is exclusive to other types of approvals and License required. 
+            **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field. Workflow is exclusive to other types of approvals and License required.
+
+            **ALL_OWNERS**: All owners of the Access Profile, including the primary owner and any secondary owners
+
+            **ADDITIONAL_OWNER**: An additional owner of the Access Profile, the ID of which is specified by the **approverId** field
+
+            **ADDITIONAL_GOVERNANCE_GROUP**: An additional Governance Group, the ID of which is specified by the **approverId** field
           example: GOVERNANCE_GROUP
         approverId:
           type: string
           nullable: true
-          description: Id of the specific approver, used when approverType is GOVERNANCE_GROUP or WORKFLOW.
+          description: Id of the specific approver, used when approverType is GOVERNANCE_GROUP, WORKFLOW, or ADDITIONAL_GOVERNANCE_GROUP.
           example: 46c79819-a69f-49a2-becb-12c971ae66c6
     requestability:
       type: object
@@ -67967,6 +68154,12 @@ components:
           format: date-time
           description: Date that the assignment was added
           example: '2025-07-11T18:45:37.098Z'
+        startDate:
+          type: string
+          format: date-time
+          nullable: true
+          description: Date when assignment will be active, if requested with a future date. If null, assignment is active immediately
+          example: '2026-01-22T19:15:00.000Z'
         removeDate:
           type: string
           format: date-time
@@ -68145,6 +68338,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/roletargetdto'
+        startDate:
+          type: string
+          format: date-time
+          nullable: true
+          description: Date when assignment will be active, if access was requested with a future start date. If null, assignment is active immediately
+          example: '2026-07-10T18:45:37.098Z'
         removeDate:
           type: string
           format: date-time
@@ -69785,7 +69984,7 @@ components:
         name:
           type: string
           description: Display name of the source as configured in Identity Security Cloud.
-          example: Active Directory
+          example: Example Directory
         type:
           type: string
           description: Connector or source type classification for the backing system.
@@ -69801,7 +70000,7 @@ components:
         nativeIdentity:
           type: string
           description: Native identifier value on the authoritative source for the machine identity.
-          example: DEMO_AGENT1
+          example: example-agent-1
         uuid:
           type: string
           nullable: true
@@ -69859,6 +70058,7 @@ components:
       type: object
       required:
         - access
+        - risk
         - accessHistory
       properties:
         access:
@@ -69868,6 +70068,13 @@ components:
             - $ref: '#/components/schemas/intelhref'
           example:
             href: /v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/access
+        risk:
+          type: object
+          description: Hyperlink to the Intelligence Package risk document for this identity.
+          allOf:
+            - $ref: '#/components/schemas/intelhref'
+          example:
+            href: /v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/risk
         accessHistory:
           type: object
           description: Hyperlink to the Intelligence Package access history document for this identity.
@@ -69879,7 +70086,7 @@ components:
       type: object
       description: |
         HUMAN responses include human, top-level subtype (NERM classification:
-        Employee, Non Employee, or Cannot Determine), and _links (access and accessHistory only).
+        Employee, Non Employee, or Cannot Determine), and _links (access, risk, and accessHistory).
         MACHINE responses include machine and top-level subtype (connector subtype string);
         _links is omitted.
       required:
@@ -70120,11 +70327,11 @@ components:
         displayName:
           type: string
           description: Display label for the privileged access item in administrative experiences.
-          example: Absence_Administrator
+          example: Example_Admin_Access
         name:
           type: string
           description: Technical name of the privileged access item from SDS Search.
-          example: Absence_Administrator
+          example: Example_Admin_Access
         standalone:
           type: boolean
           description: True when the privileged item is modeled as a standalone entitlement or access object.
@@ -70141,7 +70348,7 @@ components:
             name:
               type: string
               description: Human-readable source name for the privileged access item.
-              example: Workday
+              example: Example HR Source
             id:
               type: string
               description: Source identifier for the privileged access item.
@@ -70149,7 +70356,7 @@ components:
         attribute:
           type: string
           description: Source attribute name that carries the privileged value when applicable.
-          example: USER_BASED_SECURITY_GROUPS
+          example: EXAMPLE_PERMISSION_GROUPS
         type:
           type: string
           description: Object type classification from SDS Search (for example ENTITLEMENT).
@@ -70157,7 +70364,7 @@ components:
         value:
           type: string
           description: Privileged value on the source attribute when applicable.
-          example: Absence_Administrator
+          example: Example_Admin_Access
     intelidentityaccessbody:
       type: object
       required:
@@ -70171,10 +70378,10 @@ components:
             $ref: '#/components/schemas/intelaccessaccountwire'
           example:
             - id: acc-1
-              name: pat.example
+              name: example.user
               source:
                 id: src-1
-                name: Active Directory
+                name: Example Directory
               disabled: false
               locked: false
               uncorrelated: false
@@ -70184,7 +70391,7 @@ components:
               hasEntitlements: true
               manuallyCorrelated: false
               connectionType: direct
-              nativeIdentity: CN=pat,OU=users
+              nativeIdentity: CN=example.user,OU=users
               created: '2026-01-01T00:00:00Z'
               modified: '2026-05-01T00:00:00Z'
         privilegedAccessItems:
@@ -70194,16 +70401,16 @@ components:
             $ref: '#/components/schemas/intelprivilegedaccessitemwire'
           example:
             - privileged: true
-              displayName: Absence_Administrator
-              name: Absence_Administrator
+              displayName: Example_Admin_Access
+              name: Example_Admin_Access
               standalone: true
               id: ent-1
               source:
-                name: Workday
+                name: Example HR Source
                 id: src-2
-              attribute: USER_BASED_SECURITY_GROUPS
+              attribute: EXAMPLE_PERMISSION_GROUPS
               type: ENTITLEMENT
-              value: Absence_Administrator
+              value: Example_Admin_Access
     intelidentityaccesshistorybody:
       type: object
       required:
@@ -70226,6 +70433,84 @@ components:
             - id: evt-001
               type: LOGIN
               dateTime: '2024-05-01T12:00:00Z'
+    inteloutlieraccessitem:
+      type: object
+      required:
+        - id
+        - displayName
+        - accessType
+        - sourceName
+        - extremelyRare
+      description: One outlier access-item row.
+      properties:
+        id:
+          type: string
+          description: Stable identifier of the outlier access-item row.
+          example: outlier-access-001
+        displayName:
+          type: string
+          description: Display label of the risky access item.
+          example: Example_Admin_Access
+        description:
+          type: string
+          nullable: true
+          description: Optional descriptive text for the risky access item.
+          example: null
+        accessType:
+          type: string
+          description: Access item type (for example ENTITLEMENT, ROLE, ACCESS_PROFILE, ACCOUNT, or APP).
+          example: ENTITLEMENT
+        sourceName:
+          type: string
+          description: Source name where the risky access item exists.
+          example: Example SaaS Source
+        extremelyRare:
+          type: boolean
+          description: Indicates whether analytics marked this item as extremely rare.
+          example: false
+    intelrisklinks:
+      type: object
+      description: Continuation links for risk responses.
+      properties:
+        outliers:
+          type: object
+          description: Link to fetch the next outlier page for the same identity.
+          allOf:
+            - $ref: '#/components/schemas/intelhref'
+          example:
+            href: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/00000000000000000000000000000000/risk/outliers?limit=250&offset=250
+    intelidentityriskbody:
+      type: object
+      required:
+        - outliers
+        - outliersTotal
+      description: Shared response envelope for risk endpoints.
+      properties:
+        outliers:
+          type: array
+          description: Page of outlier access-items associated with the resolved identity outlier.
+          items:
+            $ref: '#/components/schemas/inteloutlieraccessitem'
+          example:
+            - id: outlier-access-001
+              displayName: Example_Admin_Access
+              description: null
+              accessType: ENTITLEMENT
+              sourceName: Example SaaS Source
+              extremelyRare: false
+        outliersTotal:
+          type: integer
+          format: int64
+          nullable: true
+          minimum: 0
+          description: Total available outlier access-item count from upstream.
+          example: 312
+        _links:
+          type: object
+          nullable: true
+          description: Continuation links map; omitted when no additional page exists.
+          allOf:
+            - $ref: '#/components/schemas/intelrisklinks'
     jitactivationconfigresponse:
       type: object
       required:
@@ -77821,8 +78106,13 @@ components:
         - EQUALS
         - NOT_EQUALS
         - CONTAINS
+        - DOES_NOT_CONTAIN
         - STARTS_WITH
         - ENDS_WITH
+        - GREATER_THAN
+        - LESS_THAN
+        - GREATER_THAN_EQUALS
+        - LESS_THAN_EQUALS
         - AND
         - OR
       description: An operation
@@ -77864,7 +78154,8 @@ components:
           $ref: '#/components/schemas/rolecriteriakey'
         stringValue:
           type: string
-          description: String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
+          nullable: true
+          description: String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, DOES_NOT_CONTAIN, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
           example: carlee.cert1c9f9b6fd@mailinator.com
     rolecriterialevel2:
       type: object
@@ -77878,7 +78169,7 @@ components:
         stringValue:
           type: string
           nullable: true
-          description: String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
+          description: String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, DOES_NOT_CONTAIN, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
           example: carlee.cert1c9f9b6fd@mailinator.com
         children:
           type: array
@@ -77898,7 +78189,7 @@ components:
         stringValue:
           type: string
           nullable: true
-          description: String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
+          description: String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, DOES_NOT_CONTAIN, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
           example: carlee.cert1c9f9b6fd@mailinator.com
         children:
           type: array
@@ -77954,6 +78245,9 @@ components:
             - MANAGER
             - GOVERNANCE_GROUP
             - WORKFLOW
+            - ALL_OWNERS
+            - ADDITIONAL_OWNER
+            - ADDITIONAL_GOVERNANCE_GROUP
           description: |-
             Describes the individual or group that is responsible for an approval step. Values are as follows.
 
@@ -77963,12 +78257,18 @@ components:
 
             **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field
 
-            **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field. Workflow is exclusive to other types of approvals and License required. 
+            **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field. Workflow is exclusive to other types of approvals and License required.
+
+            **ALL_OWNERS**: All owners of the Role, including the primary owner and any secondary owners
+
+            **ADDITIONAL_OWNER**: An additional owner of the Role, the ID of which is specified by the **approverId** field
+
+            **ADDITIONAL_GOVERNANCE_GROUP**: An additional Governance Group, the ID of which is specified by the **approverId** field
           example: GOVERNANCE_GROUP
         approverId:
           type: string
           nullable: true
-          description: Id of the specific approver, used when approverType is GOVERNANCE_GROUP or WORKFLOW.
+          description: Id of the specific approver, used when approverType is GOVERNANCE_GROUP, WORKFLOW, or ADDITIONAL_GOVERNANCE_GROUP.
           example: 46c79819-a69f-49a2-becb-12c971ae66c6
     dimensionattribute:
       type: object
@@ -78035,6 +78335,11 @@ components:
             $ref: '#/components/schemas/approvalschemeforrole'
         dimensionSchema:
           $ref: '#/components/schemas/dimensionschema'
+        formDefinitionId:
+          type: string
+          nullable: true
+          description: The ID of the form definition used for the access request. If specified, the form is presented to the requester during the access request process.
+          example: 78258e80-e9e2-4e1a-a11f-ce0b7c62f25d
     revocabilityforrole:
       type: object
       properties:
@@ -78184,6 +78489,11 @@ components:
                 - value: secret
                   name: Secret
                   status: active
+        privilegeLevel:
+          type: string
+          nullable: true
+          description: The privilege level of the role, if applicable.
+          example: High
       required:
         - name
         - owner

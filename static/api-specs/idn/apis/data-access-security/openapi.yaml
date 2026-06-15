@@ -1,0 +1,70 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Data Access Security
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Data Access Security
+    description: >
+      Use this API to enable data ownership election campaigns, assign resource owners, and respond to identity
+      lifecycle events to maintain continuous accountability.
+
+      This API can also trigger and manage DAS tasks such as scans-starting them on demand, updating configurations or
+      schedules, and retrieving statuses. Additionally, you can onboard and manage applications at scale by creating and
+      configuring them, setting scanning schedules, retrieving metadata, and associating them with Virtual Appliances
+      and Identity Collectors.
+paths:
+  /das/v1/tasks:
+    $ref: ./paths/das-v1-tasks.yaml
+  /das/v1/tasks/{id}:
+    $ref: ./paths/das-v1-tasks-by-id.yaml
+  /das/v1/tasks/cancel/{id}:
+    $ref: ./paths/das-v1-tasks-cancel-by-id.yaml
+  /das/v1/tasks/rerun/{id}:
+    $ref: ./paths/das-v1-tasks-rerun-by-id.yaml
+  /das/v1/tasks/schedules:
+    $ref: ./paths/das-v1-tasks-schedules.yaml
+  /das/v1/tasks/schedules/{id}:
+    $ref: ./paths/das-v1-tasks-schedules-by-id.yaml
+  /das/v1/applications:
+    $ref: ./paths/das-v1-applications.yaml
+  /das/v1/applications/{id}:
+    $ref: ./paths/das-v1-applications-by-id.yaml
+  /das/v1/owners/applications/{appId}:
+    $ref: ./paths/das-v1-owners-applications-by-appid.yaml
+  /das/v1/owners/resources/{resourceId}:
+    $ref: ./paths/das-v1-owners-resources-by-resourceid.yaml
+  /das/v1/owners/{ownerIdentityId}/resources:
+    $ref: ./paths/das-v1-owners-by-owneridentityid-resources.yaml
+  /das/v1/owners/assign:
+    $ref: ./paths/das-v1-owners-assign.yaml
+  /das/v1/owners/{sourceIdentityId}/reassign/{destinationIdentityId}:
+    $ref: ./paths/das-v1-owners-by-sourceidentityid-reassign-by-destinationidentityid.yaml
+  /das/v1/owners/reelect:
+    $ref: ./paths/das-v1-owners-reelect.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

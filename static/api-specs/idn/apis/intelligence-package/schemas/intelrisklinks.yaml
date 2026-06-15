@@ -1,0 +1,11 @@
+type: object
+description: Continuation links for risk responses.
+properties:
+  outliers:
+    type: object
+    description: Link to fetch the next outlier page for the same identity.
+    allOf:
+      - $ref: ./intelhref.yaml
+    example:
+      href: >-
+        https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/00000000000000000000000000000000/risk/outliers?limit=250&offset=250

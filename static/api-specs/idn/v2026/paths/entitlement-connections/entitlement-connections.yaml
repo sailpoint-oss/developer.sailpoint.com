@@ -1,0 +1,248 @@
+get:
+  operationId: listEntitlementConnections
+  tags:
+    - Entitlement Connections
+  summary: List entitlement connections
+  description: |
+    Returns entitlement connections for the tenant.
+
+    This endpoint proxies to Search and supports standard collection query parameters.
+    The `filters` and `sorters` values support the Entitlement Connections search fields documented by ECS.
+  security:
+    - userAuth:
+        - idn:entitlement-connections:list
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - $ref: ../../parameters/offset.yaml
+    - $ref: ../../parameters/limit.yaml
+    - $ref: ../../parameters/count.yaml
+    - $ref: ../../parameters/searchAfter.yaml
+    - in: query
+      name: filters
+      required: false
+      schema:
+        type: string
+      example: type eq "JIT"
+      description: |
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+        Filtering is supported for the following fields and operators:
+
+        **identity.id**: *eq, in*
+
+        **identity.name**: *eq, in, co*
+
+        **source.id**: *eq, in*
+
+        **source.name**: *eq, in, co*
+
+        **account.id**: *eq, in*
+
+        **account.name**: *eq, in, co*
+
+        **entitlement.id**: *eq, in*
+
+        **entitlement.attribute**: *eq, in, co*
+
+        **entitlement.value**: *eq, in, co*
+
+        **entitlement.privilegeLevel.effective**: *eq, in, co*
+
+        **type**: *eq, in*
+
+        **state.value**: *eq, in, co*
+
+        **standalone**: *eq, in*
+
+        **jit.activation**: *gt, lt, ge, le*
+
+        **jit.provision**: *gt, lt, ge, le*
+
+        **jit.deactivation**: *gt, lt, ge, le*
+
+        **jit.deprovision**: *gt, lt, ge, le*
+
+        **jit.expiration**: *gt, lt, ge, le*
+    - in: query
+      name: sorters
+      required: false
+      schema:
+        type: string
+      example: -type,id
+      description: |
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+        Sorting is supported for the following fields: **id, identity.id, identity.name, source.id, source.name, account.id, account.name, entitlement.id, entitlement.displayName, entitlement.attribute, entitlement.privilegeLevel.effective, type, state.value, standalone, jit.activation, jit.provision, jit.deactivation, jit.deprovision, jit.expiration**
+
+        Prefix a field with `-` for descending order.
+  responses:
+    '200':
+      description: List of entitlement connections.
+      headers:
+        X-Total-Count:
+          description: Included when `count=true` and available from Search.
+          schema:
+            type: string
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../schemas/entitlement-connections/EntitlementConnectionSearchHit.yaml
+    '400':
+      $ref: ../../responses/400.yaml
+    '401':
+      $ref: ../../responses/401.yaml
+    '403':
+      $ref: ../../responses/403.yaml
+    '404':
+      $ref: ../../responses/404.yaml
+    '412':
+      $ref: ../../responses/412.yaml
+    '429':
+      $ref: ../../responses/429.yaml
+    '500':
+      $ref: ../../responses/500.yaml
+patch:
+  operationId: patchEntitlementConnectionByQuery
+  tags:
+    - Entitlement Connections
+  summary: Update connection by query
+  description: |
+    Applies JSON Patch operations to a single entitlement connection selected by
+    `entitlementId`, `identityId`, and `accountId`.
+  security:
+    - userAuth:
+        - idn:entitlement-connections:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: query
+      name: entitlementId
+      required: true
+      schema:
+        type: string
+      example: dcfd09e551644ad5aa162ce977862031
+      description: Entitlement ID (UUID with or without hyphens).
+    - in: query
+      name: identityId
+      required: true
+      schema:
+        type: string
+      example: 5470d8d4817a4207a8020bf533187da9
+      description: Identity ID (UUID with or without hyphens).
+    - in: query
+      name: accountId
+      required: true
+      schema:
+        type: string
+      example: 323bfddfb3dd4197b8f10f7735307d27
+      description: Account ID (UUID with or without hyphens).
+  requestBody:
+    required: true
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../schemas/JsonPatchOperation.yaml
+  responses:
+    '200':
+      description: Updated entitlement connection.
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/entitlement-connections/EntitlementConnection.yaml
+    '400':
+      $ref: ../../responses/400.yaml
+    '401':
+      $ref: ../../responses/401.yaml
+    '403':
+      $ref: ../../responses/403.yaml
+    '404':
+      $ref: ../../responses/404.yaml
+    '412':
+      $ref: ../../responses/412.yaml
+    '429':
+      $ref: ../../responses/429.yaml
+    '500':
+      $ref: ../../responses/500.yaml
+post:
+  operationId: updateEntitlementConnectionsBulk
+  tags:
+    - Entitlement Connections
+  summary: Update connections in bulk
+  description: |
+    Updates connection type for up to 100 connections in one request.
+    The API returns per-item results in a 207 Multi-Status response.
+  security:
+    - userAuth:
+        - idn:entitlement-connections:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../schemas/entitlement-connections/EntitlementConnectionBulkUpdateItem.yaml
+        examples:
+          mixedBulkUpdate:
+            summary: Mixed bulk update request
+            value:
+              - connectionId: d532fa5cb15748e2873c6a01e5923ec4
+                type: JIT
+              - connectionId: 57bdbfcab8a34afb91c0a9fb4dba52b8
+                type: STANDING
+              - connectionId: 0f571cefc8a2411790e0ee09f77e25a3
+                type: STANDING
+              - connectionId: 025542c7e42144258c6f2325b6feeba8
+                type: JIT
+              - connectionId: 6bccbc42381f49028dac9bfe68dbad2e
+                type: JIT
+  responses:
+    '207':
+      description: Per-item bulk update results.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../schemas/entitlement-connections/EntitlementConnectionBulkUpdateResultItem.yaml
+          examples:
+            mixedBulkUpdateResult:
+              summary: Mixed per-item bulk response
+              value:
+                - connectionId: d532fa5cb15748e2873c6a01e5923ec4
+                  type: JIT
+                  status: 201
+                  description: success
+                - connectionId: 57bdbfcab8a34afb91c0a9fb4dba52b8
+                  type: STANDING
+                  status: 201
+                  description: success
+                - connectionId: 6bccbc42381f49028dac9bfe68dbad2e
+                  type: XYZ
+                  status: 422
+                  description: Invalid type specified, must be JIT or STANDING
+                - connectionId: 57bdbfcab8a34afb91c0a9fb4dba52b8
+                  type: JIT
+                  status: 409
+                  description: Duplicate connectionId in request
+                - connectionId: 025542c7e42144258c6f2325b6feeba8
+                  type: JIT
+                  status: 404
+                  description: Connection not found
+    '400':
+      $ref: ../../responses/400.yaml
+    '401':
+      $ref: ../../responses/401.yaml
+    '403':
+      $ref: ../../responses/403.yaml
+    '429':
+      $ref: ../../responses/429.yaml
+    '500':
+      $ref: ../../responses/500.yaml

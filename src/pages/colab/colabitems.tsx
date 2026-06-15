@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '@theme/Layout';
+import { useLocation } from '@docusaurus/router';
 import styles from './filter.module.css';
 import BlogSidebar from '../../components/blog/BlogSidebar';
 import MarketplaceCards from '../../components/marketplace/MarketplaceCards';
@@ -20,7 +21,7 @@ interface ColabCategory {
 const PRODUCT_TAGS = ['identity-security-cloud', 'Identityiq'];
 
 const COLAB_CATEGORIES: ColabCategory[] = [
-  { id: 'all', label: 'All CoLab Items', category: 'colab' },
+  { id: 'all', label: 'All CoLab Solutions', category: 'colab' },
   { id: 'workflows', label: 'Workflows', category: 'colab', tags: ['workflows'] },
   { id: 'saas-connectors', label: 'SaaS Connectors', category: 'colab-saas-connectors' },
   {
@@ -34,11 +35,19 @@ const COLAB_CATEGORIES: ColabCategory[] = [
   { id: 'iiq-plugins', label: 'IIQ Plugins', category: 'colab-iiq-plugins' },
 ];
 
+const getCategoryFromSearch = (search: string): ColabCategory => {
+  const params = new URLSearchParams(search);
+  const categoryId = params.get('category') ?? 'all';
+  return COLAB_CATEGORIES.find((item) => item.id === categoryId) ?? COLAB_CATEGORIES[0];
+};
+
 const CoLabItems: React.FC = () => {
-  const [selectedCategoryId, setSelectedCategoryId] = useState('all');
+  const location = useLocation();
+  const initialCategory = getCategoryFromSearch(location.search);
+  const [selectedCategoryId, setSelectedCategoryId] = useState(initialCategory.id);
   const [filteredProduct, setFilteredProduct] = useState<FilterState>({
-    category: 'colab',
-    tags: [],
+    category: initialCategory.category,
+    tags: initialCategory.tags ?? [],
   });
 
   const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -69,15 +78,27 @@ const CoLabItems: React.FC = () => {
     });
   };
 
+  useEffect(() => {
+    const categoryFromUrl = getCategoryFromSearch(location.search);
+    setSelectedCategoryId(categoryFromUrl.id);
+    setFilteredProduct((prev) => {
+      const productTags = prev.tags.filter((tag) => PRODUCT_TAGS.includes(tag));
+      return {
+        category: categoryFromUrl.category,
+        tags: [...(categoryFromUrl.tags ?? []), ...productTags],
+      };
+    });
+  }, [location.search]);
+
   return (
     <Layout
-      title="CoLab Items"
+      title="CoLab Solutions"
       description="Here you can find ready-to-use Workflows, SaaS Connectors, Rules, Transforms, IIQ Plugins, and more built and maintained by your fellow peers in the community."
     >
       <main>
         <MarketplaceBanner />
         <div className={styles.pageHeader}>
-          <h1 className={styles.pageTitle}>CoLab Items</h1>
+          <h1 className={styles.pageTitle}>CoLab Solutions</h1>
           <p className={styles.pageDescription}>
             Here you can find ready-to-use Workflows, SaaS Connectors, Rules, Transforms, IIQ
             Plugins, and more built and maintained by your fellow peers in the community.

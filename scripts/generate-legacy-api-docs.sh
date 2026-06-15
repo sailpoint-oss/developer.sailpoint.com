@@ -48,10 +48,12 @@ bundle() {
 
   $REDOC bundle "$spec_file" \
     --title "$title" \
+    --options.hideDownloadButton=true \
     -o "$OUT_DIR/sailpoint-api-${key}-light.html"
 
   $REDOC bundle "$spec_file" \
     --title "$title" \
+    --options.hideDownloadButton=true \
     --options.theme.colors.primary.main="#4d9fff" \
     --options.theme.colors.text.primary="#e8eaf0" \
     --options.theme.colors.text.secondary="#a0aab4" \

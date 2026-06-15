@@ -23,6 +23,7 @@ const navbarConfig = {
           { label: 'Identity Security Cloud', to: '/docs/api' },
           { label: 'IdentityIQ', to: '/docs/api/iiq' },
           { label: 'NERM', to: '/docs/api/nerm/v1' },
+          { label: 'Legacy Specs', to: '/apis/legacy' },
         ],
       },
       {

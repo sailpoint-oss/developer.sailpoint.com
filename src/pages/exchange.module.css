@@ -245,6 +245,8 @@
 
 .publisherColumn {
   min-width: 0;
+  display: grid;
+  gap: 16px;
 }
 
 .publisherFrame {
@@ -267,6 +269,23 @@
 
 .publisherLink {
   display: inline-block;
+}
+
+.guidesList {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.publisherGuideLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.publisherGuideLink:hover,
+.publisherGuideLink:focus-visible {
+  color: var(--ifm-color-primary);
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 1950px) {

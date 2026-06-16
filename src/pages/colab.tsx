@@ -39,10 +39,7 @@ const Marketplace: React.FC = () => {
           </div>
         </div>
         <section className={styles.categoriesSection}>
-          <h2 className={styles.categoriesHeader}>What can I find in CoLab?</h2>
-          <p className={styles.categoriesSubheader}>
-            Six categories of community-built identity solutions.
-          </p>
+          <h2 className={styles.categoriesHeader}>What can you find in CoLab?</h2>
           <div className={styles.categoriesGrid}>
             <Link to="/colab/colabitems?category=saas-connectors" className={styles.categoryLink}>
               <article className={styles.categoryCard}>
@@ -239,6 +236,35 @@ const Marketplace: React.FC = () => {
               >
                 Start publishing &#8594;
               </a>
+            </div>
+            <div className={styles.publisherFrame}>
+              <h3 className={styles.publisherHeader}>Getting Started Guides</h3>
+              <p className={styles.publisherText}>
+                Step-by-step guides for each CoLab category.
+              </p>
+              <div className={styles.guidesList}>
+                <Link to="/colab/colabitems?category=saas-connectors" className={styles.publisherGuideLink}>
+                  Getting started with SaaS Connectors
+                </Link>
+                <Link to="/colab/colabitems?category=workflows" className={styles.publisherGuideLink}>
+                  Getting started with Workflows
+                </Link>
+                <Link to="/colab/colabitems?category=rules" className={styles.publisherGuideLink}>
+                  Getting started with Rules
+                </Link>
+                <Link to="/colab/colabitems?category=transforms" className={styles.publisherGuideLink}>
+                  Getting started with Transforms
+                </Link>
+                <Link to="/colab/colabitems?category=iiq-plugins" className={styles.publisherGuideLink}>
+                  Getting started with IIQ Plugins
+                </Link>
+                <Link to="/colab/colabitems?category=community-tools" className={styles.publisherGuideLink}>
+                  Getting started with Community Tools
+                </Link>
+              </div>
+              <Link to="/docs/colab/colab-documentation" className={styles.publisherLink}>
+                view all guides &#8594;
+              </Link>
             </div>
           </aside>
         </section>

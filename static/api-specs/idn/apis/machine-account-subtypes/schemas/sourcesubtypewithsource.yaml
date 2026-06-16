@@ -55,3 +55,8 @@ properties:
         type: string
         description: Name of the source.
         example: Test Source
+  systemManaged:
+    type: boolean
+    description: Indicates if the subtype is managed by the system.
+    default: false
+    example: true

@@ -1,6 +1,6 @@
 get:
   tags:
-  - Machine Accounts
+  - Machine Account Subtypes
   summary: Machine Subtype Approval Config
   description: >-
     This endpoint retrieves the approval configuration for machine account creation and deletion at the machine subtype
@@ -35,7 +35,7 @@ get:
     description: machine subtype id.
     required: true
     example: ef38f94347e94562b5bb8424a56498d8
-    x-sailpoint-resource-operation-id: listMachineAccountSubtypesV1
+    x-sailpoint-resource-operation-id: listSourceSubtypesV1
   responses:
     '200':
       description: >-
@@ -60,7 +60,7 @@ get:
 patch:
   operationId: updateMachineAccountSubtypeApprovalConfigV1
   tags:
-  - Machine Accounts
+  - Machine Account Subtypes
   summary: Machine Subtype Approval Config
   description: >-
     Updates the approval configuration for machine account deletion at the specified machine subtype level. This
@@ -93,7 +93,7 @@ patch:
     description: machine account subtype ID.
     required: true
     example: 00eebcf881994e419d72e757fd30dc0e
-    x-sailpoint-resource-operation-id: listMachineAccountSubtypesV1
+    x-sailpoint-resource-operation-id: listSourceSubtypesV1
   requestBody:
     required: true
     description: The JSONPatch payload used to update the object.

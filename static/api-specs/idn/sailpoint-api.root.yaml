@@ -857,6 +857,12 @@ tags:
     attributes and access selection expressions which map criteria to access right assignments. Each dimension can
     contain up to 5 context attributes. Dynamic Access Roles represent the broadest level of access and often group
     access profiles ,entitlements and dimensions.Each Dynamic Access Role may contain one or more Dimensions.
+- name: Entitlement Connections
+  description: >
+    Use this API to search and manage entitlement connections.
+
+    Entitlement connections represent the relationship between an identity account and an entitlement on a source,
+    including its access type and JIT lifecycle state.
 - name: Entitlements
 - name: Global Tenant Security Settings
   description: |
@@ -948,12 +954,6 @@ tags:
 
     Refer to [Creating Identity Profiles](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html)
     for more information about identity profiles.
-- name: Intelligence Package
-  description: |
-    Read-only HTTP API that returns the Intelligence Package (identity context)
-    for SecOps enrichment use cases (SIEM/SOAR connectors, MCP, browser
-    extension). Backed by Atlas internal-REST calls to MICE, Shelby List Accounts,
-    SDS Search, IDA-outliers, and identity-history.
 - name: JIT Access
   description: >
     Use these APIs to configure JIT provisioning activation policy for the tenant.
@@ -2889,6 +2889,12 @@ paths:
     $ref: ./apis/dimensions/paths/roles-v1-by-roleid-dimensions-by-dimensionid-access-profiles.yaml
   /roles/v1/{roleId}/dimensions/{dimensionId}/entitlements:
     $ref: ./apis/dimensions/paths/roles-v1-by-roleid-dimensions-by-dimensionid-entitlements.yaml
+  /entitlement-connections/v1:
+    $ref: ./apis/entitlement-connections/paths/entitlement-connections-v1.yaml
+  /entitlement-connections/v1/current-identity:
+    $ref: ./apis/entitlement-connections/paths/entitlement-connections-v1-current-identity.yaml
+  /entitlement-connections/v1/{connectionId}:
+    $ref: ./apis/entitlement-connections/paths/entitlement-connections-v1-by-connectionid.yaml
   /entitlements/v1:
     $ref: ./apis/entitlements/paths/entitlements-v1.yaml
   /entitlements/v1/account/{accountId}/entitlements:
@@ -3081,16 +3087,6 @@ paths:
     $ref: ./apis/identity-profiles/paths/identity-profiles-v1-by-identity-profile-id-process-identities.yaml
   /identity-profiles/v1/identity-preview:
     $ref: ./apis/identity-profiles/paths/identity-profiles-v1-identity-preview.yaml
-  /intelligence/v1/identities:
-    $ref: ./apis/intelligence-package/paths/intelligence-v1-identities.yaml
-  /intelligence/v1/identities/{identityID}/access:
-    $ref: ./apis/intelligence-package/paths/intelligence-v1-identities-by-identityid-access.yaml
-  /intelligence/v1/identities/{identityID}/access-history:
-    $ref: ./apis/intelligence-package/paths/intelligence-v1-identities-by-identityid-access-history.yaml
-  /intelligence/v1/identities/{identityID}/risk:
-    $ref: ./apis/intelligence-package/paths/intelligence-v1-identities-by-identityid-risk.yaml
-  /intelligence/v1/identities/{identityID}/risk/outliers:
-    $ref: ./apis/intelligence-package/paths/intelligence-v1-identities-by-identityid-risk-outliers.yaml
   /jit-activation-config/v1/{configType}:
     $ref: ./apis/jit-access/paths/jit-activation-config-v1-by-configtype.yaml
   /jit-activations/v1/activate:
@@ -3123,8 +3119,14 @@ paths:
     $ref: ./apis/machine-account-mappings/paths/sources-v1-by-sourceid-machine-account-mappings.yaml
   /sources/v1/{sourceId}/machine-mappings:
     $ref: ./apis/machine-account-mappings/paths/sources-v1-by-sourceid-machine-mappings.yaml
+  /source-subtypes/v1/bulk-retrieve:
+    $ref: ./apis/machine-account-subtypes/paths/source-subtypes-v1-bulk-retrieve.yaml
+  /source-subtypes/v1:
+    $ref: ./apis/machine-account-subtypes/paths/source-subtypes-v1.yaml
   /source-subtypes/v1/{subtypeId}:
     $ref: ./apis/machine-account-subtypes/paths/source-subtypes-v1-by-subtypeid.yaml
+  /source-subtypes/v1/{subtypeId}/machine-config:
+    $ref: ./apis/machine-account-subtypes/paths/source-subtypes-v1-by-subtypeid-machine-config.yaml
   /machine-accounts/v1:
     $ref: ./apis/machine-accounts/paths/machine-accounts-v1.yaml
   /machine-accounts/v1/{id}:
@@ -3135,10 +3137,6 @@ paths:
     $ref: ./apis/machine-accounts/paths/sources-v1-by-sourceid-subtypes-by-technicalname.yaml
   /sources/v1/subtypes/{subtypeId}:
     $ref: ./apis/machine-accounts/paths/sources-v1-subtypes-by-subtypeid.yaml
-  /source-subtypes/v1/bulk-retrieve:
-    $ref: ./apis/machine-accounts/paths/source-subtypes-v1-bulk-retrieve.yaml
-  /source-subtypes/v1/{subtypeId}/machine-config:
-    $ref: ./apis/machine-accounts/paths/source-subtypes-v1-by-subtypeid-machine-config.yaml
   /sources/v1/{sourceId}/machine-classification-config:
     $ref: ./apis/machine-classification-config/paths/sources-v1-by-sourceid-machine-classification-config.yaml
   /machine-identities/v1:

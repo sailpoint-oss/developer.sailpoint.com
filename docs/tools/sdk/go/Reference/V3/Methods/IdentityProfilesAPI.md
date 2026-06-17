@@ -40,7 +40,7 @@ Method | HTTP request | Description
 
 ## create-identity-profile
 Create identity profile
-Creates an identity profile.    
+Creates an identity profile.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-identity-profile)
 

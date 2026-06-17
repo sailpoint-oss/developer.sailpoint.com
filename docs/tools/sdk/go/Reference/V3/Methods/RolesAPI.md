@@ -68,7 +68,7 @@ In addition, a ROLE_SUBADMIN may not create a role including an access profile i
 
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles. However, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-role)
+[API Spec](https://developer.sailpoint.com/docs/api/create-role-v-1)
 
 ### Path Parameters
 
@@ -308,11 +308,11 @@ func main() {
 ## delete-bulk-roles
 Delete role(s)
 This endpoint initiates a bulk deletion of one or more roles.
-When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
+When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 roles per request. 
 A user with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-bulk-roles)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-bulk-roles-v-1)
 
 ### Path Parameters
 
@@ -383,7 +383,7 @@ Delete a role by ID.
 
 A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups the ROLE_SUBADMIN is a member of.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-role)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-role-v-1)
 
 ### Path Parameters
 
@@ -449,7 +449,7 @@ Get role
 Get a role by ID.
 A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-role)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-v-1)
 
 ### Path Parameters
 
@@ -515,7 +515,7 @@ func main() {
 List identities assigned a role
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-role-assigned-identities)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-assigned-identities-v-1)
 
 ### Path Parameters
 
@@ -591,7 +591,7 @@ func main() {
 List roles
 This API returns a list of Roles.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-roles)
+[API Spec](https://developer.sailpoint.com/docs/api/list-roles-v-1)
 
 ### Path Parameters
 
@@ -687,7 +687,7 @@ The maximum supported length for the description field is 2000 characters. ISC p
 
 When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-role)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-role-v-1)
 
 ### Path Parameters
 

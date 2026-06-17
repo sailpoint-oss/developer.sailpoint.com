@@ -35,7 +35,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Machine account details
 Use this API to return the details for a single machine account by its ID.  
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-machine-account)
+[API Spec](https://developer.sailpoint.com/docs/api/get-machine-account-v-1)
 
 ### Parameters 
 
@@ -108,7 +108,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Machine accounts list
 This returns a list of machine accounts.  
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-machine-accounts)
+[API Spec](https://developer.sailpoint.com/docs/api/list-machine-accounts-v-1)
 
 ### Parameters 
 
@@ -191,7 +191,7 @@ Update a machine account
 Use this API to update machine accounts details. 
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-machine-account)
+[API Spec](https://developer.sailpoint.com/docs/api/update-machine-account-v-1)
 
 ### Parameters 
 

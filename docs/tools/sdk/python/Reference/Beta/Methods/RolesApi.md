@@ -72,7 +72,7 @@ In addition, a ROLE_SUBADMIN may not create a role including an access profile i
 
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles. However, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-role)
+[API Spec](https://developer.sailpoint.com/docs/api/create-role-v-1)
 
 ### Parameters 
 
@@ -287,11 +287,11 @@ with ApiClient(configuration) as api_client:
 ## delete-bulk-roles
 Delete role(s)
 This endpoint initiates a bulk deletion of one or more roles.
-When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
+When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 roles per request. 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this endpoint. In addition, a token with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-bulk-roles)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-bulk-roles-v-1)
 
 ### Parameters 
 
@@ -354,7 +354,7 @@ This API deletes a Role by its ID.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-role)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-role-v-1)
 
 ### Parameters 
 
@@ -410,7 +410,7 @@ Get a role
 This API returns a Role by its ID.
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-v-1)
 
 ### Parameters 
 
@@ -469,7 +469,7 @@ with ApiClient(configuration) as api_client:
 Identities assigned a role
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-assigned-identities)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-assigned-identities-v-1)
 
 ### Parameters 
 
@@ -538,7 +538,7 @@ with ApiClient(configuration) as api_client:
 List role's entitlements
 Get a list of entitlements associated with a specified role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-entitlements)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-entitlements-v-1)
 
 ### Parameters 
 
@@ -609,7 +609,7 @@ This API returns a list of Roles.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-roles)
+[API Spec](https://developer.sailpoint.com/docs/api/list-roles-v-1)
 
 ### Parameters 
 
@@ -702,7 +702,7 @@ The maximum supported length for the description field is 2000 characters. Longe
 
 When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-role)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-role-v-1)
 
 ### Parameters 
 

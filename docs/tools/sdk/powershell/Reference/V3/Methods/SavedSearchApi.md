@@ -15,7 +15,7 @@ With saved search functionality in place, users can save search queries and then
 
 Search queries in Identity Security Cloud can grow very long and specific, which can make reconstructing them difficult or tedious, so it can be especially helpful to save search queries. 
 It also opens the possibility to configure Identity Security Cloud to run the saved queries on a schedule, which is essential to detecting user information and access changes throughout an organization&#39;s tenant and across all its sources. 
-Refer to [Scheduled Search](https://developer.sailpoint.com/docs/api/v3/scheduled-search/) for more information about running saved searches on a schedule. 
+Refer to [Scheduled Search](https://developer.sailpoint.com/docs/api/scheduled-search/) for more information about running saved searches on a schedule. 
 
 In Identity Security Cloud, users can save searches under a name, and then they can access that saved search and run it again when they want. 
 
@@ -39,7 +39,7 @@ Method | HTTP request | Description
 Creates a new saved search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-saved-search)
+[API Spec](https://developer.sailpoint.com/docs/api/create-saved-search-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -86,7 +86,7 @@ try {
 Deletes the specified saved search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-saved-search)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-saved-search-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -133,7 +133,7 @@ try {
 Executes the specified saved search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/execute-saved-search)
+[API Spec](https://developer.sailpoint.com/docs/api/execute-saved-search-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -193,7 +193,7 @@ try {
 Returns the specified saved search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-saved-search)
+[API Spec](https://developer.sailpoint.com/docs/api/get-saved-search-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -240,7 +240,7 @@ try {
 Returns a list of saved searches.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-saved-searches)
+[API Spec](https://developer.sailpoint.com/docs/api/list-saved-searches-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -294,7 +294,7 @@ Updates an existing saved search.
 >**NOTE: You cannot update the `owner` of the saved search.**
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/put-saved-search)
+[API Spec](https://developer.sailpoint.com/docs/api/put-saved-search-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

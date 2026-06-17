@@ -26,7 +26,7 @@ Method | HTTP request | Description
 Return access request identity metrics
 Use this API to return information access metrics.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-request-identity-metrics)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-request-identity-metrics-v-1)
 
 ### Parameters 
 

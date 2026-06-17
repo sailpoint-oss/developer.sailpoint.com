@@ -56,7 +56,7 @@ Method | HTTP request | Description
 Get an account activity
 This gets a single account activity by its id.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-account-activity)
+[API Spec](https://developer.sailpoint.com/docs/api/get-account-activity-v-1)
 
 ### Parameters 
 
@@ -115,7 +115,7 @@ with ApiClient(configuration) as api_client:
 List account activities
 This gets a collection of account activities that satisfy the given query parameters.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-account-activities)
+[API Spec](https://developer.sailpoint.com/docs/api/list-account-activities-v-1)
 
 ### Parameters 
 

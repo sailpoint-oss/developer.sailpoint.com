@@ -43,7 +43,7 @@ Method | HTTP request | Description
 This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step.
 In addition to users with ORG_ADMIN, any user who originally submitted the access request may cancel it.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/cancel-access-request)
+[API Spec](https://developer.sailpoint.com/docs/api/cancel-access-request-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -138,7 +138,7 @@ __REVOKE_ACCESS__
 * Usage of 'requestedForWithRequestedItems' field is not supported for revoke requests.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-access-request)
+[API Spec](https://developer.sailpoint.com/docs/api/create-access-request-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -333,7 +333,7 @@ try {
 ## get-access-request-config
 This endpoint returns the current access-request configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-access-request-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-request-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -378,7 +378,7 @@ Use this API to return a list of access request statuses based on the specified 
 If an access request was made for access that an identity already has, the API ignores the access request.  These ignored requests do not display in the list of access request statuses.
 Any user with any user level can get the status of their own access requests. A user with ORG_ADMIN is required to call this API to get a list of statuses for other users.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-access-request-status)
+[API Spec](https://developer.sailpoint.com/docs/api/list-access-request-status-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -441,7 +441,7 @@ try {
 ## set-access-request-config
 This endpoint replaces the current access-request configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/set-access-request-config)
+[API Spec](https://developer.sailpoint.com/docs/api/set-access-request-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

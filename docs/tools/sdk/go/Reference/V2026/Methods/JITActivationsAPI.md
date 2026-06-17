@@ -29,7 +29,7 @@ The service performs quick validation; the workflow performs additional validati
 The response is returned with HTTP 202 Accepted while the workflow initializes.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/start-activate-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/start-activate-workflow-v-1)
 
 ### Path Parameters
 
@@ -105,7 +105,7 @@ The client receives an error response in those cases.
 The response is returned with HTTP 202 Accepted after the signal is sent.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/start-deactivate-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/start-deactivate-workflow-v-1)
 
 ### Path Parameters
 
@@ -181,7 +181,7 @@ The client receives an error response in those cases.
 The response is returned with HTTP 202 Accepted after the signal is sent.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/start-extend-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/start-extend-workflow-v-1)
 
 ### Path Parameters
 

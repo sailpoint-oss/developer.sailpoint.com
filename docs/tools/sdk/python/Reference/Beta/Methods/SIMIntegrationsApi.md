@@ -35,7 +35,7 @@ Method | HTTP request | Description
 Create new sim integration
 Create a new SIM Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-sim-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/create-sim-integration-v-1)
 
 ### Parameters 
 
@@ -112,7 +112,7 @@ with ApiClient(configuration) as api_client:
 Delete a sim integration
 Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-sim-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-sim-integration-v-1)
 
 ### Parameters 
 
@@ -168,7 +168,7 @@ with ApiClient(configuration) as api_client:
 Get a sim integration details.
 Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sim-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sim-integration-v-1)
 
 ### Parameters 
 
@@ -227,7 +227,7 @@ with ApiClient(configuration) as api_client:
 List the existing sim integrations.
 List the existing SIM integrations. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sim-integrations)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sim-integrations-v-1)
 
 ### Parameters 
 This endpoint does not need any parameter. 
@@ -282,7 +282,7 @@ with ApiClient(configuration) as api_client:
 Patch a sim beforeprovisioningrule attribute.
 Patch a SIM beforeProvisioningRule attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-before-provisioning-rule)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-before-provisioning-rule-v-1)
 
 ### Parameters 
 
@@ -344,7 +344,7 @@ with ApiClient(configuration) as api_client:
 Patch a sim attribute.
 Patch a SIM attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-sim-attributes)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-sim-attributes-v-1)
 
 ### Parameters 
 
@@ -406,7 +406,7 @@ with ApiClient(configuration) as api_client:
 Update an existing sim integration
 Update an existing SIM integration.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/put-sim-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/put-sim-integration-v-1)
 
 ### Parameters 
 

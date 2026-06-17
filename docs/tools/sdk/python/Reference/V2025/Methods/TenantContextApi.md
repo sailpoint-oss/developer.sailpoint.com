@@ -37,7 +37,7 @@ Retrieve tenant context
 Returns a list of key-value pairs representing the current state of the tenant's context.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-tenant-context)
+[API Spec](https://developer.sailpoint.com/docs/api/get-tenant-context-v-1)
 
 ### Parameters 
 
@@ -113,7 +113,7 @@ This endpoint is specifically designed to modify the `/Key/*` field, supporting 
 Note that each tenant is limited to a maximum of 100 key-value pairs.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-tenant-context)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-tenant-context-v-1)
 
 ### Parameters 
 

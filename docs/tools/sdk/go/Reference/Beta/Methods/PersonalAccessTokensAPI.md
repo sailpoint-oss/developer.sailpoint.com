@@ -36,7 +36,7 @@ Method | HTTP request | Description
 Create personal access token
 This creates a personal access token.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-personal-access-token)
+[API Spec](https://developer.sailpoint.com/docs/api/create-personal-access-token-v-1)
 
 ### Path Parameters
 
@@ -108,7 +108,7 @@ func main() {
 Delete personal access token
 This deletes a personal access token.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-personal-access-token)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-personal-access-token-v-1)
 
 ### Path Parameters
 
@@ -173,7 +173,7 @@ func main() {
 List personal access tokens
 This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the 'idn:all-personal-access-tokens:read' right.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-personal-access-tokens)
+[API Spec](https://developer.sailpoint.com/docs/api/list-personal-access-tokens-v-1)
 
 ### Path Parameters
 
@@ -237,7 +237,7 @@ func main() {
 Patch personal access token
 This performs a targeted update to the field(s) of a Personal Access Token.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-personal-access-token)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-personal-access-token-v-1)
 
 ### Path Parameters
 

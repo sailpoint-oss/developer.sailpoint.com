@@ -57,7 +57,7 @@ Method | HTTP request | Description
 ## get-account-activity
 This gets a single account activity by its id.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-account-activity)
+[API Spec](https://developer.sailpoint.com/docs/api/get-account-activity-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -103,7 +103,7 @@ try {
 ## list-account-activities
 This gets a collection of account activities that satisfy the given query parameters.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-account-activities)
+[API Spec](https://developer.sailpoint.com/docs/api/list-account-activities-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

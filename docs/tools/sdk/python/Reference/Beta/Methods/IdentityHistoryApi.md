@@ -32,7 +32,7 @@ Method | HTTP request | Description
 Gets a difference of count for each access item types for the given identity between 2 snapshots
 This method gets a difference of count for each access item types for the given identity between 2 snapshots Requires authorization scope of 'idn:identity-history:read' 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/compare-identity-snapshots)
+[API Spec](https://developer.sailpoint.com/docs/api/compare-identity-snapshots-v-1)
 
 ### Parameters 
 
@@ -103,7 +103,7 @@ with ApiClient(configuration) as api_client:
 Gets a list of differences of specific accesstype for the given identity between 2 snapshots
 This method gets a list of differences of specific accessType for the given identity between 2 snapshots Requires authorization scope of 'idn:identity-history:read' 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/compare-identity-snapshots-access-type)
+[API Spec](https://developer.sailpoint.com/docs/api/compare-identity-snapshots-access-type-v-1)
 
 ### Parameters 
 
@@ -176,7 +176,7 @@ with ApiClient(configuration) as api_client:
 Get latest snapshot of identity
 This method retrieves a specified identity Requires authorization scope of 'idn:identity-history:read'
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-historical-identity)
+[API Spec](https://developer.sailpoint.com/docs/api/get-historical-identity-v-1)
 
 ### Parameters 
 
@@ -234,7 +234,7 @@ with ApiClient(configuration) as api_client:
 List identity event history
 This method retrieves all access events for the identity Requires authorization scope of 'idn:identity-history:read' 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-historical-identity-events)
+[API Spec](https://developer.sailpoint.com/docs/api/get-historical-identity-events-v-1)
 
 ### Parameters 
 
@@ -306,7 +306,7 @@ with ApiClient(configuration) as api_client:
 Gets an identity snapshot at a given date
 This method retrieves a specified identity snapshot at a given date Requires authorization scope of 'idn:identity-history:read' 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-snapshot)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-snapshot-v-1)
 
 ### Parameters 
 
@@ -366,7 +366,7 @@ with ApiClient(configuration) as api_client:
 Gets the summary for the event count for a specific identity
 This method gets the summary for the event count for a specific identity by month/day Requires authorization scope of 'idn:identity-history:read' 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-snapshot-summary)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-snapshot-summary-v-1)
 
 ### Parameters 
 
@@ -437,7 +437,7 @@ with ApiClient(configuration) as api_client:
 Gets the start date of the identity
 This method retrieves start date of the identity Requires authorization scope of 'idn:identity-history:read' 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-start-date)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-start-date-v-1)
 
 ### Parameters 
 
@@ -494,7 +494,7 @@ with ApiClient(configuration) as api_client:
 Lists all the identities
 This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of 'idn:identity-history:read'
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-historical-identities)
+[API Spec](https://developer.sailpoint.com/docs/api/list-historical-identities-v-1)
 
 ### Parameters 
 
@@ -561,7 +561,7 @@ with ApiClient(configuration) as api_client:
 List access items by identity
 This method retrieves a list of access item for the identity filtered by the access item type
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-identity-access-items)
+[API Spec](https://developer.sailpoint.com/docs/api/list-identity-access-items-v-1)
 
 ### Parameters 
 
@@ -635,7 +635,7 @@ with ApiClient(configuration) as api_client:
 Get identity access items snapshot
 Use this API to get a list of identity access items at a specified date, filtered by item type.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-identity-snapshot-access-items)
+[API Spec](https://developer.sailpoint.com/docs/api/list-identity-snapshot-access-items-v-1)
 
 ### Parameters 
 
@@ -699,7 +699,7 @@ with ApiClient(configuration) as api_client:
 Lists all the snapshots for the identity
 This method retrieves all the snapshots for the identity Requires authorization scope of 'idn:identity-history:read' 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-identity-snapshots)
+[API Spec](https://developer.sailpoint.com/docs/api/list-identity-snapshots-v-1)
 
 ### Parameters 
 

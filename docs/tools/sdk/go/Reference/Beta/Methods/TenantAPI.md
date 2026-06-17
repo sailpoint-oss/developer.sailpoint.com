@@ -22,7 +22,7 @@ Method | HTTP request | Description
 Get tenant information.
 This rest endpoint can be used to retrieve tenant details.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-tenant)
+[API Spec](https://developer.sailpoint.com/docs/api/get-tenant-v-1)
 
 ### Path Parameters
 

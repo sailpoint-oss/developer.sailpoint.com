@@ -26,7 +26,7 @@ Method | HTTP request | Description
 Retrieve pending task list headers
 Responds with headers only for list of task statuses for pending tasks.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-pending-task-headers)
+[API Spec](https://developer.sailpoint.com/docs/api/get-pending-task-headers-v-1)
 
 ### Parameters 
 
@@ -86,7 +86,7 @@ with ApiClient(configuration) as api_client:
 Retrieve pending task status list
 Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-pending-tasks)
+[API Spec](https://developer.sailpoint.com/docs/api/get-pending-tasks-v-1)
 
 ### Parameters 
 
@@ -150,7 +150,7 @@ with ApiClient(configuration) as api_client:
 Get task status by id
 Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-task-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-task-status-v-1)
 
 ### Parameters 
 
@@ -207,10 +207,10 @@ with ApiClient(configuration) as api_client:
 
 ## get-task-status-list
 Retrieve task status list
-Use this endpoint to get a list of statuses for **completed** tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. To get a list of statuses for **in-progress** tasks, please use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/beta/get-pending-tasks) endpoint.
+Use this endpoint to get a list of statuses for **completed** tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. To get a list of statuses for **in-progress** tasks, please use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/get-pending-tasks-v-1) endpoint.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-task-status-list)
+[API Spec](https://developer.sailpoint.com/docs/api/get-task-status-list-v-1)
 
 ### Parameters 
 
@@ -278,7 +278,7 @@ with ApiClient(configuration) as api_client:
 Update task status by id
 Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/update-task-status)
+[API Spec](https://developer.sailpoint.com/docs/api/update-task-status-v-1)
 
 ### Parameters 
 

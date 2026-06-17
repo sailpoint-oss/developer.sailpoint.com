@@ -35,7 +35,7 @@ Method | HTTP request | Description
 Get access model metadata attribute
 Get single Access Model Metadata Attribute
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-model-metadata-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-model-metadata-attribute-v-1)
 
 ### Parameters 
 
@@ -93,7 +93,7 @@ with ApiClient(configuration) as api_client:
 Get access model metadata value
 Get single Access Model Metadata Attribute Value
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-model-metadata-attribute-value)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-model-metadata-attribute-value-v-1)
 
 ### Parameters 
 
@@ -153,7 +153,7 @@ with ApiClient(configuration) as api_client:
 List access model metadata attributes
 Get a list of Access Model Metadata Attributes
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-model-metadata-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/list-access-model-metadata-attribute-v-1)
 
 ### Parameters 
 
@@ -220,7 +220,7 @@ with ApiClient(configuration) as api_client:
 List access model metadata values
 Get a list of Access Model Metadata Attribute Values
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-model-metadata-attribute-value)
+[API Spec](https://developer.sailpoint.com/docs/api/list-access-model-metadata-attribute-value-v-1)
 
 ### Parameters 
 

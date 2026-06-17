@@ -40,7 +40,7 @@ This API is used to create Multi-Host Integration. Multi-host Integration holds 
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-multi-host-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/create-multi-host-integration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -114,7 +114,7 @@ This API is used to create sources within Multi-Host Integration. Multi-Host Int
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-sources-within-multi-host)
+[API Spec](https://developer.sailpoint.com/docs/api/create-sources-within-multi-host-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -177,7 +177,7 @@ Delete an existing Multi-Host Integration by ID.
 
 A token with Org Admin or Multi Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-multi-host)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-multi-host-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -225,7 +225,7 @@ This API will return array of account aggregation groups within provided Multi-H
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-acct-aggregation-groups)
+[API Spec](https://developer.sailpoint.com/docs/api/get-acct-aggregation-groups-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -273,7 +273,7 @@ This API will return array of aggregation groups within provided Multi-Host Inte
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-entitlement-aggregation-groups)
+[API Spec](https://developer.sailpoint.com/docs/api/get-entitlement-aggregation-groups-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -321,7 +321,7 @@ Get an existing Multi-Host Integration.
 
 A token with Org Admin or Multi-Host Integration Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-multi-host-integrations)
+[API Spec](https://developer.sailpoint.com/docs/api/get-multi-host-integrations-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -369,7 +369,7 @@ Get a list of Multi-Host Integrations.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-multi-host-integrations-list)
+[API Spec](https://developer.sailpoint.com/docs/api/get-multi-host-integrations-list-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -427,7 +427,7 @@ Get a list of sources creation errors within Multi-Host Integration ID.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-multi-host-source-creation-errors)
+[API Spec](https://developer.sailpoint.com/docs/api/get-multi-host-source-creation-errors-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -475,7 +475,7 @@ This API endpoint returns the current list of supported Multi-Host Integration t
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-multihost-integration-types)
+[API Spec](https://developer.sailpoint.com/docs/api/get-multihost-integration-types-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -521,7 +521,7 @@ Get a list of sources within Multi-Host Integration ID.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sources-within-multi-host)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sources-within-multi-host-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -579,7 +579,7 @@ This endpoint performs a more detailed validation of the Multi-Host Integration'
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/test-connection-multi-host-sources)
+[API Spec](https://developer.sailpoint.com/docs/api/test-connection-multi-host-sources-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -627,7 +627,7 @@ This endpoint performs a more detailed validation of the source's configuration.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/test-source-connection-multihost)
+[API Spec](https://developer.sailpoint.com/docs/api/test-source-connection-multihost-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -677,7 +677,7 @@ Update existing sources within Multi-Host Integration.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/update-multi-host-sources)
+[API Spec](https://developer.sailpoint.com/docs/api/update-multi-host-sources-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

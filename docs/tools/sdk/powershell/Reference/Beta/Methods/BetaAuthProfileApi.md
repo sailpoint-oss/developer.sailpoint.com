@@ -31,7 +31,7 @@ Method | HTTP request | Description
 ## get-profile-config
 This API returns auth profile information.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-profile-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-profile-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -77,7 +77,7 @@ try {
 ## get-profile-config-list
 This API returns a list of auth profiles.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-profile-config-list)
+[API Spec](https://developer.sailpoint.com/docs/api/get-profile-config-list-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -121,7 +121,7 @@ try {
 This API updates an existing Auth Profile. The following fields are patchable:
 **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-profile-config)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-profile-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

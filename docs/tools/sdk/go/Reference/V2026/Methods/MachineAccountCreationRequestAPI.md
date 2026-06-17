@@ -41,7 +41,7 @@ and generates an asynchronous result containing a tracking ID.
 >**NOTE: You can only request a machine accounts on subtype for which you have a create machine account entitlement provisioned.**
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/create-machine-account-request)
+[API Spec](https://developer.sailpoint.com/docs/api/create-machine-account-request-v-1)
 
 ### Path Parameters
 
@@ -133,7 +133,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get Machine Account Creation Request
 Retrieves a account request details for machine account creation. This allows the user to view all details for given account request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-create-machine-account-request)
+[API Spec](https://developer.sailpoint.com/docs/api/get-create-machine-account-request-v-1)
 
 ### Path Parameters
 
@@ -213,7 +213,7 @@ Machine Account Create Access
 This endpoint retrieves the list of sources and subtypes for which logged in user has the entitlement to create a machine account.
 The response includes a list of object detailing the source, subtype and entitlement details which enables the clients to understand if they can submit the request to create a machine account for the given subtype.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-machine-account-create-access-info)
+[API Spec](https://developer.sailpoint.com/docs/api/get-machine-account-create-access-info-v-1)
 
 ### Path Parameters
 

@@ -40,7 +40,7 @@ Method | HTTP request | Description
 Cancel workflow execution by id
 Use this API to cancel a running workflow execution.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/cancel-workflow-execution)
+[API Spec](https://developer.sailpoint.com/docs/api/cancel-workflow-execution-v-1)
 
 ### Parameters 
 
@@ -96,7 +96,7 @@ with ApiClient(configuration) as api_client:
 Execute workflow via external trigger
 This endpoint allows a service outside of IdentityNow to initiate a workflow that uses the "External Trigger" step.  The external service will invoke this endpoint with the input data it wants to send to the workflow in the body.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-external-execute-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/create-external-execute-workflow-v-1)
 
 ### Parameters 
 
@@ -157,7 +157,7 @@ with ApiClient(configuration) as api_client:
 Create workflow
 Create a new workflow with the desired trigger and steps specified in the request body.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/create-workflow-v-1)
 
 ### Parameters 
 
@@ -216,7 +216,7 @@ with ApiClient(configuration) as api_client:
 Generate external trigger oauth client
 Create OAuth client ID, client secret, and callback URL for use in an external trigger.  External triggers will need this information to generate an access token to authenticate to the callback URL and submit a trigger payload that will initiate the workflow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-workflow-external-trigger)
+[API Spec](https://developer.sailpoint.com/docs/api/create-workflow-external-trigger-v-1)
 
 ### Parameters 
 
@@ -274,7 +274,7 @@ with ApiClient(configuration) as api_client:
 Delete workflow by id
 Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-workflow-v-1)
 
 ### Parameters 
 
@@ -329,7 +329,7 @@ with ApiClient(configuration) as api_client:
 Get workflow by id
 Get a single workflow by id.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/get-workflow-v-1)
 
 ### Parameters 
 
@@ -390,7 +390,7 @@ with ApiClient(configuration) as api_client:
 Get workflow execution
 Get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a "404 Not Found" response.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-workflow-execution)
+[API Spec](https://developer.sailpoint.com/docs/api/get-workflow-execution-v-1)
 
 ### Parameters 
 
@@ -451,7 +451,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Get workflow execution history
 [Deprecated] This endpoint will be removed in October 2027. Please use `/workflow-executions/{id}/history-v2` instead. Retrieves the detailed history of a single workflow execution. Workflow executions are available for up to 90 days before being archived; accessing an archived execution will return a 404 Not Found.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-workflow-execution-history)
+[API Spec](https://developer.sailpoint.com/docs/api/get-workflow-execution-history-v-1)
 
 ### Parameters 
 
@@ -521,7 +521,7 @@ Use this API to list a specified workflow's executions. Workflow executions are 
   For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250.
   Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-workflow-executions)
+[API Spec](https://developer.sailpoint.com/docs/api/get-workflow-executions-v-1)
 
 ### Parameters 
 
@@ -587,7 +587,7 @@ with ApiClient(configuration) as api_client:
 List complete workflow library
 This lists all triggers, actions, and operators in the library
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-complete-workflow-library)
+[API Spec](https://developer.sailpoint.com/docs/api/list-complete-workflow-library-v-1)
 
 ### Parameters 
 
@@ -648,7 +648,7 @@ with ApiClient(configuration) as api_client:
 List workflow library actions
 This lists the workflow actions available to you.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-workflow-library-actions)
+[API Spec](https://developer.sailpoint.com/docs/api/list-workflow-library-actions-v-1)
 
 ### Parameters 
 
@@ -711,7 +711,7 @@ with ApiClient(configuration) as api_client:
 List workflow library operators
 This lists the workflow operators available to you
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-workflow-library-operators)
+[API Spec](https://developer.sailpoint.com/docs/api/list-workflow-library-operators-v-1)
 
 ### Parameters 
 This endpoint does not need any parameter. 
@@ -766,7 +766,7 @@ with ApiClient(configuration) as api_client:
 List workflow library triggers
 This lists the workflow triggers available to you
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-workflow-library-triggers)
+[API Spec](https://developer.sailpoint.com/docs/api/list-workflow-library-triggers-v-1)
 
 ### Parameters 
 
@@ -829,7 +829,7 @@ with ApiClient(configuration) as api_client:
 List workflows
 List all workflows in the tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-workflows)
+[API Spec](https://developer.sailpoint.com/docs/api/list-workflows-v-1)
 
 ### Parameters 
 
@@ -894,7 +894,7 @@ with ApiClient(configuration) as api_client:
 Patch workflow
 Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-workflow-v-1)
 
 ### Parameters 
 
@@ -955,7 +955,7 @@ with ApiClient(configuration) as api_client:
 Update workflow
 Perform a full update of a workflow.  The updated workflow object is returned in the response.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/put-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/put-workflow-v-1)
 
 ### Parameters 
 
@@ -1055,7 +1055,7 @@ with ApiClient(configuration) as api_client:
 Test workflow via external trigger
 Validate a workflow with an "External Trigger" can receive input.  The response includes the input that the workflow received, which can be used to validate that the input is intact when it reaches the workflow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/test-external-execute-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/test-external-execute-workflow-v-1)
 
 ### Parameters 
 
@@ -1127,7 +1127,7 @@ This endpoint will return an execution ID, which can be used to lookup more info
 **This will cause a live run of the workflow, which could result in unintended modifications to your IDN tenant.**
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/test-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/test-workflow-v-1)
 
 ### Parameters 
 

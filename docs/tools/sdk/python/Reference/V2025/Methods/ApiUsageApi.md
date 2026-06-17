@@ -36,7 +36,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Total number of API requests
 This API gets an aggregated number of all API calls from an org in a given timespan.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-total-count)
+[API Spec](https://developer.sailpoint.com/docs/api/get-total-count-v-1)
 
 ### Parameters 
 
@@ -107,7 +107,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get Api Summary
 This API gets a list of APIs called by the org in a specific timespan, sorted by number of calls.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-api-summary)
+[API Spec](https://developer.sailpoint.com/docs/api/list-api-summary-v-1)
 
 ### Parameters 
 

@@ -36,7 +36,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Delete an icon
 This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-icon)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-icon-v-1)
 
 ### Path Parameters
 
@@ -117,7 +117,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Update an icon
 This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/set-icon)
+[API Spec](https://developer.sailpoint.com/docs/api/set-icon-v-1)
 
 ### Path Parameters
 

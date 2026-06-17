@@ -28,7 +28,7 @@ Method | HTTP request | Description
 Cancel report
 Cancels a running report.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/cancel-report)
+[API Spec](https://developer.sailpoint.com/docs/api/cancel-report-v-1)
 
 ### Path Parameters
 
@@ -93,7 +93,7 @@ func main() {
 Get report file
 Gets a report in file format.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-report)
+[API Spec](https://developer.sailpoint.com/docs/api/get-report-v-1)
 
 ### Path Parameters
 
@@ -165,7 +165,7 @@ func main() {
 Get report result
 Get the report results for a report that was run or is running. Returns empty report result in case there are no active task definitions with used in payload task definition name.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-report-result)
+[API Spec](https://developer.sailpoint.com/docs/api/get-report-result-v-1)
 
 ### Path Parameters
 
@@ -233,7 +233,7 @@ func main() {
 Run report
 Use this API to run a report according to report input details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/start-report)
+[API Spec](https://developer.sailpoint.com/docs/api/start-report-v-1)
 
 ### Path Parameters
 

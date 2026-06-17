@@ -30,7 +30,7 @@ Create a new Managed Cluster Type.
 AMS Security: Devops, Internal A token with SaaS Platform Internal or DevOps is required to access this endpoint.
 The API returns a result that includes the Managed Cluster Type ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-managed-cluster-type)
+[API Spec](https://developer.sailpoint.com/docs/api/create-managed-cluster-type-v-1)
 
 ### Parameters 
 
@@ -96,7 +96,7 @@ Delete a managed cluster type
 Delete an existing Managed Cluster Type.
 AMS Security: Devops, Internal A token with SaaS Platform Internal or DevOps is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-managed-cluster-type)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-managed-cluster-type-v-1)
 
 ### Parameters 
 
@@ -152,7 +152,7 @@ Get a managed cluster type
 Get a Managed Cluster Type.
 AMS Security: Devops, Internal A token with SaaS Platform Internal or DevOps is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-managed-cluster-type)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-cluster-type-v-1)
 
 ### Parameters 
 
@@ -212,7 +212,7 @@ Get managed cluster types
 Get a list of Managed Cluster Types.
 AMS Security: Devops, Internal A token with SaaS Platform Internal or DevOps is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-managed-cluster-types)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-cluster-types-v-1)
 
 ### Parameters 
 
@@ -281,7 +281,7 @@ Update a managed cluster type
 Update an existing Managed Cluster Type.
 AMS Security: Devops, Internal A token with SaaS Platform Internal or DevOps is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-managed-cluster-type)
+[API Spec](https://developer.sailpoint.com/docs/api/update-managed-cluster-type-v-1)
 
 ### Parameters 
 

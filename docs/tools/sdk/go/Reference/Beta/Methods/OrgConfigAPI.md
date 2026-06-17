@@ -26,7 +26,7 @@ Method | HTTP request | Description
 Get org configuration settings
 Get org configuration with only external (org admin) accessible properties for the current org.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-org-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-org-config-v-1)
 
 ### Path Parameters
 
@@ -83,7 +83,7 @@ func main() {
 Get list of time zones
 Get a list of valid time zones that can be set in org configurations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-valid-time-zones)
+[API Spec](https://developer.sailpoint.com/docs/api/get-valid-time-zones-v-1)
 
 ### Path Parameters
 
@@ -140,7 +140,7 @@ func main() {
 Patch an org configuration property
 Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-org-config)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-org-config-v-1)
 
 ### Path Parameters
 

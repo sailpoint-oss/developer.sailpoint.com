@@ -26,7 +26,7 @@ Method | HTTP request | Description
 Finds status of source usage
 This API returns the status of the source usage insights setup by IDN source ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-status-by-source-id)
+[API Spec](https://developer.sailpoint.com/docs/api/get-status-by-source-id-v-1)
 
 ### Parameters 
 
@@ -84,7 +84,7 @@ with ApiClient(configuration) as api_client:
 Returns source usage insights
 This API returns a summary of source usage insights for past 12 months.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-usages-by-source-id)
+[API Spec](https://developer.sailpoint.com/docs/api/get-usages-by-source-id-v-1)
 
 ### Parameters 
 

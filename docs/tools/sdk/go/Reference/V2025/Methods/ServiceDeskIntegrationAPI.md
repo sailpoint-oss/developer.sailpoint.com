@@ -55,7 +55,7 @@ Method | HTTP request | Description
 Create new service desk integration
 Create a new Service Desk integration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-service-desk-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/create-service-desk-integration-v-1)
 
 ### Path Parameters
 
@@ -155,7 +155,7 @@ func main() {
 Delete a service desk integration
 Delete an existing Service Desk integration by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-service-desk-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-service-desk-integration-v-1)
 
 ### Path Parameters
 
@@ -220,7 +220,7 @@ func main() {
 Get a service desk integration
 Get an existing Service Desk integration by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-service-desk-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/get-service-desk-integration-v-1)
 
 ### Path Parameters
 
@@ -286,7 +286,7 @@ func main() {
 Service desk integration template by scriptname
 This API endpoint returns an existing Service Desk integration template by scriptName.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-service-desk-integration-template)
+[API Spec](https://developer.sailpoint.com/docs/api/get-service-desk-integration-template-v-1)
 
 ### Path Parameters
 
@@ -352,7 +352,7 @@ func main() {
 List service desk integration types
 This API endpoint returns the current list of supported Service Desk integration types.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-service-desk-integration-types)
+[API Spec](https://developer.sailpoint.com/docs/api/get-service-desk-integration-types-v-1)
 
 ### Path Parameters
 
@@ -409,7 +409,7 @@ func main() {
 List existing service desk integrations
 Get a list of Service Desk integration objects.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-service-desk-integrations)
+[API Spec](https://developer.sailpoint.com/docs/api/get-service-desk-integrations-v-1)
 
 ### Path Parameters
 
@@ -479,7 +479,7 @@ func main() {
 Get the time check configuration
 Get the time check configuration of queued SDIM tickets.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-status-check-details)
+[API Spec](https://developer.sailpoint.com/docs/api/get-status-check-details-v-1)
 
 ### Path Parameters
 
@@ -536,7 +536,7 @@ func main() {
 Patch a service desk integration
 Update an existing Service Desk integration by ID with a PATCH request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-service-desk-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-service-desk-integration-v-1)
 
 ### Path Parameters
 
@@ -609,7 +609,7 @@ func main() {
 Update a service desk integration
 Update an existing Service Desk integration by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-service-desk-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/put-service-desk-integration-v-1)
 
 ### Path Parameters
 
@@ -715,7 +715,7 @@ func main() {
 Update the time check configuration
 Update the time check configuration of queued SDIM tickets.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-status-check-details)
+[API Spec](https://developer.sailpoint.com/docs/api/update-status-check-details-v-1)
 
 ### Path Parameters
 

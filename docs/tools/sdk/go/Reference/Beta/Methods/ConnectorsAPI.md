@@ -36,7 +36,7 @@ Method | HTTP request | Description
 Get connector list
 Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-connector-list)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-list-v-1)
 
 ### Path Parameters
 

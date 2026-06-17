@@ -37,7 +37,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieve pending task list headers
 Responds with headers only for list of task statuses for pending tasks.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-pending-task-headers)
+[API Spec](https://developer.sailpoint.com/docs/api/get-pending-task-headers-v-1)
 
 ### Parameters 
 
@@ -113,7 +113,7 @@ Retrieve a list of statuses for pending tasks. Types of tasks include account an
 Possible tasks to be returned: Cloud Account Aggregation, Cloud Group Aggregation, Cloud Process Uncorrelated Accounts, Cloud Refresh Role, Source Application Discovery, AI Agent Aggregation, Cloud Entitlement Import, Cloud Uncorrelated Refresh, Cloud Identity Aggregation, Cloud Attribute Synchronization, Identity Refresh
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-pending-tasks)
+[API Spec](https://developer.sailpoint.com/docs/api/get-pending-tasks-v-1)
 
 ### Parameters 
 
@@ -191,7 +191,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get task status by id
 Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-task-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-task-status-v-1)
 
 ### Parameters 
 
@@ -262,11 +262,11 @@ This API is currently in an experimental state. The API is subject to change bas
  ```
 :::
 Retrieve task status list
-Use this endpoint to get a list of statuses for **all** tasks which include finished, in-progress, terminated, and errored tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. To get a list of statuses for only **in-progress** tasks, please use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/v2024/get-pending-tasks) endpoint.
+Use this endpoint to get a list of statuses for **all** tasks which include finished, in-progress, terminated, and errored tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. To get a list of statuses for only **in-progress** tasks, please use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/get-pending-tasks-v-1) endpoint.
 Possible tasks to be returned: Cloud Account Aggregation, Cloud Group Aggregation, Cloud Process Uncorrelated Accounts, Cloud Refresh Role, Source Application Discovery, AI Agent Aggregation, Cloud Entitlement Import, Cloud Uncorrelated Refresh, Cloud Identity Aggregation, Cloud Attribute Synchronization, Identity Refresh
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-task-status-list)
+[API Spec](https://developer.sailpoint.com/docs/api/get-task-status-list-v-1)
 
 ### Parameters 
 
@@ -348,7 +348,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Update task status by id
 Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/update-task-status)
+[API Spec](https://developer.sailpoint.com/docs/api/update-task-status-v-1)
 
 ### Parameters 
 

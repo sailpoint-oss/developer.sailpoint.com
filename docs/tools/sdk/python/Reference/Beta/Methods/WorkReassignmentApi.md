@@ -40,7 +40,7 @@ Method | HTTP request | Description
 Create a reassignment configuration
 Creates a new Reassignment Configuration for the specified identity.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-reassignment-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/create-reassignment-configuration-v-1)
 
 ### Parameters 
 
@@ -105,7 +105,7 @@ with ApiClient(configuration) as api_client:
 Delete reassignment configuration
 Deletes a single reassignment configuration for the specified identity
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-reassignment-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-reassignment-configuration-v-1)
 
 ### Parameters 
 
@@ -163,7 +163,7 @@ with ApiClient(configuration) as api_client:
 Evaluate reassignment configuration
 Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-evaluate-reassignment-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/get-evaluate-reassignment-configuration-v-1)
 
 ### Parameters 
 
@@ -227,7 +227,7 @@ with ApiClient(configuration) as api_client:
 List reassignment config types
 Gets a collection of types which are available in the Reassignment Configuration UI.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-reassignment-config-types)
+[API Spec](https://developer.sailpoint.com/docs/api/get-reassignment-config-types-v-1)
 
 ### Parameters 
 This endpoint does not need any parameter. 
@@ -282,7 +282,7 @@ with ApiClient(configuration) as api_client:
 Get reassignment configuration
 Gets the Reassignment Configuration for an identity.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-reassignment-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/get-reassignment-configuration-v-1)
 
 ### Parameters 
 
@@ -340,7 +340,7 @@ with ApiClient(configuration) as api_client:
 Get tenant-wide reassignment configuration settings
 Gets the global Reassignment Configuration settings for the requestor's tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-tenant-config-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/get-tenant-config-configuration-v-1)
 
 ### Parameters 
 This endpoint does not need any parameter. 
@@ -395,7 +395,7 @@ with ApiClient(configuration) as api_client:
 List reassignment configurations
 Gets all Reassignment configuration for the current org.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-reassignment-configurations)
+[API Spec](https://developer.sailpoint.com/docs/api/list-reassignment-configurations-v-1)
 
 ### Parameters 
 
@@ -457,7 +457,7 @@ with ApiClient(configuration) as api_client:
 Update reassignment configuration
 Replaces existing Reassignment configuration for an identity with the newly provided configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/put-reassignment-config)
+[API Spec](https://developer.sailpoint.com/docs/api/put-reassignment-config-v-1)
 
 ### Parameters 
 
@@ -524,7 +524,7 @@ with ApiClient(configuration) as api_client:
 Update tenant-wide reassignment configuration settings
 Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/put-tenant-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/put-tenant-configuration-v-1)
 
 ### Parameters 
 

@@ -132,7 +132,7 @@ This API generates a create policy/template based on field value transforms. Thi
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-provisioning-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/create-provisioning-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -220,7 +220,7 @@ try {
 ## create-source
 This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-source)
+[API Spec](https://developer.sailpoint.com/docs/api/create-source-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -351,7 +351,7 @@ try {
 Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-source-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/create-source-schedule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -400,7 +400,7 @@ try {
 Use this API to create a new schema on the specified source in Identity Security Cloud (ISC).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-source-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/create-source-schema-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -487,7 +487,7 @@ This endpoint is good for:
 * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-accounts-async)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-accounts-async-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -532,7 +532,7 @@ try {
 ## delete-native-change-detection-config
 Deletes the native change detection configuration for the source specified by the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-native-change-detection-config)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-native-change-detection-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -578,7 +578,7 @@ try {
 ## delete-provisioning-policy
 Deletes the provisioning policy with the specified usage on an application.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-provisioning-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-provisioning-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -627,7 +627,7 @@ try {
 Use this API to delete a specific source in Identity Security Cloud (ISC).
 The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-source)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-source-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -673,7 +673,7 @@ try {
 ## delete-source-schedule
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-source-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-source-schedule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -721,7 +721,7 @@ try {
 ## delete-source-schema
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-source-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-source-schema-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -770,7 +770,7 @@ try {
 This API downloads the CSV schema that defines the account attributes on a source.
 >**NOTE: This API is designated only for Delimited File sources.**
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-accounts-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/get-accounts-schema-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -816,7 +816,7 @@ try {
 ## get-correlation-config
 This API returns the existing correlation configuration for a source specified by the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-correlation-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-correlation-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -864,7 +864,7 @@ This API downloads the CSV schema that defines the entitlement attributes on a s
 
 >**NOTE: This API is designated only for Delimited File sources.**
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-entitlements-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/get-entitlements-schema-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -912,7 +912,7 @@ try {
 ## get-native-change-detection-config
 This API returns the existing native change detection configuration for a source specified by the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-native-change-detection-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-native-change-detection-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -958,7 +958,7 @@ try {
 ## get-provisioning-policy
 This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-provisioning-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/get-provisioning-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1006,7 +1006,7 @@ try {
 ## get-source
 Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source)
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1055,7 +1055,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-attr-sync-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-attr-sync-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1103,7 +1103,7 @@ try {
 ## get-source-config
 Looks up and returns the source config for the requested source id after populating the source config values and applying language translations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1151,7 +1151,7 @@ try {
 ## get-source-connections
 Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-connections)
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-connections-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1204,7 +1204,7 @@ Access request to any entitlements in the source should follow this configuratio
 - During access request, this source-level entitlement request configuration overrides the global organization-level configuration.
 - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-entitlement-request-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-entitlement-request-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1249,7 +1249,7 @@ try {
 ## get-source-health
 This endpoint fetches source health by source's id
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-health)
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-health-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1296,7 +1296,7 @@ try {
 Get the source schedule by type in Identity Security Cloud (ISC).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-schedule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1352,7 +1352,7 @@ For example, `0 0 12 1/1 * ? *` runs the task **daily at 12:00 PM**.
 :::
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-schedules)
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-schedules-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1399,7 +1399,7 @@ try {
 Get the Source Schema by ID in IdentityNow.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-schema-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1447,7 +1447,7 @@ try {
 ## get-source-schemas
 Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-schemas)
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-schemas-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1499,7 +1499,7 @@ Starts an account aggregation on the specified source.
 If the target source is a delimited file source, then the CSV file needs to be included in the request body.
 You will also need to set the Content-Type header to `multipart/form-data`.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/import-accounts)
+[API Spec](https://developer.sailpoint.com/docs/api/import-accounts-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1554,7 +1554,7 @@ Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Imp
 
 >**NOTE: This API is designated only for Delimited File sources.**
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/import-accounts-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/import-accounts-schema-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1601,7 +1601,7 @@ try {
 ## import-connector-file
 This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/import-connector-file)
+[API Spec](https://developer.sailpoint.com/docs/api/import-connector-file-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1651,7 +1651,7 @@ If the target source is a delimited file source, then the CSV file needs to be i
 You will also need to set the Content-Type header to `multipart/form-data`.
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/import-entitlements)
+[API Spec](https://developer.sailpoint.com/docs/api/import-entitlements-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1704,7 +1704,7 @@ Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Imp
 
 >**NOTE: This API is designated only for Delimited File sources.**
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/import-entitlements-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/import-entitlements-schema-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1753,7 +1753,7 @@ try {
 ## import-uncorrelated-accounts
 File is required for upload. You will also need to set the Content-Type header to `multipart/form-data`
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/import-uncorrelated-accounts)
+[API Spec](https://developer.sailpoint.com/docs/api/import-uncorrelated-accounts-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1800,7 +1800,7 @@ try {
 ## list-provisioning-policies
 This end-point lists all the ProvisioningPolicies in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-provisioning-policies)
+[API Spec](https://developer.sailpoint.com/docs/api/list-provisioning-policies-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1846,7 +1846,7 @@ try {
 ## list-sources
 This end-point lists all the sources in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-sources)
+[API Spec](https://developer.sailpoint.com/docs/api/list-sources-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1904,7 +1904,7 @@ try {
 ## ping-cluster
 This endpoint validates that the cluster being used by the source is reachable from IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/ping-cluster)
+[API Spec](https://developer.sailpoint.com/docs/api/ping-cluster-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1950,7 +1950,7 @@ try {
 ## put-correlation-config
 Replaces the correlation configuration for the source specified by the given ID with the configuration provided in the request body.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-correlation-config)
+[API Spec](https://developer.sailpoint.com/docs/api/put-correlation-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2019,7 +2019,7 @@ try {
 ## put-native-change-detection-config
 Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-native-change-detection-config)
+[API Spec](https://developer.sailpoint.com/docs/api/put-native-change-detection-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2077,7 +2077,7 @@ This end-point updates the provisioning policy with the specified usage on the s
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-provisioning-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/put-provisioning-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2179,7 +2179,7 @@ These fields are immutable, so they cannot be changed:
 Attempts to modify these fields will result in a 400 error.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-source)
+[API Spec](https://developer.sailpoint.com/docs/api/put-source-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2314,7 +2314,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Replaces the attribute synchronization configuration for the source specified by the given ID with the configuration provided in the request body. Only the "enabled" field of the values in the "attributes" array is mutable. Attempting to change other attributes or add new values to the "attributes" array will result in an error.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-source-attr-sync-config)
+[API Spec](https://developer.sailpoint.com/docs/api/put-source-attr-sync-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2392,7 +2392,7 @@ Any attempt to modify these fields will result in an error response with a statu
 > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-source-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/put-source-schema-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2476,7 +2476,7 @@ try {
 ## search-resource-objects
 Retrieves a sample of data returned from account and group aggregation requests.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/search-resource-objects)
+[API Spec](https://developer.sailpoint.com/docs/api/search-resource-objects-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2531,7 +2531,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This end-point performs attribute synchronization for a selected source.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/sync-attributes-for-source)
+[API Spec](https://developer.sailpoint.com/docs/api/sync-attributes-for-source-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2579,7 +2579,7 @@ try {
 ## test-source-configuration
 This endpoint performs a more detailed validation of the source''s configuration that can take longer than the lighter weight credential validation performed by the checkConnection API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/test-source-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/test-source-configuration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2625,7 +2625,7 @@ try {
 ## test-source-connection
 This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/test-source-connection)
+[API Spec](https://developer.sailpoint.com/docs/api/test-source-connection-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2673,7 +2673,7 @@ This API can be used to set up or update Password Policy in IdentityNow for the 
 Source must support PASSWORD feature.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-password-policy-holders)
+[API Spec](https://developer.sailpoint.com/docs/api/update-password-policy-holders-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2723,7 +2723,7 @@ try {
 ## update-provisioning-policies-in-bulk
 This end-point updates a list of provisioning policies on the specified source in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-provisioning-policies-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/update-provisioning-policies-in-bulk-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2814,7 +2814,7 @@ This API selectively updates an existing Provisioning Policy using a JSONPatch p
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-provisioning-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/update-provisioning-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2885,7 +2885,7 @@ These fields are immutable, so they cannot be changed:
 Attempts to modify these fields will result in a 400 error.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-source)
+[API Spec](https://developer.sailpoint.com/docs/api/update-source-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2946,7 +2946,7 @@ Access request to any entitlements in the source should follow this configuratio
 - During access request, this source-level entitlement request configuration overrides the global organization-level configuration.
 - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-source-entitlement-request-config)
+[API Spec](https://developer.sailpoint.com/docs/api/update-source-entitlement-request-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -3021,7 +3021,7 @@ The following schedule fields are immutable and cannot be updated:
 - type
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-source-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/update-source-schedule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -3106,7 +3106,7 @@ To switch an account attribute to a group entitlement, you need to have the foll
 ```
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-source-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/update-source-schema-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

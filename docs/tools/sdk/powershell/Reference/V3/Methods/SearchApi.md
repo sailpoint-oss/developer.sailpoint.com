@@ -49,7 +49,7 @@ Method | HTTP request | Description
 ## search-aggregate
 Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/search-aggregate)
+[API Spec](https://developer.sailpoint.com/docs/api/search-aggregate-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -217,7 +217,7 @@ try {
 ## search-count
 Performs a search with a provided query and returns the count of results in the X-Total-Count header.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/search-count)
+[API Spec](https://developer.sailpoint.com/docs/api/search-count-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -379,7 +379,7 @@ try {
 ## search-get
 Fetches a single document from the specified index, using the specified document ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/search-get)
+[API Spec](https://developer.sailpoint.com/docs/api/search-get-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -427,7 +427,7 @@ try {
 ## search-post
 Perform a search with the provided query and return a matching result collection. To page past 10,000 records, you can use `searchAfter` paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement `searchAfter` paging. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/search-post)
+[API Spec](https://developer.sailpoint.com/docs/api/search-post-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

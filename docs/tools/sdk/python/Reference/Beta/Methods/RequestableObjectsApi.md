@@ -11,7 +11,7 @@ tags: ['SDK', 'Software Development Kit', 'Requestable_Objects', 'BetaRequestabl
 
 # sailpoint.beta.RequestableObjectsApi
   Use this API to implement requestable object functionality.
-With this functionality in place, administrators can determine which access items can be requested with the [Access Request APIs](https://developer.sailpoint.com/docs/api/beta/access-requests/), along with their statuses.
+With this functionality in place, administrators can determine which access items can be requested with the [Access Request APIs](https://developer.sailpoint.com/docs/api/access-requests/), along with their statuses.
 This can be helpful for administrators who are implementing and customizing access request functionality as a way of checking which items are requestable as they are created, assigned, and made available.
  
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
@@ -23,11 +23,11 @@ Method | HTTP request | Description
 
 ## list-requestable-objects
 Requestable objects list
-Get a list of acccess items that can be requested through the [Access Request endpoints](https://developer.sailpoint.com/docs/api/v3/access-requests). Access items are marked with `AVAILABLE`, `PENDING` or `ASSIGNED` with respect to the identity provided using `identity-id` query parameter.
-This endpoint only lists roles and access profiles. For gathering requestable entitlements, the [Entitlements List API](https://developer.sailpoint.com/docs/api/v2025/list-entitlements) can be used with the segmented-for-identity parameter.
+Get a list of acccess items that can be requested through the [Access Request endpoints](https://developer.sailpoint.com/docs/api/access-requests). Access items are marked with `AVAILABLE`, `PENDING` or `ASSIGNED` with respect to the identity provided using `identity-id` query parameter.
+This endpoint only lists roles and access profiles. For gathering requestable entitlements, the [Entitlements List API](https://developer.sailpoint.com/docs/api/list-entitlements-v-1) can be used with the segmented-for-identity parameter.
 Any authenticated token can call this endpoint to see their requestable access items.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-requestable-objects)
+[API Spec](https://developer.sailpoint.com/docs/api/list-requestable-objects-v-1)
 
 ### Parameters 
 

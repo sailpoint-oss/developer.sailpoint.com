@@ -106,7 +106,7 @@ This API generates a create policy/template based on field value transforms. Thi
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-provisioning-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/create-provisioning-policy-v-1)
 
 ### Parameters 
 
@@ -206,7 +206,7 @@ with ApiClient(configuration) as api_client:
 Creates a source in identitynow.
 This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-source)
+[API Spec](https://developer.sailpoint.com/docs/api/create-source-v-1)
 
 ### Parameters 
 
@@ -349,7 +349,7 @@ Create schema on source
 Use this API to create a new schema on the specified source in Identity Security Cloud (ISC).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-source-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/create-source-schema-v-1)
 
 ### Parameters 
 
@@ -409,7 +409,7 @@ with ApiClient(configuration) as api_client:
 Delete provisioning policy by usagetype
 Deletes the provisioning policy with the specified usage on an application.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-provisioning-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-provisioning-policy-v-1)
 
 ### Parameters 
 
@@ -469,7 +469,7 @@ Delete source by id
 Use this API to delete a specific source in Identity Security Cloud (ISC).
 The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-source)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-source-v-1)
 
 ### Parameters 
 
@@ -528,7 +528,7 @@ with ApiClient(configuration) as api_client:
 Delete source schema by id
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-source-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-source-schema-v-1)
 
 ### Parameters 
 
@@ -587,7 +587,7 @@ Downloads source accounts schema template
 This API downloads the CSV schema that defines the account attributes on a source.
 >**NOTE: This API is designated only for Delimited File sources.**
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-accounts-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/get-accounts-schema-v-1)
 
 ### Parameters 
 
@@ -645,7 +645,7 @@ This API downloads the CSV schema that defines the entitlement attributes on a s
 
 >**NOTE: This API is designated only for Delimited File sources.**
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-entitlements-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/get-entitlements-schema-v-1)
 
 ### Parameters 
 
@@ -703,7 +703,7 @@ with ApiClient(configuration) as api_client:
 Get provisioning policy by usagetype
 This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-provisioning-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/get-provisioning-policy-v-1)
 
 ### Parameters 
 
@@ -765,7 +765,7 @@ with ApiClient(configuration) as api_client:
 Get source by id
 Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-source)
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-v-1)
 
 ### Parameters 
 
@@ -824,7 +824,7 @@ with ApiClient(configuration) as api_client:
 Get source connections by id
 Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-source-connections)
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-connections-v-1)
 
 ### Parameters 
 
@@ -883,7 +883,7 @@ with ApiClient(configuration) as api_client:
 Fetches source health by id
 This endpoint fetches source health by source's id
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-source-health)
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-health-v-1)
 
 ### Parameters 
 
@@ -943,7 +943,7 @@ Get source schema by id
 Get the Source Schema by ID in IdentityNow.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-source-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-schema-v-1)
 
 ### Parameters 
 
@@ -1004,7 +1004,7 @@ with ApiClient(configuration) as api_client:
 List schemas on source
 Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-source-schemas)
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-schemas-v-1)
 
 ### Parameters 
 
@@ -1074,7 +1074,7 @@ Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Imp
 
 >**NOTE: This API is designated only for Delimited File sources.**
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/import-accounts-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/import-accounts-schema-v-1)
 
 ### Parameters 
 
@@ -1134,7 +1134,7 @@ with ApiClient(configuration) as api_client:
 Upload connector file to source
 This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/import-connector-file)
+[API Spec](https://developer.sailpoint.com/docs/api/import-connector-file-v-1)
 
 ### Parameters 
 
@@ -1200,7 +1200,7 @@ Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Imp
 
 >**NOTE: This API is designated only for Delimited File sources.**
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/import-entitlements-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/import-entitlements-schema-v-1)
 
 ### Parameters 
 
@@ -1262,7 +1262,7 @@ with ApiClient(configuration) as api_client:
 Lists provisioningpolicies
 This end-point lists all the ProvisioningPolicies in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-provisioning-policies)
+[API Spec](https://developer.sailpoint.com/docs/api/list-provisioning-policies-v-1)
 
 ### Parameters 
 
@@ -1322,7 +1322,7 @@ with ApiClient(configuration) as api_client:
 Lists all sources in identitynow.
 This end-point lists all the sources in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-sources)
+[API Spec](https://developer.sailpoint.com/docs/api/list-sources-v-1)
 
 ### Parameters 
 
@@ -1396,7 +1396,7 @@ This end-point updates the provisioning policy with the specified usage on the s
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/put-provisioning-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/put-provisioning-policy-v-1)
 
 ### Parameters 
 
@@ -1511,7 +1511,7 @@ These fields are immutable, so they cannot be changed:
 Attempts to modify these fields will result in a 400 error.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/put-source)
+[API Spec](https://developer.sailpoint.com/docs/api/put-source-v-1)
 
 ### Parameters 
 
@@ -1664,7 +1664,7 @@ Any attempt to modify these fields will result in an error response with a statu
 > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/put-source-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/put-source-schema-v-1)
 
 ### Parameters 
 
@@ -1727,7 +1727,7 @@ with ApiClient(configuration) as api_client:
 Bulk update provisioning policies
 This end-point updates a list of provisioning policies on the specified source in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/update-provisioning-policies-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/update-provisioning-policies-in-bulk-v-1)
 
 ### Parameters 
 
@@ -1791,7 +1791,7 @@ This API selectively updates an existing Provisioning Policy using a JSONPatch p
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/update-provisioning-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/update-provisioning-policy-v-1)
 
 ### Parameters 
 
@@ -1871,7 +1871,7 @@ These fields are immutable, so they cannot be changed:
 Attempts to modify these fields will result in a 400 error.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/update-source)
+[API Spec](https://developer.sailpoint.com/docs/api/update-source-v-1)
 
 ### Parameters 
 
@@ -1962,7 +1962,7 @@ To switch an account attribute to a group entitlement, you need to have the foll
 ```
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/update-source-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/update-source-schema-v-1)
 
 ### Parameters 
 

@@ -25,7 +25,7 @@ Method | HTTP request | Description
 ## get-recommendations
 The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-recommendations)
+[API Spec](https://developer.sailpoint.com/docs/api/get-recommendations-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -89,7 +89,7 @@ try {
 ## get-recommendations-config
 Retrieves configuration attributes used by certification recommendations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-recommendations-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-recommendations-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -132,7 +132,7 @@ try {
 ## update-recommendations-config
 Updates configuration attributes used by certification recommendations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/update-recommendations-config)
+[API Spec](https://developer.sailpoint.com/docs/api/update-recommendations-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

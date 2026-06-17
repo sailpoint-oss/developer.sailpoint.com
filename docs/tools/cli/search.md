@@ -13,7 +13,7 @@ tags: ['CLI']
 
 Learn how to use the CLI to search your ISC tenant in this guide.
 
-In Identity Security Cloud (ISC), you can search across all the sources connected to your tenant and return virtually any information you have access to. The `search` command allows you to access ISC search functionality within the CLI. For more information about search in ISC, refer to [Search](../../api/v3/search).
+In Identity Security Cloud (ISC), you can search across all the sources connected to your tenant and return virtually any information you have access to. The `search` command allows you to access ISC search functionality within the CLI. For more information about search in ISC, refer to [Search](../../api/search).
 
 In Identity Security Cloud, you can search all the sources connected to your tenant and return virtually any information you have access to. To learn more about search in Identity Security Cloud, refer to [Search](https://documentation.sailpoint.com/saas/help/search/index.html).
 
@@ -44,7 +44,7 @@ The basic format of a query is "field:term", so an example `query` command would
 sail search query "name:a*" --indices identities
 ```
 
-The CLI will use the [V3 Search endpoint](https://developer.sailpoint.com/docs/api/v3/search-post) to search for all identities starting with names starting with the letter "a". The CLI will then generate a JSON file containing the search results. This JSON file will be located in a folder titled "search_results", within the current working directory, unless a folder path is specified.
+The CLI will use the [V3 Search endpoint](https://developer.sailpoint.com/docs/api/search-post-v-1) to search for all identities starting with names starting with the letter "a". The CLI will then generate a JSON file containing the search results. This JSON file will be located in a folder titled "search_results", within the current working directory, unless a folder path is specified.
 
 ### Command
 

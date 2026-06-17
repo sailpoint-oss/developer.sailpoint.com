@@ -49,7 +49,7 @@ Method | HTTP request | Description
 Generate a digit token
 This API is used to generate a digit token for password management. Requires authorization scope of "idn:password-digit-token:create".
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-digit-token)
+[API Spec](https://developer.sailpoint.com/docs/api/create-digit-token-v-1)
 
 ### Path Parameters
 
@@ -120,7 +120,7 @@ func main() {
 Get password change request status
 This API returns the status of a password change request. A token with identity owner or trusted API client application authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-password-change-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-password-change-status-v-1)
 
 ### Path Parameters
 
@@ -194,7 +194,7 @@ grant type will **NOT** work on this endpoint, and a `403 Forbidden` response
 will be returned.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/query-password-info)
+[API Spec](https://developer.sailpoint.com/docs/api/query-password-info-v-1)
 
 ### Path Parameters
 
@@ -269,7 +269,7 @@ An identity can change their own password (as well as any of their accounts' pas
 A token with [API authority](https://developer.sailpoint.com/idn/api/authentication#client-credentials-grant-flow) can be used to change **any** identity's password or the password of any of the identity's accounts. 
 "API authority" refers to a token that only has the "client_credentials" grant type.
 
->**Note: If you want to set an identity's source account password, you must enable `PASSWORD` as one of the source's features. You can use the [PATCH Source endpoint](https://developer.sailpoint.com/docs/api/v3/update-source) to add the `PASSWORD` feature.**
+>**Note: If you want to set an identity's source account password, you must enable `PASSWORD` as one of the source's features. You can use the [PATCH Source endpoint](https://developer.sailpoint.com/docs/api/update-source-v-1) to add the `PASSWORD` feature.**
 
 You can use this endpoint to generate an `encryptedPassword` (RSA encrypted using publicKey). 
 To do so, follow these steps:
@@ -307,7 +307,7 @@ In this example, `toEncrypt` refers to the plain text password you are setting a
 You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password. 
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/set-identity-password)
+[API Spec](https://developer.sailpoint.com/docs/api/set-identity-password-v-1)
 
 ### Path Parameters
 

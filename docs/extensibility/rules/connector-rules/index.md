@@ -13,7 +13,7 @@ tags: ['Rules']
 
 **Connector-Executed Rules** or **Connector Rules** are rules that are executed in the Identity Security Cloud virtual appliance, and they are usually extensions of the connector itself. The rules are commonly used to perform complex connector-related functions, so they are specific to only certain connectors. Because these rules execute in the virtual appliance, they do not have access to query the Identity Security Cloud data model or fetch information from Identity Security Cloud. They rely instead on contextual information sent from Identity Security Cloud. Connector-executed rules may also have managed connections provided in their contexts to support querying end systems or sources. Though these managed connections may be used, making additional connections or call-outs is not allowed.
 
-Unlike cloud rules, connector rules do not have a rule review process and are directly editable with the [Connector Rule REST APIs](https://developer.sailpoint.com/docs/api/beta/connector-rule-management). For more details, see [Configuration Process](#configuration-process).
+Unlike cloud rules, connector rules do not have a rule review process and are directly editable with the [Connector Rule REST APIs](https://developer.sailpoint.com/docs/api/connector-rule-management). For more details, see [Configuration Process](#configuration-process).
 
 ## Supported connector Rules
 
@@ -35,16 +35,16 @@ Unlike cloud rules, connector rules do not have a rule review process and are di
 
 ## Configuration process
 
-Connector Rules are directly editable with the [Connector Rule REST APIs](https://developer.sailpoint.com/docs/api/beta/connector-rule-management), which provide ability to interact with rules directly.
+Connector Rules are directly editable with the [Connector Rule REST APIs](https://developer.sailpoint.com/docs/api/connector-rule-management), which provide ability to interact with rules directly.
 
 | Name | Path |
 | --- | --- |
-| [List Connector Rules](/docs/api/beta/get-connector-rule-list) | `GET /beta/connector-rules/` |
-| [Get Connector Rule](/docs/api/beta/get-connector-rule) | `GET /beta/connector-rules/[id]` |
-| [Create Connector Rule](/docs/api/beta/create-connector-rule) | `POST /beta/connector-rules/` |
-| [Update Connector Rule](/docs/api/beta/update-connector-rule) | `PUT /beta/connector-rules/[id]` |
-| [Delete Connector Rule](/docs/api/beta/delete-connector-rule) | `DELETE /beta/connector-rules/[id]` |
-| [Validate Connector Rule](/docs/api/beta/validate-connector-rule) | `POST /beta/connector-rules/validate` |
+| [List Connector Rules](/docs/api/get-connector-rule-list-v-1) | `GET /beta/connector-rules/` |
+| [Get Connector Rule](/docs/api/get-connector-rule-v-1) | `GET /beta/connector-rules/[id]` |
+| [Create Connector Rule](/docs/api/create-connector-rule-v-1) | `POST /beta/connector-rules/` |
+| [Update Connector Rule](/docs/api/put-connector-rule-v-1) | `PUT /beta/connector-rules/[id]` |
+| [Delete Connector Rule](/docs/api/delete-connector-rule-v-1) | `DELETE /beta/connector-rules/[id]` |
+| [Validate Connector Rule](/docs/api/test-connector-rule-v-1) | `POST /beta/connector-rules/validate` |
 
 SailPoint architectural optimizations have added resiliency and protections against malformed or long-running rules. These APIs also offer built-in protection and checking against potentially harmful code. For more information, see [Rule Code Restrictions](../../rules/index.md#rule-code-restrictions).
 

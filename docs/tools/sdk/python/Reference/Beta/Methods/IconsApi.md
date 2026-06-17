@@ -25,7 +25,7 @@ Method | HTTP request | Description
 Delete an icon
 This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-icon)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-icon-v-1)
 
 ### Parameters 
 
@@ -83,7 +83,7 @@ with ApiClient(configuration) as api_client:
 Update an icon
 This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/set-icon)
+[API Spec](https://developer.sailpoint.com/docs/api/set-icon-v-1)
 
 ### Parameters 
 

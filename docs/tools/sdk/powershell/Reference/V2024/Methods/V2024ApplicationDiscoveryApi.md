@@ -28,7 +28,7 @@ Method | HTTP request | Description
 Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-discovered-applications)
+[API Spec](https://developer.sailpoint.com/docs/api/get-discovered-applications-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -84,7 +84,7 @@ Download an example CSV file with two columns `application_name` and `descriptio
 The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-manual-discover-applications-csv-template)
+[API Spec](https://developer.sailpoint.com/docs/api/get-manual-discover-applications-csv-template-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -128,7 +128,7 @@ try {
 Uploading a CSV file with application data for manual correlation to specific ISC connectors. 
 If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/send-manual-discover-applications-csv-template)
+[API Spec](https://developer.sailpoint.com/docs/api/send-manual-discover-applications-csv-template-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

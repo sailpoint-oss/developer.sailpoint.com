@@ -51,7 +51,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Approve an approval item
 This API approves an Approval Item. Either an admin, or the owning/current user must make this request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/approve-approval-item)
+[API Spec](https://developer.sailpoint.com/docs/api/approve-approval-item-v-1)
 
 ### Parameters 
 
@@ -115,7 +115,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Bulk approve approval items
 This API bulk approves Approval Items. Either an admin, or the owning/current user must make this request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/approve-approval-items-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/approve-approval-items-in-bulk-v-1)
 
 ### Parameters 
 
@@ -177,7 +177,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Complete a work item
 This API completes a work item. Either an admin, or the owning/current user must make this request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/complete-work-item)
+[API Spec](https://developer.sailpoint.com/docs/api/complete-work-item-v-1)
 
 ### Parameters 
 
@@ -241,7 +241,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Completed work items
 This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-completed-work-items)
+[API Spec](https://developer.sailpoint.com/docs/api/get-completed-work-items-v-1)
 
 ### Parameters 
 
@@ -310,7 +310,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Count completed work items
 This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-count-completed-work-items)
+[API Spec](https://developer.sailpoint.com/docs/api/get-count-completed-work-items-v-1)
 
 ### Parameters 
 
@@ -377,7 +377,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Count work items
 This gets a count of work items belonging to either the specified user(admin required), or the current user.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-count-work-items)
+[API Spec](https://developer.sailpoint.com/docs/api/get-count-work-items-v-1)
 
 ### Parameters 
 
@@ -439,7 +439,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Get a work item
 This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-work-item)
+[API Spec](https://developer.sailpoint.com/docs/api/get-work-item-v-1)
 
 ### Parameters 
 
@@ -502,7 +502,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Work items summary
 This gets a summary of work items belonging to either the specified user(admin required), or the current user.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-work-items-summary)
+[API Spec](https://developer.sailpoint.com/docs/api/get-work-items-summary-v-1)
 
 ### Parameters 
 
@@ -564,7 +564,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 List work items
 This gets a collection of work items belonging to either the specified user(admin required), or the current user.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-work-items)
+[API Spec](https://developer.sailpoint.com/docs/api/list-work-items-v-1)
 
 ### Parameters 
 
@@ -633,7 +633,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Reject an approval item
 This API rejects an Approval Item. Either an admin, or the owning/current user must make this request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/reject-approval-item)
+[API Spec](https://developer.sailpoint.com/docs/api/reject-approval-item-v-1)
 
 ### Parameters 
 
@@ -697,7 +697,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Bulk reject approval items
 This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/reject-approval-items-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/reject-approval-items-in-bulk-v-1)
 
 ### Parameters 
 
@@ -759,7 +759,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Submit account selections
 This API submits account selections. Either an admin, or the owning/current user must make this request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/submit-account-selection)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-account-selection-v-1)
 
 ### Parameters 
 
@@ -823,7 +823,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Forward a work item
 This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/submit-forward-work-item)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-forward-work-item-v-1)
 
 ### Parameters 
 

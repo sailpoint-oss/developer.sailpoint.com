@@ -47,7 +47,7 @@ Method | HTTP request | Description
 Delete identity
 The API returns successful response if the requested identity was deleted.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-identity)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-identity-v-1)
 
 ### Path Parameters
 
@@ -112,7 +112,7 @@ func main() {
 Identity details
 This API returns a single identity using the Identity ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-v-1)
 
 ### Path Parameters
 
@@ -178,9 +178,9 @@ func main() {
 Get ownership details
 Use this API to return an identity's owned objects that will cause problems for deleting the identity. 
 Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity. 
-For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/v3/search-post/).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity's owned objects.
+For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/search-post-v-1/).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity's owned objects.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-ownership-details)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-ownership-details-v-1)
 
 ### Path Parameters
 
@@ -246,7 +246,7 @@ func main() {
 Role assignment details
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-assignment)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-assignment-v-1)
 
 ### Path Parameters
 
@@ -315,7 +315,7 @@ func main() {
 List role assignments
 This returns either a list of Role Assignments when querying with either a Role Id or Role Name, or a list of Role Assignment References if querying with only identity Id.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-assignments)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-assignments-v-1)
 
 ### Path Parameters
 
@@ -385,7 +385,7 @@ func main() {
 List identities
 This API returns a list of identities.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-identities)
+[API Spec](https://developer.sailpoint.com/docs/api/list-identities-v-1)
 
 ### Path Parameters
 
@@ -457,7 +457,7 @@ func main() {
 Reset an identity
 Use this endpoint to reset a user's identity if they have forgotten their authentication information like their answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user levels they have.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/reset-identity)
+[API Spec](https://developer.sailpoint.com/docs/api/reset-identity-v-1)
 
 ### Path Parameters
 
@@ -523,7 +523,7 @@ Send password reset email
 This API sends an email with the link to start Password Reset. After selecting the link an identity will be able to set up a new password. Emails expire after 2 hours.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/send-identity-verification-account-token)
+[API Spec](https://developer.sailpoint.com/docs/api/send-identity-verification-account-token-v-1)
 
 ### Path Parameters
 
@@ -600,10 +600,10 @@ This API submits a task for inviting given identities via email to complete regi
 
 This task will send an invitation email only for unregistered identities.
 
-The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status).
+The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/start-identities-invite)
+[API Spec](https://developer.sailpoint.com/docs/api/start-identities-invite-v-1)
 
 ### Path Parameters
 
@@ -683,7 +683,7 @@ This endpoint will perform the following tasks:
 A token with ORG_ADMIN or HELPDESK authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/start-identity-processing)
+[API Spec](https://developer.sailpoint.com/docs/api/start-identity-processing-v-1)
 
 ### Path Parameters
 
@@ -752,7 +752,7 @@ func main() {
 Attribute synchronization for single identity.
 This end-point performs attribute synchronization for a selected identity. The endpoint can be called once in 10 seconds per identity. A token with ORG_ADMIN or API authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/synchronize-attributes-for-identity)
+[API Spec](https://developer.sailpoint.com/docs/api/synchronize-attributes-for-identity-v-1)
 
 ### Path Parameters
 

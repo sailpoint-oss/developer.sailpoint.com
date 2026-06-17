@@ -29,7 +29,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 :::
 Retrieve Managed Client Status by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-managed-client-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-client-status-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -80,7 +80,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 :::
 Update a status detail passed in from the client
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/update-managed-client-status)
+[API Spec](https://developer.sailpoint.com/docs/api/update-managed-client-status-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

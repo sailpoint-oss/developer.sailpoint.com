@@ -65,7 +65,7 @@ Method | HTTP request | Description
 Create lifecycle state
 Use this endpoint to create a lifecycle state.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-lifecycle-state)
+[API Spec](https://developer.sailpoint.com/docs/api/create-lifecycle-state-v-1)
 
 ### Path Parameters
 
@@ -162,7 +162,7 @@ func main() {
 Delete lifecycle state
 Use this endpoint to delete the lifecycle state by its ID. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-lifecycle-state)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-lifecycle-state-v-1)
 
 ### Path Parameters
 
@@ -231,7 +231,7 @@ func main() {
 Get lifecycle state
 Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-lifecycle-state)
+[API Spec](https://developer.sailpoint.com/docs/api/get-lifecycle-state-v-1)
 
 ### Path Parameters
 
@@ -300,7 +300,7 @@ func main() {
 Lists lifecyclestates
 Use this endpoint to list all lifecycle states by their associated identity profiles. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-lifecycle-states)
+[API Spec](https://developer.sailpoint.com/docs/api/get-lifecycle-states-v-1)
 
 ### Path Parameters
 
@@ -374,7 +374,7 @@ func main() {
 Set lifecycle state
 Use this API to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/set-lifecycle-state)
+[API Spec](https://developer.sailpoint.com/docs/api/set-lifecycle-state-v-1)
 
 ### Path Parameters
 
@@ -447,7 +447,7 @@ func main() {
 Update lifecycle state
 Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/update-lifecycle-states)
+[API Spec](https://developer.sailpoint.com/docs/api/update-lifecycle-states-v-1)
 
 ### Path Parameters
 

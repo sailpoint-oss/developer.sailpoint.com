@@ -39,7 +39,7 @@ Since this endpoint reports on the status of an *in-progress* account aggregatio
 *Only available up to an hour after the aggregation completes. May respond with *404 Not Found* after that.*
 required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-account-aggregation-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-account-aggregation-status-v-1)
 
 ### Parameters 
 

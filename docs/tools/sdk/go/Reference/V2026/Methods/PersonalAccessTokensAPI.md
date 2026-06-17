@@ -44,7 +44,7 @@ The valid values for `expirationDate` depend on the value provided for `userAwar
 **Security Considerations:** The `userAwareTokenNeverExpires` field is designed to ensure that users explicitly acknowledge the security implications of creating tokens that never expire. Setting this field to `true` indicates that the user understands the increased security risks and has made an informed decision to proceed.
 **Note:** The `userAwareTokenNeverExpires` field indicates that the user acknowledges they are creating a token that will never expire. It does not affect token behavior beyond indicating this acknowledgment.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/create-personal-access-token)
+[API Spec](https://developer.sailpoint.com/docs/api/create-personal-access-token-v-1)
 
 ### Path Parameters
 
@@ -117,7 +117,7 @@ func main() {
 Delete personal access token
 This deletes a personal access token.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/delete-personal-access-token)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-personal-access-token-v-1)
 
 ### Path Parameters
 
@@ -182,7 +182,7 @@ func main() {
 List personal access tokens
 This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the 'idn:all-personal-access-tokens:read' right.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-personal-access-tokens)
+[API Spec](https://developer.sailpoint.com/docs/api/list-personal-access-tokens-v-1)
 
 ### Path Parameters
 
@@ -255,7 +255,7 @@ When patching `expirationDate` and `userAwareTokenNeverExpires`, the valid value
 **Security Considerations:** The `userAwareTokenNeverExpires` field is designed to ensure that users explicitly acknowledge the security implications of creating tokens that never expire. Setting this field to `true` indicates that the user understands the increased security risks and has made an informed decision to proceed.
 **Note:** The `userAwareTokenNeverExpires` field indicates that the user acknowledges they are creating a token that will never expire. It does not affect token behavior beyond indicating this acknowledgment.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/patch-personal-access-token)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-personal-access-token-v-1)
 
 ### Path Parameters
 

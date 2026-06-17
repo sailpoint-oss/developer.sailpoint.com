@@ -28,7 +28,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API endpoint retrieves UI metadata configured for your tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-tenant-ui-metadata)
+[API Spec](https://developer.sailpoint.com/docs/api/get-tenant-ui-metadata-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -77,7 +77,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-tenant-ui-metadata)
+[API Spec](https://developer.sailpoint.com/docs/api/set-tenant-ui-metadata-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

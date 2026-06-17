@@ -11,7 +11,7 @@ tags: ['SDK', 'Software Development Kit', 'RoleMetadataBulkUpdateByQueryRequest'
 
 # RoleMetadataBulkUpdateByQueryRequest
 
-Bulk update by query request of Role metadata. The maximum meta data values that one single role assigned can not exceed 25. Custom metadata need suit licensed. For more information about the query could refer to  [V3 API Perform Search](https://developer.sailpoint.com/docs/api/v3/search-post)
+Bulk update by query request of Role metadata. The maximum meta data values that one single role assigned can not exceed 25. Custom metadata need suit licensed. For more information about the query could refer to  [V3 API Perform Search](https://developer.sailpoint.com/docs/api/search-post-v-1)
 
 ## Properties
 

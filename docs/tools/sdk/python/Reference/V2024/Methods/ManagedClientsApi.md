@@ -30,7 +30,7 @@ Create managed client
 Create a new managed client.
 The API returns a result that includes the managed client ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-managed-client)
+[API Spec](https://developer.sailpoint.com/docs/api/create-managed-client-v-1)
 
 ### Parameters 
 
@@ -94,7 +94,7 @@ with ApiClient(configuration) as api_client:
 Delete managed client
 Delete an existing managed client.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-managed-client)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-managed-client-v-1)
 
 ### Parameters 
 
@@ -149,7 +149,7 @@ with ApiClient(configuration) as api_client:
 Get managed client
 Get managed client by ID. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-managed-client)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-client-v-1)
 
 ### Parameters 
 
@@ -208,7 +208,7 @@ with ApiClient(configuration) as api_client:
 Get managed client status
 Get a managed client's status, using its ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-managed-client-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-client-status-v-1)
 
 ### Parameters 
 
@@ -270,7 +270,7 @@ with ApiClient(configuration) as api_client:
 Get managed clients
 List managed clients.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-managed-clients)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-clients-v-1)
 
 ### Parameters 
 
@@ -335,7 +335,7 @@ with ApiClient(configuration) as api_client:
 Update managed client
 Update an existing managed client.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-managed-client)
+[API Spec](https://developer.sailpoint.com/docs/api/update-managed-client-v-1)
 
 ### Parameters 
 

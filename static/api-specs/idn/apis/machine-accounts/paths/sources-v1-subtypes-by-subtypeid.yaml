@@ -1,6 +1,10 @@
 get:
   summary: Retrieve subtype by subtype id
   description: Get a machine account subtype by its unique ID.
+  deprecated: true
+  x-deprecated-description: >
+    This API has been deprecated, please refer to [Get subtype by
+    ID](https://developer.sailpoint.com/docs/api/v2026/get-source-subtype-by-id) for the latest API.
   operationId: getMachineAccountSubtypeByIdV1
   tags:
   - Machine Accounts

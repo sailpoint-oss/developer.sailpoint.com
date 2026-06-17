@@ -106,7 +106,7 @@ get:
       **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
 
 
-      **accessRequestId**: *in*
+      **accessRequestId**: *in, eq, ne, ge, gt, le, lt, sw*
 
 
       **status**: *in, eq, ne*

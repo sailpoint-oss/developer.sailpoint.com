@@ -31,8 +31,14 @@ tags:
     description: |
       Use this API to get, update, and delete machine account subtype for sources.
 paths:
+  /source-subtypes/v1/bulk-retrieve:
+    $ref: ./paths/source-subtypes-v1-bulk-retrieve.yaml
+  /source-subtypes/v1:
+    $ref: ./paths/source-subtypes-v1.yaml
   /source-subtypes/v1/{subtypeId}:
     $ref: ./paths/source-subtypes-v1-by-subtypeid.yaml
+  /source-subtypes/v1/{subtypeId}/machine-config:
+    $ref: ./paths/source-subtypes-v1-by-subtypeid-machine-config.yaml
 security:
   - userAuth:
       - sp:scopes:all

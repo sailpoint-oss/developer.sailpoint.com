@@ -447,6 +447,10 @@ tags:
   - name: Discovered Applications
     description: |
       Use this API to retrieve all the available discovered apps for a given tenant id.
+  - name: Entitlement Connections
+    description: |
+      Use this API to search and manage entitlement connections.
+      Entitlement connections represent the relationship between an identity account and an entitlement on a source, including its access type and JIT lifecycle state.
   - name: Entitlements
   - name: Global Tenant Security Settings
     description: |
@@ -1376,6 +1380,12 @@ x-webhooks:
 paths:
   /access-request-config:
     $ref: ./v2026/paths/access-request-config.yaml
+  /entitlement-connections:
+    $ref: ./v2026/paths/entitlement-connections/entitlement-connections.yaml
+  /entitlement-connections/current-identity:
+    $ref: ./v2026/paths/entitlement-connections/current-identity.yaml
+  /entitlement-connections/{connectionId}:
+    $ref: ./v2026/paths/entitlement-connections/connection-id.yaml
   /entitlements:
     $ref: ./v2026/paths/entitlements.yaml
   /entitlements/account/{accountId}/entitlements:
@@ -1918,6 +1928,14 @@ paths:
     $ref: ./v2026/paths/provisioning-policy.yaml
   /sources/{sourceId}/provisioning-policies/bulk-update:
     $ref: ./v2026/paths/provisioning-policies-bulk-update.yaml
+  /sources/{sourceId}/datasets:
+    $ref: ./v2026/paths/source-datasets.yaml
+  /sources/{sourceId}/datasets/{datasetId}:
+    $ref: ./v2026/paths/source-dataset.yaml
+  /sources/{sourceId}/resources:
+    $ref: ./v2026/paths/source-resources.yaml
+  /sources/{sourceId}/resources/{resourceId}:
+    $ref: ./v2026/paths/source-resource.yaml
   /sources/{sourceId}/schemas:
     $ref: ./v2026/paths/schemas.yaml
   /sources/{sourceId}/schedules:

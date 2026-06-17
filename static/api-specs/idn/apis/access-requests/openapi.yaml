@@ -31,6 +31,8 @@ tags:
 paths:
   /access-request-config/v1:
     $ref: ./paths/access-request-config-v1.yaml
+  /access-request-config/v2:
+    $ref: ./paths/access-request-config-v2.yaml
   /access-requests/v1:
     $ref: ./paths/access-requests-v1.yaml
   /access-requests/v1/cancel:

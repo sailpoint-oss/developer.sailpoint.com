@@ -68,6 +68,7 @@ get:
     - idn:identity-profile:read
   x-sailpoint-userLevels:
   - ORG_ADMIN
+  - API
 post:
   operationId: createIdentityProfileV1
   summary: Create identity profile
@@ -100,5 +101,8 @@ post:
   security:
   - userAuth:
     - idn:identity-profile:manage
+  - applicationAuth:
+    - idn:identity-profile:manage
   x-sailpoint-userLevels:
   - ORG_ADMIN
+  - API

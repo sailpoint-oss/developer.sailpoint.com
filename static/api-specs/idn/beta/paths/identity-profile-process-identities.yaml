@@ -49,5 +49,9 @@ post:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:identity-profile:read, idn:identity-profile:manage]
+    - applicationAuth: [idn:identity-profile:read, idn:identity-profile:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - API
 
 

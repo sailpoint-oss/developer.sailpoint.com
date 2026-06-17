@@ -29,15 +29,19 @@ Each ISC service is versioned independently using a URL structure that follows t
 /service/v1/action
 ```
 
-For example, an endpoint to list identities would be accessible at a path like `/identities/v1/`. The major version (`v1`, `v2`, etc.) only changes when a breaking change is introduced to that service's contract. Non-breaking additions, such as new optional parameters or new response fields, are introduced within the existing version without incrementing it.
+For example, an endpoint to list identities would be accessible at a path like `/identities/v1/`. The major version (`v1`, `v2`, etc.) only changes when a breaking change is introduced to that service's contract. [Non-breaking](/docs/api/api-versioning-strategy#non-breaking-changes) additions, such as new optional parameters or new response fields, are introduced within the existing version without incrementing it.
 
-When a breaking change is needed, the new version (`v2`) is developed as experimental and released alongside the existing version (`v1`). Breaking changes can be scoped to a single endpoint — that endpoint moves to `v2` while the rest of the service continues on `v1`. The previous version remains operational until `v2` reaches feature parity or establishes a fundamentally different direction. Once `v2` is ready, its predecessor is deprecated, starting the two-year end-of-life period.
+When a [breaking change](/docs/api/api-versioning-strategy#breaking-changes) is needed, the new version (`v2`) is developed as experimental and released alongside the existing version (`v1`). Breaking changes can be scoped to a single endpoint, that endpoint moves to `v2` while the rest of the service continues on `v1`. The previous version remains operational until `v2` reaches feature parity or establishes a fundamentally different direction. Once `v2` is ready, its predecessor is deprecated, starting the two-year end-of-life period.
 
 ## Public vs Experimental
 
 ### Public
 
-Public APIs are production-ready and intended for use by customers, partners, and other external users. Public APIs will generally not receive breaking changes, but non-breaking additions may be introduced within an existing version at any time. Examples of non-breaking changes include, but are not limited to:
+Public APIs are production-ready and intended for use by customers, partners, and other external users. Public APIs will generally not receive breaking changes, but non-breaking additions may be introduced within an existing version at any time.
+
+Examples of non-breaking changes include, but are not limited to:
+
+#### Non-Breaking Changes
 
 * Adding a new endpoint.
 
@@ -59,7 +63,11 @@ Public APIs are production-ready and intended for use by customers, partners, an
 
 ### Experimental
 
-Experimental APIs are still under development but are made available for evaluation and feedback before they are released into production. These APIs may introduce breaking changes with little or no notice and are not suitable for production use cases. Examples of breaking changes include, but are not limited to:
+Experimental APIs are still under development but are made available for evaluation and feedback before they are released into production. These APIs may introduce breaking changes with little or no notice and are not suitable for production use cases.
+
+Examples of breaking changes include, but are not limited to:
+
+#### Breaking changes
 
 * Removing an entire endpoint.
 
@@ -135,6 +143,6 @@ SailPoint may approve breaking changes to our API to address performance issues.
 
 SailPoint may make breaking changes to our APIs in order to decrease the time to deliver new features, as long as there is minimal impact to users of the API.
 
-## Legacy V3 and Beta APIs
+## Legacy APIs
 
-The V3 and Beta APIs were part of SailPoint's previous annual release versioning model and will remain operational for as long as they contain non-deprecated endpoints. V3 and Beta will be supported until Q1 of 2027, meaning that users can submit support tickets for these versions. After Q1 of 2027, users may no longer submit support tickets for these versions and will be asked to migrate to a supported version instead.
+Moving forward, Beta, V3 and the yearly versioned APIs (v202X) will be deprecated in favor of the new versioning process. Beta, V3 and the Yearly versions will be supported until Q2 of 2028, meaning that users can submit support tickets for these versions. After Q2 of 2028, users may no longer submit support tickets for these versions and will be asked to migrate to a supported version instead. These legacy endpoints will be end-of-life and no longer function Q1 of 2029.

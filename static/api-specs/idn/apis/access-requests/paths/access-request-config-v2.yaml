@@ -1,8 +1,5 @@
 get:
-  operationId: getAccessRequestConfigV1
-  deprecated: true
-  x-deprecated-description: |
-    This endpoint has been deprecated as of 2026-02-26. Please use the [v2 get-access-request-config](https://developer.sailpoint.com/docs/api/get-access-request-config-v-2) endpoint instead.
+  operationId: getAccessRequestConfigV2
   security:
   - userAuth:
     - idn:access-request-config:read
@@ -21,7 +18,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../schemas/accessrequestconfig.yaml
+            $ref: ../schemas/accessrequestconfigv2.yaml
     '400':
       $ref: ../../shared/responses/400.yaml
     '401':
@@ -33,10 +30,7 @@ get:
     '500':
       $ref: ../../shared/responses/500.yaml
 put:
-  operationId: setAccessRequestConfigV1
-  deprecated: true
-  x-deprecated-description: |
-    This endpoint has been deprecated as of 2026-02-26. Please use the [v2 set-access-request-config](https://developer.sailpoint.com/docs/api/set-access-request-config-v-2) endpoint instead.
+  operationId: setAccessRequestConfigV2
   security:
   - userAuth:
     - idn:access-request-config:manage
@@ -51,14 +45,14 @@ put:
     content:
       application/json:
         schema:
-          $ref: ../schemas/accessrequestconfig.yaml
+          $ref: ../schemas/accessrequestconfigv2.yaml
   responses:
     '200':
       description: Access Request Configuration Details.
       content:
         application/json:
           schema:
-            $ref: ../schemas/accessrequestconfig.yaml
+            $ref: ../schemas/accessrequestconfigv2.yaml
     '400':
       $ref: ../../shared/responses/400.yaml
     '401':

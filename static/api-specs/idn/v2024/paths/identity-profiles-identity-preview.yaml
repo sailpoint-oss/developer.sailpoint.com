@@ -34,5 +34,8 @@ post:
   security:
     - userAuth:
       - idn:identity-profile:manage
+    - applicationAuth:
+      - idn:identity-profile:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - API

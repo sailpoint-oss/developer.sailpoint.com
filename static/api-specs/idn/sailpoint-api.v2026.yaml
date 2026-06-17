@@ -1928,6 +1928,14 @@ paths:
     $ref: ./v2026/paths/provisioning-policy.yaml
   /sources/{sourceId}/provisioning-policies/bulk-update:
     $ref: ./v2026/paths/provisioning-policies-bulk-update.yaml
+  /sources/{sourceId}/datasets:
+    $ref: ./v2026/paths/source-datasets.yaml
+  /sources/{sourceId}/datasets/{datasetId}:
+    $ref: ./v2026/paths/source-dataset.yaml
+  /sources/{sourceId}/resources:
+    $ref: ./v2026/paths/source-resources.yaml
+  /sources/{sourceId}/resources/{resourceId}:
+    $ref: ./v2026/paths/source-resource.yaml
   /sources/{sourceId}/schemas:
     $ref: ./v2026/paths/schemas.yaml
   /sources/{sourceId}/schedules:

@@ -1,0 +1,59 @@
+get:
+  operationId: getSourceResource
+  security:
+    - userAuth:
+        - idn:sources:read
+        - idn:source-schema:read
+        - idn:sources:manage
+        - idn:source-schema:manage
+    - applicationAuth:
+        - idn:sources:read
+        - idn:source-schema:read
+        - idn:sources:manage
+        - idn:source-schema:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  tags:
+    - Sources
+  summary: Get source resource by id
+  description: |
+    Use this API to get a resource by id on the specified source in Identity Security Cloud (ISC).
+    The response includes the full CIS schema for the resource.
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      schema:
+        type: string
+      description: Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: resourceId
+      required: true
+      x-sailpoint-resource-operation-id: getSourceResources
+      schema:
+        type: string
+      description: Resource ID (CIS schema object type for the source).
+      example: account
+  responses:
+    '200':
+      description: The requested source resource was successfully retrieved.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/SourceDatasetResource.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

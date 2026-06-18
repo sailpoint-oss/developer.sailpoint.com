@@ -4,7 +4,6 @@ title: Developer Community Code of Conduct
 description: Standards and expectations for all members of the SailPoint Developer Community.
 slug: /community-code-of-conduct
 displayed_sidebar: communityPoliciesSidebar
-unlisted: true
 custom_edit_url: null
 toc_min_heading_level: 2
 toc_max_heading_level: 2

@@ -1,17 +1,16 @@
 ---
 id: guides
-title: Guides
-pagination_label: Guides
-sidebar_label: Guides
+title: Transform Guides
+pagination_label: Transform Guides
+sidebar_label: Transform Guides
+sidebar_position: 1
 sidebar_key: transform-guides
 sidebar_class_name: transforms
 keywords: ['transforms', 'guides']
-description: Transform Guides
+description: Transform guides.
 slug: /extensibility/transforms/guides
 tags: ['Transforms', 'Guides']
 ---
-
-# Transform guides
 
 Not sure how to use transforms yet? Read these guides to see how you can use transforms and learn how to get started!
 

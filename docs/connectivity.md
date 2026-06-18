@@ -15,6 +15,8 @@ tags: ['connectivity']
 
 Connectivity refers to Identity Security Cloud's (ISC) ability to connect to many different [sources](https://documentation.sailpoint.com/saas/help/sources/index.html) of many different types. Organizations can then manage access to the different sources and ensure that the access is secure.
 
+This section is primarily guide-oriented. Use it when you need to build, configure, or extend source connectivity. For API endpoint syntax, use the [API specifications](/docs/api).
+
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
 import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
@@ -24,6 +26,6 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 ## Discuss
 
-The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions.
+The developer forum is a valuable resource for ISC developers, where users and experts come together to ask questions and provide solutions.
 
-To learn more about ISC connectivity and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/isc/6).
+To learn more about ISC connectivity and discuss it with other SailPoint developers, go to the [SailPoint Developer Forum](https://developer.sailpoint.com/discuss/c/isc/6).

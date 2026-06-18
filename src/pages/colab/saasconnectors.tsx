@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, type FC } from 'react';
 import Layout from '@theme/Layout';
 import styles from './filter.module.css';
 import BlogSidebar from '../../components/blog/BlogSidebar';
@@ -11,7 +11,7 @@ interface FilterState {
   tags: string[];
 }
 
-const SaasConnector: React.FC = () => {
+const SaasConnector: FC = () => {
   const [filteredProduct, setFilteredProduct] = useState<FilterState>({
     category: 'colab-saas-connectors',
     tags: [],
@@ -31,7 +31,7 @@ const SaasConnector: React.FC = () => {
   };
 
   return (
-    <Layout title="SaaS Connectors" description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout title="SaaS connectors" description="Find community-built SaaS connectors in the CoLab marketplace.">
       <main>
         <MarketplaceBanner />
         <div className={styles.container}>

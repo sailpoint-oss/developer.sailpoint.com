@@ -1,7 +1,7 @@
 {
-  "link.title.IdentityNow": {
-    "message": "IdentityNow",
-    "description": "The title of the footer links column with title=IdentityNow in the footer"
+  "link.title.Identity Security Cloud": {
+    "message": "Identity Security Cloud",
+    "description": "The title of the footer links column with title=Identity Security Cloud in the footer"
   },
   "link.title.IdentityIQ": {
     "message": "IdentityIQ",
@@ -11,9 +11,9 @@
     "message": "Community",
     "description": "The title of the footer links column with title=Community in the footer"
   },
-  "link.title.More": {
-    "message": "More",
-    "description": "The title of the footer links column with title=More in the footer"
+  "link.title.Open source": {
+    "message": "Open source",
+    "description": "The title of the footer links column with title=Open source in the footer"
   },
   "link.title.Company": {
     "message": "Company",
@@ -23,65 +23,73 @@
     "message": "Legal",
     "description": "The title of the footer links column with title=Legal in the footer"
   },
-  "link.item.label.Your First API Call": {
-    "message": "Your First API Call",
-    "description": "The label of footer link with label=Your First API Call linking to idn/docs/getting-started"
+  "link.item.label.Your first API call": {
+    "message": "Your first API call",
+    "description": "The label of footer link with label=Your first API call"
   },
-  "link.item.label.Build A Transform": {
-    "message": "Build A Transform",
-    "description": "The label of footer link with label=Build A Transform linking to idn/docs/transforms"
+  "link.item.label.Build a transform": {
+    "message": "Build a transform",
+    "description": "The label of footer link with label=Build a transform"
   },
-  "link.item.label.Build A SaaS Connector": {
-    "message": "Build A SaaS Connector",
-    "description": "The label of footer link with label=Build A SaaS Connector linking to idn/docs/saas-connectors"
+  "link.item.label.Build a SaaS connector": {
+    "message": "Build a SaaS connector",
+    "description": "The label of footer link with label=Build a SaaS connector"
   },
-  "link.item.label.Get Certified": {
-    "message": "Get Certified",
-    "description": "The label of footer link with label=Get Certified linking to https://university.sailpoint.com/page/professional-certifications-and-knowledge-credentials"
+  "link.item.label.SailPoint certifications": {
+    "message": "SailPoint certifications",
+    "description": "The label of footer link with label=SailPoint certifications"
   },
-  "link.item.label.Build A Plugin": {
-    "message": "Build A Plugin",
-    "description": "The label of footer link with label=Build A Plugin linking to https://documentation.sailpoint.com/"
+  "link.item.label.Build an IdentityIQ plugin": {
+    "message": "Build an IdentityIQ plugin",
+    "description": "The label of footer link with label=Build an IdentityIQ plugin"
   },
-  "link.item.label.Discuss": {
-    "message": "Discuss",
-    "description": "The label of footer link with label=Discuss linking to https://developer.sailpoint.com/discuss"
+  "link.item.label.Developer forum": {
+    "message": "Developer forum",
+    "description": "The label of footer link with label=Developer forum"
   },
-  "link.item.label.Submit an Idea": {
-    "message": "Submit an Idea",
-    "description": "The label of footer link with label=Submit an Idea linking to https://ideas.sailpoint.com/"
+  "link.item.label.Videos": {
+    "message": "Videos",
+    "description": "The label of footer link with label=Videos"
   },
-  "link.item.label.Contact Our Team": {
-    "message": "Contact Our Team",
-    "description": "The label of footer link with label=Contact Our Team linking to https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations"
+  "link.item.label.Community policies": {
+    "message": "Community policies",
+    "description": "The label of footer link with label=Community policies"
+  },
+  "link.item.label.Submit an idea": {
+    "message": "Submit an idea",
+    "description": "The label of footer link with label=Submit an idea"
+  },
+  "link.item.label.Meet the Developer Relations team": {
+    "message": "Meet the Developer Relations team",
+    "description": "The label of footer link with label=Meet the Developer Relations team"
+  },
+  "link.item.label.Contact Developer Relations": {
+    "message": "Contact Developer Relations",
+    "description": "The label of footer link with label=Contact Developer Relations"
   },
   "link.item.label.GitHub": {
     "message": "GitHub",
-    "description": "The label of footer link with label=GitHub linking to https://github.com/sailpoint-oss"
+    "description": "The label of footer link with label=GitHub"
   },
-  "link.item.label.Twitter": {
-    "message": "Twitter",
-    "description": "The label of footer link with label=Twitter linking to https://twitter.com/sailpoint"
+  "link.item.label.The SailPoint story": {
+    "message": "The SailPoint story",
+    "description": "The label of footer link with label=The SailPoint story"
   },
-  "link.item.label.The SailPoint Story": {
-    "message": "The SailPoint Story",
-    "description": "The label of footer link with label=The SailPoint Story linking to https://www.sailpoint.com/company/"
+  "link.item.label.The SailPoint way": {
+    "message": "The SailPoint way",
+    "description": "The label of footer link with label=The SailPoint way"
   },
-  "link.item.label.The SailPoint Way": {
-    "message": "The SailPoint Way",
-    "description": "The label of footer link with label=The SailPoint Way linking to https://www.sailpoint.com/company/diversity-inclusion-and-belonging/"
+  "link.item.label.Leadership team": {
+    "message": "Leadership team",
+    "description": "The label of footer link with label=Leadership team"
   },
-  "link.item.label.Leadership Team": {
-    "message": "Leadership Team",
-    "description": "The label of footer link with label=Leadership Team linking to https://www.sailpoint.com/company/#h-our-leadership"
+  "link.item.label.Become a partner": {
+    "message": "Become a partner",
+    "description": "The label of footer link with label=Become a partner"
   },
-  "link.item.label.Become A Partner": {
-    "message": "Become A Partner",
-    "description": "The label of footer link with label=Become A Partner linking to https://www.sailpoint.com/partners/become-partner/"
-  },
-  "link.item.label.Terms & Conditions": {
-    "message": "Terms & Conditions",
-    "description": "The label of footer link with label=Terms & Conditions linking to https://developer.sailpoint.com"
+  "link.item.label.Terms & conditions": {
+    "message": "Terms & conditions",
+    "description": "The label of footer link with label=Terms & conditions"
   },
   "copyright": {
     "message": "Copyright © 2026 SailPoint Technologies, Inc. All Rights Reserved.",

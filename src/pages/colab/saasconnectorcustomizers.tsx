@@ -1,5 +1,5 @@
 import Layout from '@theme/Layout';
-import React, { useState } from 'react';
+import { useState, type FC } from 'react';
 import BlogSidebar from '../../components/blog/BlogSidebar';
 import MarketplaceBanner from '../../components/marketplace/MarketplaceBanner';
 import MarketplaceCards from '../../components/marketplace/MarketplaceCards';
@@ -11,7 +11,7 @@ interface FilterState {
   tags: string[];
 }
 
-const SaasConnectorCustomizers: React.FC = () => {
+const SaasConnectorCustomizers: FC = () => {
   const [filteredProduct, setFilteredProduct] = useState<FilterState>({
     category: 'saas-connector-customizers',
     tags: [],
@@ -31,7 +31,7 @@ const SaasConnectorCustomizers: React.FC = () => {
   };
 
   return (
-    <Layout title="SaaS Connector Customizers" description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout title="SaaS connector customizers" description="Find community-built SaaS connector customizers in the CoLab marketplace.">
       <main>
         <MarketplaceBanner />
         <div className={styles.container}>

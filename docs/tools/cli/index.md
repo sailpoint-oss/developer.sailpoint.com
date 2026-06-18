@@ -195,4 +195,4 @@ Before you contribute, you must sign our [CLA](https://cla-assistant.io/sailpoin
 
 ## Questions
 
-If you have questions about the CLI, don't hesitate to reach out on the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss!
+If you have questions about the CLI, reach out on the SailPoint Developer Forum at https://developer.sailpoint.com/discuss!

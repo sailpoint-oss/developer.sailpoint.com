@@ -115,6 +115,6 @@ Before contributing, you must sign our [CLA](https://cla-assistant.io/sailpoint-
 
 ## Discuss
 
-The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions.
+The developer forum is a valuable resource for ISC developers, where users and experts come together to ask questions and provide solutions.
 
-To learn more about the ISC UI Development Kit and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6).
+To learn more about the ISC UI Development Kit and discuss it with other SailPoint developers, go to the [SailPoint Developer Forum](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6).

@@ -629,4 +629,4 @@ Before you contribute, you must sign our [CLA](https://cla-assistant.io/sailpoin
 
 ## Discuss
 
-Discuss the tool and other rule-specific topics in the [SailPoint Developer Community](https://developer.sailpoint.com/discuss/).
+Discuss the tool and other rule-specific topics in the [SailPoint Developer Forum](https://developer.sailpoint.com/discuss/).

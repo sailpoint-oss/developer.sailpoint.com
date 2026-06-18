@@ -15,6 +15,15 @@ customProps:
 
 In SailPoint's cloud services, transforms allow you to manipulate attribute values while aggregating from or provisioning to a source. This guide provides a reference to help you understand the purpose, configuration, and usage of transforms.
 
+## Start here
+
+Transforms include both tutorials and reference material:
+
+- Start with [Your first transform](/docs/extensibility/transforms/guides/your-first-transform) if you are new to transforms and want a guided implementation.
+- Use [Transform guides](/docs/extensibility/transforms/guides) for task-focused tutorials, including provisioning policy and lifecycle state examples.
+- Use [Transform operations](/docs/extensibility/transforms/operations) when you need reference details for a specific transform type.
+- Use [Out of the box transforms](/docs/extensibility/transforms/ootb) to review preset transform behavior.
+
 ## What are transforms
 
 Transforms are configurable objects that define easy ways to manipulate attribute data without requiring you to write code. Transforms are configurable building blocks with sets of inputs and outputs:
@@ -281,7 +290,7 @@ To test a transform for account data, you must provision a new account on that s
 
 - **JSON Editor** - Because transforms are JSON objects, it is recommended that you use a good JSON editor. Atom, Sublime Text, and Microsoft Code work well because they have JSON formatting and plugins that can do JSON validation, completion, formatting, and folding. This is very useful for large complex JSON objects.
 
-- **Leverage Examples** - Many implementations use similar sets of transforms, and a lot of common solutions can be found in examples. Feel free to share your own transform examples on the [Developer Community forum](https://developer.sailpoint.com/discuss)!
+- **Leverage Examples** - Many implementations use similar sets of transforms, and a lot of common solutions can be found in examples. Feel free to share your own transform examples on the [SailPoint Developer Forum](https://developer.sailpoint.com/discuss)!
 
 - **Same Problem, Multiple Solutions** - There can be multiple ways to solve the same problem, but use the solution that makes the most sense to your implementation and is easiest to administer and understand.
 

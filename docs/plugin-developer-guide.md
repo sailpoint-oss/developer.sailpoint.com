@@ -1,12 +1,12 @@
 ---
 id: plugin-developer-guide
-title: Plugin Developer Guide
-pagination_label: Plugin Developer Guide
-sidebar_label: Plugin Developer Guide
+title: IdentityIQ plugin developer guide
+pagination_label: IdentityIQ plugin developer guide
+sidebar_label: IdentityIQ plugin developer guide
 sidebar_position: 1
 sidebar_class_name: plugin_developer_guide
 keywords: ['plugin']
-description: IdentityIQ Plugin Developer Guide.
+description: IdentityIQ plugin developer guide.
 slug: /iiq/plugin-developer-guide
 tags: ['plugin', 'guide', 'identityiq']
 ---

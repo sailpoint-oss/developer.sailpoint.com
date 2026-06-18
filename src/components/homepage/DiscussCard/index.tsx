@@ -1,4 +1,4 @@
-import React from 'react';
+import type {FC} from 'react';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -16,15 +16,17 @@ interface DiscussCardProps {
   solution?: boolean;
 }
 
-const DiscussCard: React.FC<DiscussCardProps> = ({ link, title, tags, views, liked, solution }) => {
+const DiscussCard: FC<DiscussCardProps> = ({ link, title, tags, views, liked, solution }) => {
   let solved = (
     <img className={styles.cardDiscuss} src={useBaseUrl('/homepage/edit.png')} alt="Discussion" />
   );
   let linkText = <div className={styles.linkText}>Join the Discussion</div>;
+  let statusText = 'Discussion';
 
   if (solution) {
     solved = <FontAwesomeIcon icon={faSquareCheck} className={styles.cardSolved} size="lg" />;
     linkText = <div className={styles.linkSolvedText}>View the Solution</div>;
+    statusText = 'Solved';
   }
 
   return (
@@ -47,6 +49,9 @@ const DiscussCard: React.FC<DiscussCardProps> = ({ link, title, tags, views, lik
         <FontAwesomeIcon icon={faEye} className={styles.cardEye} size="lg" />
         <img className={styles.cardLiked} src={useBaseUrl('/homepage/liked.png')} alt="Liked" />
         {solved}
+        <div className={solution ? styles.statusSolved : styles.statusDiscussion}>
+          {statusText}
+        </div>
         <div className={styles.cardText}>{title}</div>
         <div className={styles.cardViews}>{views}</div>
         <div className={styles.cardLikes}>{liked}</div>

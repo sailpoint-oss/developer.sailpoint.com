@@ -1,8 +1,9 @@
 ---
 id: operations
-title: Operations
-pagination_label: Operations
-sidebar_label: Operations
+title: Transform Operations
+pagination_label: Transform Operations
+sidebar_label: Transform Operations
+sidebar_position: 2
 sidebar_class_name: operations
 keywords: ['transforms', 'operations']
 description: A list of transform operations.

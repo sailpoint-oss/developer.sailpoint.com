@@ -93,7 +93,7 @@
 .cardSolved {
   position: absolute;
   margin: 0px;
-  right: 132px;
+  right: 142px;
   top: 18px;
   width: 20px;
   color: var(--ifm-color-primary);
@@ -147,4 +147,25 @@
 
 .iiq {
   color: #60b359;
+}
+
+.statusDiscussion,
+.statusSolved {
+  position: absolute;
+  top: 17px;
+  left: 55px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.statusDiscussion {
+  color: var(--dev-secondary-text);
+  border: 1px solid var(--dev-card-border);
+}
+
+.statusSolved {
+  color: var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-primary);
 }

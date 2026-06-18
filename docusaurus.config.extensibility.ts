@@ -9,8 +9,8 @@
 //   - All docusaurus-plugin-openapi-docs plugins filtered out (no API doc generation)
 //   - Navbar omits the API specifications dropdown
 
-import { ThemeConfig } from '@docusaurus/preset-classic';
-import { Config } from '@docusaurus/types';
+import type { ThemeConfig } from '@docusaurus/preset-classic';
+import type { Config } from '@docusaurus/types';
 import 'dotenv/config';
 import { themes } from 'prism-react-renderer';
 import allPlugins from './plugins';
@@ -44,9 +44,9 @@ const config: Config = {
     v4: true,
     experimental_faster: true,
   },
-  title: 'SailPoint Developer Community',
+  title: 'SailPoint Developers',
   tagline:
-    'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.',
+    'SailPoint Developers gives you everything you need to build, extend, and automate scalable identity solutions.',
   url: 'https://developer.sailpoint.com',
   baseUrl,
   favicon: 'img/SailPoint-Logo-Icon.ico',
@@ -100,17 +100,17 @@ const config: Config = {
   themeConfig: {
     image: 'img/SailPoint-Developer-Community-Lockup.png',
     metadata: [
-      { name: 'description', content: 'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.' },
+      { name: 'description', content: 'SailPoint Developers gives you everything you need to build, extend, and automate scalable identity solutions.' },
       { property: 'og:url', content: 'https://developer.sailpoint.com' },
       { property: 'og:type', content: 'website' },
-      { property: 'og:title', content: 'SailPoint Developer Community' },
-      { property: 'og:description', content: 'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.' },
+      { property: 'og:title', content: 'SailPoint Developers' },
+      { property: 'og:description', content: 'SailPoint Developers gives you everything you need to build, extend, and automate scalable identity solutions.' },
       { property: 'og:image', content: 'https://developer.sailpoint.com/img/SailPoint-Logo-OG.png' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:domain', content: 'developer.sailpoint.com' },
       { name: 'twitter:url', content: 'https://developer.sailpoint.com' },
-      { name: 'twitter:title', content: 'SailPoint Developer Community' },
-      { name: 'twitter:description', content: 'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.' },
+      { name: 'twitter:title', content: 'SailPoint Developers' },
+      { name: 'twitter:description', content: 'SailPoint Developers gives you everything you need to build, extend, and automate scalable identity solutions.' },
       { name: 'twitter:image', content: 'https://developer.sailpoint.com/img/SailPoint-Logo-OG.png' },
     ],
     algolia: {
@@ -118,7 +118,7 @@ const config: Config = {
       apiKey: process.env.ALGOLIA_SEARCH_KEY || 'dummy-key',
       indexName: 'crawler_Developer_Documentation',
       searchPagePath: false,
-      placeholder: 'Search the Developer Community',
+      placeholder: 'Search SailPoint Developers',
       contextualSearch: false,
     },
     docs: {
@@ -135,7 +135,7 @@ const config: Config = {
       id: 'newAnnouncement3',
       isCloseable: true,
       content:
-        'our latest announcement in the SailPoint Developer Community Forum: <a target="_blank" rel="noopener noreferrer" href="https://developer.sailpoint.com/discuss/t/the-developer-community-colab-a-new-way-to-find-build-and-collaborate-on-extensibility-solutions/18847">Announcing the Developer Community CoLab!</a> 🎉',
+        'See our latest announcement in the SailPoint Developer Forum: <a target="_blank" rel="noopener noreferrer" href="https://developer.sailpoint.com/discuss/t/the-developer-community-colab-a-new-way-to-find-build-and-collaborate-on-extensibility-solutions/18847">Announcing the Developer Community CoLab!</a> 🎉',
     },
     navbar: extensibilityNavbar,
     footer: footer,

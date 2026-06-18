@@ -1,65 +1,82 @@
-import React, { useState, useEffect } from 'react';
+import {useCallback, useEffect, useState} from 'react';
+import type {ChangeEvent, FC} from 'react';
 import styles from './styles.module.css';
 import { getTags } from '../../../services/DiscourseService';
-import { forEach } from 'lodash';
 
 // Define the props interface
 interface MarketplaceSidebarProps {
+  selectedCategory?: { tags: string[] };
   filterCallback: (filters: { tag: string[] | string | null }) => void;
 }
 
-const VideoSidebar: React.FC<MarketplaceSidebarProps> = ({ filterCallback }) => {
+const displayText = (text: string): string => {
+  const textMap: Record<string, string> = {
+    'identity-security-cloud': 'Identity Security Cloud',
+    'access-intelligence-center': 'Access Intelligence Center',
+    'identityiq': 'IdentityIQ',
+    'identity-iq': 'IdentityIQ',
+    'iiq': 'IIQ',
+    'live-stream': 'Live stream',
+    'community-live-stream': 'Live stream',
+    'developer-days-2023': 'Developer Days 2023',
+    'developer-days-2023-iiq': 'Developer Days 2023',
+    'developer-days-2024': 'Developer Days 2024',
+  };
+
+  return textMap[text] || text.replace(/-/g, ' ');
+};
+
+const VideoSidebar: FC<MarketplaceSidebarProps> = ({ filterCallback }) => {
   const [tagProductData, setTagProductData] = useState<string[] | null>(null);
   const [videoTag, setVideoTag] = useState<string[] | null>(null);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isProductOpen, setIsProductOpen] = useState<boolean>(false);
+  const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
   const [productTags, setProductTags] = useState<string>('Filter by Product');
   const [videoTags, setVideoTags] = useState<string>('Filter by Video Type');
   const [checkedItemsProduct, setCheckedItemsProduct] = useState<Record<string, boolean>>({});
   const [checkedItemsVideo, setCheckedItemsVideo] = useState<string | null>(null);
 
-  const toggleDropdown = () => setIsOpen(!isOpen);
-
-  const handleCheckboxChangeProduct = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCheckboxChangeProduct = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = event.target;
-    setCheckedItemsProduct((prevState) => ({
-      ...prevState,
+    const nextCheckedItems = {
+      ...checkedItemsProduct,
       [name]: checked,
-    }));
+    };
 
-    let product = checked ? name : productTags.replace(name, '').trim();
-    let filters: string[] = checked ? [name] : [];
+    const selectedProductTags = Object.keys(nextCheckedItems).filter(
+      (key) => nextCheckedItems[key],
+    );
+    const filters = checkedItemsVideo
+      ? [...selectedProductTags, checkedItemsVideo]
+      : selectedProductTags;
 
-    forEach(checkedItemsProduct, (value, key) => {
-      if (key !== name && value) {
-        filters.push(key);
-        if (!product.includes(key)) product += ` ${key}`;
-      }
-    });
+    setCheckedItemsProduct(nextCheckedItems);
+    setProductTags(
+      selectedProductTags.length > 0
+        ? selectedProductTags.map(displayText).join(', ')
+        : 'Filter by Product',
+    );
 
-    if (checkedItemsVideo) {
-      filters.push(checkedItemsVideo);
-    }
-
-    setProductTags(product || 'Filter by Product');
     filterCallback({ tag: filters.length > 0 ? filters : null });
   };
 
-  const handleCheckboxChangeVideo = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCheckboxChangeVideo = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = event.target;
     const newCheckedItem = checked ? name : null;
+    const selectedProductTags = Object.keys(checkedItemsProduct).filter(
+      (key) => checkedItemsProduct[key],
+    );
+    const filters = newCheckedItem
+      ? [...selectedProductTags, newCheckedItem]
+      : selectedProductTags;
+
     setCheckedItemsVideo(newCheckedItem);
-    setVideoTags(newCheckedItem || 'Filter by Video Type');
-
-    let filters: string[] = newCheckedItem ? [newCheckedItem] : [];
-
-    forEach(checkedItemsProduct, (value, key) => {
-      if (value) filters.push(key);
-    });
+    setVideoTags(newCheckedItem ? displayText(newCheckedItem) : 'Filter by Video Type');
 
     filterCallback({ tag: filters.length > 0 ? filters : null });
   };
 
-  const getTagData = async () => {
+  const getTagData = useCallback(async () => {
     const uniqueProductTags = new Set<string>();
     const uniqueTags = new Set<string>();
     const data = await getTags();
@@ -67,10 +84,14 @@ const VideoSidebar: React.FC<MarketplaceSidebarProps> = ({ filterCallback }) => 
     if (data.extras?.tag_groups) {
       for (const tagGroup of data.extras.tag_groups) {
         if (tagGroup.name === 'Products') {
-          tagGroup.tags.forEach((tag: { name: string }) => uniqueProductTags.add(tag.name));
+          tagGroup.tags.forEach((tag: { name: string }) => {
+            uniqueProductTags.add(tag.name);
+          });
         }
         if (tagGroup.name === 'Video Library') {
-          tagGroup.tags.forEach((tag: { name: string }) => uniqueTags.add(tag.name));
+          tagGroup.tags.forEach((tag: { name: string }) => {
+            uniqueTags.add(tag.name);
+          });
         }
       }
     }
@@ -84,39 +105,42 @@ const VideoSidebar: React.FC<MarketplaceSidebarProps> = ({ filterCallback }) => 
 
       if (yearTags.length > 0) {
         uniqueTags.delete('developer-days');
-        yearTags.forEach((tag: string) => uniqueTags.add(tag));
+        yearTags.forEach((tag: string) => {
+          uniqueTags.add(tag);
+        });
       }
     }
 
-    setTagProductData(Array.from(uniqueProductTags));
-    setVideoTag(Array.from(uniqueTags));
-  };
-
-  const displayText = (text: string): string => {
-    const textMap: Record<string, string> = {
-      'identity-security-cloud': 'Identity Security Cloud',
-      'access-intelligence-center': 'Access Intelligence Center',
-      'developer-days-2023-iiq': 'Developer Days 2023 IIQ',
-    };
-
-    return textMap[text] || text;
-  };
+    setTagProductData(
+      Array.from(uniqueProductTags).sort((a, b) =>
+        displayText(a).localeCompare(displayText(b)),
+      ),
+    );
+    setVideoTag(
+      Array.from(uniqueTags).sort((a, b) =>
+        displayText(a).localeCompare(displayText(b)),
+      ),
+    );
+  }, []);
 
   useEffect(() => {
     getTagData();
-  }, []);
+  }, [getTagData]);
 
   return tagProductData ? (
     <div className={styles.tagContainer}>
       <div>
         <div className={styles.dropdownContainer}>
-          <button onClick={toggleDropdown} className={styles.dropdownButton}>
+          <button
+            type="button"
+            onClick={() => setIsProductOpen(!isProductOpen)}
+            className={styles.dropdownButton}>
             {productTags}
           </button>
-          {isOpen && (
+          {isProductOpen && (
             <div className={styles.dropdownContent}>
-              {tagProductData.map((a, index) => (
-                <div className={styles.dropdownItem} key={index}>
+              {tagProductData.map((a) => (
+                <div className={styles.dropdownItem} key={a}>
                   <input
                     type="checkbox"
                     id={a}
@@ -133,13 +157,16 @@ const VideoSidebar: React.FC<MarketplaceSidebarProps> = ({ filterCallback }) => 
       </div>
       <div className={styles.videoTypeFilter}>
         <div className={styles.dropdownContainer}>
-          <button onClick={toggleDropdown} className={styles.dropdownButton}>
+          <button
+            type="button"
+            onClick={() => setIsVideoOpen(!isVideoOpen)}
+            className={styles.dropdownButton}>
             {videoTags}
           </button>
-          {isOpen && (
+          {isVideoOpen && (
             <div className={styles.dropdownContent}>
-              {videoTag?.map((a, index) => (
-                <div className={styles.dropdownItem} key={index}>
+              {videoTag?.map((a) => (
+                <div className={styles.dropdownItem} key={a}>
                   <input
                     type="checkbox"
                     id={a}

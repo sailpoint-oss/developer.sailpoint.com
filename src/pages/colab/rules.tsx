@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, type FC } from 'react';
 import Layout from '@theme/Layout';
 import styles from './filter.module.css';
 import BlogSidebar from '../../components/blog/BlogSidebar';
@@ -11,7 +11,7 @@ interface FilterState {
   tags: string[];
 }
 
-const Rules: React.FC = () => {
+const Rules: FC = () => {
   const [filteredProduct, setFilteredProduct] = useState<FilterState>({
     category: 'colab-rules',
     tags: ['identity-security-cloud'],
@@ -31,7 +31,7 @@ const Rules: React.FC = () => {
   };
 
   return (
-    <Layout title="Rules" description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout title="Rules" description="Find community-built rules in the CoLab marketplace.">
       <main>
         <MarketplaceBanner />
         <div className={styles.container}>

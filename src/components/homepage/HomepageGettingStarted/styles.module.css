@@ -1,8 +1,6 @@
 .mainCard {
-  display: grid;
-  grid-gap: 20px;
+  display: block;
   max-width: 1180px;
-  justify-content: center;
 }
 
 .gettingStartedText {
@@ -34,25 +32,54 @@
   font-weight: bold;
 }
 
-/* Getting Started Card container */
-.gridContainer {
+.resourceGrid {
   display: grid;
   margin-left: 50px;
   margin-bottom: 50px;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  place-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   margin-right: 40px;
 }
 
-.video {
-  width: 100%;
-  height: 300px;
-  max-width: 520px;
+.resourceCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 170px;
+  padding: 20px;
+  background: var(--dev-new-car-background);
+  border: 1px solid var(--dev-card-border);
+  border-radius: 0.5rem;
+  color: var(--ifm-primary-text-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
 }
 
-.carousel {
-  margin-right: 50px;
+.resourceCard:hover {
+  color: var(--ifm-primary-text-color);
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: var(--dev-card-selected);
+}
+
+.resourceLabel {
+  color: var(--ifm-color-primary);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.resourceTitle {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.resourceDescription {
+  color: var(--dev-secondary-text);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .contentContainer {
@@ -60,21 +87,12 @@
 }
 
 @media only screen and (max-width: 1178px) {
-  .carousel {
-    margin-top: 0px;
-    margin-left: 50px;
-    margin-bottom: 50px;
-  }
   .contentContainer {
-    width: 600px;
+    width: auto;
   }
 }
 @media only screen and (min-width: 1179px) {
-  .carousel {
-    margin-top: 100px;
-  }
   .mainCard {
-    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
     /* UI Properties */
     background: var(--main-hero-card-background);
     box-shadow: var(--dev-main-card-shadow);
@@ -86,13 +104,12 @@
   }
 }
 @media only screen and (max-width: 570px) {
-  .video {
-    display: none;
-  }
   .contentContainer {
     width: auto;
   }
-  .carousel {
-    margin-bottom: 0px;
+  .gettingStartedText,
+  .resourceGrid {
+    margin-left: 25px;
+    margin-right: 25px;
   }
 }

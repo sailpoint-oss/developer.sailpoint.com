@@ -1,6 +1,6 @@
 import { useColorMode } from '@docusaurus/theme-common';
 import Layout from '@theme/Layout';
-import React, { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import AceEditor from 'react-ace';
 
 import 'ace-builds/src-noconflict/ext-language_tools';
@@ -267,18 +267,21 @@ function VelocityEditor({
         <div className={styles.title}>Velocity Playground</div>
         <div className={styles.actions}>
           <button
+            type="button"
             className={styles.runButton}
             onClick={formatJson} 
             title="Prettify JSON (Ctrl/Cmd+Enter to render)">
             Format JSON
           </button>
-          <button 
+          <button
+            type="button"
             className={styles.runButton}
             onClick={copyOutput} 
             disabled={!state.output}>
             Copy Output
           </button>
-          <button 
+          <button
+            type="button"
             className={styles.runButton}
             onClick={resetSample}>
             Reset Sample
@@ -501,8 +504,8 @@ export default function VelocityPlayground(): ReactNode {
     <>
       {/* @ts-expect-error Docusaurus Layout type issue */}
       <Layout 
-        title="Velocity PlayGround" 
-        description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions."
+        title="Velocity playground"
+        description="Experiment with Velocity templates for SailPoint developer workflows."
       >
         <main>
           <VelocityEditor

@@ -1,70 +1,130 @@
 {
-  "item.label.IdentityNow": {
-    "message": "IdentityNow",
-    "description": "Navbar item with label IdentityNow"
+  "item.label.Documentation": {
+    "message": "Documentation",
+    "description": "Navbar item with label Documentation"
+  },
+  "item.label.Identity Security Cloud developer docs": {
+    "message": "Identity Security Cloud developer docs",
+    "description": "Navbar item with label Identity Security Cloud developer docs"
+  },
+  "item.label.IdentityIQ plugin developer guide": {
+    "message": "IdentityIQ plugin developer guide",
+    "description": "Navbar item with label IdentityIQ plugin developer guide"
+  },
+  "item.label.IdentityIQ product documentation": {
+    "message": "IdentityIQ product documentation",
+    "description": "Navbar item with label IdentityIQ product documentation"
+  },
+  "item.label.SailPoint product documentation": {
+    "message": "SailPoint product documentation",
+    "description": "Navbar item with label SailPoint product documentation"
+  },
+  "item.label.API specifications": {
+    "message": "API specifications",
+    "description": "Navbar item with label API specifications"
+  },
+  "item.label.Identity Security Cloud": {
+    "message": "Identity Security Cloud",
+    "description": "Navbar item with label Identity Security Cloud"
   },
   "item.label.IdentityIQ": {
     "message": "IdentityIQ",
     "description": "Navbar item with label IdentityIQ"
   },
-  "item.label.Ideas": {
-    "message": "Ideas",
-    "description": "Navbar item with label Ideas"
+  "item.label.NERM APIs": {
+    "message": "NERM APIs",
+    "description": "Navbar item with label NERM APIs"
   },
-  "item.label.Discuss": {
-    "message": "Discuss",
-    "description": "Navbar item with label Discuss"
+  "item.label.Getting started": {
+    "message": "Getting started",
+    "description": "Navbar item with label Getting started"
+  },
+  "item.label.Developer tools overview": {
+    "message": "Developer tools overview",
+    "description": "Navbar item with label Developer tools overview"
+  },
+  "item.label.SDKs": {
+    "message": "SDKs",
+    "description": "Navbar item with label SDKs"
+  },
+  "item.label.CLI": {
+    "message": "CLI",
+    "description": "Navbar item with label CLI"
+  },
+  "item.label.Build a transform": {
+    "message": "Build a transform",
+    "description": "Navbar item with label Build a transform"
+  },
+  "item.label.Build a rule": {
+    "message": "Build a rule",
+    "description": "Navbar item with label Build a rule"
+  },
+  "item.label.Rule Development Kit": {
+    "message": "Rule Development Kit",
+    "description": "Navbar item with label Rule Development Kit"
+  },
+  "item.label.UI Development Kit": {
+    "message": "UI Development Kit",
+    "description": "Navbar item with label UI Development Kit"
+  },
+  "item.label.Java/.NET string escaper": {
+    "message": "Java/.NET string escaper",
+    "description": "Navbar item with label Java/.NET string escaper"
+  },
+  "item.label.JSON path evaluator": {
+    "message": "JSON path evaluator",
+    "description": "Navbar item with label JSON path evaluator"
+  },
+  "item.label.Velocity playground": {
+    "message": "Velocity playground",
+    "description": "Navbar item with label Velocity playground"
+  },
+  "item.label.Community": {
+    "message": "Community",
+    "description": "Navbar item with label Community"
+  },
+  "item.label.Developer forum": {
+    "message": "Developer forum",
+    "description": "Navbar item with label Developer forum"
+  },
+  "item.label.CoLab marketplace": {
+    "message": "CoLab marketplace",
+    "description": "Navbar item with label CoLab marketplace"
+  },
+  "item.label.Developer blog": {
+    "message": "Developer blog",
+    "description": "Navbar item with label Developer blog"
+  },
+  "item.label.Videos": {
+    "message": "Videos",
+    "description": "Navbar item with label Videos"
+  },
+  "item.label.Ambassador program": {
+    "message": "Ambassador program",
+    "description": "Navbar item with label Ambassador program"
+  },
+  "item.label.Community policies": {
+    "message": "Community policies",
+    "description": "Navbar item with label Community policies"
   },
   "item.label.Support": {
     "message": "Support",
     "description": "Navbar item with label Support"
   },
-  "item.label.Status": {
-    "message": "Status",
-    "description": "Navbar item with label Status"
+  "item.label.Submit a support ticket": {
+    "message": "Submit a support ticket",
+    "description": "Navbar item with label Submit a support ticket"
   },
-  "item.label.API Specifications": {
-    "message": "API Specifications",
-    "description": "Navbar item with label API Specifications"
+  "item.label.Developer Relations team": {
+    "message": "Developer Relations team",
+    "description": "Navbar item with label Developer Relations team"
   },
-  "item.label.V3 APIs": {
-    "message": "V3 APIs",
-    "description": "Navbar item with label V3 APIs"
+  "item.label.SailPoint Compass": {
+    "message": "SailPoint Compass",
+    "description": "Navbar item with label SailPoint Compass"
   },
-  "item.label.Beta APIs": {
-    "message": "Beta APIs",
-    "description": "Navbar item with label Beta APIs"
-  },
-  "item.label.Documentation": {
-    "message": "Documentation",
-    "description": "Navbar item with label Documentation"
-  },
-  "item.label.IDN Documentation": {
-    "message": "IDN Documentation",
-    "description": "Navbar item with label IDN Documentation"
-  },
-  "item.label.Training": {
-    "message": "Training",
-    "description": "Navbar item with label Training"
-  },
-  "item.label.IdentityNow Certifications": {
-    "message": "IdentityNow Certifications",
-    "description": "Navbar item with label IdentityNow Certifications"
-  },
-  "item.label.IIQ APIs": {
-    "message": "IIQ APIs",
-    "description": "Navbar item with label IIQ APIs"
-  },
-  "item.label.IdentityIQ Certifications": {
-    "message": "IdentityIQ Certifications",
-    "description": "Navbar item with label IdentityIQ Certifications"
-  },
-  "item.label.Compass": {
-    "message": "Compass",
-    "description": "Navbar item with label Compass"
-  },
-  "item.label.Submit Support Ticket": {
-    "message": "Submit Support Ticket",
-    "description": "Navbar item with label Submit Support Ticket"
+  "item.label.Platform status": {
+    "message": "Platform status",
+    "description": "Navbar item with label Platform status"
   }
 }

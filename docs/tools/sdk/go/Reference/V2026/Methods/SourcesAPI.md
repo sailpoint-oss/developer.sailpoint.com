@@ -93,8 +93,12 @@ Method | HTTP request | Description
 [**get-source-attr-sync-config**](#get-source-attr-sync-config) | **Get** `/sources/{id}/attribute-sync-config` | Attribute sync config
 [**get-source-config**](#get-source-config) | **Get** `/sources/{id}/connectors/source-config` | Gets source config with language-translations
 [**get-source-connections**](#get-source-connections) | **Get** `/sources/{sourceId}/connections` | Get source connections by id
+[**get-source-dataset**](#get-source-dataset) | **Get** `/sources/{sourceId}/datasets/{datasetId}` | Get source dataset by id
+[**get-source-datasets**](#get-source-datasets) | **Get** `/sources/{sourceId}/datasets` | List datasets on source
 [**get-source-entitlement-request-config**](#get-source-entitlement-request-config) | **Get** `/sources/{id}/entitlement-request-config` | Get source entitlement request configuration
 [**get-source-health**](#get-source-health) | **Get** `/sources/{sourceId}/source-health` | Fetches source health by id
+[**get-source-resource**](#get-source-resource) | **Get** `/sources/{sourceId}/resources/{resourceId}` | Get source resource by id
+[**get-source-resources**](#get-source-resources) | **Get** `/sources/{sourceId}/resources` | List resources for a source
 [**get-source-schedule**](#get-source-schedule) | **Get** `/sources/{sourceId}/schedules/{scheduleType}` | Get source schedule by type
 [**get-source-schedules**](#get-source-schedules) | **Get** `/sources/{sourceId}/schedules` | List schedules on source
 [**get-source-schema**](#get-source-schema) | **Get** `/sources/{sourceId}/schemas/{schemaId}` | Get source schema by id
@@ -1732,6 +1736,143 @@ func main() {
 
 [[Back to top]](#)
 
+## get-source-dataset
+Get source dataset by id
+Use this API to get a dataset by id for the specified source in Identity Security Cloud (ISC).
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-source-dataset)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**sourceId** | **string** | Source ID. | 
+**datasetId** | **string** | Dataset ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSourceDatasetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**SourceDataset**](../models/source-dataset)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    sourceId := `2c9180835d191a86015d28455b4a2329` // string | Source ID. # string | Source ID.
+    datasetId := `cmdb-servicenow:applications` // string | Dataset ID. # string | Dataset ID.
+
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2026.SourcesAPI.GetSourceDataset(context.Background(), sourceId, datasetId).Execute()
+	  //resp, r, err := apiClient.V2026.SourcesAPI.GetSourceDataset(context.Background(), sourceId, datasetId).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSourceDataset``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSourceDataset`: SourceDataset
+    fmt.Fprintf(os.Stdout, "Response from `SourcesAPI.GetSourceDataset`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## get-source-datasets
+List datasets on source
+Use this API to list datasets for the specified source in Identity Security Cloud (ISC).
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-source-datasets)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**sourceId** | **string** | Source ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSourceDatasetsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**[]SourceDataset**](../models/source-dataset)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    sourceId := `2c9180835d191a86015d28455b4a2329` // string | Source ID. # string | Source ID.
+
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2026.SourcesAPI.GetSourceDatasets(context.Background(), sourceId).Execute()
+	  //resp, r, err := apiClient.V2026.SourcesAPI.GetSourceDatasets(context.Background(), sourceId).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSourceDatasets``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSourceDatasets`: []SourceDataset
+    fmt.Fprintf(os.Stdout, "Response from `SourcesAPI.GetSourceDatasets`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
 ## get-source-entitlement-request-config
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
@@ -1876,6 +2017,144 @@ func main() {
     }
     // response from `GetSourceHealth`: SourceHealthDto
     fmt.Fprintf(os.Stdout, "Response from `SourcesAPI.GetSourceHealth`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## get-source-resource
+Get source resource by id
+Use this API to get a resource by id on the specified source in Identity Security Cloud (ISC).
+The response includes the full CIS schema for the resource.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-source-resource)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**sourceId** | **string** | Source ID. | 
+**resourceId** | **string** | Resource ID (CIS schema object type for the source). | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSourceResourceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**SourceDatasetResource**](../models/source-dataset-resource)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    sourceId := `2c9180835d191a86015d28455b4a2329` // string | Source ID. # string | Source ID.
+    resourceId := `account` // string | Resource ID (CIS schema object type for the source). # string | Resource ID (CIS schema object type for the source).
+
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2026.SourcesAPI.GetSourceResource(context.Background(), sourceId, resourceId).Execute()
+	  //resp, r, err := apiClient.V2026.SourcesAPI.GetSourceResource(context.Background(), sourceId, resourceId).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSourceResource``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSourceResource`: SourceDatasetResource
+    fmt.Fprintf(os.Stdout, "Response from `SourcesAPI.GetSourceResource`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## get-source-resources
+List resources for a source
+Use this API to list resources defined on the specified source in Identity Security Cloud (ISC).
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-source-resources)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**sourceId** | **string** | Source ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSourceResourcesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**[]SourceDatasetResource**](../models/source-dataset-resource)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    sourceId := `2c9180835d191a86015d28455b4a2329` // string | Source ID. # string | Source ID.
+
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2026.SourcesAPI.GetSourceResources(context.Background(), sourceId).Execute()
+	  //resp, r, err := apiClient.V2026.SourcesAPI.GetSourceResources(context.Background(), sourceId).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSourceResources``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSourceResources`: []SourceDatasetResource
+    fmt.Fprintf(os.Stdout, "Response from `SourcesAPI.GetSourceResources`: %v\n", resp)
 }
 ```
 

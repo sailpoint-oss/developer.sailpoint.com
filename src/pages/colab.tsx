@@ -41,37 +41,37 @@ const Marketplace: React.FC = () => {
         <section className={styles.categoriesSection}>
           <h2 className={styles.categoriesHeader}>What can you find in CoLab?</h2>
           <div className={styles.categoriesGrid}>
-            <Link to="/colab/colabitems?category=saas-connectors" className={styles.categoryLink}>
+            <Link to="/colab/colabsolutions?category=saas-connectors" className={styles.categoryLink}>
               <article className={styles.categoryCard}>
                 <h3 className={styles.categoryTitle}>SaaS Connectors</h3>
                 <p className={styles.categoryDescription}>Pre-built connectors for SaaS platforms</p>
               </article>
             </Link>
-            <Link to="/colab/colabitems?category=workflows" className={styles.categoryLink}>
+            <Link to="/colab/colabsolutions?category=workflows" className={styles.categoryLink}>
               <article className={styles.categoryCard}>
                 <h3 className={styles.categoryTitle}>Workflows</h3>
                 <p className={styles.categoryDescription}>Automated identity lifecycle workflows</p>
               </article>
             </Link>
-            <Link to="/colab/colabitems?category=rules" className={styles.categoryLink}>
+            <Link to="/colab/colabsolutions?category=rules" className={styles.categoryLink}>
               <article className={styles.categoryCard}>
                 <h3 className={styles.categoryTitle}>Rules</h3>
                 <p className={styles.categoryDescription}>Custom logic and business rules</p>
               </article>
             </Link>
-            <Link to="/colab/colabitems?category=transforms" className={styles.categoryLink}>
+            <Link to="/colab/colabsolutions?category=transforms" className={styles.categoryLink}>
               <article className={styles.categoryCard}>
                 <h3 className={styles.categoryTitle}>Transforms</h3>
                 <p className={styles.categoryDescription}>Data transformation utilities</p>
               </article>
             </Link>
-            <Link to="/colab/colabitems?category=iiq-plugins" className={styles.categoryLink}>
+            <Link to="/colab/colabsolutions?category=iiq-plugins" className={styles.categoryLink}>
               <article className={styles.categoryCard}>
                 <h3 className={styles.categoryTitle}>IIQ Plugins</h3>
                 <p className={styles.categoryDescription}>IdentityIQ platform extensions</p>
               </article>
             </Link>
-            <Link to="/colab/colabitems?category=community-tools" className={styles.categoryLink}>
+            <Link to="/colab/colabsolutions?category=community-tools" className={styles.categoryLink}>
               <article className={styles.categoryCard}>
                 <h3 className={styles.categoryTitle}>Community Tools</h3>
                 <p className={styles.categoryDescription}>
@@ -117,7 +117,7 @@ const Marketplace: React.FC = () => {
               <div className={styles.answerContent}>
                 <p className={styles.answerText}>
                   You can find Workflows, SaaS Connectors, Rules, Transforms, IIQ Plugins, 
-                  and Tools. <Link to={'/colab/colabitems'} className={styles.link}>Explore</Link> 
+                  and Tools. <Link to={'/colab/colabsolutions'} className={styles.link}> Explore </Link> 
                   the different categories to find the solution that best fits your needs.
                 </p>
               </div>
@@ -129,7 +129,7 @@ const Marketplace: React.FC = () => {
               </summary>
               <div className={styles.answerContent}>
                 <p className={styles.answerText}>
-                  All items in CoLab are community-developed and community-driven. We have two
+                  All items in CoLab are community-developed and community-driven. These are not supported by SailPoint support plans or SLAs. We have two
                   support models:
                 </p>
                 <table className={styles.supportTable}>
@@ -170,11 +170,12 @@ const Marketplace: React.FC = () => {
                     All CoLab items are required to be open-source and MIT licensed.
                   </li>
                   <li>
-                    All code will be stored in the sailpoint-oss GitHub workspace. You will be
+                    All code will be stored in the 
+                    <a href="https://github.com/sailpoint-oss" target="_blank" rel="noopener noreferrer"> sailpoint-oss GitHub workspace </a>. You will be
                     made a GitHub Codeowner of your item.
                   </li>
                   <li>
-                    All submitters must agree to SailPoint&apos;s Contributor License Agreement -
+                    All submitters must agree to the <a href="https://cla-assistant.io/sailpoint-oss/" target="_blank" rel="noopener noreferrer"> SailPoint&apos;s Contributor License Agreement</a> -
                     this happens automatically during submission.
                   </li>
                   <li>
@@ -189,7 +190,8 @@ const Marketplace: React.FC = () => {
               <summary className={styles.questionTitle}>How do I become a publisher on CoLab?</summary>
               <div className={styles.answerContent}>
                 <p className={styles.answerText}>
-                  Use the +Request button on the CoLab Publishers group page with a link to the items you'd like to publish.
+                  Use the +Request button on the CoLab Publishers group page with a link to the items you'd like to publish. 
+                  <br />
                   <a
                 className={styles.publisherLink}
                 href="https://developer.sailpoint.com/discuss/g/colab_authors"
@@ -207,6 +209,7 @@ const Marketplace: React.FC = () => {
               <div className={styles.answerContent}>
                 <p className={styles.answerText}>
                 All CoLab items are open-source on GitHub. Fork the repository, open issues, or submit pull requests on the sailpoint-oss GitHub workspace.
+                <br />
                 <a
                 className={styles.publisherLink}
                 href="https://github.com/sailpoint-oss"
@@ -239,9 +242,6 @@ const Marketplace: React.FC = () => {
             </div>
             <div className={styles.publisherFrame}>
               <h3 className={styles.publisherHeader}>Getting Started Guides</h3>
-              <p className={styles.publisherText}>
-                Step-by-step guides for each CoLab category.
-              </p>
               <div className={styles.guidesList}>
                 <Link to="/docs/tools/colab/getting-started-with-saas-connectors" className={styles.publisherGuideLink}>
                   Getting started with SaaS Connectors

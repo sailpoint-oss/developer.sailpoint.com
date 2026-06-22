@@ -449,6 +449,10 @@ tags:
     description: |-
       Use this API to implement and customize dynamic role functionality. With this functionality in place, administrators can create dimensions and configure them for use throughout Identity Security Cloud. Identity Security Cloud can use established criteria to automatically assign the dimensions to qualified users. This enables users to get all the access they need quickly and securely and administrators to spend their time on other tasks. Entitlements represent the most granular level of access in Identity Security Cloud.
       Access profiles represent the next level and often group entitlements. Dimension represent access selectively based on the evaluation of contextual information that is available or provided. Each Dimension include context attributes and access selection expressions which map criteria to access right assignments. Each dimension can contain up to 5 context attributes. Dynamic Access Roles represent the broadest level of access and often group access profiles ,entitlements and dimensions.Each Dynamic Access Role may contain one or more Dimensions.
+  - name: Entitlement Connections
+    description: |
+      Use this API to search and manage entitlement connections.
+      Entitlement connections represent the relationship between an identity account and an entitlement on a source, including its access type and JIT lifecycle state.
   - name: Entitlements
   - name: Global Tenant Security Settings
     description: |
@@ -503,12 +507,6 @@ tags:
       They can select an identity profile to view its settings, its mappings between identity attributes and correlating source account attributes, and its provisioning settings. 
 
       Refer to [Creating Identity Profiles](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html) for more information about identity profiles.
-  - name: Intelligence Package
-    description: |
-      Read-only HTTP API that returns the Intelligence Package (identity context)
-      for SecOps enrichment use cases (SIEM/SOAR connectors, MCP, browser
-      extension). Backed by Atlas internal-REST calls to MICE, Shelby List Accounts,
-      SDS Search, IDA-outliers, and identity-history.
   - name: JIT Access
     description: |
       Use these APIs to configure JIT provisioning activation policy for the tenant.
@@ -2900,6 +2898,9 @@ paths:
   /access-request-config/v1:
     get:
       operationId: getAccessRequestConfigV1
+      deprecated: true
+      x-deprecated-description: |
+        This endpoint has been deprecated as of 2026-02-26. Please use the [v2 get-access-request-config](https://developer.sailpoint.com/docs/api/get-access-request-config-v-2) endpoint instead.
       security:
         - userAuth:
             - idn:access-request-config:read
@@ -2931,6 +2932,9 @@ paths:
           $ref: '#/components/responses/500'
     put:
       operationId: setAccessRequestConfigV1
+      deprecated: true
+      x-deprecated-description: |
+        This endpoint has been deprecated as of 2026-02-26. Please use the [v2 set-access-request-config](https://developer.sailpoint.com/docs/api/set-access-request-config-v-2) endpoint instead.
       security:
         - userAuth:
             - idn:access-request-config:manage
@@ -2953,6 +2957,72 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/accessrequestconfig'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+  /access-request-config/v2:
+    get:
+      operationId: getAccessRequestConfigV2
+      security:
+        - userAuth:
+            - idn:access-request-config:read
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+        - SOURCE_ADMIN
+        - SOURCE_SUBADMIN
+        - USER
+      summary: Get access request configuration
+      tags:
+        - Access Requests
+      description: This endpoint returns the current access-request configuration.
+      responses:
+        '200':
+          description: Access Request Configuration Details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/accessrequestconfigv2'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+    put:
+      operationId: setAccessRequestConfigV2
+      security:
+        - userAuth:
+            - idn:access-request-config:manage
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+      summary: Update access request configuration
+      tags:
+        - Access Requests
+      description: This endpoint replaces the current access-request configuration.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/accessrequestconfigv2'
+      responses:
+        '200':
+          description: Access Request Configuration Details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/accessrequestconfigv2'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -3003,6 +3073,8 @@ paths:
         * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.  
         * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others.
         * Roles, access profiles and entitlements can be requested.
+        * You can specify a `startDate` to set or alter a sunrise date-time on an assignment. The startDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunrise date and its yet to be provisioned, you can also submit a request without a `startDate` to request immediate provisioning after approval.
+        * If a `startDate` is specified, then the requested role, access profile, or entitlement will be provisioned on that date and time.
         * You can specify a `removeDate` to set or alter a sunset date-time on an assignment. The removeDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunset date, you can also submit a request without a `removeDate` to request removal of the sunset date and time.
         * If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time.
         * Now supports an alternate field 'requestedForWithRequestedItems' for users to specify account selections while requesting items where they have more than one account on the source.
@@ -3020,6 +3092,7 @@ paths:
         * If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time.
         * Roles, access profiles, and entitlements can be requested for revocation.
         * Revoke requests for entitlements are limited to 1 entitlement per access request currently.
+        * You cannot specify a 'startDate' in a REVOKE_ACCESS request, as startDate is only applicable for GRANT_ACCESS requests to indicate when the access should be provisioned, and it does not make sense in the context of revoking access.
         * You can specify a `removeDate` to add or alter a sunset date and time on an assignment. The `removeDate` must be a future date-time, in the UTC timezone. If the user already has the access assigned with a sunset date and time, the removeDate must be a date-time earlier than the existing sunset date and time. 
         * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone.
         * Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of 'assignmentId' and 'nativeIdentity' fields. These fields should be used within the 'requestedItems' section for the revoke requests. 
@@ -3437,7 +3510,7 @@ paths:
 
             **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
 
-            **accessRequestId**: *in*
+            **accessRequestId**: *in, eq, ne, ge, gt, le, lt, sw*
 
             **status**: *in, eq, ne*
 
@@ -19494,6 +19567,411 @@ paths:
         - ORG_ADMIN
         - ROLE_ADMIN
         - ROLE_SUBADMIN
+  /entitlement-connections/v1:
+    get:
+      operationId: listEntitlementConnectionsV1
+      tags:
+        - Entitlement Connections
+      summary: List entitlement connections
+      description: |
+        Returns entitlement connections for the tenant.
+
+        This endpoint proxies to Search and supports standard collection query parameters.
+        The `filters` and `sorters` values support the Entitlement Connections search fields documented by ECS.
+      security:
+        - userAuth:
+            - idn:entitlement-connections:list
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+      parameters:
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/searchafter'
+        - in: query
+          name: filters
+          required: false
+          schema:
+            type: string
+          example: type eq "JIT"
+          description: |
+            Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+            Filtering is supported for the following fields and operators:
+
+            **identity.id**: *eq, in*
+
+            **identity.name**: *eq, in, co*
+
+            **source.id**: *eq, in*
+
+            **source.name**: *eq, in, co*
+
+            **account.id**: *eq, in*
+
+            **account.name**: *eq, in, co*
+
+            **entitlement.id**: *eq, in*
+
+            **entitlement.attribute**: *eq, in, co*
+
+            **entitlement.value**: *eq, in, co*
+
+            **entitlement.privilegeLevel.effective**: *eq, in, co*
+
+            **type**: *eq, in*
+
+            **state.value**: *eq, in, co*
+
+            **standalone**: *eq, in*
+
+            **jit.activation**: *gt, lt, ge, le*
+
+            **jit.provision**: *gt, lt, ge, le*
+
+            **jit.deactivation**: *gt, lt, ge, le*
+
+            **jit.deprovision**: *gt, lt, ge, le*
+
+            **jit.expiration**: *gt, lt, ge, le*
+        - in: query
+          name: sorters
+          required: false
+          schema:
+            type: string
+          example: '-type,id'
+          description: |
+            Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+            Sorting is supported for the following fields: **id, identity.id, identity.name, source.id, source.name, account.id, account.name, entitlement.id, entitlement.displayName, entitlement.attribute, entitlement.privilegeLevel.effective, type, state.value, standalone, jit.activation, jit.provision, jit.deactivation, jit.deprovision, jit.expiration**
+
+            Prefix a field with `-` for descending order.
+      responses:
+        '200':
+          description: List of entitlement connections.
+          headers:
+            X-Total-Count:
+              description: Included when `count=true` and available from Search.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/entitlementconnectionsearchhit'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '412':
+          $ref: '#/components/responses/412'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+    patch:
+      operationId: patchEntitlementConnectionByQueryV1
+      tags:
+        - Entitlement Connections
+      summary: Update connection by query
+      description: |
+        Applies JSON Patch operations to a single entitlement connection selected by
+        `entitlementId`, `identityId`, and `accountId`.
+      security:
+        - userAuth:
+            - idn:entitlement-connections:manage
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+      parameters:
+        - in: query
+          name: entitlementId
+          required: true
+          schema:
+            type: string
+          example: dcfd09e551644ad5aa162ce977862031
+          description: Entitlement ID (UUID with or without hyphens).
+        - in: query
+          name: identityId
+          required: true
+          schema:
+            type: string
+          example: 5470d8d4817a4207a8020bf533187da9
+          description: Identity ID (UUID with or without hyphens).
+        - in: query
+          name: accountId
+          required: true
+          schema:
+            type: string
+          example: 323bfddfb3dd4197b8f10f7735307d27
+          description: Account ID (UUID with or without hyphens).
+      requestBody:
+        required: true
+        content:
+          application/json-patch+json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/jsonpatchoperation'
+      responses:
+        '200':
+          description: Updated entitlement connection.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/entitlementconnection'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '412':
+          $ref: '#/components/responses/412'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      operationId: updateEntitlementConnectionsBulkV1
+      tags:
+        - Entitlement Connections
+      summary: Update connections in bulk
+      description: |
+        Updates connection type for up to 100 connections in one request.
+        The API returns per-item results in a 207 Multi-Status response.
+      security:
+        - userAuth:
+            - idn:entitlement-connections:manage
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/entitlementconnectionbulkupdateitem'
+            examples:
+              mixedBulkUpdate:
+                summary: Mixed bulk update request
+                value:
+                  - connectionId: d532fa5cb15748e2873c6a01e5923ec4
+                    type: JIT
+                  - connectionId: 57bdbfcab8a34afb91c0a9fb4dba52b8
+                    type: STANDING
+                  - connectionId: 0f571cefc8a2411790e0ee09f77e25a3
+                    type: STANDING
+                  - connectionId: 025542c7e42144258c6f2325b6feeba8
+                    type: JIT
+                  - connectionId: 6bccbc42381f49028dac9bfe68dbad2e
+                    type: JIT
+      responses:
+        '207':
+          description: Per-item bulk update results.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/entitlementconnectionbulkupdateresultitem'
+              examples:
+                mixedBulkUpdateResult:
+                  summary: Mixed per-item bulk response
+                  value:
+                    - connectionId: d532fa5cb15748e2873c6a01e5923ec4
+                      type: JIT
+                      status: 201
+                      description: success
+                    - connectionId: 57bdbfcab8a34afb91c0a9fb4dba52b8
+                      type: STANDING
+                      status: 201
+                      description: success
+                    - connectionId: 6bccbc42381f49028dac9bfe68dbad2e
+                      type: XYZ
+                      status: 422
+                      description: Invalid type specified, must be JIT or STANDING
+                    - connectionId: 57bdbfcab8a34afb91c0a9fb4dba52b8
+                      type: JIT
+                      status: 409
+                      description: Duplicate connectionId in request
+                    - connectionId: 025542c7e42144258c6f2325b6feeba8
+                      type: JIT
+                      status: 404
+                      description: Connection not found
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+  /entitlement-connections/v1/current-identity:
+    get:
+      operationId: listEntitlementConnectionsForCurrentIdentityV1
+      tags:
+        - Entitlement Connections
+      summary: List my entitlement connections
+      description: |
+        Returns entitlement connections constrained to the authenticated identity.
+        This endpoint proxies to Search and supports standard collection query parameters.
+      security:
+        - userAuth:
+            - idn:entitlement-connections:read
+      x-sailpoint-userLevels:
+        - USER
+      parameters:
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/searchafter'
+        - in: query
+          name: filters
+          required: false
+          schema:
+            type: string
+          example: state.value co "Available"
+          description: |
+            Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+            Filtering is supported for the following fields and operators:
+
+            **identity.id**: *eq, in*
+
+            **identity.name**: *eq, in, co*
+
+            **source.id**: *eq, in*
+
+            **source.name**: *eq, in, co*
+
+            **account.id**: *eq, in*
+
+            **account.name**: *eq, in, co*
+
+            **entitlement.id**: *eq, in*
+
+            **entitlement.attribute**: *eq, in, co*
+
+            **entitlement.value**: *eq, in, co*
+
+            **entitlement.privilegeLevel.effective**: *eq, in, co*
+
+            **type**: *eq, in*
+
+            **state.value**: *eq, in, co*
+
+            **standalone**: *eq, in*
+
+            **jit.activation**: *gt, lt, ge, le*
+
+            **jit.provision**: *gt, lt, ge, le*
+
+            **jit.deactivation**: *gt, lt, ge, le*
+
+            **jit.deprovision**: *gt, lt, ge, le*
+
+            **jit.expiration**: *gt, lt, ge, le*
+
+            The authenticated identity scope is always applied by the service.
+        - in: query
+          name: sorters
+          required: false
+          schema:
+            type: string
+          example: id
+          description: |
+            Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+            Sorting is supported for the following fields: **id, identity.id, identity.name, source.id, source.name, account.id, account.name, entitlement.id, entitlement.displayName, entitlement.attribute, entitlement.privilegeLevel.effective, type, state.value, standalone, jit.activation, jit.provision, jit.deactivation, jit.deprovision, jit.expiration**
+      responses:
+        '200':
+          description: List of entitlement connections for the current identity.
+          headers:
+            X-Total-Count:
+              description: Included when `count=true` and available from Search.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/entitlementconnectionsearchhit'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '412':
+          $ref: '#/components/responses/412'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+  /entitlement-connections/v1/{connectionId}:
+    patch:
+      operationId: patchEntitlementConnectionByIdV1
+      tags:
+        - Entitlement Connections
+      summary: Update entitlement connection
+      description: |
+        Applies JSON Patch operations to an entitlement connection selected by `connectionId`.
+      security:
+        - userAuth:
+            - idn:entitlement-connections:manage
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+      parameters:
+        - in: path
+          name: connectionId
+          required: true
+          schema:
+            type: string
+          x-sailpoint-resource-operation-id: listEntitlementConnectionsV1
+          example: 6c692d9972f8400ca4560a68f62c4c5f
+          description: Connection ID (UUID with or without hyphens).
+      requestBody:
+        required: true
+        content:
+          application/json-patch+json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/jsonpatchoperation'
+      responses:
+        '200':
+          description: Updated entitlement connection.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/entitlementconnection'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '412':
+          $ref: '#/components/responses/412'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
   /entitlements/v1:
     get:
       operationId: listEntitlementsV1
@@ -26841,6 +27319,7 @@ paths:
             - idn:identity-profile:read
       x-sailpoint-userLevels:
         - ORG_ADMIN
+        - API
     post:
       operationId: createIdentityProfileV1
       summary: Create identity profile
@@ -26873,8 +27352,11 @@ paths:
       security:
         - userAuth:
             - idn:identity-profile:manage
+        - applicationAuth:
+            - idn:identity-profile:manage
       x-sailpoint-userLevels:
         - ORG_ADMIN
+        - API
   /identity-profiles/v1/bulk-delete:
     post:
       operationId: deleteIdentityProfilesV1
@@ -26915,8 +27397,11 @@ paths:
       security:
         - userAuth:
             - idn:identity-profile:manage
+        - applicationAuth:
+            - idn:identity-profile:manage
       x-sailpoint-userLevels:
         - ORG_ADMIN
+        - API
   /identity-profiles/v1/export:
     get:
       operationId: exportIdentityProfilesV1
@@ -27058,6 +27543,7 @@ paths:
             - idn:identity-profile:read
       x-sailpoint-userLevels:
         - ORG_ADMIN
+        - API
     delete:
       operationId: deleteIdentityProfileV1
       tags:
@@ -27099,8 +27585,11 @@ paths:
       security:
         - userAuth:
             - idn:identity-profile:manage
+        - applicationAuth:
+            - idn:identity-profile:manage
       x-sailpoint-userLevels:
         - ORG_ADMIN
+        - API
     patch:
       operationId: updateIdentityProfileV1
       tags:
@@ -27171,8 +27660,11 @@ paths:
       security:
         - userAuth:
             - idn:identity-profile:manage
+        - applicationAuth:
+            - idn:identity-profile:manage
       x-sailpoint-userLevels:
         - ORG_ADMIN
+        - API
   /identity-profiles/v1/{identity-profile-id}/default-identity-attribute-config:
     get:
       operationId: getDefaultIdentityAttributeConfigV1
@@ -27212,8 +27704,11 @@ paths:
       security:
         - userAuth:
             - idn:identity-profile:manage
+        - applicationAuth:
+            - idn:identity-profile:manage
       x-sailpoint-userLevels:
         - ORG_ADMIN
+        - API
   /identity-profiles/v1/{identity-profile-id}/process-identities:
     post:
       operationId: syncIdentityProfileV1
@@ -27258,8 +27753,11 @@ paths:
       security:
         - userAuth:
             - idn:identity-profile:manage
+        - applicationAuth:
+            - idn:identity-profile:manage
       x-sailpoint-userLevels:
         - ORG_ADMIN
+        - API
   /identity-profiles/v1/identity-preview:
     post:
       operationId: generateIdentityPreviewV1
@@ -27294,483 +27792,11 @@ paths:
       security:
         - userAuth:
             - idn:identity-profile:manage
+        - applicationAuth:
+            - idn:identity-profile:manage
       x-sailpoint-userLevels:
         - ORG_ADMIN
-  /intelligence/v1/identities:
-    get:
-      operationId: searchIntelIdentitiesV1
-      security:
-        - userAuth:
-            - sp:identity-sec-intel:read
-        - applicationAuth:
-            - sp:identity-sec-intel:read
-      x-required-right: sp:identity-sec-intel:read
-      x-sailpoint-userLevels:
-        - Any
-      tags:
-        - Intelligence Package
-      summary: Resolve one identity by filter
-      description: |
-        Requires tenant license idn:response-and-remediation.
-
-        Returns the Intelligence Package envelope for the identity that matches the SCIM-style filters expression.
-        Supported queryable fields are id and email only.
-
-        A single match returns HTTP 200 with IntelIdentityResponse.
-
-        Zero matches returns HTTP 404 with detailCode IDC_IDENTITY_NOT_FOUND. 
-
-        Multiple matches returns HTTP 409 with detailCode IDC_IDENTITY_AMBIGUOUS and candidates listing each match.
-      parameters:
-        - in: query
-          name: filters
-          required: true
-          schema:
-            type: string
-          examples:
-            byId:
-              value: id eq "00000000-0000-0000-0000-000000000000"
-            byEmail:
-              value: email eq "user@example.com"
-          description: |-
-            Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
-
-            Filtering is supported for the following fields and operators:
-
-            **id**: *eq*
-
-            **email**: *eq*
-      responses:
-        '200':
-          description: One identity matched.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/intelidentityresponse'
-              examples:
-                human:
-                  value:
-                    id: 00000000-0000-0000-0000-000000000000
-                    type: HUMAN
-                    displayName: Example User
-                    subtype: Employee
-                    timestamps:
-                      createdAt: '2026-05-12T08:00:00Z'
-                      modifiedAt: '2026-05-12T09:15:30Z'
-                    human:
-                      alias: example.user
-                      email: user@example.com
-                      identityStatus: ENABLED
-                      isProtected: false
-                      isManager: false
-                    _links:
-                      access:
-                        href: /v2026/intelligence/identities/00000000-0000-0000-0000-000000000000/access
-                      risk:
-                        href: /v2026/intelligence/identities/00000000-0000-0000-0000-000000000000/risk
-                      accessHistory:
-                        href: /v2026/intelligence/identities/00000000-0000-0000-0000-000000000000/access-history
-                machine:
-                  value:
-                    id: e1feccee-a9d4-4909-8131-6ed67d79ff07
-                    type: MACHINE
-                    displayName: example-agent-1
-                    subtype: Example Agent
-                    timestamps:
-                      createdAt: '2026-03-31T08:20:53.031936Z'
-                      modifiedAt: '2026-03-31T08:20:52.969356Z'
-                    machine:
-                      nativeIdentity: example-agent-1
-                      sourceId: 8433902684054f09ae024c06cf5091c1
-                      source:
-                        id: 8433902684054f09ae024c06cf5091c1
-                        name: Example SaaS Source
-                        type: SOURCE
-                      existsOnSource: true
-                      manuallyCreated: false
-                      manuallyEdited: false
-        '400':
-          description: Missing or invalid filters.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorbody'
-              example:
-                detailCode: INVALID_REQUEST
-                message: filters must be supplied and non-empty
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '404':
-          description: No identity matched the filter.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/intelidentitynotfoundbody'
-              example:
-                detailCode: IDC_IDENTITY_NOT_FOUND
-                message: no identity matched the supplied filter
-        '409':
-          description: Multiple identities matched the filter.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/intelidentityambiguousbody'
-              example:
-                detailCode: IDC_IDENTITY_AMBIGUOUS
-                message: multiple identities matched the supplied filter
-                candidates:
-                  - id: cand-1
-                    displayName: Example A
-                  - id: cand-2
-                    displayName: Example B
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          description: Upstream or internal failure.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorbody'
-  /intelligence/v1/identities/{identityID}/access:
-    get:
-      operationId: getIntelIdentityAccessV1
-      security:
-        - userAuth:
-            - sp:identity-sec-intel-access:read
-        - applicationAuth:
-            - sp:identity-sec-intel-access:read
-      x-required-right: sp:identity-sec-intel-access:read
-      x-sailpoint-userLevels:
-        - Any
-      tags:
-        - Intelligence Package
-      summary: Accounts merged with privileged data
-      description: |
-        Requires tenant license idn:response-and-remediation.
-
-        Client-facing pagination (limit, offset, count) is not supported on this route.
-        The service issues one Shelby List Accounts request at the upstream maximum page size
-        and one SDS Search request per identity.
-      parameters:
-        - $ref: '#/components/parameters/intelligence-identity-id-path'
-      responses:
-        '200':
-          description: Accounts response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/intelidentityaccessbody'
-              example:
-                accounts:
-                  - id: acc-1
-                    name: example.user
-                    source:
-                      id: src-1
-                      name: Example Directory
-                    disabled: false
-                    locked: false
-                    uncorrelated: false
-                    authoritative: false
-                    systemAccount: false
-                    isMachine: false
-                    hasEntitlements: true
-                    manuallyCorrelated: false
-                    connectionType: direct
-                    nativeIdentity: CN=example.user,OU=users
-                    created: '2026-01-01T00:00:00Z'
-                    modified: '2026-05-01T00:00:00Z'
-                privilegedAccessItems:
-                  - privileged: true
-                    displayName: Example_Admin_Access
-                    name: Example_Admin_Access
-                    standalone: true
-                    id: ent-1
-                    source:
-                      name: Example HR Source
-                      id: src-2
-                    attribute: EXAMPLE_PERMISSION_GROUPS
-                    type: ENTITLEMENT
-                    value: Example_Admin_Access
-        '400':
-          description: Invalid path parameter.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorbody'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          description: Internal or upstream server failure.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorbody'
-        4XX:
-          description: Upstream non-success passed through as-is.
-  /intelligence/v1/identities/{identityID}/access-history:
-    get:
-      operationId: getIntelIdentityAccessHistoryV1
-      security:
-        - userAuth:
-            - sp:identity-sec-intel-access-history:read
-        - applicationAuth:
-            - sp:identity-sec-intel-access-history:read
-      x-required-right: sp:identity-sec-intel-access-history:read
-      x-sailpoint-userLevels:
-        - Any
-      tags:
-        - Intelligence Package
-      summary: Return identity access-history events
-      description: |
-        Requires tenant license idn:response-and-remediation.
-
-        Events are relayed from identity-history; optional limit, offset, and count
-        are forwarded to the upstream when supplied.
-      parameters:
-        - $ref: '#/components/parameters/intelligence-identity-id-path'
-        - name: limit
-          in: query
-          required: false
-          description: Maximum number of historical events to return in this page of results.
-          schema:
-            type: integer
-            format: int32
-            minimum: 1
-          example: 100
-        - name: offset
-          in: query
-          required: false
-          description: Zero-based index of the first event row to return for pagination.
-          schema:
-            type: integer
-            format: int32
-            minimum: 0
-          example: 0
-        - name: count
-          in: query
-          required: false
-          description: When true, the service may include total count metadata alongside the result list.
-          schema:
-            type: boolean
-            default: false
-          example: false
-      responses:
-        '200':
-          description: Events relayed from identity-history.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/intelidentityaccesshistorybody'
-              example:
-                events:
-                  - dateTime: '2026-05-04T12:00:00Z'
-                    eventType: ACCESS_GRANTED
-                    identityId: 00000000-0000-0000-0000-000000000000
-                  - dateTime: '2026-05-06T08:00:00Z'
-                    eventType: ACCESS_REVOKED
-                    identityId: 00000000-0000-0000-0000-000000000000
-        '400':
-          description: Invalid path or query parameters.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorbody'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          description: Internal or upstream server failure.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorbody'
-        4XX:
-          description: Upstream non-success passed through as-is.
-  /intelligence/v1/identities/{identityID}/risk:
-    get:
-      operationId: getIntelIdentityRiskV1
-      security:
-        - userAuth:
-            - sp:identity-sec-intel-risk:read
-        - applicationAuth:
-            - sp:identity-sec-intel-risk:read
-      x-required-right: sp:identity-sec-intel-risk:read
-      x-sailpoint-userLevels:
-        - Any
-      tags:
-        - Intelligence Package
-      summary: Identity risk snapshot
-      description: |
-        Risk snapshot envelope for the identity. The service resolves the first matching
-        outlier for identityID and returns one page of access-items plus an optional
-        continuation link for additional pages.
-
-        Clients should continue paging using _links.outliers.href when provided.
-        Requires tenant license idn:response-and-remediation.
-      parameters:
-        - $ref: '#/components/parameters/intelligence-identity-id-path'
-      responses:
-        '200':
-          description: Risk envelope with first page and optional continuation link.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/intelidentityriskbody'
-              examples:
-                hasMore:
-                  summary: First page with continuation
-                  value:
-                    outliers:
-                      - id: outlier-access-001
-                        displayName: Example_Admin_Access
-                        description: null
-                        accessType: ENTITLEMENT
-                        sourceName: Example SaaS Source
-                        extremelyRare: false
-                    outliersTotal: 312
-                    _links:
-                      outliers:
-                        href: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/00000000000000000000000000000000/risk/outliers?limit=250&offset=250
-                lastPage:
-                  summary: Single page result
-                  value:
-                    outliers:
-                      - id: outlier-access-001
-                        displayName: Example_Admin_Access
-                        description: null
-                        accessType: ENTITLEMENT
-                        sourceName: Example SaaS Source
-                        extremelyRare: false
-                    outliersTotal: 1
-                noOutlier:
-                  summary: Identity with no outlier
-                  value:
-                    outliers: []
-                    outliersTotal: 0
-        '400':
-          description: Invalid path parameter.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorbody'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          description: Internal or upstream server failure.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorbody'
-  /intelligence/v1/identities/{identityID}/risk/outliers:
-    get:
-      operationId: getIntelIdentityRiskOutliersV1
-      security:
-        - userAuth:
-            - sp:identity-sec-intel-risk:read
-        - applicationAuth:
-            - sp:identity-sec-intel-risk:read
-      x-required-right: sp:identity-sec-intel-risk:read
-      x-sailpoint-userLevels:
-        - Any
-      tags:
-        - Intelligence Package
-      summary: Risk outliers continuation paging
-      description: |
-        Continuation endpoint for risk outlier access-items. Returns one page based on
-        the supplied limit and offset values and includes an optional continuation link
-        when more rows remain. Requires tenant license idn:response-and-remediation.
-      parameters:
-        - $ref: '#/components/parameters/intelligence-identity-id-path'
-        - name: limit
-          in: query
-          required: false
-          description: Maximum number of outlier rows to return for this page.
-          schema:
-            type: integer
-            format: int32
-            minimum: 1
-            maximum: 250
-            default: 250
-          example: 250
-        - name: offset
-          in: query
-          required: false
-          description: Zero-based row index for the first returned outlier item.
-          schema:
-            type: integer
-            format: int32
-            minimum: 0
-            default: 0
-          example: 0
-      responses:
-        '200':
-          description: One page of outlier items plus optional continuation link.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/intelidentityriskbody'
-              examples:
-                intermediate:
-                  summary: Intermediate page response
-                  value:
-                    outliers:
-                      - id: outlier-access-001
-                        displayName: Example_Admin_Access
-                        description: null
-                        accessType: ENTITLEMENT
-                        sourceName: Example SaaS Source
-                        extremelyRare: false
-                    outliersTotal: 312
-                    _links:
-                      outliers:
-                        href: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/00000000000000000000000000000000/risk/outliers?limit=250&offset=500
-                lastPage:
-                  summary: Last page response
-                  value:
-                    outliers:
-                      - id: outlier-access-001
-                        displayName: Example_Admin_Access
-                        description: null
-                        accessType: ENTITLEMENT
-                        sourceName: Example SaaS Source
-                        extremelyRare: false
-                    outliersTotal: 312
-                noOutlier:
-                  summary: Identity with no outlier
-                  value:
-                    outliers: []
-                    outliersTotal: 0
-        '400':
-          description: Invalid path or query parameters.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorbody'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          description: Internal or upstream server failure.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorbody'
+        - API
   /jit-activation-config/v1/{configType}:
     get:
       operationId: getJitActivationConfigV1
@@ -29101,6 +29127,249 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
+  /source-subtypes/v1/bulk-retrieve:
+    post:
+      tags:
+        - Machine Account Subtypes
+      summary: Bulk Retrieve of Source Subtypes
+      description: This endpoint retrieves the subtypes for given subtypeIds.
+      operationId: loadBulkSourceSubtypesV1
+      security:
+        - userAuth:
+            - idn:sources:manage
+        - applicationAuth:
+            - idn:sources:manage
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+        - SOURCE_ADMIN
+        - SOURCE_SUBADMIN
+      parameters:
+        - in: header
+          name: X-SailPoint-Experimental
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bulkretrievesourcesubtypesrequest'
+      responses:
+        '200':
+          description: List of source subtypes.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/sourcesubtypewithsource'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+  /source-subtypes/v1:
+    get:
+      summary: Retrieve all subtypes
+      description: Get all machine account subtypes.
+      operationId: listSourceSubtypesV1
+      tags:
+        - Machine Account Subtypes
+      parameters:
+        - in: query
+          name: filters
+          required: false
+          schema:
+            type: string
+          description: |-
+            Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+            Filtering is supported for the following fields and operators:
+
+            **id**: *eq, in, sw*
+
+            **displayName**: *eq, sw*
+
+            **technicalName**: *eq, sw*
+
+            **source.id**: *eq, in*
+          example: displayName eq "sail"
+        - in: query
+          name: sorters
+          schema:
+            type: string
+            format: comma-separated
+          required: false
+          description: |-
+            Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+            Sorting is supported for the following fields: **displayName, technicalName**
+          example: displayName
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: true
+        - $ref: '#/components/parameters/count'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: List of machine account subtypes.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/sourcesubtypewithsource'
+              examples:
+                SourceSubtype:
+                  value:
+                    - id: 43bdd144-4b17-4fce-a744-17c7fd3e717b
+                      sourceId: 6d0458373bec4b4b80460992b76016da
+                      technicalName: foo
+                      displayName: Mr Foo
+                      description: fighters
+                      created: '2025-07-28T16:13:42.801Z'
+                      modified: '2025-07-28T16:13:42.750Z'
+                      type: MACHINE
+                      source:
+                        type: SOURCE
+                        id: 6d0458373bec4b4b80460992b76016da
+                        name: Test Source
+                      systemManaged: false
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+      security:
+        - userAuth:
+            - idn:sources:read
+            - idn:sources:manage
+        - applicationAuth:
+            - idn:sources:read
+            - idn:sources:manage
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+        - SOURCE_ADMIN
+        - SOURCE_SUBADMIN
+    post:
+      summary: Create subtype
+      description: Create a new machine account subtype.
+      operationId: createSourceSubtypeV1
+      tags:
+        - Machine Account Subtypes
+      parameters:
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - sourceId
+                - technicalName
+                - displayName
+                - description
+              properties:
+                sourceId:
+                  type: string
+                  description: ID of the source where subtype is created.
+                  example: 6d0458373bec4b4b80460992b76016da
+                technicalName:
+                  type: string
+                  description: Technical name of the subtype.
+                  example: foo
+                displayName:
+                  type: string
+                  description: Display name of the subtype.
+                  example: Mr Foo
+                description:
+                  type: string
+                  description: Description of the subtype.
+                  example: fighters
+                type:
+                  type: string
+                  description: Type of the subtype.
+                  example: MACHINE
+            examples:
+              SourceSubtype:
+                value:
+                  sourceId: 6d0458373bec4b4b80460992b76016da
+                  technicalName: foo
+                  displayName: Mr Foo
+                  description: fighters
+                  type: MACHINE
+      responses:
+        '201':
+          description: Created machine account subtype.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sourcesubtypewithsource'
+              examples:
+                SourceSubtype:
+                  value:
+                    id: 43bdd144-4b17-4fce-a744-17c7fd3e717b
+                    sourceId: 6d0458373bec4b4b80460992b76016da
+                    technicalName: foo
+                    displayName: Mr Foo
+                    description: fighters
+                    created: '2025-07-28T16:13:42.801Z'
+                    modified: '2025-07-28T16:13:42.750Z'
+                    type: MACHINE
+                    source:
+                      type: SOURCE
+                      id: 6d0458373bec4b4b80460992b76016da
+                      name: Test Source
+                    systemManaged: false
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+      security:
+        - userAuth:
+            - idn:sources:manage
+        - applicationAuth:
+            - idn:sources:manage
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+        - SOURCE_ADMIN
+        - SOURCE_SUBADMIN
   /source-subtypes/v1/{subtypeId}:
     get:
       summary: Get subtype by ID
@@ -29114,9 +29383,17 @@ paths:
           schema:
             type: string
           required: true
-          x-sailpoint-resource-operation-id: listMachineAccountSubtypesV1
+          x-sailpoint-resource-operation-id: listSourceSubtypesV1
           description: The ID of the subtype.
           example: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: true
       responses:
         '200':
           description: Machine account subtype object.
@@ -29160,10 +29437,18 @@ paths:
           name: subtypeId
           description: The ID of the subtype.
           required: true
-          x-sailpoint-resource-operation-id: listMachineAccountSubtypesV1
+          x-sailpoint-resource-operation-id: listSourceSubtypesV1
           schema:
             type: string
             example: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: true
       requestBody:
         required: true
         description: A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -29219,10 +29504,18 @@ paths:
           name: subtypeId
           description: The ID of the subtype.
           required: true
-          x-sailpoint-resource-operation-id: listMachineAccountSubtypesV1
+          x-sailpoint-resource-operation-id: listSourceSubtypesV1
           schema:
             type: string
             example: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: true
       responses:
         '204':
           description: Subtype deleted successfully.
@@ -29245,6 +29538,138 @@ paths:
         - ORG_ADMIN
         - SOURCE_ADMIN
         - SOURCE_SUBADMIN
+  /source-subtypes/v1/{subtypeId}/machine-config:
+    get:
+      tags:
+        - Machine Account Subtypes
+      summary: Machine Subtype Approval Config
+      description: This endpoint retrieves the approval configuration for machine account creation and deletion at the machine subtype level. By providing a specific subtypeId in the path, clients can fetch the approval rules and settings (such as required approvers and comments policy) that govern account creation and deletion for that particular machine subtype. The response includes a MachineAccountSubtypeConfigDto object detailing these configurations, enabling clients to understand or display the approval workflow required for creating and deleting machine accounts of the given subtype. Use this endpoint to get machine subtype level approval config for account creation and deletion.
+      operationId: getMachineAccountSubtypeApprovalConfigV1
+      security:
+        - userAuth:
+            - idn:source-subtypes:read
+            - idn:source-subtypes:management
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+        - SOURCE_ADMIN
+        - SOURCE_SUBADMIN
+        - API
+      parameters:
+        - in: header
+          name: X-SailPoint-Experimental
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: true
+        - in: path
+          name: subtypeId
+          schema:
+            type: string
+          description: machine subtype id.
+          required: true
+          example: ef38f94347e94562b5bb8424a56498d8
+          x-sailpoint-resource-operation-id: listSourceSubtypesV1
+      responses:
+        '200':
+          description: Responds with a MachineAccountSubtypeConfigDto for machine account creation and deletion approval config by subtypeId.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/machineaccountsubtypeconfigdto'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+    patch:
+      operationId: updateMachineAccountSubtypeApprovalConfigV1
+      tags:
+        - Machine Account Subtypes
+      summary: Machine Subtype Approval Config
+      description: Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account creation and deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for creating and deleting machine accounts of a particular subtype.
+      security:
+        - userAuth:
+            - idn:source-subtypes:delete
+            - idn:source-subtypes:update
+            - idn:source-subtypes:management
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+        - SOURCE_ADMIN
+        - SOURCE_SUBADMIN
+        - API
+      parameters:
+        - in: header
+          name: X-SailPoint-Experimental
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: true
+        - in: path
+          name: subtypeId
+          schema:
+            type: string
+          description: machine account subtype ID.
+          required: true
+          example: 00eebcf881994e419d72e757fd30dc0e
+          x-sailpoint-resource-operation-id: listSourceSubtypesV1
+      requestBody:
+        required: true
+        description: The JSONPatch payload used to update the object.
+        content:
+          application/json-patch+json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/jsonpatchoperation'
+              example:
+                - op: replace
+                  path: /machineAccountDelete/approvalConfig/approvers
+                  value: sourceOwner
+      responses:
+        '200':
+          description: This response indicates the PATCH operation succeeded and the API returns the updated MachineAccountSubtypeConfigDto object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/machineaccountsubtypeconfigdto'
+              example:
+                subtypeId: 1419fc28-a8ed-4a07-9f5c-0cb5dfad6311
+                machineAccountCreate:
+                  accountCreateEnabled: true
+                  approvalRequired: true
+                  formId: 4f1bb61b-a0ab-4c0a-b9fb-20f44407b75a
+                  entitlementId: 858d2151-ff19-464b-ae0d-6938b3af2baf
+                  approvalConfig:
+                    approvers: sourceOwner, manager, workgroup:f76ff96a-0815-402a-be1a-18cdc693b79f
+                    comments: ALL
+                machineAccountDelete:
+                  approvalRequired: false
+                  approvalConfig:
+                    approvers: sourceOwner
+                    comments: REJECTION
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
   /machine-accounts/v1:
     get:
       operationId: listMachineAccountsV1
@@ -29508,6 +29933,9 @@ paths:
     get:
       summary: Retrieve all subtypes by source
       description: Get all machine account subtypes for a given source.
+      deprecated: true
+      x-deprecated-description: |
+        This API has been deprecated, please refer to [Retrieve all subtypes](https://developer.sailpoint.com/docs/api/v2026/list-source-subtypes) for the latest API.
       operationId: listMachineAccountSubtypesV1
       tags:
         - Machine Accounts
@@ -29600,6 +30028,9 @@ paths:
     post:
       summary: Create subtype
       description: Create a new machine account subtype for a source.
+      deprecated: true
+      x-deprecated-description: |
+        This API has been deprecated, please refer to [Create subtype](https://developer.sailpoint.com/docs/api/v2026/create-source-subtype) for the latest API.
       operationId: createMachineAccountSubtypeV1
       tags:
         - Machine Accounts
@@ -29695,6 +30126,9 @@ paths:
     get:
       summary: Retrieve subtype by source and technicalName
       description: Get a machine account subtype by source ID and technical name.
+      deprecated: true
+      x-deprecated-description: |
+        This API has been deprecated, please refer to [Retrieve all subtypes](https://developer.sailpoint.com/docs/api/v2026/list-source-subtypes) for the latest API.
       operationId: getMachineAccountSubtypeByTechnicalNameV1
       tags:
         - Machine Accounts
@@ -29767,6 +30201,9 @@ paths:
       description: |-
         Update fields of a machine account subtype by source ID and technical name.
         Patchable fields include: `displayName`, `description`.
+      deprecated: true
+      x-deprecated-description: |
+        This API has been deprecated, please refer to [Patch subtype by ID](https://developer.sailpoint.com/docs/api/v2026/patch-machine-account-subtype) for the latest API.
       operationId: patchMachineAccountSubtypeByTechnicalNameV1
       tags:
         - Machine Accounts
@@ -29850,6 +30287,9 @@ paths:
     delete:
       summary: Delete subtype
       description: Delete a machine account subtype by source ID and technical name.
+      deprecated: true
+      x-deprecated-description: |
+        This API has been deprecated, please refer to [Delete subtype by ID](https://developer.sailpoint.com/docs/api/v2026/delete-machine-account-subtype) for the latest API.
       operationId: deleteMachineAccountSubtypeByTechnicalNameV1
       tags:
         - Machine Accounts
@@ -29904,6 +30344,9 @@ paths:
     get:
       summary: Retrieve subtype by subtype id
       description: Get a machine account subtype by its unique ID.
+      deprecated: true
+      x-deprecated-description: |
+        This API has been deprecated, please refer to [Get subtype by ID](https://developer.sailpoint.com/docs/api/v2026/get-source-subtype-by-id) for the latest API.
       operationId: getMachineAccountSubtypeByIdV1
       tags:
         - Machine Accounts
@@ -29962,190 +30405,6 @@ paths:
         - ORG_ADMIN
         - SOURCE_ADMIN
         - SOURCE_SUBADMIN
-  /source-subtypes/v1/bulk-retrieve:
-    post:
-      tags:
-        - Machine Accounts
-      summary: Bulk Retrieve of Source Subtypes
-      description: This endpoint retrieves the subtypes for given subtypeIds.
-      operationId: loadBulkSourceSubtypesV1
-      security:
-        - userAuth:
-            - idn:sources:manage
-        - applicationAuth:
-            - idn:sources:manage
-      x-sailpoint-userLevels:
-        - ORG_ADMIN
-        - SOURCE_ADMIN
-        - SOURCE_SUBADMIN
-      parameters:
-        - in: header
-          name: X-SailPoint-Experimental
-          description: Use this header to enable this experimental API.
-          example: true
-          schema:
-            type: string
-            default: true
-          required: true
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/bulkretrievesourcesubtypesrequest'
-      responses:
-        '200':
-          description: List of source subtypes.
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/sourcesubtypewithsource'
-        '400':
-          $ref: '#/components/responses/400'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '404':
-          $ref: '#/components/responses/404'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          $ref: '#/components/responses/500'
-  /source-subtypes/v1/{subtypeId}/machine-config:
-    get:
-      tags:
-        - Machine Accounts
-      summary: Machine Subtype Approval Config
-      description: This endpoint retrieves the approval configuration for machine account creation and deletion at the machine subtype level. By providing a specific subtypeId in the path, clients can fetch the approval rules and settings (such as required approvers and comments policy) that govern account creation and deletion for that particular machine subtype. The response includes a MachineAccountSubtypeConfigDto object detailing these configurations, enabling clients to understand or display the approval workflow required for creating and deleting machine accounts of the given subtype. Use this endpoint to get machine subtype level approval config for account creation and deletion.
-      operationId: getMachineAccountSubtypeApprovalConfigV1
-      security:
-        - userAuth:
-            - idn:source-subtypes:read
-            - idn:source-subtypes:management
-      x-sailpoint-userLevels:
-        - ORG_ADMIN
-        - SOURCE_ADMIN
-        - SOURCE_SUBADMIN
-        - API
-      parameters:
-        - in: header
-          name: X-SailPoint-Experimental
-          description: Use this header to enable this experimental API.
-          example: true
-          schema:
-            type: string
-            default: true
-          required: true
-        - in: path
-          name: subtypeId
-          schema:
-            type: string
-          description: machine subtype id.
-          required: true
-          example: ef38f94347e94562b5bb8424a56498d8
-          x-sailpoint-resource-operation-id: listMachineAccountSubtypesV1
-      responses:
-        '200':
-          description: Responds with a MachineAccountSubtypeConfigDto for machine account creation and deletion approval config by subtypeId.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/machineaccountsubtypeconfigdto'
-        '400':
-          $ref: '#/components/responses/400'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '404':
-          $ref: '#/components/responses/404'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          $ref: '#/components/responses/500'
-    patch:
-      operationId: updateMachineAccountSubtypeApprovalConfigV1
-      tags:
-        - Machine Accounts
-      summary: Machine Subtype Approval Config
-      description: Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account creation and deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for creating and deleting machine accounts of a particular subtype.
-      security:
-        - userAuth:
-            - idn:source-subtypes:delete
-            - idn:source-subtypes:update
-            - idn:source-subtypes:management
-      x-sailpoint-userLevels:
-        - ORG_ADMIN
-        - SOURCE_ADMIN
-        - SOURCE_SUBADMIN
-        - API
-      parameters:
-        - in: header
-          name: X-SailPoint-Experimental
-          description: Use this header to enable this experimental API.
-          example: true
-          schema:
-            type: string
-            default: true
-          required: true
-        - in: path
-          name: subtypeId
-          schema:
-            type: string
-          description: machine account subtype ID.
-          required: true
-          example: 00eebcf881994e419d72e757fd30dc0e
-          x-sailpoint-resource-operation-id: listMachineAccountSubtypesV1
-      requestBody:
-        required: true
-        description: The JSONPatch payload used to update the object.
-        content:
-          application/json-patch+json:
-            schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/jsonpatchoperation'
-              example:
-                - op: replace
-                  path: /machineAccountDelete/approvalConfig/approvers
-                  value: sourceOwner
-      responses:
-        '200':
-          description: This response indicates the PATCH operation succeeded and the API returns the updated MachineAccountSubtypeConfigDto object.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/machineaccountsubtypeconfigdto'
-              example:
-                subtypeId: 1419fc28-a8ed-4a07-9f5c-0cb5dfad6311
-                machineAccountCreate:
-                  accountCreateEnabled: true
-                  approvalRequired: true
-                  formId: 4f1bb61b-a0ab-4c0a-b9fb-20f44407b75a
-                  entitlementId: 858d2151-ff19-464b-ae0d-6938b3af2baf
-                  approvalConfig:
-                    approvers: sourceOwner, manager, workgroup:f76ff96a-0815-402a-be1a-18cdc693b79f
-                    comments: ALL
-                machineAccountDelete:
-                  approvalRequired: false
-                  approvalConfig:
-                    approvers: sourceOwner
-                    comments: REJECTION
-        '400':
-          $ref: '#/components/responses/400'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '404':
-          $ref: '#/components/responses/404'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          $ref: '#/components/responses/500'
   /sources/v1/{sourceId}/machine-classification-config:
     get:
       operationId: getMachineClassificationConfigV1
@@ -41801,7 +42060,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/transmittermetadata'
               example:
-                spec_version: 1_0
+                spec_version: 10
                 issuer: https://tenant.api.identitynow.com
                 jwks_uri: https://tenant.api.identitynow.com/ssf/jwks
                 delivery_methods_supported:
@@ -52599,18 +52858,6 @@ components:
         format: comma-separated
       style: form
       explode: true
-    intelligence-identity-id-path:
-      name: identityID
-      in: path
-      required: true
-      description: Non-empty identity id path segment for Intelligence Package sub-resources.
-      x-sailpoint-resource-operation-id: listIdentitiesV1
-      example: ef38f94347e94562b5bb8424a56397d8
-      schema:
-        type: string
-        minLength: 1
-        maxLength: 128
-        pattern: ^([0-9a-fA-F]{32}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$
     classificationmode:
       in: query
       name: classificationMode
@@ -54605,6 +54852,21 @@ components:
           description: The remove date or sunset date that was assigned at the time of the request.
           format: date-time
           example: '2020-07-11T00:00:00Z'
+        startDate:
+          type: string
+          description: The date the role or access profile or entitlement is/will assigned to the specified identity.
+          format: date-time
+          example: '2020-07-11T00:00:00Z'
+        startUpdateRequested:
+          type: boolean
+          default: false
+          description: If true, then the request is to change the start date or sunrise date.
+          example: true
+        currentStartDate:
+          type: string
+          description: The start date or sunrise date that was assigned at the time of the request.
+          format: date-time
+          example: '2020-07-11T00:00:00Z'
         sodViolationContext:
           $ref: '#/components/schemas/sodviolationcontextcheckcompleted'
           description: The details of the SOD violations for the associated approval.
@@ -54793,6 +55055,21 @@ components:
           format: date-time
           example: '2020-07-11T00:00:00Z'
           nullable: true
+        startDate:
+          type: string
+          description: The date the role or access profile or entitlement is/will assigned to the specified identity.
+          format: date-time
+          example: '2020-07-11T00:00:00Z'
+        startUpdateRequested:
+          type: boolean
+          default: false
+          description: If true, then the request is to change the start date or sunrise date.
+          example: true
+        currentStartDate:
+          type: string
+          description: The start date or sunrise date that was assigned at the time of the request.
+          format: date-time
+          example: '2020-07-11T00:00:00Z'
         sodViolationContext:
           $ref: '#/components/schemas/sodviolationcontextcheckcompleted'
           description: The details of the SOD violations for the associated approval.
@@ -54931,6 +55208,56 @@ components:
           description: If this is true, a manager can request access for his or her direct reports.
           default: false
           example: true
+    identityreferencewithnameandemail:
+      type: object
+      title: Identity Reference With Name And Email
+      nullable: true
+      properties:
+        type:
+          type: string
+          description: The type can only be IDENTITY. This is read-only.
+          example: IDENTITY
+        id:
+          type: string
+          description: Identity ID.
+          example: 5168015d32f890ca15812c9180835d2e
+        name:
+          type: string
+          description: Identity's human-readable display name. This is read-only.
+          example: Alison Ferguso
+        email:
+          type: string
+          nullable: true
+          description: Identity's email address. This is read-only.
+          example: alison.ferguso@identitysoon.com
+    approvalreminderandescalationconfig:
+      type: object
+      title: Approval Reminder And Escalation Config
+      description: |
+        Configuration for approval reminder and escalation behavior. Important: Modifying this object will override the sp-approval service's reminderConfig and escalationConfig settings. Changes made here take precedence over any configuration set directly in the sp-approval service.
+      properties:
+        daysUntilEscalation:
+          type: integer
+          description: Number of days to wait before the first reminder. If no reminders are configured, then this is the number of days to wait before escalation.
+          format: int32
+          example: 0
+          nullable: true
+        daysBetweenReminders:
+          type: integer
+          description: Number of days to wait between reminder notifications.
+          format: int32
+          example: 0
+          nullable: true
+        maxReminders:
+          type: integer
+          description: Maximum number of reminder notifications to send to the reviewer before approval escalation. The maximum allowed value is 20.
+          format: int32
+          minimum: 0
+          maximum: 20
+          example: 1
+          nullable: true
+        fallbackApproverRef:
+          $ref: '#/components/schemas/identityreferencewithnameandemail'
     entitlementapprovalscheme:
       type: object
       title: Entitlement Approval Scheme
@@ -55035,6 +55362,11 @@ components:
           description: If this is true, approvals must be processed by an external system. Also, if this is true, it blocks Request Center access requests and returns an error for any user who isn't an org admin.
           default: false
           example: true
+        autoApprovalEnabled:
+          type: boolean
+          description: If this is true and the requester and reviewer are the same, the request is automatically approved.
+          default: false
+          example: true
         reauthorizationEnabled:
           type: boolean
           description: If this is true, reauthorization will be enforced for appropriately configured access items. Enablement of this feature is currently in a limited state.
@@ -55043,8 +55375,53 @@ components:
         requestOnBehalfOfConfig:
           $ref: '#/components/schemas/requestonbehalfofconfig'
           description: Request On Behalf Of configuration.
+        approvalReminderAndEscalationConfig:
+          $ref: '#/components/schemas/approvalreminderandescalationconfig'
+          description: Approval reminder and escalation configuration. Modifying this object will override the sp-approval service's reminderConfig and escalationConfig settings.
         entitlementRequestConfig:
           $ref: '#/components/schemas/entitlementrequestconfig'
+          description: Entitlement request configuration.
+    requestonbehalfofconfigv2:
+      type: object
+      title: Request On Behalf Of Config
+      properties:
+        allowRequestOnBehalfOfAnyoneByAnyone:
+          type: boolean
+          description: If this is true, anyone can request access for anyone.
+          default: false
+          example: true
+        allowRequestOnBehalfOfEmployeeByManager:
+          type: boolean
+          description: If this is true, a manager can request access for his or her direct reports.
+          default: false
+          example: true
+    entitlementrequestconfigv2:
+      type: object
+      title: Entitlement Request Config
+      properties:
+        accessRequestConfig:
+          $ref: '#/components/schemas/entitlementaccessrequestconfig'
+        revocationRequestConfig:
+          $ref: '#/components/schemas/entitlementrevocationrequestconfig'
+    accessrequestconfigv2:
+      type: object
+      title: Access Request Config
+      properties:
+        approvalsMustBeExternal:
+          type: boolean
+          description: If this is true, approvals must be processed by an external system. Also, if this is true, it blocks Request Center access requests and returns an error for any user who isn't an org admin.
+          default: false
+          example: true
+        reauthorizationEnabled:
+          type: boolean
+          description: If this is true, reauthorization will be enforced for appropriately configured access items. Enablement of this feature is currently in a limited state.
+          default: false
+          example: true
+        requestOnBehalfOfConfig:
+          $ref: '#/components/schemas/requestonbehalfofconfigv2'
+          description: Request On Behalf Of configuration.
+        entitlementRequestConfig:
+          $ref: '#/components/schemas/entitlementrequestconfigv2'
           description: Entitlement request configuration.
         govGroupVisibilityEnabled:
           type: boolean
@@ -55084,6 +55461,15 @@ components:
             requestedAppName: test-app
             requestedAppId: 2c91808f7892918f0178b78da4a305a1
           description: Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on associated APIs such as /account-activities and /access-request-status.
+        startDate:
+          type: string
+          description: |
+            The date and time the role or access profile or entitlement is/will be provisioned to the specified identity. Also known as the sunrise date.
+            * Specify a date-time in the future.
+            * This date-time can be used to indicate date-time when access item will be provisioned on the identity account. A GRANT_ACCESS request can use startDate to specify when to schedule provisioning of access item for an identity/account & a MODIFY_ACCESS request can use startDate to change the provisioning date-time of already assigned access item. But REVOKE_ACCESS request can not have startDate field. You can change the sunrise date in requests for yourself or others you are authorized to request for.
+            * If the startDate is in the past, then the provisioning will be processed as soon as possible, but no guarantees can be made about when the provisioning will occur. If the startDate is in the future, then the provisioning will be scheduled to occur on that date and time. If no startDate is provided, then the provisioning will be processed as soon as possible.
+          format: date-time
+          example: '2020-06-12T21:22:23.000Z'
         removeDate:
           type: string
           description: |
@@ -55169,6 +55555,15 @@ components:
             requestedAppName: test-app
             requestedAppId: 2c91808f7892918f0178b78da4a305a1
           description: Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on associated APIs such as /account-activities and /access-request-status.
+        startDate:
+          type: string
+          description: |
+            The date and time the role or access profile or entitlement is/will be provisioned to the specified identity. Also known as the sunrise date.
+            * Specify a date-time in the future.
+            * This date-time can be used to indicate date-time when access item will be provisioned on the identity account. A GRANT_ACCESS request can use startDate to specify when to schedule provisioning of access item for an identity/account & a MODIFY_ACCESS request can use startDate to change the provisioning date-time of already assigned access item. But REVOKE_ACCESS request can not have startDate field. You can change the sunrise date in requests for yourself or others you are authorized to request for.
+            * If the startDate is in the past, then the provisioning will be processed as soon as possible, but no guarantees can be made about when the provisioning will occur. If the startDate is in the future, then the provisioning will be scheduled to occur on that date and time. If no startDate is provided, then the provisioning will be processed as soon as possible.
+          format: date-time
+          example: '2020-06-12T21:22:23.000Z'
         removeDate:
           type: string
           description: |
@@ -55240,6 +55635,7 @@ components:
             Additional submit data structure with requestedFor containing requestedItems allowing distinction for each request item and Identity.
             * Can only be used when 'requestedFor' and 'requestedItems' are not separately provided
             * Adds ability to specify which account the user wants the access on, in case they have multiple accounts on a source
+            * Allows the ability to request items with different start dates
             * Allows the ability to request items with different remove dates
             * Also allows different combinations of request items and identities in the same request
             * Only for use in GRANT_ACCESS type requests
@@ -55939,6 +56335,12 @@ components:
           description: Description associated to the requested object.
           example: This is the Engineering role that engineers are granted.
           nullable: true
+        startDate:
+          type: string
+          format: date-time
+          nullable: true
+          description: When the role access is scheduled for provisioning.
+          example: '2019-10-21T00:00:00.000Z'
         removeDate:
           type: string
           format: date-time
@@ -56087,6 +56489,12 @@ components:
           description: Description associated to the requested object.
           example: This is the Engineering role that engineers are granted.
           nullable: true
+        startDate:
+          type: string
+          format: date-time
+          nullable: true
+          description: When the role access is scheduled for provisioning.
+          example: '2019-10-21T00:00:00.000Z'
         removeDate:
           type: string
           format: date-time
@@ -60864,28 +61272,6 @@ components:
           type: boolean
           description: Indicates whether the review items for the linked identity's certification have been completed
           example: true
-    identityreferencewithnameandemail:
-      type: object
-      title: Identity Reference With Name And Email
-      nullable: true
-      properties:
-        type:
-          type: string
-          description: The type can only be IDENTITY. This is read-only.
-          example: IDENTITY
-        id:
-          type: string
-          description: Identity ID.
-          example: 5168015d32f890ca15812c9180835d2e
-        name:
-          type: string
-          description: Identity's human-readable display name. This is read-only.
-          example: Alison Ferguso
-        email:
-          type: string
-          nullable: true
-          description: Identity's email address. This is read-only.
-          example: alison.ferguso@identitysoon.com
     dataaccess:
       type: object
       title: Data Access
@@ -65553,6 +65939,270 @@ components:
             - 2c9180887812e0b201781e129f151816
       required:
         - dimensionIds
+    entitlementconnectionsearchhitentitlement:
+      type: object
+      title: EntitlementConnectionSearchHitEntitlement
+      description: Entitlement object embedded in entitlement connection search responses.
+      properties:
+        id:
+          type: string
+          description: Entitlement identifier.
+          example: 2c918085804e1a0601806289c30a66de
+        name:
+          type: string
+          description: Entitlement name.
+          example: Launcher
+        displayName:
+          type: string
+          description: Human-readable entitlement label.
+          example: Launcher
+        description:
+          type: string
+          description: Entitlement description.
+          example: description of launcher entitlement
+        attribute:
+          type: string
+          description: Source attribute carrying entitlement values.
+          example: memberOf
+        value:
+          type: string
+          description: Source entitlement value.
+          example: CN=productivity-bryants-org-1,OU=Groups,dc=flatfile,dc=endtoend,dc=com
+        sourceSchemaObjectType:
+          type: string
+          description: Source schema object type for the entitlement.
+          example: ENTITLEMENT
+        privilegeLevel:
+          type: object
+          description: Privilege classification details for the entitlement.
+          properties:
+            effective:
+              type: string
+              description: Effective privilege level.
+              example: HIGH
+    entitlementconnectionsearchhit:
+      type: object
+      title: EntitlementConnectionSearchHit
+      description: Entitlement connection record returned by search-backed list endpoints.
+      properties:
+        id:
+          type: string
+          description: Connection ID as represented in search results.
+          example: 6c692d9972f8400ca4560a68f62c4c5f
+        identity:
+          type: object
+          description: Identity summary object from search index.
+          additionalProperties: true
+          example:
+            id: 2c918084804e1a0c0180628967085bc0
+            type: IDENTITY
+            name: Donna Helpdesk21b7
+            alias: Donna.Helpdesk21b7
+        machineIdentity:
+          type: object
+          description: Machine identity summary object when available.
+          additionalProperties: true
+          example:
+            id: 2c918084804e1a0c0180628967085bc1
+            type: MACHINE
+            name: service123
+        account:
+          type: object
+          description: Account summary object.
+          additionalProperties: true
+          example:
+            id: 17a0e011f3fc4b43a19ddf13d6b92ede
+            name: account-name123
+        entitlement:
+          $ref: '#/components/schemas/entitlementconnectionsearchhitentitlement'
+        source:
+          type: object
+          description: Source summary object.
+          additionalProperties: true
+          example:
+            id: a8c0036f95b347d5a3a55a81f515f8ef
+            name: ODS-AD-FF-Source
+        state:
+          type: object
+          description: Connection state object.
+          additionalProperties: true
+          example:
+            value: Available
+            changed: '2025-10-30T15:02:12.345-05:00'
+        jit:
+          type: object
+          description: JIT timestamps for lifecycle events.
+          additionalProperties: true
+          example:
+            activation: '2025-12-03T10:15:30+01:00'
+            provisioned: '2025-12-03T10:15:30+01:00'
+            deactivation: '2025-12-03T10:15:30+01:00'
+            deprovisioned: '2025-12-03T10:15:30+01:00'
+            expiration: '2025-12-03T10:15:30+01:00'
+        standalone:
+          type: boolean
+          default: false
+          description: Indicates whether the connection is marked as standalone.
+          example: true
+        type:
+          type: string
+          description: Connection type classification.
+          example: JIT
+          enum:
+            - JIT
+            - STANDING
+            - NA
+    entitlementconnectionbulkupdateitem:
+      type: object
+      title: EntitlementConnectionBulkUpdateItem
+      required:
+        - connectionId
+        - type
+      properties:
+        connectionId:
+          type: string
+          description: Connection ID to update.
+          example: d532fa5cb15748e2873c6a01e5923ec4
+        type:
+          type: string
+          description: Target connection type.
+          example: JIT
+          enum:
+            - JIT
+            - STANDING
+    entitlementconnectionbulkupdateresultitem:
+      type: object
+      title: EntitlementConnectionBulkUpdateResultItem
+      properties:
+        connectionId:
+          type: string
+          description: Connection ID processed in this row.
+          example: d532fa5cb15748e2873c6a01e5923ec4
+        type:
+          type: string
+          description: Requested or resulting connection type for the row.
+          example: JIT
+        status:
+          type: integer
+          format: int32
+          description: Item-level result status code.
+          example: 201
+        description:
+          type: string
+          description: Item-level result message.
+          example: success
+    entitlementconnection:
+      type: object
+      title: EntitlementConnection
+      description: Entitlement connection entity returned by patch APIs.
+      properties:
+        tenantId:
+          type: string
+          format: uuid
+          description: Tenant identifier that owns the connection.
+          example: 0b0d4856-4f0b-490a-a7da-3a741946e1d9
+        connectionId:
+          type: string
+          description: Entitlement connection identifier.
+          example: 6c692d9972f8400ca4560a68f62c4c5f
+        identityId:
+          type: string
+          description: Identity identifier associated with the connection.
+          example: 35d80d89f3274418ba5748f0b3838d49
+        machineIdentityId:
+          type: string
+          description: Machine identity identifier when the connection is machine-backed.
+          example: 77c4ca79c5554f09afd87d651f62af79
+        accountId:
+          type: string
+          description: Account identifier for the connected source account.
+          example: 17a0e011f3fc4b43a19ddf13d6b92ede
+        entitlementId:
+          type: string
+          description: Entitlement identifier on the source.
+          example: d532fa5cb15748e2873c6a01e5923ec4
+        sourceId:
+          type: string
+          description: Source identifier that provides the account and entitlement.
+          example: 60ab87390360421f8b7d731cb1f7017b
+        standalone:
+          type: boolean
+          default: false
+          description: Indicates whether the connection is marked as standalone.
+          example: true
+        attributeName:
+          type: string
+          description: Entitlement attribute name on the source.
+          example: memberOf
+        attributeValue:
+          type: string
+          description: Entitlement attribute value on the source.
+          example: CN=cloud support,OU=Automation_Users,OU=slpt-automation,DC=TestAutomationAD,DC=local
+        type:
+          type: string
+          description: Connection type classification.
+          example: JIT
+          enum:
+            - JIT
+            - STANDING
+            - NA
+        state:
+          type: string
+          description: Current lifecycle state of the connection.
+          example: AVAILABLE
+        stateChanged:
+          type: string
+          format: date-time
+          description: Time the connection state was last updated.
+          example: '2025-10-30T15:02:12.345-05:00'
+        stateChangedBy:
+          type: string
+          description: Identifier of the actor that last changed state.
+          example: c0bd1330f1c34d7989dd10dc39a1b561
+        jitActivation:
+          type: string
+          format: date-time
+          description: Time JIT activation occurred.
+          example: '2025-12-03T10:15:30+01:00'
+        jitProvision:
+          type: string
+          format: date-time
+          description: Time provisioning completed for JIT activation.
+          example: '2025-12-03T10:15:30+01:00'
+        jitDeactivation:
+          type: string
+          format: date-time
+          description: Time JIT deactivation occurred.
+          example: '2025-12-03T10:15:30+01:00'
+        jitDeprovision:
+          type: string
+          format: date-time
+          description: Time deprovisioning completed after JIT deactivation.
+          example: '2025-12-03T10:15:30+01:00'
+        jitExpiration:
+          type: string
+          format: date-time
+          description: Time when JIT access expires.
+          example: '2025-12-03T10:15:30+01:00'
+        deleteAfter:
+          type: string
+          format: date-time
+          description: Time after which the connection is eligible for deletion.
+          example: '2026-12-03T10:15:30+01:00'
+        created:
+          type: string
+          format: date-time
+          description: Time when the connection was created.
+          example: '2025-10-29T09:00:00-05:00'
+        modified:
+          type: string
+          format: date-time
+          description: Time when the connection was last modified.
+          example: '2025-10-30T15:02:12.345-05:00'
+        actorName:
+          type: string
+          description: Display value for the actor associated with the latest change.
+          example: e29b41d4a41644679df31f96c209888a
     entitlementprivilegelevel:
       type: object
       title: Requested Account Ref
@@ -69897,620 +70547,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/identityattributepreview'
-    intelidentitytimestamps:
-      type: object
-      required:
-        - createdAt
-        - modifiedAt
-      properties:
-        createdAt:
-          type: string
-          format: date-time
-          description: Timestamp when the identity record was first created in Identity Security Cloud.
-          example: '2024-01-15T10:30:00Z'
-        modifiedAt:
-          type: string
-          format: date-time
-          description: Timestamp when the identity record was last modified in Identity Security Cloud.
-          example: '2024-06-20T14:45:00Z'
-    intelhuman:
-      type: object
-      required:
-        - alias
-        - email
-        - identityStatus
-        - isProtected
-        - isManager
-      properties:
-        alias:
-          type: string
-          description: Primary login or account alias for the human identity.
-          example: jdoe
-        email:
-          type: string
-          format: email
-          description: Primary business email address for the human identity.
-          example: john.doe@example.com
-        identityStatus:
-          type: string
-          description: Current identity lifecycle status label from Identity Security Cloud.
-          example: Active
-        lifecycleState:
-          type: string
-          nullable: true
-          description: Lifecycle state name assigned through provisioning policy when present.
-          example: contractor
-        processingState:
-          type: string
-          nullable: true
-          description: Processing state for outstanding identity change operations when present.
-          example: pending
-        isProtected:
-          type: boolean
-          description: True when the identity is marked protected from automated changes.
-          example: false
-        manager:
-          type: string
-          nullable: true
-          description: Legacy manager identity identifier or display reference when assigned.
-          example: ef38f94347e94562b5bb8424a56397d9
-        managerId:
-          type: string
-          nullable: true
-          description: Manager identity identifier when correlated in Identity Security Cloud.
-          example: ef38f94347e94562b5bb8424a56397d9
-        managerName:
-          type: string
-          nullable: true
-          description: Manager display name when available from identity services.
-          example: Alex Manager
-        isManager:
-          type: boolean
-          description: True when the identity is flagged as a people manager in the organization.
-          example: true
-        lastRefreshAt:
-          type: string
-          nullable: true
-          format: date-time
-          description: Timestamp of the last successful identity refresh from sources when known.
-          example: '2024-05-01T08:00:00Z'
-    intelmachinesource:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the correlated source in Identity Security Cloud.
-          example: 2c9180835d2e5168015d32f890301e89
-        name:
-          type: string
-          description: Display name of the source as configured in Identity Security Cloud.
-          example: Example Directory
-        type:
-          type: string
-          description: Connector or source type classification for the backing system.
-          example: LDAP
-    intelmachine:
-      type: object
-      description: MACHINE-specific block; subtype is only on the top-level IntelIdentityResponse.
-      properties:
-        businessApplication:
-          type: string
-          description: Business application name associated with the non-human identity.
-          example: Payroll Bot
-        nativeIdentity:
-          type: string
-          description: Native identifier value on the authoritative source for the machine identity.
-          example: example-agent-1
-        uuid:
-          type: string
-          nullable: true
-          description: Optional globally unique identifier for the machine identity when assigned.
-          example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
-        sourceId:
-          type: string
-          description: Identifier of the correlated source for this machine identity.
-          example: 8433902684054f09ae024c06cf5091c1
-        source:
-          type: object
-          description: Correlated source summary for the machine identity when available.
-          allOf:
-            - $ref: '#/components/schemas/intelmachinesource'
-        datasetId:
-          type: string
-          description: Dataset identifier used by machine identity correlation logic.
-          example: dataset-001
-        existsOnSource:
-          type: boolean
-          description: True when a matching account still exists on the connected source.
-          default: false
-          example: true
-        manuallyCreated:
-          type: boolean
-          description: True when the machine identity was created through a manual administrative action.
-          default: false
-          example: false
-        manuallyEdited:
-          type: boolean
-          description: True when the machine identity attributes were manually edited after creation.
-          default: false
-          example: false
-        owners:
-          type: object
-          description: Structured owner references for the machine identity when populated by the service.
-          example: {}
-        userEntitlements:
-          type: array
-          description: Entitlements or fine-grained rights linked to the machine identity when available.
-          items:
-            type: object
-            description: Opaque entitlement payload element returned from upstream services.
-            example: {}
-    intelhref:
-      type: object
-      required:
-        - href
-      properties:
-        href:
-          type: string
-          description: Target URI for the related Intelligence Package sub-resource or operation.
-          example: /v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/access
-    intelidentitylinks:
-      type: object
-      required:
-        - access
-        - risk
-        - accessHistory
-      properties:
-        access:
-          type: object
-          description: Hyperlink to the Intelligence Package access document for this identity.
-          allOf:
-            - $ref: '#/components/schemas/intelhref'
-          example:
-            href: /v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/access
-        risk:
-          type: object
-          description: Hyperlink to the Intelligence Package risk document for this identity.
-          allOf:
-            - $ref: '#/components/schemas/intelhref'
-          example:
-            href: /v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/risk
-        accessHistory:
-          type: object
-          description: Hyperlink to the Intelligence Package access history document for this identity.
-          allOf:
-            - $ref: '#/components/schemas/intelhref'
-          example:
-            href: /v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/access-history
-    intelidentityresponse:
-      type: object
-      description: |
-        HUMAN responses include human, top-level subtype (NERM classification:
-        Employee, Non Employee, or Cannot Determine), and _links (access, risk, and accessHistory).
-        MACHINE responses include machine and top-level subtype (connector subtype string);
-        _links is omitted.
-      required:
-        - id
-        - type
-        - timestamps
-      properties:
-        id:
-          type: string
-          description: Identity Security Cloud identifier for this identity.
-          example: ef38f94347e94562b5bb8424a56397d8
-        type:
-          type: string
-          enum:
-            - HUMAN
-            - MACHINE
-          description: Discriminator indicating whether this identity is human or machine backed.
-          example: HUMAN
-        displayName:
-          type: string
-          description: Preferred display name for the identity across administrative experiences.
-          example: Jane Example
-        description:
-          type: string
-          nullable: true
-          description: Optional free-text description assigned to the identity profile when present.
-          example: Contractor identity for example project work.
-        subtype:
-          type: string
-          nullable: true
-          description: |
-            For HUMAN identities, NERM classification (Employee, Non Employee, or Cannot Determine).
-            For MACHINE identities, connector subtype string from the authoritative source.
-          example: Employee
-        owners:
-          type: string
-          nullable: true
-          description: Serialized owner reference information when populated by upstream identity services.
-          example: governance-group-001
-        attributes:
-          type: object
-          additionalProperties: true
-          description: Arbitrary SCIM-style attribute bag returned for the identity context view.
-          example:
-            department: Engineering
-            region: US
-        timestamps:
-          type: object
-          description: Created and modified timestamps for the identity record in Identity Security Cloud.
-          allOf:
-            - $ref: '#/components/schemas/intelidentitytimestamps'
-        human:
-          type: object
-          description: Human identity extension payload when type is HUMAN.
-          nullable: true
-          allOf:
-            - $ref: '#/components/schemas/intelhuman'
-        machine:
-          type: object
-          description: Machine identity extension payload when type is MACHINE.
-          nullable: true
-          allOf:
-            - $ref: '#/components/schemas/intelmachine'
-        _links:
-          type: object
-          description: Hyperlinks to related Intelligence Package sub-resources; present for HUMAN only.
-          nullable: true
-          allOf:
-            - $ref: '#/components/schemas/intelidentitylinks'
-    errorbody:
-      type: object
-      properties:
-        detailCode:
-          type: string
-          description: Machine-readable error code returned by the Intelligence Package service.
-          example: IDC_BAD_REQUEST
-        message:
-          type: string
-          description: Human-readable explanation of the error suitable for client logging.
-          example: The filters query parameter is required and cannot be empty.
-    intelidentitynotfoundbody:
-      type: object
-      required:
-        - detailCode
-      properties:
-        detailCode:
-          type: string
-          enum:
-            - IDC_IDENTITY_NOT_FOUND
-          description: Constant detail code indicating that no identity matched the supplied filter.
-          example: IDC_IDENTITY_NOT_FOUND
-        message:
-          type: string
-          description: Optional explanatory text describing why no identity was found.
-          example: No identity matched the supplied SCIM filter expression.
-    intelidentityambiguouscandidate:
-      type: object
-      required:
-        - id
-      properties:
-        id:
-          type: string
-          description: Identity identifier for one of the ambiguous matching identities.
-          example: ef38f94347e94562b5bb8424a56397d8
-        displayName:
-          type: string
-          description: Display name for the ambiguous matching identity when available.
-          example: Jane Example
-    intelidentityambiguousbody:
-      type: object
-      required:
-        - detailCode
-        - candidates
-      properties:
-        detailCode:
-          type: string
-          enum:
-            - IDC_IDENTITY_AMBIGUOUS
-          description: Constant detail code indicating that more than one identity matched the filter.
-          example: IDC_IDENTITY_AMBIGUOUS
-        message:
-          type: string
-          description: Optional explanatory text describing why the filter was considered ambiguous.
-          example: Multiple identities matched the supplied SCIM filter expression.
-        candidates:
-          type: array
-          description: Collection of identities that matched the ambiguous filter expression.
-          items:
-            $ref: '#/components/schemas/intelidentityambiguouscandidate'
-          example:
-            - id: ef38f94347e94562b5bb8424a56397d8
-              displayName: Jane Example
-            - id: ef38f94347e94562b5bb8424a56397d9
-              displayName: J. Example
-    intelaccesssourcewire:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Source identifier referenced by the account wire object.
-          example: 2c9180835d2e5168015d32f890301e89
-        name:
-          type: string
-          description: Human-readable source name shown in administrative consoles.
-          example: Active Directory
-    intelaccessaccountwire:
-      type: object
-      required:
-        - id
-        - name
-        - disabled
-        - locked
-        - uncorrelated
-        - authoritative
-        - systemAccount
-        - isMachine
-        - hasEntitlements
-        - manuallyCorrelated
-        - connectionType
-        - created
-        - modified
-      properties:
-        id:
-          type: string
-          description: Unique account identifier in Identity Security Cloud.
-          example: 2c91808874ff91550175097daaec161c
-        name:
-          type: string
-          description: Account name or login value on the correlated source.
-          example: jdoe
-        source:
-          type: object
-          description: Source metadata for the account as returned by List Accounts wire format.
-          allOf:
-            - $ref: '#/components/schemas/intelaccesssourcewire'
-        disabled:
-          type: boolean
-          description: True when the account is administratively disabled on the source.
-          example: false
-        locked:
-          type: boolean
-          description: True when the account is locked from interactive sign-in on the source.
-          example: false
-        uncorrelated:
-          type: boolean
-          description: True when the account is not correlated to an authoritative identity.
-          example: false
-        authoritative:
-          type: boolean
-          description: True when the account is treated as authoritative for attribute synchronization.
-          example: true
-        systemAccount:
-          type: boolean
-          description: True when the account represents a non-interactive or system principal.
-          example: false
-        isMachine:
-          type: boolean
-          description: True when the account belongs to a machine or service identity.
-          example: false
-        hasEntitlements:
-          type: boolean
-          description: True when the account currently has one or more entitlements assigned.
-          example: true
-        manuallyCorrelated:
-          type: boolean
-          description: True when an administrator manually correlated the account to an identity.
-          example: false
-        connectionType:
-          type: string
-          description: Connector connection type identifier for the backing source system.
-          example: direct
-        nativeIdentity:
-          type: string
-          nullable: true
-          description: Native identifier string on the source directory or application.
-          example: CN=jdoe,OU=Users,DC=example,DC=com
-        created:
-          type: string
-          format: date-time
-          description: Timestamp when the account record was created in Identity Security Cloud.
-          example: '2023-11-01T10:00:00Z'
-        modified:
-          type: string
-          format: date-time
-          description: Timestamp when the account record was last modified in Identity Security Cloud.
-          example: '2024-02-15T16:20:00Z'
-    intelprivilegedaccessitemwire:
-      type: object
-      required:
-        - privileged
-        - id
-        - type
-      properties:
-        privileged:
-          type: boolean
-          description: True when SDS Search classifies this item as privileged access for the identity.
-          example: true
-        displayName:
-          type: string
-          description: Display label for the privileged access item in administrative experiences.
-          example: Example_Admin_Access
-        name:
-          type: string
-          description: Technical name of the privileged access item from SDS Search.
-          example: Example_Admin_Access
-        standalone:
-          type: boolean
-          description: True when the privileged item is modeled as a standalone entitlement or access object.
-          default: false
-          example: true
-        id:
-          type: string
-          description: Identifier of the privileged access item returned by SDS Search.
-          example: ent-1
-        source:
-          type: object
-          description: Source metadata associated with the privileged access item when present.
-          properties:
-            name:
-              type: string
-              description: Human-readable source name for the privileged access item.
-              example: Example HR Source
-            id:
-              type: string
-              description: Source identifier for the privileged access item.
-              example: src-2
-        attribute:
-          type: string
-          description: Source attribute name that carries the privileged value when applicable.
-          example: EXAMPLE_PERMISSION_GROUPS
-        type:
-          type: string
-          description: Object type classification from SDS Search (for example ENTITLEMENT).
-          example: ENTITLEMENT
-        value:
-          type: string
-          description: Privileged value on the source attribute when applicable.
-          example: Example_Admin_Access
-    intelidentityaccessbody:
-      type: object
-      required:
-        - accounts
-        - privilegedAccessItems
-      properties:
-        accounts:
-          type: array
-          description: Accounts for the identity in camelCase wire format from Shelby List Accounts.
-          items:
-            $ref: '#/components/schemas/intelaccessaccountwire'
-          example:
-            - id: acc-1
-              name: example.user
-              source:
-                id: src-1
-                name: Example Directory
-              disabled: false
-              locked: false
-              uncorrelated: false
-              authoritative: false
-              systemAccount: false
-              isMachine: false
-              hasEntitlements: true
-              manuallyCorrelated: false
-              connectionType: direct
-              nativeIdentity: CN=example.user,OU=users
-              created: '2026-01-01T00:00:00Z'
-              modified: '2026-05-01T00:00:00Z'
-        privilegedAccessItems:
-          type: array
-          description: Privileged access items for the identity returned by SDS Search.
-          items:
-            $ref: '#/components/schemas/intelprivilegedaccessitemwire'
-          example:
-            - privileged: true
-              displayName: Example_Admin_Access
-              name: Example_Admin_Access
-              standalone: true
-              id: ent-1
-              source:
-                name: Example HR Source
-                id: src-2
-              attribute: EXAMPLE_PERMISSION_GROUPS
-              type: ENTITLEMENT
-              value: Example_Admin_Access
-    intelidentityaccesshistorybody:
-      type: object
-      required:
-        - events
-      properties:
-        events:
-          type: array
-          description: |
-            Each event is relayed from identity-history. Schema varies by event type;
-            consumers should treat unknown fields as opaque using additionalProperties.
-          items:
-            type: object
-            additionalProperties: true
-            description: Single historical access or lifecycle event payload from identity-history.
-            example:
-              id: evt-001
-              type: LOGIN
-              dateTime: '2024-05-01T12:00:00Z'
-          example:
-            - id: evt-001
-              type: LOGIN
-              dateTime: '2024-05-01T12:00:00Z'
-    inteloutlieraccessitem:
-      type: object
-      required:
-        - id
-        - displayName
-        - accessType
-        - sourceName
-        - extremelyRare
-      description: One outlier access-item row.
-      properties:
-        id:
-          type: string
-          description: Stable identifier of the outlier access-item row.
-          example: outlier-access-001
-        displayName:
-          type: string
-          description: Display label of the risky access item.
-          example: Example_Admin_Access
-        description:
-          type: string
-          nullable: true
-          description: Optional descriptive text for the risky access item.
-          example: null
-        accessType:
-          type: string
-          description: Access item type (for example ENTITLEMENT, ROLE, ACCESS_PROFILE, ACCOUNT, or APP).
-          example: ENTITLEMENT
-        sourceName:
-          type: string
-          description: Source name where the risky access item exists.
-          example: Example SaaS Source
-        extremelyRare:
-          type: boolean
-          description: Indicates whether analytics marked this item as extremely rare.
-          example: false
-    intelrisklinks:
-      type: object
-      description: Continuation links for risk responses.
-      properties:
-        outliers:
-          type: object
-          description: Link to fetch the next outlier page for the same identity.
-          allOf:
-            - $ref: '#/components/schemas/intelhref'
-          example:
-            href: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/00000000000000000000000000000000/risk/outliers?limit=250&offset=250
-    intelidentityriskbody:
-      type: object
-      required:
-        - outliers
-        - outliersTotal
-      description: Shared response envelope for risk endpoints.
-      properties:
-        outliers:
-          type: array
-          description: Page of outlier access-items associated with the resolved identity outlier.
-          items:
-            $ref: '#/components/schemas/inteloutlieraccessitem'
-          example:
-            - id: outlier-access-001
-              displayName: Example_Admin_Access
-              description: null
-              accessType: ENTITLEMENT
-              sourceName: Example SaaS Source
-              extremelyRare: false
-        outliersTotal:
-          type: integer
-          format: int64
-          nullable: true
-          minimum: 0
-          description: Total available outlier access-item count from upstream.
-          example: 312
-        _links:
-          type: object
-          nullable: true
-          description: Continuation links map; omitted when no additional page exists.
-          allOf:
-            - $ref: '#/components/schemas/intelrisklinks'
     jitactivationconfigresponse:
       type: object
       required:
@@ -71283,6 +71319,18 @@ components:
                   type: string
                   description: Transform Operation
                   example: ToUpper
+    bulkretrievesourcesubtypesrequest:
+      type: array
+      title: Bulk Retrieve Request for Source Subtypes
+      description: List of source subtype IDs.
+      minItems: 1
+      maxItems: 100
+      items:
+        type: string
+        description: Subtype ID.
+        example: 38453251-6be2-5f8f-df93-5ce19e295838
+      example:
+        - 38453251-6be2-5f8f-df93-5ce19e295838
     sourcesubtypewithsource:
       type: object
       properties:
@@ -71341,6 +71389,91 @@ components:
               type: string
               description: Name of the source.
               example: Test Source
+        systemManaged:
+          type: boolean
+          description: Indicates if the subtype is managed by the system.
+          default: false
+          example: true
+    machinesubtypeapprovalconfig:
+      type: object
+      title: Machine Subtype Approval Config Dto
+      properties:
+        approvers:
+          type: string
+          example: manager, workgroup:1419fc28-a8ed-4a07-9f5c-0cb5dfad6311
+          description: |-
+            Comma separated string of approvers.
+
+            Following are the options for approver types: manager, sourceOwner, accountOwner, workgroup:[workgroupId] (Governance group).
+
+            Approval request will be assigned based on the order of the approvers passed.
+
+            Multiple workgroups(governance groups) can be selected as an approver.
+
+            >**Note:** accountOwner approver type is only for machine account delete approval settings.
+        comments:
+          type: string
+          example: ALL
+          description: |-
+            Comment configurations for the approval request.
+
+            Following are the options for comments: ALL, OFF, APPROVAL, REJECT.
+    machineaccountsubtypeconfigdto:
+      type: object
+      title: Machine Account Subtype Approval Config
+      description: Contains comprehensive configuration details for machine account subtype approval, including creation and deletion approval requirements, approver lists, form and entitlement references, and approval status options.
+      properties:
+        subtypeId:
+          type: string
+          description: Unique identifier representing the specific subtype of the machine account, used to distinguish between different machine account categories.
+          example: 1419fc28-a8ed-4a07-9f5c-0cb5dfad6311
+        machineAccountCreate:
+          type: object
+          description: Configuration options for machine account creation, including whether creation is enabled, if approval is required, associated form and entitlement IDs, and detailed approval settings such as approvers and allowed comment types.
+          properties:
+            accountCreateEnabled:
+              type: boolean
+              default: false
+              example: true
+              description: Specifies if the creation of machine accounts is allowed for this subtype.
+            approvalRequired:
+              type: boolean
+              default: false
+              example: true
+              description: Specifies if approval is required for machine account creation requests for this subtype.
+            formId:
+              type: string
+              example: 4f1bb61b-a0ab-4c0a-b9fb-20f44407b75a
+              description: Id of the form linked to subtype.
+            entitlementId:
+              type: string
+              example: 858d2151-ff19-464b-ae0d-6938b3af2baf
+              description: Id of the system created entitlement entitlement upon enabling account creation for this subtype.
+            passwordSetting:
+              type: string
+              enum:
+                - DO_NOT_SET_PASSWORD
+                - SET_TO_EXISTING_ATTRIBUTE
+                - SET_TO_NEW_ATTRIBUTE
+              example: SET_TO_EXISTING_ATTRIBUTE
+              description: This is required before enabling the account creation to true. Default value will be null.
+            passwordAttribute:
+              type: string
+              example: accountName
+              description: Name of the account attribute from the source's schema or new custom attribute to use when password settings is enabled.
+            approvalConfig:
+              $ref: '#/components/schemas/machinesubtypeapprovalconfig'
+        machineAccountDelete:
+          type: object
+          description: Configuration options for machine account deletion, including whether approval is required, the list of authorized approvers, and the types of comments permitted during the approval workflow.
+          properties:
+            approvalRequired:
+              type: boolean
+              default: false
+              example: true
+              description: Indicates whether approval is required for an account deletion request.
+            approvalConfig:
+              $ref: '#/components/schemas/machinesubtypeapprovalconfig'
     machineaccount:
       allOf:
         - $ref: '#/components/schemas/basecommondto'
@@ -71497,98 +71630,6 @@ components:
           type: string
           description: Type of the subtype. Either MACHINE OR null.
           example: MACHINE
-    bulkretrievesourcesubtypesrequest:
-      type: array
-      title: Bulk Retrieve Request for Source Subtypes
-      description: List of source subtype IDs.
-      minItems: 1
-      maxItems: 100
-      items:
-        type: string
-        description: Subtype ID.
-        example: 38453251-6be2-5f8f-df93-5ce19e295838
-      example:
-        - 38453251-6be2-5f8f-df93-5ce19e295838
-    machinesubtypeapprovalconfig:
-      type: object
-      title: Machine Subtype Approval Config Dto
-      properties:
-        approvers:
-          type: string
-          example: manager, workgroup:1419fc28-a8ed-4a07-9f5c-0cb5dfad6311
-          description: |-
-            Comma separated string of approvers.
-
-            Following are the options for approver types: manager, sourceOwner, accountOwner, workgroup:[workgroupId] (Governance group).
-
-            Approval request will be assigned based on the order of the approvers passed.
-
-            Multiple workgroups(governance groups) can be selected as an approver.
-
-            >**Note:** accountOwner approver type is only for machine account delete approval settings.
-        comments:
-          type: string
-          example: ALL
-          description: |-
-            Comment configurations for the approval request.
-
-            Following are the options for comments: ALL, OFF, APPROVAL, REJECT.
-    machineaccountsubtypeconfigdto:
-      type: object
-      title: Machine Account Subtype Approval Config
-      description: Contains comprehensive configuration details for machine account subtype approval, including creation and deletion approval requirements, approver lists, form and entitlement references, and approval status options.
-      properties:
-        subtypeId:
-          type: string
-          description: Unique identifier representing the specific subtype of the machine account, used to distinguish between different machine account categories.
-          example: 1419fc28-a8ed-4a07-9f5c-0cb5dfad6311
-        machineAccountCreate:
-          type: object
-          description: Configuration options for machine account creation, including whether creation is enabled, if approval is required, associated form and entitlement IDs, and detailed approval settings such as approvers and allowed comment types.
-          properties:
-            accountCreateEnabled:
-              type: boolean
-              default: false
-              example: true
-              description: Specifies if the creation of machine accounts is allowed for this subtype.
-            approvalRequired:
-              type: boolean
-              default: false
-              example: true
-              description: Specifies if approval is required for machine account creation requests for this subtype.
-            formId:
-              type: string
-              example: 4f1bb61b-a0ab-4c0a-b9fb-20f44407b75a
-              description: Id of the form linked to subtype.
-            entitlementId:
-              type: string
-              example: 858d2151-ff19-464b-ae0d-6938b3af2baf
-              description: Id of the system created entitlement entitlement upon enabling account creation for this subtype.
-            passwordSetting:
-              type: string
-              enum:
-                - DO_NOT_SET_PASSWORD
-                - SET_TO_EXISTING_ATTRIBUTE
-                - SET_TO_NEW_ATTRIBUTE
-              example: SET_TO_EXISTING_ATTRIBUTE
-              description: This is required before enabling the account creation to true. Default value will be null.
-            passwordAttribute:
-              type: string
-              example: accountName
-              description: Name of the account attribute from the source's schema or new custom attribute to use when password settings is enabled.
-            approvalConfig:
-              $ref: '#/components/schemas/machinesubtypeapprovalconfig'
-        machineAccountDelete:
-          type: object
-          description: Configuration options for machine account deletion, including whether approval is required, the list of authorized approvers, and the types of comments permitted during the approval workflow.
-          properties:
-            approvalRequired:
-              type: boolean
-              default: false
-              example: true
-              description: Indicates whether approval is required for an account deletion request.
-            approvalConfig:
-              $ref: '#/components/schemas/machinesubtypeapprovalconfig'
     machineclassificationcriteriaoperation:
       type: string
       enum:
@@ -76157,9 +76198,9 @@ components:
             - sourceId: 2c91808c791a94e501792388b0d62659
               systemId: '1556'
             - sourceId: 2_2c91808c791a94e501792388b0d62659
-              systemId: 2_1556
+              systemId: 21556
             - sourceId: 3_2c91808c791a94e501792388b0d62659
-              systemId: 3_1556
+              systemId: 31556
         armAuth:
           type: string
           description: ARM authentication string
@@ -81018,7 +81059,7 @@ components:
         spec_version:
           type: string
           description: Version of the SSF specification supported.
-          example: 1_0
+          example: 10
         issuer:
           type: string
           description: Base URL of the transmitter (issuer).

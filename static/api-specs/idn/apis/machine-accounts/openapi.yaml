@@ -39,10 +39,6 @@ paths:
     $ref: ./paths/sources-v1-by-sourceid-subtypes-by-technicalname.yaml
   /sources/v1/subtypes/{subtypeId}:
     $ref: ./paths/sources-v1-subtypes-by-subtypeid.yaml
-  /source-subtypes/v1/bulk-retrieve:
-    $ref: ./paths/source-subtypes-v1-bulk-retrieve.yaml
-  /source-subtypes/v1/{subtypeId}/machine-config:
-    $ref: ./paths/source-subtypes-v1-by-subtypeid-machine-config.yaml
 security:
   - userAuth:
       - sp:scopes:all

@@ -3,10 +3,9 @@
 }
 
 .container {
-  display: flex;
   margin: auto;
-  max-width: 1500px;
-  gap: 20px;
+  width: calc(100% - 100px);
+  max-width: 1180px;
 }
 
 .pageHeader {
@@ -30,13 +29,15 @@
 }
 
 .filterSection {
-  width: 400px;
-  margin: 3% auto auto;
+  width: calc(100% - 100px);
+  max-width: 1180px;
+  margin: 0 auto 24px;
   padding: 24px;
   background: var(--main-hero-card-background);
   border: 1px solid var(--dev-card-background);
   border-radius: 0.25em;
   box-shadow: var(--dev-main-card-shadow);
+  box-sizing: border-box;
 }
 
 .filterSectionTitle {
@@ -53,7 +54,7 @@
 }
 
 .filterGroup {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .filterGroup [class*='sidebar'] {
@@ -84,21 +85,14 @@
   border-color: var(--ifm-color-primary);
 }
 
-.filterContainer {
-  margin: auto;
-  width: 400px;
-  margin-top: 3%;
-}
-
 @media screen and (max-width: 550px) {
-  .filterSection,
-  .filterContainer {
-    width: 325px;
+  .filterSection {
+    width: calc(100% - 32px);
     padding: 16px;
   }
 }
 
 .cardContainer {
-  width: 63%;
+  width: 100%;
   margin: auto;
 }

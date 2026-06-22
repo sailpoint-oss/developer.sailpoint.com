@@ -104,34 +104,34 @@ const CoLabItems: React.FC = () => {
             Plugins, and more built and maintained by your fellow peers in the community.
           </p>
         </div>
+        <section className={styles.filterSection} aria-label="Filter CoLab items">
+          <h2 className={styles.filterSectionTitle}>Filters</h2>
+          <p className={styles.filterSectionDescription}>
+            Refine results by integration type or product.
+          </p>
+          <div className={styles.filterGroup}>
+            <label className={styles.filterGroupTitle} htmlFor="colab-category">
+              Integration Type
+            </label>
+            <select
+              id="colab-category"
+              className={styles.categorySelect}
+              value={selectedCategoryId}
+              onChange={handleCategoryChange}
+            >
+              {COLAB_CATEGORIES.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.label}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className={styles.filterGroup}>
+            <h3 className={styles.filterGroupTitle}>Product</h3>
+            <BlogSidebar filterCallback={handleProductClick} />
+          </div>
+        </section>
         <div className={styles.container}>
-          <section className={styles.filterSection} aria-label="Filter CoLab items">
-            <h2 className={styles.filterSectionTitle}>Filters</h2>
-            <p className={styles.filterSectionDescription}>
-              Refine results by integration type or product.
-            </p>
-            <div className={styles.filterGroup}>
-              <label className={styles.filterGroupTitle} htmlFor="colab-category">
-                Integration Type
-              </label>
-              <select
-                id="colab-category"
-                className={styles.categorySelect}
-                value={selectedCategoryId}
-                onChange={handleCategoryChange}
-              >
-                {COLAB_CATEGORIES.map((item) => (
-                  <option key={item.id} value={item.id}>
-                    {item.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className={styles.filterGroup}>
-              <h3 className={styles.filterGroupTitle}>Product</h3>
-              <BlogSidebar filterCallback={handleProductClick} />
-            </div>
-          </section>
           <div className={styles.cardContainer}>
             <MarketplaceCards filterCallback={filteredProduct} />
           </div>

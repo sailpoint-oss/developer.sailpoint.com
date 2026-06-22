@@ -19,7 +19,7 @@ const Marketplace: React.FC = () => {
                   Here you can find ready-to-use Workflows, SaaS Connectors, Rules, Transforms, IIQ Plugins, and more — built and maintained by your fellow peers in the community.
                   </span></div>
                 <div className={styles.gettingStartedThree}>
-                  <Link to={'/colab/colabitems'} className={styles.link}>
+                  <Link to={'/colab/colabsolutions'} className={styles.link}>
                     Browse CoLab Solutions &#8594;
                   </Link>
                 </div>

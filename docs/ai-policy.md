@@ -2,22 +2,27 @@
 id: ai-policy
 title: AI Usage Policy
 description: Guidelines for the responsible use of AI tools in the SailPoint Developer Community.
-slug: ai-policy
-unlisted: true
+slug: /ai-policy
+displayed_sidebar: communityPoliciesSidebar
+hide_table_of_contents: false
 custom_edit_url: null
 toc_min_heading_level: 2
 toc_max_heading_level: 2
+last_update:
+  date: 2026-06-18
 ---
 
-<div id="ai-policy-page" class="ai-policy-page-marker" hidden aria-hidden="true"></div>
+<div class="community-policy-page" hidden aria-hidden="true"></div>
 
 ## Purpose
 
-The SailPoint Community welcomes the responsible use of AI tools as part of the learning and problem-solving process. This policy establishes clear guidelines to ensure AI-generated content maintains the quality, accuracy, and educational value our community is known for.
+The SailPoint Developer Community welcomes the responsible use of AI tools as part of the learning and problem-solving process. This policy establishes clear guidelines to ensure AI-generated content maintains the quality, accuracy, and educational value our community is known for.
+
+By participating in the Developer Community, you agree to uphold the standards outlined in this Policy. This Policy is in addition to our [Community Program Terms](https://community.sailpoint.com/t5/Community-Rules/SailPoint-Community-Program-Terms/ta-p/142952) and will be updated from time to time. Additional policies and rules around AI use may apply, as set forth by your organization, please reach out to your organization admin if there are any questions. For SailPoint employees, please consult all relevant AI policies and guidelines.
 
 ## Scope
 
-This policy applies to all members of the SailPoint Community, including:
+This policy applies to all members of the SailPoint Developer Community, including:
 
 - Community members
 - Ambassadors and Expert Ambassadors
@@ -53,23 +58,21 @@ Include a disclosure statement such as:
 
 - "This response was generated with assistance from [AI tool name] and validated against SailPoint documentation."
 - "AI-assisted response - verified against my personal experience with ISC."
-- "Generated using [tool] and tested in my sandbox environment."
+- "Generated using [AI tool name] and tested in my sandbox environment."
 
 Place the disclosure at the beginning or end of your post in a clear, visible manner.
 
 **Do not:**
 
 - Post AI-generated content without disclosure
-- Use vague attributions like "found this online" when it's AI-generated
+- Use vague attributions like "found this online" when it's AI-generated content
 - Hide AI usage after being questioned
 
 ### 2. Validation Requirement
 
 **You must validate AI-generated information before posting.**
 
-Every AI-assisted contribution must be verified and tested:
-
-Verify against at least one of the following:
+Every AI-assisted contribution must be verified and tested by a human. Verify against at least one of the following:
 
 - Official SailPoint documentation
 - Your personal testing in a sandbox/demo environment
@@ -79,14 +82,14 @@ Verify against at least one of the following:
 
 Test before providing code solutions:
 
-- Run the code in your environment
+- Run the code in your test environment
 - Verify it produces expected results
 - Note any limitations or environment-specific requirements
 
 **Do not:**
 
 - Copy-paste AI responses without verification
-- Share untested code or configurations
+- Share untested or unvalidated code or configurations
 - Assume AI information is accurate without checking
 
 ### 3. Value-Add Requirement
@@ -159,7 +162,7 @@ When AI provides information, you must:
 
 - Using AI to generate malicious code
 - Creating deceptive or misleading security advice
-- Generating content that violates our Code of Conduct
+- Generating content that violates our [Code of Conduct](/docs/community-code-of-conduct)
 
 ---
 
@@ -170,7 +173,7 @@ When AI provides information, you must:
 **Example 1: Code Solution with Context**
 
 ```text
-*AI-assisted response - validated in my ISC sandbox*
+AI-assisted response - validated in my ISC sandbox
 
 Based on the requirement to transform account data, here's an approach
 using a transform. I used AI to help structure the JSON, then tested
@@ -235,13 +238,13 @@ all generic, just to accumulate points]
    - Provide context about your use case
 
 2. **Request sources**
-   - Ask AI to cite documentation
+   - Ask AI to cite documentation and list all sources used in its deliberation
    - Verify any URLs or references provided
-   - Cross-check against official SailPoint docs
+   - Cross-check against official SailPoint documentation
 
 3. **Iterate and refine**
    - Start with AI output as a draft
-   - Add your expertise and testing results
+   - Add your expertise and testing results to validate the output
    - Customize to the specific question
 
 4. **Check for hallucinations**
@@ -255,7 +258,7 @@ all generic, just to accumulate points]
 
 ### Progressive Enforcement Approach
 
-We believe in education first, but repeat violations will result in escalating consequences.
+We believe in education first, but repeat violations will result in escalating consequences. As a reminder, under our [Community Program Terms](https://community.sailpoint.com/t5/Community-Rules/SailPoint-Community-Program-Terms/ta-p/142952), we reserve the right to terminate or suspend your rights to use the Community Program for any reason.
 
 **First Violation - Reminder**
 
@@ -273,7 +276,7 @@ We believe in education first, but repeat violations will result in escalating c
 
 - Permanent posting ban
 - Account converted to read-only
-- Removal from Ambassador program if applicable
+- Removal from Ambassador Program if applicable
 
 ### Aggravating Factors
 
@@ -287,21 +290,9 @@ Certain behaviors will result in immediate escalation:
 
 If you believe enforcement action was taken in error:
 
-1. Send an email to [compass-help@sailpoint.com](mailto:compass-help@sailpoint.com) within 14 days
+1. Send an email to [compass-help@sailpoint.com](mailto:compass-help@sailpoint.com) within 14 days from enforcement action
 2. Provide evidence of your case
-3. Appeals reviewed within 5 business days
+3. Appeals reviewed within 14 business days, all decisions are made in our sole discretion
 4. Decision is final after appeal review
 
----
-
-## Questions & Updates
-
-**Questions about this policy:**
-
-- General questions: Post in the [Community Feedback category](https://developer.sailpoint.com/discuss/c/community-feedback/8)
-
-**Policy updates:** This policy will be reviewed annually and updated as needed.
-
----
-
-Thank you for helping maintain the quality and integrity of the SailPoint Community!
+Thank you for helping maintain the quality and integrity of the SailPoint Developer Community.

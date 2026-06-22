@@ -141,8 +141,15 @@ jobs:
     if: ${{ always() && (needs.publish.result == 'failure' || needs.publish.result == 'timed_out') }}
     needs:
       - publish
+    env:
+      NOTIFICATIONS_FUNCTION_URL: ${{ secrets.NOTIFICATIONS_FUNCTION_URL }}
     steps:
+      - name: Skip notification when URL is unavailable
+        if: ${{ env.NOTIFICATIONS_FUNCTION_URL == '' }}
+        run: echo "Skipping failure notification because NOTIFICATIONS_FUNCTION_URL is unavailable in this workflow context."
+
       - name: Invoke GithubNotificationsFunction Lambda
+        if: ${{ env.NOTIFICATIONS_FUNCTION_URL != '' }}
         run: |
           curl -X POST \
             -H "Content-Type: application/json" \
@@ -151,4 +158,4 @@ jobs:
               "repositoryName": "${{ github.event.repository.name }}",
               "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
             }' \
-            "${{ secrets.NOTIFICATIONS_FUNCTION_URL }}"
+            "$NOTIFICATIONS_FUNCTION_URL"

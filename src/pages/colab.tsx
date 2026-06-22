@@ -243,26 +243,26 @@ const Marketplace: React.FC = () => {
                 Step-by-step guides for each CoLab category.
               </p>
               <div className={styles.guidesList}>
-                <Link to="/colab/colabitems?category=saas-connectors" className={styles.publisherGuideLink}>
+                <Link to="/docs/tools/colab/getting-started-with-saas-connectors" className={styles.publisherGuideLink}>
                   Getting started with SaaS Connectors
                 </Link>
-                <Link to="/colab/colabitems?category=workflows" className={styles.publisherGuideLink}>
+                <Link to="/docs/tools/colab/getting-started-with-workflows" className={styles.publisherGuideLink}>
                   Getting started with Workflows
                 </Link>
-                <Link to="/colab/colabitems?category=rules" className={styles.publisherGuideLink}>
+                <Link to="/docs/tools/colab/getting-started-with-rules" className={styles.publisherGuideLink}>
                   Getting started with Rules
                 </Link>
-                <Link to="/colab/colabitems?category=transforms" className={styles.publisherGuideLink}>
+                <Link to="/docs/tools/colab/getting-started-with-transforms" className={styles.publisherGuideLink}>
                   Getting started with Transforms
                 </Link>
-                <Link to="/colab/colabitems?category=iiq-plugins" className={styles.publisherGuideLink}>
+                <Link to="/docs/tools/colab/getting-started-with-iiq-plugins" className={styles.publisherGuideLink}>
                   Getting started with IIQ Plugins
                 </Link>
-                <Link to="/colab/colabitems?category=community-tools" className={styles.publisherGuideLink}>
+                <Link to="/docs/tools/colab/getting-started-with-community-tools" className={styles.publisherGuideLink}>
                   Getting started with Community Tools
                 </Link>
               </div>
-              <Link to="/docs/colab/colab-documentation" className={styles.publisherLink}>
+              <Link to="/docs/tools/colab-documentation" className={styles.publisherLink}>
                 view all guides &#8594;
               </Link>
             </div>

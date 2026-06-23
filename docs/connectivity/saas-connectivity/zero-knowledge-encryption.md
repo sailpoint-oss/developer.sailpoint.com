@@ -24,7 +24,7 @@ Today’s enterprises use additional measures like security questions, which are
 ISC secures all credentials and sensitive identity data while at rest and in motion. SailPoint’s solution for securing sensitive data is built upon two tenets:
 
 1. All sensitive data must be protected by at least two layers of encryption, and those two layers must be dissimilar so if one is compromised, the other cannot be compromised the same way. 
-For example, encrypt credentials using 2048-bit RSA encryption, and then use Transport Layer Security (TLS) to encrypt the encrypted credentials while in motion.
+For example, encrypt credentials using 4096-bit RSA encryption (since February 2026), and then use Transport Layer Security (TLS) to encrypt the encrypted credentials while in motion.
 
 2. SailPoint never has access to the unencrypted form of sensitive data. It is always encrypted with a key that is controlled by the user or customer and is not accessible to SailPoint. 
 The key is always kept separate from the encrypted data. 

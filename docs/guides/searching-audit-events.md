@@ -251,16 +251,16 @@ The simple `query` string searches across all indexed fields, so a term like `"C
   "queryDsl": {
     "bool": {
       "must": [
-        { "match": { "target.name": "Finance Approvers" } },
+        { "match": { "target.name": "test-role" } },
         {
           "bool": {
             "should": [
               { "match": { "action": "ROLE_CREATED"       } },
               { "match": { "action": "ROLE_UPDATED"       } },
               { "match": { "action": "ROLE_DELETED"       } },
-              { "match": { "action": "ROLE_CREATE_PASSED" } },
-              { "match": { "action": "ROLE_UPDATE_PASSED" } },
-              { "match": { "action": "ROLE_DELETE_PASSED" } }
+              { "match": { "technicalName": "ROLE_CREATE_PASSED" } },
+              { "match": { "technicalName": "ROLE_UPDATE_PASSED" } },
+              { "match": { "technicalName": "ROLE_DELETE_PASSED" } }
             ],
             "minimum_should_match": 1
           }
@@ -294,9 +294,3 @@ The simple `query` string searches across all indexed fields, so a term like `"C
   "limit": 100
 }
 ```
-
-## Discuss
-
-The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions.
-
-To learn more about these ISC topics and discuss them with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/isc/6).

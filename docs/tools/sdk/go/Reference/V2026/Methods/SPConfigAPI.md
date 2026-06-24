@@ -29,7 +29,7 @@ Initiates configuration objects export job
 This post will export objects from the tenant to a JSON configuration file.
 For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects).
 
-[API Spec](https://developer.sailpoint.com/docs/api/export-sp-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/export-sp-config)
 
 ### Path Parameters
 
@@ -100,7 +100,7 @@ This endpoint gets the export file resulting from the export job with the reques
 The request will need one of the following security scopes:
 - sp:config:read - sp:config:manage
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-sp-config-export-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-sp-config-export)
 
 ### Path Parameters
 
@@ -168,7 +168,7 @@ This gets the status of the export job identified by the `id` parameter.
 The request will need one of the following security scopes:
 - sp:config:read - sp:config:manage
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-sp-config-export-status-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-sp-config-export-status)
 
 ### Path Parameters
 
@@ -236,7 +236,7 @@ This gets import file resulting from the import job with the requested id and do
 The request will need the following security scope:
 - sp:config:manage
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-sp-config-import-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-sp-config-import)
 
 ### Path Parameters
 
@@ -306,7 +306,7 @@ Get import job status
  refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects).'
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-sp-config-import-status-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-sp-config-import-status)
 
 ### Path Parameters
 
@@ -382,7 +382,7 @@ You cannot currently import from the Non-Employee Lifecycle Management (NELM) so
 For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/import-sp-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/import-sp-config)
 
 ### Path Parameters
 
@@ -448,7 +448,7 @@ func main() {
 List config objects
 Get a list of object configurations that the tenant export/import service knows.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-sp-config-objects-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-sp-config-objects)
 
 ### Path Parameters
 

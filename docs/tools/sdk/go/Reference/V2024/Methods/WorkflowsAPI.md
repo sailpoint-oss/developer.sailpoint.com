@@ -46,7 +46,7 @@ Method | HTTP request | Description
 Cancel workflow execution by id
 Use this API to cancel a running workflow execution.
 
-[API Spec](https://developer.sailpoint.com/docs/api/cancel-workflow-execution-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/cancel-workflow-execution)
 
 ### Path Parameters
 
@@ -111,7 +111,7 @@ func main() {
 Execute workflow via external trigger
 This endpoint allows a service outside of IdentityNow to initiate a workflow that uses the "External Trigger" step.  The external service will invoke this endpoint with the input data it wants to send to the workflow in the body.
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-external-execute-workflow-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-external-execute-workflow)
 
 ### Path Parameters
 
@@ -179,7 +179,7 @@ func main() {
 Create workflow
 Create a new workflow with the desired trigger and steps specified in the request body.
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-workflow-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-workflow)
 
 ### Path Parameters
 
@@ -246,7 +246,7 @@ func main() {
 Generate external trigger oauth client
 Create OAuth client ID, client secret, and callback URL for use in an external trigger.  External triggers will need this information to generate an access token to authenticate to the callback URL and submit a trigger payload that will initiate the workflow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-workflow-external-trigger-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-workflow-external-trigger)
 
 ### Path Parameters
 
@@ -312,7 +312,7 @@ func main() {
 Delete workflow by id
 Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-workflow-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-workflow)
 
 ### Path Parameters
 
@@ -377,7 +377,7 @@ func main() {
 Get workflow by id
 Get a single workflow by id.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-workflow-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-workflow)
 
 ### Path Parameters
 
@@ -443,7 +443,7 @@ func main() {
 Get workflow execution
 Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a "404 Not Found" response.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-workflow-execution-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-workflow-execution)
 
 ### Path Parameters
 
@@ -509,7 +509,7 @@ func main() {
 Get workflow execution history
 Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-workflow-execution-history-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-workflow-execution-history)
 
 ### Path Parameters
 
@@ -585,7 +585,7 @@ Use this API to list a specified workflow's executions. Workflow executions are 
   For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250.
   Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-workflow-executions-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-workflow-executions)
 
 ### Path Parameters
 
@@ -657,7 +657,7 @@ func main() {
 List complete workflow library
 This lists all triggers, actions, and operators in the library
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-complete-workflow-library-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-complete-workflow-library)
 
 ### Path Parameters
 
@@ -721,7 +721,7 @@ func main() {
 List workflow library actions
 This lists the workflow actions available to you.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-workflow-library-actions-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workflow-library-actions)
 
 ### Path Parameters
 
@@ -787,7 +787,7 @@ func main() {
 List workflow library operators
 This lists the workflow operators available to you
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-workflow-library-operators-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workflow-library-operators)
 
 ### Path Parameters
 
@@ -844,7 +844,7 @@ func main() {
 List workflow library triggers
 This lists the workflow triggers available to you
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-workflow-library-triggers-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workflow-library-triggers)
 
 ### Path Parameters
 
@@ -910,7 +910,7 @@ func main() {
 List workflows
 List all workflows in the tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-workflows-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workflows)
 
 ### Path Parameters
 
@@ -967,7 +967,7 @@ func main() {
 Patch workflow
 Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
-[API Spec](https://developer.sailpoint.com/docs/api/patch-workflow-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-workflow)
 
 ### Path Parameters
 
@@ -1040,7 +1040,7 @@ func main() {
 Update workflow
 Perform a full update of a workflow.  The updated workflow object is returned in the response.
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-workflow-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-workflow)
 
 ### Path Parameters
 
@@ -1146,7 +1146,7 @@ func main() {
 Test workflow via external trigger
 Validate a workflow with an "External Trigger" can receive input.  The response includes the input that the workflow received, which can be used to validate that the input is intact when it reaches the workflow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/test-external-execute-workflow-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/test-external-execute-workflow)
 
 ### Path Parameters
 
@@ -1225,7 +1225,7 @@ This endpoint will return an execution ID, which can be used to lookup more info
 **This will cause a live run of the workflow, which could result in unintended modifications to your IDN tenant.**
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/test-workflow-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/test-workflow)
 
 ### Path Parameters
 

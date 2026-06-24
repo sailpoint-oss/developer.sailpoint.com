@@ -62,7 +62,7 @@ Use this endpoint to get a lifecycle state by its ID and its associated identity
 A token with ORG_ADMIN or API authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-lifecycle-states-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-lifecycle-states)
 
 ### Path Parameters
 
@@ -134,7 +134,7 @@ Use this endpoint to update individual lifecycle state fields, using the [JSON P
 A token with ORG_ADMIN or API authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/update-lifecycle-states-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-lifecycle-states)
 
 ### Path Parameters
 

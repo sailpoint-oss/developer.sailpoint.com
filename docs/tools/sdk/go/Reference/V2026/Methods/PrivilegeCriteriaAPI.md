@@ -27,7 +27,7 @@ Method | HTTP request | Description
 Create custom privilege criteria
 Use this API to create a custom privilege criteria
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-custom-privilege-criteria-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/create-custom-privilege-criteria)
 
 ### Path Parameters
 
@@ -126,7 +126,7 @@ func main() {
 Delete privilege criteria
 Use this API to delete a specific custom privilege criteria.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-custom-privilege-criteria-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/delete-custom-privilege-criteria)
 
 ### Path Parameters
 
@@ -191,7 +191,7 @@ func main() {
 Get privilege criteria
 Use this API to get a specific privilege criteria.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-privilege-criteria-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-privilege-criteria)
 
 ### Path Parameters
 
@@ -257,7 +257,7 @@ func main() {
 List privilege criteria
 Use this API to list all privilege criteria matching a filter
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-privilege-criteria-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-privilege-criteria)
 
 ### Path Parameters
 
@@ -319,7 +319,7 @@ func main() {
 Update privilege criteria
 Use this API to update a specific custom privilege criteria by overwriting the information with new information.
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-custom-privilege-criteria-value-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/put-custom-privilege-criteria-value)
 
 ### Path Parameters
 

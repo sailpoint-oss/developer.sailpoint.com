@@ -55,7 +55,7 @@ Method | HTTP request | Description
 Certification task by id
 This API returns the certification task for the specified ID. Reviewers for the specified certification can also call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-certification-task-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-certification-task)
 
 ### Path Parameters
 
@@ -121,7 +121,7 @@ func main() {
 Identity certification by id
 This API returns a single identity campaign certification by its ID. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-identity-certification-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-identity-certification)
 
 ### Path Parameters
 
@@ -187,7 +187,7 @@ func main() {
 Permissions for entitlement certification item
 This API returns the permissions associated with an entitlement certification item based on the certification item's ID. Reviewers for this certification can also call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-identity-certification-item-permissions-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-identity-certification-item-permissions)
 
 ### Path Parameters
 
@@ -264,7 +264,7 @@ func main() {
 List of pending certification tasks
 This API returns a list of pending (`QUEUED` or `IN_PROGRESS`) certification tasks. Any authenticated token can call this API, but only certification tasks you are authorized to review will be returned.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-pending-certification-tasks-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-pending-certification-tasks)
 
 ### Path Parameters
 
@@ -334,7 +334,7 @@ func main() {
 List of reviewers for certification
 This API returns a list of reviewers for the certification. Reviewers for this certification can also call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-certification-reviewers-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-certification-reviewers)
 
 ### Path Parameters
 
@@ -410,7 +410,7 @@ func main() {
 List of access review items
 This API returns a list of access review items for an identity campaign certification. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-identity-access-review-items-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-identity-access-review-items)
 
 ### Path Parameters
 
@@ -492,7 +492,7 @@ func main() {
 List identity campaign certifications
 Use this API to get a list of identity campaign certifications for the specified query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-identity-certifications-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-identity-certifications)
 
 ### Path Parameters
 
@@ -564,7 +564,7 @@ func main() {
 Decide on a certification item
 The API makes a decision to approve or revoke one or more identity campaign certification items. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
-[API Spec](https://developer.sailpoint.com/docs/api/make-identity-decision-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v3/make-identity-decision)
 
 ### Path Parameters
 
@@ -637,7 +637,7 @@ func main() {
 Reassign identities or items
 This API reassigns up to 50 identities or items in an identity campaign certification to another reviewer. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
-[API Spec](https://developer.sailpoint.com/docs/api/reassign-identity-certifications-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v3/reassign-identity-certifications)
 
 ### Path Parameters
 
@@ -720,7 +720,7 @@ func main() {
 Finalize identity certification decisions
 This API finalizes all decisions made on an identity campaign certification and initiates any remediations required. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
-[API Spec](https://developer.sailpoint.com/docs/api/sign-off-identity-certification-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v3/sign-off-identity-certification)
 
 ### Path Parameters
 
@@ -791,7 +791,7 @@ reassignment is complete.
 Reviewers for this certification can also call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/submit-reassign-certs-async-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v3/submit-reassign-certs-async)
 
 ### Path Parameters
 

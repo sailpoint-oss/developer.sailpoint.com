@@ -27,7 +27,7 @@ Returns all key-value pairs representing the current state of the tenant's conte
 Each tenant is limited to a maximum of 100 key-value pairs.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-tenant-context-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-tenant-context)
 
 ### Path Parameters
 
@@ -89,7 +89,7 @@ This endpoint is specifically designed to modify the `/Key/*` field, supporting 
 Note that each tenant is limited to a maximum of 100 key-value pairs.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/patch-tenant-context-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-tenant-context)
 
 ### Path Parameters
 

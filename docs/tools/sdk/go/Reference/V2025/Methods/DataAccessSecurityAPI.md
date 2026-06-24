@@ -44,7 +44,7 @@ Method | HTTP request | Description
 Cancel a DAS task.
 This end-point sends a request to cancel a task in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/cancel-task-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/cancel-task)
 
 ### Path Parameters
 
@@ -109,7 +109,7 @@ func main() {
 Create application
 This endpoint creates a new application in Data Access Security with the specified configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-application-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-application)
 
 ### Path Parameters
 
@@ -221,7 +221,7 @@ func main() {
 Create a new schedule.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-schedule-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-schedule)
 
 ### Path Parameters
 
@@ -299,7 +299,7 @@ func main() {
 Assign owner to application resource.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/das-owners-assign-post-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/das-owners-assign-post)
 
 ### Path Parameters
 
@@ -370,7 +370,7 @@ func main() {
 List resources for owner.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/das-owners-owner-identity-id-resources-get-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/das-owners-owner-identity-id-resources-get)
 
 ### Path Parameters
 
@@ -440,7 +440,7 @@ func main() {
 Re-elect resource owner.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/das-owners-reelect-post-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/das-owners-reelect-post)
 
 ### Path Parameters
 
@@ -511,7 +511,7 @@ func main() {
 List owners for resource.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/das-owners-resources-resource-id-get-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/das-owners-resources-resource-id-get)
 
 ### Path Parameters
 
@@ -581,7 +581,7 @@ func main() {
 Reassign resource owner.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/das-owners-source-identity-id-reassign-destination-identity-id-post-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/das-owners-source-identity-id-reassign-destination-identity-id-post)
 
 ### Path Parameters
 
@@ -650,7 +650,7 @@ func main() {
 Delete an application by identifier.
 This endpoint deletes an application from Data Access Security by its unique identifier.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-application-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-application)
 
 ### Path Parameters
 
@@ -715,7 +715,7 @@ func main() {
 Delete a DAS schedule.
 This end-point sends a request to delete a schedule in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-schedule-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-schedule)
 
 ### Path Parameters
 
@@ -781,7 +781,7 @@ Delete a DAS task.
 This end-point sends a request to delete a task in Data Access Security.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-task-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-task)
 
 ### Path Parameters
 
@@ -846,7 +846,7 @@ func main() {
 Retrieve application details by identifier.
 This endpoint retrieves the details of a specific application in Data Access Security by its unique identifier.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-application-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-application)
 
 ### Path Parameters
 
@@ -912,7 +912,7 @@ func main() {
 Search applications in DAS.
 This endpoint lists all the applications in Data Access Security with optional filtering.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-applications-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-applications)
 
 ### Path Parameters
 
@@ -980,7 +980,7 @@ func main() {
 Retrieve owners per application.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-owners-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-owners)
 
 ### Path Parameters
 
@@ -1050,7 +1050,7 @@ func main() {
 Get a DAS schedule.
 This end-point gets a schedule in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-schedule-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-schedule)
 
 ### Path Parameters
 
@@ -1116,7 +1116,7 @@ func main() {
 List all schedules.
 This end-point lists all the schedules in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-schedules-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-schedules)
 
 ### Path Parameters
 
@@ -1184,7 +1184,7 @@ func main() {
 Get a DAS task.
 This end-point gets a task in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-task-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-task)
 
 ### Path Parameters
 
@@ -1250,7 +1250,7 @@ func main() {
 Lists all DAS tasks.
 This end-point lists all the tasks in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-tasks-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-tasks)
 
 ### Path Parameters
 
@@ -1318,7 +1318,7 @@ func main() {
 Update application by identifier.
 This endpoint updates an existing application in Data Access Security with the specified configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-application-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-application)
 
 ### Path Parameters
 
@@ -1436,7 +1436,7 @@ func main() {
 Update a schedule.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-schedule-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-schedule)
 
 ### Path Parameters
 
@@ -1519,7 +1519,7 @@ func main() {
 Rerun a DAS task.
 This end-point sends a request to re-run a task in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/start-task-rerun-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/start-task-rerun)
 
 ### Path Parameters
 

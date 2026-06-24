@@ -53,7 +53,7 @@ Method | HTTP request | Description
 Create campaign filter
 Use this API to create a campaign filter based on filter details and criteria.
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-campaign-filter-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-campaign-filter)
 
 ### Path Parameters
 
@@ -137,7 +137,7 @@ func main() {
 Deletes campaign filters
 Deletes campaign filters whose Ids are specified in the provided list of campaign filter Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-campaign-filters-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-campaign-filters)
 
 ### Path Parameters
 
@@ -203,7 +203,7 @@ func main() {
 Get campaign filter by id
 Retrieves information for an existing campaign filter using the filter's ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-campaign-filter-by-id-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-campaign-filter-by-id)
 
 ### Path Parameters
 
@@ -269,7 +269,7 @@ func main() {
 List campaign filters
 Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-campaign-filters-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-campaign-filters)
 
 ### Path Parameters
 
@@ -335,7 +335,7 @@ func main() {
 Updates a campaign filter
 Updates an existing campaign filter using the filter's ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/update-campaign-filter-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-campaign-filter)
 
 ### Path Parameters
 

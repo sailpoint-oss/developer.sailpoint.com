@@ -36,7 +36,7 @@ Method | HTTP request | Description
 Create a new governance group.
 This API creates a new Governance Group.
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-workgroup-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/create-workgroup)
 
 ### Path Parameters
 
@@ -118,7 +118,7 @@ func main() {
 Delete a governance group
 This API deletes a Governance Group by its ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-workgroup-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/delete-workgroup)
 
 ### Path Parameters
 
@@ -186,7 +186,7 @@ This API removes one or more  members from a Governance Group.  A
 
 >  **name**
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-workgroup-members-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/delete-workgroup-members)
 
 ### Path Parameters
 
@@ -270,7 +270,7 @@ This API initiates a bulk deletion of one or more Governance Groups.
 
 >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-workgroups-in-bulk-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/delete-workgroups-in-bulk)
 
 ### Path Parameters
 
@@ -339,7 +339,7 @@ func main() {
 Get governance group by id
 This API returns a Governance Groups by its ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-workgroup-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-workgroup)
 
 ### Path Parameters
 
@@ -405,7 +405,7 @@ func main() {
 List connections for governance group
 This API returns list of connections associated with a Governance Group.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-connections-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-connections)
 
 ### Path Parameters
 
@@ -479,7 +479,7 @@ func main() {
 List governance group members
 This API returns list of members associated with a Governance Group.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-workgroup-members-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-workgroup-members)
 
 ### Path Parameters
 
@@ -553,7 +553,7 @@ func main() {
 List governance groups
 This API returns list of Governance Groups
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-workgroups-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-workgroups)
 
 ### Path Parameters
 
@@ -626,7 +626,7 @@ This API updates an existing governance group by ID. The following fields and ob
 * description
 * owner
 
-[API Spec](https://developer.sailpoint.com/docs/api/patch-workgroup-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/patch-workgroup)
 
 ### Path Parameters
 
@@ -698,7 +698,7 @@ This API adds one or more members to a Governance Group.  A token with API, ORG_
 
 >  **name**
 
-[API Spec](https://developer.sailpoint.com/docs/api/update-workgroup-members-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/update-workgroup-members)
 
 ### Path Parameters
 

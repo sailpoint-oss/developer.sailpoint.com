@@ -34,7 +34,7 @@ Create connector rule
 Creates a new connector rule.
 A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-connector-rule-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-connector-rule)
 
 ### Path Parameters
 
@@ -127,7 +127,7 @@ Delete a connector-rule
 Deletes the connector rule specified by the given ID.
 A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-connector-rule-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-connector-rule)
 
 ### Path Parameters
 
@@ -193,7 +193,7 @@ Connector-rule by id
 Returns the connector rule specified by ID.
 A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-connector-rule-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-connector-rule)
 
 ### Path Parameters
 
@@ -260,7 +260,7 @@ List connector rules
 Returns the list of connector rules.
 A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-connector-rule-list-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-connector-rule-list)
 
 ### Path Parameters
 
@@ -318,7 +318,7 @@ Update a connector rule
 Updates an existing connector rule with the one provided in the request body. Note that the fields 'id', 'name', and 'type' are immutable.
 A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-connector-rule-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-connector-rule)
 
 ### Path Parameters
 
@@ -413,7 +413,7 @@ Validate connector rule
 Returns a list of issues within the code to fix, if any.
 A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/test-connector-rule-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/validate-connector-rule)
 
 ### Path Parameters
 

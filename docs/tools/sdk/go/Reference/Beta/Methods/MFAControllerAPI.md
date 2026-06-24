@@ -27,7 +27,7 @@ Method | HTTP request | Description
 Create and send user token
 This API send token request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-send-token-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-send-token)
 
 ### Path Parameters
 
@@ -97,7 +97,7 @@ func main() {
 Polling mfa method by verificationpollrequest
 This API poll the VerificationPollRequest for the specified MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/ping-verification-status-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/ping-verification-status)
 
 ### Path Parameters
 
@@ -172,7 +172,7 @@ func main() {
 Verifying authentication via duo method
 This API Authenticates the user via Duo-Web MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/send-duo-verify-request-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/send-duo-verify-request)
 
 ### Path Parameters
 
@@ -242,7 +242,7 @@ func main() {
 Authenticate kba provided mfa method
 This API Authenticate user in KBA MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/send-kba-answers-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/send-kba-answers)
 
 ### Path Parameters
 
@@ -309,7 +309,7 @@ func main() {
 Verifying authentication via okta method
 This API Authenticates the user via Okta-Verify MFA method. Request requires a header called 'slpt-forwarding', and it must contain a remote IP Address of caller.
 
-[API Spec](https://developer.sailpoint.com/docs/api/send-okta-verify-request-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/send-okta-verify-request)
 
 ### Path Parameters
 
@@ -378,7 +378,7 @@ func main() {
 Authenticate token provided mfa method
 This API Authenticate user in Token MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/send-token-auth-request-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/send-token-auth-request)
 
 ### Path Parameters
 

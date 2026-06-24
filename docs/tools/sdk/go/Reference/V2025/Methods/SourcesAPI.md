@@ -132,7 +132,7 @@ This API generates a create policy/template based on field value transforms. Thi
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-provisioning-policy-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-provisioning-policy)
 
 ### Path Parameters
 
@@ -244,7 +244,7 @@ func main() {
 Creates a source in identitynow.
 This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-source-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-source)
 
 ### Path Parameters
 
@@ -396,7 +396,7 @@ Create schedule on source
 Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-source-schedule-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-source-schedule)
 
 ### Path Parameters
 
@@ -470,7 +470,7 @@ Create schema on source
 Use this API to create a new schema on the specified source in Identity Security Cloud (ISC).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-source-schema-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-source-schema)
 
 ### Path Parameters
 
@@ -582,7 +582,7 @@ This endpoint is good for:
 * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-accounts-async-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-accounts-async)
 
 ### Path Parameters
 
@@ -648,7 +648,7 @@ func main() {
 Delete native change detection configuration
 Deletes the native change detection configuration for the source specified by the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-native-change-detection-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-native-change-detection-config)
 
 ### Path Parameters
 
@@ -713,7 +713,7 @@ func main() {
 Delete provisioning policy by usagetype
 Deletes the provisioning policy with the specified usage on an application.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-provisioning-policy-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-provisioning-policy)
 
 ### Path Parameters
 
@@ -782,7 +782,7 @@ Delete source by id
 Use this API to delete a specific source in Identity Security Cloud (ISC).
 The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-source-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-source)
 
 ### Path Parameters
 
@@ -848,7 +848,7 @@ func main() {
 Delete source schedule by type.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-source-schedule-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-source-schedule)
 
 ### Path Parameters
 
@@ -916,7 +916,7 @@ func main() {
 Delete source schema by id
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-source-schema-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-source-schema)
 
 ### Path Parameters
 
@@ -985,7 +985,7 @@ Downloads source accounts schema template
 This API downloads the CSV schema that defines the account attributes on a source.
 >**NOTE: This API is designated only for Delimited File sources.**
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-accounts-schema-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-accounts-schema)
 
 ### Path Parameters
 
@@ -1050,7 +1050,7 @@ func main() {
 Get source correlation configuration
 This API returns the existing correlation configuration for a source specified by the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-correlation-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-correlation-config)
 
 ### Path Parameters
 
@@ -1118,7 +1118,7 @@ This API downloads the CSV schema that defines the entitlement attributes on a s
 
 >**NOTE: This API is designated only for Delimited File sources.**
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-entitlements-schema-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-entitlements-schema)
 
 ### Path Parameters
 
@@ -1185,7 +1185,7 @@ func main() {
 Native change detection configuration
 This API returns the existing native change detection configuration for a source specified by the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-native-change-detection-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-native-change-detection-config)
 
 ### Path Parameters
 
@@ -1251,7 +1251,7 @@ func main() {
 Get provisioning policy by usagetype
 This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-provisioning-policy-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-provisioning-policy)
 
 ### Path Parameters
 
@@ -1320,7 +1320,7 @@ func main() {
 Get source by id
 Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-source-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source)
 
 ### Path Parameters
 
@@ -1397,7 +1397,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Attribute sync config
 This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-source-attr-sync-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-attr-sync-config)
 
 ### Path Parameters
 
@@ -1465,7 +1465,7 @@ func main() {
 Gets source config with language-translations
 Looks up and returns the source config for the requested source id after populating the source config values and applying language translations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-source-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-config)
 
 ### Path Parameters
 
@@ -1533,7 +1533,7 @@ func main() {
 Get source connections by id
 Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-source-connections-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-connections)
 
 ### Path Parameters
 
@@ -1614,7 +1614,7 @@ Access request to any entitlements in the source should follow this configuratio
 - During access request, this source-level entitlement request configuration overrides the global organization-level configuration.
 - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-source-entitlement-request-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-entitlement-request-config)
 
 ### Path Parameters
 
@@ -1682,7 +1682,7 @@ func main() {
 Fetches source health by id
 This endpoint fetches source health by source's id
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-source-health-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-health)
 
 ### Path Parameters
 
@@ -1749,7 +1749,7 @@ Get source schedule by type
 Get the source schedule by type in Identity Security Cloud (ISC).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-source-schedule-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-schedule)
 
 ### Path Parameters
 
@@ -1826,7 +1826,7 @@ For example, `0 0 12 1/1 * ? *` runs the task **daily at 12:00 PM**.
 :::
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-source-schedules-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-schedules)
 
 ### Path Parameters
 
@@ -1893,7 +1893,7 @@ Get source schema by id
 Get the Source Schema by ID in IdentityNow.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-source-schema-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-schema)
 
 ### Path Parameters
 
@@ -1962,7 +1962,7 @@ func main() {
 List schemas on source
 Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-source-schemas-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-schemas)
 
 ### Path Parameters
 
@@ -2034,7 +2034,7 @@ Starts an account aggregation on the specified source.
 If the target source is a delimited file source, then the CSV file needs to be included in the request body.
 You will also need to set the Content-Type header to `multipart/form-data`.
 
-[API Spec](https://developer.sailpoint.com/docs/api/import-accounts-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/import-accounts)
 
 ### Path Parameters
 
@@ -2110,7 +2110,7 @@ Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Imp
 
 >**NOTE: This API is designated only for Delimited File sources.**
 
-[API Spec](https://developer.sailpoint.com/docs/api/import-accounts-schema-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/import-accounts-schema)
 
 ### Path Parameters
 
@@ -2178,7 +2178,7 @@ func main() {
 Upload connector file to source
 This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events.
 
-[API Spec](https://developer.sailpoint.com/docs/api/import-connector-file-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/import-connector-file)
 
 ### Path Parameters
 
@@ -2249,7 +2249,7 @@ If the target source is a delimited file source, then the CSV file needs to be i
 You will also need to set the Content-Type header to `multipart/form-data`.
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/import-entitlements-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/import-entitlements)
 
 ### Path Parameters
 
@@ -2323,7 +2323,7 @@ Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Imp
 
 >**NOTE: This API is designated only for Delimited File sources.**
 
-[API Spec](https://developer.sailpoint.com/docs/api/import-entitlements-schema-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/import-entitlements-schema)
 
 ### Path Parameters
 
@@ -2393,7 +2393,7 @@ func main() {
 Process uncorrelated accounts
 File is required for upload. You will also need to set the Content-Type header to `multipart/form-data`
 
-[API Spec](https://developer.sailpoint.com/docs/api/import-uncorrelated-accounts-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/import-uncorrelated-accounts)
 
 ### Path Parameters
 
@@ -2463,7 +2463,7 @@ This API can be used to get Password Policy in IdentityNow for the specified Sou
 Source must support PASSWORD feature.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-password-policy-holders-on-source-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-password-policy-holders-on-source)
 
 ### Path Parameters
 
@@ -2535,7 +2535,7 @@ func main() {
 Lists provisioningpolicies
 This end-point lists all the ProvisioningPolicies in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-provisioning-policies-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-provisioning-policies)
 
 ### Path Parameters
 
@@ -2601,7 +2601,7 @@ func main() {
 Lists all sources in identitynow.
 This end-point lists all the sources in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-sources-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-sources)
 
 ### Path Parameters
 
@@ -2675,7 +2675,7 @@ func main() {
 Ping cluster for source connector
 This endpoint validates that the cluster being used by the source is reachable from IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/ping-cluster-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/ping-cluster)
 
 ### Path Parameters
 
@@ -2741,7 +2741,7 @@ func main() {
 Update source correlation configuration
 Replaces the correlation configuration for the source specified by the given ID with the configuration provided in the request body.
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-correlation-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-correlation-config)
 
 ### Path Parameters
 
@@ -2834,7 +2834,7 @@ func main() {
 Update native change detection configuration
 Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-native-change-detection-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-native-change-detection-config)
 
 ### Path Parameters
 
@@ -2916,7 +2916,7 @@ This end-point updates the provisioning policy with the specified usage on the s
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-provisioning-policy-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-provisioning-policy)
 
 ### Path Parameters
 
@@ -3043,7 +3043,7 @@ These fields are immutable, so they cannot be changed:
 Attempts to modify these fields will result in a 400 error.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-source-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-source)
 
 ### Path Parameters
 
@@ -3210,7 +3210,7 @@ Update attribute sync config
 Replaces the attribute synchronization configuration for the source specified by the given ID with the configuration provided in the request body. Only the "enabled" field of the values in the "attributes" array is mutable. Attempting to change other attributes or add new values to the "attributes" array will result in an error.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-source-attr-sync-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-source-attr-sync-config)
 
 ### Path Parameters
 
@@ -3312,7 +3312,7 @@ Any attempt to modify these fields will result in an error response with a statu
 > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-source-schema-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-source-schema)
 
 ### Path Parameters
 
@@ -3421,7 +3421,7 @@ func main() {
 Peek source connector's resource objects
 Retrieves a sample of data returned from account and group aggregation requests.
 
-[API Spec](https://developer.sailpoint.com/docs/api/search-resource-objects-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/search-resource-objects)
 
 ### Path Parameters
 
@@ -3508,7 +3508,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Synchronize single source attributes.
 This end-point performs attribute synchronization for a selected source.
 
-[API Spec](https://developer.sailpoint.com/docs/api/sync-attributes-for-source-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/sync-attributes-for-source)
 
 ### Path Parameters
 
@@ -3576,7 +3576,7 @@ func main() {
 Test configuration for source connector
 This endpoint performs a more detailed validation of the source''s configuration that can take longer than the lighter weight credential validation performed by the checkConnection API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/test-source-configuration-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/test-source-configuration)
 
 ### Path Parameters
 
@@ -3642,7 +3642,7 @@ func main() {
 Check connection for source connector.
 This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter.
 
-[API Spec](https://developer.sailpoint.com/docs/api/test-source-connection-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/test-source-connection)
 
 ### Path Parameters
 
@@ -3710,7 +3710,7 @@ This API can be used to set up or update Password Policy in IdentityNow for the 
 Source must support PASSWORD feature.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/update-password-policy-holders-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-password-policy-holders)
 
 ### Path Parameters
 
@@ -3783,7 +3783,7 @@ func main() {
 Bulk update provisioning policies
 This end-point updates a list of provisioning policies on the specified source in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/update-provisioning-policies-in-bulk-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-provisioning-policies-in-bulk)
 
 ### Path Parameters
 
@@ -3858,7 +3858,7 @@ This API selectively updates an existing Provisioning Policy using a JSONPatch p
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
 
-[API Spec](https://developer.sailpoint.com/docs/api/update-provisioning-policy-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-provisioning-policy)
 
 ### Path Parameters
 
@@ -3949,7 +3949,7 @@ These fields are immutable, so they cannot be changed:
 Attempts to modify these fields will result in a 400 error.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/update-source-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-source)
 
 ### Path Parameters
 
@@ -4037,7 +4037,7 @@ Access request to any entitlements in the source should follow this configuratio
 - During access request, this source-level entitlement request configuration overrides the global organization-level configuration.
 - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/update-source-entitlement-request-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-source-entitlement-request-config)
 
 ### Path Parameters
 
@@ -4144,7 +4144,7 @@ The following schedule fields are immutable and cannot be updated:
 - type
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/update-source-schedule-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-source-schedule)
 
 ### Path Parameters
 
@@ -4249,7 +4249,7 @@ To switch an account attribute to a group entitlement, you need to have the foll
 ```
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/update-source-schema-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-source-schema)
 
 ### Path Parameters
 

@@ -65,7 +65,7 @@ Create sod policy
 This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-sod-policy-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-sod-policy)
 
 ### Path Parameters
 
@@ -188,7 +188,7 @@ Delete sod policy by id
 This deletes a specified SOD policy.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-sod-policy-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-sod-policy)
 
 ### Path Parameters
 
@@ -255,7 +255,7 @@ func main() {
 Delete sod policy schedule
 This deletes schedule for a specified SOD policy by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-sod-policy-schedule-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-sod-policy-schedule)
 
 ### Path Parameters
 
@@ -320,7 +320,7 @@ func main() {
 Download custom violation report
 This allows to download a specified named violation report for a given report reference.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-custom-violation-report-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-custom-violation-report)
 
 ### Path Parameters
 
@@ -389,7 +389,7 @@ func main() {
 Download violation report
 This allows to download a violation report for a given report reference.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-default-violation-report-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-default-violation-report)
 
 ### Path Parameters
 
@@ -455,7 +455,7 @@ func main() {
 Get multi-report run task status
 This endpoint gets the status for a violation report for all policy run.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-sod-all-report-run-status-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-sod-all-report-run-status)
 
 ### Path Parameters
 
@@ -513,7 +513,7 @@ Get sod policy by id
 This gets specified SOD policy.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-sod-policy-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-sod-policy)
 
 ### Path Parameters
 
@@ -579,7 +579,7 @@ func main() {
 Get sod policy schedule
 This endpoint gets a specified SOD policy's schedule.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-sod-policy-schedule-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-sod-policy-schedule)
 
 ### Path Parameters
 
@@ -645,7 +645,7 @@ func main() {
 Get violation report run status
 This gets the status for a violation report run task that has already been invoked.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-sod-violation-report-run-status-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-sod-violation-report-run-status)
 
 ### Path Parameters
 
@@ -711,7 +711,7 @@ func main() {
 Get sod violation report status
 This gets the status for a violation report run task that has already been invoked.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-sod-violation-report-status-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-sod-violation-report-status)
 
 ### Path Parameters
 
@@ -778,7 +778,7 @@ List sod policies
 This gets list of all SOD policies.
 Requires role of ORG_ADMIN
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-sod-policies-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-sod-policies)
 
 ### Path Parameters
 
@@ -850,7 +850,7 @@ Allows updating SOD Policy fields other than ["id","created","creatorId","policy
 Requires role of ORG_ADMIN.
 This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/patch-sod-policy-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-sod-policy)
 
 ### Path Parameters
 
@@ -923,7 +923,7 @@ func main() {
 Update sod policy schedule
 This updates schedule for a specified SOD policy.
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-policy-schedule-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-policy-schedule)
 
 ### Path Parameters
 
@@ -1082,7 +1082,7 @@ Update sod policy by id
 This updates a specified SOD policy.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-sod-policy-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-sod-policy)
 
 ### Path Parameters
 
@@ -1210,7 +1210,7 @@ func main() {
 Evaluate one policy by id
 Runs the scheduled report for the policy retrieved by passed policy ID.  The report schedule is fetched from the policy retrieved by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/start-evaluate-sod-policy-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/start-evaluate-sod-policy)
 
 ### Path Parameters
 
@@ -1276,7 +1276,7 @@ func main() {
 Runs all policies for org
 Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
 
-[API Spec](https://developer.sailpoint.com/docs/api/start-sod-all-policies-for-org-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/start-sod-all-policies-for-org)
 
 ### Path Parameters
 
@@ -1340,7 +1340,7 @@ func main() {
 Runs sod policy violation report
 This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
 
-[API Spec](https://developer.sailpoint.com/docs/api/start-sod-policy-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/start-sod-policy)
 
 ### Path Parameters
 

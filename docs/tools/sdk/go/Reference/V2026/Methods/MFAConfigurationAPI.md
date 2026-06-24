@@ -28,7 +28,7 @@ Method | HTTP request | Description
 Configuration of duo mfa method
 This API returns the configuration of an Duo MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-mfa-duo-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-mfa-duo-config)
 
 ### Path Parameters
 
@@ -85,7 +85,7 @@ func main() {
 Configuration of kba mfa method
 This API returns the KBA configuration for MFA.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-mfa-kba-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-mfa-kba-config)
 
 ### Path Parameters
 
@@ -147,7 +147,7 @@ func main() {
 Configuration of okta mfa method
 This API returns the configuration of an Okta MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-mfa-okta-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-mfa-okta-config)
 
 ### Path Parameters
 
@@ -204,7 +204,7 @@ func main() {
 Set duo mfa configuration
 This API sets the configuration of an Duo MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/set-mfa-duo-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/set-mfa-duo-config)
 
 ### Path Parameters
 
@@ -281,7 +281,7 @@ func main() {
 Set mfa kba configuration
 This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/set-mfakba-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/set-mfakba-config)
 
 ### Path Parameters
 
@@ -348,7 +348,7 @@ func main() {
 Set okta mfa configuration
 This API sets the configuration of an Okta MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/set-mfa-okta-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/set-mfa-okta-config)
 
 ### Path Parameters
 
@@ -421,7 +421,7 @@ func main() {
 Mfa method's test configuration
 This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
 
-[API Spec](https://developer.sailpoint.com/docs/api/test-mfa-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/test-mfa-config)
 
 ### Path Parameters
 

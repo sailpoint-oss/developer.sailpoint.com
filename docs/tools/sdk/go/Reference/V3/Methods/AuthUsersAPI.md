@@ -28,7 +28,7 @@ Method | HTTP request | Description
 Auth user details
 Return the specified user's authentication system details.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-auth-user-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-auth-user)
 
 ### Path Parameters
 
@@ -98,7 +98,7 @@ Use this endpoint to modify these fields:
 
 A '400.1.1 Illegal update attempt' detail code indicates that you attempted to PATCH a field that is not allowed.
 
-[API Spec](https://developer.sailpoint.com/docs/api/patch-auth-user-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-auth-user)
 
 ### Path Parameters
 

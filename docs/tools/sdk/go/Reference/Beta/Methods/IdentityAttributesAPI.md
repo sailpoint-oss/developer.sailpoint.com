@@ -27,7 +27,7 @@ Method | HTTP request | Description
 Create identity attribute
 Use this API to create a new identity attribute.   A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-identity-attribute-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-identity-attribute)
 
 ### Path Parameters
 
@@ -115,7 +115,7 @@ func main() {
 Delete identity attribute
 This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.   A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-identity-attribute-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-identity-attribute)
 
 ### Path Parameters
 
@@ -180,7 +180,7 @@ func main() {
 Bulk delete identity attributes
 Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.   A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-identity-attributes-in-bulk-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-identity-attributes-in-bulk)
 
 ### Path Parameters
 
@@ -248,7 +248,7 @@ func main() {
 Get identity attribute
 This gets an identity attribute for a given technical name.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-identity-attribute-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-attribute)
 
 ### Path Parameters
 
@@ -314,7 +314,7 @@ func main() {
 List identity attributes
 Use this API to get a collection of identity attributes.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-identity-attributes-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-identity-attributes)
 
 ### Path Parameters
 
@@ -382,7 +382,7 @@ func main() {
 Update identity attribute
 This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.   A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-identity-attribute-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-identity-attribute)
 
 ### Path Parameters
 

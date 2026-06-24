@@ -23,7 +23,7 @@ Declassify source's all accounts
 Use this API to declassify all the accounts from a source.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/send-declassify-machine-account-from-source-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/send-declassify-machine-account-from-source)
 
 ### Path Parameters
 

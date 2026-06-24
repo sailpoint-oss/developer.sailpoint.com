@@ -29,7 +29,7 @@ Get discovered application by id
 Get the discovered application, along with with its associated sources, based on the provided ID.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-discovered-application-by-id-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-discovered-application-by-id)
 
 ### Path Parameters
 
@@ -95,7 +95,7 @@ Retrieve discovered applications for tenant
 Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-discovered-applications-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-discovered-applications)
 
 ### Path Parameters
 
@@ -168,7 +168,7 @@ Download an example CSV file with two columns `application_name` and `descriptio
 The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-manual-discover-applications-csv-template-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-manual-discover-applications-csv-template)
 
 ### Path Parameters
 
@@ -226,7 +226,7 @@ Patch discovered application by id
 Update an existing discovered application by using a limited version of the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 You can patch these fields: - **associatedSources** - **dismissed**
 
-[API Spec](https://developer.sailpoint.com/docs/api/patch-discovered-application-by-id-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-discovered-application-by-id)
 
 ### Path Parameters
 
@@ -294,7 +294,7 @@ Upload csv to discover applications
 Upload a CSV file with application data for manual correlation to specific ISC connectors. 
 If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
 
-[API Spec](https://developer.sailpoint.com/docs/api/send-manual-discover-applications-csv-template-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/send-manual-discover-applications-csv-template)
 
 ### Path Parameters
 

@@ -44,7 +44,7 @@ Cancel access request
 This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step.
 In addition to users with ORG_ADMIN, any user who originally submitted the access request may cancel it.
 
-[API Spec](https://developer.sailpoint.com/docs/api/cancel-access-request-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/cancel-access-request)
 
 ### Path Parameters
 
@@ -125,7 +125,7 @@ To track the status of endpoint requests, navigate to Search and use this query:
 This API triggers the [Provisioning Completed event trigger](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/provisioning-completed/) for each access request that is closed.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/close-access-request-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/close-access-request)
 
 ### Path Parameters
 
@@ -245,7 +245,7 @@ __REVOKE_ACCESS__
 * Usage of 'requestedForWithRequestedItems' field is not supported for revoke requests.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-access-request-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-access-request)
 
 ### Path Parameters
 
@@ -470,7 +470,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Get access request configuration
 This endpoint returns the current access-request configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-access-request-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-request-config)
 
 ### Path Parameters
 
@@ -529,7 +529,7 @@ Use this API to return a list of access request statuses based on the specified 
 If an access request was made for access that an identity already has, the API ignores the access request.  These ignored requests do not display in the list of access request statuses.
 Any user with any user level can get the status of their own access requests. A user with ORG_ADMIN is required to call this API to get a list of statuses for other users.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-access-request-status-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-request-status)
 
 ### Path Parameters
 
@@ -621,7 +621,7 @@ Access request status for administrators
 Use this API to get access request statuses of all the access requests in the org based on the specified query  parameters.
 Any user with user level ORG_ADMIN or scope idn:access-request-administration:read can access this endpoint to get  the  access request statuses
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-administrators-access-request-status-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-administrators-access-request-status)
 
 ### Path Parameters
 
@@ -706,7 +706,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Update access request configuration
 This endpoint replaces the current access-request configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/set-access-request-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/set-access-request-config)
 
 ### Path Parameters
 

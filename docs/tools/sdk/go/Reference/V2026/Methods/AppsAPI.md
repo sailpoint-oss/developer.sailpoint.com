@@ -48,7 +48,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Create source app
 This endpoint creates a source app using the given source app payload
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-source-app-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/create-source-app)
 
 ### Path Parameters
 
@@ -137,7 +137,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Bulk remove access profiles from the specified source app
 This API returns the final list of access profiles for the specified source app after removing
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-access-profiles-from-source-app-by-bulk-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/delete-access-profiles-from-source-app-by-bulk)
 
 ### Path Parameters
 
@@ -225,7 +225,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Delete source app by id
 Use this API to delete a specific source app
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-source-app-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/delete-source-app)
 
 ### Path Parameters
 
@@ -304,7 +304,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get source app by id
 This API returns a source app by its ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-source-app-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-source-app)
 
 ### Path Parameters
 
@@ -383,7 +383,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List access profiles for the specified source app
 This API returns the list of access profiles for the specified source app
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-access-profiles-for-source-app-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-access-profiles-for-source-app)
 
 ### Path Parameters
 
@@ -468,7 +468,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List all source apps
 This API returns the list of all source apps for the org.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-all-source-app-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-all-source-app)
 
 ### Path Parameters
 
@@ -552,7 +552,7 @@ List all user apps
 This API returns the list of all user apps with specified filters.
 This API must be used with **filters** query parameter.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-all-user-apps-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-all-user-apps)
 
 ### Path Parameters
 
@@ -633,7 +633,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List assigned source apps
 This API returns the list of source apps assigned for logged in user.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-assigned-source-app-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-assigned-source-app)
 
 ### Path Parameters
 
@@ -716,7 +716,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List available accounts for user app
 This API returns the list of available accounts for the specified user app. The user app needs to belong lo logged in user.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-available-accounts-for-user-app-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-available-accounts-for-user-app)
 
 ### Path Parameters
 
@@ -799,7 +799,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List available source apps
 This API returns the list of source apps available for access request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-available-source-apps-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-available-source-apps)
 
 ### Path Parameters
 
@@ -882,7 +882,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List owned user apps
 This API returns the list of user apps assigned to logged in user
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-owned-user-apps-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-owned-user-apps)
 
 ### Path Parameters
 
@@ -965,7 +965,7 @@ This API updates an existing source app using [JSON Patch](https://tools.ietf.or
 The following fields are patchable: **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**,  **matchAllAccounts** and **accessProfiles**.
 Name, description and owner can't be empty or null.
 
-[API Spec](https://developer.sailpoint.com/docs/api/patch-source-app-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/patch-source-app)
 
 ### Path Parameters
 
@@ -1047,7 +1047,7 @@ Patch user app by id
 This API updates an existing user app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 The following fields are patchable: **account**
 
-[API Spec](https://developer.sailpoint.com/docs/api/patch-user-app-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/patch-user-app)
 
 ### Path Parameters
 
@@ -1130,7 +1130,7 @@ This API updates source apps using [JSON Patch](https://tools.ietf.org/html/rfc6
 The following fields can be updated: **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**,  **matchAllAccounts**, and **accessProfiles**.
 Name, description and owner can't be empty or null.
 
-[API Spec](https://developer.sailpoint.com/docs/api/update-source-apps-in-bulk-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/update-source-apps-in-bulk)
 
 ### Path Parameters
 

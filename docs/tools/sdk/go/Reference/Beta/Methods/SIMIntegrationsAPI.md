@@ -35,7 +35,7 @@ Method | HTTP request | Description
 Create new sim integration
 Create a new SIM Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-sim-integration-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-sim-integration)
 
 ### Path Parameters
 
@@ -119,7 +119,7 @@ func main() {
 Delete a sim integration
 Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-sim-integration-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-sim-integration)
 
 ### Path Parameters
 
@@ -184,7 +184,7 @@ func main() {
 Get a sim integration details.
 Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-sim-integration-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sim-integration)
 
 ### Path Parameters
 
@@ -250,7 +250,7 @@ func main() {
 List the existing sim integrations.
 List the existing SIM integrations. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-sim-integrations-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sim-integrations)
 
 ### Path Parameters
 
@@ -307,7 +307,7 @@ func main() {
 Patch a sim beforeprovisioningrule attribute.
 Patch a SIM beforeProvisioningRule attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/patch-before-provisioning-rule-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-before-provisioning-rule)
 
 ### Path Parameters
 
@@ -380,7 +380,7 @@ func main() {
 Patch a sim attribute.
 Patch a SIM attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/patch-sim-attributes-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-sim-attributes)
 
 ### Path Parameters
 
@@ -453,7 +453,7 @@ func main() {
 Update an existing sim integration
 Update an existing SIM integration.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-sim-integration-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-sim-integration)
 
 ### Path Parameters
 

@@ -75,7 +75,7 @@ The endpoint doesn't actually provision the account on the target source, which 
 By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-account-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/create-account)
 
 ### Path Parameters
 
@@ -154,7 +154,7 @@ This endpoint submits an account delete task and returns the task ID.
 This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account's returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future. 
 >**NOTE: You can only delete accounts from sources of the "DelimitedFile" type.**
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-account-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/delete-account)
 
 ### Path Parameters
 
@@ -226,7 +226,7 @@ This endpoint is good for:
 * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-account-async-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/delete-account-async)
 
 ### Path Parameters
 
@@ -292,7 +292,7 @@ func main() {
 Disable account
 This API submits a task to disable the account and returns the task ID.      
 
-[API Spec](https://developer.sailpoint.com/docs/api/disable-account-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/disable-account)
 
 ### Path Parameters
 
@@ -368,7 +368,7 @@ func main() {
 Disable idn account for identity
 This API submits a task to disable IDN account for a single identity.
 
-[API Spec](https://developer.sailpoint.com/docs/api/disable-account-for-identity-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/disable-account-for-identity)
 
 ### Path Parameters
 
@@ -434,7 +434,7 @@ func main() {
 Disable idn accounts for identities
 This API submits tasks to disable IDN account for each identity provided in the request body.
 
-[API Spec](https://developer.sailpoint.com/docs/api/disable-accounts-for-identities-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/disable-accounts-for-identities)
 
 ### Path Parameters
 
@@ -503,7 +503,7 @@ func main() {
 Enable account
 This API submits a task to enable account and returns the task ID.      
 
-[API Spec](https://developer.sailpoint.com/docs/api/enable-account-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/enable-account)
 
 ### Path Parameters
 
@@ -579,7 +579,7 @@ func main() {
 Enable idn account for identity
 This API submits a task to enable IDN account for a single identity.
 
-[API Spec](https://developer.sailpoint.com/docs/api/enable-account-for-identity-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/enable-account-for-identity)
 
 ### Path Parameters
 
@@ -645,7 +645,7 @@ func main() {
 Enable idn accounts for identities
 This API submits tasks to enable IDN account for each identity provided in the request body.
 
-[API Spec](https://developer.sailpoint.com/docs/api/enable-accounts-for-identities-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/enable-accounts-for-identities)
 
 ### Path Parameters
 
@@ -714,7 +714,7 @@ func main() {
 Account details
 Use this API to return the details for a single account by its ID.  
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-account-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-account)
 
 ### Path Parameters
 
@@ -780,7 +780,7 @@ func main() {
 Account entitlements
 This API returns entitlements of the account.      
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-account-entitlements-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-account-entitlements)
 
 ### Path Parameters
 
@@ -852,7 +852,7 @@ func main() {
 Accounts list
 List accounts. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-accounts-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-accounts)
 
 ### Path Parameters
 
@@ -929,7 +929,7 @@ This endpoint submits an account update task and returns the task ID.
 >**Note: You can only use this PUT endpoint to update accounts from flat file sources.**
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-account-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/put-account)
 
 ### Path Parameters
 
@@ -1010,7 +1010,7 @@ func main() {
 Reload account
 This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.      
 
-[API Spec](https://developer.sailpoint.com/docs/api/submit-reload-account-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/submit-reload-account)
 
 ### Path Parameters
 
@@ -1077,7 +1077,7 @@ Unlock account
 This API submits a task to unlock an account and returns the task ID.  
 To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/unlock-account-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/unlock-account)
 
 ### Path Parameters
 
@@ -1164,7 +1164,7 @@ All accounts that are reassigned will be set to `manuallyCorrelated: true` unles
 >**Note:** The `attributes` field can only be modified for flat file accounts. 
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/update-account-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/update-account)
 
 ### Path Parameters
 

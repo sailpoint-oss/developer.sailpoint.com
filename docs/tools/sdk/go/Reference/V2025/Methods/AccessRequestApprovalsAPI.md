@@ -45,7 +45,7 @@ Method | HTTP request | Description
 Approve access request approval
 Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
-[API Spec](https://developer.sailpoint.com/docs/api/approve-access-request-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-access-request)
 
 ### Path Parameters
 
@@ -121,7 +121,7 @@ func main() {
 Forward access request approval
 Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
-[API Spec](https://developer.sailpoint.com/docs/api/forward-access-request-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/forward-access-request)
 
 ### Path Parameters
 
@@ -197,7 +197,7 @@ func main() {
 Get access requests approvals number
 Use this API to return the number of pending, approved and rejected access requests approvals. See the "owner-id" query parameter for authorization information. info.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-access-request-approval-summary-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-request-approval-summary)
 
 ### Path Parameters
 
@@ -262,7 +262,7 @@ Access request approvers
 This API endpoint returns the list of approvers for the given access request id.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-access-request-approvers-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-access-request-approvers)
 
 ### Path Parameters
 
@@ -334,7 +334,7 @@ func main() {
 Completed access request approvals list
 This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-completed-approvals-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-completed-approvals)
 
 ### Path Parameters
 
@@ -406,7 +406,7 @@ func main() {
 Pending access request approvals list
 This endpoint returns a list of pending approvals. See "owner-id" query parameter below for authorization info.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-pending-approvals-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-pending-approvals)
 
 ### Path Parameters
 
@@ -478,7 +478,7 @@ func main() {
 Reject access request approval
 Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
 
-[API Spec](https://developer.sailpoint.com/docs/api/reject-access-request-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/reject-access-request)
 
 ### Path Parameters
 

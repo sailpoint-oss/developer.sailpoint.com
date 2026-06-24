@@ -87,7 +87,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Approve a non-employee request
 Approves a non-employee approval request and notifies the next approver.
 
-[API Spec](https://developer.sailpoint.com/docs/api/approve-non-employee-request-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/approve-non-employee-request)
 
 ### Path Parameters
 
@@ -167,7 +167,7 @@ This request will create a non-employee record.
 Request will require the following security scope:
 'idn:nesr:create'
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-non-employee-record-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-record)
 
 ### Path Parameters
 
@@ -251,7 +251,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Create non-employee request
 This request will create a non-employee request and notify the approver
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-non-employee-request-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-request)
 
 ### Path Parameters
 
@@ -335,7 +335,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Create non-employee source
 Create a non-employee source.
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-non-employee-source-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-source)
 
 ### Path Parameters
 
@@ -430,7 +430,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Create non-employee source schema attribute
 This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a "400.1.409 Reference conflict" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a "400.1.4 Limit violation" response.
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-non-employee-source-schema-attributes-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-source-schema-attributes)
 
 ### Path Parameters
 
@@ -513,7 +513,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Delete non-employee record
 This request will delete a non-employee record.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-non-employee-record-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-record)
 
 ### Path Parameters
 
@@ -583,7 +583,7 @@ This request will delete multiple non-employee records based on the non-employee
 Request will require the following scope:
 'idn:nesr:delete'
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-non-employee-record-in-bulk-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-record-in-bulk)
 
 ### Path Parameters
 
@@ -652,7 +652,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Delete non-employee request
 This request will delete a non-employee request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-non-employee-request-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-request)
 
 ### Path Parameters
 
@@ -721,7 +721,7 @@ Delete non-employee source's schema attribute
 This end-point deletes a specific schema attribute for a non-employee source.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-non-employee-schema-attribute-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-schema-attribute)
 
 ### Path Parameters
 
@@ -792,7 +792,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Delete non-employee source
 This request will delete a non-employee source.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-non-employee-source-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-source)
 
 ### Path Parameters
 
@@ -860,7 +860,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Delete all custom schema attributes
 This end-point deletes all custom schema attributes for a non-employee source.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-non-employee-source-schema-attributes-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-source-schema-attributes)
 
 ### Path Parameters
 
@@ -928,7 +928,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 A non-employee approval item detail
 Approves a non-employee approval request and notifies the next approver.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-approval-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-approval)
 
 ### Path Parameters
 
@@ -999,7 +999,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Summary of non-employee approval requests
 This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter: 1. The current user is the Org Admin, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver's id. 2. The current user is an approver, in which case "me" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-approval-summary-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-approval-summary)
 
 ### Path Parameters
 
@@ -1069,7 +1069,7 @@ Bulk upload status on source
 The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-bulk-upload-status-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-bulk-upload-status)
 
 ### Path Parameters
 
@@ -1138,7 +1138,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Exports non-employee records to csv
 This requests a CSV download for all non-employees from a provided source.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-export-records-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-export-records)
 
 ### Path Parameters
 
@@ -1208,7 +1208,7 @@ This requests a download for the Source Schema Template for a provided source.
 Request will require the following security scope:
 idn:nesr:read'
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-export-source-schema-template-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-export-source-schema-template)
 
 ### Path Parameters
 
@@ -1276,7 +1276,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Get a non-employee record
 This gets a non-employee record.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-record-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-record)
 
 ### Path Parameters
 
@@ -1345,7 +1345,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Get a non-employee request
 This gets a non-employee request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-request-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-request)
 
 ### Path Parameters
 
@@ -1414,7 +1414,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Get summary of non-employee requests
 This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter: 1. The current user is the Org Admin, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager's id. 2. The current user is an account manager, in which case "me" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-request-summary-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-request-summary)
 
 ### Path Parameters
 
@@ -1483,7 +1483,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Get schema attribute non-employee source
 This API gets a schema attribute by Id for the specified Non-Employee SourceId.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-schema-attribute-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-schema-attribute)
 
 ### Path Parameters
 
@@ -1555,7 +1555,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Get a non-employee source
 This gets a non-employee source.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-source-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-source)
 
 ### Path Parameters
 
@@ -1628,7 +1628,7 @@ add up to 10 custom attributes. This interface returns all the mandatory attribu
 any custom attributes. At most, a total of 18 attributes will be returned.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-source-schema-attributes-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-source-schema-attributes)
 
 ### Path Parameters
 
@@ -1703,7 +1703,7 @@ This post will import, or update, Non-Employee records found in the CSV.
 Request will need the following security scope:
 'idn:nesr:create'
 
-[API Spec](https://developer.sailpoint.com/docs/api/import-non-employee-records-in-bulk-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/import-non-employee-records-in-bulk)
 
 ### Path Parameters
 
@@ -1774,7 +1774,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 List of non-employee approval requests
 This gets a list of non-employee approval requests.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-non-employee-approval-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-approval)
 
 ### Path Parameters
 
@@ -1849,7 +1849,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 List non-employee records
 This gets a list of non-employee records.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-non-employee-records-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-records)
 
 ### Path Parameters
 
@@ -1922,7 +1922,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 List non-employee requests
 This gets a list of non-employee requests.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-non-employee-requests-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-requests)
 
 ### Path Parameters
 
@@ -1999,7 +1999,7 @@ Get a list of non-employee sources. There are two contextual uses for the `reque
   1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager's `id`.
   2. If the current user is an account manager, the user should provide 'me' as the `requested-for` value. Doing so provide the user with a list of the sources he or she owns.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-non-employee-sources-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-sources)
 
 ### Path Parameters
 
@@ -2074,7 +2074,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Patch non-employee record
 This request will patch a non-employee record.
 
-[API Spec](https://developer.sailpoint.com/docs/api/patch-non-employee-record-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-non-employee-record)
 
 ### Path Parameters
 
@@ -2151,7 +2151,7 @@ Patch non-employee source's schema attribute
 This end-point patches a specific schema attribute for a non-employee SourceId.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/patch-non-employee-schema-attribute-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-non-employee-schema-attribute)
 
 ### Path Parameters
 
@@ -2230,7 +2230,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Patch a non-employee source
 patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers**
 
-[API Spec](https://developer.sailpoint.com/docs/api/patch-non-employee-source-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-non-employee-source)
 
 ### Path Parameters
 
@@ -2306,7 +2306,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Update non-employee record
 This request will update a non-employee record.
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-non-employee-record-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-non-employee-record)
 
 ### Path Parameters
 
@@ -2396,7 +2396,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Reject a non-employee request
 This endpoint will reject an approval item request and notify user.
 
-[API Spec](https://developer.sailpoint.com/docs/api/reject-non-employee-request-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/reject-non-employee-request)
 
 ### Path Parameters
 

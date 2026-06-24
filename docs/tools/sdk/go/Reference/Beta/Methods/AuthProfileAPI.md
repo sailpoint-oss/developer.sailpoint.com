@@ -30,7 +30,7 @@ Method | HTTP request | Description
 Get auth profile.
 This API returns auth profile information.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-profile-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-profile-config)
 
 ### Path Parameters
 
@@ -96,7 +96,7 @@ func main() {
 Get list of auth profiles.
 This API returns a list of auth profiles.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-profile-config-list-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-profile-config-list)
 
 ### Path Parameters
 
@@ -154,7 +154,7 @@ Patch a specified auth profile
 This API updates an existing Auth Profile. The following fields are patchable:
 **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
 
-[API Spec](https://developer.sailpoint.com/docs/api/patch-profile-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-profile-config)
 
 ### Path Parameters
 

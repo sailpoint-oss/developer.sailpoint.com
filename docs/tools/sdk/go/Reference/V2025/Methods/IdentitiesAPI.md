@@ -59,7 +59,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Delete identity
 The API returns successful response if the requested identity was deleted.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-identity-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-identity)
 
 ### Path Parameters
 
@@ -126,7 +126,7 @@ func main() {
 Identity details
 This API returns a single identity using the Identity ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-identity-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity)
 
 ### Path Parameters
 
@@ -192,9 +192,9 @@ func main() {
 Get ownership details
 Use this API to return an identity's owned objects that will cause problems for deleting the identity. 
 Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity. 
-For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/search-post-v-1/).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity's owned objects.
+For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/v3/search-post/).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity's owned objects.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-identity-ownership-details-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity-ownership-details)
 
 ### Path Parameters
 
@@ -260,7 +260,7 @@ func main() {
 Role assignment details
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-role-assignment-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-assignment)
 
 ### Path Parameters
 
@@ -329,7 +329,7 @@ func main() {
 List role assignments
 This returns either a list of Role Assignments when querying with either a Role Id or Role Name, or a list of Role Assignment References if querying with only identity Id.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-role-assignments-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-assignments)
 
 ### Path Parameters
 
@@ -399,7 +399,7 @@ func main() {
 List of entitlements by identity.
 The API returns a list of all entitlements assigned to an identity, either directly or through the role or access profile. A token with ORG_ADMIN or API authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-entitlements-by-identity-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-entitlements-by-identity)
 
 ### Path Parameters
 
@@ -471,7 +471,7 @@ func main() {
 List identities
 This API returns a list of identities.
 
-[API Spec](https://developer.sailpoint.com/docs/api/list-identities-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-identities)
 
 ### Path Parameters
 
@@ -543,7 +543,7 @@ func main() {
 Reset an identity
 Use this endpoint to reset a user's identity if they have forgotten their authentication information like their answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user levels they have.
 
-[API Spec](https://developer.sailpoint.com/docs/api/reset-identity-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/reset-identity)
 
 ### Path Parameters
 
@@ -620,7 +620,7 @@ Send password reset email
 This API sends an email with the link to start Password Reset. After selecting the link an identity will be able to set up a new password. Emails expire after 2 hours.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/send-identity-verification-account-token-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/send-identity-verification-account-token)
 
 ### Path Parameters
 
@@ -710,10 +710,10 @@ This API submits a task for inviting given identities via email to complete regi
 
 This task will send an invitation email only for unregistered identities.
 
-The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1).
+The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/start-identities-invite-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/start-identities-invite)
 
 ### Path Parameters
 
@@ -803,7 +803,7 @@ This endpoint will perform the following tasks:
 4. Recalculate manager relationships.
 5. Potentially clean-up identity processing errors, assuming the error has been resolved.
 
-[API Spec](https://developer.sailpoint.com/docs/api/start-identity-processing-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/start-identity-processing)
 
 ### Path Parameters
 
@@ -885,7 +885,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Attribute synchronization for single identity.
 This end-point performs attribute synchronization for a selected identity. The endpoint can be called once in 10 seconds per identity.
 
-[API Spec](https://developer.sailpoint.com/docs/api/synchronize-attributes-for-identity-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/synchronize-attributes-for-identity)
 
 ### Path Parameters
 

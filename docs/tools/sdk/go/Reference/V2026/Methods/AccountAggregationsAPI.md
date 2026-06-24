@@ -21,7 +21,7 @@ In Account Aggregation, administrators can view the account aggregations&#39; st
 
 Refer to [Loading Account Data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html) for more information about account aggregations.
 
-If you are looking for the endpoint for account aggregations in a source, [click here](https://developer.sailpoint.com/docs/api/import-accounts-v-1)
+If you are looking for the endpoint for account aggregations in a source, [click here](https://developer.sailpoint.com/docs/api/v2025/import-accounts)
  
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2026*
 
@@ -41,7 +41,7 @@ Since this endpoint reports on the status of an *in-progress* account aggregatio
 *Only available up to an hour after the aggregation completes. May respond with *404 Not Found* after that.*
 required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-account-aggregation-status-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-account-aggregation-status)
 
 ### Path Parameters
 

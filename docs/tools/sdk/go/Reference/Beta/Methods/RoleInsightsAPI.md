@@ -33,7 +33,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Generate insights for roles
 Submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-role-insight-requests-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-role-insight-requests)
 
 ### Path Parameters
 
@@ -90,7 +90,7 @@ func main() {
 Download entitlement insights for a role
 This endpoint returns the entitlement insights for a role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/download-role-insights-entitlements-changes-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/download-role-insights-entitlements-changes)
 
 ### Path Parameters
 
@@ -160,7 +160,7 @@ func main() {
 Get identities for a suggested entitlement (for a role)
 Role insights suggests entitlements to be added for a role. This endpoint returns a list of identities in the role, with or without the entitlements, for a suggested entitlement so that the user can see which identities would be affected if the suggested entitlement were to be added to the role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-entitlement-changes-identities-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-entitlement-changes-identities)
 
 ### Path Parameters
 
@@ -241,7 +241,7 @@ func main() {
 Get a single role insight
 This endpoint gets role insights information for a role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-role-insight-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-insight)
 
 ### Path Parameters
 
@@ -307,7 +307,7 @@ func main() {
 Get role insights
 This method returns detailed role insights for each role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-role-insights-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-insights)
 
 ### Path Parameters
 
@@ -377,7 +377,7 @@ func main() {
 Get current entitlement for a role
 This endpoint gets the entitlements for a role. The term "current" is to distinguish from the entitlement(s) an insight might recommend adding.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-role-insights-current-entitlements-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-insights-current-entitlements)
 
 ### Path Parameters
 
@@ -445,7 +445,7 @@ func main() {
 Get entitlement insights for a role
 This endpoint returns entitlement insights for a role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-role-insights-entitlements-changes-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-insights-entitlements-changes)
 
 ### Path Parameters
 
@@ -518,7 +518,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Returns metadata from prior request.
 This endpoint returns details of a prior role insights request. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-role-insights-requests-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-insights-requests)
 
 ### Path Parameters
 
@@ -584,7 +584,7 @@ func main() {
 Get role insights summary information
 This method returns high level summary information for role insights for a customer.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-role-insights-summary-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-insights-summary)
 
 ### Path Parameters
 

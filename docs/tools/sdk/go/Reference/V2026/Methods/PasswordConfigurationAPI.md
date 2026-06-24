@@ -32,7 +32,7 @@ This API creates the password org config. Unspecified fields will use default va
 To be able to use the custom password instructions, you must set the `customInstructionsEnabled` field to "true".
 Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:write'
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-password-org-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/create-password-org-config)
 
 ### Path Parameters
 
@@ -104,7 +104,7 @@ func main() {
 Get password org config
 This API returns the password org config . Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:read'
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-password-org-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-password-org-config)
 
 ### Path Parameters
 
@@ -163,7 +163,7 @@ This API updates the password org config for specified fields. Other fields will
 You must set the `customInstructionsEnabled` field to "true" to be able to use custom password instructions. 
 Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:write'
 
-[API Spec](https://developer.sailpoint.com/docs/api/put-password-org-config-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/put-password-org-config)
 
 ### Path Parameters
 

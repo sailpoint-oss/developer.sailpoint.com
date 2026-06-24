@@ -58,7 +58,7 @@ Method | HTTP request | Description
 Create password sync group
 This API creates a password sync group based on the specifications provided.
 
-[API Spec](https://developer.sailpoint.com/docs/api/create-password-sync-group-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-password-sync-group)
 
 ### Path Parameters
 
@@ -132,7 +132,7 @@ func main() {
 Delete password sync group by id
 This API deletes the specified password sync group.
 
-[API Spec](https://developer.sailpoint.com/docs/api/delete-password-sync-group-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-password-sync-group)
 
 ### Path Parameters
 
@@ -197,7 +197,7 @@ func main() {
 Get password sync group by id
 This API returns the sync group for the specified ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-password-sync-group-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-password-sync-group)
 
 ### Path Parameters
 
@@ -263,7 +263,7 @@ func main() {
 Get password sync group list
 This API returns a list of password sync groups.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-password-sync-groups-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-password-sync-groups)
 
 ### Path Parameters
 
@@ -329,7 +329,7 @@ func main() {
 Update password sync group by id
 This API updates the specified password sync group.
 
-[API Spec](https://developer.sailpoint.com/docs/api/update-password-sync-group-v-1)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-password-sync-group)
 
 ### Path Parameters
 

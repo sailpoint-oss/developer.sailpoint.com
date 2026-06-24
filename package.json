@@ -109,6 +109,7 @@
     "@docusaurus/preset-classic": "3.9.2",
     "@docusaurus/tsconfig": "3.9.2",
     "@docusaurus/types": "3.9.2",
+    "@types/js-yaml": "^4.0.9",
     "dotenv": "^16.4.5",
     "esbuild": "^0.25.0",
     "husky": "^8.0.2",

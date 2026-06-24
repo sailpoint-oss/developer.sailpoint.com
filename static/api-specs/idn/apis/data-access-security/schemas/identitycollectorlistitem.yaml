@@ -1,0 +1,22 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The unique identifier of the identity collector.
+    example: "12345"
+  name:
+    type: string
+    description: The display name of the identity collector.
+    example: Active Directory Identity Collector
+  type:
+    type: string
+    description: >-
+      The identity collector type, derived from its underlying source. Possible values include "Active Directory",
+      "Azure Active Directory", "Google Drive", "Dropbox", "Box", "Microsoft Entra SaaS", "Snowflake", and "Databricks".
+    example: Active Directory
+  sourceId:
+    type: string
+    description: >-
+      The identifier of the source the identity collector is associated with, represented as a UUID. Both hyphenated
+      and non-hyphenated formats are accepted.
+    example: 2c9180835d2e5168015d32f890ca1581

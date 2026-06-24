@@ -53,6 +53,10 @@ paths:
     $ref: ./paths/das-v1-applications.yaml
   /das/v1/applications/{id}:
     $ref: ./paths/das-v1-applications-by-id.yaml
+  /das/identity-collectors/v1:
+    $ref: ./paths/das-identity-collectors-v1.yaml
+  /das/identity-collectors/v1/{id}:
+    $ref: ./paths/das-identity-collectors-v1-by-id.yaml
   /das/v1/owners/applications/{appId}:
     $ref: ./paths/das-v1-owners-applications-by-appid.yaml
   /das/v1/owners/resources/{resourceId}:

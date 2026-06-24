@@ -221,7 +221,21 @@ const sidebars: SidebarsConfig = {
       },
       items: require('./docs/api/sidebar.ts'),
     },
-  ]
+  ],
+    communityPoliciesSidebar: [
+    {
+      type: 'category',
+      label: 'Community policies',
+      collapsible: false,
+      link: { type: 'doc', id: 'community-policies' },
+      items: [
+        { type: 'doc', id: 'ai-policy', label: 'AI Usage Policy' },
+        { type: 'doc', id: 'community-code-of-conduct', label: 'Developer Community Code of Conduct' },
+        { type: 'doc', id: 'event-code-of-conduct', label: 'Developer Community Event Code of Conduct' },
+        { type: 'doc', id: 'ambassador-agreement', label: 'Ambassador Program Agreement' },
+      ],
+    },
+  ],
 };
 
 export default sidebars;

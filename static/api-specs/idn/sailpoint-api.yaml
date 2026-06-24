@@ -18103,6 +18103,207 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
+  /das/identity-collectors/v1:
+    get:
+      summary: List identity collectors
+      description: |-
+        This endpoint lists the identity collectors in Data Access Security with optional filtering and pagination.
+
+        Sorting is not supported for this endpoint; supplying the `sorters` query parameter results in a validation error.
+      security:
+        - userAuth:
+            - das:identity-collectors:read
+            - das:identity-collectors:manage
+        - applicationAuth:
+            - das:identity-collectors:read
+            - das:identity-collectors:manage
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+      tags:
+        - Data Access Security
+      operationId: listIdentityCollectorsV1
+      parameters:
+        - name: filters
+          in: query
+          schema:
+            type: string
+          required: false
+          example: sourceId eq "2c9180835d2e5168015d32f890ca1581"
+          description: |-
+            Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+            Filtering is supported for the following fields and operators:
+
+            **sourceId**: *eq*
+
+            **type**: *eq, in*
+
+            **id**: *eq, in*
+
+            Supported composite operators are *and, or*
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/count'
+      responses:
+        '200':
+          description: A list of identity collectors matching the filter criteria.
+          headers:
+            X-Total-Count:
+              description: The total number of results matching the filter criteria, regardless of paging limits.
+              schema:
+                type: integer
+                format: int64
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/identitycollectorlistitem'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Create identity collector
+      description: This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.
+      security:
+        - userAuth:
+            - das:identity-collectors:manage
+        - applicationAuth:
+            - das:identity-collectors:manage
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+      tags:
+        - Data Access Security
+      operationId: createIdentityCollectorV1
+      requestBody:
+        description: Request body containing the details required to create a new identity collector.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createidentitycollectorrequest'
+        required: true
+      responses:
+        '200':
+          description: The identity collector was created successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                    description: The unique identifier of the created identity collector.
+                    example: 12345
+                  name:
+                    type: string
+                    description: The display name of the created identity collector.
+                    example: Active Directory Identity Collector
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+  /das/identity-collectors/v1/{id}:
+    put:
+      summary: Update identity collector by identifier
+      description: This endpoint updates the name of an existing identity collector in Data Access Security. The `sourceId` and `type` cannot be changed and must match the current values.
+      security:
+        - userAuth:
+            - das:identity-collectors:manage
+        - applicationAuth:
+            - das:identity-collectors:manage
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+      tags:
+        - Data Access Security
+      operationId: putIdentityCollectorV1
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: The unique identifier of the identity collector to update.
+          example: 12345
+      requestBody:
+        description: Request body containing the updated details for the identity collector.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/updateidentitycollectorrequest'
+        required: true
+      responses:
+        '204':
+          description: No Content
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '409':
+          $ref: '#/components/responses/409'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+    delete:
+      summary: Delete identity collector by identifier
+      description: This endpoint deletes an identity collector from Data Access Security by its unique identifier.
+      security:
+        - userAuth:
+            - das:identity-collectors:manage
+        - applicationAuth:
+            - das:identity-collectors:manage
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+      tags:
+        - Data Access Security
+      operationId: deleteIdentityCollectorV1
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: The unique identifier of the identity collector to delete.
+          example: 12345
+      responses:
+        '204':
+          description: No Content
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
   /das/v1/owners/applications/{appId}:
     get:
       operationId: getOwnersV1
@@ -35827,7 +36028,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
         '409':
-          $ref: '#/components/responses/409'
+          $ref: '#/components/responses/409-2'
         '429':
           $ref: '#/components/responses/429'
         '500':
@@ -35866,7 +36067,7 @@ paths:
         '404':
           $ref: '#/components/responses/404'
         '409':
-          $ref: '#/components/responses/409'
+          $ref: '#/components/responses/409-2'
         '429':
           $ref: '#/components/responses/429'
         '500':
@@ -48097,7 +48298,7 @@ paths:
         '403':
           $ref: '#/components/responses/403'
         '409':
-          $ref: '#/components/responses/409'
+          $ref: '#/components/responses/409-2'
         '429':
           $ref: '#/components/responses/429'
         '500':
@@ -65311,6 +65512,58 @@ components:
           description: If true, the application setup will be executed immediately after creation.
           example: false
           default: false
+    identitycollectorlistitem:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the identity collector.
+          example: '12345'
+        name:
+          type: string
+          description: The display name of the identity collector.
+          example: Active Directory Identity Collector
+        type:
+          type: string
+          description: The identity collector type, derived from its underlying source. Possible values include "Active Directory", "Azure Active Directory", "Google Drive", "Dropbox", "Box", "Microsoft Entra SaaS", "Snowflake", and "Databricks".
+          example: Active Directory
+        sourceId:
+          type: string
+          description: The identifier of the source the identity collector is associated with, represented as a UUID. Both hyphenated and non-hyphenated formats are accepted.
+          example: 2c9180835d2e5168015d32f890ca1581
+    createidentitycollectorrequest:
+      type: object
+      required:
+        - name
+        - sourceId
+      properties:
+        name:
+          type: string
+          description: The display name for the new identity collector. Must be unique within the tenant.
+          example: Active Directory Identity Collector
+        sourceId:
+          type: string
+          description: The identifier of the source to create the identity collector for, represented as a UUID. Both hyphenated and non-hyphenated formats are accepted. The identity collector type is derived from this source.
+          example: 2c9180835d2e5168015d32f890ca1581
+    updateidentitycollectorrequest:
+      type: object
+      required:
+        - name
+        - sourceId
+        - type
+      properties:
+        name:
+          type: string
+          description: The display name of the identity collector. Must be unique within the tenant.
+          example: Active Directory Identity Collector
+        sourceId:
+          type: string
+          description: The identifier of the associated source, represented as a UUID. Both hyphenated and non-hyphenated formats are accepted. This value cannot be modified for an existing identity collector and must match the current value.
+          example: 2c9180835d2e5168015d32f890ca1581
+        type:
+          type: string
+          description: The identity collector type. This value cannot be modified for an existing identity collector and must match the current value.
+          example: Active Directory
     dataownermodel:
       type: object
       properties:
@@ -90910,22 +91163,38 @@ components:
                 description: Unique tracking id for the error.
                 example: e7eab60924f64aa284175b9fa3309599
     '409':
-      description: Conflict - Indicates that the request could not be processed because of conflict in the current state of the resource.
+      description: Conflict - Returned if an identity collector with the same name already exists.
       content:
         application/json:
           schema:
             type: object
             properties:
-              errorName:
-                description: A message describing the error
-                example: ConflictException
-              errorMessage:
-                description: Description of the error
-                example: Failed to store object
+              detailCode:
+                type: string
+                description: Fine-grained error code providing more detail of the error.
+                example: 409.1 Conflict
               trackingId:
                 type: string
                 description: Unique tracking id for the error.
                 example: e7eab60924f64aa284175b9fa3309599
+              messages:
+                type: array
+                description: Generic localized reason for error.
+                items:
+                  type: object
+                  properties:
+                    locale:
+                      type: string
+                      description: The locale for the message text, a BCP 47 language tag.
+                      example: en-US
+                    localeOrigin:
+                      type: string
+                      description: An indicator of how the locale was selected.
+                      example: DEFAULT
+                    text:
+                      type: string
+                      description: Actual text of the error message in the indicated locale.
+                      example: An identity collector with the same name already exists.
     '412':
       description: Precondition Failed - Returned in response if API/Feature not enabled for an organization.
       content:
@@ -90962,6 +91231,23 @@ components:
                   - locale: en-US
                     localeOrigin: DEFAULT
                     text: An internal fault occurred.
+    409-2:
+      description: Conflict - Indicates that the request could not be processed because of conflict in the current state of the resource.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorName:
+                description: A message describing the error
+                example: ConflictException
+              errorMessage:
+                description: Description of the error
+                example: Failed to store object
+              trackingId:
+                type: string
+                description: Unique tracking id for the error.
+                example: e7eab60924f64aa284175b9fa3309599
   examples:
     slimdiscoveredapplications:
       description: List of discovered applications

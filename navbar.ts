@@ -46,10 +46,10 @@ const navbarConfig = {
         position: 'left',
         items: [
           { label: 'Developer forum', to: 'https://developer.sailpoint.com/discuss/' },
-          { label: 'AI Policy', to: '/docs/ai-policy' },
           { label: 'CoLab marketplace', to: '/colab' },
           { label: 'Developer blog', to: '/blog' },
           { label: 'Ambassador program', to: '/ambassadors' },
+          { label: 'Community policies', to: '/docs/community-policies' },
         ],
       },
       {

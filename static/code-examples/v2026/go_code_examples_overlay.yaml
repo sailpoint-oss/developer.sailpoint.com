@@ -30534,6 +30534,75 @@
           // response from `GetSourceConnections`: SourceConnectionsDto
           fmt.Fprintf(os.Stdout, "Response from `SourcesAPI.GetSourceConnections`: %v\n", resp)
         }
+- path: /sources/{sourceId}/datasets/{datasetId}
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2026/methods/sources#get-source-dataset
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          sourceId := `2c9180835d191a86015d28455b4a2329` // string | Source ID. # string | Source ID.
+          datasetId := `cmdb-servicenow:applications` // string | Dataset ID. # string | Dataset ID.
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2026.SourcesAPI.GetSourceDataset(context.Background(), sourceId, datasetId).Execute()
+          //resp, r, err := apiClient.V2026.SourcesAPI.GetSourceDataset(context.Background(), sourceId, datasetId).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSourceDataset``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetSourceDataset`: SourceDataset
+          fmt.Fprintf(os.Stdout, "Response from `SourcesAPI.GetSourceDataset`: %v\n", resp)
+        }
+- path: /sources/{sourceId}/datasets
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2026/methods/sources#get-source-datasets
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          sourceId := `2c9180835d191a86015d28455b4a2329` // string | Source ID. # string | Source ID.
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2026.SourcesAPI.GetSourceDatasets(context.Background(), sourceId).Execute()
+          //resp, r, err := apiClient.V2026.SourcesAPI.GetSourceDatasets(context.Background(), sourceId).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSourceDatasets``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetSourceDatasets`: []SourceDataset
+          fmt.Fprintf(os.Stdout, "Response from `SourcesAPI.GetSourceDatasets`: %v\n", resp)
+        }
 - path: /sources/{id}/entitlement-request-config
   method: Get
   xCodeSample:
@@ -30602,6 +30671,75 @@
           }
           // response from `GetSourceHealth`: SourceHealthDto
           fmt.Fprintf(os.Stdout, "Response from `SourcesAPI.GetSourceHealth`: %v\n", resp)
+        }
+- path: /sources/{sourceId}/resources/{resourceId}
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2026/methods/sources#get-source-resource
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          sourceId := `2c9180835d191a86015d28455b4a2329` // string | Source ID. # string | Source ID.
+          resourceId := `account` // string | Resource ID (CIS schema object type for the source). # string | Resource ID (CIS schema object type for the source).
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2026.SourcesAPI.GetSourceResource(context.Background(), sourceId, resourceId).Execute()
+          //resp, r, err := apiClient.V2026.SourcesAPI.GetSourceResource(context.Background(), sourceId, resourceId).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSourceResource``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetSourceResource`: SourceDatasetResource
+          fmt.Fprintf(os.Stdout, "Response from `SourcesAPI.GetSourceResource`: %v\n", resp)
+        }
+- path: /sources/{sourceId}/resources
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2026/methods/sources#get-source-resources
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2026 "github.com/sailpoint-oss/golang-sdk/v2/api_v2026"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          sourceId := `2c9180835d191a86015d28455b4a2329` // string | Source ID. # string | Source ID.
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2026.SourcesAPI.GetSourceResources(context.Background(), sourceId).Execute()
+          //resp, r, err := apiClient.V2026.SourcesAPI.GetSourceResources(context.Background(), sourceId).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSourceResources``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetSourceResources`: []SourceDatasetResource
+          fmt.Fprintf(os.Stdout, "Response from `SourcesAPI.GetSourceResources`: %v\n", resp)
         }
 - path: /sources/{sourceId}/schedules/{scheduleType}
   method: Get

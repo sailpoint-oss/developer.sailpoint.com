@@ -24,7 +24,7 @@ Method | HTTP request | Description
 Use this API to classify a single machine account.
 A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/send-classify-machine-account)
+[API Spec](https://developer.sailpoint.com/docs/api/send-classify-machine-account-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

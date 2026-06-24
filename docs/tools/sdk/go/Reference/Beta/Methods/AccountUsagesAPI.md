@@ -25,7 +25,7 @@ Method | HTTP request | Description
 Returns account usage insights
 This API returns a summary of account usage insights for past 12 months.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-usages-by-account-id)
+[API Spec](https://developer.sailpoint.com/docs/api/get-usages-by-account-id-v-1)
 
 ### Path Parameters
 

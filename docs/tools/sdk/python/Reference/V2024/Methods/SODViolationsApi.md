@@ -41,7 +41,7 @@ Method | HTTP request | Description
 Predict sod violations for identity.
 This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/start-predict-sod-violations)
+[API Spec](https://developer.sailpoint.com/docs/api/start-predict-sod-violations-v-1)
 
 ### Parameters 
 
@@ -110,7 +110,7 @@ with ApiClient(configuration) as api_client:
 Check sod violations
 This API initiates a SOD policy verification asynchronously.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/start-violation-check)
+[API Spec](https://developer.sailpoint.com/docs/api/start-violation-check-v-1)
 
 ### Parameters 
 

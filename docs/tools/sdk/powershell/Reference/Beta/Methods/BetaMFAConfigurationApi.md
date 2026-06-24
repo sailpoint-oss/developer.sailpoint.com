@@ -30,7 +30,7 @@ Method | HTTP request | Description
 ## delete-mfa-config
 This API removes the configuration for the specified MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-mfa-config)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-mfa-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -75,7 +75,7 @@ try {
 ## get-mfa-duo-config
 This API returns the configuration of an Duo MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-mfa-duo-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-mfa-duo-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -118,7 +118,7 @@ try {
 ## get-mfa-kba-config
 This API returns the KBA configuration for MFA.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-mfa-kba-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-mfa-kba-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -163,7 +163,7 @@ try {
 ## get-mfa-okta-config
 This API returns the configuration of an Okta MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-mfa-okta-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-mfa-okta-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -206,7 +206,7 @@ try {
 ## set-mfa-duo-config
 This API sets the configuration of an Duo MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/set-mfa-duo-config)
+[API Spec](https://developer.sailpoint.com/docs/api/set-mfa-duo-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -262,7 +262,7 @@ try {
 ## set-mfakba-config
 This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/set-mfakba-config)
+[API Spec](https://developer.sailpoint.com/docs/api/set-mfakba-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -312,7 +312,7 @@ try {
 ## set-mfa-okta-config
 This API sets the configuration of an Okta MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/set-mfa-okta-config)
+[API Spec](https://developer.sailpoint.com/docs/api/set-mfa-okta-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -364,7 +364,7 @@ try {
 ## test-mfa-config
 This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/test-mfa-config)
+[API Spec](https://developer.sailpoint.com/docs/api/test-mfa-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

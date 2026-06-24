@@ -45,7 +45,7 @@ This API is used to check if granting some additional accesses would cause the s
 
 A token with ORG_ADMIN or API authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/start-predict-sod-violations)
+[API Spec](https://developer.sailpoint.com/docs/api/start-predict-sod-violations-v-1)
 
 ### Path Parameters
 

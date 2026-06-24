@@ -36,7 +36,7 @@ Method | HTTP request | Description
 ## create-sim-integration
 Create a new SIM Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-sim-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/create-sim-integration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -100,7 +100,7 @@ try {
 ## delete-sim-integration
 Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-sim-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-sim-integration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -146,7 +146,7 @@ try {
 ## get-sim-integration
 Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sim-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sim-integration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -192,7 +192,7 @@ try {
 ## get-sim-integrations
 List the existing SIM integrations. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sim-integrations)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sim-integrations-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -236,7 +236,7 @@ try {
 ## patch-before-provisioning-rule
 Patch a SIM beforeProvisioningRule attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-before-provisioning-rule)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-before-provisioning-rule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -285,7 +285,7 @@ try {
 ## patch-sim-attributes
 Patch a SIM attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-sim-attributes)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-sim-attributes-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -334,7 +334,7 @@ try {
 ## put-sim-integration
 Update an existing SIM integration.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/put-sim-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/put-sim-integration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

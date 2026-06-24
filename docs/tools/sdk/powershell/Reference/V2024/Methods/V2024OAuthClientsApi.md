@@ -30,7 +30,7 @@ Method | HTTP request | Description
 ## create-oauth-client
 This creates an OAuth client.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-oauth-client)
+[API Spec](https://developer.sailpoint.com/docs/api/create-oauth-client-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -92,7 +92,7 @@ try {
 ## delete-oauth-client
 This deletes an OAuth client.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-oauth-client)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-oauth-client-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -138,7 +138,7 @@ try {
 ## get-oauth-client
 This gets details of an OAuth client.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-oauth-client)
+[API Spec](https://developer.sailpoint.com/docs/api/get-oauth-client-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -184,7 +184,7 @@ try {
 ## list-oauth-clients
 This gets a list of OAuth clients.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-oauth-clients)
+[API Spec](https://developer.sailpoint.com/docs/api/list-oauth-clients-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -229,7 +229,7 @@ try {
 ## patch-oauth-client
 This performs a targeted update to the field(s) of an OAuth client.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-oauth-client)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-oauth-client-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

@@ -40,7 +40,7 @@ Method | HTTP request | Description
 ## get-identity-access-summaries
 This API returns a list of access summaries for the specified identity campaign certification and type. Reviewers for this certification can also call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-identity-access-summaries)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-access-summaries-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -98,7 +98,7 @@ try {
 ## get-identity-decision-summary
 This API returns a summary of the decisions made on an identity campaign certification. The decisions are summarized by type. Reviewers for this certification can also call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-identity-decision-summary)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-decision-summary-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -146,7 +146,7 @@ try {
 ## get-identity-summaries
 This API returns a list of the identity summaries for a specific identity campaign certification. Reviewers for this certification can also call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-identity-summaries)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-summaries-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -202,7 +202,7 @@ try {
 ## get-identity-summary
 This API returns the summary for an identity on a specified identity campaign certification. Reviewers for this certification can also call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-identity-summary)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-summary-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

@@ -30,7 +30,7 @@ Method | HTTP request | Description
 Create connector customizer
 Create a connector customizer.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-connector-customizer)
+[API Spec](https://developer.sailpoint.com/docs/api/create-connector-customizer-v-1)
 
 ### Parameters 
 
@@ -91,7 +91,7 @@ with ApiClient(configuration) as api_client:
 Creates a connector customizer version
 Creates a new version for the customizer.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-connector-customizer-version)
+[API Spec](https://developer.sailpoint.com/docs/api/create-connector-customizer-version-v-1)
 
 ### Parameters 
 
@@ -150,7 +150,7 @@ with ApiClient(configuration) as api_client:
 Delete connector customizer
 Delete the connector customizer for the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-connector-customizer)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-connector-customizer-v-1)
 
 ### Parameters 
 
@@ -206,7 +206,7 @@ with ApiClient(configuration) as api_client:
 Get connector customizer
 Gets connector customizer by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector-customizer)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-customizer-v-1)
 
 ### Parameters 
 
@@ -265,7 +265,7 @@ with ApiClient(configuration) as api_client:
 List all connector customizers
 List all connector customizers.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-connector-customizers)
+[API Spec](https://developer.sailpoint.com/docs/api/list-connector-customizers-v-1)
 
 ### Parameters 
 
@@ -326,7 +326,7 @@ with ApiClient(configuration) as api_client:
 Update connector customizer
 Update an existing connector customizer with the one provided in the request body. These fields are immutable: `id`, `name`, `type`.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-connector-customizer)
+[API Spec](https://developer.sailpoint.com/docs/api/put-connector-customizer-v-1)
 
 ### Parameters 
 

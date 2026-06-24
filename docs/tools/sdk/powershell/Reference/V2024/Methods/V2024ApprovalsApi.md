@@ -12,7 +12,7 @@ tags: ['SDK', 'Software Development Kit', 'Approvals', 'V2024Approvals']
 # Approvals
   Use this API to implement approval functionality. With this functionality in place, you can get generic approvals and modify them. 
 
-The main advantages this API has vs [Access Request Approvals](https://developer.sailpoint.com/docs/api/v2024/access-request-approvals) are that you can use it to get generic approvals individually or in batches and make changes to those approvals. 
+The main advantages this API has vs [Access Request Approvals](https://developer.sailpoint.com/docs/api/access-request-approvals) are that you can use it to get generic approvals individually or in batches and make changes to those approvals. 
  
   
 
@@ -30,7 +30,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Retrieve a single approval for a given approval ID. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-approval)
+[API Spec](https://developer.sailpoint.com/docs/api/get-approval-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -81,7 +81,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieve a list of approvals, which can be filtered by requester ID, status, or reference type. "Mine" query parameter can be used and it will return all approvals for the current approver. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals. 
 Absence of all query parameters will will default to mine=true.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-approvals)
+[API Spec](https://developer.sailpoint.com/docs/api/get-approvals-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

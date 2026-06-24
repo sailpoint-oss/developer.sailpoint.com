@@ -46,7 +46,7 @@ Method | HTTP request | Description
 Create custom connector
 Create custom connector.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-custom-connector)
+[API Spec](https://developer.sailpoint.com/docs/api/create-custom-connector-v-1)
 
 ### Parameters 
 
@@ -112,7 +112,7 @@ with ApiClient(configuration) as api_client:
 Delete connector by script name
 Delete a custom connector that using its script name.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-custom-connector)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-custom-connector-v-1)
 
 ### Parameters 
 
@@ -168,7 +168,7 @@ with ApiClient(configuration) as api_client:
 Get connector by script name
 Fetches a connector that using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-v-1)
 
 ### Parameters 
 
@@ -229,7 +229,7 @@ with ApiClient(configuration) as api_client:
 Get connector list
 Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-list)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-list-v-1)
 
 ### Parameters 
 
@@ -297,7 +297,7 @@ with ApiClient(configuration) as api_client:
 Get connector source configuration
 Fetches a connector's source config using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-source-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-source-config-v-1)
 
 ### Parameters 
 
@@ -355,7 +355,7 @@ with ApiClient(configuration) as api_client:
 Get connector source template
 Fetches a connector's source template using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-source-template)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-source-template-v-1)
 
 ### Parameters 
 
@@ -413,7 +413,7 @@ with ApiClient(configuration) as api_client:
 Get connector translations
 Fetches a connector's translations using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-translations)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-translations-v-1)
 
 ### Parameters 
 
@@ -473,7 +473,7 @@ with ApiClient(configuration) as api_client:
 Update connector source configuration
 Update a connector's source config using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/put-connector-source-config)
+[API Spec](https://developer.sailpoint.com/docs/api/put-connector-source-config-v-1)
 
 ### Parameters 
 
@@ -534,7 +534,7 @@ with ApiClient(configuration) as api_client:
 Update connector source template
 Update a connector's source template using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/put-connector-source-template)
+[API Spec](https://developer.sailpoint.com/docs/api/put-connector-source-template-v-1)
 
 ### Parameters 
 
@@ -595,7 +595,7 @@ with ApiClient(configuration) as api_client:
 Update connector translations
 Update a connector's translations using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/put-connector-translations)
+[API Spec](https://developer.sailpoint.com/docs/api/put-connector-translations-v-1)
 
 ### Parameters 
 
@@ -668,7 +668,7 @@ The following fields are patchable:
 * sourceConfigXml
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/update-connector)
+[API Spec](https://developer.sailpoint.com/docs/api/update-connector-v-1)
 
 ### Parameters 
 

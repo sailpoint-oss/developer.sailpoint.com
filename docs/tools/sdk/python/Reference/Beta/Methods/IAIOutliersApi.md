@@ -33,7 +33,7 @@ This API exports a list of ignored outliers to a CSV as well as list of non-igno
 Columns will include: identityId, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/export-outliers-zip)
+[API Spec](https://developer.sailpoint.com/docs/api/export-outliers-zip-v-1)
 
 ### Parameters 
 
@@ -90,7 +90,7 @@ with ApiClient(configuration) as api_client:
 Iai identity outliers summary
 This API returns a summary containing the number of identities that customer has, the number of outliers, and the type of outlier.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-outlier-snapshots)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-outlier-snapshots-v-1)
 
 ### Parameters 
 
@@ -158,7 +158,7 @@ with ApiClient(configuration) as api_client:
 Iai get identity outliers
 This API returns a list of outliers, containing data such as identity ID, outlier type, detection dates, identity attributes, if identity is ignored, and certification information.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-outliers)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-outliers-v-1)
 
 ### Parameters 
 
@@ -227,7 +227,7 @@ with ApiClient(configuration) as api_client:
 Iai identity outliers latest summary
 This API returns a most recent snapshot of each outlier type, each containing the number of identities that customer has, the number of outliers, and the type of outlier.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-latest-identity-outlier-snapshots)
+[API Spec](https://developer.sailpoint.com/docs/api/get-latest-identity-outlier-snapshots-v-1)
 
 ### Parameters 
 
@@ -290,7 +290,7 @@ This API returns a summary of a contributing feature for an identity outlier.
 The object contains: contributing feature name (translated text or message key), identity outlier display name, feature values, feature definition and explanation (translated text or message key), peer display name and identityId, access item reference, translation messages object.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-outlier-contributing-feature-summary)
+[API Spec](https://developer.sailpoint.com/docs/api/get-outlier-contributing-feature-summary-v-1)
 
 ### Parameters 
 
@@ -352,7 +352,7 @@ This API returns a list of contributing feature objects for a single outlier.
 The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-peer-group-outliers-contributing-features)
+[API Spec](https://developer.sailpoint.com/docs/api/get-peer-group-outliers-contributing-features-v-1)
 
 ### Parameters 
 
@@ -422,7 +422,7 @@ with ApiClient(configuration) as api_client:
 Iai identity outliers ignore
 This API receives a list of identity IDs in the request, changes the outliers to be ignored.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/ignore-identity-outliers)
+[API Spec](https://developer.sailpoint.com/docs/api/ignore-identity-outliers-v-1)
 
 ### Parameters 
 
@@ -480,7 +480,7 @@ This API returns a list of the enriched access items associated with each featur
 The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-outliers-contributing-feature-access-items)
+[API Spec](https://developer.sailpoint.com/docs/api/list-outliers-contributing-feature-access-items-v-1)
 
 ### Parameters 
 
@@ -552,7 +552,7 @@ with ApiClient(configuration) as api_client:
 Iai identity outliers unignore
 This API receives a list of identity IDs in the request, changes the outliers to be un-ignored.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/un-ignore-identity-outliers)
+[API Spec](https://developer.sailpoint.com/docs/api/un-ignore-identity-outliers-v-1)
 
 ### Parameters 
 

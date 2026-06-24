@@ -44,7 +44,7 @@ Create identity profile
 Create an identity profile.
 A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-identity-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/create-identity-profile-v-1)
 
 ### Parameters 
 
@@ -152,7 +152,7 @@ Delete an identity profile by ID.
 On success, this endpoint will return a reference to the bulk delete task result.
 A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-identity-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-identity-profile-v-1)
 
 ### Parameters 
 
@@ -217,7 +217,7 @@ A token with ORG_ADMIN authority is required to call this API.
 
 The following rights are required to access this endpoint: idn:identity-profile:delete
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-identity-profiles)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-identity-profiles-v-1)
 
 ### Parameters 
 
@@ -275,7 +275,7 @@ with ApiClient(configuration) as api_client:
 Export identity profiles
 This exports existing identity profiles in the format specified by the sp-config service.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/export-identity-profiles)
+[API Spec](https://developer.sailpoint.com/docs/api/export-identity-profiles-v-1)
 
 ### Parameters 
 
@@ -344,7 +344,7 @@ Default identity attribute config
 This returns the default identity attribute config
 A token with ORG_ADMIN authority is required to call this API to get the default identity attribute config.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-default-identity-attribute-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-default-identity-attribute-config-v-1)
 
 ### Parameters 
 
@@ -404,7 +404,7 @@ Get identity profile
 Get a single identity profile by ID.
 A token with ORG_ADMIN or API authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-profile-v-1)
 
 ### Parameters 
 
@@ -463,7 +463,7 @@ with ApiClient(configuration) as api_client:
 Import identity profiles
 This imports previously exported identity profiles.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/import-identity-profiles)
+[API Spec](https://developer.sailpoint.com/docs/api/import-identity-profiles-v-1)
 
 ### Parameters 
 
@@ -523,7 +523,7 @@ List identity profiles
 Get a list of identity profiles, based on the specified query parameters.
 A token with ORG_ADMIN or API authority is required to call this API to get a list of Identity Profiles.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-identity-profiles)
+[API Spec](https://developer.sailpoint.com/docs/api/list-identity-profiles-v-1)
 
 ### Parameters 
 
@@ -592,7 +592,7 @@ Use this API to generate a non-persisted preview of the identity object after ap
 This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body.
 A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/show-generate-identity-preview)
+[API Spec](https://developer.sailpoint.com/docs/api/show-generate-identity-preview-v-1)
 
 ### Parameters 
 
@@ -682,7 +682,7 @@ This operation will perform the following activities on all identities under the
 1. Updates identity attribute according to the identity profile mappings. 2. Determines the identity's correct manager through manager correlation. 3. Updates the identity's access according to their assigned lifecycle state. 4. Updates the identity's access based on role assignment criteria.
 A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/sync-identity-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/sync-identity-profile-v-1)
 
 ### Parameters 
 
@@ -748,7 +748,7 @@ These fields cannot be updated:
 * identityRefreshRequired
 * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/update-identity-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/update-identity-profile-v-1)
 
 ### Parameters 
 

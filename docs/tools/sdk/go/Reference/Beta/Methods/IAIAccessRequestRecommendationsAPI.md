@@ -29,7 +29,7 @@ Method | HTTP request | Description
 Ignore access request recommendation
 This API ignores a recommended access request item. Once an item is ignored, it will be marked as ignored=true if it is still a recommended item. The consumer can decide to hide ignored recommendations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/add-access-request-recommendations-ignored-item)
+[API Spec](https://developer.sailpoint.com/docs/api/add-access-request-recommendations-ignored-item-v-1)
 
 ### Path Parameters
 
@@ -102,7 +102,7 @@ func main() {
 Accept access request recommendation
 This API consumes a notification that a recommended access request item was requested. This API does not actually make the request, it is just a notification. This will help provide feedback in order to improve our recommendations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/add-access-request-recommendations-requested-item)
+[API Spec](https://developer.sailpoint.com/docs/api/add-access-request-recommendations-requested-item-v-1)
 
 ### Path Parameters
 
@@ -175,7 +175,7 @@ func main() {
 Mark viewed access request recommendations
 This API consumes a notification that a recommended access request item was viewed. Future recommendations with this item will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/add-access-request-recommendations-viewed-item)
+[API Spec](https://developer.sailpoint.com/docs/api/add-access-request-recommendations-viewed-item-v-1)
 
 ### Path Parameters
 
@@ -248,7 +248,7 @@ func main() {
 Bulk mark viewed access request recommendations
 This API consumes a notification that a set of recommended access request item were viewed. Future recommendations with these items will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/add-access-request-recommendations-viewed-items)
+[API Spec](https://developer.sailpoint.com/docs/api/add-access-request-recommendations-viewed-items-v-1)
 
 ### Path Parameters
 
@@ -315,7 +315,7 @@ func main() {
 Identity access request recommendations
 This API returns the access request recommendations for the specified identity. The default identity is *me* which indicates the current user.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-request-recommendations)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-request-recommendations-v-1)
 
 ### Path Parameters
 
@@ -389,7 +389,7 @@ func main() {
 List ignored access request recommendations
 This API returns the list of ignored access request recommendations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-request-recommendations-ignored-items)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-request-recommendations-ignored-items-v-1)
 
 ### Path Parameters
 
@@ -459,7 +459,7 @@ func main() {
 List accepted access request recommendations
 This API returns a list of requested access request recommendations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-request-recommendations-requested-items)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-request-recommendations-requested-items-v-1)
 
 ### Path Parameters
 
@@ -529,7 +529,7 @@ func main() {
 List viewed access request recommendations
 This API returns the list of viewed access request recommendations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-request-recommendations-viewed-items)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-request-recommendations-viewed-items-v-1)
 
 ### Path Parameters
 

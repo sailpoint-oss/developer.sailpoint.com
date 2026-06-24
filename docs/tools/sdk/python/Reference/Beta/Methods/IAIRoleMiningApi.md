@@ -46,7 +46,7 @@ Method | HTTP request | Description
 Create request to provision a potential role into an actual role.
 This method starts a job to provision a potential role
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-potential-role-provision-request)
+[API Spec](https://developer.sailpoint.com/docs/api/create-potential-role-provision-request-v-1)
 
 ### Parameters 
 
@@ -119,7 +119,7 @@ with ApiClient(configuration) as api_client:
 Create a role mining session
 This submits a create role mining session request to the role mining application.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-role-mining-sessions)
+[API Spec](https://developer.sailpoint.com/docs/api/create-role-mining-sessions-v-1)
 
 ### Parameters 
 
@@ -209,7 +209,7 @@ with ApiClient(configuration) as api_client:
 Export (download) details for a potential role in a role mining session
 This endpoint downloads a completed export of information for a potential role in a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/download-role-mining-potential-role-zip)
+[API Spec](https://developer.sailpoint.com/docs/api/download-role-mining-potential-role-zip-v-1)
 
 ### Parameters 
 
@@ -269,7 +269,7 @@ with ApiClient(configuration) as api_client:
 Export (download) details for a potential role in a role mining session
 This endpoint downloads all the information for a potential role in a role mining session. Includes identities and entitlements in the potential role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/export-role-mining-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/export-role-mining-potential-role-v-1)
 
 ### Parameters 
 
@@ -327,7 +327,7 @@ with ApiClient(configuration) as api_client:
 Asynchronously export details for a potential role in a role mining session and upload to s3
 This endpoint uploads all the information for a potential role in a role mining session to S3 as a downloadable zip archive.  Includes identities and entitlements in the potential role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/export-role-mining-potential-role-async)
+[API Spec](https://developer.sailpoint.com/docs/api/export-role-mining-potential-role-async-v-1)
 
 ### Parameters 
 
@@ -392,7 +392,7 @@ with ApiClient(configuration) as api_client:
 Retrieve status of a potential role export job
 This endpoint retrieves information about the current status of a potential role export.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/export-role-mining-potential-role-status)
+[API Spec](https://developer.sailpoint.com/docs/api/export-role-mining-potential-role-status-v-1)
 
 ### Parameters 
 
@@ -453,7 +453,7 @@ with ApiClient(configuration) as api_client:
 Retrieves all potential role summaries
 Returns all potential role summaries that match the query parameters
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-all-potential-role-summaries)
+[API Spec](https://developer.sailpoint.com/docs/api/get-all-potential-role-summaries-v-1)
 
 ### Parameters 
 
@@ -520,7 +520,7 @@ with ApiClient(configuration) as api_client:
 Retrieves entitlement popularity distribution for a potential role in a role mining session
 This method returns entitlement popularity distribution for a potential role in a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-entitlement-distribution-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/get-entitlement-distribution-potential-role-v-1)
 
 ### Parameters 
 
@@ -580,7 +580,7 @@ with ApiClient(configuration) as api_client:
 Retrieves entitlements for a potential role in a role mining session
 This method returns entitlements for a potential role in a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-entitlements-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/get-entitlements-potential-role-v-1)
 
 ### Parameters 
 
@@ -653,7 +653,7 @@ with ApiClient(configuration) as api_client:
 Retrieves excluded entitlements for a potential role in a role mining session
 This method returns excluded entitlements for a potential role in a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-excluded-entitlements-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/get-excluded-entitlements-potential-role-v-1)
 
 ### Parameters 
 
@@ -723,7 +723,7 @@ with ApiClient(configuration) as api_client:
 Retrieves identities for a potential role in a role mining session
 This method returns identities for a potential role in a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identities-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identities-potential-role-v-1)
 
 ### Parameters 
 
@@ -793,7 +793,7 @@ with ApiClient(configuration) as api_client:
 Retrieve potential role in session
 This method returns a specific potential role for a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/get-potential-role-v-1)
 
 ### Parameters 
 
@@ -853,7 +853,7 @@ with ApiClient(configuration) as api_client:
 Retrieves the applications of a potential role for a role mining session
 This method returns the applications of a potential role for a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-potential-role-applications)
+[API Spec](https://developer.sailpoint.com/docs/api/get-potential-role-applications-v-1)
 
 ### Parameters 
 
@@ -922,7 +922,7 @@ with ApiClient(configuration) as api_client:
 Retrieves the entitlements of a potential role for a role mining session
 This method returns the entitlements of a potential role for a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-potential-role-entitlements)
+[API Spec](https://developer.sailpoint.com/docs/api/get-potential-role-entitlements-v-1)
 
 ### Parameters 
 
@@ -991,7 +991,7 @@ with ApiClient(configuration) as api_client:
 Retrieves potential role source usage
 This method returns source usageCount (as number of days in the last 90 days) for each identity in a potential role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-potential-role-source-identity-usage)
+[API Spec](https://developer.sailpoint.com/docs/api/get-potential-role-source-identity-usage-v-1)
 
 ### Parameters 
 
@@ -1060,7 +1060,7 @@ with ApiClient(configuration) as api_client:
 Retrieve session's potential role summaries
 This method returns the potential role summaries for a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-potential-role-summaries)
+[API Spec](https://developer.sailpoint.com/docs/api/get-potential-role-summaries-v-1)
 
 ### Parameters 
 
@@ -1129,7 +1129,7 @@ with ApiClient(configuration) as api_client:
 Retrieves a specific potential role
 This method returns a specific potential role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-mining-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-mining-potential-role-v-1)
 
 ### Parameters 
 
@@ -1187,7 +1187,7 @@ with ApiClient(configuration) as api_client:
 Get a role mining session
 The method retrieves a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-mining-session)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-mining-session-v-1)
 
 ### Parameters 
 
@@ -1246,7 +1246,7 @@ with ApiClient(configuration) as api_client:
 Get role mining session status state
 This method returns a role mining session status for a customer.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-mining-session-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-mining-session-status-v-1)
 
 ### Parameters 
 
@@ -1303,7 +1303,7 @@ with ApiClient(configuration) as api_client:
 Retrieves all role mining sessions
 Returns all role mining sessions that match the query parameters
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-mining-sessions)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-mining-sessions-v-1)
 
 ### Parameters 
 
@@ -1370,7 +1370,7 @@ with ApiClient(configuration) as api_client:
 Retrieves all saved potential roles
 This method returns all saved potential roles (draft roles).
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-saved-potential-roles)
+[API Spec](https://developer.sailpoint.com/docs/api/get-saved-potential-roles-v-1)
 
 ### Parameters 
 
@@ -1447,7 +1447,7 @@ The following fields can be modified:
 >**NOTE: All other fields cannot be modified.**
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-potential-role-v-1)
 
 ### Parameters 
 
@@ -1522,7 +1522,7 @@ The following fields can be modified:
 >**NOTE: All other fields cannot be modified.**
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-role-mining-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-role-mining-potential-role-v-1)
 
 ### Parameters 
 
@@ -1583,7 +1583,7 @@ with ApiClient(configuration) as api_client:
 Patch a role mining session
 The  method updates an existing role mining session using PATCH. Supports op in {"replace"} and changes to pruneThreshold and/or minNumIdentitiesInPotentialRole. The potential roles in this role mining session is then re-calculated.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-role-mining-session)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-role-mining-session-v-1)
 
 ### Parameters 
 
@@ -1644,7 +1644,7 @@ with ApiClient(configuration) as api_client:
 Edit entitlements for a potential role to exclude some entitlements
 This endpoint adds or removes entitlements from an exclusion list for a potential role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/update-entitlements-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/update-entitlements-potential-role-v-1)
 
 ### Parameters 
 

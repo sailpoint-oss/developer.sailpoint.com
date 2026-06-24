@@ -28,7 +28,7 @@ Method | HTTP request | Description
 ## create-send-token
 This API send token request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-send-token)
+[API Spec](https://developer.sailpoint.com/docs/api/create-send-token-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -77,7 +77,7 @@ try {
 ## ping-verification-status
 This API poll the VerificationPollRequest for the specified MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/ping-verification-status)
+[API Spec](https://developer.sailpoint.com/docs/api/ping-verification-status-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -127,7 +127,7 @@ try {
 ## send-duo-verify-request
 This API Authenticates the user via Duo-Web MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/send-duo-verify-request)
+[API Spec](https://developer.sailpoint.com/docs/api/send-duo-verify-request-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -176,7 +176,7 @@ try {
 ## send-kba-answers
 This API Authenticate user in KBA MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/send-kba-answers)
+[API Spec](https://developer.sailpoint.com/docs/api/send-kba-answers-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -226,7 +226,7 @@ try {
 ## send-okta-verify-request
 This API Authenticates the user via Okta-Verify MFA method. Request requires a header called 'slpt-forwarding', and it must contain a remote IP Address of caller.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/send-okta-verify-request)
+[API Spec](https://developer.sailpoint.com/docs/api/send-okta-verify-request-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -274,7 +274,7 @@ try {
 ## send-token-auth-request
 This API Authenticate user in Token MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/send-token-auth-request)
+[API Spec](https://developer.sailpoint.com/docs/api/send-token-auth-request-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

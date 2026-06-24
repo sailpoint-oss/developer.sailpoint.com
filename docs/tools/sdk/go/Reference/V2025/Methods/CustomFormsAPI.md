@@ -47,7 +47,7 @@ Method | HTTP request | Description
 Creates a form definition.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-form-definition)
+[API Spec](https://developer.sailpoint.com/docs/api/create-form-definition-v-1)
 
 ### Path Parameters
 
@@ -219,7 +219,7 @@ func main() {
 Generate json schema dynamically.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-form-definition-dynamic-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/create-form-definition-dynamic-schema-v-1)
 
 ### Path Parameters
 
@@ -289,7 +289,7 @@ func main() {
 Upload new form definition file.
 Parameter `{formDefinitionID}` should match a form definition ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-form-definition-file-request)
+[API Spec](https://developer.sailpoint.com/docs/api/create-form-definition-file-request-v-1)
 
 ### Path Parameters
 
@@ -357,7 +357,7 @@ func main() {
 Creates a form instance.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-form-instance)
+[API Spec](https://developer.sailpoint.com/docs/api/create-form-instance-v-1)
 
 ### Path Parameters
 
@@ -439,7 +439,7 @@ func main() {
 Deletes a form definition.
 Parameter `{formDefinitionID}` should match a form definition ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-form-definition)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-form-definition-v-1)
 
 ### Path Parameters
 
@@ -505,7 +505,7 @@ func main() {
 List form definitions by tenant.
 No parameters required.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/export-form-definitions-by-tenant)
+[API Spec](https://developer.sailpoint.com/docs/api/export-form-definitions-by-tenant-v-1)
 
 ### Path Parameters
 
@@ -573,7 +573,7 @@ func main() {
 Download definition file by fileid.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-file-from-s3)
+[API Spec](https://developer.sailpoint.com/docs/api/get-file-from-s3-v-1)
 
 ### Path Parameters
 
@@ -642,7 +642,7 @@ func main() {
 Return a form definition.
 Parameter `{formDefinitionID}` should match a form definition ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-form-definition-by-key)
+[API Spec](https://developer.sailpoint.com/docs/api/get-form-definition-by-key-v-1)
 
 ### Path Parameters
 
@@ -710,7 +710,7 @@ Parameter `{formInstanceID}` should match a form instance ID.
 
 Only the assigned recipient (`recipients[].id` when `type` is `IDENTITY`) may call this.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-form-instance-by-key)
+[API Spec](https://developer.sailpoint.com/docs/api/get-form-instance-by-key-v-1)
 
 ### Path Parameters
 
@@ -776,7 +776,7 @@ func main() {
 Download instance file by fileid.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-form-instance-file)
+[API Spec](https://developer.sailpoint.com/docs/api/get-form-instance-file-v-1)
 
 ### Path Parameters
 
@@ -845,7 +845,7 @@ func main() {
 Import form definitions from export.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/import-form-definitions)
+[API Spec](https://developer.sailpoint.com/docs/api/import-form-definitions-v-1)
 
 ### Path Parameters
 
@@ -907,7 +907,7 @@ func main() {
 Patch a form definition.
 Parameter `{formDefinitionID}` should match a form definition ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-form-definition)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-form-definition-v-1)
 
 ### Path Parameters
 
@@ -977,7 +977,7 @@ Parameter `{formInstanceID}` should match a form instance ID.
 
 Only the assigned recipient (`recipients[].id` when `type` is `IDENTITY`) may call this.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-form-instance)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-form-instance-v-1)
 
 ### Path Parameters
 
@@ -1045,7 +1045,7 @@ func main() {
 Export form definitions by tenant.
 No parameters required.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/search-form-definitions-by-tenant)
+[API Spec](https://developer.sailpoint.com/docs/api/search-form-definitions-by-tenant-v-1)
 
 ### Path Parameters
 
@@ -1114,7 +1114,7 @@ Retrieves dynamic data by element.
 Parameter `{formInstanceID}` should match a form instance ID.
 Parameter `{formElementID}` should match a form element ID at the data source configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/search-form-element-data-by-element-id)
+[API Spec](https://developer.sailpoint.com/docs/api/search-form-element-data-by-element-id-v-1)
 
 ### Path Parameters
 
@@ -1189,7 +1189,7 @@ func main() {
 List form instances by tenant.
 Returns a list of form instances for the tenant. Optionally filter by form definition ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/search-form-instances-by-tenant)
+[API Spec](https://developer.sailpoint.com/docs/api/search-form-instances-by-tenant-v-1)
 
 ### Path Parameters
 
@@ -1255,7 +1255,7 @@ func main() {
 List predefined select options.
 No parameters required.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/search-pre-defined-select-options)
+[API Spec](https://developer.sailpoint.com/docs/api/search-pre-defined-select-options-v-1)
 
 ### Path Parameters
 
@@ -1312,7 +1312,7 @@ func main() {
 Preview form definition data source.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/show-preview-data-source)
+[API Spec](https://developer.sailpoint.com/docs/api/show-preview-data-source-v-1)
 
 ### Path Parameters
 

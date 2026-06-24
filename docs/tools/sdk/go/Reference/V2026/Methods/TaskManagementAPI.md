@@ -24,7 +24,7 @@ Method | HTTP request | Description
 Get task status by id
 Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-task-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-task-status-v-1)
 
 ### Path Parameters
 
@@ -91,7 +91,7 @@ Retrieve task status list
 Use this endpoint to get a list of statuses for **all** tasks, including completed, in-progress, terminated, and errored tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks. Data for tasks older than 90 days will not be returned. For a list of **in-progress** tasks, apply the isnull filter to the Completion Status field.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-task-status-list)
+[API Spec](https://developer.sailpoint.com/docs/api/get-task-status-list-v-1)
 
 ### Path Parameters
 
@@ -161,7 +161,7 @@ func main() {
 Update task status by id
 Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/update-task-status)
+[API Spec](https://developer.sailpoint.com/docs/api/update-task-status-v-1)
 
 ### Path Parameters
 

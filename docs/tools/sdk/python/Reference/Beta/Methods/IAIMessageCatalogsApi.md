@@ -22,7 +22,7 @@ Method | HTTP request | Description
 Get message catalogs
 The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-message-catalogs)
+[API Spec](https://developer.sailpoint.com/docs/api/get-message-catalogs-v-1)
 
 ### Parameters 
 

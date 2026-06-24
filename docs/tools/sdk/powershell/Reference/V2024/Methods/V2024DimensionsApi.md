@@ -34,7 +34,7 @@ You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authorit
 Additionally, a ROLE_SUBADMIN cannot create a dimension that includes an access profile or entitlement if that access profile or entitlement is linked to a source that the ROLE_SUBADMIN is not associated with. 
 The maximum supported length for the description field is 2000 characters.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-dimension)
+[API Spec](https://developer.sailpoint.com/docs/api/create-dimension-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -167,11 +167,11 @@ try {
 
 ## delete-bulk-dimensions
 This endpoint initiates a bulk deletion of one or more dimensions.
-When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
+When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 roles per request. 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this endpoint. In addition, a token with ROLE_SUBADMIN authority can only call this endpoint if all dimensions included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-bulk-dimensions)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-bulk-dimensions-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -222,7 +222,7 @@ try {
 This API deletes a Dimension by its ID.
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles/Entitlements included in the Dimension are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-dimension)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-dimension-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -271,7 +271,7 @@ This API returns a Dimension by its ID.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles or Entitlements included in the Dimension or Parent Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-dimension)
+[API Spec](https://developer.sailpoint.com/docs/api/get-dimension-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -320,7 +320,7 @@ This API lists the Entitlements associated with a given dimension.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-dimension-entitlements)
+[API Spec](https://developer.sailpoint.com/docs/api/get-dimension-entitlements-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -379,7 +379,7 @@ This API lists the Access Profiles associated with a given Dimension
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-dimension-access-profiles)
+[API Spec](https://developer.sailpoint.com/docs/api/list-dimension-access-profiles-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -439,7 +439,7 @@ This API returns a list of dimensions under a specified role.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-dimensions)
+[API Spec](https://developer.sailpoint.com/docs/api/list-dimensions-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -500,7 +500,7 @@ A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required 
 The maximum supported length for the description field is 2000 characters.
 When you use this API to modify a dimension's membership identities, you can only modify up to a limit of 500 membership identities at a time.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-dimension)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-dimension-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

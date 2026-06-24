@@ -54,7 +54,7 @@ Create a new scheduled search
 Creates a new scheduled search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/create-scheduled-search)
+[API Spec](https://developer.sailpoint.com/docs/api/create-scheduled-search-v-1)
 
 ### Path Parameters
 
@@ -122,7 +122,7 @@ Delete a scheduled search
 Deletes the specified scheduled search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/delete-scheduled-search)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-scheduled-search-v-1)
 
 ### Path Parameters
 
@@ -187,7 +187,7 @@ func main() {
 Get a scheduled search
 Returns the specified scheduled search.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-scheduled-search)
+[API Spec](https://developer.sailpoint.com/docs/api/get-scheduled-search-v-1)
 
 ### Path Parameters
 
@@ -254,7 +254,7 @@ List scheduled searches
 Returns a list of scheduled searches.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-scheduled-search)
+[API Spec](https://developer.sailpoint.com/docs/api/list-scheduled-search-v-1)
 
 ### Path Parameters
 
@@ -323,7 +323,7 @@ Unsubscribe a recipient from scheduled search
 Unsubscribes a recipient from the specified scheduled search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/unsubscribe-scheduled-search)
+[API Spec](https://developer.sailpoint.com/docs/api/unsubscribe-scheduled-search-v-1)
 
 ### Path Parameters
 
@@ -399,7 +399,7 @@ Update an existing scheduled search
 Updates an existing scheduled search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/update-scheduled-search)
+[API Spec](https://developer.sailpoint.com/docs/api/update-scheduled-search-v-1)
 
 ### Path Parameters
 

@@ -12,7 +12,7 @@ tags: ['SDK', 'Software Development Kit', 'Approvals', 'V2025Approvals']
 # sailpoint.v2025.ApprovalsApi
   Use this API to implement approval functionality. With this functionality in place, you can get generic approvals and modify them. 
 
-The main advantages this API has vs [Access Request Approvals](https://developer.sailpoint.com/docs/api/v2025/access-request-approvals) are that you can use it to get generic approvals individually or in batches and make changes to those approvals. 
+The main advantages this API has vs [Access Request Approvals](https://developer.sailpoint.com/docs/api/access-request-approvals) are that you can use it to get generic approvals individually or in batches and make changes to those approvals. 
  
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
@@ -39,7 +39,7 @@ Currently this endpoint only supports Entitlement Description Approvals.
 Approves a specified approval request on behalf of the caller. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and does not include access-request-approvals. The approval request must be in a state that allows it to be approved.
 If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-approval)
+[API Spec](https://developer.sailpoint.com/docs/api/approve-approval-v-1)
 
 ### Parameters 
 
@@ -108,7 +108,7 @@ with ApiClient(configuration) as api_client:
 Post Bulk Approve Approvals
 Bulk Approves specified approval requests on behalf of the caller
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-approval-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/approve-approval-in-bulk-v-1)
 
 ### Parameters 
 
@@ -174,7 +174,7 @@ with ApiClient(configuration) as api_client:
 Post Bulk Cancel Approvals
 Bulk cancels specified approval requests on behalf of the caller
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/cancel-approval)
+[API Spec](https://developer.sailpoint.com/docs/api/cancel-approval-v-1)
 
 ### Parameters 
 
@@ -248,7 +248,7 @@ Get an approval
 Currently this endpoint only supports Entitlement Description Approvals.
 Retrieve a single approval for a given approval ID. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-approval)
+[API Spec](https://developer.sailpoint.com/docs/api/get-approval-v-1)
 
 ### Parameters 
 
@@ -312,7 +312,7 @@ Get a list of approvals. This endpoint is for generic approvals, unlike the acce
 Absence of all query parameters for non admins will will default to mine=true. Admin will default to mine=false.
 Absence of all query parameters for admins will return all approvals in the org.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-approvals)
+[API Spec](https://developer.sailpoint.com/docs/api/get-approvals-v-1)
 
 ### Parameters 
 
@@ -393,7 +393,7 @@ with ApiClient(configuration) as api_client:
 Get Approval Config
 Retrieves a singular approval configuration that matches the given ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-approvals-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-approvals-config-v-1)
 
 ### Parameters 
 
@@ -451,7 +451,7 @@ with ApiClient(configuration) as api_client:
 Post Bulk Reassign Approvals
 Bulk reassigns specified approval requests on behalf of the caller
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/move-approval)
+[API Spec](https://developer.sailpoint.com/docs/api/move-approval-v-1)
 
 ### Parameters 
 
@@ -515,7 +515,7 @@ with ApiClient(configuration) as api_client:
 Put Approval Config
 Upserts a singular approval configuration that matches the given configID and configScope. If id and scope are not provided, it will default to setting the tenant config.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-approvals-config)
+[API Spec](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1)
 
 ### Parameters 
 
@@ -655,7 +655,7 @@ Currently this endpoint only supports Entitlement Description Approvals.
 Rejects a specified approval request on behalf of the caller.
 If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/reject-approval)
+[API Spec](https://developer.sailpoint.com/docs/api/reject-approval-v-1)
 
 ### Parameters 
 
@@ -716,7 +716,7 @@ with ApiClient(configuration) as api_client:
 Post Bulk Reject Approvals
 Bulk reject specified approval requests on behalf of the caller
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/reject-approval-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/reject-approval-in-bulk-v-1)
 
 ### Parameters 
 
@@ -779,7 +779,7 @@ Post Approvals Attributes
 Currently this endpoint only supports Entitlement Description Approvals.
 Allows for the edit/addition/removal of the key/value pair additional attributes map for an existing approval request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-approvals-attributes)
+[API Spec](https://developer.sailpoint.com/docs/api/update-approvals-attributes-v-1)
 
 ### Parameters 
 
@@ -850,7 +850,7 @@ Post Approvals Comments
 Currently this endpoint only supports Entitlement Description Approvals.
 Adds comments to a specified approval request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-approvals-comments)
+[API Spec](https://developer.sailpoint.com/docs/api/update-approvals-comments-v-1)
 
 ### Parameters 
 
@@ -915,7 +915,7 @@ Post Approvals Reassign
 Currently this endpoint only supports Entitlement Description Approvals.
 Reassigns an approval request to another identity resulting in that identity being added as an authorized approver.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-approvals-reassign)
+[API Spec](https://developer.sailpoint.com/docs/api/update-approvals-reassign-v-1)
 
 ### Parameters 
 

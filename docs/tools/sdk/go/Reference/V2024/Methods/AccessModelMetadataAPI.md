@@ -40,7 +40,7 @@ Create access model metadata attribute
 Create a new Access Model Metadata Attribute.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-access-model-metadata-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/create-access-model-metadata-attribute-v-1)
 
 ### Path Parameters
 
@@ -125,7 +125,7 @@ Create access model metadata value
 Create a new value for an existing Access Model Metadata Attribute.    
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-access-model-metadata-attribute-value)
+[API Spec](https://developer.sailpoint.com/docs/api/create-access-model-metadata-attribute-value-v-1)
 
 ### Path Parameters
 
@@ -202,7 +202,7 @@ func main() {
 Get access model metadata attribute
 Get single Access Model Metadata Attribute
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-model-metadata-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-model-metadata-attribute-v-1)
 
 ### Path Parameters
 
@@ -268,7 +268,7 @@ func main() {
 Get access model metadata value
 Get single Access Model Metadata Attribute Value
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-model-metadata-attribute-value)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-model-metadata-attribute-value-v-1)
 
 ### Path Parameters
 
@@ -337,7 +337,7 @@ func main() {
 List access model metadata attributes
 Get a list of Access Model Metadata Attributes
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-access-model-metadata-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/list-access-model-metadata-attribute-v-1)
 
 ### Path Parameters
 
@@ -405,7 +405,7 @@ func main() {
 List access model metadata values
 Get a list of Access Model Metadata Attribute Values
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-access-model-metadata-attribute-value)
+[API Spec](https://developer.sailpoint.com/docs/api/list-access-model-metadata-attribute-value-v-1)
 
 ### Path Parameters
 
@@ -477,7 +477,7 @@ Update an existing Access Model Metadata Attribute.
 The following fields are patchable: **name**, **description**, **multiselect**, **values**
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-access-model-metadata-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/update-access-model-metadata-attribute-v-1)
 
 ### Path Parameters
 
@@ -552,7 +552,7 @@ Update an existing Access Model Metadata Attribute Value.
 The following fields are patchable: **name**
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-access-model-metadata-attribute-value)
+[API Spec](https://developer.sailpoint.com/docs/api/update-access-model-metadata-attribute-value-v-1)
 
 ### Path Parameters
 

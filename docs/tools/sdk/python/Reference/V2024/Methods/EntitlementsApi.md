@@ -82,7 +82,7 @@ Method | HTTP request | Description
 Add metadata to an entitlement.
 Add single Access Model Metadata to an entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-access-model-metadata-for-entitlement)
+[API Spec](https://developer.sailpoint.com/docs/api/create-access-model-metadata-for-entitlement-v-1)
 
 ### Parameters 
 
@@ -144,7 +144,7 @@ with ApiClient(configuration) as api_client:
 Remove metadata from an entitlement.
 Remove single Access Model Metadata from an entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-access-model-metadata-from-entitlement)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-access-model-metadata-from-entitlement-v-1)
 
 ### Parameters 
 
@@ -203,7 +203,7 @@ with ApiClient(configuration) as api_client:
 Get an entitlement
 This API returns an entitlement by its ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-entitlement)
+[API Spec](https://developer.sailpoint.com/docs/api/get-entitlement-v-1)
 
 ### Parameters 
 
@@ -262,7 +262,7 @@ with ApiClient(configuration) as api_client:
 Get entitlement request config
 This API returns the entitlement request config for a specified entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-entitlement-request-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-entitlement-request-config-v-1)
 
 ### Parameters 
 
@@ -322,13 +322,13 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Aggregate entitlements
-Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/beta/import-entitlements).
+Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/import-entitlements-v-1).
 
 If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.
 
 If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/import-entitlements-by-source)
+[API Spec](https://developer.sailpoint.com/docs/api/import-entitlements-by-source-v-1)
 
 ### Parameters 
 
@@ -388,7 +388,7 @@ with ApiClient(configuration) as api_client:
 List of entitlements children
 This API returns a list of all child entitlements of a given entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-entitlement-children)
+[API Spec](https://developer.sailpoint.com/docs/api/list-entitlement-children-v-1)
 
 ### Parameters 
 
@@ -458,7 +458,7 @@ with ApiClient(configuration) as api_client:
 List of entitlements parents
 This API returns a list of all parent entitlements of a given entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-entitlement-parents)
+[API Spec](https://developer.sailpoint.com/docs/api/list-entitlement-parents-v-1)
 
 ### Parameters 
 
@@ -532,7 +532,7 @@ This API can be used in one of the two following ways: either getting entitlemen
 
 Any authenticated token can call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-entitlements)
+[API Spec](https://developer.sailpoint.com/docs/api/list-entitlements-v-1)
 
 ### Parameters 
 
@@ -611,7 +611,7 @@ The following fields are patchable: **requestable**, **privileged**, **segments*
 
 When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-entitlement)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-entitlement-v-1)
 
 ### Parameters 
 
@@ -673,7 +673,7 @@ with ApiClient(configuration) as api_client:
 Replace entitlement request config
 This API replaces the entitlement request config for a specified entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-entitlement-request-config)
+[API Spec](https://developer.sailpoint.com/docs/api/put-entitlement-request-config-v-1)
 
 ### Parameters 
 
@@ -755,9 +755,9 @@ with ApiClient(configuration) as api_client:
 ## reset-source-entitlements
 Reset source entitlements
 Remove all entitlements from a specific source.
-To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Account Aggregation](https://developer.sailpoint.com/docs/api/v2024/import-accounts/) with `disableOptimization` = `true`. 
+To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Account Aggregation](https://developer.sailpoint.com/docs/api/import-accounts-v-1/) with `disableOptimization` = `true`. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/reset-source-entitlements)
+[API Spec](https://developer.sailpoint.com/docs/api/reset-source-entitlements-v-1)
 
 ### Parameters 
 
@@ -827,7 +827,7 @@ examples of allowed operations :
 A token with ORG_ADMIN or API authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-entitlements-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/update-entitlements-in-bulk-v-1)
 
 ### Parameters 
 

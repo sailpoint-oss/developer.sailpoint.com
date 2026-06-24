@@ -27,12 +27,12 @@ Method | HTTP request | Description
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Retrieve pending task list headers
-This API is being deprecated. Please use the [task-status-list](https://developer.sailpoint.com/docs/api/v2026/get-task-status-list) endpoint with isnull filtering on the completionStatus field and count=true. Example: /v2026/task-status?count=true&filters=completionStatus isnull
+This API is being deprecated. Please use the [task-status-list](https://developer.sailpoint.com/docs/api/get-task-status-list-v-1) endpoint with isnull filtering on the completionStatus field and count=true. Example: /v2026/task-status?count=true&filters=completionStatus isnull
 
 Responds with headers only for list of task statuses for pending tasks.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-pending-task-headers)
+[API Spec](https://developer.sailpoint.com/docs/api/get-pending-task-headers-v-1)
 
 ### Path Parameters
 
@@ -98,12 +98,12 @@ func main() {
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Retrieve pending task status list
-This API is being deprecated. Please use the [task-status-list](https://developer.sailpoint.com/docs/api/v2026/get-task-status-list) endpoint with isnull filtering on the completionStatus field to retrieve pending tasks. Example: /v2026/task-status?filters=completionStatus isnull
+This API is being deprecated. Please use the [task-status-list](https://developer.sailpoint.com/docs/api/get-task-status-list-v-1) endpoint with isnull filtering on the completionStatus field to retrieve pending tasks. Example: /v2026/task-status?filters=completionStatus isnull
 
 Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-pending-tasks)
+[API Spec](https://developer.sailpoint.com/docs/api/get-pending-tasks-v-1)
 
 ### Path Parameters
 
@@ -169,7 +169,7 @@ func main() {
 Get task status by id
 Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-task-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-task-status-v-1)
 
 ### Path Parameters
 
@@ -233,10 +233,10 @@ func main() {
 
 ## get-task-status-list
 Retrieve task status list
-Use this endpoint to get a list of statuses for **all** tasks, including completed, in-progress, terminated, and errored tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks. Data for tasks older than 90 days will not be returned. For a list of **in-progress** tasks, use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/v2025/get-pending-tasks) endpoint or apply the isnull filter to the Completion Status field.
+Use this endpoint to get a list of statuses for **all** tasks, including completed, in-progress, terminated, and errored tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks. Data for tasks older than 90 days will not be returned. For a list of **in-progress** tasks, use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/get-pending-tasks-v-1) endpoint or apply the isnull filter to the Completion Status field.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-task-status-list)
+[API Spec](https://developer.sailpoint.com/docs/api/get-task-status-list-v-1)
 
 ### Path Parameters
 
@@ -306,7 +306,7 @@ func main() {
 Update task status by id
 Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-task-status)
+[API Spec](https://developer.sailpoint.com/docs/api/update-task-status-v-1)
 
 ### Path Parameters
 

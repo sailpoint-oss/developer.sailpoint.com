@@ -30,7 +30,7 @@ Method | HTTP request | Description
 Create launcher
 Create a Launcher with given information
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-launcher)
+[API Spec](https://developer.sailpoint.com/docs/api/create-launcher-v-1)
 
 ### Parameters 
 
@@ -100,7 +100,7 @@ with ApiClient(configuration) as api_client:
 Delete launcher
 Delete the given Launcher ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-launcher)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-launcher-v-1)
 
 ### Parameters 
 
@@ -156,7 +156,7 @@ with ApiClient(configuration) as api_client:
 Get launcher by id
 Get details for the given Launcher ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-launcher)
+[API Spec](https://developer.sailpoint.com/docs/api/get-launcher-v-1)
 
 ### Parameters 
 
@@ -215,7 +215,7 @@ with ApiClient(configuration) as api_client:
 List all launchers for tenant
 Return a list of Launchers for the authenticated tenant
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-launchers)
+[API Spec](https://developer.sailpoint.com/docs/api/get-launchers-v-1)
 
 ### Parameters 
 
@@ -278,7 +278,7 @@ with ApiClient(configuration) as api_client:
 Replace launcher
 Replace the given Launcher ID with given payload
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/put-launcher)
+[API Spec](https://developer.sailpoint.com/docs/api/put-launcher-v-1)
 
 ### Parameters 
 
@@ -350,7 +350,7 @@ with ApiClient(configuration) as api_client:
 Launch a launcher
 Launch the given Launcher ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/start-launcher)
+[API Spec](https://developer.sailpoint.com/docs/api/start-launcher-v-1)
 
 ### Parameters 
 

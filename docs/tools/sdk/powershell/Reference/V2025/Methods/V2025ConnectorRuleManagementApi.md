@@ -35,7 +35,7 @@ Method | HTTP request | Description
 ## create-connector-rule
 Create a connector rule from the available types.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-connector-rule)
+[API Spec](https://developer.sailpoint.com/docs/api/create-connector-rule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -106,7 +106,7 @@ try {
 ## delete-connector-rule
 Delete the connector rule for the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-connector-rule)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-connector-rule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -152,7 +152,7 @@ try {
 ## get-connector-rule
 Get a connector rule by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector-rule)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-rule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -198,7 +198,7 @@ try {
 ## get-connector-rule-list
 List existing connector rules.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector-rule-list)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-rule-list-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -247,7 +247,7 @@ try {
 ## put-connector-rule
 Update an existing connector rule with the one provided in the request body. These fields are immutable: `id`, `name`, `type`
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-connector-rule)
+[API Spec](https://developer.sailpoint.com/docs/api/put-connector-rule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -321,7 +321,7 @@ try {
 ## test-connector-rule
 Detect issues within the connector rule's code to fix and list them.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/test-connector-rule)
+[API Spec](https://developer.sailpoint.com/docs/api/test-connector-rule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

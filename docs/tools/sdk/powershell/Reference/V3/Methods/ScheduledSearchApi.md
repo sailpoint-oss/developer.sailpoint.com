@@ -55,7 +55,7 @@ Method | HTTP request | Description
 Creates a new scheduled search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-scheduled-search)
+[API Spec](https://developer.sailpoint.com/docs/api/create-scheduled-search-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -103,7 +103,7 @@ try {
 Deletes the specified scheduled search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-scheduled-search)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-scheduled-search-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -149,7 +149,7 @@ try {
 ## get-scheduled-search
 Returns the specified scheduled search.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-scheduled-search)
+[API Spec](https://developer.sailpoint.com/docs/api/get-scheduled-search-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -196,7 +196,7 @@ try {
 Returns a list of scheduled searches.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-scheduled-search)
+[API Spec](https://developer.sailpoint.com/docs/api/list-scheduled-search-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -249,7 +249,7 @@ try {
 Unsubscribes a recipient from the specified scheduled search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/unsubscribe-scheduled-search)
+[API Spec](https://developer.sailpoint.com/docs/api/unsubscribe-scheduled-search-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -299,7 +299,7 @@ try {
 Updates an existing scheduled search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/update-scheduled-search)
+[API Spec](https://developer.sailpoint.com/docs/api/update-scheduled-search-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

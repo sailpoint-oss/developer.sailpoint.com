@@ -35,7 +35,7 @@ Method | HTTP request | Description
 Creates a new connector rule.
 A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-connector-rule)
+[API Spec](https://developer.sailpoint.com/docs/api/create-connector-rule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -107,7 +107,7 @@ try {
 Deletes the connector rule specified by the given ID.
 A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-connector-rule)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-connector-rule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -154,7 +154,7 @@ try {
 Returns the connector rule specified by ID.
 A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-connector-rule)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-rule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -201,7 +201,7 @@ try {
 Returns the list of connector rules.
 A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-connector-rule-list)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-rule-list-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -245,7 +245,7 @@ try {
 Updates an existing connector rule with the one provided in the request body. Note that the fields 'id', 'name', and 'type' are immutable.
 A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/update-connector-rule)
+[API Spec](https://developer.sailpoint.com/docs/api/put-connector-rule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -320,7 +320,7 @@ try {
 Returns a list of issues within the code to fix, if any.
 A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/validate-connector-rule)
+[API Spec](https://developer.sailpoint.com/docs/api/test-connector-rule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

@@ -41,7 +41,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get auth profile
 This API returns auth profile information.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-profile-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-profile-config-v-1)
 
 ### Parameters 
 
@@ -114,7 +114,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get list of auth profiles
 This API returns a list of auth profiles.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-profile-config-list)
+[API Spec](https://developer.sailpoint.com/docs/api/get-profile-config-list-v-1)
 
 ### Parameters 
 
@@ -186,7 +186,7 @@ Patch a specified auth profile
 This API updates an existing Auth Profile. The following fields are patchable:
 **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-profile-config)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-profile-config-v-1)
 
 ### Parameters 
 

@@ -13,7 +13,7 @@ tags: ['Transforms', 'Guides', 'First']
 
 ## Overview
 
-In this guide, you will learn how to use [Identity Security Cloud's Transform REST APIs](/docs/api/v3/transforms) to do the following:
+In this guide, you will learn how to use [Identity Security Cloud's Transform REST APIs](/docs/api/transforms) to do the following:
 
 - [List Transforms in Your Identity Security Cloud Tenant](#list-transforms-in-your-identity-security-cloud-tenant)
 - [Create a Transform](#create-a-transform)
@@ -25,7 +25,7 @@ In this guide, you will learn how to use [Identity Security Cloud's Transform RE
 
 To call the APIs for transforms, you need a personal access token and your tenant's name to provide with the request. For more information about how to get a personal access token, see [Personal Access Tokens](../../../api/authentication.md#generate-a-personal-access-token). For more information about how to get the name of your tenant, see [Finding Your Organization Tenant Name](../../../api/getting-started.md#find-your-tenant-name).
 
-Before you create your first custom transform, see what transforms are already in the tenant. You can get this information by calling the [List Transforms API](/docs/api/v3/list-transforms).
+Before you create your first custom transform, see what transforms are already in the tenant. You can get this information by calling the [List Transforms API](/docs/api/list-transforms-v-1).
 
 ```bash
 curl --location --request GET 'https://{tenant}.api.identitynow.com/v3/transforms' --header 'Authorization: Bearer {token}'
@@ -122,7 +122,7 @@ Once you have created the transform, you can find it in Identity Security Cloud 
 
 ![Mappings Tab](./img/mappings_tab.png)
 
-For more information about creating transforms, see [Create Transform](/docs/api/v3/create-transform).
+For more information about creating transforms, see [Create Transform](/docs/api/create-transform-v-1).
 
 ## Get transform by ID
 
@@ -152,7 +152,7 @@ curl --location --request GET 'https://{tenant}.api.identitynow.com/v3/transform
 }
 ```
 
-For more information about getting a transform by its `id` see the API [Transform by ID](/docs/api/v3/get-transform).
+For more information about getting a transform by its `id` see the API [Transform by ID](/docs/api/get-transform-v-1).
 
 ## Update a transform
 
@@ -203,7 +203,7 @@ curl --location --request PUT 'https://{tenant}.api.identitynow.com/v3/transform
 }
 ```
 
-For more information about updating transforms, see [Update a transform](/docs/api/v3/update-transform).
+For more information about updating transforms, see [Update a transform](/docs/api/update-transform-v-1).
 
 ## Delete a transform
 
@@ -214,7 +214,7 @@ curl --location --request DELETE 'https://{tenant}.api.identitynow.com/v3/transf
 --header 'Authorization: Bearer {token}'
 ```
 
-For more information about deleting transforms, see the API [Delete Transform](/docs/api/v3/delete-transform).
+For more information about deleting transforms, see the API [Delete Transform](/docs/api/delete-transform-v-1).
 
 ## Next steps
 

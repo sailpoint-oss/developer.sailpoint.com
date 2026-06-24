@@ -37,7 +37,7 @@ Method | HTTP request | Description
 ## create-domain-dkim
 Create a domain to be verified via DKIM (DomainKeys Identified Mail)
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-domain-dkim)
+[API Spec](https://developer.sailpoint.com/docs/api/create-domain-dkim-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -89,7 +89,7 @@ Note that you cannot create new templates in your tenant, but you can use this t
 Modify the fields you want to change and submit the POST request when ready.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-notification-template)
+[API Spec](https://developer.sailpoint.com/docs/api/create-notification-template-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -152,7 +152,7 @@ try {
 ## create-verified-from-address
 Create a new sender email address and initiate verification process.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-verified-from-address)
+[API Spec](https://developer.sailpoint.com/docs/api/create-verified-from-address-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -203,7 +203,7 @@ try {
 ## delete-notification-templates-in-bulk
 This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-notification-templates-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-notification-templates-in-bulk-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -254,7 +254,7 @@ try {
 ## delete-verified-from-address
 Delete a verified sender email address
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-verified-from-address)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-verified-from-address-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -300,7 +300,7 @@ try {
 ## get-dkim-attributes
 Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants' AWS SES identities. Limits retrieval to 100 identities per call.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-dkim-attributes)
+[API Spec](https://developer.sailpoint.com/docs/api/get-dkim-attributes-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -343,7 +343,7 @@ try {
 ## get-mail-from-attributes
 Retrieve MAIL FROM attributes for a given AWS SES identity.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-mail-from-attributes)
+[API Spec](https://developer.sailpoint.com/docs/api/get-mail-from-attributes-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -388,7 +388,7 @@ try {
 ## get-notification-template
 This gets a template that you have modified for your site by Id.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-notification-template)
+[API Spec](https://developer.sailpoint.com/docs/api/get-notification-template-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -434,7 +434,7 @@ try {
 The notification service maintains metadata to construct the notification templates or supply any information during the event propagation. The data-store where this information is retrieved is called "Global Context" (a.k.a. notification template context). It defines a set of attributes
  that will be available per tenant (organization).
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-notifications-template-context)
+[API Spec](https://developer.sailpoint.com/docs/api/get-notifications-template-context-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -477,7 +477,7 @@ try {
 ## list-from-addresses
 Retrieve a list of sender email addresses and their verification statuses
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-from-addresses)
+[API Spec](https://developer.sailpoint.com/docs/api/list-from-addresses-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -529,7 +529,7 @@ try {
 ## list-notification-preferences
 Returns a list of notification preferences for tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-notification-preferences)
+[API Spec](https://developer.sailpoint.com/docs/api/list-notification-preferences-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -575,7 +575,7 @@ try {
 ## list-notification-template-defaults
 This lists the default templates used for notifications, such as emails from IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-notification-template-defaults)
+[API Spec](https://developer.sailpoint.com/docs/api/list-notification-template-defaults-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -624,7 +624,7 @@ try {
 ## list-notification-templates
 This lists the templates that you have modified for your site.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-notification-templates)
+[API Spec](https://developer.sailpoint.com/docs/api/list-notification-templates-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -675,7 +675,7 @@ try {
 ## put-mail-from-attributes
 Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller's DNS
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/put-mail-from-attributes)
+[API Spec](https://developer.sailpoint.com/docs/api/put-mail-from-attributes-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -724,7 +724,7 @@ try {
 ## send-test-notification
 Send a Test Notification
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/send-test-notification)
+[API Spec](https://developer.sailpoint.com/docs/api/send-test-notification-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

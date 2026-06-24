@@ -36,7 +36,7 @@ Method | HTTP request | Description
 ## get-access-model-metadata-attribute
 Get single Access Model Metadata Attribute
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-model-metadata-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-model-metadata-attribute-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -81,7 +81,7 @@ try {
 ## get-access-model-metadata-attribute-value
 Get single Access Model Metadata Attribute Value
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-model-metadata-attribute-value)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-model-metadata-attribute-value-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -128,7 +128,7 @@ try {
 ## list-access-model-metadata-attribute
 Get a list of Access Model Metadata Attributes
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-model-metadata-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/list-access-model-metadata-attribute-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -181,7 +181,7 @@ try {
 ## list-access-model-metadata-attribute-value
 Get a list of Access Model Metadata Attribute Values
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-model-metadata-attribute-value)
+[API Spec](https://developer.sailpoint.com/docs/api/list-access-model-metadata-attribute-value-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

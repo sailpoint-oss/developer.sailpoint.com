@@ -46,7 +46,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 :::
 This API returns the permissions associated with an entitlement certification item based on the certification item's ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-certification-item-permissions)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-certification-item-permissions-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -105,7 +105,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 :::
 This API returns the status of all pending (`QUEUED` or `IN_PROGRESS`) tasks for an identity campaign certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-certification-pending-tasks)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-certification-pending-tasks-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -154,7 +154,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 :::
 This API returns the status of a certification task. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-certification-task-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-certification-task-status-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -205,7 +205,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 :::
 This API returns a list of reviewers for the certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-certification-reviewers)
+[API Spec](https://developer.sailpoint.com/docs/api/list-certification-reviewers-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -264,7 +264,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 :::
 This API returns a list of certifications that satisfy the given query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-certifications)
+[API Spec](https://developer.sailpoint.com/docs/api/list-certifications-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -322,7 +322,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 :::
 This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/submit-reassign-certs-async)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-reassign-certs-async-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

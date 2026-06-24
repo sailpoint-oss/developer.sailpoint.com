@@ -59,7 +59,7 @@ Method | HTTP request | Description
 ## create-password-sync-group
 This API creates a password sync group based on the specifications provided.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-password-sync-group)
+[API Spec](https://developer.sailpoint.com/docs/api/create-password-sync-group-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -112,7 +112,7 @@ try {
 ## delete-password-sync-group
 This API deletes the specified password sync group.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-password-sync-group)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-password-sync-group-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -157,7 +157,7 @@ try {
 ## get-password-sync-group
 This API returns the sync group for the specified ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-password-sync-group)
+[API Spec](https://developer.sailpoint.com/docs/api/get-password-sync-group-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -203,7 +203,7 @@ try {
 ## get-password-sync-groups
 This API returns a list of password sync groups.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-password-sync-groups)
+[API Spec](https://developer.sailpoint.com/docs/api/get-password-sync-groups-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -252,7 +252,7 @@ try {
 ## update-password-sync-group
 This API updates the specified password sync group.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/update-password-sync-group)
+[API Spec](https://developer.sailpoint.com/docs/api/update-password-sync-group-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

@@ -27,7 +27,7 @@ Method | HTTP request | Description
 Create launcher
 Create a Launcher with given information
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/create-launcher)
+[API Spec](https://developer.sailpoint.com/docs/api/create-launcher-v-1)
 
 ### Path Parameters
 
@@ -104,7 +104,7 @@ func main() {
 Delete launcher
 Delete the given Launcher ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/delete-launcher)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-launcher-v-1)
 
 ### Path Parameters
 
@@ -169,7 +169,7 @@ func main() {
 Get launcher by id
 Get details for the given Launcher ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-launcher)
+[API Spec](https://developer.sailpoint.com/docs/api/get-launcher-v-1)
 
 ### Path Parameters
 
@@ -235,7 +235,7 @@ func main() {
 List all launchers for tenant
 Return a list of Launchers for the authenticated tenant
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-launchers)
+[API Spec](https://developer.sailpoint.com/docs/api/get-launchers-v-1)
 
 ### Path Parameters
 
@@ -301,7 +301,7 @@ func main() {
 Replace launcher
 Replace the given Launcher ID with given payload
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/put-launcher)
+[API Spec](https://developer.sailpoint.com/docs/api/put-launcher-v-1)
 
 ### Path Parameters
 
@@ -384,7 +384,7 @@ func main() {
 Launch a launcher
 Launch the given Launcher ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/start-launcher)
+[API Spec](https://developer.sailpoint.com/docs/api/start-launcher-v-1)
 
 ### Path Parameters
 

@@ -34,7 +34,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 :::
 Submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-role-insight-requests)
+[API Spec](https://developer.sailpoint.com/docs/api/create-role-insight-requests-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -77,7 +77,7 @@ try {
 ## download-role-insights-entitlements-changes
 This endpoint returns the entitlement insights for a role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/download-role-insights-entitlements-changes)
+[API Spec](https://developer.sailpoint.com/docs/api/download-role-insights-entitlements-changes-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -125,7 +125,7 @@ try {
 ## get-entitlement-changes-identities
 Role insights suggests entitlements to be added for a role. This endpoint returns a list of identities in the role, with or without the entitlements, for a suggested entitlement so that the user can see which identities would be affected if the suggested entitlement were to be added to the role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-entitlement-changes-identities)
+[API Spec](https://developer.sailpoint.com/docs/api/get-entitlement-changes-identities-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -183,7 +183,7 @@ try {
 ## get-role-insight
 This endpoint gets role insights information for a role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-insight)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-insight-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -227,7 +227,7 @@ try {
 ## get-role-insights
 This method returns detailed role insights for each role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-insights)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-insights-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -279,7 +279,7 @@ try {
 ## get-role-insights-current-entitlements
 This endpoint gets the entitlements for a role. The term "current" is to distinguish from the entitlement(s) an insight might recommend adding.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-insights-current-entitlements)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-insights-current-entitlements-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -325,7 +325,7 @@ try {
 ## get-role-insights-entitlements-changes
 This endpoint returns entitlement insights for a role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-insights-entitlements-changes)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-insights-entitlements-changes-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -376,7 +376,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 :::
 This endpoint returns details of a prior role insights request. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-insights-requests)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-insights-requests-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -421,7 +421,7 @@ try {
 ## get-role-insights-summary
 This method returns high level summary information for role insights for a customer.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-insights-summary)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-insights-summary-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

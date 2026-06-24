@@ -45,7 +45,7 @@ This API creates a segment.
 >**Note:** Segment definitions may take time to propagate to all identities.
 A token with ORG_ADMIN or API authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-segment)
+[API Spec](https://developer.sailpoint.com/docs/api/create-segment-v-1)
 
 ### Path Parameters
 
@@ -137,7 +137,7 @@ This API deletes the segment specified by the given ID.
 >**Note:** Segment deletion may take some time to go into effect. 
 A token with ORG_ADMIN or API authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-segment)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-segment-v-1)
 
 ### Path Parameters
 
@@ -203,7 +203,7 @@ Get segment by id
 This API returns the segment specified by the given ID.
 A token with ORG_ADMIN or API authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-segment)
+[API Spec](https://developer.sailpoint.com/docs/api/get-segment-v-1)
 
 ### Path Parameters
 
@@ -270,7 +270,7 @@ List segments
 This API returns a list of all segments.
 A token with ORG_ADMIN or API authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-segments)
+[API Spec](https://developer.sailpoint.com/docs/api/list-segments-v-1)
 
 ### Path Parameters
 
@@ -338,7 +338,7 @@ Use this API to update segment fields by using the [JSON Patch](https://tools.ie
 >**Note:** Changes to a segment may take some time to propagate to all identities.
 A token with ORG_ADMIN or API authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-segment)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-segment-v-1)
 
 ### Path Parameters
 

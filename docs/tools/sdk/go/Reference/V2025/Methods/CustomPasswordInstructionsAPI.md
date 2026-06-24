@@ -14,9 +14,9 @@ tags: ['SDK', 'Software Development Kit', 'CustomPasswordInstructions', 'V2025Cu
 With this functionality in place, administrators can create custom password instructions to help users reset their passwords, change them, unlock their accounts, or recover their usernames.
 This allows administrators to emphasize password policies or provide organization-specific instructions.
 
-Administrators must first use [Update Password Org Config](https://developer.sailpoint.com/docs/api/v2025/put-password-org-config/) to set &#x60;customInstructionsEnabled&#x60; to &#x60;true&#x60;.
+Administrators must first use [Update Password Org Config](https://developer.sailpoint.com/docs/api/put-password-org-config-v-1/) to set &#x60;customInstructionsEnabled&#x60; to &#x60;true&#x60;.
 
-Once they have enabled custom instructions, they can use [Create Custom Password Instructions](https://developer.sailpoint.com/docs/api/v2025/create-custom-password-instructions/) to create custom page content for the specific pageId they select.
+Once they have enabled custom instructions, they can use [Create Custom Password Instructions](https://developer.sailpoint.com/docs/api/create-custom-password-instructions-v-1/) to create custom page content for the specific pageId they select.
 
 For example, an administrator can use the pageId forget-username:user-email to set the custom text for the case when users forget their usernames and must enter their emails.
 
@@ -46,7 +46,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Create custom password instructions
 This API creates the custom password instructions for the specified page ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-custom-password-instructions)
+[API Spec](https://developer.sailpoint.com/docs/api/create-custom-password-instructions-v-1)
 
 ### Path Parameters
 
@@ -130,7 +130,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Delete custom password instructions by page id
 This API delete the custom password instructions for the specified page ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-custom-password-instructions)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-custom-password-instructions-v-1)
 
 ### Path Parameters
 
@@ -210,7 +210,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get custom password instructions by page id
 This API returns the custom password instructions for the specified page ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-custom-password-instructions)
+[API Spec](https://developer.sailpoint.com/docs/api/get-custom-password-instructions-v-1)
 
 ### Path Parameters
 

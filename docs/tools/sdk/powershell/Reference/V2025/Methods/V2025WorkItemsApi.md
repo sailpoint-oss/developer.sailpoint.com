@@ -49,7 +49,7 @@ Method | HTTP request | Description
 ## approve-approval-item
 This API approves an Approval Item. Either an admin, or the owning/current user must make this request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-approval-item)
+[API Spec](https://developer.sailpoint.com/docs/api/approve-approval-item-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -97,7 +97,7 @@ try {
 ## approve-approval-items-in-bulk
 This API bulk approves Approval Items. Either an admin, or the owning/current user must make this request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-approval-items-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/approve-approval-items-in-bulk-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -143,7 +143,7 @@ try {
 ## complete-work-item
 This API completes a work item. Either an admin, or the owning/current user must make this request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/complete-work-item)
+[API Spec](https://developer.sailpoint.com/docs/api/complete-work-item-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -194,7 +194,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/forward-work-item)
+[API Spec](https://developer.sailpoint.com/docs/api/forward-work-item-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -248,7 +248,7 @@ try {
 ## get-completed-work-items
 This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-completed-work-items)
+[API Spec](https://developer.sailpoint.com/docs/api/get-completed-work-items-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -302,7 +302,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-count-completed-work-items)
+[API Spec](https://developer.sailpoint.com/docs/api/get-count-completed-work-items-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -347,7 +347,7 @@ try {
 ## get-count-work-items
 This gets a count of work items belonging to either the specified user(admin required), or the current user.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-count-work-items)
+[API Spec](https://developer.sailpoint.com/docs/api/get-count-work-items-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -392,7 +392,7 @@ try {
 ## get-work-item
 This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-work-item)
+[API Spec](https://developer.sailpoint.com/docs/api/get-work-item-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -437,7 +437,7 @@ try {
 ## get-work-items-summary
 This gets a summary of work items belonging to either the specified user(admin required), or the current user.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-work-items-summary)
+[API Spec](https://developer.sailpoint.com/docs/api/get-work-items-summary-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -482,7 +482,7 @@ try {
 ## list-work-items
 This gets a collection of work items belonging to either the specified user(admin required), or the current user.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-work-items)
+[API Spec](https://developer.sailpoint.com/docs/api/list-work-items-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -533,7 +533,7 @@ try {
 ## reject-approval-item
 This API rejects an Approval Item. Either an admin, or the owning/current user must make this request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/reject-approval-item)
+[API Spec](https://developer.sailpoint.com/docs/api/reject-approval-item-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -581,7 +581,7 @@ try {
 ## reject-approval-items-in-bulk
 This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/reject-approval-items-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/reject-approval-items-in-bulk-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -627,7 +627,7 @@ try {
 ## submit-account-selection
 This API submits account selections. Either an admin, or the owning/current user must make this request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/submit-account-selection)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-account-selection-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

@@ -36,7 +36,7 @@ Method | HTTP request | Description
 ## create-password-policy
 This API creates the specified password policy.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-password-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/create-password-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -115,7 +115,7 @@ try {
 ## delete-password-policy
 This API deletes the specified password policy.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-password-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-password-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -161,7 +161,7 @@ try {
 ## get-password-policy-by-id
 This API returns the password policy for the specified ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-password-policy-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/get-password-policy-by-id-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -208,7 +208,7 @@ try {
 This gets list of all Password Policies.
 Requires role of ORG_ADMIN
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-password-policies)
+[API Spec](https://developer.sailpoint.com/docs/api/list-password-policies-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -257,7 +257,7 @@ try {
 ## set-password-policy
 This API updates the specified password policy.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/set-password-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/set-password-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

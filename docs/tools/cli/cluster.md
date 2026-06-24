@@ -30,7 +30,7 @@ sail cluster list
 
 This command returns a table of the clusters, along with their IDs.
 
-This command uses the [Get all clusters endpoint](https://developer.sailpoint.com/docs/api/beta/get-managed-clusters).
+This command uses the [Get all clusters endpoint](https://developer.sailpoint.com/docs/api/get-managed-clusters-v-1).
 
 ## Get cluster by ID
 
@@ -54,7 +54,7 @@ You can also get multiple clusters at once. Here is an example:
 sail cluster get f48e8c9c7dce4672bead8222a767dce7 3652192cc2264ad5827fdc1eb2d88f01
 ```
 
-This command uses the [Get cluster endpoint](https://developer.sailpoint.com/docs/api/beta/get-managed-cluster).
+This command uses the [Get cluster endpoint](https://developer.sailpoint.com/docs/api/get-managed-cluster-v-1).
 
 ## Get cluster's log configuration
 
@@ -70,13 +70,13 @@ Here is an example:
 sail cluster log get 2c91808580f6cc1a01811af8cf5f18cb
 ```
 
-This command uses the [Get cluster's log configuration endpoint](https://developer.sailpoint.com/docs/api/beta/get-client-log-configuration).
+This command uses the [Get cluster's log configuration endpoint](https://developer.sailpoint.com/docs/api/get-client-log-configuration-v-1).
 
 ## Set cluster's log configuration
 
 You can update a cluster's root logging level, the duration of its logging, and the connector logging class. To set a cluster's log configuration, run this command:
 
-This command uses the [Update cluster's log configuration endpoint](https://developer.sailpoint.com/docs/api/beta/put-client-log-configuration).
+This command uses the [Update cluster's log configuration endpoint](https://developer.sailpoint.com/docs/api/put-client-log-configuration-v-1).
 
 ```shell
 sail cluster log set {cluster ID} -r {rootLevel} -d {durationMinutes} -c {connector logging class}

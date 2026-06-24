@@ -31,7 +31,7 @@ Method | HTTP request | Description
 Create a branding item
 This API endpoint creates a branding item.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-branding-item)
+[API Spec](https://developer.sailpoint.com/docs/api/create-branding-item-v-1)
 
 ### Path Parameters
 
@@ -107,7 +107,7 @@ func main() {
 Delete a branding item
 This API endpoint delete information for an existing branding item by name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-branding)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-branding-v-1)
 
 ### Path Parameters
 
@@ -172,7 +172,7 @@ func main() {
 Get a branding item
 This API endpoint retrieves information for an existing branding item by name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-branding)
+[API Spec](https://developer.sailpoint.com/docs/api/get-branding-v-1)
 
 ### Path Parameters
 
@@ -238,7 +238,7 @@ func main() {
 List of branding items
 This API endpoint returns a list of branding items.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-branding-list)
+[API Spec](https://developer.sailpoint.com/docs/api/get-branding-list-v-1)
 
 ### Path Parameters
 
@@ -295,7 +295,7 @@ func main() {
 Update a branding item
 This API endpoint updates information for an existing branding item.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/set-branding-item)
+[API Spec](https://developer.sailpoint.com/docs/api/set-branding-item-v-1)
 
 ### Path Parameters
 

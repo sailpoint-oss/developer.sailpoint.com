@@ -34,7 +34,7 @@ Method | HTTP request | Description
 Create connector rule
 Create a connector rule from the available types.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-connector-rule)
+[API Spec](https://developer.sailpoint.com/docs/api/create-connector-rule-v-1)
 
 ### Path Parameters
 
@@ -126,7 +126,7 @@ func main() {
 Delete connector rule
 Delete the connector rule for the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-connector-rule)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-connector-rule-v-1)
 
 ### Path Parameters
 
@@ -191,7 +191,7 @@ func main() {
 Get connector rule
 Get a connector rule by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-connector-rule)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-rule-v-1)
 
 ### Path Parameters
 
@@ -257,7 +257,7 @@ func main() {
 List connector rules
 List existing connector rules.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-connector-rule-list)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-rule-list-v-1)
 
 ### Path Parameters
 
@@ -323,7 +323,7 @@ func main() {
 Update connector rule
 Update an existing connector rule with the one provided in the request body. These fields are immutable: `id`, `name`, `type`
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-connector-rule)
+[API Spec](https://developer.sailpoint.com/docs/api/put-connector-rule-v-1)
 
 ### Path Parameters
 
@@ -417,7 +417,7 @@ func main() {
 Validate connector rule
 Detect issues within the connector rule's code to fix and list them.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/test-connector-rule)
+[API Spec](https://developer.sailpoint.com/docs/api/test-connector-rule-v-1)
 
 ### Path Parameters
 

@@ -40,7 +40,7 @@ Create machine identities
 Use this API to create a machine identity.
 The maximum supported length for the description field is 2000 characters.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-machine-identity)
+[API Spec](https://developer.sailpoint.com/docs/api/create-machine-identity-v-1)
 
 ### Parameters 
 
@@ -145,7 +145,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Delete machine identity
 The API returns successful response if the requested machine identity was deleted.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-machine-identity)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-machine-identity-v-1)
 
 ### Parameters 
 
@@ -215,7 +215,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Machine identity details
 This API returns a single machine identity using the Machine Identity ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-machine-identity)
+[API Spec](https://developer.sailpoint.com/docs/api/get-machine-identity-v-1)
 
 ### Parameters 
 
@@ -288,7 +288,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List machine identities
 This API returns a list of machine identities.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-machine-identities)
+[API Spec](https://developer.sailpoint.com/docs/api/list-machine-identities-v-1)
 
 ### Parameters 
 
@@ -370,7 +370,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List machine identity's user entitlements
 This API returns a list of user entitlements associated with machine identities.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-machine-identity-user-entitlements)
+[API Spec](https://developer.sailpoint.com/docs/api/list-machine-identity-user-entitlements-v-1)
 
 ### Parameters 
 
@@ -452,7 +452,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Start Machine Identity (AI Agent) Aggregation
 Use this API to aggregate machine identities (AI Agents).
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/start-machine-identity-aggregation)
+[API Spec](https://developer.sailpoint.com/docs/api/start-machine-identity-aggregation-v-1)
 
 ### Parameters 
 
@@ -529,7 +529,7 @@ Update a machine identity
 Use this API to update machine identity details.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-machine-identity)
+[API Spec](https://developer.sailpoint.com/docs/api/update-machine-identity-v-1)
 
 ### Parameters 
 

@@ -31,7 +31,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 :::
 Get managed cluster's log configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-client-log-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/get-client-log-configuration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -80,7 +80,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 :::
 Retrieve a ManagedCluster by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-managed-cluster)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-cluster-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -129,7 +129,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 :::
 Retrieve all Managed Clusters for the current Org, based on request context.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-managed-clusters)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-clusters-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -183,7 +183,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 :::
 Update managed cluster's log configuration
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/put-client-log-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/put-client-log-configuration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

@@ -45,6 +45,8 @@ This setting allows VS Code to discover and connect to MCP servers defined in yo
 3. Search for and select `MCP: Open User Configuration`.
 4. Add the following configuration to `mcp.json`:
 
+The configuration below uses the global MCP URL, which works for all tenants without any tenant-specific changes.
+
 ```json
 {
   "servers": {
@@ -53,7 +55,7 @@ This setting allows VS Code to discover and connect to MCP servers defined in yo
       "args": [
         "mcp-remote@latest",
         // highlight-next-line
-        "https://[tenant].api.cloud.sailpoint.com/v2025/access-requests/mcp",
+        "https://mcp.sailpoint.com/latest/access-requests/mcp",
         "--debug",
         "--header",
         "Authorization: Bearer ${input:AUTH_TOKEN}"
@@ -70,11 +72,6 @@ This setting allows VS Code to discover and connect to MCP servers defined in yo
   ]
 }
 ```
-
-**Replace `[tenant]` with your tenant name.** For example:
-
-- If your SailPoint URL is `https://acme.identitynow.com`, use `acme`
-- Full URL would be: `https://acme.api.identitynow.com/v2025/access-requests/mcp`
 
 ## Step 3: Connect to the MCP Server
 

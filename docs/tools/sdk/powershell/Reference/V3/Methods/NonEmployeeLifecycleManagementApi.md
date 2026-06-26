@@ -85,7 +85,7 @@ Method | HTTP request | Description
 ## approve-non-employee-request
 Approves a non-employee approval request and notifies the next approver. The current user must be the requested approver.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/approve-non-employee-request)
+[API Spec](https://developer.sailpoint.com/docs/api/approve-non-employee-request-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -136,7 +136,7 @@ try {
 This request will create a non-employee record.
 Requires role context of `idn:nesr:create`
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-non-employee-record)
+[API Spec](https://developer.sailpoint.com/docs/api/create-non-employee-record-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -195,7 +195,7 @@ try {
 ## create-non-employee-request
 This request will create a non-employee request and notify the approver. Requires role context of `idn:nesr:create` or the user must own the source.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-non-employee-request)
+[API Spec](https://developer.sailpoint.com/docs/api/create-non-employee-request-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -254,7 +254,7 @@ try {
 ## create-non-employee-source
 Create a non-employee source. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-non-employee-source)
+[API Spec](https://developer.sailpoint.com/docs/api/create-non-employee-source-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -326,7 +326,7 @@ try {
 This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a "400.1.409 Reference conflict" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a "400.1.4 Limit violation" response.
 Requires role context of `idn:nesr:create`
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-non-employee-source-schema-attributes)
+[API Spec](https://developer.sailpoint.com/docs/api/create-non-employee-source-schema-attributes-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -382,7 +382,7 @@ try {
 This request will delete a non-employee record.
 Requires role context of `idn:nesr:delete`
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-non-employee-record)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-non-employee-record-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -427,7 +427,7 @@ try {
 ## delete-non-employee-records-in-bulk
 This request will delete multiple non-employee records based on the non-employee ids provided. Requires role context of `idn:nesr:delete`
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-non-employee-records-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-non-employee-records-in-bulk-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -474,7 +474,7 @@ try {
 This request will delete a non-employee request. 
 Requires role context of `idn:nesr:delete`
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-non-employee-request)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-non-employee-request-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -522,7 +522,7 @@ This end-point deletes a specific schema attribute for a non-employee source.
 Requires role context of `idn:nesr:delete`
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-non-employee-schema-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-non-employee-schema-attribute-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -569,7 +569,7 @@ try {
 ## delete-non-employee-source
 This request will delete a non-employee source. Requires role context of `idn:nesr:delete`.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-non-employee-source)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-non-employee-source-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -614,7 +614,7 @@ try {
 ## delete-non-employee-source-schema-attributes
 This end-point deletes all custom schema attributes for a non-employee source. Requires role context of `idn:nesr:delete`
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-non-employee-source-schema-attributes)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-non-employee-source-schema-attributes-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -659,7 +659,7 @@ try {
 ## export-non-employee-records
 This requests a CSV download for all non-employees from a provided source. Requires role context of `idn:nesr:read`
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/export-non-employee-records)
+[API Spec](https://developer.sailpoint.com/docs/api/export-non-employee-records-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -705,7 +705,7 @@ try {
 ## export-non-employee-source-schema-template
 This requests a download for the Source Schema Template for a provided source. Requires role context of `idn:nesr:read`
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/export-non-employee-source-schema-template)
+[API Spec](https://developer.sailpoint.com/docs/api/export-non-employee-source-schema-template-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -754,7 +754,7 @@ Gets a non-employee approval item detail. There are two contextual uses for this
 can get any approval.
   2. The user owns the requested approval.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-non-employee-approval)
+[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-approval-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -805,7 +805,7 @@ she may request a summary of all non-employee approval requests assigned to a pa
   2. The current user is an approver, in which case "me" should be provided
 as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-non-employee-approval-summary)
+[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-approval-summary-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -852,7 +852,7 @@ The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload
 Requires role context of `idn:nesr:read`
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-non-employee-bulk-upload-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-bulk-upload-status-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -898,7 +898,7 @@ try {
 This gets a non-employee record.
 Requires role context of `idn:nesr:read`
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-non-employee-record)
+[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-record-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -947,7 +947,7 @@ There are two contextual uses for this endpoint:
 can get the non-employee request for any user.
   2. The user must be the owner of the non-employee request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-non-employee-request)
+[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-request-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -997,7 +997,7 @@ she may request a summary of all non-employee approval requests assigned to a pa
   2. The current user is an account manager, in which case "me" should be
 provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-non-employee-request-summary)
+[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-request-summary-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1042,7 +1042,7 @@ try {
 ## get-non-employee-schema-attribute
 This API gets a schema attribute by Id for the specified Non-Employee SourceId. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-non-employee-schema-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-schema-attribute-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1093,7 +1093,7 @@ she may request any source.
   2. The current user is an account manager, in which case the user can only
 request sources that they own.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-non-employee-source)
+[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-source-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1139,7 +1139,7 @@ try {
 This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned.
 Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-non-employee-source-schema-attributes)
+[API Spec](https://developer.sailpoint.com/docs/api/get-non-employee-source-schema-attributes-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1185,7 +1185,7 @@ try {
 ## import-non-employee-records-in-bulk
 This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/import-non-employee-records-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/import-non-employee-records-in-bulk-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1237,7 +1237,7 @@ There are two contextual uses for this endpoint:
 can list the approvals for any approver.
   2. The user owns the requested approval.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-non-employee-approvals)
+[API Spec](https://developer.sailpoint.com/docs/api/list-non-employee-approvals-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1294,7 +1294,7 @@ This gets a list of non-employee records. There are two contextual uses for this
   1. The user has the role context of `idn:nesr:read`, in which case they can get a list of all of the non-employees.
   2. The user is an account manager, in which case they can get a list of the non-employees that they manage.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-non-employee-records)
+[API Spec](https://developer.sailpoint.com/docs/api/list-non-employee-records-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1351,7 +1351,7 @@ she may request a list non-employee requests assigned to a particular account ma
   2. The current user is an account manager, in which case "me" should be
 provided as the `requested-for` value. This will provide the user with a list of the non-employee requests in the source(s) he or she manages.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-non-employee-requests)
+[API Spec](https://developer.sailpoint.com/docs/api/list-non-employee-requests-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1408,7 +1408,7 @@ Get a list of non-employee sources. There are two contextual uses for the `reque
   1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager's `id`.
   2. If the current user is an account manager, the user should provide 'me' as the `requested-for` value. Doing so provide the user with a list of the sources he or she owns.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-non-employee-sources)
+[API Spec](https://developer.sailpoint.com/docs/api/list-non-employee-sources-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1467,7 +1467,7 @@ update all available fields.
   2. The user is owner of the source, in this case they can only update the
 end date.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-non-employee-record)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-non-employee-record-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1523,7 +1523,7 @@ This end-point patches a specific schema attribute for a non-employee SourceId.
 Requires role context of `idn:nesr:update`
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-non-employee-schema-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-non-employee-schema-attribute-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1579,7 +1579,7 @@ try {
 ## patch-non-employee-source
 patch a non-employee source. (partial update) <br/> Patchable field: **name, description, approvers, accountManagers** Requires role context of `idn:nesr:update`.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-non-employee-source)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-non-employee-source-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1632,7 +1632,7 @@ try {
 ## reject-non-employee-request
 This endpoint will reject an approval item request and notify user. The current user must be the requested approver.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/reject-non-employee-request)
+[API Spec](https://developer.sailpoint.com/docs/api/reject-non-employee-request-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1686,7 +1686,7 @@ update all available fields.
   2. The user is owner of the source, in this case they can only update the
 end date.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/update-non-employee-record)
+[API Spec](https://developer.sailpoint.com/docs/api/update-non-employee-record-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

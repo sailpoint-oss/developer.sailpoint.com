@@ -10,7 +10,7 @@ tags: ['SDK', 'Software Development Kit', 'Search_Attribute_Configuration', 'Sea
 ---
 
 # sailpoint.v3.SearchAttributeConfigurationApi
-  Use this API to implement search attribute configuration functionality, along with [Search](https://developer.sailpoint.com/docs/api/v3/search).
+  Use this API to implement search attribute configuration functionality, along with [Search](https://developer.sailpoint.com/docs/api/search).
 With this functionality in place, administrators can create custom search attributes that and run extended searches based on those attributes to further narrow down their searches and get the information and insights they want. 
 
 Identity Security Cloud (ISC) enables organizations to store user data from across all their connected sources and manage the users&#39; access, so the ability to query and filter that data is essential.  
@@ -45,7 +45,7 @@ Create extended search attributes
 Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create the attribute promotion configuration in the Link ObjectConfig.
 >**Note: Give searchable attributes unique names.  Do not give them the same names used for account attributes or source attributes.  Also, do not give them the same names present in account schema for a current or future source, regardless of whether that source is included in the searchable attributes' `applicationAttributes`.**
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-search-attribute-config)
+[API Spec](https://developer.sailpoint.com/docs/api/create-search-attribute-config-v-1)
 
 ### Parameters 
 
@@ -111,7 +111,7 @@ with ApiClient(configuration) as api_client:
 Delete extended search attribute
 Delete an extended attribute configuration by name.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-search-attribute-config)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-search-attribute-config-v-1)
 
 ### Parameters 
 
@@ -167,7 +167,7 @@ with ApiClient(configuration) as api_client:
 List extended search attributes
 Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-search-attribute-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-search-attribute-config-v-1)
 
 ### Parameters 
 
@@ -228,7 +228,7 @@ with ApiClient(configuration) as api_client:
 Get extended search attribute
 Get an extended attribute configuration by name.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-single-search-attribute-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-single-search-attribute-config-v-1)
 
 ### Parameters 
 
@@ -291,7 +291,7 @@ Update an existing search attribute configuration.
 You can patch these fields:
 * name  * displayName * applicationAttributes
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-search-attribute-config)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-search-attribute-config-v-1)
 
 ### Parameters 
 

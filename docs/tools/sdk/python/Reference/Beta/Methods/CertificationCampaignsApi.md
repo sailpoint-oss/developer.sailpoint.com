@@ -118,12 +118,12 @@ This endpoint will return a content error if the campaign is **not past due**.
 :::
 
 Use this API to complete a certification campaign. This functionality is provided to admins so that they
-can complete a certification even if all items have not been completed. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/complete-campaign).
+can complete a certification even if all items have not been completed. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/complete-campaign-v-1).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/complete-campaign)
+[API Spec](https://developer.sailpoint.com/docs/api/complete-campaign-v-1)
 
 ### Parameters 
 
@@ -187,12 +187,12 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Create campaign
-Use this API to create a certification campaign with the information provided in the request body. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/create-campaign).
+Use this API to create a certification campaign with the information provided in the request body. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/create-campaign-v-1).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-campaign)
+[API Spec](https://developer.sailpoint.com/docs/api/create-campaign-v-1)
 
 ### Parameters 
 
@@ -359,12 +359,12 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Create a campaign template
-Use this API to create a campaign template based on campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/create-campaign-template).
+Use this API to create a campaign template based on campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/create-campaign-template-v-1).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-campaign-template)
+[API Spec](https://developer.sailpoint.com/docs/api/create-campaign-template-v-1)
 
 ### Parameters 
 
@@ -546,12 +546,12 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Delete a campaign template
-Use this API to delete a certification campaign template by ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/delete-campaign-template).
+Use this API to delete a certification campaign template by ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/delete-campaign-template-v-1).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-campaign-template)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-campaign-template-v-1)
 
 ### Parameters 
 
@@ -608,12 +608,12 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Delete campaign template schedule
-Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/delete-campaign-template-schedule).
+Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/delete-campaign-template-schedule-v-1).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-campaign-template-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-campaign-template-schedule-v-1)
 
 ### Parameters 
 
@@ -670,12 +670,12 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Delete campaigns
-Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/delete-campaigns).
+Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/delete-campaigns-v-1).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-campaigns)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-campaigns-v-1)
 
 ### Parameters 
 
@@ -737,12 +737,12 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 List campaigns
-Use this API to get a list of campaigns. The API can provide increased level of detail for each campaign for the correct provided query. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-active-campaigns).
+Use this API to get a list of campaigns. The API can provide increased level of detail for each campaign for the correct provided query. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/get-active-campaigns-v-1).
 
 A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-active-campaigns)
+[API Spec](https://developer.sailpoint.com/docs/api/get-active-campaigns-v-1)
 
 ### Parameters 
 
@@ -812,12 +812,12 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Get campaign
-Use this API to get information for an existing certification campaign by the campaign's ID. Though this endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign).
+Use this API to get information for an existing certification campaign by the campaign's ID. Though this endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/get-campaign-v-1).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-campaign)
+[API Spec](https://developer.sailpoint.com/docs/api/get-campaign-v-1)
 
 ### Parameters 
 
@@ -877,12 +877,12 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Get campaign reports
-Use this API to fetch all reports for a certification campaign by campaign ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-reports).
+Use this API to fetch all reports for a certification campaign by campaign ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/get-campaign-reports-v-1).
 
 A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-campaign-reports)
+[API Spec](https://developer.sailpoint.com/docs/api/get-campaign-reports-v-1)
 
 ### Parameters 
 
@@ -943,12 +943,12 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Get campaign reports configuration
-Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-reports-config).
+Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/get-campaign-reports-config-v-1).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-campaign-reports-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-campaign-reports-config-v-1)
 
 ### Parameters 
 This endpoint does not need any parameter. 
@@ -1003,12 +1003,12 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Get a campaign template
-Use this API to fetch a certification campaign template by ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-template).
+Use this API to fetch a certification campaign template by ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/get-campaign-template-v-1).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-campaign-template)
+[API Spec](https://developer.sailpoint.com/docs/api/get-campaign-template-v-1)
 
 ### Parameters 
 
@@ -1068,12 +1068,12 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Get campaign template schedule
-Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-template-schedule).
+Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/get-campaign-template-schedule-v-1).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-campaign-template-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/get-campaign-template-schedule-v-1)
 
 ### Parameters 
 
@@ -1087,7 +1087,7 @@ Path   | id | **str** | True  | ID of the campaign template whose schedule is be
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | Current schedule for the campaign template. See the [Set Campaign Template Schedule endpoint documentation](https://developer.sailpoint.com/docs/api/beta/set-campaign-template-schedule) for more examples. | Schedule |  -  |
+200 | Current schedule for the campaign template. See the [Set Campaign Template Schedule endpoint documentation](https://developer.sailpoint.com/docs/api/set-campaign-template-schedule-v-1) for more examples. | Schedule |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -1133,14 +1133,14 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 List campaign templates
-Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v2025/get-campaign-templates).
+Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/get-campaign-templates-v-1).
 
 The endpoint returns all campaign templates matching the query parameters.
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-campaign-templates)
+[API Spec](https://developer.sailpoint.com/docs/api/get-campaign-templates-v-1)
 
 ### Parameters 
 
@@ -1208,12 +1208,12 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Reassign certifications
-This API reassigns the specified certifications from one identity to another.  Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/move).
+This API reassigns the specified certifications from one identity to another.  Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/move-v-1).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/move)
+[API Spec](https://developer.sailpoint.com/docs/api/move-v-1)
 
 ### Parameters 
 
@@ -1283,12 +1283,12 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Update a campaign template
-Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/patch-campaign-template).
+Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/patch-campaign-template-v-1).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-campaign-template)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-campaign-template-v-1)
 
 ### Parameters 
 
@@ -1351,12 +1351,12 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Set campaign reports configuration
-Use this API to overwrite the configuration for campaign reports. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/set-campaign-reports-config).
+Use this API to overwrite the configuration for campaign reports. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/set-campaign-reports-config-v-1).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/set-campaign-reports-config)
+[API Spec](https://developer.sailpoint.com/docs/api/set-campaign-reports-config-v-1)
 
 ### Parameters 
 
@@ -1418,12 +1418,12 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 :::
 Set campaign template schedule
 Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
-Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/set-campaign-template-schedule).
+Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/set-campaign-template-schedule-v-1).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/set-campaign-template-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/set-campaign-template-schedule-v-1)
 
 ### Parameters 
 
@@ -1502,12 +1502,12 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Activate a campaign
-Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-campaign).
+Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/start-campaign-v-1).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/start-campaign)
+[API Spec](https://developer.sailpoint.com/docs/api/start-campaign-v-1)
 
 ### Parameters 
 
@@ -1571,12 +1571,12 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Run campaign remediation scan
-Use this API to run a remediation scan task for a certification campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-campaign-remediation-scan).
+Use this API to run a remediation scan task for a certification campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/start-campaign-remediation-scan-v-1).
 
 A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/start-campaign-remediation-scan)
+[API Spec](https://developer.sailpoint.com/docs/api/start-campaign-remediation-scan-v-1)
 
 ### Parameters 
 
@@ -1635,12 +1635,12 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Run campaign report
-Use this API to run a report for a certification campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-campaign-report).
+Use this API to run a report for a certification campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/start-campaign-report-v-1).
 
 A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/start-campaign-report)
+[API Spec](https://developer.sailpoint.com/docs/api/start-campaign-report-v-1)
 
 ### Parameters 
 
@@ -1714,12 +1714,12 @@ campaign called "Campaign for 2020" (assuming the year at generation time is 202
 
 Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html).
 
-Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-generate-campaign-template).
+Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/start-generate-campaign-template-v-1).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/start-generate-campaign-template)
+[API Spec](https://developer.sailpoint.com/docs/api/start-generate-campaign-template-v-1)
 
 ### Parameters 
 
@@ -1778,12 +1778,12 @@ with ApiClient(configuration) as api_client:
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 Update a campaign
-Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Though this endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/update-campaign).
+Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Though this endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/update-campaign-v-1).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/update-campaign)
+[API Spec](https://developer.sailpoint.com/docs/api/update-campaign-v-1)
 
 ### Parameters 
 

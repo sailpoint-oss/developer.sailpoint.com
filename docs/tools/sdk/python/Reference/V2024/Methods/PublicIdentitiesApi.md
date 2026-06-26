@@ -10,7 +10,7 @@ tags: ['SDK', 'Software Development Kit', 'Public_Identities', 'V2024Public_Iden
 ---
 
 # sailpoint.v2024.PublicIdentitiesApi
-  Use this API in conjunction with [Public Identites Config](https://developer.sailpoint.com/docs/api/v2024/public-identities-config/) to enable non-administrators to view identities&#39; publicly visible attributes. 
+  Use this API in conjunction with [Public Identites Config](https://developer.sailpoint.com/docs/api/public-identities-config/) to enable non-administrators to view identities&#39; publicly visible attributes. 
 With this functionality in place, non-administrators can view identity attributes other than the default attributes (email, lifecycle state, and manager), depending on which identity attributes their organization administrators have made public. 
 This can be helpful for access approvers, certification reviewers, managers viewing their direct reports&#39; access, and source owners viewing their tasks.
  
@@ -25,7 +25,7 @@ Method | HTTP request | Description
 Get list of public identities
 Get a list of public identities.  Set `add-core-filters` to `true` to exclude incomplete identities and uncorrelated accounts.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-public-identities)
+[API Spec](https://developer.sailpoint.com/docs/api/get-public-identities-v-1)
 
 ### Parameters 
 

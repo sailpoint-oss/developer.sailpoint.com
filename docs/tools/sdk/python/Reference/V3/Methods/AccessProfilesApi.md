@@ -65,7 +65,7 @@ A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated wi
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
 >**Note:** To use this endpoint, you need all the listed scopes.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-access-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/create-access-profile-v-1)
 
 ### Parameters 
 
@@ -212,7 +212,7 @@ The Access Profile must not be in use, for example, Access Profile can not be de
 
 A user with SOURCE_SUBADMIN must be able to administer the Source associated with the Access Profile.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-access-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-access-profile-v-1)
 
 ### Parameters 
 
@@ -266,12 +266,12 @@ with ApiClient(configuration) as api_client:
 ## delete-access-profiles-in-bulk
 Delete access profile(s)
 This endpoint initiates a bulk deletion of one or more access profiles.
-When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
+When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 access profiles per request. 
 By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted.
 A SOURCE_SUBADMIN user can only use this endpoint to delete access profiles associated with sources they're able to administer.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-access-profiles-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-access-profiles-in-bulk-v-1)
 
 ### Parameters 
 
@@ -334,7 +334,7 @@ with ApiClient(configuration) as api_client:
 Get an access profile
 This API returns an Access Profile by its ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-access-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-profile-v-1)
 
 ### Parameters 
 
@@ -394,7 +394,7 @@ Use this API to get a list of an access profile's entitlements.
 A SOURCE_SUBADMIN user must have access to the source associated with the specified access profile.
 >**Note:** When you filter for access profiles that have the '+' symbol in their names, the response is blank. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-access-profile-entitlements)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-profile-entitlements-v-1)
 
 ### Parameters 
 
@@ -464,7 +464,7 @@ List access profiles
 Get a list of access profiles. 
 >**Note:** When you filter for access profiles that have the '+' symbol in their names, the response is blank. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-access-profiles)
+[API Spec](https://developer.sailpoint.com/docs/api/list-access-profiles-v-1)
 
 ### Parameters 
 
@@ -566,7 +566,7 @@ A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which
 
 > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile's source.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-access-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-access-profile-v-1)
 
 ### Parameters 
 

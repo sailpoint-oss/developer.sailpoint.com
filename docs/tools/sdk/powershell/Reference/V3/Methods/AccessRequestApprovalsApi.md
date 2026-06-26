@@ -45,7 +45,7 @@ Method | HTTP request | Description
 ## approve-access-request
 Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/approve-access-request)
+[API Spec](https://developer.sailpoint.com/docs/api/approve-access-request-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -101,7 +101,7 @@ try {
 ## forward-access-request
 Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/forward-access-request)
+[API Spec](https://developer.sailpoint.com/docs/api/forward-access-request-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -153,7 +153,7 @@ try {
 ## get-access-request-approval-summary
 Use this API to return the number of pending, approved and rejected access requests approvals. See the "owner-id" query parameter for authorization information. info.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-access-request-approval-summary)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-request-approval-summary-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -200,7 +200,7 @@ try {
 ## list-completed-approvals
 This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-completed-approvals)
+[API Spec](https://developer.sailpoint.com/docs/api/list-completed-approvals-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -255,7 +255,7 @@ try {
 ## list-pending-approvals
 This endpoint returns a list of pending approvals. See "owner-id" query parameter below for authorization info.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-pending-approvals)
+[API Spec](https://developer.sailpoint.com/docs/api/list-pending-approvals-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -310,7 +310,7 @@ try {
 ## reject-access-request
 Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/reject-access-request)
+[API Spec](https://developer.sailpoint.com/docs/api/reject-access-request-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

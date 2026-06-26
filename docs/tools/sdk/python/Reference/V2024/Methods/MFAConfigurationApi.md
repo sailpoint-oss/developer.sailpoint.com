@@ -28,7 +28,7 @@ Method | HTTP request | Description
 Configuration of duo mfa method
 This API returns the configuration of an Duo MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-mfa-duo-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-mfa-duo-config-v-1)
 
 ### Parameters 
 This endpoint does not need any parameter. 
@@ -82,7 +82,7 @@ with ApiClient(configuration) as api_client:
 Configuration of kba mfa method
 This API returns the KBA configuration for MFA.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-mfa-kba-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-mfa-kba-config-v-1)
 
 ### Parameters 
 
@@ -141,7 +141,7 @@ with ApiClient(configuration) as api_client:
 Configuration of okta mfa method
 This API returns the configuration of an Okta MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-mfa-okta-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-mfa-okta-config-v-1)
 
 ### Parameters 
 This endpoint does not need any parameter. 
@@ -195,7 +195,7 @@ with ApiClient(configuration) as api_client:
 Set duo mfa configuration
 This API sets the configuration of an Duo MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-mfa-duo-config)
+[API Spec](https://developer.sailpoint.com/docs/api/set-mfa-duo-config-v-1)
 
 ### Parameters 
 
@@ -263,7 +263,7 @@ with ApiClient(configuration) as api_client:
 Set okta mfa configuration
 This API sets the configuration of an Okta MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-mfa-okta-config)
+[API Spec](https://developer.sailpoint.com/docs/api/set-mfa-okta-config-v-1)
 
 ### Parameters 
 
@@ -327,7 +327,7 @@ with ApiClient(configuration) as api_client:
 Set mfa kba configuration
 This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-mfakba-config)
+[API Spec](https://developer.sailpoint.com/docs/api/set-mfakba-config-v-1)
 
 ### Parameters 
 
@@ -387,7 +387,7 @@ with ApiClient(configuration) as api_client:
 Mfa method's test configuration
 This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/test-mfa-config)
+[API Spec](https://developer.sailpoint.com/docs/api/test-mfa-config-v-1)
 
 ### Parameters 
 

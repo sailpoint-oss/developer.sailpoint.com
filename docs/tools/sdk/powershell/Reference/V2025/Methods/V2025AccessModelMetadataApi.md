@@ -39,7 +39,7 @@ Method | HTTP request | Description
 ## get-access-model-metadata-attribute
 Get single Access Model Metadata Attribute
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-model-metadata-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-model-metadata-attribute-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -84,7 +84,7 @@ try {
 ## get-access-model-metadata-attribute-value
 Get single Access Model Metadata Attribute Value
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-model-metadata-attribute-value)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-model-metadata-attribute-value-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -131,7 +131,7 @@ try {
 ## list-access-model-metadata-attribute
 Get a list of Access Model Metadata Attributes
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-access-model-metadata-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/list-access-model-metadata-attribute-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -184,7 +184,7 @@ try {
 ## list-access-model-metadata-attribute-value
 Get a list of Access Model Metadata Attribute Values
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-access-model-metadata-attribute-value)
+[API Spec](https://developer.sailpoint.com/docs/api/list-access-model-metadata-attribute-value-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -235,7 +235,7 @@ try {
 ## update-access-model-metadata-by-filter
 Bulk update Access Model Metadata Attribute Values using a filter
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-access-model-metadata-by-filter)
+[API Spec](https://developer.sailpoint.com/docs/api/update-access-model-metadata-by-filter-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -289,7 +289,7 @@ try {
 ## update-access-model-metadata-by-ids
 Bulk update Access Model Metadata Attribute Values using ids.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-access-model-metadata-by-ids)
+[API Spec](https://developer.sailpoint.com/docs/api/update-access-model-metadata-by-ids-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -343,7 +343,7 @@ try {
 ## update-access-model-metadata-by-query
 Bulk update Access Model Metadata Attribute Values using a query
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-access-model-metadata-by-query)
+[API Spec](https://developer.sailpoint.com/docs/api/update-access-model-metadata-by-query-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

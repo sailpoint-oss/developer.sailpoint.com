@@ -42,7 +42,7 @@ Source org should be "default" when creating an object mapping that is not to be
 The request will need the following security scope:
 - sp:config-object-mapping:manage
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-object-mapping)
+[API Spec](https://developer.sailpoint.com/docs/api/create-object-mapping-v-1)
 
 ### Parameters 
 
@@ -113,7 +113,7 @@ Source org should be "default" when creating object mappings that are not to be 
 The request will need the following security scope:
 - sp:config-object-mapping:manage
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-object-mappings)
+[API Spec](https://developer.sailpoint.com/docs/api/create-object-mappings-v-1)
 
 ### Parameters 
 
@@ -193,7 +193,7 @@ Configuration files can be managed and deployed via Configuration Hub by uploadi
 
 Refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects) for more information about supported objects.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-uploaded-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/create-uploaded-configuration-v-1)
 
 ### Parameters 
 
@@ -256,7 +256,7 @@ Source org should be "default" when deleting an object mapping that is not assoc
 The request will need the following security scope:
 - sp:config-object-mapping:manage
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-object-mapping)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-object-mapping-v-1)
 
 ### Parameters 
 
@@ -318,7 +318,7 @@ On success, this endpoint will return an empty response.
 
 The uploaded configuration id can be obtained from the response after a successful upload, or the list uploaded configurations endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-uploaded-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-uploaded-configuration-v-1)
 
 ### Parameters 
 
@@ -377,7 +377,7 @@ Source org should be "default" when getting object mappings that are not associa
 The request will need the following security scope:
 - sp:config-object-mapping:read
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-object-mappings)
+[API Spec](https://developer.sailpoint.com/docs/api/get-object-mappings-v-1)
 
 ### Parameters 
 
@@ -437,7 +437,7 @@ with ApiClient(configuration) as api_client:
 Get an uploaded configuration
 This API gets an existing uploaded configuration for the current tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-uploaded-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/get-uploaded-configuration-v-1)
 
 ### Parameters 
 
@@ -496,7 +496,7 @@ with ApiClient(configuration) as api_client:
 List uploaded configurations
 This API gets a list of existing uploaded configurations for the current tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-uploaded-configurations)
+[API Spec](https://developer.sailpoint.com/docs/api/list-uploaded-configurations-v-1)
 
 ### Parameters 
 
@@ -559,7 +559,7 @@ Source org should be "default" when updating object mappings that are not associ
 The request will need the following security scope:
 - sp:config-object-mapping:manage
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/update-object-mappings)
+[API Spec](https://developer.sailpoint.com/docs/api/update-object-mappings-v-1)
 
 ### Parameters 
 

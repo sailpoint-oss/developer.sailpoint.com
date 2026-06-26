@@ -66,7 +66,7 @@ Method | HTTP request | Description
 This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-sod-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/create-sod-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -168,7 +168,7 @@ try {
 This deletes a specified SOD policy.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-sod-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-sod-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -216,7 +216,7 @@ try {
 ## delete-sod-policy-schedule
 This deletes schedule for a specified SOD policy by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-sod-policy-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-sod-policy-schedule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -262,7 +262,7 @@ try {
 ## get-custom-violation-report
 This allows to download a specified named violation report for a given report reference.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-custom-violation-report)
+[API Spec](https://developer.sailpoint.com/docs/api/get-custom-violation-report-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -310,7 +310,7 @@ try {
 ## get-default-violation-report
 This allows to download a violation report for a given report reference.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-default-violation-report)
+[API Spec](https://developer.sailpoint.com/docs/api/get-default-violation-report-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -356,7 +356,7 @@ try {
 ## get-sod-all-report-run-status
 This endpoint gets the status for a violation report for all policy run.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-sod-all-report-run-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sod-all-report-run-status-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -400,7 +400,7 @@ try {
 This gets specified SOD policy.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-sod-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sod-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -446,7 +446,7 @@ try {
 ## get-sod-policy-schedule
 This endpoint gets a specified SOD policy's schedule.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-sod-policy-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sod-policy-schedule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -491,7 +491,7 @@ try {
 ## get-sod-violation-report-run-status
 This gets the status for a violation report run task that has already been invoked.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-sod-violation-report-run-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sod-violation-report-run-status-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -537,7 +537,7 @@ try {
 ## get-sod-violation-report-status
 This gets the status for a violation report run task that has already been invoked.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-sod-violation-report-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sod-violation-report-status-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -584,7 +584,7 @@ try {
 This gets list of all SOD policies.
 Requires role of ORG_ADMIN
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/list-sod-policies)
+[API Spec](https://developer.sailpoint.com/docs/api/list-sod-policies-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -639,7 +639,7 @@ Allows updating SOD Policy fields other than ["id","created","creatorId","policy
 Requires role of ORG_ADMIN.
 This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-sod-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-sod-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -693,7 +693,7 @@ try {
 ## put-policy-schedule
 This updates schedule for a specified SOD policy.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/put-policy-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/put-policy-schedule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -779,7 +779,7 @@ try {
 This updates a specified SOD policy.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/put-sod-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/put-sod-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -883,7 +883,7 @@ try {
 ## start-evaluate-sod-policy
 Runs the scheduled report for the policy retrieved by passed policy ID.  The report schedule is fetched from the policy retrieved by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/start-evaluate-sod-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/start-evaluate-sod-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -928,7 +928,7 @@ try {
 ## start-sod-all-policies-for-org
 Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/start-sod-all-policies-for-org)
+[API Spec](https://developer.sailpoint.com/docs/api/start-sod-all-policies-for-org-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -975,7 +975,7 @@ try {
 ## start-sod-policy
 This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/start-sod-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/start-sod-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

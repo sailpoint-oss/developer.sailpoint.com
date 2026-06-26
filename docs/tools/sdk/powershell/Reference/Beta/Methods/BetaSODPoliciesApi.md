@@ -68,7 +68,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-sod-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/create-sod-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -173,7 +173,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 This deletes a specified SOD policy.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-sod-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-sod-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -225,7 +225,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 This deletes schedule for a specified SOD policy.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-sod-policy-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-sod-policy-schedule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -275,7 +275,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 This allows to download a specified named violation report for a given report reference.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-custom-violation-report)
+[API Spec](https://developer.sailpoint.com/docs/api/get-custom-violation-report-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -327,7 +327,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 This allows to download a violation report for a given report reference.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-default-violation-report)
+[API Spec](https://developer.sailpoint.com/docs/api/get-default-violation-report-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -377,7 +377,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 This endpoint gets the status for a violation report for all policy run.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sod-all-report-run-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sod-all-report-run-status-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -424,7 +424,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 This gets specified SOD policy.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sod-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sod-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -474,7 +474,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 This endpoint gets a specified SOD policy's schedule.
 Requires the role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sod-policy-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sod-policy-schedule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -523,7 +523,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 This gets the status for a violation report run task that has already been invoked.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sod-violation-report-run-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sod-violation-report-run-status-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -573,7 +573,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 This gets the status for a violation report run task that has already been invoked.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sod-violation-report-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sod-violation-report-status-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -623,7 +623,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 This gets list of all SOD policies.
 Requires role of ORG_ADMIN
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-sod-policies)
+[API Spec](https://developer.sailpoint.com/docs/api/list-sod-policies-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -681,7 +681,7 @@ Allows updating SOD Policy fields other than ["id","created","creatorId","policy
 Requires role of ORG_ADMIN.
 This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-sod-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-sod-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -736,7 +736,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 This updates schedule for a specified SOD policy.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/put-policy-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/put-policy-schedule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -873,7 +873,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 This updates a specified SOD policy.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/put-sod-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/put-sod-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -981,7 +981,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/start-sod-all-policies-for-org)
+[API Spec](https://developer.sailpoint.com/docs/api/start-sod-all-policies-for-org-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1032,7 +1032,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
 Requires role of ORG_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/start-sod-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/start-sod-policy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

@@ -34,7 +34,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Create a new machine account subtype for a source.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-machine-account-subtype)
+[API Spec](https://developer.sailpoint.com/docs/api/create-machine-account-subtype-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -95,7 +95,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Delete a machine account subtype by its ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-machine-account-subtype)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-machine-account-subtype-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -147,7 +147,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Use this API to return the details for a single machine account by its ID.  
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-machine-account)
+[API Spec](https://developer.sailpoint.com/docs/api/get-machine-account-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -198,7 +198,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Get a machine account subtype by its unique ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-machine-account-subtype-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/get-machine-account-subtype-by-id-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -248,7 +248,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Get a machine account subtype by source ID and technical name.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-machine-account-subtype-by-technical-name)
+[API Spec](https://developer.sailpoint.com/docs/api/get-machine-account-subtype-by-technical-name-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -300,7 +300,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Get all machine account subtypes for a given source.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-machine-account-subtypes)
+[API Spec](https://developer.sailpoint.com/docs/api/list-machine-account-subtypes-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -360,7 +360,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This returns a list of machine accounts.  
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-machine-accounts)
+[API Spec](https://developer.sailpoint.com/docs/api/list-machine-accounts-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -420,7 +420,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Update fields of a machine account subtype by its ID.
 Patchable fields include: `displayName`, `description`, `technicalName`.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-machine-account-subtype)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-machine-account-subtype-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -484,7 +484,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Use this API to update machine accounts details. 
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-machine-account)
+[API Spec](https://developer.sailpoint.com/docs/api/update-machine-account-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

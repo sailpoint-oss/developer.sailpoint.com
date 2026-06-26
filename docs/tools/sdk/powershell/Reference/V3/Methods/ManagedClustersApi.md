@@ -32,7 +32,7 @@ Method | HTTP request | Description
 Create a new Managed Cluster.
 The API returns a result that includes the managed cluster ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/create-managed-cluster)
+[API Spec](https://developer.sailpoint.com/docs/api/create-managed-cluster-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -86,7 +86,7 @@ try {
 ## delete-managed-cluster
 Delete an existing managed cluster.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-managed-cluster)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-managed-cluster-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -133,7 +133,7 @@ try {
 ## get-client-log-configuration
 Get a managed cluster's log configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-client-log-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/get-client-log-configuration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -180,7 +180,7 @@ try {
 ## get-managed-cluster
 Get a managed cluster by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-managed-cluster)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-cluster-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -226,7 +226,7 @@ try {
 ## get-managed-clusters
 List current organization's managed clusters, based on request context.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/get-managed-clusters)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-clusters-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -277,7 +277,7 @@ try {
 ## put-client-log-configuration
 Update a managed cluster's log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/put-client-log-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/put-client-log-configuration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -326,7 +326,7 @@ try {
 ## update-managed-cluster
 Update an existing managed cluster.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v3/update-managed-cluster)
+[API Spec](https://developer.sailpoint.com/docs/api/update-managed-cluster-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

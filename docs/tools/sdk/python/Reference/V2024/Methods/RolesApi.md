@@ -80,7 +80,7 @@ In addition, a ROLE_SUBADMIN may not create a role including an access profile i
 
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles. However, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-role)
+[API Spec](https://developer.sailpoint.com/docs/api/create-role-v-1)
 
 ### Parameters 
 
@@ -295,11 +295,11 @@ with ApiClient(configuration) as api_client:
 ## delete-bulk-roles
 Delete role(s)
 This endpoint initiates a bulk deletion of one or more roles.
-When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
+When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 roles per request. 
 A user with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-bulk-roles)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-bulk-roles-v-1)
 
 ### Parameters 
 
@@ -360,7 +360,7 @@ with ApiClient(configuration) as api_client:
 Remove a metadata from role.
 This API initialize a request to remove a single Access Model Metadata from a role by attribute key and value. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-metadata-from-role-by-key-and-value)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-metadata-from-role-by-key-and-value-v-1)
 
 ### Parameters 
 
@@ -421,7 +421,7 @@ This API deletes a Role by its ID.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-role)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-role-v-1)
 
 ### Parameters 
 
@@ -476,7 +476,7 @@ with ApiClient(configuration) as api_client:
 Get bulk-update statuses
 This API returns a list of all unfinished bulk update process status of the tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-bulk-update-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-bulk-update-status-v-1)
 
 ### Parameters 
 This endpoint does not need any parameter. 
@@ -533,7 +533,7 @@ Get bulk-update status by id
 This API initial a request for one bulk update's status by bulk update Id returns the status of the bulk update process.
 A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-bulk-update-status-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/get-bulk-update-status-by-id-v-1)
 
 ### Parameters 
 
@@ -592,7 +592,7 @@ Get a role
 This API returns a Role by its ID.
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-v-1)
 
 ### Parameters 
 
@@ -651,7 +651,7 @@ with ApiClient(configuration) as api_client:
 List identities assigned a role
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-assigned-identities)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-assigned-identities-v-1)
 
 ### Parameters 
 
@@ -731,7 +731,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List role's entitlements
 Get a list of entitlements associated with a specified role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-entitlements)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-entitlements-v-1)
 
 ### Parameters 
 
@@ -805,7 +805,7 @@ This API returns a list of Roles.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-roles)
+[API Spec](https://developer.sailpoint.com/docs/api/list-roles-v-1)
 
 ### Parameters 
 
@@ -898,7 +898,7 @@ The maximum supported length for the description field is 2000 characters. Longe
 
 When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-role)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-role-v-1)
 
 ### Parameters 
 
@@ -960,7 +960,7 @@ Filter roles by metadata
 This API returns a list of Role that filter by metadata and filter, it support filter by  both path parameter and attribute key and values.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, HELPDESK, CERT_ADMIN, REPORT_ADMIN or SOURCE_ADMIN  authority is required to call this API. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/search-roles-by-filter)
+[API Spec](https://developer.sailpoint.com/docs/api/search-roles-by-filter-v-1)
 
 ### Parameters 
 
@@ -1039,7 +1039,7 @@ with ApiClient(configuration) as api_client:
 Add a metadata to role.
 This API initialize a request to add a single Access Model Metadata to a role by attribute key and attribute value. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum number of attributes in one role is 25. Custom metadata update, including ADD and REPLACE need suit licensed.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-attribute-key-and-value-to-role)
+[API Spec](https://developer.sailpoint.com/docs/api/update-attribute-key-and-value-to-role-v-1)
 
 ### Parameters 
 
@@ -1104,7 +1104,7 @@ A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call t
 The maximum metadata value count for a single role is 25.
 Custom metadata update, including add, replace need suit licensed.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-roles-metadata-by-filter)
+[API Spec](https://developer.sailpoint.com/docs/api/update-roles-metadata-by-filter-v-1)
 
 ### Parameters 
 
@@ -1174,7 +1174,7 @@ A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call t
 The maximum role count in a single update request is 3000. The maximum metadata value count for a single role is 25.
 Custom metadata update, including add, replace need suit licensed.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-roles-metadata-by-ids)
+[API Spec](https://developer.sailpoint.com/docs/api/update-roles-metadata-by-ids-v-1)
 
 ### Parameters 
 
@@ -1244,7 +1244,7 @@ A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call t
 The maximum metadata value count for a single role is 25.
 Custom metadata update, including add, replace need suit licensed.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-roles-metadata-by-query)
+[API Spec](https://developer.sailpoint.com/docs/api/update-roles-metadata-by-query-v-1)
 
 ### Parameters 
 

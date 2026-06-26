@@ -32,7 +32,7 @@ Create create managed cluster
 Create a new Managed Cluster.
 The API returns a result that includes the managed cluster ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-managed-cluster)
+[API Spec](https://developer.sailpoint.com/docs/api/create-managed-cluster-v-1)
 
 ### Parameters 
 
@@ -99,7 +99,7 @@ with ApiClient(configuration) as api_client:
 Delete managed cluster
 Delete an existing managed cluster.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-managed-cluster)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-managed-cluster-v-1)
 
 ### Parameters 
 
@@ -156,7 +156,7 @@ with ApiClient(configuration) as api_client:
 Get managed cluster log configuration
 Get a managed cluster's log configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-client-log-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/get-client-log-configuration-v-1)
 
 ### Parameters 
 
@@ -216,7 +216,7 @@ with ApiClient(configuration) as api_client:
 Get managed cluster
 Get a managed cluster by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-managed-cluster)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-cluster-v-1)
 
 ### Parameters 
 
@@ -275,7 +275,7 @@ with ApiClient(configuration) as api_client:
 Get managed clusters
 List current organization's managed clusters, based on request context.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-managed-clusters)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-clusters-v-1)
 
 ### Parameters 
 
@@ -340,7 +340,7 @@ with ApiClient(configuration) as api_client:
 Update managed cluster log configuration
 Update a managed cluster's log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-client-log-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/put-client-log-configuration-v-1)
 
 ### Parameters 
 
@@ -403,7 +403,7 @@ Trigger manual upgrade for managed cluster
 Trigger Manual Upgrade for Managed Cluster.
 AMS Security: API, Internal A token with SYSTEM_ADMINISTRATOR authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/update)
+[API Spec](https://developer.sailpoint.com/docs/api/update-v-1)
 
 ### Parameters 
 
@@ -462,7 +462,7 @@ with ApiClient(configuration) as api_client:
 Update managed cluster
 Update an existing managed cluster.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-managed-cluster)
+[API Spec](https://developer.sailpoint.com/docs/api/update-managed-cluster-v-1)
 
 ### Parameters 
 

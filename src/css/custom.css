@@ -532,7 +532,7 @@ h1 {
   font-weight: 600;
   border-radius: 0.25rem;
   border: 1px solid;
-  margin-right: var(--ifm-spacing-horizontal);
+  margin-right: 0.5rem;
   text-align: center;
   flex-shrink: 0;
   border-color: transparent;
@@ -573,6 +573,49 @@ h1 {
   content: 'event';
   background-color: #8000a8;
 }
+
+/* Sidebar version badges — rendered between the method badge and the operation title */
+.menu__list-item--v2 > .menu__link > span,
+.menu__list-item--v3 > .menu__link > span,
+.menu__list-item--v4 > .menu__link > span,
+.menu__list-item--v5 > .menu__link > span,
+.menu__list-item--v6 > .menu__link > span,
+.menu__list-item--v7 > .menu__link > span,
+.menu__list-item--v8 > .menu__link > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menu__list-item--v2 > .menu__link > span::before,
+.menu__list-item--v3 > .menu__link > span::before,
+.menu__list-item--v4 > .menu__link > span::before,
+.menu__list-item--v5 > .menu__link > span::before,
+.menu__list-item--v6 > .menu__link > span::before,
+.menu__list-item--v7 > .menu__link > span::before,
+.menu__list-item--v8 > .menu__link > span::before {
+  display: block;
+  width: 24px;
+  height: 20px;
+  font-size: 11px;
+  line-height: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  border: 1px solid transparent;
+  text-align: center;
+  flex-shrink: 0;
+  color: white;
+  background-color: #6b7280;
+}
+
+.menu__list-item--v2 > .menu__link > span::before { content: 'v2'; }
+.menu__list-item--v3 > .menu__link > span::before { content: 'v3'; }
+.menu__list-item--v4 > .menu__link > span::before { content: 'v4'; }
+.menu__list-item--v5 > .menu__link > span::before { content: 'v5'; }
+.menu__list-item--v6 > .menu__link > span::before { content: 'v6'; }
+.menu__list-item--v7 > .menu__link > span::before { content: 'v7'; }
+.menu__list-item--v8 > .menu__link > span::before { content: 'v8'; }
 
 .header-github-link:hover {
   opacity: 0.6;

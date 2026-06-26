@@ -83,7 +83,7 @@ Method | HTTP request | Description
 ## create-access-model-metadata-for-entitlement
 Add single Access Model Metadata to an entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-access-model-metadata-for-entitlement)
+[API Spec](https://developer.sailpoint.com/docs/api/create-access-model-metadata-for-entitlement-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -132,7 +132,7 @@ try {
 ## delete-access-model-metadata-from-entitlement
 Remove single Access Model Metadata from an entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-access-model-metadata-from-entitlement)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-access-model-metadata-from-entitlement-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -181,7 +181,7 @@ try {
 ## get-entitlement
 This API returns an entitlement by its ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-entitlement)
+[API Spec](https://developer.sailpoint.com/docs/api/get-entitlement-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -227,7 +227,7 @@ try {
 ## get-entitlement-request-config
 This API returns the entitlement request config for a specified entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-entitlement-request-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-entitlement-request-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -274,13 +274,13 @@ try {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/beta/import-entitlements).
+Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/import-entitlements-v-1).
 
 If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.
 
 If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/import-entitlements-by-source)
+[API Spec](https://developer.sailpoint.com/docs/api/import-entitlements-by-source-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -327,7 +327,7 @@ try {
 ## list-entitlement-children
 This API returns a list of all child entitlements of a given entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-entitlement-children)
+[API Spec](https://developer.sailpoint.com/docs/api/list-entitlement-children-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -383,7 +383,7 @@ try {
 ## list-entitlement-parents
 This API returns a list of all parent entitlements of a given entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-entitlement-parents)
+[API Spec](https://developer.sailpoint.com/docs/api/list-entitlement-parents-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -443,12 +443,12 @@ This API can be used in one of the two following ways: either getting entitlemen
 
 Any authenticated token can call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-entitlements)
+[API Spec](https://developer.sailpoint.com/docs/api/list-entitlements-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | AccountId | **String** |   (optional) | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). This parameter is deprecated. Please use [Account Entitlements API](https://developer.sailpoint.com/docs/api/v2025/get-account-entitlements/) to get account entitlements.
+  Query | AccountId | **String** |   (optional) | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). This parameter is deprecated. Please use [Account Entitlements API](https://developer.sailpoint.com/docs/api/get-account-entitlements-v-1/) to get account entitlements.
   Query | SegmentedForIdentity | **String** |   (optional) | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID.  Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity.
   Query | ForSegmentIds | **String** |   (optional) | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s).
   Query | IncludeUnsegmented | **Boolean** |   (optional) (default to $true) | Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error.
@@ -477,7 +477,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). This parameter is deprecated. Please use [Account Entitlements API](https://developer.sailpoint.com/docs/api/v2025/get-account-entitlements/) to get account entitlements. (optional)
+$AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). This parameter is deprecated. Please use [Account Entitlements API](https://developer.sailpoint.com/docs/api/get-account-entitlements-v-1/) to get account entitlements. (optional)
 $SegmentedForIdentity = "e554098913544630b5985e9042f5e44b" # String | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID.  Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional)
 $ForSegmentIds = "041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649" # String | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s). (optional)
 $IncludeUnsegmented = $true # Boolean | Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error. (optional) (default to $true)
@@ -510,7 +510,7 @@ When you're patching owner, only owner type and owner id must be provided. Owner
 
 A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-entitlement)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-entitlement-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -563,7 +563,7 @@ try {
 ## put-entitlement-request-config
 This API replaces the entitlement request config for a specified entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/put-entitlement-request-config)
+[API Spec](https://developer.sailpoint.com/docs/api/put-entitlement-request-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -633,9 +633,9 @@ try {
 
 ## reset-source-entitlements
 Remove all entitlements from a specific source.
-To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Import Accounts](https://developer.sailpoint.com/docs/api/beta/import-accounts/) with `disableOptimization` = `true`. 
+To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Import Accounts](https://developer.sailpoint.com/docs/api/import-accounts-v-1/) with `disableOptimization` = `true`. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/reset-source-entitlements)
+[API Spec](https://developer.sailpoint.com/docs/api/reset-source-entitlements-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -692,7 +692,7 @@ examples of allowed operations :
 A token with ORG_ADMIN or API authority is required to call this API.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/update-entitlements-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/update-entitlements-in-bulk-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

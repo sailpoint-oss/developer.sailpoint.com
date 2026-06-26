@@ -138,7 +138,7 @@ const config: Config = {
           label: 'API specifications',
           position: 'left',
           items: [
-            { label: 'Identity Security Cloud', to: '/docs/api/v2026' },
+            { label: 'Identity Security Cloud', to: '/docs/api' },
           ],
         },
         {

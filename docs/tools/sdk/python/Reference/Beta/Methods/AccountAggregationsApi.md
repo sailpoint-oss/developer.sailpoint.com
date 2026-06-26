@@ -40,7 +40,7 @@ Since this endpoint reports on the status of an *in-progress* account aggregatio
 
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN or DASHBOARD authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-account-aggregation-status)
+[API Spec](https://developer.sailpoint.com/docs/api/get-account-aggregation-status-v-1)
 
 ### Parameters 
 

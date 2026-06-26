@@ -37,7 +37,7 @@ This API exports a list of ignored outliers to a CSV as well as list of non-igno
 Columns will include: identityId, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/export-outliers-zip)
+[API Spec](https://developer.sailpoint.com/docs/api/export-outliers-zip-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -87,7 +87,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API returns a summary containing the number of identities that customer has, the number of outliers, and the type of outlier.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity-outlier-snapshots)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-outlier-snapshots-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -146,7 +146,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API returns a list of outliers, containing data such as identity ID, outlier type, detection dates, identity attributes, if identity is ignored, and certification information.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity-outliers)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-outliers-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -206,7 +206,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API returns a most recent snapshot of each outlier type, each containing the number of identities that customer has, the number of outliers, and the type of outlier.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-latest-identity-outlier-snapshots)
+[API Spec](https://developer.sailpoint.com/docs/api/get-latest-identity-outlier-snapshots-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -260,7 +260,7 @@ This API returns a summary of a contributing feature for an identity outlier.
 The object contains: contributing feature name (translated text or message key), identity outlier display name, feature values, feature definition and explanation (translated text or message key), peer display name and identityId, access item reference, translation messages object.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-outlier-contributing-feature-summary)
+[API Spec](https://developer.sailpoint.com/docs/api/get-outlier-contributing-feature-summary-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -314,7 +314,7 @@ This API returns a list of contributing feature objects for a single outlier.
 The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-peer-group-outliers-contributing-features)
+[API Spec](https://developer.sailpoint.com/docs/api/get-peer-group-outliers-contributing-features-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -375,7 +375,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API receives a list of identity IDs in the request, changes the outliers to be ignored.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/ignore-identity-outliers)
+[API Spec](https://developer.sailpoint.com/docs/api/ignore-identity-outliers-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -431,7 +431,7 @@ This API returns a list of the enriched access items associated with each featur
 The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-outliers-contributing-feature-access-items)
+[API Spec](https://developer.sailpoint.com/docs/api/list-outliers-contributing-feature-access-items-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -494,7 +494,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API receives a list of identity IDs in the request, changes the outliers to be un-ignored.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/un-ignore-identity-outliers)
+[API Spec](https://developer.sailpoint.com/docs/api/un-ignore-identity-outliers-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

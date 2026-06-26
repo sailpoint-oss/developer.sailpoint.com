@@ -55,7 +55,7 @@ Method | HTTP request | Description
 Create new service desk integration
 Create a new Service Desk integration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/create-service-desk-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/create-service-desk-integration-v-1)
 
 ### Parameters 
 
@@ -144,7 +144,7 @@ with ApiClient(configuration) as api_client:
 Delete a service desk integration
 Delete an existing Service Desk integration by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-service-desk-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-service-desk-integration-v-1)
 
 ### Parameters 
 
@@ -200,7 +200,7 @@ with ApiClient(configuration) as api_client:
 Get a service desk integration
 Get an existing Service Desk integration by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-service-desk-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/get-service-desk-integration-v-1)
 
 ### Parameters 
 
@@ -259,7 +259,7 @@ with ApiClient(configuration) as api_client:
 List existing service desk integrations
 Get a list of Service Desk integration objects.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-service-desk-integration-list)
+[API Spec](https://developer.sailpoint.com/docs/api/get-service-desk-integration-list-v-1)
 
 ### Parameters 
 
@@ -327,7 +327,7 @@ with ApiClient(configuration) as api_client:
 Service desk integration template by scriptname
 This API endpoint returns an existing Service Desk integration template by scriptName.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-service-desk-integration-template)
+[API Spec](https://developer.sailpoint.com/docs/api/get-service-desk-integration-template-v-1)
 
 ### Parameters 
 
@@ -386,7 +386,7 @@ with ApiClient(configuration) as api_client:
 List service desk integration types
 This API endpoint returns the current list of supported Service Desk integration types.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-service-desk-integration-types)
+[API Spec](https://developer.sailpoint.com/docs/api/get-service-desk-integration-types-v-1)
 
 ### Parameters 
 This endpoint does not need any parameter. 
@@ -442,7 +442,7 @@ with ApiClient(configuration) as api_client:
 Get the time check configuration
 Get the time check configuration of queued SDIM tickets.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-status-check-details)
+[API Spec](https://developer.sailpoint.com/docs/api/get-status-check-details-v-1)
 
 ### Parameters 
 This endpoint does not need any parameter. 
@@ -497,7 +497,7 @@ with ApiClient(configuration) as api_client:
 Patch a service desk integration
 Update an existing Service Desk integration by ID with a PATCH request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-service-desk-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-service-desk-integration-v-1)
 
 ### Parameters 
 
@@ -559,7 +559,7 @@ with ApiClient(configuration) as api_client:
 Update a service desk integration
 Update an existing Service Desk integration by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/put-service-desk-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/put-service-desk-integration-v-1)
 
 ### Parameters 
 
@@ -650,7 +650,7 @@ with ApiClient(configuration) as api_client:
 Update the time check configuration
 Update the time check configuration of queued SDIM tickets.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/update-status-check-details)
+[API Spec](https://developer.sailpoint.com/docs/api/update-status-check-details-v-1)
 
 ### Parameters 
 

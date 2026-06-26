@@ -19,7 +19,7 @@ However, it may be helpful for a non-administrator reviewer to see other identit
 Administrators can use this API to make those necessary identity attributes public to non-administrators.
 
 For example, a non-administrator deciding whether to approve another identity&#39;s request for access to the Workday application, whose access may be restricted to members of the HR department, would want to know whether the identity is a member of the HR department.
-If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/docs/api/beta/update-public-identity-config/) to make the &quot;department&quot; attribute public, the approver can see the department and make a decision without requesting any more information.
+If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/docs/api/update-public-identity-config-v-1/) to make the &quot;department&quot; attribute public, the approver can see the department and make a decision without requesting any more information.
  
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -36,7 +36,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Get public identity config
 This gets details of public identity config.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-public-identity-config)
+[API Spec](https://developer.sailpoint.com/docs/api/get-public-identity-config-v-1)
 
 ### Parameters 
 This endpoint does not need any parameter. 
@@ -93,7 +93,7 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Update public identity config
 This updates the details of public identity config.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/update-public-identity-config)
+[API Spec](https://developer.sailpoint.com/docs/api/update-public-identity-config-v-1)
 
 ### Parameters 
 

@@ -33,7 +33,7 @@ Method | HTTP request | Description
 ## cancel-task
 This end-point sends a request to cancel a task in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/cancel-task)
+[API Spec](https://developer.sailpoint.com/docs/api/cancel-task-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -79,7 +79,7 @@ try {
 ## create-schedule
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/create-schedule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -137,7 +137,7 @@ try {
 ## delete-schedule
 This end-point sends a request to delete a schedule in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-schedule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -184,7 +184,7 @@ try {
 This end-point sends a request to delete a task in Data Access Security.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-task)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-task-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -230,7 +230,7 @@ try {
 ## get-schedule
 This end-point gets a schedule in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/get-schedule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -276,7 +276,7 @@ try {
 ## get-schedules
 This end-point lists all the schedules in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-schedules)
+[API Spec](https://developer.sailpoint.com/docs/api/get-schedules-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -328,7 +328,7 @@ try {
 ## get-task
 This end-point gets a task in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-task)
+[API Spec](https://developer.sailpoint.com/docs/api/get-task-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -374,7 +374,7 @@ try {
 ## get-tasks
 This end-point lists all the tasks in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-tasks)
+[API Spec](https://developer.sailpoint.com/docs/api/get-tasks-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -426,7 +426,7 @@ try {
 ## put-schedule
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/put-schedule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -486,7 +486,7 @@ try {
 ## start-task-rerun
 This end-point sends a request to re-run a task in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/start-task-rerun)
+[API Spec](https://developer.sailpoint.com/docs/api/start-task-rerun-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

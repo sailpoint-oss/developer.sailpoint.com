@@ -123,7 +123,7 @@ const pluginConfig = [
           version: 'v1',
           label: 'v1',
           downloadUrl:
-            'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.v2026.yaml',
+            'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.yaml',
           baseUrl: '/docs/api',
           template: 'api.mustache',
           markdownGenerators: {

@@ -71,4 +71,4 @@ cd "$PORTAL_ROOT"
 npm run rebuild-docs
 
 echo ""
-echo "Done! Run 'npm start' to launch the portal."
+echo "Done! Run 'npm run start' to launch the portal."

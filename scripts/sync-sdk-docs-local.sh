@@ -78,7 +78,7 @@ build_sdk() {
       echo "  Installing dependencies..."
       npm ci --ignore-scripts
     fi
-    node sdk-resources/build-versioned-sdk.js "$APIS_DIR" --concurrency "$(nproc)"
+    node sdk-resources/build-versioned-sdk.js "$APIS_DIR"
   )
 }
 
@@ -271,21 +271,10 @@ case "$ONLY_SDK" in
   powershell) sync_powershell ;;
   typescript) sync_typescript ;;
   "")
-    # Run all 4 SDK build+sync pipelines in parallel; print each log block in order when done.
-    declare -A SDK_PIDS SDK_LOGS
-    for fn in sync_go sync_python sync_powershell sync_typescript; do
-      SDK_LOGS[$fn]=$(mktemp)
-      $fn >"${SDK_LOGS[$fn]}" 2>&1 &
-      SDK_PIDS[$fn]=$!
-    done
-    FAILED=0
-    for fn in sync_go sync_python sync_powershell sync_typescript; do
-      set +e; wait "${SDK_PIDS[$fn]}"; RC=$?; set -e
-      cat "${SDK_LOGS[$fn]}"
-      rm -f "${SDK_LOGS[$fn]}"
-      [ $RC -ne 0 ] && { echo "  ✗ $fn FAILED (exit $RC)"; FAILED=1; }
-    done
-    [ $FAILED -eq 0 ] || { echo "One or more SDK builds/syncs failed"; exit 1; }
+    sync_go
+    sync_python
+    sync_powershell
+    sync_typescript
     ;;
   *) echo "Unknown SDK: $ONLY_SDK. Choose from: go, python, powershell, typescript"; exit 1 ;;
 esac

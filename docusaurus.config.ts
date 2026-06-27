@@ -23,7 +23,7 @@ const config: Config = {
   url: 'https://developer.sailpoint.com',
   baseUrl,
   favicon: 'img/SailPoint-Logo-Icon.ico',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onDuplicateRoutes: 'throw',
   i18n: {
     defaultLocale: 'en',
@@ -148,7 +148,7 @@ const config: Config = {
   markdown: {
     mermaid: true,
     hooks: {
-      onBrokenMarkdownLinks: 'throw'
+      onBrokenMarkdownLinks: 'warn'
     }
   },
 

@@ -1,42 +1,86 @@
 #!/usr/bin/env bash
 # sync-sdk-docs-local.sh
 #
-# Simulates all four SDK push workflows locally so you can verify docs before
-# merging/pushing to the remote repos.
+# Mirrors the SDK build + sync that runs inside infra-deploy.yml at build time.
+# Builds each SDK from the portal's own API specs, then syncs the generated
+# reference docs and code examples into the portal workspace.
+#
+# Run this before `npm start` whenever the API specs or SDK templates change.
 #
 # Usage:
-#   ./scripts/sync-sdk-docs-local.sh [--sdk go|python|powershell|typescript] [--dry-run]
+#   ./scripts/sync-sdk-docs-local.sh [--sdk go|python|powershell|typescript] [--dry-run] [--skip-build]
 #
-# With no arguments, all four SDKs are synced.
-# --sdk <name>  Sync only the named SDK.
-# --dry-run     Show what would be copied/removed without making changes.
+# With no arguments, all four SDKs are built and synced.
+# --sdk <name>    Build and sync only the named SDK.
+# --dry-run       Show what rsync would copy without making changes (skips build).
+# --skip-build    Skip the SDK build step and only re-run the rsync/overlay.
 #
 # Prerequisites:
 #   brew install rsync
-#   TypeScript SDK must be built first: cd <TS_SDK_ROOT> && make build
+#   java 17+ (for openapi-generator-cli.jar) — brew install openjdk@17
 #
 # Paths (edit if your clones live elsewhere):
-SDK_ROOT="${SDK_ROOT:-/Users/philip.ellis/git/ai-assisted-api-spec-generator/api-client-common}"
-PORTAL_ROOT="${PORTAL_ROOT:-/Users/philip.ellis/git/developer.sailpoint.com}"
+# Resolve portal root relative to this script so it works from any working directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PORTAL_ROOT="${PORTAL_ROOT:-$(cd "$SCRIPT_DIR/.." && pwd)}"
+SDK_ROOT="${SDK_ROOT:-$PORTAL_ROOT/sdk-repos}"
 
 set -euo pipefail
 
 DRY_RUN=false
 ONLY_SDK=""
+SKIP_BUILD=false
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    --dry-run) DRY_RUN=true; shift ;;
-    --sdk) ONLY_SDK="$2"; shift 2 ;;
+    --dry-run)    DRY_RUN=true; shift ;;
+    --skip-build) SKIP_BUILD=true; shift ;;
+    --sdk)        ONLY_SDK="$2"; shift 2 ;;
     *) echo "Unknown option: $1"; exit 1 ;;
   esac
 done
 
-RSYNC_FLAGS="-cav --delete"
+APIS_DIR="$PORTAL_ROOT/static/api-specs/idn/apis"
+
 if $DRY_RUN; then
-  RSYNC_FLAGS="$RSYNC_FLAGS --dry-run"
-  echo "--- DRY RUN: no files will be modified ---"
+  SKIP_BUILD=true
+  echo "--- DRY RUN: build skipped, no files will be modified ---"
 fi
+
+RSYNC_FLAGS="-cav --delete"
+$DRY_RUN && RSYNC_FLAGS="$RSYNC_FLAGS --dry-run"
+
+# ---------------------------------------------------------------------------
+# Build an SDK from the portal's API specs
+# ---------------------------------------------------------------------------
+build_sdk() {
+  local name="$1" sdk_dir="$2"
+  if $SKIP_BUILD; then
+    echo "  [skip-build] skipping $name SDK build"
+    return
+  fi
+  echo ""
+  echo "=== Building $name SDK from $APIS_DIR ==="
+  if [ ! -d "$sdk_dir" ]; then
+    echo "  SKIP: $sdk_dir does not exist."
+    return
+  fi
+
+  local jar="$sdk_dir/openapi-generator-cli.jar"
+  if [ ! -f "$jar" ]; then
+    echo "  Downloading openapi-generator-cli.jar..."
+    curl -sSL "https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.12.0/openapi-generator-cli-7.12.0.jar" -o "$jar"
+  fi
+
+  (
+    cd "$sdk_dir"
+    if [ ! -d node_modules ]; then
+      echo "  Installing dependencies..."
+      npm ci --ignore-scripts
+    fi
+    node sdk-resources/build-versioned-sdk.js "$APIS_DIR"
+  )
+}
 
 run_rsync() {
   if $DRY_RUN; then
@@ -57,128 +101,165 @@ write_file() {
   fi
 }
 
+# Classify a partition directory name into "idn", "nerm", or "skip".
+# Each SDK passes its own exclusion lists since naming conventions differ.
+classify_partition() {
+  local resource="$1"; shift
+  # Remaining args are nerm partition names for this SDK
+  local nerm_list=("$@")
+  for n in "${nerm_list[@]}"; do
+    [ "$resource" = "$n" ] && echo "nerm" && return
+  done
+  # Go generic partition has wildcard paths — not useful in the portal
+  [ "$resource" = "generic" ] && echo "skip" && return
+  # Python intelligence_package has no corresponding portal spec
+  [ "$resource" = "intelligence_package" ] && echo "skip" && return
+  echo "idn"
+}
+
 # ---------------------------------------------------------------------------
-# Go SDK
+# Shared sync logic
+# ---------------------------------------------------------------------------
+sync_sdk() {
+  local lang="$1"        # go | python | powershell | typescript
+  local src="$2"         # path to partition root dir
+  local ref_dest="$3"    # portal docs/tools/sdk/<lang>/Reference
+  local overlay_name="$4" # e.g. go_code_examples_overlay.yaml
+  shift 4
+  local nerm_partitions=("$@")
+
+  local idn_overlays=()
+  local nerm_overlays=()
+
+  for partition_dir in "$src"/*/; do
+    [ -d "$partition_dir/docs/Methods" ] || continue
+    resource=$(basename "$partition_dir")
+    target=$(classify_partition "$resource" "${nerm_partitions[@]}")
+
+    # Non-IDN partitions: collect NERM overlays but don't sync reference docs here
+    if [ "$target" = "skip" ] || [ "$target" = "nerm" ]; then
+      echo "  -> $resource [$target — skipping reference docs]"
+      local overlay="$partition_dir/docs/Examples/${overlay_name}"
+      [ "$target" = "nerm" ] && [ -f "$overlay" ] && nerm_overlays+=("$overlay")
+      continue
+    fi
+
+    echo "  -> $resource [$target]"
+    run_rsync "$partition_dir/docs/Methods" "$ref_dest/$resource"
+    run_rsync "$partition_dir/docs/Models"  "$ref_dest/$resource"
+
+    local overlay="$partition_dir/docs/Examples/${overlay_name}"
+    [ -f "$overlay" ] && idn_overlays+=("$overlay")
+  done
+
+  if [ ${#idn_overlays[@]} -gt 0 ]; then
+    write_file "$PORTAL_ROOT/static/code-examples/v1/${overlay_name}" "${idn_overlays[@]}"
+  fi
+  if [ ${#nerm_overlays[@]} -gt 0 ]; then
+    write_file "$PORTAL_ROOT/static/code-examples/nerm/${overlay_name}" "${nerm_overlays[@]}"
+  fi
+}
+
+# ---------------------------------------------------------------------------
+# Per-SDK sync functions
 # ---------------------------------------------------------------------------
 sync_go() {
+  build_sdk "Go" "$SDK_ROOT/golang-sdk"
   echo ""
   echo "=== Syncing Go SDK docs ==="
-  local src="$SDK_ROOT/golang-sdk"
-  local ref_dest="$PORTAL_ROOT/docs/tools/sdk/go/Reference"
-  local overlay_dest="$PORTAL_ROOT/static/code-examples/v1/go_code_examples_overlay.yaml"
-
-  overlay_files=()
-  for partition_dir in "$src"/*/; do
-    [ -d "$partition_dir/docs/Methods" ] || continue
-    resource=$(basename "$partition_dir")
-    echo "  -> $resource"
-    run_rsync "$partition_dir/docs/Methods" "$ref_dest/$resource"
-    run_rsync "$partition_dir/docs/Models"  "$ref_dest/$resource"
-    if [ -f "$partition_dir/docs/Examples/go_code_examples_overlay.yaml" ]; then
-      overlay_files+=("$partition_dir/docs/Examples/go_code_examples_overlay.yaml")
-    fi
-  done
-
-  if [ ${#overlay_files[@]} -gt 0 ]; then
-    write_file "$overlay_dest" "${overlay_files[@]}"
-  fi
+  sync_sdk "go" \
+    "$SDK_ROOT/golang-sdk" \
+    "$PORTAL_ROOT/docs/tools/sdk/go/Reference" \
+    "go_code_examples_overlay.yaml" \
+    "nerm" "nerm_v2025"
 }
 
-# ---------------------------------------------------------------------------
-# Python SDK
-# ---------------------------------------------------------------------------
 sync_python() {
+  build_sdk "Python" "$SDK_ROOT/python-sdk"
   echo ""
   echo "=== Syncing Python SDK docs ==="
-  local src="$SDK_ROOT/python-sdk/sailpoint"
-  local ref_dest="$PORTAL_ROOT/docs/tools/sdk/python/Reference"
-  local overlay_dest="$PORTAL_ROOT/static/code-examples/v1/python_code_examples_overlay.yaml"
-
-  overlay_files=()
-  for partition_dir in "$src"/*/; do
-    [ -d "$partition_dir/docs/Methods" ] || continue
-    resource=$(basename "$partition_dir")
-    echo "  -> $resource"
-    run_rsync "$partition_dir/docs/Methods" "$ref_dest/$resource"
-    run_rsync "$partition_dir/docs/Models"  "$ref_dest/$resource"
-    if [ -f "$partition_dir/docs/Examples/python_code_examples_overlay.yaml" ]; then
-      overlay_files+=("$partition_dir/docs/Examples/python_code_examples_overlay.yaml")
-    fi
-  done
-
-  if [ ${#overlay_files[@]} -gt 0 ]; then
-    write_file "$overlay_dest" "${overlay_files[@]}"
-  fi
+  sync_sdk "python" \
+    "$SDK_ROOT/python-sdk/sailpoint" \
+    "$PORTAL_ROOT/docs/tools/sdk/python/Reference" \
+    "python_code_examples_overlay.yaml" \
+    "nerm"
 }
 
-# ---------------------------------------------------------------------------
-# PowerShell SDK
-# ---------------------------------------------------------------------------
 sync_powershell() {
+  build_sdk "PowerShell" "$SDK_ROOT/powershell-sdk"
   echo ""
   echo "=== Syncing PowerShell SDK docs ==="
-  local src="$SDK_ROOT/powershell-sdk/PSSailpoint"
-  local ref_dest="$PORTAL_ROOT/docs/tools/sdk/powershell/Reference"
-  local overlay_dest="$PORTAL_ROOT/static/code-examples/v1/powershell_code_examples_overlay.yaml"
-
-  overlay_files=()
-  for partition_dir in "$src"/*/; do
-    [ -d "$partition_dir/docs/Methods" ] || continue
-    resource=$(basename "$partition_dir")
-    echo "  -> $resource"
-    run_rsync "$partition_dir/docs/Methods" "$ref_dest/$resource"
-    run_rsync "$partition_dir/docs/Models"  "$ref_dest/$resource"
-    if [ -f "$partition_dir/docs/Examples/powershell_code_examples_overlay.yaml" ]; then
-      overlay_files+=("$partition_dir/docs/Examples/powershell_code_examples_overlay.yaml")
-    fi
-  done
-
-  if [ ${#overlay_files[@]} -gt 0 ]; then
-    write_file "$overlay_dest" "${overlay_files[@]}"
-  fi
+  sync_sdk "powershell" \
+    "$SDK_ROOT/powershell-sdk/PSSailpoint" \
+    "$PORTAL_ROOT/docs/tools/sdk/powershell/Reference" \
+    "powershell_code_examples_overlay.yaml" \
+    "nerm" "nermV2025"
 }
 
-# ---------------------------------------------------------------------------
-# TypeScript SDK  (sdk-output/ must already be built)
-# ---------------------------------------------------------------------------
 sync_typescript() {
+  build_sdk "TypeScript" "$SDK_ROOT/typescript-sdk"
   echo ""
   echo "=== Syncing TypeScript SDK docs ==="
-  local src="$SDK_ROOT/typescript-sdk/sdk-output"
-  local ref_dest="$PORTAL_ROOT/docs/tools/sdk/typescript/Reference"
-  local overlay_dest="$PORTAL_ROOT/static/code-examples/v1/typescript_code_examples_overlay.yaml"
-
-  if [ ! -d "$src" ]; then
-    echo "  SKIP: $src does not exist. Run 'make build' in the TypeScript SDK first."
-    return
-  fi
-
-  overlay_files=()
-  for partition_dir in "$src"/*/; do
-    [ -d "$partition_dir/docs/Methods" ] || continue
-    resource=$(basename "$partition_dir")
-    echo "  -> $resource"
-    run_rsync "$partition_dir/docs/Methods" "$ref_dest/$resource"
-    run_rsync "$partition_dir/docs/Models"  "$ref_dest/$resource"
-    if [ -f "$partition_dir/docs/Examples/typescript_code_examples_overlay.yaml" ]; then
-      overlay_files+=("$partition_dir/docs/Examples/typescript_code_examples_overlay.yaml")
-    fi
-  done
-
-  if [ ${#overlay_files[@]} -gt 0 ]; then
-    write_file "$overlay_dest" "${overlay_files[@]}"
-  fi
+  sync_sdk "typescript" \
+    "$SDK_ROOT/typescript-sdk/sdk-output" \
+    "$PORTAL_ROOT/docs/tools/sdk/typescript/Reference" \
+    "typescript_code_examples_overlay.yaml" \
+    "nerm" "nerm_v2025"
 }
 
 # ---------------------------------------------------------------------------
-# Merge & apply code examples overlay to the main API spec
+# Merge & apply code examples overlays
 # ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Write _category_.json files with unique keys to prevent Docusaurus
+# translation-key conflicts when multiple SDKs share the same category names.
+# ---------------------------------------------------------------------------
+write_category_files() {
+  echo ""
+  echo "=== Writing _category_.json files for SDK Reference dirs ==="
+  node -e "
+const fs = require('fs');
+const path = require('path');
+const sdkRoot = '$PORTAL_ROOT/docs/tools/sdk';
+let count = 0;
+function writeCategory(dir, key, label, position) {
+  const obj = { label, key };
+  if (position != null) obj.position = position;
+  fs.writeFileSync(path.join(dir, '_category_.json'), JSON.stringify(obj, null, 2) + '\n');
+  count++;
+}
+const sdks = fs.readdirSync(sdkRoot).filter(d => fs.statSync(path.join(sdkRoot, d)).isDirectory());
+for (const sdk of sdks) {
+  const refDir = path.join(sdkRoot, sdk, 'Reference');
+  if (!fs.existsSync(refDir)) continue;
+  writeCategory(refDir, sdk + '-reference', 'Reference', 5);
+  for (const entry of fs.readdirSync(refDir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const partDir = path.join(refDir, entry.name);
+    writeCategory(partDir, sdk + '-' + entry.name, entry.name, null);
+    for (const sub of ['Methods', 'Models']) {
+      const subDir = path.join(partDir, sub);
+      if (fs.existsSync(subDir) && fs.statSync(subDir).isDirectory())
+        writeCategory(subDir, sdk + '-' + entry.name + '-' + sub.toLowerCase(), sub, null);
+    }
+  }
+}
+console.log('  Created ' + count + ' _category_.json files');
+"
+}
+
 apply_code_examples() {
   echo ""
-  echo "=== Merging and applying v1 code examples ==="
+  echo "=== Merging and applying IDN (v1) code examples ==="
   cd "$PORTAL_ROOT"
   npm run v1-merge-code-examples
   npm run overlay-code-examples-v1
+
+  echo ""
+  echo "=== Merging NERM code examples (overlay not applied - NERM spec uses \$refs) ==="
+  npm run nerm-merge-code-examples
+  echo "  Note: NERM overlay files are available at static/code-examples/nerm/"
+  echo "  Applying them requires a bundled/dereferenced NERM spec."
 }
 
 # ---------------------------------------------------------------------------
@@ -199,6 +280,7 @@ case "$ONLY_SDK" in
 esac
 
 if ! $DRY_RUN; then
+  write_category_files
   apply_code_examples
   echo ""
   echo "Done! Start the portal with:"

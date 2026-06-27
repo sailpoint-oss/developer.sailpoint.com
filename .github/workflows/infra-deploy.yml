@@ -46,7 +46,152 @@ jobs:
         with:
           fetch-depth: 0
           clean: true
-      
+
+      # ---------------------------------------------------------------------------
+      # SDK docs sync — check out each SDK and rsync reference docs + code examples
+      # into the portal workspace before the Docusaurus build runs.
+      # ---------------------------------------------------------------------------
+      - name: Check out golang-sdk
+        uses: actions/checkout@v6
+        with:
+          repository: sailpoint-oss/golang-sdk
+          path: golang-sdk
+          token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
+          ref: main
+
+      - name: Check out python-sdk
+        uses: actions/checkout@v6
+        with:
+          repository: sailpoint-oss/python-sdk
+          path: python-sdk
+          token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
+          ref: main
+
+      - name: Check out powershell-sdk
+        uses: actions/checkout@v6
+        with:
+          repository: sailpoint-oss/powershell-sdk
+          path: powershell-sdk
+          token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
+          ref: main
+
+      - name: Check out typescript-sdk
+        uses: actions/checkout@v6
+        with:
+          repository: sailpoint-oss/typescript-sdk
+          path: typescript-sdk
+          token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
+          ref: main
+
+      - name: Install rsync and Java
+        run: sudo apt-get update -qq && sudo apt-get install -y rsync
+
+      - name: Set up Java for openapi-generator-cli
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Cache SDK build outputs
+        uses: actions/cache@v4
+        with:
+          path: |
+            golang-sdk/**/docs
+            python-sdk/sailpoint/**/docs
+            powershell-sdk/PSSailpoint/**/docs
+            typescript-sdk/sdk-output
+          key: sdk-docs-${{ hashFiles('static/api-specs/idn/apis/**') }}
+          restore-keys: sdk-docs-
+
+      - name: Build SDK docs from portal API specs
+        run: |
+          set -euo pipefail
+          APIS_DIR="$GITHUB_WORKSPACE/static/api-specs/idn/apis"
+          JAR_URL="https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.12.0/openapi-generator-cli-7.12.0.jar"
+
+          echo "=== Installing SDK build dependencies and JAR ==="
+          for sdk in golang-sdk python-sdk powershell-sdk typescript-sdk; do
+            npm ci --prefix "$sdk" --ignore-scripts
+            [ -f "$sdk/openapi-generator-cli.jar" ] || curl -sSL "$JAR_URL" -o "$sdk/openapi-generator-cli.jar"
+          done
+
+          echo "=== Building Go SDK docs ==="
+          (cd golang-sdk    && node sdk-resources/build-versioned-sdk.js "$APIS_DIR")
+
+          echo "=== Building Python SDK docs ==="
+          (cd python-sdk    && node sdk-resources/build-versioned-sdk.js "$APIS_DIR")
+
+          echo "=== Building PowerShell SDK docs ==="
+          (cd powershell-sdk && node sdk-resources/build-versioned-sdk.js "$APIS_DIR")
+
+          echo "=== Building TypeScript SDK docs ==="
+          (cd typescript-sdk && node sdk-resources/build-versioned-sdk.js "$APIS_DIR")
+
+      - name: Sync built SDK docs and code examples into portal
+        run: |
+          set -euo pipefail
+
+          # Helper: classify a partition as idn | nerm | skip
+          classify() {
+            local sdk="$1" resource="$2"
+            case "$sdk:$resource" in
+              go:nerm|go:nerm_v2025|go:generic)                        echo "skip" ;;
+              python:nerm|python:intelligence_package)                  echo "skip" ;;
+              powershell:nerm|powershell:nermV2025)                     echo "skip" ;;
+              typescript:nerm|typescript:nerm_v2025|typescript:generic) echo "skip" ;;
+              *)                                                        echo "idn"  ;;
+            esac
+          }
+
+          sync_sdk() {
+            local lang="$1" src="$2" ref_dest="$3" overlay_name="$4"
+            local idn_overlays=""
+
+            for partition_dir in "$src"/*/; do
+              [ -d "$partition_dir/docs/Methods" ] || continue
+              resource=$(basename "$partition_dir")
+              [ "$(classify "$lang" "$resource")" = "idn" ] || continue
+
+              rsync -cav --delete "$partition_dir/docs/Methods" "$ref_dest/$resource/"
+              rsync -cav --delete "$partition_dir/docs/Models"  "$ref_dest/$resource/"
+
+              overlay="$partition_dir/docs/Examples/${overlay_name}"
+              [ -f "$overlay" ] && idn_overlays="$idn_overlays $overlay"
+            done
+
+            mkdir -p static/code-examples/v1
+            [ -n "$idn_overlays" ] && cat $idn_overlays > "static/code-examples/v1/${overlay_name}"
+          }
+
+          sync_sdk go         golang-sdk                   docs/tools/sdk/go/Reference          go_code_examples_overlay.yaml
+          sync_sdk python     python-sdk/sailpoint          docs/tools/sdk/python/Reference      python_code_examples_overlay.yaml
+          sync_sdk powershell powershell-sdk/PSSailpoint    docs/tools/sdk/powershell/Reference  powershell_code_examples_overlay.yaml
+          sync_sdk typescript typescript-sdk/sdk-output     docs/tools/sdk/typescript/Reference  typescript_code_examples_overlay.yaml
+
+          # Write _category_.json files with unique keys to prevent Docusaurus
+          # translation-key conflicts across SDKs that share the same category names.
+          node -e "
+          const fs = require('fs'), path = require('path');
+          const sdkRoot = 'docs/tools/sdk';
+          let n = 0;
+          function w(dir, key, label, pos) {
+            const o = { label, key }; if (pos != null) o.position = pos;
+            fs.writeFileSync(path.join(dir, '_category_.json'), JSON.stringify(o, null, 2) + '\n'); n++;
+          }
+          const sdks = fs.readdirSync(sdkRoot).filter(d => fs.statSync(path.join(sdkRoot, d)).isDirectory());
+          for (const sdk of sdks) {
+            const ref = path.join(sdkRoot, sdk, 'Reference');
+            if (!fs.existsSync(ref)) continue;
+            w(ref, sdk+'-reference', 'Reference', 5);
+            for (const e of fs.readdirSync(ref, {withFileTypes: true})) {
+              if (!e.isDirectory()) continue;
+              const p = path.join(ref, e.name); w(p, sdk+'-'+e.name, e.name, null);
+              for (const s of ['Methods','Models']) { const sd = path.join(p,s); if (fs.existsSync(sd)) w(sd, sdk+'-'+e.name+'-'+s.toLowerCase(), s, null); }
+            }
+          }
+          console.log('Wrote '+n+' _category_.json files');
+          "
+
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
@@ -101,7 +246,9 @@ jobs:
           export DOCUSAURUS_SSG_WORKER_THREAD_COUNT=10
           export DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY=1000000000
 
-          npm ci 
+          npm ci
+          npm run merge-all-code-examples
+          npm run gen-all-api-specs-code-examples
           npm run gen-api-docs-all
           npm run sentence-case-all
           npm run build

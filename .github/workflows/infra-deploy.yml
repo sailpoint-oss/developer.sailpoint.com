@@ -115,17 +115,31 @@ jobs:
             [ -f "$sdk/openapi-generator-cli.jar" ] || curl -sSL "$JAR_URL" -o "$sdk/openapi-generator-cli.jar"
           done
 
-          echo "=== Building Go SDK docs ==="
-          (cd golang-sdk    && node sdk-resources/build-versioned-sdk.js "$APIS_DIR")
+          echo "=== Building all SDK docs in parallel (concurrency 8 per SDK) ==="
+          declare -A SDK_PIDS SDK_LOGS
+          for sdk in golang-sdk python-sdk powershell-sdk typescript-sdk; do
+            SDK_LOGS[$sdk]=$(mktemp)
+            (cd "$sdk" && node sdk-resources/build-versioned-sdk.js "$APIS_DIR" --concurrency 8) \
+              >"${SDK_LOGS[$sdk]}" 2>&1 &
+            SDK_PIDS[$sdk]=$!
+            echo "  Started $sdk (PID ${SDK_PIDS[$sdk]})"
+          done
 
-          echo "=== Building Python SDK docs ==="
-          (cd python-sdk    && node sdk-resources/build-versioned-sdk.js "$APIS_DIR")
-
-          echo "=== Building PowerShell SDK docs ==="
-          (cd powershell-sdk && node sdk-resources/build-versioned-sdk.js "$APIS_DIR")
-
-          echo "=== Building TypeScript SDK docs ==="
-          (cd typescript-sdk && node sdk-resources/build-versioned-sdk.js "$APIS_DIR")
+          FAILED=0
+          for sdk in golang-sdk python-sdk powershell-sdk typescript-sdk; do
+            set +e; wait "${SDK_PIDS[$sdk]}"; RC=$?; set -e
+            echo ""
+            echo "=== $sdk build output ==="
+            cat "${SDK_LOGS[$sdk]}"
+            rm -f "${SDK_LOGS[$sdk]}"
+            if [ $RC -ne 0 ]; then
+              echo "  ✗ $sdk build FAILED (exit $RC)"
+              FAILED=1
+            else
+              echo "  ✓ $sdk"
+            fi
+          done
+          [ $FAILED -eq 0 ] || { echo "One or more SDK builds failed"; exit 1; }
 
       - name: Sync built SDK docs and code examples into portal
         run: |

@@ -53,33 +53,56 @@ In the MCP Inspector sidebar, locate the **Transport Type** dropdown menu and se
 
 ### Enter Your Server URL
 
-In the **URL field**, enter your SailPoint MCP server endpoint:
+SailPoint provides two MCP URL options:
+
+**Global URL (recommended):**
 
 ```
-https://[tenant].api.identitynow.com/v2025/access-requests/mcp
+https://mcp.sailpoint.com/latest/access-requests/mcp
 ```
 
-**Replace `[tenant]` with your actual tenant name.** For example:
-- If your SailPoint URL is `https://acme.identitynow.com`, use `acme`
-- Full URL would be: `https://acme.api.identitynow.com/v2025/access-requests/mcp`
+This URL works for all tenants without any tenant-specific configuration. It is the recommended entry point for AI client integration.
+
+**Tenant-specific URL:**
+
+```
+https://[tenant].api.identitynow.com/latest/access-requests/mcp
+```
+
+Replace `[tenant]` with your actual tenant name. For example, if your SailPoint URL is `https://acme.identitynow.com`, the full URL would be `https://acme.api.identitynow.com/latest/access-requests/mcp`.
+
+:::note FedRAMP and data sovereignty
+Customers with FedRAMP or data sovereignty requirements should continue using the tenant-specific URL instead of the global URL.
+:::
 
 ## Step 3: Set Up Authentication
 
-### Prepare Your Access Token
+### Using the Global URL (OAuth Discovery)
 
-You'll need a valid SailPoint API access token. If you don't have one yet:
+AI clients that support OAuth discovery via `.well-known` endpoints will **automatically discover** the authorization and token endpoints from the global MCP URL — no manual endpoint configuration is needed.
 
-1. Follow our [Authentication documentation](../../api/authentication.md) to generate a token
+If your AI client cannot determine the tenant from your client ID, you will be prompted to enter your tenant name during the OAuth flow.
+
+If you need to configure OAuth endpoints manually, use these global URLs:
+
+| Endpoint | URL |
+|---|---|
+| Authorization | `https://login.sailpoint.com/oauth/authorize` |
+| Token | `https://api.identitynow.com/oauth/token` |
+
+### Using the Tenant-Specific URL (Bearer Token)
+
+If you are using the tenant-specific URL, you can authenticate with a bearer token directly:
+
+1. Follow our [Authentication documentation](../../api/authentication.md) to generate an access token
 2. Ensure your token has the necessary permissions for MCP operations
-3. Copy the token value - you'll need it in the next step
 
-### Configure Authentication in MCP Inspector
+In the MCP Inspector:
 
-1. Select the **Authentication** tab in the MCP Inspector
+1. Select the **Authentication** tab
 2. Set the following values:
    - **Header Name**: `Authorization`
    - **Bearer Token**: Paste your access token (include the "Bearer " prefix)
-
 
 ### Connect to the Server
 
@@ -104,10 +127,6 @@ Select **List Tools** to retrieve available MCP tools from the SailPoint server.
 - No error messages or timeouts
 
 The SailPoint MCP server currently provides four core tools.
-
-## Test the connection by listing the available tools
-
-Select `List Tools` to see the available tools. If the connection is successful, you will see a list of tools:
 
 ![Available Tools](./img/mcp-tools.png)
 

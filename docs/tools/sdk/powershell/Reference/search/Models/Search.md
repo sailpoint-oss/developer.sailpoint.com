@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Search', 'Search']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Indices** | [**[]Index**](index) | The names of the Elasticsearch indices in which to search. If none are provided, then all indices will be searched. | [optional] 
+**Indices** | **[]Index** | The names of the Elasticsearch indices in which to search. If none are provided, then all indices will be searched. | [optional] 
 **QueryType** | [**Querytype**](querytype) |  | [optional] 
 **QueryVersion** | **String** |  | [optional] 
 **Query** | [**Query**](query) |  | [optional] 

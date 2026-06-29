@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **name** | **str** | Human-readable display name of the item being requested. | [optional] 
 **type** |  **Enum** [  'ACCESS_PROFILE',    'ROLE',    'ENTITLEMENT' ] | Type of requested object. | [optional] 
 **cancelled_request_details** | [**RequesteditemstatusCancelledRequestDetails**](requesteditemstatus-cancelled-request-details) |  | [optional] 
-**error_messages** | [**[]List[Errormessagedto]**](list-errormessagedto) | List of list of localized error messages, if any, encountered during the approval/provisioning process. | [optional] 
+**error_messages** | **[]List[Errormessagedto]** | List of list of localized error messages, if any, encountered during the approval/provisioning process. | [optional] 
 **state** | [**Requesteditemstatusrequeststate**](requesteditemstatusrequeststate) |  | [optional] 
 **approval_details** | [**[]Approvalstatusdto**](approvalstatusdto) | Approval details for each item. | [optional] 
 **approval_ids** | **[]str** | List of approval IDs associated with the request. | [optional] 

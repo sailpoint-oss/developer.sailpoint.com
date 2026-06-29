@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'Search', 'V1Search']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Indices** | Pointer to [**[]Index**](index) | The names of the Elasticsearch indices in which to search. If none are provided, then all indices will be searched. | [optional] 
+**Indices** | Pointer to **[]Index** | The names of the Elasticsearch indices in which to search. If none are provided, then all indices will be searched. | [optional] 
 **QueryType** | Pointer to [**Querytype**](querytype) |  | [optional] [default to QUERYTYPE_SAILPOINT]
 **QueryVersion** | Pointer to **string** |  | [optional] 
 **Query** | Pointer to [**Query**](query) |  | [optional] 

@@ -103,88 +103,19 @@ jobs:
           key: sdk-docs-${{ hashFiles('static/api-specs/idn/apis/**') }}
           restore-keys: sdk-docs-
 
-      - name: Build SDK docs from portal API specs
-        run: |
-          set -euo pipefail
-          APIS_DIR="$GITHUB_WORKSPACE/static/api-specs/idn/apis"
-          JAR_URL="https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.12.0/openapi-generator-cli-7.12.0.jar"
+      - name: Setup portal .npmrc
+        run: echo ${{ secrets.NPM_FONTAWESOME_CONFIG }} | base64 -d >> .npmrc
 
-          echo "=== Installing SDK build dependencies and JAR ==="
-          for sdk in golang-sdk python-sdk powershell-sdk typescript-sdk; do
-            npm ci --prefix "$sdk" --ignore-scripts
-            [ -f "$sdk/openapi-generator-cli.jar" ] || curl -sSL "$JAR_URL" -o "$sdk/openapi-generator-cli.jar"
-          done
+      - name: Install portal node modules
+        run: npm ci
 
-          echo "=== Building SDK docs ==="
-          for sdk in golang-sdk python-sdk powershell-sdk typescript-sdk; do
-            echo "--- Building $sdk ---"
-            (cd "$sdk" && node sdk-resources/build-versioned-sdk.js "$APIS_DIR")
-          done
-
-      - name: Sync built SDK docs and code examples into portal
-        run: |
-          set -euo pipefail
-
-          # Helper: classify a partition as idn | nerm | skip
-          classify() {
-            local sdk="$1" resource="$2"
-            case "$sdk:$resource" in
-              go:nerm|go:nerm_v2025|go:generic)                        echo "skip" ;;
-              python:nerm|python:intelligence_package)                  echo "skip" ;;
-              powershell:nerm|powershell:nermV2025)                     echo "skip" ;;
-              typescript:nerm|typescript:nerm_v2025|typescript:generic) echo "skip" ;;
-              *)                                                        echo "idn"  ;;
-            esac
-          }
-
-          sync_sdk() {
-            local lang="$1" src="$2" ref_dest="$3" overlay_name="$4"
-            local idn_overlays=""
-
-            for partition_dir in "$src"/*/; do
-              [ -d "$partition_dir/docs/Methods" ] || continue
-              resource=$(basename "$partition_dir")
-              [ "$(classify "$lang" "$resource")" = "idn" ] || continue
-
-              rsync -cav --delete "$partition_dir/docs/Methods" "$ref_dest/$resource/"
-              rsync -cav --delete "$partition_dir/docs/Models"  "$ref_dest/$resource/"
-
-              overlay="$partition_dir/docs/Examples/${overlay_name}"
-              [ -f "$overlay" ] && idn_overlays="$idn_overlays $overlay"
-            done
-
-            mkdir -p static/code-examples/v1
-            [ -n "$idn_overlays" ] && cat $idn_overlays > "static/code-examples/v1/${overlay_name}"
-          }
-
-          sync_sdk go         golang-sdk                   docs/tools/sdk/go/Reference          go_code_examples_overlay.yaml
-          sync_sdk python     python-sdk/sailpoint          docs/tools/sdk/python/Reference      python_code_examples_overlay.yaml
-          sync_sdk powershell powershell-sdk/PSSailpoint    docs/tools/sdk/powershell/Reference  powershell_code_examples_overlay.yaml
-          sync_sdk typescript typescript-sdk/sdk-output     docs/tools/sdk/typescript/Reference  typescript_code_examples_overlay.yaml
-
-          # Write _category_.json files with unique keys to prevent Docusaurus
-          # translation-key conflicts across SDKs that share the same category names.
-          node -e "
-          const fs = require('fs'), path = require('path');
-          const sdkRoot = 'docs/tools/sdk';
-          let n = 0;
-          function w(dir, key, label, pos) {
-            const o = { label, key }; if (pos != null) o.position = pos;
-            fs.writeFileSync(path.join(dir, '_category_.json'), JSON.stringify(o, null, 2) + '\n'); n++;
-          }
-          const sdks = fs.readdirSync(sdkRoot).filter(d => fs.statSync(path.join(sdkRoot, d)).isDirectory());
-          for (const sdk of sdks) {
-            const ref = path.join(sdkRoot, sdk, 'Reference');
-            if (!fs.existsSync(ref)) continue;
-            w(ref, sdk+'-reference', 'Reference', 5);
-            for (const e of fs.readdirSync(ref, {withFileTypes: true})) {
-              if (!e.isDirectory()) continue;
-              const p = path.join(ref, e.name); w(p, sdk+'-'+e.name, e.name, null);
-              for (const s of ['Methods','Models']) { const sd = path.join(p,s); if (fs.existsSync(sd)) w(sd, sdk+'-'+e.name+'-'+s.toLowerCase(), s, null); }
-            }
-          }
-          console.log('Wrote '+n+' _category_.json files');
-          "
+      # ---------------------------------------------------------------------------
+      # Build each SDK from the portal's own API specs, sync reference docs and
+      # code-example overlays into the portal workspace, and write category files.
+      # Uses the same script as `npm run sync-sdk-docs` for local development.
+      # ---------------------------------------------------------------------------
+      - name: Build and sync SDK docs
+        run: SDK_ROOT=$GITHUB_WORKSPACE bash scripts/sync-sdk-docs-local.sh
 
       - name: Set up Go
         uses: actions/setup-go@v5
@@ -234,18 +165,12 @@ jobs:
           echo "CMS_APP_API_ENDPOINT=$API_GATEWAY_URL" >> .env
           echo "ALGOLIA_SEARCH_KEY=${{ secrets.ALGOLIA_SEARCH_KEY }}" >> .env
           echo "SECRET_MESSAGE=${{ secrets.SECRET_MESSAGE }}" >> .env
-          echo ${{ secrets.NPM_FONTAWESOME_CONFIG }} | base64 -d >> .npmrc
           export NODE_OPTIONS="--max_old_space_size=60000"
           export DOCUSAURUS_IGNORE_SSG_WARNINGS=true
           export DOCUSAURUS_SSG_WORKER_THREAD_COUNT=10
           export DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY=1000000000
 
-          npm ci
-          npm run merge-all-code-examples
-          npm run gen-all-api-specs-code-examples
-          npm run clean-api-docs-all
-          npm run gen-api-docs-all
-          npm run sentence-case-all
+          npm run rebuild-docs
           npm run build
       # push these files to AWS
       - name: Copy files to the test website with the AWS CLI

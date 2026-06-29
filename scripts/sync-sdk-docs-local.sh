@@ -271,10 +271,13 @@ case "$ONLY_SDK" in
   powershell) sync_powershell ;;
   typescript) sync_typescript ;;
   "")
-    sync_go
-    sync_python
-    sync_powershell
-    sync_typescript
+    echo "=== Building and syncing all SDKs in parallel ==="
+    pids=()
+    sync_go &        pids+=($!)
+    sync_python &    pids+=($!)
+    sync_powershell & pids+=($!)
+    sync_typescript & pids+=($!)
+    for pid in "${pids[@]}"; do wait "$pid"; done
     ;;
   *) echo "Unknown SDK: $ONLY_SDK. Choose from: go, python, powershell, typescript"; exit 1 ;;
 esac

@@ -44,6 +44,7 @@ yarn.lock
 /static/code-examples/v2026/merged_code_examples.yaml
 
 /docs/api/*.mdx
+/docs/api/sidebar.ts
 /docs/api/v3/*
 /docs/api/beta/*
 /docs/api/iiq
@@ -116,3 +117,4 @@ yarn.lock
 .shipmate/
 .cursor/
 
+sdk-repos/

@@ -86,7 +86,7 @@ export function generateLanguageSet() {
       },
       variant: variants[0],
       variants: variants,
-      tag: ["powershell", "python", "go"].includes(language.key)
+      tag: ["powershell", "python", "go", "typescript"].includes(language.key)
         ? "sailpoint-sdk"
         : "",
     });
@@ -100,6 +100,33 @@ export function generateLanguageSet() {
     if (bPriority !== -1) return 1;
     return 0;
   });
+
+  // TypeScript is not in postman-code-generators; add it manually so that
+  // x-codeSamples with lang: TypeScript are matched and displayed.
+  if (!languageSet.find((l) => l.language === "typescript")) {
+    languageSet.push({
+      highlight: "typescript",
+      language: "typescript",
+      codeSampleLanguage: "TypeScript",
+      logoClass: "typescript",
+      options: {
+        longFormat: false,
+        followRedirect: true,
+        trimRequestBody: true,
+      },
+      variant: "fetch",
+      variants: ["fetch"],
+      tag: "sailpoint-sdk",
+    } as any);
+    languageSet.sort((a, b) => {
+      const aPriority = priorityOrder.indexOf(a.language);
+      const bPriority = priorityOrder.indexOf(b.language);
+      if (aPriority !== -1 && bPriority !== -1) return aPriority - bPriority;
+      if (aPriority !== -1) return -1;
+      if (bPriority !== -1) return 1;
+      return 0;
+    });
+  }
 
   return languageSet;
 }

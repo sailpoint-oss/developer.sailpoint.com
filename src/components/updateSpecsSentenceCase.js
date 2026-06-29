@@ -13,12 +13,12 @@ function toSentenceCase(str) {
 }
 
 /**
- * Process each YAML file's content, updating both `summary:` and `name:` lines.
+ * Process each YAML file's content, updating only `summary:` lines.
+ * Tag `name:` fields are intentionally excluded to preserve sidebar ordering.
  */
 function updateContent(content, filePath) {
   const patterns = [
     /^(\s*summary:\s*)(["']?)(.+?)(["']?)\s*$/gm,
-    /^(\s*-?\s*name:\s*)(["']?)(.+?)(["']?)\s*$/gm
   ];
   let updated = content;
   patterns.forEach(regex => {

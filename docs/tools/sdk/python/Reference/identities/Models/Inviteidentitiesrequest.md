@@ -1,0 +1,35 @@
+---
+id: inviteidentitiesrequest
+title: Inviteidentitiesrequest
+pagination_label: Inviteidentitiesrequest
+sidebar_label: Inviteidentitiesrequest
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'Inviteidentitiesrequest', 'Inviteidentitiesrequest'] 
+slug: /tools/sdk/python/identities/models/inviteidentitiesrequest
+tags: ['SDK', 'Software Development Kit', 'Inviteidentitiesrequest', 'Inviteidentitiesrequest']
+---
+
+# Inviteidentitiesrequest
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**ids** | **[]str** | The list of Identities IDs to invite - required when 'uninvited' is false | [optional] 
+**uninvited** | **bool** | indicator (optional) to invite all unregistered identities in the system within a limit 1000. This parameter makes sense only when 'ids' is empty. | [optional] [default to False]
+}
+
+## Example
+
+```python
+from sailpoint.identities.models.inviteidentitiesrequest import Inviteidentitiesrequest
+
+inviteidentitiesrequest = Inviteidentitiesrequest(
+ids=["2b568c65bc3c4c57a43bd97e3a8e55","2c9180867769897d01776ed5f125512f"],
+uninvited=False
+)
+
+```
+[[Back to top]](#) 
+

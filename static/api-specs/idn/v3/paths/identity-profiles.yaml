@@ -65,11 +65,12 @@ get:
     - applicationAuth: [idn:identity-profile:read]
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - API
 post:
   operationId: createIdentityProfile
   summary: Create identity profile
   description: >-
-    Creates an identity profile.    
+    Creates an identity profile.
   tags:
     - Identity Profiles
   requestBody:
@@ -97,5 +98,7 @@ post:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [ idn:identity-profile:manage ]
+    - applicationAuth: [ idn:identity-profile:manage ]
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - API

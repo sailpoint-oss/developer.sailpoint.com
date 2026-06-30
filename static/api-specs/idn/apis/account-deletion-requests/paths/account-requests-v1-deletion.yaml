@@ -1,0 +1,121 @@
+get:
+  operationId: getAccountDeletionRequestsV1
+  tags:
+  - Account Deletion Requests
+  summary: List of Account Deletion Requests
+  description: >-
+    Retrieves a paginated list of account deletion requests filtered by the provided query parameters. When the "mine"
+    parameter is set to true, the response includes only those deletion requests that were initiated by the currently
+    authenticated user. If "mine" is false or not specified, the endpoint returns all account deletion requests
+    associated with the current tenant, regardless of the initiator. This allows both users and administrators to view
+    relevant deletion requests based on their access level and intent.
+  security:
+  - userAuth:
+    - idn:account-requests:read
+    - idn:account-requests:management
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  - USER
+  parameters:
+  - $ref: ../../shared/parameters/limit.yaml
+  - $ref: ../../shared/parameters/offset.yaml
+  - $ref: ../../shared/parameters/count.yaml
+  - in: query
+    name: mine
+    schema:
+      type: boolean
+      default: false
+    description: >-
+      Determines whether to return only the account deletion requests initiated by the currently authenticated user.
+      If set to true, the response includes only deletion requests created by the logged-in user. If set to false or
+      not provided, the response includes all deletion requests for the tenant, regardless of the initiator. This
+      parameter allows users to view their own requests, while administrators can view all requests within the tenant.
+    example: true
+    required: false
+  responses:
+    '200':
+      description: Account Action Request objects.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/accountactionrequestdto.yaml
+          example:
+          - accountRequestId: 18104e7e499b4e23882d6323344ab6bc
+            requestType: DELETE_ACCOUNT
+            createdAt: '2026-01-14T08:08:27.195Z'
+            completedAt: '2026-01-14T08:38:45.932Z'
+            overallStatus: SUCCESS
+            requester:
+              type: IDENTITY
+              id: 85131bd73fdc423599e57f40b29f01fe
+              name: SailPoint Support
+            requesterComments: Delete Machine Account with subtype and account owner Happy Path Test#1
+            accountDetails:
+              accountId: 4542bb255921482fb36f6a5550e23a99
+              accountName: machine102,
+              accountNativeIdentity: CN=machine 102,OU=megapod-useast1-vivek-e2e,OU=org-data-service,DC=TestAutomationAD,DC=local
+              accountUuid: bcde4ff4-087a-4af4-b5e4-95c85e386276
+              accountType: MACHINE
+              accountSubtypeId: d7ae9ea3-507f-4d00-9d4f-b4464b344b88
+              accountSubtype:
+              description:
+              sourceId: a03caa629a624cee90f94048252034cf
+              sourceName: Active Directory
+              hasEntitlements: false
+              disabled: false
+              locked: false
+              ownerIdentity:
+                type: IDENTITY
+                id: 28ca01acdd3648b4b0890ab2e0af8839
+                name: walter.white
+            correlatedIdentity:
+              id: c2353ef10dd54a8e9725beff360c0be2
+              name: machine102
+              status:
+              email: machine.102@testmail.identitysoon.com
+            managerReference:
+              id: 117e169acf21f4ae28e8a06198ce7f69
+              name: manager
+              email: manager@testmail.identitysoon.com
+              status: ACTIVE
+            approvalRequestId: 90a7b947-578b-4285-98dc-5d5d01c7b736
+            accountRequestPhases:
+            - name: APPROVAL_PHASE
+              state: APPROVED
+              started: '2026-01-14T08:08:28.644090559Z'
+              finished: '2026-01-14T08:38:42.707043142Z'
+            - name: PROVISIONING_PHASE
+              state: PASSED
+              started: '2026-01-14T08:38:42.785577841Z'
+              finished: '2026-01-14T08:38:45.932606296Z'
+            approvalDetails:
+              approverType: SOURCE_OWNER
+              approver:
+                id: 85131bd73fdc423599e57f40b29f01fe
+                type: IDENTITY
+                name: SailPoint Support
+              actionedBy:
+                id: 85131bd73fdc423599e57f40b29f01fe
+                type: IDENTITY
+                name: SailPoint Support
+              comments: Yes this can be deleted.
+              decisionDate: '2026-01-14T08:38:41.733779Z'
+              serialOrder: 1
+              status: APPROVED
+            errorDetails:
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

@@ -3,20 +3,33 @@ const yaml = require('js-yaml');
 const path = require('path');
 
 // Get file paths from command line arguments
-const [powershellFilePath, pythonFilePath, goFilePath] = process.argv.slice(2);
+// Accepts 3 required args (python, powershell, go) plus an optional 4th (typescript)
+const [pythonFilePath, powershellFilePath, goFilePath, typescriptFilePath] = process.argv.slice(2);
 
-// Check that all three arguments are provided
-if (!powershellFilePath || !pythonFilePath || !goFilePath) {
-  console.error('Usage: node merge.js <powershell.yml> <python.yml> <go.yml>');
+// Check that the three required arguments are provided
+if (!pythonFilePath || !powershellFilePath || !goFilePath) {
+  console.error('Usage: node merge.js <python.yml> <powershell.yml> <go.yml> [<typescript.yml>]');
   process.exit(1);
 }
 
-// Read & parse all three YAML files
-const powershellData = yaml.load(fs.readFileSync(powershellFilePath, 'utf8'));
-const pythonData     = yaml.load(fs.readFileSync(pythonFilePath,     'utf8'));
-const goData         = yaml.load(fs.readFileSync(goFilePath,         'utf8'));
+// Helper: safely load a YAML file, returning an empty array if it is missing or empty
+const loadYaml = (filePath) => {
+  if (!filePath) return [];
+  try {
+    return yaml.load(fs.readFileSync(filePath, 'utf8')) || [];
+  } catch (e) {
+    console.warn(`Warning: could not read ${filePath} — ${e.message}`);
+    return [];
+  }
+};
 
-// Merge logic (collects all three in one pass)
+// Read & parse all files
+const pythonData     = loadYaml(pythonFilePath);
+const powershellData = loadYaml(powershellFilePath);
+const goData         = loadYaml(goFilePath);
+const typescriptData = loadYaml(typescriptFilePath);
+
+// Merge logic — collects all languages, keyed by path+method
 const mergeCodeSamples = (...allData) => {
   const merged = {};
 
@@ -36,13 +49,13 @@ const mergeCodeSamples = (...allData) => {
 };
 
 // Perform the merge
-const mergedArray = mergeCodeSamples(powershellData, pythonData, goData);
+const mergedArray = mergeCodeSamples(pythonData, powershellData, goData, typescriptData);
 
 // Dump back to YAML without line-wrapping
 const mergedYaml = yaml.dump(mergedArray, { lineWidth: -1 });
 
-// Write to output next to the Go file (you can choose a different base dir if you like)
-const outDir = path.dirname(goFilePath);
+// Write output next to the Go file
+const outDir  = path.dirname(goFilePath);
 const outPath = path.join(outDir, 'merged_code_examples.yaml');
 fs.writeFileSync(outPath, mergedYaml, 'utf8');
 

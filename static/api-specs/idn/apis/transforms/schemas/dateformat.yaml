@@ -1,0 +1,27 @@
+title: dateFormat
+type: object
+properties:
+  inputFormat:
+    description: >-
+      A string value indicating either the explicit SimpleDateFormat or the built-in named format that the data is
+      coming in as.
+
+
+      *If no inputFormat is provided, the transform assumes that it is in ISO8601 format*
+    oneOf:
+      - $ref: ./namedconstructs.yaml
+      - $ref: ./simpledateformat.yaml
+  outputFormat:
+    description: >-
+      A string value indicating either the explicit SimpleDateFormat or the built-in named format that the data should
+      be formatted into.
+
+
+      *If no inputFormat is provided, the transform assumes that it is in ISO8601 format*
+    oneOf:
+      - $ref: ./namedconstructs.yaml
+      - $ref: ./simpledateformat.yaml
+  requiresPeriodicRefresh:
+    $ref: ./requiresperiodicrefresh.yaml
+  input:
+    $ref: ./input.yaml

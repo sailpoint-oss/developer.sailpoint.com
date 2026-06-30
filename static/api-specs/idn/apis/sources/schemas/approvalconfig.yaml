@@ -1,0 +1,257 @@
+type: object
+properties:
+  reminderConfig:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+        example: false
+        description: Indicates if reminders are enabled.
+        default: false
+      daysUntilFirstReminder:
+        type: integer
+        example: 0
+        format: int64
+        description: Number of days until the first reminder.
+      reminderCronSchedule:
+        type: string
+        example: 1 1 1 1 1
+        description: Cron schedule for reminders.
+      maxReminders:
+        type: integer
+        example: 5
+        format: int64
+        description: Maximum number of reminders. Max is 20.
+    description: Configuration for reminders.
+  escalationConfig:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+        example: true
+        description: Indicates if escalations are enabled.
+        default: false
+      daysUntilFirstEscalation:
+        type: integer
+        example: 2
+        format: int64
+        description: Number of days until the first escalation.
+      escalationCronSchedule:
+        type: string
+        example: '*/5 * * * *'
+        description: Cron schedule for escalations.
+      escalationChain:
+        type: array
+        items:
+          type: object
+          properties:
+            tier:
+              type: integer
+              example: 1
+              format: int64
+              description: Starting at 1 defines the order in which the identities will get assigned
+            identityId:
+              type: string
+              example: fdfda352157d4cc79bb749953131b457
+              description: Optional Identity ID of the type of identity defined in the 'identityType' field.
+            identityType:
+              type: string
+              enum:
+                - IDENTITY
+                - MANAGER_OF
+                - ACCOUNT_OWNER
+                - MACHINE_ACCOUNT_OWNER
+                - MACHINE_IDENTITY_OWNER
+                - MANAGER_OF_REQUESTED_TARGET_OWNER
+                - MANAGER_OF_MACHINE_IDENTITY_OWNER
+                - MANAGER_OF_ACCOUNT_OWNER
+                - MANAGER_OF_MACHINE_ACCOUNT_OWNER
+                - MANAGER_OF_REQUESTER
+                - MANAGER_OF_REQUESTER_OWNER
+                - MANAGER_OF_OWNER
+                - ACCESS_PROFILE_OWNER
+                - APPLICATION_OWNER
+                - ENTITLEMENT_OWNER
+                - ROLE_OWNER
+                - SOURCE_OWNER
+                - ACCESS_PROFILE_PRIMARY_OWNER
+                - APPLICATION_PRIMARY_OWNER
+                - ENTITLEMENT_PRIMARY_OWNER
+                - ROLE_PRIMARY_OWNER
+                - SOURCE_PRIMARY_OWNER
+              example: IDENTITY
+              description: Type of identityId in the escalation chain.
+        description: Escalation chain configuration.
+    description: Configuration for escalations.
+  timeoutConfig:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+        example: true
+        description: Indicates if timeout is enabled.
+        default: false
+      daysUntilTimeout:
+        type: integer
+        example: 2
+        format: int64
+        description: Number of days until approval request times out. Max value is 90.
+      timeoutResult:
+        type: string
+        enum:
+          - EXPIRED
+          - APPROVED
+        example: EXPIRED
+        description: Result of timeout.
+    description: TimeoutConfig contains configurations around when the approval request should expire.
+  cronTimezone:
+    type: object
+    properties:
+      location:
+        type: string
+        example: America/New_York
+        description: Timezone location for cron schedules.
+      offset:
+        type: string
+        example: ''
+        description: Timezone offset for cron schedules.
+    description: Timezone configuration for cron schedules.
+  serialChain:
+    type: array
+    items:
+      type: object
+      properties:
+        tier:
+          type: integer
+          example: 1
+          format: int64
+          description: Starting at 1 defines the order in which the identities will get assigned
+        identityId:
+          type: string
+          example: 2c9180858090ea8801809a0465e829da
+          description: Optional Identity ID of the type of identity defined in the 'identityType' field.
+        identityType:
+          type: string
+          enum:
+            - IDENTITY
+            - GOVERNANCE_GROUP
+            - MANAGER_OF
+            - ACCOUNT_OWNER
+            - MACHINE_ACCOUNT_OWNER
+            - MACHINE_IDENTITY_OWNER
+            - MANAGER_OF_REQUESTED_TARGET_OWNER
+            - MANAGER_OF_MACHINE_IDENTITY_OWNER
+            - MANAGER_OF_ACCOUNT_OWNER
+            - MANAGER_OF_MACHINE_ACCOUNT_OWNER
+            - MANAGER_OF_REQUESTER
+            - MANAGER_OF_REQUESTER_OWNER
+            - MANAGER_OF_OWNER
+            - ACCESS_PROFILE_OWNER
+            - APPLICATION_OWNER
+            - ENTITLEMENT_OWNER
+            - ROLE_OWNER
+            - SOURCE_OWNER
+            - REQUESTED_TARGET_OWNER
+            - ACCESS_PROFILE_PRIMARY_OWNER
+            - APPLICATION_PRIMARY_OWNER
+            - ENTITLEMENT_PRIMARY_OWNER
+            - ROLE_PRIMARY_OWNER
+            - SOURCE_PRIMARY_OWNER
+            - REQUESTED_TARGET_PRIMARY_OWNER
+            - ACCESS_PROFILE_SECONDARY_OWNER_GROUP
+            - APPLICATION_SECONDARY_OWNER_GROUP
+            - ENTITLEMENT_SECONDARY_OWNER_GROUP
+            - ROLE_SECONDARY_OWNER_GROUP
+            - SOURCE_SECONDARY_OWNER_GROUP
+            - REQUESTED_TARGET_SECONDARY_OWNER_GROUP
+            - ACCESS_PROFILE_ALL_OWNER_GROUP
+            - APPLICATION_ALL_OWNER_GROUP
+            - ENTITLEMENT_ALL_OWNER_GROUP
+            - ROLE_ALL_OWNER_GROUP
+            - SOURCE_ALL_OWNER_GROUP
+            - REQUESTED_TARGET_ALL_OWNER_GROUP
+          example: IDENTITY
+          description: Type of identityId in the serial chain.
+    description: >-
+      If the approval request has an approvalCriteria of SERIAL this chain will be used to determine the assignment
+      order.
+  requiresComment:
+    type: string
+    enum:
+      - APPROVAL
+      - REJECTION
+      - ALL
+      - 'OFF'
+    example: ALL
+    description: Determines whether a comment is required when approving or rejecting the approval request.
+  fallbackApprover:
+    type: object
+    properties:
+      identityID:
+        type: string
+        example: fdfda352157d4cc79bb749953131b457
+        description: Optional Identity ID of the type of identity defined in the 'type' field.
+      type:
+        type: string
+        enum:
+          - IDENTITY
+          - MANAGER_OF
+          - ACCOUNT_OWNER
+          - MACHINE_ACCOUNT_OWNER
+          - MACHINE_IDENTITY_OWNER
+          - MANAGER_OF_REQUESTED_TARGET_OWNER
+          - MANAGER_OF_MACHINE_IDENTITY_OWNER
+          - MANAGER_OF_ACCOUNT_OWNER
+          - MANAGER_OF_MACHINE_ACCOUNT_OWNER
+          - MANAGER_OF_REQUESTER
+          - MANAGER_OF_REQUESTER_OWNER
+          - MANAGER_OF_OWNER
+          - ACCESS_PROFILE_OWNER
+          - APPLICATION_OWNER
+          - ENTITLEMENT_OWNER
+          - ROLE_OWNER
+          - SOURCE_OWNER
+          - REQUESTED_TARGET_OWNER
+          - ACCESS_PROFILE_PRIMARY_OWNER
+          - APPLICATION_PRIMARY_OWNER
+          - ENTITLEMENT_PRIMARY_OWNER
+          - ROLE_PRIMARY_OWNER
+          - SOURCE_PRIMARY_OWNER
+          - REQUESTED_TARGET_PRIMARY_OWNER
+        example: MANAGER_OF
+        description: Type of identityID for the fallback approver.
+    description: >-
+      Configuration for fallback approver. Used if the user cannot be found for whatever reason and escalation config
+      does not exist.
+  machineIdentityManagerAssignment:
+    type: string
+    enum:
+      - MANAGER_OF_REQUESTER
+      - MACHINE_IDENTITY_OWNER
+      - MANAGER_OF_MACHINE_IDENTITY_OWNER
+      - REQUESTED_TARGET_OWNER
+      - MANAGER_OF_REQUESTED_TARGET_OWNER
+      - ACCOUNT_OWNER
+      - MANAGER_OF_ACCOUNT_OWNER
+    example: MACHINE_IDENTITY_OWNER
+    default: MANAGER_OF_REQUESTER
+    description: Specifies how to treat the identity type "MANAGER_OF" when the requestee is a machine identity.
+  circumventApprovalProcess:
+    type: boolean
+    example: false
+    default: false
+    description: When true, all approvals will be created with the status "PASSED".
+  autoApprove:
+    type: string
+    enum:
+      - 'OFF'
+      - DIRECT
+      - INDIRECT
+    description: >-
+      OFF will prevent the approval request from being assigned to the requester or requestee by assigning it to their
+      manager instead. DIRECT will cause approval requests to be auto-approved when assigned directly and only to the
+      requester. INDIRECT will auto-approve when the requester appears anywhere in the list of approvers, including in a
+      governance group. This field will only be effective if requestedTarget.reauthRequired is set to false, otherwise
+      the approval will have to be manually approved.
+    example: 'OFF'
+description: Approval config Object

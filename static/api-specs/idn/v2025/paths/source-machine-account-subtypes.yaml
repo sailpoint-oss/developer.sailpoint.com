@@ -1,6 +1,9 @@
 get:
   summary: Retrieve all subtypes by source
   description: Get all machine account subtypes for a given source.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Retrieve all subtypes](https://developer.sailpoint.com/docs/api/v2026/list-source-subtypes) for the latest API.
   operationId: listMachineAccountSubtypes
   tags:
     - Machine Accounts
@@ -96,6 +99,9 @@ get:
 post:
   summary: Create subtype
   description: Create a new machine account subtype for a source.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Create subtype](https://developer.sailpoint.com/docs/api/v2026/create-source-subtype) for the latest API.
   operationId: createMachineAccountSubtype
   tags:
     - Machine Accounts

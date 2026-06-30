@@ -1,0 +1,54 @@
+get:
+  operationId: listNotificationTemplateDefaultsV1
+  tags:
+  - Notifications
+  summary: List notification template defaults
+  description: This lists the default templates used for notifications, such as emails from IdentityNow.
+  security:
+  - userAuth:
+    - idn:notification-template-defaults:read
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  parameters:
+  - $ref: ../../shared/parameters/limit.yaml
+  - $ref: ../../shared/parameters/offset.yaml
+  - in: query
+    name: filters
+    required: false
+    schema:
+      type: string
+      example: key eq "cloud_manual_work_item_summary"
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection
+      Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **key**: *eq, in, sw*
+
+
+      **medium**: *eq, sw*
+
+
+      **locale**: *eq, sw*
+  responses:
+    '200':
+      description: A list of the default template objects
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/templatedtodefault.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

@@ -1,0 +1,45 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Requestable Objects
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Requestable Objects
+    description: >
+      Use this API to implement requestable object functionality. 
+
+      With this functionality in place, administrators can determine which access items can be requested with the
+      [Access Request APIs](https://developer.sailpoint.com/docs/api/v2025/access-requests/), along with their
+      statuses. 
+
+      This can be helpful for administrators who are implementing and customizing access request functionality as a way
+      of checking which items are requestable as they are created, assigned, and made available.
+paths:
+  /requestable-objects/v1:
+    $ref: ./paths/requestable-objects-v1.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

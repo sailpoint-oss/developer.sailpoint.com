@@ -1,0 +1,74 @@
+get:
+  operationId: getIntelIdentityCertificationHistoryV1
+  security:
+  - userAuth:
+    - sp:identity-sec-intel:read
+  - applicationAuth:
+    - sp:identity-sec-intel:read
+  x-required-right: sp:identity-sec-intel:read
+  x-sailpoint-userLevels:
+  - Any
+  tags:
+  - Intelligence
+  summary: List identity certification history
+  description: |
+    Continuation endpoint for the parent response's `accessHistory.certifications.next` link.
+    Returns one page of certification history events for the supplied limit and offset values.
+    Per-record decode failures are dropped server-side.
+    Requires tenant license idn:response-and-remediation.
+  parameters:
+  - $ref: ../parameters/intelligence-identity-id-path.yaml
+  - name: limit
+    in: query
+    required: false
+    description: Page size. Defaults to 250; values above 250 are rejected with 400.
+    schema:
+      type: integer
+      format: int32
+      minimum: 1
+      maximum: 250
+      default: 250
+    example: 250
+  - name: offset
+    in: query
+    required: false
+    description: Zero-based page offset. Defaults to 0.
+    schema:
+      type: integer
+      format: int32
+      minimum: 0
+      default: 0
+    example: 0
+  responses:
+    '200':
+      description: One page of certification history events.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/intelcertificationhistoryevent.yaml
+          example:
+          - eventType: IdentityCertified
+            dateTime: '2019-03-08T22:37:33.901Z'
+            certificationId: 2c91808a77ff216301782327a50f09bf
+            certificationName: Example certification
+            signedDate: '2019-03-08T22:37:33.901Z'
+    '400':
+      description: Invalid path or query parameters.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/errorbody.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      description: Internal or upstream server failure.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/errorbody.yaml

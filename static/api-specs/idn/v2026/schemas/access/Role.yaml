@@ -123,6 +123,11 @@ properties:
                   ]
               }
           ]
+    privilegeLevel:
+      type: string
+      nullable: true
+      description: The privilege level of the role, if applicable.
+      example: High
 required:
     - name
     - owner

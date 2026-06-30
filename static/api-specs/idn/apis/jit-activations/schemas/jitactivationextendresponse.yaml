@@ -1,0 +1,36 @@
+type: object
+title: JIT Activation Extend Response
+required:
+  - id
+  - activationId
+  - connectionId
+  - activationPeriodExtensionMins
+  - status
+  - startTime
+properties:
+  id:
+    type: string
+    description: Workflow or business identifier for this activation.
+    example: jit-activation-abc123
+  activationId:
+    type: string
+    format: uuid
+    description: Persistent activation record identifier for this JIT activation.
+    example: 8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d
+  connectionId:
+    type: string
+    format: uuid
+    description: Entitlement connection identifier for the activation.
+    example: 757fb803-9024-5861-e510-83a56e4c5bd3
+  activationPeriodExtensionMins:
+    type: integer
+    format: int32
+    description: Extension applied to the activation period, in minutes.
+    example: 120
+  status:
+    $ref: ./activationworkflowstatus.yaml
+  startTime:
+    type: string
+    format: date-time
+    description: Time associated with this extend request (ISO-8601).
+    example: '2025-10-11T21:23:15.000Z'

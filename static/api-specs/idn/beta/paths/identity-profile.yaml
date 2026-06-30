@@ -38,8 +38,10 @@ get:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:identity-profile:read, idn:identity-profile:manage]
+    - applicationAuth: [idn:identity-profile:read, idn:identity-profile:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - API
 delete:
   operationId: deleteIdentityProfile
   tags:
@@ -83,8 +85,10 @@ delete:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:identity-profile:delete]
+    - applicationAuth: [idn:identity-profile:delete]
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - API
 patch:
   operationId: updateIdentityProfile
   tags:
@@ -170,5 +174,7 @@ patch:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:identity-profile:manage]
+    - applicationAuth: [idn:identity-profile:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - API

@@ -45934,6 +45934,474 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
+  /sources/v2/{sourceId}/provisioning-policies:
+    get:
+      operationId: listProvisioningPoliciesV2
+      tags:
+        - Sources
+      summary: Lists Provisioning Policies
+      description: This end-point lists all the ProvisioningPolicies in IdentityNow.
+      security:
+        - userAuth:
+            - idn:provisioning-policy:read
+            - idn:provisioning-policy:manage
+        - applicationAuth:
+            - idn:provisioning-policy:read
+            - idn:provisioning-policy:manage
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+      parameters:
+        - in: path
+          name: sourceId
+          required: true
+          x-sailpoint-resource-operation-id: listSourcesV1
+          schema:
+            type: string
+          description: The Source id
+          example: 2c9180835d191a86015d28455b4a2329
+        - in: query
+          name: filters
+          required: false
+          schema:
+            type: string
+          example: subtypeId eq "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
+          description: |-
+            Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+            Filtering is supported for the following fields and operators:
+
+            **subtypeId**: *eq*
+
+            **usageType**: *eq*
+        - name: offset
+          in: query
+          description: |-
+            Offset
+
+            Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+            The offset value is record-based, not page-based, and the index starts at 0.
+          schema:
+            type: integer
+            format: int64
+            default: 0
+            x-go-name: Offset
+          example: 0
+          required: false
+          x-go-name: Offset
+        - name: limit
+          in: query
+          description: |-
+            Limit
+            Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+            If it is not specified, a default limit is used.
+          schema:
+            type: integer
+            format: int64
+            minimum: 0
+            maximum: 250
+            default: 250
+            x-go-name: Limit
+          example: 250
+          required: false
+          x-go-name: Limit
+      responses:
+        '200':
+          description: List of ProvisioningPolicyDto objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/provisioningpolicydtov2'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      operationId: createProvisioningPolicyV2
+      tags:
+        - Sources
+      summary: Create provisioning policy
+      description: |-
+        This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types.
+        Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
+        The V2 API allows you to use a unique identifier (id) for each provisioning policy instead of usageType. This enables read, update, and delete operations on policies using their id.
+        Note: The subtypeId field is required if usageType is CREATE_MACHINE_ACCOUNT.
+        Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+      security:
+        - userAuth:
+            - idn:provisioning-policy-source-admin-operations:manage
+            - idn:provisioning-policy:manage
+        - applicationAuth:
+            - idn:provisioning-policy-source-admin-operations:manage
+            - idn:provisioning-policy:manage
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+      parameters:
+        - in: path
+          name: sourceId
+          required: true
+          x-sailpoint-resource-operation-id: listSourcesV1
+          schema:
+            type: string
+          description: The Source id
+          example: 2c9180835d191a86015d28455b4a2329
+        - in: query
+          name: useDefaultFields
+          schema:
+            type: boolean
+            default: false
+          required: false
+          description: If passed as true, then it uses default fields from the connector template.
+          example: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/provisioningpolicydtov2'
+            examples:
+              Create Account Provisioning Policy:
+                value:
+                  name: Account
+                  description: Account Provisioning Policy
+                  usageType: CREATE
+                  fields:
+                    - name: displayName
+                      transform:
+                        type: identityAttribute
+                        attributes:
+                          name: displayName
+                      attributes: {}
+                      isRequired: false
+                      type: string
+                      isMultiValued: false
+                    - name: distinguishedName
+                      transform:
+                        type: usernameGenerator
+                        attributes:
+                          sourceCheck: true
+                          patterns:
+                            - CN=$fi $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
+                            - CN=$fti $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
+                            - CN=$fn $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
+                            - CN=$fn$ln<uniqueCounter>,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
+                          fn:
+                            type: identityAttribute
+                            attributes:
+                              name: firstname
+                          ln:
+                            type: identityAttribute
+                            attributes:
+                              name: lastname
+                          fi:
+                            type: substring
+                            attributes:
+                              input:
+                                type: identityAttribute
+                                attributes:
+                                  name: firstname
+                              begin: 0
+                              end: 1
+                          fti:
+                            type: substring
+                            attributes:
+                              input:
+                                type: identityAttribute
+                                attributes:
+                                  name: firstname
+                              begin: 0
+                              end: 2
+                      attributes:
+                        cloudMaxUniqueChecks: '5'
+                        cloudMaxSize: '100'
+                        cloudRequired: 'true'
+                      isRequired: false
+                      type: ''
+                      isMultiValued: false
+                    - name: description
+                      transform:
+                        type: static
+                        attributes:
+                          value: ''
+                      attributes: {}
+                      isRequired: false
+                      type: string
+                      isMultiValued: false
+      responses:
+        '201':
+          description: Created ProvisioningPolicyDtoV2 object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/provisioningpolicydtov2'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+  /sources/v2/{sourceId}/provisioning-policies/{id}:
+    get:
+      operationId: getProvisioningPolicyV2
+      tags:
+        - Sources
+      summary: Get provisioning policy by ID
+      description: This end-point retrieves the ProvisioningPolicy with the specified ID on the specified Source in Identity Security Cloud.
+      security:
+        - userAuth:
+            - idn:provisioning-policy-source:read
+            - idn:provisioning-policy:read
+            - idn:provisioning-policy-source-admin-operations:manage
+            - idn:provisioning-policy:manage
+        - applicationAuth:
+            - idn:provisioning-policy-source:read
+            - idn:provisioning-policy:read
+            - idn:provisioning-policy-source-admin-operations:manage
+            - idn:provisioning-policy:manage
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+        - SOURCE_ADMIN
+        - SOURCE_SUBADMIN
+      parameters:
+        - in: path
+          name: sourceId
+          required: true
+          x-sailpoint-resource-operation-id: listSourcesV1
+          schema:
+            type: string
+          description: The Source ID.
+          example: 2c9180835d191a86015d28455b4a2329
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The provisioning policy ID.
+          example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
+          x-sailpoint-resource-operation-id: listProvisioningPoliciesV2
+      responses:
+        '200':
+          description: The requested ProvisioningPolicyDtoV2 was successfully retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/provisioningpolicydtov2'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+    put:
+      operationId: putProvisioningPolicyV2
+      tags:
+        - Sources
+      summary: Update provisioning policy by ID
+      description: |-
+        This end-point updates the provisioning policy with the specified ID on the specified source in Identity Security Cloud.
+        Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
+        Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+      security:
+        - userAuth:
+            - idn:provisioning-policy-source-admin-operations:manage
+            - idn:provisioning-policy:manage
+        - applicationAuth:
+            - idn:provisioning-policy-source-admin-operations:manage
+            - idn:provisioning-policy:manage
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+        - SOURCE_ADMIN
+        - SOURCE_SUBADMIN
+      parameters:
+        - in: path
+          name: sourceId
+          required: true
+          x-sailpoint-resource-operation-id: listSourcesV1
+          schema:
+            type: string
+          description: The Source ID.
+          example: 2c9180835d191a86015d28455b4a2329
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The provisioning policy ID.
+          example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
+          x-sailpoint-resource-operation-id: listProvisioningPoliciesV2
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/provisioningpolicydtov2'
+      responses:
+        '200':
+          description: The ProvisioningPolicyDto was successfully replaced.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/provisioningpolicydtov2'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+    patch:
+      operationId: updateProvisioningPolicyV2
+      tags:
+        - Sources
+      summary: Partial update of provisioning policy
+      description: |-
+        This API selectively updates an existing Provisioning Policy using a JSONPatch payload.
+        Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
+        Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+      security:
+        - userAuth:
+            - idn:provisioning-policy-source-admin-operations:manage
+            - idn:provisioning-policy:manage
+        - applicationAuth:
+            - idn:provisioning-policy-source-admin-operations:manage
+            - idn:provisioning-policy:manage
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+        - SOURCE_ADMIN
+        - SOURCE_SUBADMIN
+      parameters:
+        - in: path
+          name: sourceId
+          required: true
+          x-sailpoint-resource-operation-id: listSourcesV1
+          schema:
+            type: string
+          description: The Source id.
+          example: 2c9180835d191a86015d28455b4a2329
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The provisioning policy ID.
+          example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
+          x-sailpoint-resource-operation-id: listProvisioningPoliciesV2
+      requestBody:
+        required: true
+        description: The JSONPatch payload used to update the schema.
+        content:
+          application/json-patch+json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/jsonpatchoperation'
+            examples:
+              add-field:
+                summary: Add a field to the beginning of the list
+                value:
+                  - op: add
+                    path: /fields/0
+                    value:
+                      name: email
+                      transform:
+                        type: identityAttribute
+                        attributes:
+                          name: email
+                      attributes: {}
+                      isRequired: false
+                      type: string
+                      isMultiValued: false
+      responses:
+        '200':
+          description: The ProvisioningPolicyDtoV2 was successfully updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/provisioningpolicydtov2'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+    delete:
+      operationId: deleteProvisioningPolicyV2
+      tags:
+        - Sources
+      summary: Delete provisioning policy by ID
+      description: Deletes the provisioning policy with the specified ID on an application.
+      security:
+        - userAuth:
+            - idn:provisioning-policy:manage
+        - applicationAuth:
+            - idn:provisioning-policy:manage
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
+      parameters:
+        - in: path
+          name: sourceId
+          required: true
+          x-sailpoint-resource-operation-id: listSourcesV1
+          schema:
+            type: string
+          description: The Source ID.
+          example: 2c9180835d191a86015d28455b4a2329
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The provisioning policy ID.
+          example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
+          x-sailpoint-resource-operation-id: listProvisioningPoliciesV2
+      responses:
+        '204':
+          $ref: '#/components/responses/204'
+          description: The ProvisioningPolicyDtoV2 was successfully deleted.
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
   /sources/v1/{sourceId}/provisioning-policies/bulk-update:
     post:
       operationId: updateProvisioningPoliciesInBulkV1
@@ -83522,6 +83990,7 @@ components:
         - EDIT_GROUP
         - UNLOCK
         - CHANGE_PASSWORD
+        - CREATE_MACHINE_ACCOUNT
       example: CREATE
       description: |-
         The type of provisioning policy usage. 
@@ -83530,8 +83999,9 @@ components:
         CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.  
         UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source.
         ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created. 
-        DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source. 
-        You can use these four usage types for all your provisioning policy needs. 
+        DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.
+        CREATE_MACHINE_ACCOUNT - This usage type can be used to create the provisioning template for a source subtype which will be used in creating a machine account.
+        You can use these usage types for all your provisioning policy needs. 
     fielddetailsdto:
       type: object
       title: Field Details Dto
@@ -83612,6 +84082,95 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/fielddetailsdto'
+    fielddetailsdtov2:
+      type: object
+      title: Field Details Dto V2
+      properties:
+        name:
+          type: string
+          description: The name of the attribute.
+          example: userName
+        transform:
+          type: object
+          description: The transform to apply to the field
+          example:
+            type: rule
+            attributes:
+              name: Create Unique LDAP Attribute
+          default: {}
+        attributes:
+          type: object
+          description: Attributes required for the transform
+          example:
+            template: firstname.lastname.uniqueCounter
+            cloudMaxUniqueChecks: '50'
+            cloudMaxSize: '20'
+            cloudRequired: 'true'
+        isRequired:
+          type: boolean
+          readOnly: true
+          description: Flag indicating whether or not the attribute is required.
+          default: false
+          example: false
+        type:
+          type: string
+          description: |
+            The type of the attribute.
+
+            string: For text-based data.
+
+            int: For whole numbers.
+
+            long: For larger whole numbers.
+
+            date: For date and time values.
+
+            boolean: For true/false values.
+
+            secret: For sensitive data like passwords, which will be masked and encrypted.
+          enum:
+            - string
+            - int
+            - long
+            - date
+            - boolean
+            - secret
+          example: string
+        isMultiValued:
+          type: boolean
+          description: Flag indicating whether or not the attribute is multi-valued.
+          default: false
+          example: false
+    provisioningpolicydtov2:
+      type: object
+      title: Provisioning Policy Dto V2
+      required:
+        - name
+      properties:
+        id:
+          type: string
+          description: System-generated unique ID of the provisioning policy.
+          example: d7ae9ea3-507f-4d00-9d4f-b4464b344b88
+        name:
+          nullable: true
+          type: string
+          description: the provisioning policy name
+          example: example provisioning policy for inactive identities
+        subtypeId:
+          nullable: true
+          type: string
+          description: Subtype ID for which provisioning policy will be created when usageType is CREATE_MACHINE_ACCOUNT.
+          example: d7ae9ea3-507f-4d00-9d4f-b4464b344b88
+        description:
+          type: string
+          description: the description of the provisioning policy
+          example: this provisioning policy creates access based on an identity going inactive
+        usageType:
+          $ref: '#/components/schemas/usagetype'
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/fielddetailsdtov2'
     attributedefinitiontype:
       type: string
       enum:

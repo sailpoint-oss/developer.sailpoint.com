@@ -176,6 +176,10 @@ paths:
     $ref: ./paths/sources-v1-by-sourceid-provisioning-policies.yaml
   /sources/v1/{sourceId}/provisioning-policies/{usageType}:
     $ref: ./paths/sources-v1-by-sourceid-provisioning-policies-by-usagetype.yaml
+  /sources/v2/{sourceId}/provisioning-policies:
+    $ref: ./paths/sources-v2-by-sourceid-provisioning-policies.yaml
+  /sources/v2/{sourceId}/provisioning-policies/{id}:
+    $ref: ./paths/sources-v2-by-sourceid-provisioning-policies-by-id.yaml
   /sources/v1/{sourceId}/provisioning-policies/bulk-update:
     $ref: ./paths/sources-v1-by-sourceid-provisioning-policies-bulk-update.yaml
   /sources/v1/{sourceId}/schemas:

@@ -2288,6 +2288,10 @@ paths:
     $ref: ./apis/sources/paths/sources-v1-by-sourceid-provisioning-policies.yaml
   /sources/v1/{sourceId}/provisioning-policies/{usageType}:
     $ref: ./apis/sources/paths/sources-v1-by-sourceid-provisioning-policies-by-usagetype.yaml
+  /sources/v2/{sourceId}/provisioning-policies:
+    $ref: ./apis/sources/paths/sources-v2-by-sourceid-provisioning-policies.yaml
+  /sources/v2/{sourceId}/provisioning-policies/{id}:
+    $ref: ./apis/sources/paths/sources-v2-by-sourceid-provisioning-policies-by-id.yaml
   /sources/v1/{sourceId}/provisioning-policies/bulk-update:
     $ref: ./apis/sources/paths/sources-v1-by-sourceid-provisioning-policies-bulk-update.yaml
   /sources/v1/{sourceId}/schemas:

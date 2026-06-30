@@ -1,0 +1,254 @@
+get:
+  operationId: getProvisioningPolicyV2
+  tags:
+    - Sources
+  summary: Get provisioning policy by ID
+  description: This end-point retrieves the ProvisioningPolicy with the specified ID on the specified Source in Identity Security Cloud.
+  security:
+    - userAuth:
+        - idn:provisioning-policy-source:read
+        - idn:provisioning-policy:read
+        - idn:provisioning-policy-source-admin-operations:manage
+        - idn:provisioning-policy:manage
+    - applicationAuth:
+        - idn:provisioning-policy-source:read
+        - idn:provisioning-policy:read
+        - idn:provisioning-policy-source-admin-operations:manage
+        - idn:provisioning-policy:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      x-sailpoint-resource-operation-id: listSourcesV1
+      schema:
+        type: string
+      description: The Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: The provisioning policy ID.
+      example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
+      x-sailpoint-resource-operation-id: listProvisioningPoliciesV2
+  responses:
+    '200':
+      description: The requested ProvisioningPolicyDtoV2 was successfully retrieved.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/provisioningpolicydtov2.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+put:
+  operationId: putProvisioningPolicyV2
+  tags:
+    - Sources
+  summary: Update provisioning policy by ID
+  description: >-
+    This end-point updates the provisioning policy with the specified ID on the specified source in Identity Security Cloud.
+
+    Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
+
+    Refer to [Transforms in Provisioning
+    Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies)
+    for more information.
+  security:
+    - userAuth:
+        - idn:provisioning-policy-source-admin-operations:manage
+        - idn:provisioning-policy:manage
+    - applicationAuth:
+        - idn:provisioning-policy-source-admin-operations:manage
+        - idn:provisioning-policy:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      x-sailpoint-resource-operation-id: listSourcesV1
+      schema:
+        type: string
+      description: The Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: The provisioning policy ID.
+      example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
+      x-sailpoint-resource-operation-id: listProvisioningPoliciesV2
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/provisioningpolicydtov2.yaml
+  responses:
+    '200':
+      description: The ProvisioningPolicyDto was successfully replaced.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/provisioningpolicydtov2.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+patch:
+  operationId: updateProvisioningPolicyV2
+  tags:
+    - Sources
+  summary: Partial update of provisioning policy
+  description: >-
+    This API selectively updates an existing Provisioning Policy using a JSONPatch payload.
+
+    Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
+
+    Refer to [Transforms in Provisioning
+    Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies)
+    for more information.
+  security:
+    - userAuth:
+        - idn:provisioning-policy-source-admin-operations:manage
+        - idn:provisioning-policy:manage
+    - applicationAuth:
+        - idn:provisioning-policy-source-admin-operations:manage
+        - idn:provisioning-policy:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      x-sailpoint-resource-operation-id: listSourcesV1
+      schema:
+        type: string
+      description: The Source id.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: The provisioning policy ID.
+      example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
+      x-sailpoint-resource-operation-id: listProvisioningPoliciesV2
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the schema.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../shared/schemas/jsonpatchoperation.yaml
+        examples:
+          add-field:
+            summary: Add a field to the beginning of the list
+            value:
+              - op: add
+                path: /fields/0
+                value:
+                  name: email
+                  transform:
+                    type: identityAttribute
+                    attributes:
+                      name: email
+                  attributes: {}
+                  isRequired: false
+                  type: string
+                  isMultiValued: false
+  responses:
+    '200':
+      description: The ProvisioningPolicyDtoV2 was successfully updated.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/provisioningpolicydtov2.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+delete:
+  operationId: deleteProvisioningPolicyV2
+  tags:
+    - Sources
+  summary: Delete provisioning policy by ID
+  description: Deletes the provisioning policy with the specified ID on an application.
+  security:
+    - userAuth:
+        - idn:provisioning-policy:manage
+    - applicationAuth:
+        - idn:provisioning-policy:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      x-sailpoint-resource-operation-id: listSourcesV1
+      schema:
+        type: string
+      description: The Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: The provisioning policy ID.
+      example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
+      x-sailpoint-resource-operation-id: listProvisioningPoliciesV2
+  responses:
+    '204':
+      $ref: ../../shared/responses/204.yaml
+      description: The ProvisioningPolicyDtoV2 was successfully deleted.
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

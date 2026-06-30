@@ -4,38 +4,37 @@ import Layout from '@theme/Layout';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import {useColorMode} from '@docusaurus/theme-common';
 import styles from './ambassador.module.css';
-import AmbassadorCards from '../components/ambassador/AmbassadorCards';
 
 const benefits = [
   {
-    title: 'Recognition & badge',
+    title: 'Tenant access',
     description:
-      'Receive an exclusive Ambassador badge displayed on your community profile, signaling your expertise to peers across the SailPoint ecosystem.',
+      'Ambassadors receive an unconfigured Identity Security Cloud test tenant. Expert Ambassadors receive a preconfigured tenant.',
   },
   {
-    title: 'Early access',
+    title: 'Forum badge & recognition',
     description:
-      'Get early previews of new SailPoint developer features, APIs, and tooling before they reach general availability.',
+      'Receive an exclusive Ambassador badge on your community profile, access to a private Ambassador space on the forum, and public recognition for your contributions.',
   },
   {
-    title: 'Direct product access',
+    title: 'Exclusive swag',
     description:
-      'Gain a direct line to SailPoint product and the Developer Relations teams — your feedback shapes the product roadmap.',
+      'Receive exclusive SailPoint Ambassador swag as a thank you for your contributions to the community.',
   },
   {
-    title: 'Free sandbox tenant',
+    title: 'Regular check ins with DevRel',
     description:
-      'Get access to your own unconfigured Identity Security Cloud test tenant to build and test solutions. Expert Ambassadors receive a pre-configured tenant with access to the latest beta features.',
+      'Stay connected with the SailPoint Developer Relations team through regular check ins to share feedback and stay in the loop.',
   },
   {
-    title: 'Exclusive events',
+    title: 'Expert Ambassador extras',
     description:
-      'Receive invitations to Ambassador-only roundtables, community calls, and developer events throughout the year.',
+      'Expert Ambassadors also get access to a private Expert Ambassador forum space, regular roadmap sessions with PMs, and more.',
   },
   {
-    title: 'And more!',
+    title: 'Shape the community',
     description:
-      'Exclusive swag, office hours with the Developer Relations team, and other perks as the program grows.',
+      'Expert Ambassadors also have the opportunity to partner with the DevRel team in building out future community programs.',
   },
 ];
 
@@ -44,7 +43,7 @@ const howToJoinSteps = [
     step: '1',
     title: 'Be an active member',
     description:
-      'Consistently contribute to the community — answer questions, share knowledge, and engage with fellow members.',
+      'Consistently contribute to the community: answer questions, share knowledge, and engage with fellow members.',
   },
   {
     step: '2',
@@ -54,9 +53,9 @@ const howToJoinSteps = [
   },
   {
     step: '3',
-    title: 'Apply on the forum',
+    title: 'Submit your application',
     description:
-      'Submit your application via the community forum. The SailPoint team reviews applications on a rolling basis.',
+      'Submit your application via the form on this page. The SailPoint team reviews applications on a rolling basis.',
   },
 ];
 
@@ -85,10 +84,10 @@ const AmbassadorContent: React.FC = () => {
             Help us chart the future of identity security.
           </p>
           <Link
-            to="https://developer.sailpoint.com/discuss/t/announcing-the-developer-community-ambassador-program/10634"
+            to="https://airtable.com/app2w5RqnFmiZoNvM/pagKbtaKwDcoCYgjX/form"
             className={styles.heroCta}
           >
-            Become an Ambassador
+            Apply now
           </Link>
         </div>
           <img
@@ -159,13 +158,12 @@ const AmbassadorContent: React.FC = () => {
           <div className={styles.ctaRow}>
             <div className={styles.policyLinks}>
               <span className={styles.policyLabel}>Before you apply, please review:</span>
-              <a href="#" className={styles.policyLink}>Ambassador Code of Conduct</a>
-              <a href="#" className={styles.policyLink}>Forum guidelines</a>
-              <a href="https://developer.sailpoint.com/discuss/t/getting-started-as-a-developer-community-ambassador/11665" className={styles.policyLink}>Getting started guide</a>
+              <a href="/docs/ambassador-code-of-conduct" className={styles.policyLink}>Ambassador Code of Conduct</a>
+              <a href="/ambassadors/getting-started" className={styles.policyLink}>Getting started guide</a>
               <a href="https://developer.sailpoint.com/docs/ai-policy" className={styles.policyLink}>AI Usage Policy</a>
             </div>
             <Link
-              to="https://developer.sailpoint.com/discuss/t/announcing-the-developer-community-ambassador-program/10634"
+              to="https://airtable.com/app2w5RqnFmiZoNvM/pagKbtaKwDcoCYgjX/form"
               className={styles.applyBtn}
             >
               Apply now
@@ -174,54 +172,7 @@ const AmbassadorContent: React.FC = () => {
         </div>
       </div>
 
-      {/* Expert Ambassador Cards */}
-      <div className={`${styles.section} ${styles.sectionNoBorder}`}>
-        <div className={styles.sectionInner}>
-          <div className={styles.cardSectionBadge}>
-            <img
-              className={styles.badgeImageLarge}
-              src={useBaseUrl('/icons/ExpertAmbassador.svg')}
-              alt="Expert Ambassador badge"
-            />
-          </div>
-          <div className={styles.cardSectionHeader}>
-            <div className={styles.spanLeft}></div>
-            <div className={styles.cardSectionTitle}>Expert Ambassadors</div>
-            <div className={styles.spanLeft}></div>
-          </div>
-          <div className={styles.ambassadorCardContainer}>
-            <AmbassadorCards expert={true} limit={6} />
-          </div>
-          <div className={styles.seeMoreContainer}>
-            <a href="https://developer.sailpoint.com/discuss/g/expert_ambassadors" className={styles.seeMoreBtn}>See all Expert Ambassadors</a>
-          </div>
-        </div>
-      </div>
-
-      {/* Ambassador Cards */}
-      <div className={`${styles.section} ${styles.sectionNoBorder} ${styles.sectionLast}`}>
-        <div className={styles.sectionInner}>
-          <div className={styles.cardSectionBadge}>
-            <img
-              className={styles.badgeImage}
-              src={useBaseUrl('/icons/Ambassador.svg')}
-              alt="Ambassador badge"
-            />
-          </div>
-          <div className={styles.cardSectionHeader}>
-            <div className={styles.spanLeft}></div>
-            <div className={styles.cardSectionTitle}>Ambassadors</div>
-            <div className={styles.spanLeft}></div>
-          </div>
-          <div className={styles.ambassadorCardContainer}>
-            <AmbassadorCards expert={false} limit={6} />
-          </div>
-          <div className={styles.seeMoreContainer}>
-            <a href="https://developer.sailpoint.com/discuss/g/ambassadors" className={styles.seeMoreBtn}>See all Ambassadors</a>
-          </div>
-        </div>
-      </div>
-
+      {/* Ambassador Directory Link */}
     </main>
   );
 };

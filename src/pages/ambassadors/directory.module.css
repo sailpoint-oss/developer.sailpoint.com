@@ -1,0 +1,68 @@
+.page {
+  min-height: 100vh;
+}
+
+.hero {
+  background-color: var(--ifm-color-emphasis-100);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding: 56px 60px 48px;
+}
+
+.heroInner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.heroHeading {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--ifm-color-primary);
+  margin-bottom: 12px;
+}
+
+.heroBody {
+  font-size: 17px;
+  color: var(--dev-text-color-normal);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.section {
+  padding: 48px 60px;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.sectionInner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sectionHeading {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  margin-bottom: 24px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.sectionHeader .sectionHeading {
+  margin-bottom: 0;
+}
+
+.badgeImageLarge {
+  height: 80px;
+  width: 80px;
+  object-fit: contain;
+}
+
+.badgeImage {
+  height: 80px;
+  width: 80px;
+  object-fit: contain;
+}

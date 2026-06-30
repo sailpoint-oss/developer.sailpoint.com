@@ -23,7 +23,7 @@ properties:
     type: object
     description: Source metadata for the account as returned by List Accounts wire format.
     allOf:
-      - $ref: ./IntelAccessSourceWire.yaml
+      - $ref: ./intelaccesssourcewire.yaml
   disabled:
     type: boolean
     description: True when the account is administratively disabled on the source.
@@ -57,9 +57,9 @@ properties:
     type: string
     format: date-time
     description: Timestamp when the account record was created in Identity Security Cloud.
-    example: "2023-11-01T10:00:00Z"
+    example: '2023-11-01T10:00:00Z'
   modified:
     type: string
     format: date-time
     description: Timestamp when the account record was last modified in Identity Security Cloud.
-    example: "2024-02-15T16:20:00Z"
+    example: '2024-02-15T16:20:00Z'

@@ -507,6 +507,12 @@ tags:
       They can select an identity profile to view its settings, its mappings between identity attributes and correlating source account attributes, and its provisioning settings. 
 
       Refer to [Creating Identity Profiles](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html) for more information about identity profiles.
+  - name: Intelligence
+    description: |
+      Read-only HTTP API that returns the Intelligence (identity context)
+      for SecOps enrichment use cases (SIEM/SOAR connectors, MCP, browser
+      extension). Backed by Atlas internal-REST calls to MICE, Shelby List Accounts,
+      SDS Search, IDA-outliers, and identity-history.
   - name: JIT Access
     description: |
       Use these APIs to configure JIT provisioning activation policy for the tenant.
@@ -1886,6 +1892,16 @@ paths:
     $ref: ./apis/identity-profiles/paths/identity-profiles-v1-by-identity-profile-id-process-identities.yaml
   /identity-profiles/v1/identity-preview:
     $ref: ./apis/identity-profiles/paths/identity-profiles-v1-identity-preview.yaml
+  /intelligence/v1/identities:
+    $ref: ./apis/intelligence/paths/intelligence-v1-identities.yaml
+  /intelligence/v1/identities/{id}/accounts:
+    $ref: ./apis/intelligence/paths/intelligence-v1-identities-by-id-accounts.yaml
+  /intelligence/v1/identities/{id}/outliers/rare-access:
+    $ref: ./apis/intelligence/paths/intelligence-v1-identities-by-id-outliers-rare-access.yaml
+  /intelligence/v1/identities/{id}/access-history/access-items:
+    $ref: ./apis/intelligence/paths/intelligence-v1-identities-by-id-access-history-access-items.yaml
+  /intelligence/v1/identities/{id}/access-history/certifications:
+    $ref: ./apis/intelligence/paths/intelligence-v1-identities-by-id-access-history-certifications.yaml
   /jit-activation-config/v1/{configType}:
     $ref: ./apis/jit-access/paths/jit-activation-config-v1-by-configtype.yaml
   /jit-activations/v1/activate:

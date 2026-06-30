@@ -1,15 +1,15 @@
 get:
-  operationId: getIdentityIntelligence
+  operationId: getIdentityIntelligenceV1
   security:
-    - userAuth:
-        - sp:identity-sec-intel:read
-    - applicationAuth:
-        - sp:identity-sec-intel:read
+  - userAuth:
+    - sp:identity-sec-intel:read
+  - applicationAuth:
+    - sp:identity-sec-intel:read
   x-required-right: sp:identity-sec-intel:read
   x-sailpoint-userLevels:
-    - Any
+  - Any
   tags:
-    - Intelligence
+  - Intelligence
   summary: Get identity by filter
   description: |
     Requires tenant license idn:response-and-remediation.
@@ -27,31 +27,35 @@ get:
 
     Multiple matches returns HTTP 409 with detailCode IDC_IDENTITY_AMBIGUOUS and candidates listing each match.
   parameters:
-    - in: query
-      name: filters
-      required: true
-      schema:
-        type: string
-      examples:
-        byId:
-          value: id eq "ef38f94347e94562b5bb8424a56397d8"
-        byEmail:
-          value: email eq "user@example.com"
-      description: |-
-        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+  - in: query
+    name: filters
+    required: true
+    schema:
+      type: string
+    examples:
+      byId:
+        value: id eq "ef38f94347e94562b5bb8424a56397d8"
+      byEmail:
+        value: email eq "user@example.com"
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection
+      Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
-        Filtering is supported for the following fields and operators:
 
-        **id**: *eq*
+      Filtering is supported for the following fields and operators:
 
-        **email**: *eq*
+
+      **id**: *eq*
+
+
+      **email**: *eq*
   responses:
     '200':
       description: Exactly one identity matched.
       content:
         application/json:
           schema:
-            $ref: '../schemas/intelligence/IntelIdentityAggregate.yaml'
+            $ref: ../schemas/intelidentityaggregate.yaml
           example:
             id: ef38f94347e94562b5bb8424a56397d8
             type: HUMAN
@@ -60,89 +64,89 @@ get:
             attributes:
               city: Example City
               cloudStatus: ACTIVE
-            created: "2026-05-12T08:00:00Z"
-            modified: "2026-05-12T09:15:30Z"
+            created: '2026-05-12T08:00:00Z'
+            modified: '2026-05-12T09:15:30Z'
             alias: example.user
             email: user@example.com
             identityStatus: ACTIVE
             isManager: false
             accounts:
               items:
-                - id: 2c91808874ff91550175097daaec161c
-                  name: example.user
-                  source:
-                    id: 60de165099e649cb828553a5e8510fc4
-                    name: Example Directory
-                  disabled: false
-                  locked: false
-                  authoritative: false
-                  systemAccount: false
-                  isMachine: false
-                  manuallyCorrelated: false
-                  nativeIdentity: CN=example.user,OU=users
-                  created: "2026-01-01T00:00:00Z"
-                  modified: "2026-05-01T00:00:00Z"
+              - id: 2c91808874ff91550175097daaec161c
+                name: example.user
+                source:
+                  id: 60de165099e649cb828553a5e8510fc4
+                  name: Example Directory
+                disabled: false
+                locked: false
+                authoritative: false
+                systemAccount: false
+                isMachine: false
+                manuallyCorrelated: false
+                nativeIdentity: CN=example.user,OU=users
+                created: '2026-01-01T00:00:00Z'
+                modified: '2026-05-01T00:00:00Z'
               next: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/accounts?limit=10&offset=10
             privilegedAccess:
               items:
-                - privileged: true
-                  id: ent-1
-                  type: entitlement
-                  displayName: Example_Admin_Access
-                  name: Example_Admin_Access
-                  source:
-                    name: Example HR Source
-                    id: src-2
-                  attribute: EXAMPLE_PERMISSION_GROUPS
-                  value: Example_Admin_Access
+              - privileged: true
+                id: ent-1
+                type: entitlement
+                displayName: Example_Admin_Access
+                name: Example_Admin_Access
+                source:
+                  name: Example HR Source
+                  id: src-2
+                attribute: EXAMPLE_PERMISSION_GROUPS
+                value: Example_Admin_Access
             outliers:
               rareAccess:
                 items:
-                  - id: outlier-access-001
-                    displayName: Example_Admin_Access
-                    description: null
-                    accessType: ENTITLEMENT
-                    sourceName: Example SaaS Source
-                    extremelyRare: false
+                - id: outlier-access-001
+                  displayName: Example_Admin_Access
+                  description: null
+                  accessType: ENTITLEMENT
+                  sourceName: Example SaaS Source
+                  extremelyRare: false
                 next: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/outliers/rare-access?limit=10&offset=10
             accessHistory:
               accessItems:
                 items:
-                  - eventType: AccessItemRemoved
-                    dateTime: "2026-05-11T09:40:04.496Z"
-                    accessItem:
-                      id: access-item-001
-                      accessType: entitlement
-                      displayName: Example Access
-                      sourceName: Example Directory
+                - eventType: AccessItemRemoved
+                  dateTime: '2026-05-11T09:40:04.496Z'
+                  accessItem:
+                    id: access-item-001
+                    accessType: entitlement
+                    displayName: Example Access
+                    sourceName: Example Directory
                 next: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/access-history/access-items?limit=10&offset=10
               certifications:
                 items:
-                  - eventType: IdentityCertified
-                    dateTime: "2019-03-08T22:37:33.901Z"
-                    certificationId: 2c91808a77ff216301782327a50f09bf
-                    certificationName: Example certification
-                    signedDate: "2019-03-08T22:37:33.901Z"
+                - eventType: IdentityCertified
+                  dateTime: '2019-03-08T22:37:33.901Z'
+                  certificationId: 2c91808a77ff216301782327a50f09bf
+                  certificationName: Example certification
+                  signedDate: '2019-03-08T22:37:33.901Z'
                 next: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/access-history/certifications?limit=10&offset=10
     '400':
       description: Missing or invalid filters.
       content:
         application/json:
           schema:
-            $ref: '../schemas/intelligence/ErrorBody.yaml'
+            $ref: ../schemas/errorbody.yaml
           example:
             detailCode: INVALID_REQUEST
             message: filters must be supplied and non-empty
     '401':
-      $ref: ../responses/401.yaml
+      $ref: ../../shared/responses/401.yaml
     '403':
-      $ref: ../responses/403.yaml
+      $ref: ../../shared/responses/403.yaml
     '404':
       description: No identity matched the filter.
       content:
         application/json:
           schema:
-            $ref: '../schemas/intelligence/IntelIdentityNotFoundBody.yaml'
+            $ref: ../schemas/intelidentitynotfoundbody.yaml
           example:
             detailCode: IDC_IDENTITY_NOT_FOUND
             message: no identity matched the supplied filter
@@ -151,20 +155,20 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/intelligence/IntelIdentityAmbiguousBody.yaml'
+            $ref: ../schemas/intelidentityambiguousbody.yaml
           example:
             detailCode: IDC_IDENTITY_AMBIGUOUS
             message: multiple identities matched the supplied filter
             candidates:
-              - id: cand-1
-                displayName: Example A
-              - id: cand-2
-                displayName: Example B
+            - id: cand-1
+              displayName: Example A
+            - id: cand-2
+              displayName: Example B
     '429':
-      $ref: ../responses/429.yaml
+      $ref: ../../shared/responses/429.yaml
     '500':
       description: Upstream or internal failure.
       content:
         application/json:
           schema:
-            $ref: '../schemas/intelligence/ErrorBody.yaml'
+            $ref: ../schemas/errorbody.yaml

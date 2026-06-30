@@ -1,26 +1,27 @@
 get:
-  operationId: getIntelIdentityRiskOutliers
+  operationId: getIntelIdentityCertificationHistory
   security:
     - userAuth:
-        - sp:identity-sec-intel-risk:read
+        - sp:identity-sec-intel:read
     - applicationAuth:
-        - sp:identity-sec-intel-risk:read
-  x-required-right: sp:identity-sec-intel-risk:read
+        - sp:identity-sec-intel:read
+  x-required-right: sp:identity-sec-intel:read
   x-sailpoint-userLevels:
     - Any
   tags:
-    - Intelligence Package
-  summary: Get identity risk outliers page
+    - Intelligence
+  summary: List identity certification history
   description: |
-    Continuation endpoint for risk outlier access-items. Returns one page based on
-    the supplied limit and offset values and includes an optional continuation link
-    when more rows remain. Requires tenant license idn:response-and-remediation.
+    Continuation endpoint for the parent response's `accessHistory.certifications.next` link.
+    Returns one page of certification history events for the supplied limit and offset values.
+    Per-record decode failures are dropped server-side.
+    Requires tenant license idn:response-and-remediation.
   parameters:
     - $ref: '../parameters/intelligence-identity-id-path.yaml'
     - name: limit
       in: query
       required: false
-      description: Maximum number of outlier rows to return for this page.
+      description: Page size. Defaults to 250; values above 250 are rejected with 400.
       schema:
         type: integer
         format: int32
@@ -31,7 +32,7 @@ get:
     - name: offset
       in: query
       required: false
-      description: Zero-based row index for the first returned outlier item.
+      description: Zero-based page offset. Defaults to 0.
       schema:
         type: integer
         format: int32
@@ -40,19 +41,19 @@ get:
       example: 0
   responses:
     '200':
-      description: One page of outlier items plus optional continuation link.
+      description: One page of certification history events.
       content:
         application/json:
           schema:
-            $ref: '../schemas/intelligence/IntelIdentityRiskBody.yaml'
+            type: array
+            items:
+              $ref: '../schemas/intelligence/IntelCertificationHistoryEvent.yaml'
           example:
-            outliers:
-              - id: outlier-access-001
-                displayName: Example_Admin_Access
-                accessType: ENTITLEMENT
-                sourceName: Example SaaS Source
-                extremelyRare: false
-            outliersTotal: 1
+            - eventType: IdentityCertified
+              dateTime: "2019-03-08T22:37:33.901Z"
+              certificationId: 2c91808a77ff216301782327a50f09bf
+              certificationName: Example certification
+              signedDate: "2019-03-08T22:37:33.901Z"
     '400':
       description: Invalid path or query parameters.
       content:

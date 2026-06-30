@@ -1,7 +1,7 @@
       name: id
       in: path
       required: true
-      description: Non-empty identity id path segment for Intelligence Package sub-resources.
+      description: Non-empty identity id path segment for Intelligence sub-resources.
       x-sailpoint-resource-operation-id: listIdentities
       example: ef38f94347e94562b5bb8424a56397d8
       schema:

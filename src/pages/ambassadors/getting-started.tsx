@@ -11,37 +11,34 @@ const applicationCriteria = [
 const tiers = [
   {
     name: 'Ambassador',
-    credential: 'Identity Security Leader Credential',
-    credentialUrl: 'https://university.sailpoint.com/sailpoint-identity-security-leader-credential',
     perks: [
       'Unconfigured tenant',
       'Demo tenant',
       'Forum badge',
       'Exclusive swag',
       'Access to private Ambassador space on the forum',
-      'Access to Community AI',
+      'Access to the forum AI bot',
       'Public recognition',
       'Regular check-ins with the DevRel team',
     ],
   },
   {
     name: 'Expert Ambassador',
-    credential: 'Identity Security Leader Credential (same minimum as Ambassador)',
-    credentialUrl: 'https://university.sailpoint.com/sailpoint-identity-security-leader-credential',
     perks: [
       'Preconfigured tenant',
-      'Demo tenant',
+      'Temporary demo tenant upon request',
       'Forum badge',
       'Exclusive swag',
       'Access to private Ambassador space on the forum',
       'Access to an extra private Expert Ambassador space on the forum',
+      'Access to the forum AI bot',
       'Public recognition',
       'Regular check-ins with the DevRel team',
       'Exempt from tenant idling',
-      'Edge in deciding factor for speaker selection',
-      '2 week SLA for bugs on DevRel owned projects',
+      'Increased edge in deciding factor for Developer Days speaker selection',
+      'Two week SLA for bugs reported on DevRel owned projects',
       'Regular roadmap sessions with PMs',
-      'Partner with DevRel in building out future community programs',
+      'Partner with DevRel in building out future developer community programs',
     ],
   },
 ];
@@ -50,7 +47,7 @@ const GettingStarted: React.FC = () => {
   return (
     <Layout
       title="Getting Started as a SailPoint Ambassador"
-      description="Everything you need to know to become and maintain your status as a SailPoint Ambassador."
+      description="Everything you need to know to join the program, contribute effectively, and maintain your status."
     >
       <main className={styles.page}>
 
@@ -64,37 +61,48 @@ const GettingStarted: React.FC = () => {
             <p className={styles.heroBody}>
               Everything you need to know to join the program, contribute effectively, and maintain your status.
             </p>
+            <p className={styles.heroBody}>
+              The Ambassador Program seeks to recognize and reward members of the SailPoint Developer Community who are going above and beyond, helping others, contributing to the community, and improving SailPoint's products and technologies through their expertise and feedback.
+            </p>
           </div>
         </div>
 
         {/* Before you apply - eligibility */}
-        <div className={styles.section}>
+        <div className={`${styles.section} ${styles.sectionCompactFollow}`}>
           <div className={styles.sectionInner}>
             <h2 className={styles.sectionHeading}>Before you apply</h2>
-            <p className={styles.sectionBody}>
-              The Ambassador Program seeks to recognize and reward members of the SailPoint Developer Community who are going above and beyond, helping others, contributing to the community, and improving SailPoint's products and technologies through their expertise and feedback.
-            </p>
             <p className={styles.sectionBody}>
               To be considered eligible for the program, you must have:
             </p>
             <ul className={styles.linkList}>
-              <li><strong>At least 6 months of community history.</strong> We want to see a real track record, not a burst of activity right before applying.</li>
-              <li><strong>Earned the <Link to="https://university.sailpoint.com/sailpoint-identity-security-leader-credential">Identity Security Leader Credential</Link>.</strong> This is required for all Ambassadors. It's free and a relatively low time investment.</li>
               <li>
-                <strong>A complete forum profile.</strong> Visit your <Link to="https://developer.sailpoint.com/discuss/my/preferences/profile">profile preferences</Link> to fill out the required fields: profile picture and About Me. We also encourage adding your timezone, job title, profile header, and user card background — the more people know about you, the better. If you plan to contribute to GitHub, link your GitHub account to your forum profile so your pull requests and issues are tracked toward your Ambassador activity.
+                <strong>At least 6 months of community history.</strong> We want to see a real track record, not a burst of activity right before applying.
+                <ul className={styles.subLinkList}>
+                  <li>
+                    Good contributions look like answering questions thoughtfully, writing guides or blog posts that help others, submitting <Link to="https://developer.sailpoint.com/colab">CoLab</Link> projects, or contributing to <Link to="https://github.com/sailpoint-oss">open source repositories</Link>. It's not about volume. It's about the quality and consistency of how you show up.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Earned the <Link to="https://university.sailpoint.com/sailpoint-identity-security-leader-credential">Identity Security Leader Credential</Link>.</strong> This is required for all Ambassadors. It's free and a relatively low time investment.
+              </li>
+              <li>
+                <strong>A complete forum profile.</strong> Visit your <Link to="https://developer.sailpoint.com/discuss/my/preferences/profile">profile preferences</Link> to fill out the required fields: <strong>About Me</strong> and a <strong>profile picture</strong>, and a user card background.
+                <ul className={styles.subLinkList}>
+                  <li>
+                    We also encourage adding your timezone, job title, profile header, and a user card background.
+                  </li>
+                  <li>
+                    If you plan on contributing pull requests to SailPoint-related open source repositories, <Link to="https://developer.sailpoint.com/discuss/my/preferences/github">link your GitHub account</Link> to your forum profile.
+                  </li>
+                </ul>
               </li>
             </ul>
-            <p className={styles.sectionBody}>
-              If you're not there yet, that's okay. Keep contributing and check back when you are.
-            </p>
-            <p className={styles.sectionBody}>
-              Good contributions look like answering questions thoughtfully, writing guides or blog posts that help others, submitting CoLab projects, or contributing to open source repositories. It's not about volume. It's about the quality and consistency of how you show up.
-            </p>
           </div>
         </div>
 
         {/* Application */}
-        <div className={styles.section}>
+        <div className={`${styles.section} ${styles.sectionCompactStart}`}>
           <div className={styles.sectionInner}>
             <h2 className={styles.sectionHeading}>Application</h2>
             <p className={styles.sectionBody}>
@@ -126,13 +134,13 @@ const GettingStarted: React.FC = () => {
               To retain your Ambassador status, we need to see continued engagement with the community. Maintaining your status is straightforward: we look for Ambassadors who are consistently showing up for the community. Some good ways to stay active:
             </p>
             <ul className={styles.linkList}>
-              <li>Participate on the <Link to="https://developer.sailpoint.com/discuss">forum</Link> (liking, commenting, posting)</li>
+              <li>Participate on the <Link to="https://developer.sailpoint.com/discuss">forum</Link> (liking, commenting, posting, writing solutions, etc.)</li>
               <li>Submit <Link to="https://developer.sailpoint.com/colab">CoLab</Link> projects</li>
               <li>Contribute to <Link to="https://github.com/sailpoint-oss">GitHub</Link></li>
-              <li>Attend <Link to="https://developer.sailpoint.com/discuss/c/community/events/76">events</Link> (DevDays, Navigate, live streams, etc.)</li>
+              <li>Attend <Link to="https://developer.sailpoint.com/discuss/c/community/events/76">events</Link> (livestreams, DevDays, Navigate, etc.)</li>
             </ul>
             <p className={styles.sectionBody}>
-              If you're ever unsure whether you're hitting the bar, reach out to the DevRel team. Ambassadors who are no longer actively contributing may have their status reviewed.
+              Ambassadors who stop actively contributing may have their status reviewed.
             </p>
           </div>
         </div>
@@ -147,35 +155,17 @@ const GettingStarted: React.FC = () => {
           </div>
         </div>
 
-        {/* Idle Tenants */}
-        <div className={styles.section}>
-          <div className={styles.sectionInner}>
-            <h2 className={styles.sectionHeading}>Idle tenants</h2>
-            <p className={styles.sectionBody}>
-              If you haven't logged into your tenant in at least 30 days, SailPoint will deprovision it. You'll receive a backup of your data beforehand. Expert Ambassadors are exempt from this policy.
-            </p>
-          </div>
-        </div>
-
         {/* Tiers & rewards */}
         <div className={styles.section}>
           <div className={styles.sectionInner}>
             <h2 className={styles.sectionHeading}>Tiers and rewards</h2>
-            <p className={styles.sectionBody}>
-              There are two tiers. Both require holding an active credential.
-            </p>
-            <div className={styles.tiersGrid}>
+            <div className={styles.criteriaGrid}>
               {tiers.map((tier) => (
-                <div key={tier.name} className={styles.tierCard}>
-                  <div className={styles.tierHeader}>
-                    <span className={styles.tierName}>{tier.name}</span>
-                  </div>
-                  <div className={styles.tierCredential}>
-                    Requires: <Link to={tier.credentialUrl}>{tier.credential}</Link>
-                  </div>
-                  <ul className={styles.perksList}>
+                <div key={tier.name} className={styles.criteriaCard}>
+                  <div className={styles.criteriaLabel}>{tier.name}</div>
+                  <ul className={styles.criteriaList}>
                     {tier.perks.map((perk) => (
-                      <li key={perk} className={styles.perkItem}>{perk}</li>
+                      <li key={perk}>{perk}</li>
                     ))}
                   </ul>
                 </div>
@@ -184,20 +174,31 @@ const GettingStarted: React.FC = () => {
           </div>
         </div>
 
+        {/* Idle tenants */}
+        <div className={styles.section}>
+          <div className={styles.sectionInner}>
+            <h2 className={styles.sectionHeading}>Idle tenants</h2>
+            <p className={styles.sectionBody}>
+              If you haven't logged into your tenant in at least 30 days, SailPoint will deprovision it. Expert Ambassadors are exempt from this policy.
+            </p>
+          </div>
+        </div>
+
         {/* Before you apply */}
         <div className={styles.section}>
           <div className={styles.sectionInner}>
             <h2 className={styles.sectionHeading}>Policies and agreements</h2>
-            <p className={styles.sectionBody}>Please review the following before submitting your application:</p>
+            <p className={styles.sectionBody}>
+              Please take time to review the following before submitting your application. As a participant in the program, you'll be held to these standards.
+            </p>
             <ul className={styles.linkList}>
-              <li><Link to="/docs/community-policies">Community policies</Link>, including the AI Usage Policy and Community Code of Conduct</li>
               <li><Link to="/docs/ambassador-code-of-conduct">Ambassador Code of Conduct</Link></li>
               <li><Link to="/docs/ambassador-agreement">Ambassador Program Agreement</Link></li>
             </ul>
-            <div className={styles.applyBox}>
-              <div className={styles.applyBoxText}>
-                <strong>Ready to apply?</strong> Applications are reviewed on a rolling basis. We'll follow up via email.
-              </div>
+            <div className={styles.applyCta}>
+              <p className={styles.applyCtaText}>
+                Ready to show us what you've got? Apply below.
+              </p>
               <Link to="https://airtable.com/app2w5RqnFmiZoNvM/pagKbtaKwDcoCYgjX/form" className={styles.applyBtn}>
                 Apply now
               </Link>

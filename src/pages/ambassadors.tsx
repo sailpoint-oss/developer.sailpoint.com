@@ -77,19 +77,16 @@ const AmbassadorContent: React.FC = () => {
       <div className={styles.heroWrapper}>
         <div className={styles.hero}>
           <div className={styles.heroContent}>
-          <h1 className={styles.heroHeading}>
-            Your experience and expertise has the power to empower others.
-          </h1>
-          <p className={styles.heroBody}>
-            Help us chart the future of identity security.
-          </p>
-          <Link
-            to="https://airtable.com/app2w5RqnFmiZoNvM/pagKbtaKwDcoCYgjX/form"
-            className={styles.heroCta}
-          >
-            Apply now
-          </Link>
-        </div>
+            <h1 className={styles.heroHeading}>
+              Your experience and expertise has the power to empower others.
+            </h1>
+            <p className={styles.heroBody}>
+              Help us chart the future of identity security.
+            </p>
+            <Link to="/ambassadors/getting-started" className={styles.heroCta}>
+              Getting Started Guide
+            </Link>
+          </div>
           <img
             className={styles.heroImage}
             src={codeyBust}

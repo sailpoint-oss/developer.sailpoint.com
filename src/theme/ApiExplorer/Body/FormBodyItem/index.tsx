@@ -102,7 +102,7 @@ export default function FormBodyItem({
   // TODO: support all the other types.
   return (
     <FormTextInput
-      paramName={id}
+      paramName={`body-${id}`}
       isRequired={
         Array.isArray(schema.required) && schema.required.includes(id)
       }

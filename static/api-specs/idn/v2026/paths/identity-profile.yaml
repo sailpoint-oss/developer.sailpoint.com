@@ -40,6 +40,7 @@ get:
         - idn:identity-profile:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - API
 delete:
   operationId: deleteIdentityProfile
   tags:
@@ -81,8 +82,11 @@ delete:
   security:
     - userAuth:
         - idn:identity-profile:manage
+    - applicationAuth:
+        - idn:identity-profile:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - API
 patch:
   operationId: updateIdentityProfile
   tags:
@@ -153,5 +157,8 @@ patch:
   security:
     - userAuth:
         - idn:identity-profile:manage
+    - applicationAuth:
+        - idn:identity-profile:manage
   x-sailpoint-userLevels:
     - ORG_ADMIN
+    - API

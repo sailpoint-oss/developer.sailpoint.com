@@ -27,9 +27,14 @@ function applyOverlayToSpec(openApiFilePath, overlayFilePath, outputFilePath) {
                         methodSpec['x-codeSamples'] = [];
                     }
 
-                    // Add the xCodeSample to the x-codeSamples array
+                    // Replace existing sample for each lang, add if not present
                     xCodeSample.forEach(sample => {
-                        methodSpec['x-codeSamples'].push(sample);
+                        const idx = methodSpec['x-codeSamples'].findIndex(s => s.lang === sample.lang);
+                        if (idx !== -1) {
+                            methodSpec['x-codeSamples'][idx] = sample;
+                        } else {
+                            methodSpec['x-codeSamples'].push(sample);
+                        }
                     });
                 } else {
                     console.warn(`Skipping entry: xCodeSample is missing or malformed for path: ${apiPath} method: ${method}`);

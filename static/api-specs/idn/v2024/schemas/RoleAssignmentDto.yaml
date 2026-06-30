@@ -80,6 +80,12 @@ properties:
     type: array
     items:
       $ref: "./RoleTargetDto.yaml"
+  startDate:
+    type: string
+    format: date-time
+    nullable: true
+    description: "Date when assignment will be active, if access was requested with a future start date. If null, assignment is active immediately"
+    example: '2026-07-10T18:45:37.098Z'
   removeDate:
     type: string
     format: date-time

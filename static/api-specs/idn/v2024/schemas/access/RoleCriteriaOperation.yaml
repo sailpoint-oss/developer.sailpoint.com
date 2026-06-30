@@ -3,8 +3,13 @@ enum:
     - EQUALS
     - NOT_EQUALS
     - CONTAINS
+    - DOES_NOT_CONTAIN
     - STARTS_WITH
     - ENDS_WITH
+    - GREATER_THAN
+    - LESS_THAN
+    - GREATER_THAN_EQUALS
+    - LESS_THAN_EQUALS
     - AND
     - OR
 description: An operation

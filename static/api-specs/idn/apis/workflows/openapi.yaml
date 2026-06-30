@@ -1,0 +1,72 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Workflows
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Workflows
+    description: >
+      Workflows allow administrators to create custom automation scripts directly within Identity Security Cloud.  These
+      automation scripts respond to [event
+      triggers](https://developer.sailpoint.com/docs/extensibility/event-triggers/#how-to-get-started-with-event-triggers)
+      and perform a series of actions to perform tasks that are either too cumbersome or not available in the Identity
+      Security Cloud UI.  Workflows can be configured via a graphical user interface within Identity Security Cloud, or
+      by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides
+      the necessary functionality to create, manage, and test your workflows via REST.
+paths:
+  /workflows/v1:
+    $ref: ./paths/workflows-v1.yaml
+  /workflows/v1/{id}:
+    $ref: ./paths/workflows-v1-by-id.yaml
+  /workflows/v1/{id}/test:
+    $ref: ./paths/workflows-v1-by-id-test.yaml
+  /workflows/v1/{id}/executions:
+    $ref: ./paths/workflows-v1-by-id-executions.yaml
+  /workflow-executions/v1/{id}:
+    $ref: ./paths/workflow-executions-v1-by-id.yaml
+  /workflow-executions/v1/{id}/history:
+    $ref: ./paths/workflow-executions-v1-by-id-history.yaml
+  /workflow-executions/v1/{id}/history-v2:
+    $ref: ./paths/workflow-executions-v1-by-id-history-v2.yaml
+  /workflow-executions/v1/{id}/cancel:
+    $ref: ./paths/workflow-executions-v1-by-id-cancel.yaml
+  /workflow-library/v1:
+    $ref: ./paths/workflow-library-v1.yaml
+  /workflow-library/v1/actions:
+    $ref: ./paths/workflow-library-v1-actions.yaml
+  /workflow-library/v1/triggers:
+    $ref: ./paths/workflow-library-v1-triggers.yaml
+  /workflow-library/v1/operators:
+    $ref: ./paths/workflow-library-v1-operators.yaml
+  /workflows/v1/{id}/external/oauth-clients:
+    $ref: ./paths/workflows-v1-by-id-external-oauth-clients.yaml
+  /workflows/v1/execute/external/{id}:
+    $ref: ./paths/workflows-v1-execute-external-by-id.yaml
+  /workflows/v1/execute/external/{id}/test:
+    $ref: ./paths/workflows-v1-execute-external-by-id-test.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

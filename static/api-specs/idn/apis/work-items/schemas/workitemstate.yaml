@@ -1,0 +1,12 @@
+type: string
+nullable: true
+enum:
+  - Finished
+  - Rejected
+  - Returned
+  - Expired
+  - Pending
+  - Canceled
+  - null
+example: Pending
+description: The state of a work item

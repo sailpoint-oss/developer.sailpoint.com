@@ -1,7 +1,9 @@
 const {createApiPageMD} = require('./createApiPageMD');
 import clsx from 'clsx';
+import apiRedirectsPlugin from './api-redirects-plugin';
 
 const pluginConfig = [
+  [apiRedirectsPlugin, {}],
   [
     function disableExpensiveBundlerOptimizationPlugin() {
       return {
@@ -63,43 +65,12 @@ const pluginConfig = [
   [
     'docusaurus-plugin-openapi-docs',
     {
-      id: 'idn-api',
-      docsPluginId: 'idn',
-      config: {
-        idn_v3: {
-          specPath: 'static/api-specs/idn/sailpoint-api.v3.yaml',
-          outputDir: 'docs/api/v3',
-          downloadUrl:
-            'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.v3.yaml',
-          sidebarOptions: {
-            groupPathsBy: 'tag',
-            categoryLinkSource: 'tag',
-          },
-          template: 'api.mustache',
-        },
-        idn_beta: {
-          specPath: 'static/api-specs/idn/sailpoint-api.beta.yaml',
-          outputDir: 'docs/api/beta',
-          downloadUrl:
-            'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.beta.yaml',
-          sidebarOptions: {
-            groupPathsBy: 'tag',
-            categoryLinkSource: 'tag',
-          },
-          template: 'api.mustache',
-        },
-      },
-    },
-  ],
-  [
-    'docusaurus-plugin-openapi-docs',
-    {
       id: 'isc-api',
       docsPluginId: 'isc',
       config: {
         isc_versioned: {
-          specPath: 'static/code-examples/v2026/v2026.yaml',
-          outputDir: 'docs/api/v2026',
+          specPath: 'static/api-specs/idn/sailpoint-api.yaml',
+          outputDir: 'docs/api/',
           sidebarOptions: {
             groupPathsBy: 'tag',
             categoryLinkSource: 'tag',
@@ -109,6 +80,10 @@ const pluginConfig = [
                 const title = item.title;
                 const id =
                   item.type === 'schema' ? `schemas/${item.id}` : item.id;
+                const versionMatch = id.match(/v-(\d+)$/);
+                const versionClass = versionMatch
+                  ? `menu__list-item--v${versionMatch[1]}`
+                  : null;
                 const className =
                   item.type === 'api'
                     ? clsx(
@@ -118,16 +93,18 @@ const pluginConfig = [
                             !!item.api.parameters?.find(
                               (header) =>
                                 header.name === 'X-SailPoint-Experimental',
-                            ), // checks for existence of extension and adds "experimental" class
+                            ),
                           'api-method': !!item.api.method,
                         },
                         item.api.method,
+                        versionClass,
                       )
                     : clsx(
                         {
                           'menu__list-item--deprecated': item.schema.deprecated,
                         },
                         'schema',
+                        versionClass,
                       );
                 return {
                   type: 'doc' as const,
@@ -143,49 +120,15 @@ const pluginConfig = [
               },
             },
           },
-          version: 'v2026',
-          label: 'v2026',
+          version: 'v1',
+          label: 'v1',
           downloadUrl:
-            'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.v2026.yaml',
-          baseUrl: '/docs/api/v2026',
+            'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.yaml',
+          baseUrl: '/docs/api',
           template: 'api.mustache',
           markdownGenerators: {
             createApiPageMD,
-          },
-          versions: {
-            v2025: {
-              specPath: 'static/code-examples/v2025/v2025.yaml',
-              outputDir: 'docs/api/v2025',
-              downloadUrl:
-                'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.v2025.yaml',
-              label: 'v2025',
-              baseUrl: '/docs/api/v2025',
-            },
-            v2024: {
-              specPath: 'static/code-examples/v2024/v2024.yaml',
-              outputDir: 'docs/api/v2024',
-              downloadUrl:
-                'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.v2024.yaml',
-              label: 'v2024',
-              baseUrl: '/docs/api/v2024',
-            },
-            v3: {
-              specPath: 'static/code-examples/v3/v3.yaml',
-              outputDir: 'docs/api/v3',
-              downloadUrl:
-                'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.v3.yaml',
-              label: 'v3',
-              baseUrl: '/docs/api/v3',
-            },
-            beta: {
-              specPath: 'static/code-examples/beta/beta.yaml',
-              outputDir: 'docs/api/beta',
-              downloadUrl:
-                'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.beta.yaml',
-              label: 'Beta',
-              baseUrl: '/docs/api/beta',
-            },
-          },
+          }
         },
       },
     },
@@ -233,6 +176,10 @@ const pluginConfig = [
                 const title = item.title;
                 const id =
                   item.type === 'schema' ? `schemas/${item.id}` : item.id;
+                const versionMatch = id.match(/v-(\d+)$/);
+                const versionClass = versionMatch
+                  ? `menu__list-item--v${versionMatch[1]}`
+                  : null;
                 const className =
                   item.type === 'api'
                     ? clsx(
@@ -242,16 +189,18 @@ const pluginConfig = [
                             !!item.api.parameters?.find(
                               (header) =>
                                 header.name === 'X-SailPoint-Experimental',
-                            ), // checks for existence of extension and adds "experimental" class
+                            ),
                           'api-method': !!item.api.method,
                         },
                         item.api.method,
+                        versionClass,
                       )
                     : clsx(
                         {
                           'menu__list-item--deprecated': item.schema.deprecated,
                         },
                         'schema',
+                        versionClass,
                       );
                 return {
                   type: 'doc' as const,

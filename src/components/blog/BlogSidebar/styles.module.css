@@ -5,8 +5,8 @@
 }
 
 .toggleContainer {
-  margin: auto;
-  /* width: 31%; */
+  width: 100%;
+  margin: 0;
   margin-bottom: 3%;
 }
 
@@ -151,7 +151,8 @@
 
 .toggleWrapper {
   position: relative;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   height: 50px;
   border-radius: 25px;
   background-color: #ddd;
@@ -238,7 +239,7 @@
   }
 
   .toggleWrapper {
-    width: 325px;
+    max-width: 325px;
     height: 40px;
   }
 }

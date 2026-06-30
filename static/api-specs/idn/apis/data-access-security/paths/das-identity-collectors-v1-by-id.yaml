@@ -1,0 +1,85 @@
+put:
+  summary: Update identity collector by identifier
+  description: >-
+    This endpoint updates the name of an existing identity collector in Data Access Security. The `sourceId` and `type`
+    cannot be changed and must match the current values.
+  security:
+  - userAuth:
+    - das:identity-collectors:manage
+  - applicationAuth:
+    - das:identity-collectors:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+  - Data Access Security
+  operationId: putIdentityCollectorV1
+  parameters:
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: integer
+      format: int64
+    description: The unique identifier of the identity collector to update.
+    example: 12345
+  requestBody:
+    description: Request body containing the updated details for the identity collector.
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/updateidentitycollectorrequest.yaml
+    required: true
+  responses:
+    '204':
+      description: No Content
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '409':
+      $ref: ../responses/409.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+delete:
+  summary: Delete identity collector by identifier
+  description: This endpoint deletes an identity collector from Data Access Security by its unique identifier.
+  security:
+  - userAuth:
+    - das:identity-collectors:manage
+  - applicationAuth:
+    - das:identity-collectors:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+  - Data Access Security
+  operationId: deleteIdentityCollectorV1
+  parameters:
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: integer
+      format: int64
+    description: The unique identifier of the identity collector to delete.
+    example: 12345
+  responses:
+    '204':
+      description: No Content
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

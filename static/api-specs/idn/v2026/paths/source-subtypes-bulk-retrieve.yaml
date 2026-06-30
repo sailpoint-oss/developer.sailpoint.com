@@ -1,6 +1,6 @@
 post:
   tags:
-    - Machine Accounts
+    - Machine Account Subtypes
   summary: Bulk Retrieve of Source Subtypes
   description: This endpoint retrieves the subtypes for given subtypeIds.
   operationId: loadBulkSourceSubtypes

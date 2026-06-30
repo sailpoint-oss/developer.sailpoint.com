@@ -46004,6 +46004,14 @@ paths:
           example: 250
           required: false
           x-go-name: Limit
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: true
       responses:
         '200':
           description: List of ProvisioningPolicyDto objects
@@ -46062,6 +46070,14 @@ paths:
           required: false
           description: If passed as true, then it uses default fields from the connector template.
           example: false
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: true
       requestBody:
         required: true
         content:
@@ -46194,6 +46210,14 @@ paths:
           description: The provisioning policy ID.
           example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
           x-sailpoint-resource-operation-id: listProvisioningPoliciesV2
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: true
       responses:
         '200':
           description: The requested ProvisioningPolicyDtoV2 was successfully retrieved.
@@ -46250,6 +46274,14 @@ paths:
           description: The provisioning policy ID.
           example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
           x-sailpoint-resource-operation-id: listProvisioningPoliciesV2
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: true
       requestBody:
         required: true
         content:
@@ -46312,6 +46344,14 @@ paths:
           description: The provisioning policy ID.
           example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
           x-sailpoint-resource-operation-id: listProvisioningPoliciesV2
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: true
       requestBody:
         required: true
         description: The JSONPatch payload used to update the schema.
@@ -46386,6 +46426,14 @@ paths:
           description: The provisioning policy ID.
           example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
           x-sailpoint-resource-operation-id: listProvisioningPoliciesV2
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: true
       responses:
         '204':
           $ref: '#/components/responses/204'

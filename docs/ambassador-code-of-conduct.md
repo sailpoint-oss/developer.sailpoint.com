@@ -4,7 +4,6 @@ title: Ambassador Code of Conduct
 description: Additional standards and responsibilities for SailPoint Ambassadors and Expert Ambassadors.
 slug: /ambassador-code-of-conduct
 displayed_sidebar: communityPoliciesSidebar
-unlisted: true
 custom_edit_url: null
 toc_min_heading_level: 2
 toc_max_heading_level: 2

@@ -20,12 +20,6 @@ get:
     access-history certifications. Paged slices include a next link only when more results exist.
     The privilegedAccess slice contains the full result and is not paged.
     The outliers slice is omitted when the tenant lacks the IDA-outliers license.
-
-    A single match returns HTTP 200 with IntelIdentityAggregate.
-
-    Zero matches returns HTTP 404 with detailCode IDC_IDENTITY_NOT_FOUND.
-
-    Multiple matches returns HTTP 409 with detailCode IDC_IDENTITY_AMBIGUOUS and candidates listing each match.
   parameters:
   - in: query
     name: filters
@@ -56,119 +50,21 @@ get:
         application/json:
           schema:
             $ref: ../schemas/intelidentityaggregate.yaml
-          example:
-            id: ef38f94347e94562b5bb8424a56397d8
-            type: HUMAN
-            displayName: Example User
-            subtype: Employee
-            attributes:
-              city: Example City
-              cloudStatus: ACTIVE
-            created: '2026-05-12T08:00:00Z'
-            modified: '2026-05-12T09:15:30Z'
-            alias: example.user
-            email: user@example.com
-            identityStatus: ACTIVE
-            isManager: false
-            accounts:
-              items:
-              - id: 2c91808874ff91550175097daaec161c
-                name: example.user
-                source:
-                  id: 60de165099e649cb828553a5e8510fc4
-                  name: Example Directory
-                disabled: false
-                locked: false
-                authoritative: false
-                systemAccount: false
-                isMachine: false
-                manuallyCorrelated: false
-                nativeIdentity: CN=example.user,OU=users
-                created: '2026-01-01T00:00:00Z'
-                modified: '2026-05-01T00:00:00Z'
-              next: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/accounts?limit=10&offset=10
-            privilegedAccess:
-              items:
-              - privileged: true
-                id: ent-1
-                type: entitlement
-                displayName: Example_Admin_Access
-                name: Example_Admin_Access
-                source:
-                  name: Example HR Source
-                  id: src-2
-                attribute: EXAMPLE_PERMISSION_GROUPS
-                value: Example_Admin_Access
-            outliers:
-              rareAccess:
-                items:
-                - id: outlier-access-001
-                  displayName: Example_Admin_Access
-                  description: null
-                  accessType: ENTITLEMENT
-                  sourceName: Example SaaS Source
-                  extremelyRare: false
-                next: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/outliers/rare-access?limit=10&offset=10
-            accessHistory:
-              accessItems:
-                items:
-                - eventType: AccessItemRemoved
-                  dateTime: '2026-05-11T09:40:04.496Z'
-                  accessItem:
-                    id: access-item-001
-                    accessType: entitlement
-                    displayName: Example Access
-                    sourceName: Example Directory
-                next: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/access-history/access-items?limit=10&offset=10
-              certifications:
-                items:
-                - eventType: IdentityCertified
-                  dateTime: '2019-03-08T22:37:33.901Z'
-                  certificationId: 2c91808a77ff216301782327a50f09bf
-                  certificationName: Example certification
-                  signedDate: '2019-03-08T22:37:33.901Z'
-                next: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/access-history/certifications?limit=10&offset=10
     '400':
-      description: Missing or invalid filters.
-      content:
-        application/json:
-          schema:
-            $ref: ../schemas/errorbody.yaml
-          example:
-            detailCode: INVALID_REQUEST
-            message: filters must be supplied and non-empty
+      $ref: ../../shared/responses/400.yaml
     '401':
       $ref: ../../shared/responses/401.yaml
     '403':
       $ref: ../../shared/responses/403.yaml
     '404':
-      description: No identity matched the filter.
-      content:
-        application/json:
-          schema:
-            $ref: ../schemas/intelidentitynotfoundbody.yaml
-          example:
-            detailCode: IDC_IDENTITY_NOT_FOUND
-            message: no identity matched the supplied filter
+      $ref: ../../shared/responses/404.yaml
     '409':
       description: Multiple identities matched the filter.
       content:
         application/json:
           schema:
-            $ref: ../schemas/intelidentityambiguousbody.yaml
-          example:
-            detailCode: IDC_IDENTITY_AMBIGUOUS
-            message: multiple identities matched the supplied filter
-            candidates:
-            - id: cand-1
-              displayName: Example A
-            - id: cand-2
-              displayName: Example B
+            $ref: ../../shared/schemas/errorresponsedto.yaml
     '429':
       $ref: ../../shared/responses/429.yaml
     '500':
-      description: Upstream or internal failure.
-      content:
-        application/json:
-          schema:
-            $ref: ../schemas/errorbody.yaml
+      $ref: ../../shared/responses/500.yaml

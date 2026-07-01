@@ -6,7 +6,6 @@ description: |
 required:
   - id
   - type
-  - isManager
   - accounts
   - privilegedAccess
   - accessHistory
@@ -76,6 +75,7 @@ properties:
     example: ACTIVE
   isManager:
     type: boolean
+    default: false
     description: True when the identity is flagged as a people manager in the organization.
     example: false
   accounts:

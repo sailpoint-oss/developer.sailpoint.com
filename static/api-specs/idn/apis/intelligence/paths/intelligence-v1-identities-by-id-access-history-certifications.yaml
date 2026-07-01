@@ -59,7 +59,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../schemas/errorbody.yaml
+            $ref: ../../shared/schemas/errorresponsedto.yaml
     '401':
       $ref: ../../shared/responses/401.yaml
     '403':
@@ -71,4 +71,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../schemas/errorbody.yaml
+            $ref: ../../shared/schemas/errorresponsedto.yaml

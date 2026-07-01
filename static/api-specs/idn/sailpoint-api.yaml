@@ -28027,12 +28027,6 @@ paths:
         access-history certifications. Paged slices include a next link only when more results exist.
         The privilegedAccess slice contains the full result and is not paged.
         The outliers slice is omitted when the tenant lacks the IDA-outliers license.
-
-        A single match returns HTTP 200 with IntelIdentityAggregate.
-
-        Zero matches returns HTTP 404 with detailCode IDC_IDENTITY_NOT_FOUND.
-
-        Multiple matches returns HTTP 409 with detailCode IDC_IDENTITY_AMBIGUOUS and candidates listing each match.
       parameters:
         - in: query
           name: filters
@@ -28059,122 +28053,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/intelidentityaggregate'
-              example:
-                id: ef38f94347e94562b5bb8424a56397d8
-                type: HUMAN
-                displayName: Example User
-                subtype: Employee
-                attributes:
-                  city: Example City
-                  cloudStatus: ACTIVE
-                created: '2026-05-12T08:00:00Z'
-                modified: '2026-05-12T09:15:30Z'
-                alias: example.user
-                email: user@example.com
-                identityStatus: ACTIVE
-                isManager: false
-                accounts:
-                  items:
-                    - id: 2c91808874ff91550175097daaec161c
-                      name: example.user
-                      source:
-                        id: 60de165099e649cb828553a5e8510fc4
-                        name: Example Directory
-                      disabled: false
-                      locked: false
-                      authoritative: false
-                      systemAccount: false
-                      isMachine: false
-                      manuallyCorrelated: false
-                      nativeIdentity: CN=example.user,OU=users
-                      created: '2026-01-01T00:00:00Z'
-                      modified: '2026-05-01T00:00:00Z'
-                  next: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/accounts?limit=10&offset=10
-                privilegedAccess:
-                  items:
-                    - privileged: true
-                      id: ent-1
-                      type: entitlement
-                      displayName: Example_Admin_Access
-                      name: Example_Admin_Access
-                      source:
-                        name: Example HR Source
-                        id: src-2
-                      attribute: EXAMPLE_PERMISSION_GROUPS
-                      value: Example_Admin_Access
-                outliers:
-                  rareAccess:
-                    items:
-                      - id: outlier-access-001
-                        displayName: Example_Admin_Access
-                        description: null
-                        accessType: ENTITLEMENT
-                        sourceName: Example SaaS Source
-                        extremelyRare: false
-                    next: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/outliers/rare-access?limit=10&offset=10
-                accessHistory:
-                  accessItems:
-                    items:
-                      - eventType: AccessItemRemoved
-                        dateTime: '2026-05-11T09:40:04.496Z'
-                        accessItem:
-                          id: access-item-001
-                          accessType: entitlement
-                          displayName: Example Access
-                          sourceName: Example Directory
-                    next: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/access-history/access-items?limit=10&offset=10
-                  certifications:
-                    items:
-                      - eventType: IdentityCertified
-                        dateTime: '2019-03-08T22:37:33.901Z'
-                        certificationId: 2c91808a77ff216301782327a50f09bf
-                        certificationName: Example certification
-                        signedDate: '2019-03-08T22:37:33.901Z'
-                    next: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/access-history/certifications?limit=10&offset=10
         '400':
-          description: Missing or invalid filters.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorbody'
-              example:
-                detailCode: INVALID_REQUEST
-                message: filters must be supplied and non-empty
+          $ref: '#/components/responses/400'
         '401':
           $ref: '#/components/responses/401'
         '403':
           $ref: '#/components/responses/403'
         '404':
-          description: No identity matched the filter.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/intelidentitynotfoundbody'
-              example:
-                detailCode: IDC_IDENTITY_NOT_FOUND
-                message: no identity matched the supplied filter
+          $ref: '#/components/responses/404'
         '409':
           description: Multiple identities matched the filter.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/intelidentityambiguousbody'
-              example:
-                detailCode: IDC_IDENTITY_AMBIGUOUS
-                message: multiple identities matched the supplied filter
-                candidates:
-                  - id: cand-1
-                    displayName: Example A
-                  - id: cand-2
-                    displayName: Example B
+                $ref: '#/components/schemas/errorresponsedto'
         '429':
           $ref: '#/components/responses/429'
         '500':
-          description: Upstream or internal failure.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/errorbody'
+          $ref: '#/components/responses/500'
   /intelligence/v1/identities/{id}/accounts:
     get:
       operationId: getIntelIdentityAccountsV1
@@ -28245,7 +28141,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/errorbody'
+                $ref: '#/components/schemas/errorresponsedto'
         '401':
           $ref: '#/components/responses/401'
         '403':
@@ -28257,7 +28153,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/errorbody'
+                $ref: '#/components/schemas/errorresponsedto'
   /intelligence/v1/identities/{id}/outliers/rare-access:
     get:
       operationId: getIntelIdentityRareAccessV1
@@ -28322,7 +28218,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/errorbody'
+                $ref: '#/components/schemas/errorresponsedto'
         '401':
           $ref: '#/components/responses/401'
         '403':
@@ -28334,7 +28230,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/errorbody'
+                $ref: '#/components/schemas/errorresponsedto'
   /intelligence/v1/identities/{id}/access-history/access-items:
     get:
       operationId: getIntelIdentityAccessItemHistoryV1
@@ -28399,7 +28295,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/errorbody'
+                $ref: '#/components/schemas/errorresponsedto'
         '401':
           $ref: '#/components/responses/401'
         '403':
@@ -28411,7 +28307,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/errorbody'
+                $ref: '#/components/schemas/errorresponsedto'
   /intelligence/v1/identities/{id}/access-history/certifications:
     get:
       operationId: getIntelIdentityCertificationHistoryV1
@@ -28474,7 +28370,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/errorbody'
+                $ref: '#/components/schemas/errorresponsedto'
         '401':
           $ref: '#/components/responses/401'
         '403':
@@ -28486,7 +28382,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/errorbody'
+                $ref: '#/components/schemas/errorresponsedto'
   /jit-activation-config/v1/{configType}:
     get:
       operationId: getJitActivationConfigV1
@@ -72178,7 +72074,6 @@ components:
       required:
         - id
         - type
-        - isManager
         - accounts
         - privilegedAccess
         - accessHistory
@@ -72248,6 +72143,7 @@ components:
           example: ACTIVE
         isManager:
           type: boolean
+          default: false
           description: True when the identity is flagged as a people manager in the organization.
           example: false
         accounts:
@@ -72270,71 +72166,6 @@ components:
           description: Access-history split into access items and certifications sub-slices.
           allOf:
             - $ref: '#/components/schemas/intelaccesshistory'
-    errorbody:
-      type: object
-      properties:
-        detailCode:
-          type: string
-          description: Machine-readable error code returned by the Intelligence service.
-          example: IDC_BAD_REQUEST
-        message:
-          type: string
-          description: Human-readable explanation of the error suitable for client logging.
-          example: The filters query parameter is required and cannot be empty.
-    intelidentitynotfoundbody:
-      type: object
-      required:
-        - detailCode
-      properties:
-        detailCode:
-          type: string
-          enum:
-            - IDC_IDENTITY_NOT_FOUND
-          description: Constant detail code indicating that no identity matched the supplied filter.
-          example: IDC_IDENTITY_NOT_FOUND
-        message:
-          type: string
-          description: Optional explanatory text describing why no identity was found.
-          example: No identity matched the supplied SCIM filter expression.
-    intelidentityambiguouscandidate:
-      type: object
-      required:
-        - id
-      properties:
-        id:
-          type: string
-          description: Identity identifier for one of the ambiguous matching identities.
-          example: ef38f94347e94562b5bb8424a56397d8
-        displayName:
-          type: string
-          description: Display name for the ambiguous matching identity when available.
-          example: Jane Example
-    intelidentityambiguousbody:
-      type: object
-      required:
-        - detailCode
-        - candidates
-      properties:
-        detailCode:
-          type: string
-          enum:
-            - IDC_IDENTITY_AMBIGUOUS
-          description: Constant detail code indicating that more than one identity matched the filter.
-          example: IDC_IDENTITY_AMBIGUOUS
-        message:
-          type: string
-          description: Optional explanatory text describing why the filter was considered ambiguous.
-          example: Multiple identities matched the supplied SCIM filter expression.
-        candidates:
-          type: array
-          description: Collection of identities that matched the ambiguous filter expression.
-          items:
-            $ref: '#/components/schemas/intelidentityambiguouscandidate'
-          example:
-            - id: ef38f94347e94562b5bb8424a56397d8
-              displayName: Jane Example
-            - id: ef38f94347e94562b5bb8424a56397d9
-              displayName: J. Example
     jitactivationconfigresponse:
       type: object
       required:

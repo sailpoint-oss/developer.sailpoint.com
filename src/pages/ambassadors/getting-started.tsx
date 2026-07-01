@@ -1,6 +1,6 @@
-import React from 'react';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
+import React from 'react';
 import styles from './getting-started.module.css';
 
 const applicationCriteria = [
@@ -13,7 +13,6 @@ const tiers = [
     name: 'Ambassador',
     perks: [
       'Unconfigured tenant',
-      'Demo tenant',
       'Forum badge',
       'Exclusive swag',
       'Access to private Ambassador space on the forum',

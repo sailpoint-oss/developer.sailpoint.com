@@ -1,0 +1,9 @@
+required: true
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        role:
+          type: object
+          $ref: "../../schemas/PATCH/Role.yaml"

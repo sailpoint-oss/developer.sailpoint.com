@@ -1,0 +1,40 @@
+post:
+  operationId: startActivateWorkflow
+  tags:
+    - JIT Activations
+  summary: Start JIT activation workflow
+  description: |
+    Starts a JIT Privileged (JIT P) activation workflow for the given entitlement connection and duration.
+    The service performs quick validation; the workflow performs additional validation.
+
+    The response is returned with HTTP 202 Accepted while the workflow initializes.
+  security:
+    - userAuth:
+        - idn:jit-activation-workflow:activate
+        - idn:jit-activation-workflow:manage
+  x-sailpoint-userLevels:
+    - USER
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/JitActivationActivateRequest.yaml
+  responses:
+    '202':
+      description: |
+        Accepted. The activation workflow was accepted and is running.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/JitActivationActivateResponse.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

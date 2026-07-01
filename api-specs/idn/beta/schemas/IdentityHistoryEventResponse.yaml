@@ -1,0 +1,12 @@
+type: object
+title: Identity History Event Response
+properties:
+  eventType:
+    type: string
+    description: the type of event
+  date:
+    type: string
+    description: the date of the event
+example:
+  evetType: 'AccessItemAssociated'
+  date: '2021-03-11T21:27:54.750Z'

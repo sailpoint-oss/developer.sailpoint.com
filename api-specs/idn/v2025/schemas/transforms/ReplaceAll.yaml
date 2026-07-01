@@ -1,0 +1,19 @@
+title: replaceAll
+type: object
+required:
+- table
+properties:
+  table:
+    type: object
+    additionalProperties: true
+    description: An attribute of key-value pairs. Each pair identifies the pattern to search for as its key, and the replacement string as its value.
+    example:
+      {
+        "-": " ",
+        "\"": "'",
+        "ñ": "n"
+      }
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml'
+  input:
+    $ref: './input.yaml'

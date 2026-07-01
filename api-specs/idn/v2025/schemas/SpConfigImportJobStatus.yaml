@@ -1,0 +1,17 @@
+allOf:
+  - $ref: "./SpConfigJob.yaml"
+  - type: object
+    nullable: true
+    properties:
+      message:
+        type: string
+        description: This message contains additional information about the overall status of the job.
+        example: "Download import results for details."
+  - type: object
+    nullable: true
+    properties:
+      completed:
+        type: string
+        format: 'date-time'
+        description: The time the job was completed.
+        example: "2021-05-11T22:23:16Z"

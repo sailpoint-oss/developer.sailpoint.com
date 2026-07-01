@@ -1,0 +1,23 @@
+description: Role Change Propagation Config Response
+type: object
+properties:
+  enabled:
+    description: Indicates if the Role Change Propagation process is enabled for the tenant
+    type: boolean
+    example: true
+    default: false
+  enabledDate:
+    description: The time when Role Change Propagation Process was last enabled on the tenant
+    type: string
+    example: "2026-01-27T08:07:20Z"
+    format: 'date-time'
+  createdDate:
+    description: The time when Role Change Propagation Configuration was first created for the tenant
+    type: string
+    example: "2025-02-18T20:20:36Z"
+    format: 'date-time'
+  modifiedDate:
+    description: The time when Role Change Propagation Config was updated on the tenant
+    type: string
+    example: "2026-01-27T08:07:20Z"
+    format: 'date-time'

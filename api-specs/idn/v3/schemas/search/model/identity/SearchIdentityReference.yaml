@@ -1,0 +1,6 @@
+allOf:
+- $ref: '../base/Reference.yaml'
+- type: object
+  properties:
+    type:
+      $ref: '../../../DtoType.yaml'

@@ -1,0 +1,117 @@
+title: Saved Search Complete
+type: object
+required:
+- fileName
+- ownerEmail
+- ownerName
+- query
+- searchName
+- searchResults
+- signedS3Url
+properties:
+  fileName:
+    type: string
+    description:  A name for the report file.
+    example: Modified.zip
+  ownerEmail:
+    type: string
+    description: The email address of the identity that owns the saved search.
+    example: test@sailpoint.com
+  ownerName:
+    type: string
+    description: The name of the identity that owns the saved search.
+    example: Cloud Support
+  query:
+    type: string
+    description: The search query that was used to generate the report.
+    example: 'modified:[now-7y/d TO now]'
+  searchName:
+    type: string
+    description: The name of the saved search.
+    example: Modified Activity
+  searchResults:
+    type: object
+    description: A preview of the search results for each object type. This includes a count as well as headers, and the first several rows of data, per object type.
+    properties:
+      Account:
+        description: A table of accounts that match the search criteria.
+        nullable: true
+        type: object
+        required:
+        - count
+        - noun
+        - preview
+        properties:
+          count:
+            type: string
+            description: The number of rows in the table.
+            example: 3
+          noun:
+            type: string
+            description: The type of object represented in the table.
+            example: accounts
+          preview:
+            description: A sample of the data in the table.
+            type: array
+            items:
+              type: array
+              items:
+                type: string
+                example: Robert.Chase
+              example: []
+      Entitlement:
+        description: A table of entitlements that match the search criteria.
+        nullable: true
+        type: object
+        required:
+        - count
+        - noun
+        - preview
+        properties:
+          count:
+            type: string
+            description: The number of rows in the table.
+            example: 2
+          noun:
+            type: string
+            description: The type of object represented in the table.
+            example: entitlements
+          preview:
+            description: A sample of the data in the table.
+            type: array
+            items:
+              type: array
+              items:
+                type: string
+                example: Administrator
+              example: []
+      Identity:
+        description: A table of identities that match the search criteria.
+        nullable: true
+        type: object
+        required:
+        - count
+        - noun
+        - preview
+        properties:
+          count:
+            type: string
+            description: The number of rows in the table.
+            example: 2
+          noun:
+            type: string
+            description: The type of object represented in the table.
+            example: identities
+          preview:
+            description: A sample of the data in the table.
+            type: array
+            items:
+              type: array
+              items:
+                type: string
+                example: Carol Shelby
+              example: []
+  signedS3Url:
+    type: string
+    description: The Amazon S3 URL to download the report from.
+    example: https://sptcbu-org-data-useast1.s3.amazonaws.com/arsenal-john/reports/Events%20Export.2020-05-06%2018%2759%20GMT.3e580592-86e4-4953-8aea-49e6ef20a086.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200506T185919Z&X-Amz-SignedHeaders=host&X-Amz-Expires=899&X-Amz-Credential=AKIAV5E54XOGTS4Q4L7A%2F20200506%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=2e732bb97a12a1fd8a215613e3c31fcdae8ba1fb6a25916843ab5b51d2ddefbc

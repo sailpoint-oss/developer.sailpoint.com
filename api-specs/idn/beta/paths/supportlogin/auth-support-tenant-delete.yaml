@@ -1,0 +1,19 @@
+operationId: authSupportTenantDelete
+tags:
+  - Auth Support Login
+summary: Delete all auth support tenant records for this tenant
+description: >-
+  This request will delete all auth support tenant records related to the
+  requesting tenant.   Request will require the following security scope:
+   **sp:auth-support-login:delete**
+responses:
+  "204":
+    $ref: "../../../v3/responses/204.yaml"
+  "401":
+    $ref: "../../../v3/responses/401.yaml"
+  "403":
+    $ref: "../../../v3/responses/403.yaml"
+  "404":
+    $ref: "../../../v3/responses/404.yaml"
+  "500":
+    $ref: "../../../v3/responses/500.yaml"

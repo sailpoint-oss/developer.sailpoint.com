@@ -1,0 +1,6 @@
+type: string
+enum:
+  - IDENTITY
+description: >-
+    Indicates whether the associated criteria represents an expression on identity attributes.
+example: IDENTITY

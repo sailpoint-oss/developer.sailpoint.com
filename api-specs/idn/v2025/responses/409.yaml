@@ -1,0 +1,15 @@
+description: Conflict - Indicates that the request could not be processed because of conflict in the current state of the resource.
+content:
+  schema:
+    type: object
+    properties:
+      errorName:
+        description: A message describing the error
+        example: "ConflictException"
+      errorMessage:
+        description: Description of the error
+        example: Failed to store object
+      trackingId:
+        type: string
+        description: Unique tracking id for the error.
+        example: e7eab60924f64aa284175b9fa3309599

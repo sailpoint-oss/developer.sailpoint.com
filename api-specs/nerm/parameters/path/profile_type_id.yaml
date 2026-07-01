@@ -1,0 +1,8 @@
+name: profile_type_id
+in: path
+description: Profile type ID of the object
+required: true
+schema:
+  type: string
+  format: uuid
+  example: 1246d8b3-ac29-4015-8154-dea4434a73fa

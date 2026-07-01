@@ -1,0 +1,57 @@
+type: object
+title: Create Machine Account Request Details Dto
+description: Represents a request to create a machine account.
+properties:
+  accountRequestId:
+    type: string
+    description: Account request ID.
+    example: 2d8180a46faadee4016fb4e018c20648
+  requestType:
+    type: string
+    description: Type of the account request.
+    example: CREATE_MACHINE_ACCOUNT
+  createdAt:
+    description: Machine account creation request creation date and time.
+    type: string
+    example: 2026-01-20T21:30:00Z
+    format: date-time
+    readOnly: true
+  completedAt:
+    description: Machine account creation request completion date and time.
+    type: string
+    example: 2026-01-20T21:35:00Z
+    format: date-time
+    readOnly: true
+    nullable: true
+  overallStatus:
+    type: string
+    description: Overall status of the creation request.
+    example: SUCCESS
+  requester:
+    allOf:
+      - $ref: './BaseReferenceDto.yaml'
+      - description: The identity who has requested this account request.
+        nullable: false
+        example:
+          type: IDENTITY
+          id: SailPoint Support
+          name: 85131bd73fdc423599e57f40b29f01fe
+  accountRequestPhases:
+    type: array
+    items:
+      $ref: './AccountRequestPhase.yaml'
+    description: List of account request phases.
+    example:
+      - name: APPROVAL_PHASE
+        state: APPROVED
+        started: 2026-01-14T08:08:28.644090559Z
+        finished: 2026-01-14T08:38:42.707043142Z
+      - name: PROVISIONING_PHASE
+        state: PASSED
+        started: 2026-01-14T08:38:42.785577841Z
+        finished: 2026-01-14T08:38:45.932606296Z
+  errorDetails:
+    nullable: true
+    type: string
+    description: Detailed error information.
+    example: "Detailed error message."

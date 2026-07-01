@@ -1,0 +1,9 @@
+description: Expected response to a valid request
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        page_content_translation:
+          type: object
+          $ref: '../schemas/GET/PageContentTranslation.yaml'

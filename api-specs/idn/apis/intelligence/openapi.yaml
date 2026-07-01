@@ -1,0 +1,49 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Intelligence
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Intelligence
+    description: |
+      Read-only HTTP API that returns the Intelligence (identity context)
+      for SecOps enrichment use cases (SIEM/SOAR connectors, MCP, browser
+      extension). Backed by Atlas internal-REST calls to MICE, Shelby List Accounts,
+      SDS Search, IDA-outliers, and identity-history.
+paths:
+  /intelligence/v1/identities:
+    $ref: ./paths/intelligence-v1-identities.yaml
+  /intelligence/v1/identities/{id}/accounts:
+    $ref: ./paths/intelligence-v1-identities-by-id-accounts.yaml
+  /intelligence/v1/identities/{id}/outliers/rare-access:
+    $ref: ./paths/intelligence-v1-identities-by-id-outliers-rare-access.yaml
+  /intelligence/v1/identities/{id}/access-history/access-items:
+    $ref: ./paths/intelligence-v1-identities-by-id-access-history-access-items.yaml
+  /intelligence/v1/identities/{id}/access-history/certifications:
+    $ref: ./paths/intelligence-v1-identities-by-id-access-history-certifications.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

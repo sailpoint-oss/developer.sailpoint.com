@@ -1,0 +1,23 @@
+description: An existing parameter that needs to be updated. The type cannot be changed once the parameter is created.
+type: object
+properties:
+  ownerId:
+    type: string
+    description: The UUID of the parameter owner.
+    example: c0b4568a4fe7458c434ee77d1fbt156b
+  name:
+    type: string
+    description: The human-readable name for the parameter.
+    example: Credentials for server.
+  publicFields:
+    type: object
+    description: The public fields that can be stored with this parameter.
+    example: '{"username": "username"}'
+  privateFields:
+    type: string
+    description: The private fields that can be stored with this parameter.
+    example: ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu
+  description:
+    type: string
+    description: Describe the parameter
+    example: Credentials for server.

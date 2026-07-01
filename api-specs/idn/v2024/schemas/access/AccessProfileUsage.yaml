@@ -1,0 +1,28 @@
+type: object
+properties:
+    accessProfileId:
+        type: string
+        description: ID of the Access Profile that is in use
+        example: "2c91808876438bbb017668c21919ecca"
+    usedBy:
+        type: array
+        description: List of references to objects which are using the indicated Access Profile
+        items:
+            type: object
+            description: Role using the access profile.
+            properties:
+                type:
+                    type: string 
+                    description: DTO type of role using the access profile. 
+                    enum: 
+                    - ROLE
+                    example: ROLE
+                id:
+                    type: string
+                    description: ID of role using the access profile. 
+                    example: 2c8180857a9b3da0017aa03418480f9d
+                name:
+                    type: string
+                    description: Display name of role using the access profile.
+                    example: Manager Role
+

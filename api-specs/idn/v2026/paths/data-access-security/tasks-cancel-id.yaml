@@ -1,0 +1,36 @@
+post:
+  security:
+    - userAuth: [ das:task:manage ]
+    - applicationAuth: [ das:task:manage ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+    - Data Access Security
+  summary: Cancel a DAS task.
+  description: >-
+    This end-point sends a request to cancel a task in Data Access Security.
+  operationId: cancelTask
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: The unique identifier of the task to cancel.
+      example: 1001
+  responses:
+    '204':
+      description: No Content
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

@@ -1,0 +1,6 @@
+type: object
+properties:
+  form_attributes:
+    type: array
+    items:
+      $ref: '../GET/FormAttribute.yaml'

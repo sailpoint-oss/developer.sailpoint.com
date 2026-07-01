@@ -1,0 +1,23 @@
+type: object
+properties:
+  uuid:
+    type: string
+    description: The uuid for the account, available under the 'objectguid' attribute
+    example: '{fab7119e-004f-4822-9c33-b8d570d6c6a6}'
+  nativeIdentity:
+    type: string
+    description: The 'distinguishedName' attribute for the account
+    example: 'CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local'
+  type:
+    $ref: './../DtoType.yaml'
+    description: DTO type
+    example: 'ACCOUNT'
+  id:
+    type: string
+    description: The account id
+    example: 'f19d168c27374fd1aff3b483573f997f'
+  name:
+    type: string
+    description: The account display name
+    example: 'UserAccount.761a2248b'
+

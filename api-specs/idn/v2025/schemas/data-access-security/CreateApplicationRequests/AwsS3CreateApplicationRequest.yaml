@@ -1,0 +1,40 @@
+allOf:
+  - $ref: './BaseCreateApplicationRequest.yaml'
+  - required:
+      - accessKeyId
+      - accessKeySecret
+      - managementAccountId
+    type: object
+    properties:
+      managementAccountId:
+        type: string
+        description: The AWS account ID used for management operations.
+        example: "123456789012"
+      accessKeyId:
+        type: string
+        description: The AWS access key ID for authentication.
+        example: "AKIAIOSFODNN7EXAMPLE"
+      accessKeySecret:
+        type: string
+        description: The AWS secret access key for authentication.
+        example: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+      analyzeAclBuckets:
+        type: boolean
+        description: Indicates whether ACL buckets should be analyzed.
+        example: true
+        default: false
+      analyzeS3Buckets:
+        type: boolean
+        description: Indicates whether S3 buckets should be analyzed.
+        example: true
+        default: false
+      adGroupMappingRegex:
+        type: string
+        nullable: true
+        description: Regular expression for mapping AD groups to AWS resources.
+        example: "^CN=(.*?),OU=.*$"
+      excludeCloudTrailLogs:
+        type: boolean
+        description: Indicates whether CloudTrail logs should be excluded from analysis.
+        example: false
+        default: false

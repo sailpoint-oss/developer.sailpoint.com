@@ -1,0 +1,8 @@
+type : object
+title: Account Delete Request Input
+description: Contains the required information for processing a user-initiated account deletion request, including the reason for deletion.
+properties:
+  comments:
+    type: string
+    description: Reason for deleting the account.
+    example: "Requesting account deletion request"

@@ -1,0 +1,127 @@
+get:
+  operationId: listPersonalAccessTokens
+  security:
+    - userAuth: [sp:my-personal-access-tokens:read, sp:my-personal-access-tokens:manage, sp:all-personal-access-tokens:read, sp:all-personal-access-tokens:manage]
+  x-sailpoint-userLevels:
+    - Any
+  tags:
+    - Personal Access Tokens
+  summary: List personal access tokens
+  description: >-
+    This gets a collection of personal access tokens associated with the optional `owner-id`. 
+    query parameter. If the `owner-id` query parameter is omitted, all personal access tokens 
+    for a tenant will be retrieved, but the caller must have the 'idn:all-personal-access-tokens:read' right.
+    
+  parameters:
+    - in: query
+      name: owner-id
+      description: >-
+        The identity ID of the owner whose personal access tokens should be listed. 
+        If "me", the caller should have the following right: 'idn:my-personal-access-tokens:read'
+        
+        If an actual owner ID or if the `owner-id` parameter is omitted in the request, 
+        the caller should have the following right: 'idn:all-personal-access-tokens:read'. 
+        
+        If the caller has the following right, then managed personal access tokens associated with `owner-id` 
+        will be retrieved: 'idn:managed-personal-access-tokens:read'
+      required: false
+      schema:
+        type: string
+        default: null
+        example: 2c9180867b50d088017b554662fb281e
+    - in: query
+      name: filters
+      required: false
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard
+        Collection
+        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **lastUsed**: *le, isnull*
+      example: lastUsed le 2023-02-05T10:59:27.214Z
+  responses:
+    "200":
+      description: List of personal access tokens.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/GetPersonalAccessTokenResponse.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
+post:
+  operationId: createPersonalAccessToken
+  security:
+    - userAuth: [ sp:my-personal-access-tokens:manage, sp:all-personal-access-tokens:manage ]
+  x-sailpoint-userLevels:
+    - Any
+  tags:
+    - Personal Access Tokens
+  summary: Create personal access token
+  description: >-
+    This creates a personal access token.
+    
+    **expirationDate and userAwareTokenNeverExpires Relationship:**
+    
+    **Important:** When `expirationDate` is `null` or empty (not included in the request body), the token will never expire.
+    
+    **Required Validation:** If `expirationDate` is `null` or empty, `userAwareTokenNeverExpires` must be set to `true`. This is a required validation rule.
+    
+    The valid values for `expirationDate` depend on the value provided for `userAwareTokenNeverExpires`:
+    
+    * **When `userAwareTokenNeverExpires` is `true` (or required to be `true`):** `expirationDate` can be `null` or omitted from the request body. When `expirationDate` is `null` or empty, the token will never expire. This creates a PAT that never expires and serves as an explicit acknowledgment that the user is aware of the security implications of creating a non-expiring token.
+    * **When `userAwareTokenNeverExpires` is `false` or omitted:** `expirationDate` must be provided and must be a valid date-time string representing a future date (there is no upper limit). `expirationDate` cannot be `null` in this case. In this scenario, `userAwareTokenNeverExpires` can be omitted.
+    
+    **Validation Rules:**
+    * **If `expirationDate` is `null` or not included in the request body:** `userAwareTokenNeverExpires` must be set to `true` (required). The token will never expire.
+    * **If `expirationDate` is provided and is not `null`:** `userAwareTokenNeverExpires` can be omitted.
+    
+    **Security Considerations:**
+    The `userAwareTokenNeverExpires` field is designed to ensure that users explicitly acknowledge the security implications of creating tokens that never expire. Setting this field to `true` indicates that the user understands the increased security risks and has made an informed decision to proceed.
+    
+    **Note:** The `userAwareTokenNeverExpires` field indicates that the user acknowledges they are creating a token that will never expire. It does not affect token behavior beyond indicating this acknowledgment.
+    
+  requestBody:
+    description: >-
+      Configuration for creating a personal access token, including name, scope, expiration settings, and user acknowledgment of never-expiring tokens.
+      
+      **Important:** See the endpoint description for validation rules regarding the relationship between `expirationDate` and `userAwareTokenNeverExpires`.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/CreatePersonalAccessTokenRequest.yaml"
+  responses:
+    "200":
+      description:
+        Created. Note - this is the only time Personal Access Tokens' secret
+        attribute will be displayed.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/CreatePersonalAccessTokenResponse.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

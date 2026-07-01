@@ -1,0 +1,31 @@
+allOf:
+  - $ref: './BaseCommonDto.yaml'
+  - type: object
+    description: Entitlement object that represents entitlement
+    properties:
+      attribute:
+        description: Name of the entitlement attribute
+        type: string
+        example: authorizationType
+      value:
+        description: Raw value of the entitlement
+        type: string
+        example: CN=Users,dc=sailpoint,dc=com
+      description:
+        description: Entitlment description
+        type: string
+      attributes:
+        description: Entitlement attributes
+        type: object
+      sourceSchemaObjectType:
+        description: Schema objectType on the given application that maps to an Account Group
+        type: string
+        example: group
+      privileged:
+        description: Determines if this Entitlement is privileged.
+        type: boolean
+      cloudGoverned:
+        description: Determines if this Entitlement is goverened in the cloud.
+        type: boolean
+      source:
+        $ref: '../../v3/schemas/EntitlementSource.yaml'

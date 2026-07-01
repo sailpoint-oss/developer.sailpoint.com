@@ -1,0 +1,5 @@
+description: >-
+  The current Elasticserver version.
+type: string
+default: "5.2"
+example: "5.2"

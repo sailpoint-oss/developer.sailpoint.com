@@ -1,0 +1,19 @@
+type: object
+properties:
+  type:
+    $ref: './../DtoType.yaml'
+    description: DTO type
+    example: SOURCE
+  id:
+    description: The source id
+    type: string
+    example: '3ac3c43785a845fa9820b0c1ac767cd5'
+  name:
+    description: The source name
+    example: 'Test Source_Name'
+    type: string
+  accounts:
+    description: The accounts information for a particular source in the requested item
+    type: array
+    items:
+      $ref: 'AccountInfoRef.yaml'

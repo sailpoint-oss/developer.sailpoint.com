@@ -1,0 +1,22 @@
+type: object
+title: Config Import/Export Message
+description: Message model for Config Import/Export.
+properties:
+  key:
+    type: string
+    description: Message key.
+    example: "UNKNOWN_REFERENCE_RESOLVER"
+  text:
+    type: string
+    description: Message text.
+    example: "Unable to resolve reference for object [type: IDENTITY, id: 2c91808c746e9c9601747d6507332ecz, name: random identity]"
+  details:
+    type: object
+    description: Message details if any, in key:value pairs.
+    additionalProperties:
+      type: object
+    example: { "details": "message details" }
+required:
+  - key
+  - text
+  - details

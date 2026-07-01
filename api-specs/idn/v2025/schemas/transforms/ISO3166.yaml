@@ -1,0 +1,21 @@
+title: iso3166
+type: object
+properties:
+  format:
+    type: string
+    description: |
+      An optional value to denote which ISO 3166 format to return. Valid values are:
+
+      
+      `alpha2` - Two-character country code (e.g., "US"); this is the default value if no format is supplied
+      
+      
+      `alpha3` - Three-character country code (e.g., "USA")
+      
+      
+      `numeric` - The numeric country code (e.g., "840")
+    example: 'alpha2'
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml'
+  input:
+    $ref: './input.yaml'

@@ -1,0 +1,11 @@
+type: object
+properties:
+  RequestedUri:
+    type: string
+    description: The endpoint of a SailPoint API
+    example: "/v2024/auth-org/session-config"
+  NumberOfCalls:
+    type: integer
+    format: int64
+    description: Number of calls made to a specific SailPoint API
+    example: 10

@@ -1,0 +1,15 @@
+post:
+  summary: Create a synced attribute
+  operationId: createSyncedAttribute
+  description: Create synced attribute
+  tags:
+    - synced attributes
+  requestBody:
+    $ref: "../requestBodies/POST/SyncedAttributes.yaml"
+  responses:
+    '201':
+      $ref: "../responses/SyncedAttribute.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

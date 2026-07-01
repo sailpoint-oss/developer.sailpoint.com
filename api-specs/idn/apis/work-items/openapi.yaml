@@ -1,0 +1,88 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Work Items
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Work Items
+    description: >
+      Use this API to implement work item functionality. 
+
+      With this functionality in place, users can manage their work items (tasks). 
+
+
+      Work items refer to the tasks users see in Identity Security Cloud's Task Manager. 
+
+      They can see the pending work items they need to complete, as well as the work items they have already completed. 
+
+      Task Manager lists the work items along with the involved sources, identities, accounts, and the timestamp when
+      the work item was created. 
+
+      For example, a user may see a pending 'Create an Account' work item for the identity Fred.Astaire in GitHub for
+      Fred's GitHub account, fred-astaire-sp. 
+
+      Once the user completes the work item, the work item will be listed with his or her other completed work items. 
+
+
+      To complete work items, users can use their dashboards and select the 'My Tasks' widget. 
+
+      The widget will list any work items they need to complete, and they can select the work item from the list to
+      review its details. 
+
+      When they complete the work item, they can select 'Mark Complete' to add it to their list of completed work
+      items. 
+
+
+      Refer to [Task Manager](https://documentation.sailpoint.com/saas/user-help/task_manager.html) for more information
+      about work items, including the different types of work items users may need to complete.
+paths:
+  /work-items/v1:
+    $ref: ./paths/work-items-v1.yaml
+  /work-items/v1/completed:
+    $ref: ./paths/work-items-v1-completed.yaml
+  /work-items/v1/count:
+    $ref: ./paths/work-items-v1-count.yaml
+  /work-items/v1/completed/count:
+    $ref: ./paths/work-items-v1-completed-count.yaml
+  /work-items/v1/summary:
+    $ref: ./paths/work-items-v1-summary.yaml
+  /work-items/v1/{id}:
+    $ref: ./paths/work-items-v1-by-id.yaml
+  /work-items/v1/{id}/approve/{approvalItemId}:
+    $ref: ./paths/work-items-v1-by-id-approve-by-approvalitemid.yaml
+  /work-items/v1/{id}/reject/{approvalItemId}:
+    $ref: ./paths/work-items-v1-by-id-reject-by-approvalitemid.yaml
+  /work-items/v1/bulk-approve/{id}:
+    $ref: ./paths/work-items-v1-bulk-approve-by-id.yaml
+  /work-items/v1/bulk-reject/{id}:
+    $ref: ./paths/work-items-v1-bulk-reject-by-id.yaml
+  /work-items/v1/{id}/submit-account-selection:
+    $ref: ./paths/work-items-v1-by-id-submit-account-selection.yaml
+  /work-items/v1/{id}/forward:
+    $ref: ./paths/work-items-v1-by-id-forward.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

@@ -85,8 +85,6 @@ const VideoSidebar: React.FC<MarketplaceSidebarProps> = ({ filterCallback }) => 
 
   const displayText = (text: string): string => {
     const textMap: Record<string, string> = {
-      'identity-security-cloud': 'Identity Security Cloud',
-      'access-intelligence-center': 'Access Intelligence Center',
       'community-live-stream': 'Community Live Stream',
       'developer-days': 'Developer Days',
       'product-demo': 'Product Demo',

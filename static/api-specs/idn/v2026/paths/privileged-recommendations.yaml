@@ -40,9 +40,9 @@ get:
       $ref: ../responses/500.yaml
   security:
     - userAuth:
-        - idn:sed:read
+        - idn:privilege-rec:read
     - applicationAuth:
-        - idn:sed:read
+        - idn:privilege-rec:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN

@@ -49191,9 +49191,9 @@ paths:
           $ref: '#/components/responses/500'
       security:
         - userAuth:
-            - idn:sed:read
+            - idn:privilege-rec:read
         - applicationAuth:
-            - idn:sed:read
+            - idn:privilege-rec:read
       x-sailpoint-userLevels:
         - ORG_ADMIN
         - SOURCE_ADMIN

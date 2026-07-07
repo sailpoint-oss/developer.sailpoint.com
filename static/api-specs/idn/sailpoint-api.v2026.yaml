@@ -2464,10 +2464,6 @@ paths:
     $ref: ./v2026/paths/suggested-entitlement-descriptions-auto-write-settings.yaml
   /entitlement-recommendations/pending-approvals:
     $ref: ./v2026/paths/entitlement-recommendations-pending-approvals.yaml
-  /prompt-insights/metrics:
-    $ref: ./v2026/paths/prompt-insights/metrics.yaml
-  /prompt-insights:
-    $ref: ./v2026/paths/prompt-insights/prompt-insights.yaml
   /privileged-recommendations:
     $ref: ./v2026/paths/privileged-recommendations.yaml
   /entitlement-recommendations/bulk-approve:

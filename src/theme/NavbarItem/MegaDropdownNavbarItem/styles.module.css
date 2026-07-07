@@ -1,0 +1,58 @@
+/**
+ * Styles for the `custom-megaDropdown` navbar item.
+ *
+ * The panel reuses Infima's `.dropdown__menu` for its background, border,
+ * shadow, absolute positioning and hover/show transitions; these rules only
+ * widen it and lay the groups out as columns.
+ */
+
+.megaPanel {
+  /* Grow to fit the columns instead of the default narrow 10rem dropdown. */
+  min-width: max-content;
+  max-width: min(90vw, 60rem);
+  padding: 1.25rem 1.5rem;
+}
+
+.megaPanelInner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 2.5rem;
+}
+
+.megaColumn {
+  display: flex;
+  flex-direction: column;
+  min-width: 12rem;
+}
+
+.megaColumnTitle {
+  margin-bottom: 0.5rem;
+  padding: 0 0.5rem 0.4rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+}
+
+.megaColumnList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.megaColumnList :global(.dropdown__link) {
+  white-space: nowrap;
+}
+
+/* Mobile sidebar: group heading above its links. */
+.mobileGroupTitle {
+  padding: 0.7rem 1rem 0.2rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  list-style: none;
+}

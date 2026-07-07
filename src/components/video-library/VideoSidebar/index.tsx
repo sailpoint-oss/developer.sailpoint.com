@@ -8,6 +8,9 @@ interface MarketplaceSidebarProps {
   filterCallback: (filters: { tag: string[] | string | null }) => void;
 }
 
+// Video type filters are limited to these tags, in this order
+const ALLOWED_VIDEO_TAGS = ['community-live-stream', 'developer-days', 'product-demo'];
+
 const VideoSidebar: React.FC<MarketplaceSidebarProps> = ({ filterCallback }) => {
   const [tagProductData, setTagProductData] = useState<string[] | null>(null);
   const [videoTag, setVideoTag] = useState<string[] | null>(null);
@@ -75,28 +78,16 @@ const VideoSidebar: React.FC<MarketplaceSidebarProps> = ({ filterCallback }) => 
       }
     }
 
-    // Replace generic developer-days with year-specific tags discovered from all available tags
-    if (uniqueTags.has('developer-days') && Array.isArray(data.tags)) {
-      const yearTags: string[] = data.tags
-        .map((tag: { name: string }) => tag.name)
-        .filter((name: string) => /^developer-days-\d{4}/.test(name))
-        .sort();
-
-      if (yearTags.length > 0) {
-        uniqueTags.delete('developer-days');
-        yearTags.forEach((tag: string) => uniqueTags.add(tag));
-      }
-    }
-
     setTagProductData(Array.from(uniqueProductTags));
-    setVideoTag(Array.from(uniqueTags));
+    // Limit video type filters to the allowlist, preserving its order
+    setVideoTag(ALLOWED_VIDEO_TAGS.filter((tag) => uniqueTags.has(tag)));
   };
 
   const displayText = (text: string): string => {
     const textMap: Record<string, string> = {
-      'identity-security-cloud': 'Identity Security Cloud',
-      'access-intelligence-center': 'Access Intelligence Center',
-      'developer-days-2023-iiq': 'Developer Days 2023 IIQ',
+      'community-live-stream': 'Community Live Stream',
+      'developer-days': 'Developer Days',
+      'product-demo': 'Product Demo',
     };
 
     return textMap[text] || text;

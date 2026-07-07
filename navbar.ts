@@ -50,6 +50,7 @@ const navbarConfig = {
           { label: 'Developer blog', to: '/blog' },
           { label: 'Ambassador program', to: '/ambassadors' },
           { label: 'Community policies', to: '/docs/community-policies' },
+          { label: 'About Developer Relations', to: '/about-developer-relations'},
         ],
       },
       {

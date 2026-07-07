@@ -26,13 +26,6 @@ const teamMembers: TeamMember[] = [
     image: '/homepage/phil-ellis.png',
   },
   {
-    link: 'https://developer.sailpoint.com/discuss/u/lukehagar/summary',
-    name: 'Luke Parke',
-    title: ['Software Engineer'],
-    expertise: 'DEVELOPER TOOLS',
-    image: '/homepage/lukeparke.png',
-  },
-  {
     link: 'https://developer.sailpoint.com/discuss/u/tyler_mairose/summary',
     name: 'Tyler Mairose',
     title: ['Developer Advocate'],

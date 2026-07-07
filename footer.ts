@@ -30,18 +30,14 @@ const footerConfig = {
         title: 'Community',
         items: [
           { label: 'Discuss', to: 'https://developer.sailpoint.com/discuss' },
-          { label: 'Submit an idea', to: 'https://developer-sailpoint.ideas.aha.io/' },
-          { 
-            label: 'Contact our team', 
-            to: 'https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations' 
-          },
+          { label: 'Submit an idea', to: 'https://ideas.sailpoint.com/' },
+          { label: 'Contact our team', href: 'mailto:developer-relations@sailpoint.com' },
         ],
       },
       {
         title: 'More',
         items: [
           { label: 'GitHub', href: 'https://github.com/sailpoint-oss' },
-          { label: 'Twitter', href: 'https://twitter.com/sailpoint' },
         ],
       },
       {

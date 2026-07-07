@@ -15,7 +15,7 @@ export default function AboutDeveloperRelations(): ReactNode {
           <HomepageBasics
             link={''}
             description={
-              "The Developer Relations team is responsible for creating a better developer experience on our platform. Click on someone to reach out to them, or <a href='https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations/'>contact our team directly</a>."
+              "The Developer Relations team is responsible for creating a better developer experience on our platform. Click on someone to reach out to them, or <a href='mailto:developer-relations@sailpoint.com'>contact our team directly</a>."
             }
             title={'Meet our team'}
             image={'team'}

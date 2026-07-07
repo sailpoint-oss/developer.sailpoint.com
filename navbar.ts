@@ -99,17 +99,13 @@ const navbarConfig = {
           {
             label: 'Learn',
             items: [
+              { label: 'Video library', to: '/videos' },
               { label: 'Developer blog', to: '/blog' },
               { label: 'Community policies', to: '/docs/community-policies' },
               { label: 'About Developer Relations', to: '/about-developer-relations' },
             ],
           },
         ],
-      },
-      {
-        position: 'left',
-        label: 'Video library',
-        to: '/videos',
       },
       {
         type: 'custom-megaDropdown',

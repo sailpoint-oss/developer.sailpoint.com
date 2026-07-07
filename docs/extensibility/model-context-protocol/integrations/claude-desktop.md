@@ -48,12 +48,9 @@ This will take you to the Claude Desktop config file in your filesystem `claude_
 
 Copy and paste the following snippet.
 
-**Replace `[tenant]` with your tenant name.** For example:
+**Replace `your_auth_token_here` with your authorization token.**
 
-- If your SailPoint URL is `https://acme.identitynow.com`, use `acme`
-- Full URL would be: `https://acme.api.identitynow.com/v2025/access-requests/mcp`
-
-**Replace `your_auth_token_here` with your authorization token**
+The configuration uses the global MCP URL, which works for all tenants without any tenant-specific changes.
 
 ```json
 {
@@ -62,7 +59,7 @@ Copy and paste the following snippet.
       "command": "npx",
       "args": [
         "mcp-remote@latest",
-        "https://[tenant].api.cloud.sailpoint.com/v2025/access-requests/mcp",
+        "https://mcp.sailpoint.com/latest/access-requests/mcp",
         "--debug",
         "--header",
         "Authorization: Bearer ${AUTH_TOKEN}"

@@ -27,22 +27,19 @@ Before configuring this integration, please confirm with your organization's adm
 
 Cursor allows for deep links into its configuration. By clicking the button below, you will be asked to open the link in Cursor. This will take you to the MCP Server configuration with most of the configuration filled out for you.
 
-[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=SailPoint%20MCP&config=ewogICAgImNvbW1hbmQiOiAibnB4IiwKICAgICJlbnYiOiB7CiAgICAgICAgIkFVVEhfVE9LRU4iOiAieW91cl9hdXRoX3Rva2VuX2hlcmUiCiAgICB9LAogICAgImFyZ3MiOiBbCiAgICAgICAgIm1jcC1yZW1vdGVAbGF0ZXN0IiwKICAgICAgICAiaHR0cHM6Ly9bdGVuYW50XS5hcGkuY2xvdWQuc2FpbHBvaW50LmNvbS92MjAyNS9hY2Nlc3MtcmVxdWVzdHMvbWNwIiwKICAgICAgICAiLS1kZWJ1ZyIsCiAgICAgICAgIi0taGVhZGVyIiwKICAgICAgICAiQXV0aG9yaXphdGlvbjogQmVhcmVyICR7QVVUSF9UT0tFTn0iCiAgICBdCn0=)
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=SailPoint%20MCP&config=ewogICAgImNvbW1hbmQiOiAibnB4IiwKICAgICJlbnYiOiB7CiAgICAgICAgIkFVVEhfVE9LRU4iOiAieW91cl9hdXRoX3Rva2VuX2hlcmUiCiAgICB9LAogICAgImFyZ3MiOiBbCiAgICAgICAgIm1jcC1yZW1vdGVAbGF0ZXN0IiwKICAgICAgICAiaHR0cHM6Ly9tY3Auc2FpbHBvaW50LmNvbS9sYXRlc3QvYWNjZXNzLXJlcXVlc3RzL21jcCIsCiAgICAgICAgIi0tZGVidWciLAogICAgICAgICItLWhlYWRlciIsCiAgICAgICAgIkF1dGhvcml6YXRpb246IEJlYXJlciAke0FVVEhfVE9LRU59IgogICAgXQp9)
 
 Once in Cursor, following the prompt to install the SailPoint MCP server and select install to continue.
 
 ![cursor install](../img/cursor-install.png)
 
-## Step 2: Add your tenant details
+## Step 2: Add your authentication token
 
 Click the edit icon next to the newly installed SailPoint MCP server. This will bring up the `mcp.json` file in the editor.
 
-**Replace `[tenant]` with your actual tenant name.** For example:
+The configuration uses the global MCP URL (`https://mcp.sailpoint.com/latest/access-requests/mcp`), which works for all tenants without any tenant-specific changes.
 
-- If your SailPoint URL is `https://acme.identitynow.com`, use `acme`
-- Full URL would be: `https://acme.api.identitynow.com/v2025/access-requests/mcp`
-
-**Replace `your_auth_token_here` with your authorization token**
+**Replace `your_auth_token_here` with your authorization token.**
 
 Save the file.
 

@@ -30,7 +30,7 @@ const footerConfig = {
         title: 'Community',
         items: [
           { label: 'Discuss', to: 'https://developer.sailpoint.com/discuss' },
-          { label: 'Submit an idea', to: 'https://developer-sailpoint.ideas.aha.io/' },
+          { label: 'Submit an idea', to: 'https://ideas.sailpoint.com/' },
           { label: 'Contact our team', href: 'mailto:developer-relations@sailpoint.com' },
         ],
       },

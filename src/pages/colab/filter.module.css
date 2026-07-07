@@ -2,19 +2,97 @@
   min-height: 600px;
 }
 
-.filterContainer {
+.container {
   margin: auto;
-  width: 400px;
-  margin-top: 3%;
+  width: calc(100% - 100px);
+  max-width: 1180px;
+}
+
+.pageHeader {
+  max-width: 1180px;
+  margin: 50px auto 20px;
+  padding: 0 50px;
+}
+
+.pageTitle {
+  color: var(--ifm-color-primary);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 100%;
+  margin-bottom: 20px;
+}
+
+.pageDescription {
+  font-size: 16px;
+  font-weight: 400;
+  max-width: 800px;
+}
+
+.filterSection {
+  width: calc(100% - 100px);
+  max-width: 1180px;
+  margin: 0 auto 24px;
+  padding: 24px;
+  background: var(--main-hero-card-background);
+  border: 1px solid var(--dev-card-background);
+  border-radius: 0.25em;
+  box-shadow: var(--dev-main-card-shadow);
+  box-sizing: border-box;
+}
+
+.filterSectionTitle {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.filterSectionDescription {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 0 24px;
+  color: var(--dev-secondary-text);
+}
+
+.filterGroup {
+  margin-bottom: 16px;
+}
+
+.filterGroup [class*='sidebar'] {
+  margin-left: 0;
+  width: 100%;
+}
+
+.filterGroupTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 12px;
+  display: block;
+}
+
+.categorySelect {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid var(--dev-card-background);
+  border-radius: 0.25rem;
+  background-color: var(--dropdown-background);
+  color: inherit;
+  cursor: pointer;
+}
+
+.categorySelect:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
 }
 
 @media screen and (max-width: 550px) {
-  .filterContainer {
-    width: 325px;
+  .filterSection {
+    width: calc(100% - 32px);
+    padding: 16px;
   }
 }
 
 .cardContainer {
-  width: 63%;
+  width: 100%;
   margin: auto;
 }

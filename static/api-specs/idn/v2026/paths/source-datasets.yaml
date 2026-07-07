@@ -1,0 +1,49 @@
+get:
+  operationId: getSourceDatasets
+  security:
+    - userAuth:
+        - idn:sources:read
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:read
+        - idn:sources:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  tags:
+    - Sources
+  summary: List datasets on source
+  description: |
+    Use this API to list datasets for the specified source in Identity Security Cloud (ISC).
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      schema:
+        type: string
+      description: Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '200':
+      description: The datasets were successfully retrieved.
+      content:
+        application/json:
+          schema:
+            type: array
+            maxItems: 250
+            items:
+              $ref: ../schemas/SourceDataset.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

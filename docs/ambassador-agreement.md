@@ -4,7 +4,6 @@ title: Ambassador Program Agreement
 description: The legal agreement governing participation in the SailPoint Ambassador Program.
 slug: /ambassador-agreement
 displayed_sidebar: communityPoliciesSidebar
-unlisted: true
 custom_edit_url: null
 hide_table_of_contents: true
 last_update:

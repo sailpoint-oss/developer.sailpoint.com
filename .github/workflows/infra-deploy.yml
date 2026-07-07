@@ -45,7 +45,78 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-      
+          clean: true
+
+      # ---------------------------------------------------------------------------
+      # SDK docs sync — check out each SDK and rsync reference docs + code examples
+      # into the portal workspace before the Docusaurus build runs.
+      # ---------------------------------------------------------------------------
+      - name: Check out golang-sdk
+        uses: actions/checkout@v6
+        with:
+          repository: sailpoint-oss/golang-sdk
+          path: golang-sdk
+          token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
+          ref: main
+
+      - name: Check out python-sdk
+        uses: actions/checkout@v6
+        with:
+          repository: sailpoint-oss/python-sdk
+          path: python-sdk
+          token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
+          ref: main
+
+      - name: Check out powershell-sdk
+        uses: actions/checkout@v6
+        with:
+          repository: sailpoint-oss/powershell-sdk
+          path: powershell-sdk
+          token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
+          ref: main
+
+      - name: Check out typescript-sdk
+        uses: actions/checkout@v6
+        with:
+          repository: sailpoint-oss/typescript-sdk
+          path: typescript-sdk
+          token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
+          ref: main
+
+      - name: Install rsync and Java
+        run: sudo apt-get update -qq && sudo apt-get install -y rsync
+
+      - name: Set up Java for openapi-generator-cli
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Cache SDK build outputs
+        uses: actions/cache@v4
+        with:
+          path: |
+            golang-sdk/**/docs
+            python-sdk/sailpoint/**/docs
+            powershell-sdk/PSSailpoint/**/docs
+            typescript-sdk/sdk-output
+          key: sdk-docs-${{ hashFiles('static/api-specs/idn/apis/**') }}
+          restore-keys: sdk-docs-
+
+      - name: Setup portal .npmrc
+        run: echo ${{ secrets.NPM_FONTAWESOME_CONFIG }} | base64 -d >> .npmrc
+
+      - name: Install portal node modules
+        run: npm ci
+
+      # ---------------------------------------------------------------------------
+      # Build each SDK from the portal's own API specs, sync reference docs and
+      # code-example overlays into the portal workspace, and write category files.
+      # Uses the same script as `npm run sync-sdk-docs` for local development.
+      # ---------------------------------------------------------------------------
+      - name: Build and sync SDK docs
+        run: SDK_ROOT=$GITHUB_WORKSPACE bash scripts/sync-sdk-docs-local.sh
+
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
@@ -94,15 +165,12 @@ jobs:
           echo "CMS_APP_API_ENDPOINT=$API_GATEWAY_URL" >> .env
           echo "ALGOLIA_SEARCH_KEY=${{ secrets.ALGOLIA_SEARCH_KEY }}" >> .env
           echo "SECRET_MESSAGE=${{ secrets.SECRET_MESSAGE }}" >> .env
-          echo ${{ secrets.NPM_FONTAWESOME_CONFIG }} | base64 -d >> .npmrc
           export NODE_OPTIONS="--max_old_space_size=60000"
           export DOCUSAURUS_IGNORE_SSG_WARNINGS=true
           export DOCUSAURUS_SSG_WORKER_THREAD_COUNT=10
           export DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY=1000000000
 
-          npm ci 
-          npm run gen-api-docs-all
-          npm run sentence-case-all
+          npm run rebuild-docs
           npm run build
       # push these files to AWS
       - name: Copy files to the test website with the AWS CLI

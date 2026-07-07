@@ -19,7 +19,7 @@ Read this guide to learn how to use the UI Development Kit to handle errors.
 
 ## Handling errors in your code
 
-If you provide an invalid filter or sorter, the [List Accounts Endpoint](https://developer.sailpoint.com/docs/api/v2025/list-accounts) returns a 400 error. This example uses a try/catch to handle the error and present the user with what went wrong.
+If you provide an invalid filter or sorter, the [List Accounts Endpoint](https://developer.sailpoint.com/docs/api/list-accounts-v-1) returns a 400 error. This example uses a try/catch to handle the error and present the user with what went wrong.
 
 This is just one example of how things can be handled during an error event. Sometimes it can be better to present the user with a popup, or you can use a snackbar to show a quick popup on the bottom of the page. 
 

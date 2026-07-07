@@ -110,6 +110,12 @@ properties:
     description: Description associated to the requested object.
     example: "This is the Engineering role that engineers are granted."
     nullable: true
+  startDate:
+    type: string
+    format: date-time
+    nullable: true
+    description: When the role access is scheduled for provisioning.
+    example: "2019-10-21T00:00:00.000Z"
   removeDate:
     type: string
     format: date-time

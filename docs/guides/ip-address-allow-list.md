@@ -64,6 +64,10 @@ find_aws_region('54.234.204.155')
 
 ## Using your region to create the allow-list URL
 
+:::note
+FedRAMP customers need to open a support ticket to request the relevant IP address ranges.
+:::
+
 The URL used to find your range of allow list URLs can be constructed using the region found above and the file format desired.
 
 ```

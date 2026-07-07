@@ -13,7 +13,7 @@ export default function ParamTextFormItem({ param }: ParamProps) {
   return (
     <FormTextInput
       isRequired={param.required}
-      paramName={param.name}
+      paramName={`${param.in}-${param.name}`}
       placeholder={param.description || param.name}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
         dispatch(

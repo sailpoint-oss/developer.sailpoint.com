@@ -55,7 +55,10 @@ ${enumDescriptions
 };
 
 function camelToKebab(str: string): string {
-  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+  return str
+    .replace(/([a-z])([A-Z])/g, '$1-$2')
+    .replace(/([A-Za-z])(\d)/g, '$1-$2')
+    .toLowerCase();
 }
 
 function camelToTitleCase(str: string): string {
@@ -65,34 +68,24 @@ function camelToTitleCase(str: string): string {
     .trim();
 }
 
-async function checkFirstAvailableUrl(urls: string[]): Promise<string | null> {
-  for (const url of urls) {
-    try {
-      const response = await fetch(url, {method: 'HEAD'});
-      if (response.ok) {
-        return url;
-      }
-    } catch (error) {
-      console.error(`Error checking URL: ${url}`, error);
-    }
-  }
-  return null;
-}
-
 function RenderSailPointResource({operationId}: {operationId: string}) {
   const [resourceLink, setResourceLink] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchAvailableUrl() {
-      const baseUrls = [
-        `https://developer.sailpoint.com/docs/api/v2026/${camelToKebab(operationId)}`,
-        `https://developer.sailpoint.com/docs/api/v2025/${camelToKebab(operationId)}`,
-        `https://developer.sailpoint.com/docs/api/v2024/${camelToKebab(operationId)}`,
-        `https://developer.sailpoint.com/docs/api/v3/${camelToKebab(operationId)}`,
-        `https://developer.sailpoint.com/docs/api/beta/${camelToKebab(operationId)}`,
-      ];
-      const availableUrl = await checkFirstAvailableUrl(baseUrls);
-      setResourceLink(availableUrl);
+      const isLocal = typeof window !== 'undefined' && window.location.hostname === 'localhost';
+      const base = isLocal
+        ? `${window.location.origin}/docs/api/${camelToKebab(operationId)}`
+        : `https://developer.sailpoint.com/docs/api/${camelToKebab(operationId)}`;
+
+      try {
+        const response = await fetch(base, {method: 'HEAD'});
+        if (response.ok) {
+          setResourceLink(base);
+        }
+      } catch (error) {
+        console.error(`Error checking URL: ${base}`, error);
+      }
     }
     fetchAvailableUrl();
   }, [operationId]);

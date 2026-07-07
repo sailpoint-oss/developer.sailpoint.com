@@ -1,0 +1,70 @@
+get:
+  operationId: getIdentityIntelligenceV1
+  security:
+  - userAuth:
+    - sp:identity-sec-intel:read
+  - applicationAuth:
+    - sp:identity-sec-intel:read
+  x-required-right: sp:identity-sec-intel:read
+  x-sailpoint-userLevels:
+  - Any
+  tags:
+  - Intelligence
+  summary: Get identity by filter
+  description: |
+    Requires tenant license idn:response-and-remediation.
+
+    Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope.
+    Supported queryable fields are id and email only.
+    The response embeds the first page of accounts, rare access, access-history access items, and
+    access-history certifications. Paged slices include a next link only when more results exist.
+    The privilegedAccess slice contains the full result and is not paged.
+    The outliers slice is omitted when the tenant lacks the IDA-outliers license.
+  parameters:
+  - in: query
+    name: filters
+    required: true
+    schema:
+      type: string
+    examples:
+      byId:
+        value: id eq "ef38f94347e94562b5bb8424a56397d8"
+      byEmail:
+        value: email eq "user@example.com"
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection
+      Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **id**: *eq*
+
+
+      **email**: *eq*
+  responses:
+    '200':
+      description: Exactly one identity matched.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/intelidentityaggregate.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '409':
+      description: Multiple identities matched the filter.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

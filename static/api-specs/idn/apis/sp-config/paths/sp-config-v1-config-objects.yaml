@@ -1,0 +1,33 @@
+get:
+  operationId: listSpConfigObjectsV1
+  security:
+  - userAuth:
+    - sp:config:read
+    - sp:config:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+  - SP-Config
+  summary: List config objects
+  description: Get a list of object configurations that the tenant export/import service knows.
+  responses:
+    '200':
+      description: Object configurations returned successfully.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/spconfigobject.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

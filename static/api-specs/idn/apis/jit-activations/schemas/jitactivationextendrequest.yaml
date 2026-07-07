@@ -1,0 +1,17 @@
+type: object
+title: JIT Activation Extend Request
+required:
+  - connectionId
+  - activationPeriodExtensionMins
+properties:
+  connectionId:
+    type: string
+    format: uuid
+    description: Entitlement connection identifier for the activation to extend.
+    example: 757fb803-9024-5861-e510-83a56e4c5bd3
+  activationPeriodExtensionMins:
+    type: integer
+    format: int32
+    minimum: 1
+    description: Number of minutes to extend the activation period.
+    example: 120

@@ -72,6 +72,21 @@ properties:
     description: The remove date or sunset date that was assigned at the time of the request.
     format: 'date-time'
     example: '2020-07-11T00:00:00Z'
+  startDate:
+    type: string
+    description: The date the role or access profile or entitlement is/will assigned to the specified identity.
+    format: 'date-time'
+    example: '2020-07-11T00:00:00Z'
+  startUpdateRequested:
+    type: boolean
+    default: false
+    description: If true, then the request is to change the start date or sunrise date.
+    example: true
+  currentStartDate:
+    type: string
+    description: The start date or sunrise date that was assigned at the time of the request.
+    format: 'date-time'
+    example: '2020-07-11T00:00:00Z'
   sodViolationContext:
     $ref: './SodViolationContextCheckCompleted.yaml'
     description: The details of the SOD violations for the associated approval.

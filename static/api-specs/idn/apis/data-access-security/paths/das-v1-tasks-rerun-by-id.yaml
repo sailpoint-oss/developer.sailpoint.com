@@ -1,0 +1,37 @@
+post:
+  security:
+  - userAuth:
+    - das:task:manage
+  - applicationAuth:
+    - das:task:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+  - Data Access Security
+  summary: Rerun a DAS task.
+  description: This end-point sends a request to re-run a task in Data Access Security.
+  operationId: startTaskRerunV1
+  parameters:
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: integer
+      format: int64
+    description: The unique identifier of the task to rerun.
+    example: 1001
+  responses:
+    '204':
+      description: No Content
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

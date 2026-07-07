@@ -82,6 +82,8 @@ const sidebars: SidebarsConfig = {
         { type: 'doc', id: 'ai-policy', label: 'AI Usage Policy' },
         { type: 'doc', id: 'community-code-of-conduct', label: 'Community Code of Conduct' },
         { type: 'doc', id: 'event-code-of-conduct', label: 'Event Code of Conduct' },
+        { type: 'doc', id: 'ambassador-agreement', label: 'Ambassador Program Agreement' },
+        { type: 'doc', id: 'ambassador-code-of-conduct', label: 'Ambassador Code of Conduct' }
       ],
     },
   ],

@@ -13,6 +13,7 @@ import {
 // Define types for the component props
 interface AmbassadorCardsProps {
   expert: boolean;
+  limit?: number;
 }
 
 // Define types for an ambassador member
@@ -60,7 +61,7 @@ interface AmbassadorData {
   points?: number;
 }
 
-const AmbassadorCards: React.FC<AmbassadorCardsProps> = ({ expert }) => {
+const AmbassadorCards: React.FC<AmbassadorCardsProps> = ({ expert, limit }) => {
   const [cardData, setCardData] = useState<AmbassadorData[] | undefined>();
   const [loadingCards, setLoadingCards] = useState<boolean>(true);
 
@@ -124,7 +125,7 @@ const AmbassadorCards: React.FC<AmbassadorCardsProps> = ({ expert }) => {
     return (
       <div className={styles.center}>
         <div className={styles.gridContainer}>
-          {cardData.map((a) => (
+          {(limit ? cardData.slice(0, limit) : cardData).map((a) => (
             <AmbassadorCard key={a.link} data={a} />
           ))}
         </div>

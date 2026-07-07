@@ -6,6 +6,7 @@ properties:
     enum:
       - HUMAN
       - MACHINE
+      - AGENT
     description: Recommended type of account.
     example: MACHINE
   method:

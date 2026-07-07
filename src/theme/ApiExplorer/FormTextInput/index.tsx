@@ -33,26 +33,35 @@ function FormTextInput({
 
   const showErrorMessage = errors?.[paramName]?.message;
 
+  const registration = paramName
+    ? register(paramName, {
+        required: isRequired
+          ? translate({
+              id: OPENAPI_FORM.FIELD_REQUIRED,
+              message: "This field is required",
+            })
+          : false,
+      })
+    : undefined;
+
+  const { onChange: registerOnChange, ...registerProps } = registration ?? {};
+
   return (
     <>
       {paramName ? (
         <input
-          {...register(paramName, {
-            required: isRequired
-              ? translate({
-                  id: OPENAPI_FORM.FIELD_REQUIRED,
-                  message: "This field is required",
-                })
-              : false,
-          })}
+          {...registerProps}
           className={clsx("openapi-explorer__form-item-input", {
             error: showErrorMessage,
           })}
           type={password ? "password" : "text"}
           placeholder={placeholder}
           title={placeholder}
-          value={value}
-          onChange={onChange}
+          {...(value !== undefined ? { value } : {})}
+          onChange={(e) => {
+            registerOnChange?.(e);
+            onChange?.(e);
+          }}
           autoComplete="off"
         />
       ) : (
@@ -61,7 +70,7 @@ function FormTextInput({
           type={password ? "password" : "text"}
           placeholder={placeholder}
           title={placeholder}
-          value={value}
+          {...(value !== undefined ? { value } : {})}
           onChange={onChange}
           autoComplete="off"
         />

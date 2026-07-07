@@ -4,13 +4,10 @@ required:
   - name
   - disabled
   - locked
-  - uncorrelated
   - authoritative
   - systemAccount
   - isMachine
-  - hasEntitlements
   - manuallyCorrelated
-  - connectionType
   - created
   - modified
 properties:
@@ -35,10 +32,6 @@ properties:
     type: boolean
     description: True when the account is locked from interactive sign-in on the source.
     example: false
-  uncorrelated:
-    type: boolean
-    description: True when the account is not correlated to an authoritative identity.
-    example: false
   authoritative:
     type: boolean
     description: True when the account is treated as authoritative for attribute synchronization.
@@ -51,18 +44,10 @@ properties:
     type: boolean
     description: True when the account belongs to a machine or service identity.
     example: false
-  hasEntitlements:
-    type: boolean
-    description: True when the account currently has one or more entitlements assigned.
-    example: true
   manuallyCorrelated:
     type: boolean
     description: True when an administrator manually correlated the account to an identity.
     example: false
-  connectionType:
-    type: string
-    description: Connector connection type identifier for the backing source system.
-    example: direct
   nativeIdentity:
     type: string
     nullable: true

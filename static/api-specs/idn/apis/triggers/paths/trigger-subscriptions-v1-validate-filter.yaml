@@ -1,0 +1,49 @@
+post:
+  operationId: testSubscriptionFilterV1
+  tags:
+  - Triggers
+  summary: Validate a subscription filter
+  description: |-
+    Validates a JSONPath filter expression against a provided mock input.
+    Request requires a security scope of: 
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/validatefilterinputdto.yaml
+          required:
+          - input
+          - filter
+        example:
+          input:
+            identityId: 201327fda1c44704ac01181e963d463c
+          filter: $[?($.identityId == "201327fda1c44704ac01181e963d463c")]
+  responses:
+    '200':
+      description: Boolean whether specified filter expression is valid against the input.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/validatefilteroutputdto.yaml
+          example:
+            isValid: true
+            isValidJSONPath: true
+            isPathExist: true
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+  security:
+  - userAuth:
+    - sp:trigger-service-subscriptions:manage
+  - applicationAuth:
+    - sp:trigger-service-subscriptions:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN

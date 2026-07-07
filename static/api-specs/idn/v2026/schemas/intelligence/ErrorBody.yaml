@@ -2,7 +2,7 @@ type: object
 properties:
   detailCode:
     type: string
-    description: Machine-readable error code returned by the Intelligence Package service.
+    description: Machine-readable error code returned by the Intelligence service.
     example: IDC_BAD_REQUEST
   message:
     type: string

@@ -204,8 +204,8 @@ The OAuth 2.0 token request must include this information:
 | Key | Description |
 | --- | --- |
 | `grant_type` | This is set to `CLIENT_CREDENTIALS` for the authorization code grant type. |
-| `client_id` | This is the API client's ID (e.g. `b61429f5-203d-494c-94c3-04f54e17bc5c`). You can generate this ID at `https://[tenant].identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`, or you can generate it when you create a PAT. |
-| `client_secret` | This is the API client's secret describing (e.g. `c924417c85b19eda40e171935503d8e9747ca60ddb9b48ba4c6bb5a7145fb6c5`). You can generate this secret at `https://[tenant].identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`, or you can generate it when you create a PAT. |
+| `client_id` | This is the API client's ID (e.g. `b61429f5-203d-494c-94c3-04f54e17bc5c`). You can generate this ID at `https://[tenant].identitynow.com/ui/ts/admin/security-settings/api-management`, or you can generate it when you create a PAT. |
+| `client_secret` | This is the API client's secret describing (e.g. `c924417c85b19eda40e171935503d8e9747ca60ddb9b48ba4c6bb5a7145fb6c5`). You can generate this secret at `https://[tenant].identitynow.com/ui/ts/admin/security-settings/api-management`, or you can generate it when you create a PAT. |
 
 This example cURL command passes client credentials in the body as form-data to generate an access token:
 
@@ -309,7 +309,7 @@ These are the query parameters in the OAuth 2.0 token request for the authorizat
 | Key | Description |
 | --- | --- |
 | `grant_type` | Set this to `authorization_code` for the authorization code grant type. |
-| `client_id` | This is the client ID for the API client (e.g. `b61429f5-203d-494c-94c3-04f54e17bc5c`). This can be generated at `https://[tenant].identitynow.com/ui/admin/#admin:global:security:apimanagementpanel` |
+| `client_id` | This is the client ID for the API client (e.g. `b61429f5-203d-494c-94c3-04f54e17bc5c`). This can be generated at `https://[tenant].identitynow.com/ui/ts/admin/security-settings/api-management` |
 | `code` | This is a code returned by `/oauth/authorize`. |
 | `redirect_uri` | This is the application URL to redirect to once the token has been granted. |
 
@@ -365,8 +365,8 @@ These are the query parameters in the OAuth 2.0 token request for the refresh to
 | Key | Description |
 | --- | --- |
 | `grant_type` | Set to `refresh_token` for the authorization code grant type. |
-| `client_id` | This is the client ID for the API client (e.g. `b61429f5-203d-494c-94c3-04f54e17bc5c`). This can be generated at `https://[tenant].identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`. |
-| `client_secret` | This is the client secret for the API client (e.g. `c924417c85b19eda40e171935503d8e9747ca60ddb9b48ba4c6bb5a7145fb6c5`). This can be generated at `https://[tenant].identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`. |
+| `client_id` | This is the client ID for the API client (e.g. `b61429f5-203d-494c-94c3-04f54e17bc5c`). This can be generated at `https://[tenant].identitynow.com/ui/ts/admin/security-settings/api-management`. |
+| `client_secret` | This is the client secret for the API client (e.g. `c924417c85b19eda40e171935503d8e9747ca60ddb9b48ba4c6bb5a7145fb6c5`). This can be generated at `https://[tenant].identitynow.com/ui/ts/admin/security-settings/api-management`. |
 | `refresh_token` | This is the `refresh_token` that was provided along with the now expired `access_token`. |
 
 Here is an example call OAuth 2.0 Token Request for the Refresh Token grant.
@@ -572,7 +572,7 @@ or
 GET /beta/oauth-clients/
 ```
 
-You can also view all of the active clients in the UI by going to `https://[tenant].identitynow.com/ui/admin/#admin:global:security:apimanagementpanel`.
+You can also view all of the active clients in the UI by going to `https://[tenant].identitynow.com/ui/ts/admin/security-settings/api-management`.
 
 3. Verify that the OAuth 2.0 client grant types match the OAuth 2.0 grant type flow you're trying to use. For example, this client will work with [Authorization Code](#request-access-token-with-authorization-code-grant-flow) and [Client Credentials](#request-access-token-with-client-credentials-grant-flow) grant flows, but not [Refresh Token](#request-access-token-with-refresh-token-grant-flow) flows:
 

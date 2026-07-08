@@ -122,6 +122,24 @@ const AmbassadorContent: React.FC = () => {
         </div>
       </div>
 
+      {/* Ambassador Directory Link */}
+      <div className={`${styles.section} ${styles.sectionNoBorder}`}>
+        <div className={styles.sectionInner}>
+          <div className={styles.directoryPromo}>
+            <div className={styles.directoryPromoText}>
+              <h2 className={styles.directoryPromoTitle}>Meet the Ambassadors</h2>
+              <p className={styles.directoryPromoDesc}>
+                Browse the full directory of SailPoint Ambassadors and Expert Ambassadors. Search by
+                name, location, or area of expertise, and see who's leading the community this month.
+              </p>
+            </div>
+            <Link to="/ambassadors/directory" className={styles.applyBtn}>
+              Browse the directory
+            </Link>
+          </div>
+        </div>
+      </div>
+
       {/* Benefits */}
       <div className={`${styles.section} ${styles.sectionAlt} ${styles.sectionNoBorder}`}>
         <div className={styles.sectionInner}>
@@ -138,7 +156,7 @@ const AmbassadorContent: React.FC = () => {
       </div>
 
       {/* Path to Ambassador */}
-      <div className={`${styles.section} ${styles.sectionNoBorder}`}>
+      <div className={`${styles.section} ${styles.sectionNoBorder} ${styles.sectionLast}`}>
         <div className={styles.sectionInner}>
           <h2 className={styles.sectionHeading}>Your path to becoming an Ambassador</h2>
           <div className={styles.stepsContainer}>
@@ -169,7 +187,6 @@ const AmbassadorContent: React.FC = () => {
         </div>
       </div>
 
-      {/* Ambassador Directory Link */}
     </main>
   );
 };

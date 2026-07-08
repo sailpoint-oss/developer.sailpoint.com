@@ -110,6 +110,7 @@
 
 .sectionLast {
   border-bottom: none;
+  padding-bottom: 96px;
 }
 
 .sectionInner {
@@ -364,8 +365,28 @@
   justify-content: space-between;
   gap: 24px;
   flex-wrap: wrap;
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 0.5rem;
+  padding: 28px 32px;
 }
 
 .directoryPromoText {
   flex: 1;
+  min-width: 260px;
+}
+
+.directoryPromoTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  margin: 0 0 8px;
+}
+
+.directoryPromoDesc {
+  font-size: 15px;
+  color: var(--dev-text-color-normal);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 620px;
 }

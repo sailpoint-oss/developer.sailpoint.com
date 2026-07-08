@@ -95,17 +95,26 @@ const hueFor = (seed: string): number => {
 };
 
 // bio_excerpt is HTML with entities (e.g. &hellip;); flatten to searchable plain text.
+const HTML_ENTITIES: Record<string, string> = {
+  '&nbsp;': ' ',
+  '&hellip;': '…',
+  '&amp;': '&',
+  '&lt;': '<',
+  '&gt;': '>',
+  '&#39;': "'",
+  '&rsquo;': "'",
+  '&lsquo;': "'",
+  '&quot;': '"',
+  '&ldquo;': '"',
+  '&rdquo;': '"',
+};
+// Decode entities in a SINGLE pass so an encoded entity like "&amp;lt;" is not
+// re-scanned and double-unescaped; unknown entities collapse to a space. Output
+// is only used for search matching, never rendered as HTML.
 const stripHtml = (html: string): string =>
   html
     .replace(/<[^>]*>/g, ' ')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&hellip;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&#39;|&rsquo;|&lsquo;/g, "'")
-    .replace(/&quot;|&ldquo;|&rdquo;/g, '"')
-    .replace(/&[a-z]+;/gi, ' ')
+    .replace(/&[a-zA-Z]+;|&#\d+;/g, (m) => HTML_ENTITIES[m.toLowerCase()] ?? ' ')
     .replace(/\s+/g, ' ')
     .trim();
 

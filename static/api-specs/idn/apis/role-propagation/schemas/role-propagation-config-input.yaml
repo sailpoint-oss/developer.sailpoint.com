@@ -1,8 +1,0 @@
-description: Role Change Propagation Config Input
-type: object
-properties:
-  enabled:
-    description: Indicates if the Role Change Propagation process should be enabled for the tenant
-    type: boolean
-    example: true
-    default: false

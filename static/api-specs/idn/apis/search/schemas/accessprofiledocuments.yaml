@@ -1,4 +1,0 @@
-type: object
-allOf:
-  - $ref: ./accessprofiledocument.yaml
-  - $ref: ./documentfields.yaml

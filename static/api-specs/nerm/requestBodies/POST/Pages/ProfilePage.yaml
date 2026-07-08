@@ -1,8 +1,0 @@
-required: true
-content:
-  application/json:
-    schema:
-      type: object
-      properties:
-        page:
-          $ref: "../../../schemas/POST/Pages/ProfilePage.yaml"

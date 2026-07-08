@@ -1,5 +1,0 @@
-title: rule
-oneOf:
-  - $ref: ./transformrule.yaml
-  - $ref: ./generaterandomstring.yaml
-  - $ref: ./getreferenceidentityattribute.yaml

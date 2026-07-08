@@ -1,6 +1,0 @@
-name: option
-in: query
-description: attribute option label for filtering
-required: false
-schema:
-  type: string

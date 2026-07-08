@@ -1,4 +1,0 @@
-type: object
-allOf:
-  - $ref: ./accountactivitydocument.yaml
-  - $ref: ./documentfields.yaml

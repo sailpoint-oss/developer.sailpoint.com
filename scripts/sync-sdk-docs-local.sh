@@ -110,6 +110,7 @@ sync_api_specs() {
   for area in idn iiq nerm; do
     if [ -d "$src/$area" ]; then
       echo "  -> static/api-specs/$area"
+      $DRY_RUN || mkdir -p "$PORTAL_ROOT/static/api-specs/$area"
       run_rsync "$src/$area/" "$PORTAL_ROOT/static/api-specs/$area/"
     fi
   done
@@ -155,6 +156,11 @@ sync_sdk() {
 
   local idn_overlays=()
   local nerm_overlays=()
+
+  # The Reference dir is no longer committed, so it won't exist on a fresh
+  # checkout. rsync only creates the final path component, so ensure the
+  # parent exists before syncing resource subdirs into it.
+  $DRY_RUN || mkdir -p "$ref_dest"
 
   for partition_dir in "$src"/*/; do
     [ -d "$partition_dir/docs/Methods" ] || continue

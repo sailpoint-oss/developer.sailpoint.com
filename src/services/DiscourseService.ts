@@ -1,4 +1,4 @@
-import { discourseBaseURL, removeRecordsWithCategoryId } from '../util/util';
+import { discourseBaseURL } from '../util/util';
 
 export async function getTopPosts(): Promise<any[]> {
   try {
@@ -34,7 +34,7 @@ export async function getAmbassadorDetails(id: number[]): Promise<any[]> {
 
 export async function getAmbassadorPoints(): Promise<any[]> {
   try {
-    const response = await fetch(discourseBaseURL() + 'leaderboard/14.json');
+    const response = await fetch(discourseBaseURL() + 'leaderboard/11.json?period=all_time');
     return await response.json();
   } catch (error) {
     return [];

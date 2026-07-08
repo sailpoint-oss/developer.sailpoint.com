@@ -1,14 +1,14 @@
-import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import Layout from '@theme/Layout';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import NewtonsCradle from '../../components/newtonsCradle';
-import { discourseBaseURL, developerWebsiteDomain } from '../../util/util';
 import {
-  getAmbassadors,
   getAmbassadorDetails,
   getAmbassadorPoints,
+  getAmbassadors,
 } from '../../services/DiscourseService';
+import { developerWebsiteDomain, discourseBaseURL } from '../../util/util';
 import styles from './directory.module.css';
 
 /* Maps the prototype's verbatim BEM class names onto this CSS module's keys.
@@ -428,7 +428,7 @@ async function fetchInternalMemberIds(): Promise<Set<number>> {
 async function fetchMonthlyPoints(): Promise<Map<number, number>> {
   const map = new Map<number, number>();
   try {
-    const res: any = await (await fetch(`${discourseBaseURL()}leaderboard/14.json?period=monthly`)).json();
+    const res: any = await (await fetch(`${discourseBaseURL()}leaderboard/11.json?period=monthly`)).json();
     for (const u of res?.users ?? []) map.set(u.id, u.total_score);
   } catch {
     /* ignore — spotlight simply falls back to all-time points */

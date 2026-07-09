@@ -32,6 +32,21 @@ yarn.lock
 /products/iiq/api
 /products/nerm/api
 
+# Generated SDK reference docs (built by scripts/sync-sdk-docs-local.sh)
+/docs/tools/sdk/go/Reference/
+/docs/tools/sdk/python/Reference/
+/docs/tools/sdk/powershell/Reference/
+/docs/tools/sdk/typescript/Reference/
+
+# API specs synced from sailpoint-oss/api-specs at build time (arm/ is maintained here)
+/static/api-specs/idn/
+/static/api-specs/iiq/
+/static/api-specs/nerm/
+
+# Generated code-example overlays (built by the SDK sync + merge steps)
+/static/code-examples/v1/
+/static/code-examples/nerm/
+
 /static/code-examples/beta/beta.yaml
 /static/code-examples/beta/merged_code_examples.yaml
 /static/code-examples/v3/v3.yaml

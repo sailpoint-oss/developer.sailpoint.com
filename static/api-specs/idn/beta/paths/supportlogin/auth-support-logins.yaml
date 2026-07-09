@@ -1,4 +1,0 @@
-get:
-  $ref: './auth-support-login-list.yaml'
-post:
-  $ref: './auth-support-login-create.yaml'

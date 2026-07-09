@@ -1,9 +1,0 @@
-required: true
-content:
-  application/json:
-    schema:
-      type: object
-      properties:
-        advanced_search:
-          type: object
-          $ref: "../../schemas/POST/AdvancedSearch.yaml"

@@ -1,8 +1,0 @@
-name: relationship_type
-in: query
-description: Type of user contributor relationship to filter by
-required: false
-schema:
-  type: string
-  enum: [owner, contributor]
-  example: contributor

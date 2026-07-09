@@ -58,13 +58,10 @@ To make the environment variable persistent across sessions, add it to your shel
 
 Once your authentication is configured, you can add the MCP server to Claude Code using the following command:
 
-**Replace `[tenant]` with your tenant name.** For example:
-
-- If your SailPoint URL is `https://acme.identitynow.com`, use `acme`
-- Full URL would be: `https://acme.api.identitynow.com/v2025/access-requests/mcp`
+The command below uses the global MCP URL, which works for all tenants without any tenant-specific changes.
 
 ```bash
-claude mcp add-json sailpoint-mcp '{"type":"stdio","command":"npx","args":["mcp-remote@latest","https://[tenant].api.cloud.sailpoint.com/v2025/access-requests/mcp","--header","Authorization: Bearer ${AUTH_TOKEN}"]}'
+claude mcp add-json sailpoint-mcp '{"type":"stdio","command":"npx","args":["mcp-remote@latest","https://mcp.sailpoint.com/latest/access-requests/mcp","--header","Authorization: Bearer ${AUTH_TOKEN}"]}'
 ```
 
 ### Using the --scope Flag
@@ -83,8 +80,7 @@ Let's break down the base command:
   - `"command": "npx"` - Uses npx to run the MCP remote package
   - `"args": [...]` - Array of arguments passed to the npx command:
     - `"mcp-remote@latest"` - The MCP remote package (always uses latest version)
-    - `"https://[tenant].api.cloud.sailpoint.com/v2025/access-requests/mcp"` - Your MCP server endpoint
-    - `"--debug"` - Enables debug logging for troubleshooting
+    - `"https://mcp.sailpoint.com/latest/access-requests/mcp"` - The global MCP server endpoint
     - `"--header"` - Specifies a custom header for authentication
     - `"Authorization: Bearer ${AUTH_TOKEN}"` - The authorization header using your environment variable
 

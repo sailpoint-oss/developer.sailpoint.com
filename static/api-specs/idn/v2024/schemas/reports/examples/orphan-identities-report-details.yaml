@@ -1,7 +1,0 @@
-summary: Orphan identities report
-value:
-  reportType: ORPHAN_IDENTITIES
-  arguments:
-    selectedFormats:
-      - 'CSV'
-      - 'PDF'

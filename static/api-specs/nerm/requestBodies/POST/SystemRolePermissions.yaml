@@ -1,9 +1,0 @@
-required: true
-content:
-  application/json:
-    schema:
-      type: object
-      properties:
-        system_role_permission:
-          type: object
-          $ref: "../../schemas/POST/SystemRolePermission.yaml"

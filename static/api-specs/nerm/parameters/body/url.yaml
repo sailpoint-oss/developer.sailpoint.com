@@ -1,7 +1,0 @@
-name: url
-in: body
-description: relative object url for accessing
-required: false
-schema:
-  example: "collaborate"
-  type: string

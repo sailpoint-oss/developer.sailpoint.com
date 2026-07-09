@@ -1,8 +1,0 @@
-type: object
-properties:
-  user_id:
-    type: string
-    format: uuid
-  role_id:
-    type: string
-    format: uuid

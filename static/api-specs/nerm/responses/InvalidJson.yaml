@@ -1,4 +1,0 @@
-type: object
-properties:
-  error:
-    example: "Invalid JSON syntax. Please check your syntax and try again."

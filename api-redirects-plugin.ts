@@ -23,6 +23,11 @@ function buildApiRedirects(): RedirectEntry[] {
   const specBase = path.join(__dirname, 'static', 'api-specs', 'idn');
 
   for (const [version, redocFile] of Object.entries(API_VERSION_MAP)) {
+    // Version root redirect: /docs/api/v2026 → /redoc/sailpoint-api-v2026-light.html
+    redirects.push({
+      from: `/docs/api/${version}`,
+      to: `/redoc/${redocFile}`,
+    });
     const specFile = path.join(specBase, `sailpoint-api.${version}.yaml`);
     let spec: any;
     try {

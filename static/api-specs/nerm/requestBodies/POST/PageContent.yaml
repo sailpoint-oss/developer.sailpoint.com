@@ -1,9 +1,0 @@
-required: true
-content:
-  application/json:
-    schema:
-      type: object
-      properties:
-        page_content:
-          type: object
-          $ref: "../../schemas/POST/PageContent.yaml"

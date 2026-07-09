@@ -1,3 +1,0 @@
-attributes.cloudAuthoritativeSource:
-  type: 'EXISTS'
-  exclude: true

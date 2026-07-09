@@ -1,4 +1,0 @@
-type: object
-allOf:
-  - $ref: 'AccountActivityDocument.yaml'
-  - $ref: '../../base/DocumentFields.yaml'

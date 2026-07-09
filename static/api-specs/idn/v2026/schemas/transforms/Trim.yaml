@@ -1,7 +1,0 @@
-title: trim
-type: object
-properties:
-  requiresPeriodicRefresh:
-    $ref: './RequiresPeriodicRefresh.yaml'
-  input:
-    $ref: './input.yaml'

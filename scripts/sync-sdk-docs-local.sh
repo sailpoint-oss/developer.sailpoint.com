@@ -90,6 +90,32 @@ run_rsync() {
   fi
 }
 
+# ---------------------------------------------------------------------------
+# Copy the API specs from the api-specs clone into the portal's static dir.
+# These are no longer committed to the portal repo — they are fetched at build
+# time from the api-specs clone at $SDK_ROOT/api-specs (cloned by setup.sh
+# locally, checked out by infra-deploy.yml in CI). Must run before build_sdk
+# (SDKs are generated from static/api-specs/idn/apis) and before rebuild-docs.
+# Only idn/iiq/nerm are sourced from api-specs; static/api-specs/arm is
+# maintained in the portal repo and is left untouched.
+# ---------------------------------------------------------------------------
+sync_api_specs() {
+  local src="$SDK_ROOT/api-specs"
+  echo ""
+  echo "=== Syncing API specs from $src ==="
+  if [ ! -d "$src" ]; then
+    echo "  SKIP: $src does not exist (run scripts/setup.sh to clone it)."
+    return
+  fi
+  for area in idn iiq nerm; do
+    if [ -d "$src/$area" ]; then
+      echo "  -> static/api-specs/$area"
+      $DRY_RUN || mkdir -p "$PORTAL_ROOT/static/api-specs/$area"
+      run_rsync "$src/$area/" "$PORTAL_ROOT/static/api-specs/$area/"
+    fi
+  done
+}
+
 write_file() {
   local dest="$1"; shift
   if $DRY_RUN; then
@@ -130,6 +156,11 @@ sync_sdk() {
 
   local idn_overlays=()
   local nerm_overlays=()
+
+  # The Reference dir is no longer committed, so it won't exist on a fresh
+  # checkout. rsync only creates the final path component, so ensure the
+  # parent exists before syncing resource subdirs into it.
+  $DRY_RUN || mkdir -p "$ref_dest"
 
   for partition_dir in "$src"/*/; do
     [ -d "$partition_dir/docs/Methods" ] || continue
@@ -265,6 +296,10 @@ apply_code_examples() {
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
+# Copy API specs in first — required before building the SDKs (they generate
+# from static/api-specs/idn/apis) and before the code-example overlay steps.
+sync_api_specs
+
 case "$ONLY_SDK" in
   go)         sync_go ;;
   python)     sync_python ;;

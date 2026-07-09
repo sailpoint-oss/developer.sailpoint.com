@@ -1,4 +1,0 @@
-type: object
-allOf:
-  - $ref: ./entitlementdocument.yaml
-  - $ref: ./documentfields.yaml

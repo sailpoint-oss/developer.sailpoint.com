@@ -714,8 +714,9 @@ const DirectoryContent: React.FC = () => {
                     style={{ border: 'none', background: 'none', cursor: 'pointer', color: 'inherit', font: 'inherit' }}
                     aria-label="Toggle layout"
                   >
-                    {layout === 'leaderboard' ? <IconList size={13} /> : <IconGrid size={13} />}{' '}
-                    {layout === 'leaderboard' ? 'Leaderboard' : 'Grid'} view
+                    {/* Shows the view you'll switch TO, not the current one. */}
+                    {layout === 'leaderboard' ? <IconGrid size={13} /> : <IconList size={13} />}{' '}
+                    {layout === 'leaderboard' ? 'Grid' : 'Leaderboard'} view
                   </button>
                 </div>
 

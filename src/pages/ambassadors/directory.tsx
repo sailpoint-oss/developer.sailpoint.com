@@ -41,6 +41,13 @@ interface Member {
   monthlyPoints: number;
 }
 
+// Extra last-30-days data fetched only for the spotlighted top contributor.
+interface SpotlightExtra {
+  likes: number;
+  solutions: number;
+  post?: { title: string; url: string };
+}
+
 /* ---------------- Icons (single-stroke UI glyphs) ---------------- */
 const Icon = ({ path, size = 18, fill = false, stroke = 2, style }: any) => (
   <svg
@@ -232,7 +239,15 @@ function MemberCard({ member, onOpen }: { member: Member; onOpen: (m: Member) =>
   );
 }
 
-function Spotlight({ member, onOpen }: { member: Member; onOpen: (m: Member) => void }) {
+function Spotlight({
+  member,
+  extra,
+  onOpen,
+}: {
+  member: Member;
+  extra: SpotlightExtra | null;
+  onOpen: (m: Member) => void;
+}) {
   return (
     <article
       className={cx('card', 'spotlight')}
@@ -250,7 +265,35 @@ function Spotlight({ member, onOpen }: { member: Member; onOpen: (m: Member) => 
         <h3 className={cx('spotlight__name')}>{member.name}</h3>
         {member.location && <p className={cx('spotlight__role')}>{member.location}</p>}
         <p className={cx('spotlight__bio')} dangerouslySetInnerHTML={{ __html: member.bio }} />
-        <StatRow member={member} context="spotlight" />
+        {/* Last-30-days contributions */}
+        <div className={cx('stats-row')}>
+          <div className={cx('stat')}>
+            <div className={cx('stat__num')}>{fmt(member.monthlyPoints)}</div>
+            <div className={cx('stat__label')}>Points this month</div>
+          </div>
+          <div className={cx('stat')}>
+            <div className={cx('stat__num')}>{fmt(extra?.solutions ?? 0)}</div>
+            <div className={cx('stat__label')}>Solutions this month</div>
+          </div>
+          <div className={cx('stat')}>
+            <div className={cx('stat__num')}>{fmt(extra?.likes ?? 0)}</div>
+            <div className={cx('stat__label')}>Likes this month</div>
+          </div>
+        </div>
+        {extra?.post && (
+          <a
+            className={cx('spotlight__toppost')}
+            href={extra.post.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <span className={cx('spotlight__toppost-label')}>★ Top post this month</span>
+            <span className={cx('spotlight__toppost-title')}>
+              {extra.post.title} <IconExternal size={13} />
+            </span>
+          </a>
+        )}
         <span className={cx('spotlight__open')}>
           Preview profile <IconArrow size={16} />
         </span>
@@ -397,6 +440,7 @@ async function fetchTier(expert: boolean): Promise<any[]> {
 // professional_services / customer_success / Internal-Previews are intentionally
 // omitted — they can include partners or customers.)
 const INTERNAL_GROUPS = [
+  'sailpoint_employees', // the authoritative all-employees group
   'developer_relations_team',
   'developer_advocates',
   'community_managers',
@@ -471,6 +515,40 @@ async function fetchLikesReceived(): Promise<Map<number, number>> {
     }
   }
   return map;
+}
+
+// Last-30-days extras for a single spotlighted contributor: monthly likes and
+// their most-interacted topic (by replies + likes) created in the last 30 days.
+async function fetchSpotlightExtra(username: string): Promise<SpotlightExtra> {
+  const base = discourseBaseURL();
+  let likes = 0;
+  let solutions = 0;
+  let post: SpotlightExtra['post'];
+  try {
+    const di: any = await (
+      await fetch(`${base}directory_items.json?period=monthly&name=${encodeURIComponent(username)}`)
+    ).json();
+    const rows = di?.directory_items ?? [];
+    const row =
+      rows.find((x: any) => (x.user?.username ?? '').toLowerCase() === username.toLowerCase()) ?? rows[0];
+    likes = row?.likes_received ?? 0;
+    solutions = row?.solutions ?? 0;
+  } catch {
+    /* ignore — likes/solutions fall back to 0 */
+  }
+  try {
+    const t: any = await (await fetch(`${base}topics/created-by/${encodeURIComponent(username)}.json`)).json();
+    const topics: any[] = t?.topic_list?.topics ?? [];
+    const cutoff = Date.now() - 30 * 24 * 60 * 60 * 1000;
+    const recent = topics.filter((x) => new Date(x.created_at).getTime() >= cutoff);
+    const pool = recent.length ? recent : topics; // fall back to most recent if none in window
+    const score = (x: any) => (x.reply_count ?? 0) + (x.like_count ?? 0);
+    const best = pool.sort((a, b) => score(b) - score(a))[0];
+    if (best) post = { title: best.title, url: `${base}t/${best.slug}/${best.id}` };
+  } catch {
+    /* ignore — no featured post */
+  }
+  return { likes, solutions, post };
 }
 
 function useChampions() {
@@ -613,6 +691,20 @@ const DirectoryContent: React.FC = () => {
     return best.monthlyPoints > 0 ? best : ranked[0];
   }, [ranked]);
 
+  // Fetch last-30-days extras (monthly likes + top post) for the spotlight only.
+  const [spotExtra, setSpotExtra] = useState<SpotlightExtra | null>(null);
+  useEffect(() => {
+    setSpotExtra(null);
+    if (!topMember) return;
+    let cancelled = false;
+    fetchSpotlightExtra(topMember.username).then((e) => {
+      if (!cancelled) setSpotExtra(e);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [topMember?.id]);
+
   return (
       <div className={cx('page')}>
         {/* Signature gradient bar */}
@@ -661,7 +753,7 @@ const DirectoryContent: React.FC = () => {
               <section className={cx('section', 'section--feature')}>
                 <div className={cx('wrap')}>
                   <SectionHead title="Top contributor this month" accent />
-                  <Spotlight member={topMember} onOpen={open} />
+                  <Spotlight member={topMember} extra={spotExtra} onOpen={open} />
                 </div>
               </section>
             )}

@@ -32,12 +32,33 @@ export async function getAmbassadorDetails(id: number[]): Promise<any[]> {
   }
 }
 
-export async function getAmbassadorPoints(): Promise<any[]> {
+export async function getAmbassadorPoints(): Promise<any> {
   try {
-    const response = await fetch(discourseBaseURL() + 'leaderboard/11.json?period=all_time');
-    return await response.json();
+    // The leaderboard paginates 100/page, sorted by total_score descending.
+    // Page through until we hit a record below 300 points (everyone we care
+    // about scores at least that), so members past the first page still get
+    // their points instead of defaulting to 0.
+    const users: any[] = [];
+    for (let page = 0; page < 100; page++) {
+      const response = await fetch(
+        discourseBaseURL() + `leaderboard/11.json?period=all_time&page=${page}`
+      );
+      const data = await response.json();
+      const pageUsers = data?.users ?? [];
+      if (!pageUsers.length) break;
+      let hitFloor = false;
+      for (const u of pageUsers) {
+        if (u.total_score < 300) {
+          hitFloor = true;
+          break;
+        }
+        users.push(u);
+      }
+      if (hitFloor) break;
+    }
+    return { users };
   } catch (error) {
-    return [];
+    return { users: [] };
   }
 }
 

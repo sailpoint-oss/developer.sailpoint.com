@@ -1,4 +1,0 @@
-type: object
-allOf:
-  - $ref: 'RoleDocument.yaml'
-  - $ref: '../base/DocumentFields.yaml'

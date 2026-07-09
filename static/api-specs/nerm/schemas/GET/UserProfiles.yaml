@@ -1,6 +1,0 @@
-type: object
-properties:
-  user_profiles:
-    type: array
-    items:
-      $ref: '../GET/UserProfile.yaml'

@@ -1,8 +1,0 @@
-allOf:
-  - $ref: './SodPolicy.yaml'
-  - type: object
-    properties:
-      conflictingAccessCriteria:
-        allOf:
-          - $ref: './ConflictingAccessCriteriaRequest.yaml'
-          - nullable: true

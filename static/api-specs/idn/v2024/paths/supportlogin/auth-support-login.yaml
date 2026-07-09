@@ -1,6 +1,0 @@
-get:
-  $ref: './auth-support-login-get.yaml'
-patch:
-  $ref: './auth-support-login-patch.yaml'
-delete:
-  $ref: './auth-support-login-delete.yaml'

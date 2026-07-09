@@ -1,9 +1,0 @@
-allOf:
-  - $ref: "../base/DisplayReference.yaml"
-  - type: object
-    properties:
-      description:
-        description: Description of access item.
-        type: string
-        nullable: true
-        example: null

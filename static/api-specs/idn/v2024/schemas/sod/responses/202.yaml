@@ -1,8 +1,0 @@
-description: Bulk create SOD exception accepted
-content:
-  application/json:
-    schema:
-      $ref: '../models/BulkCreate.yaml'
-    examples:
-      SOD Exception:
-        $ref: '../examples/exception-response-bulk.yaml'

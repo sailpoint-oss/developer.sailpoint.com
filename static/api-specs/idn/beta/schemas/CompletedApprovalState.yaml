@@ -1,7 +1,0 @@
-type: string
-enum:
-  - APPROVED
-  - REJECTED
-description: >-
-  Enum represents completed approval object's state.
-example: APPROVED

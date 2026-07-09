@@ -1,7 +1,0 @@
-name: name
-in: body
-description: object name for filtering
-required: false
-schema:
-  example: "Name of the Object"
-  type: string

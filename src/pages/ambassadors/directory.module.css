@@ -275,7 +275,9 @@ html[data-theme='dark'] .tier-pill--expert {
 }
 /* Dark mode: on the spotlight's blue gradient panel, keep pills solid white. */
 html[data-theme='dark'] .spotlight__media .tier-pill--expert,
-html[data-theme='dark'] .spotlight__media .tier-pill--ambassador {
+html[data-theme='dark'] .spotlight__media .tier-pill--ambassador,
+html[data-theme='dark'] .drawer__pills .tier-pill--expert,
+html[data-theme='dark'] .drawer__pills .tier-pill--ambassador {
   color: #fff;
   background: rgba(255, 255, 255, 0.18);
   border-color: rgba(255, 255, 255, 0.3);
@@ -293,10 +295,11 @@ html[data-theme='dark'] .member-name {
   color: var(--text);
 }
 html[data-theme='dark'] .spotlight__name {
-  color: #93d500;
+  color: #ec008c; /* top-contributor name → hot pink */
 }
-html[data-theme='dark'] .member-card__open {
-  color: #93d500; /* "Preview profile" on the cards → lime green */
+html[data-theme='dark'] .member-card__open,
+html[data-theme='dark'] .spotlight__open {
+  color: #93d500; /* "Preview profile" → lime green (cards + spotlight) */
 }
 html[data-theme='dark'] .member-card[role='button']:hover .member-card__open {
   color: #aef000;
@@ -773,7 +776,7 @@ html[data-theme='dark'] .section-head__title--accent {
   top: 0;
   right: 0;
   height: 100%;
-  width: min(460px, 100%);
+  width: min(560px, 100%);
   background: var(--surface);
   box-shadow: -30px 0 60px -20px rgba(0, 0, 0, 0.4);
   display: flex;

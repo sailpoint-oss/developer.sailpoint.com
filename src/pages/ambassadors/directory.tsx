@@ -37,7 +37,7 @@ interface Member {
   bioText: string;
   since: string;
   forumUrl: string;
-  stats: { points: number; solutions: number; badges: number };
+  stats: { points: number; solutions: number; likes: number };
   monthlyPoints: number;
 }
 
@@ -146,13 +146,27 @@ function Avatar({ member, size = 56, ring = false }: { member: Member; size?: nu
   );
 }
 
-function StatRow({ member, compact = false, monthly = false }: { member: Member; compact?: boolean; monthly?: boolean }) {
-  const items = [
-    monthly
+function StatRow({
+  member,
+  compact = false,
+  context = 'card',
+}: {
+  member: Member;
+  compact?: boolean;
+  context?: 'card' | 'spotlight' | 'drawer';
+}) {
+  // The spotlight leads with monthly points; the drawer spells out "all time"
+  // so it doesn't get confused with the spotlight's monthly figure.
+  const pointsItem =
+    context === 'spotlight'
       ? { label: 'Points this month', num: member.monthlyPoints }
-      : { label: 'Points', num: member.stats.points },
-    { label: 'Solutions', num: member.stats.solutions },
-    { label: 'Badges', num: member.stats.badges },
+      : context === 'drawer'
+        ? { label: 'All time points', num: member.stats.points }
+        : { label: 'Points', num: member.stats.points };
+  const items = [
+    pointsItem,
+    { label: context === 'spotlight' ? 'All-time solutions' : 'Solutions', num: member.stats.solutions },
+    { label: context === 'spotlight' ? 'Likes received' : 'Likes', num: member.stats.likes },
   ];
   return (
     <div className={cx('stats-row', compact && 'stats-row--compact')}>
@@ -209,7 +223,7 @@ function MemberCard({ member, onOpen }: { member: Member; onOpen: (m: Member) =>
       <p className={cx('member-card__tagline')} dangerouslySetInnerHTML={{ __html: member.bio }} />
       <StatRow member={member} compact />
       <div className={cx('member-card__foot')}>
-        <span className={cx('member-card__since')}>Ambassador since {member.since}</span>
+        <span className={cx('member-card__since')}>Member since {member.since}</span>
         <span className={cx('member-card__open')}>
           Preview profile <IconArrow size={14} />
         </span>
@@ -236,7 +250,7 @@ function Spotlight({ member, onOpen }: { member: Member; onOpen: (m: Member) => 
         <h3 className={cx('spotlight__name')}>{member.name}</h3>
         {member.location && <p className={cx('spotlight__role')}>{member.location}</p>}
         <p className={cx('spotlight__bio')} dangerouslySetInnerHTML={{ __html: member.bio }} />
-        <StatRow member={member} monthly />
+        <StatRow member={member} context="spotlight" />
         <span className={cx('spotlight__open')}>
           Preview profile <IconArrow size={16} />
         </span>
@@ -303,7 +317,7 @@ function ProfileDrawer({ member, onClose }: { member: Member; onClose: () => voi
           </div>
         </div>
         <div className={cx('drawer__content')}>
-          <StatRow member={member} />
+          <StatRow member={member} context="drawer" />
           <section className={cx('drawer__block')}>
             <h4 className={cx('drawer__h')}>About</h4>
             <p className={cx('drawer__bio')} dangerouslySetInnerHTML={{ __html: member.bio }} />
@@ -322,7 +336,7 @@ function ProfileDrawer({ member, onClose }: { member: Member; onClose: () => voi
           )}
           <section className={cx('drawer__block', 'drawer__meta')}>
             <span>
-              Ambassador since <strong>{member.since}</strong>
+              Member since <strong>{member.since}</strong>
             </span>
           </section>
           <a className={cx('btn', 'btn--primary', 'btn--block')} href={member.forumUrl} target="_blank" rel="noopener">
@@ -436,6 +450,29 @@ async function fetchMonthlyPoints(): Promise<Map<number, number>> {
   return map;
 }
 
+// All-time "likes received" per user, from the paginated forum directory
+// (~11 pages of 50). Returns id -> likes_received.
+async function fetchLikesReceived(): Promise<Map<number, number>> {
+  const map = new Map<number, number>();
+  const base = discourseBaseURL();
+  for (let page = 0; page < 60; page++) {
+    try {
+      const res: any = await (
+        await fetch(`${base}directory_items.json?period=all&order=likes_received&page=${page}`)
+      ).json();
+      const items = res?.directory_items ?? [];
+      if (!items.length) break;
+      for (const it of items) {
+        const id = it.user?.id ?? it.id;
+        if (id != null) map.set(id, it.likes_received ?? 0);
+      }
+    } catch {
+      break; // out-of-range page (400) or network error — stop paging
+    }
+  }
+  return map;
+}
+
 function useChampions() {
   const [members, setMembers] = useState<Member[] | undefined>(undefined);
   const [loading, setLoading] = useState(true);
@@ -445,12 +482,13 @@ function useChampions() {
 
     (async () => {
       try {
-        const [expertRaw, ambassadorRaw, pointsData, internalIds, monthlyPointsById] = await Promise.all([
+        const [expertRaw, ambassadorRaw, pointsData, internalIds, monthlyPointsById, likesById] = await Promise.all([
           fetchTier(true),
           fetchTier(false),
           getAmbassadorPoints() as Promise<any>,
           fetchInternalMemberIds(),
           fetchMonthlyPoints(),
+          fetchLikesReceived(),
         ]);
 
         // Tag tier; a member listed as expert wins over plain ambassador.
@@ -491,15 +529,15 @@ function useChampions() {
             websiteUrl: d?.website || (d?.website_name ? `https://${d.website_name.replace(/^https?:\/\//, '')}` : undefined),
             bio,
             bioText: stripHtml(bio),
-            since:
-              new Date(m.added_at).toLocaleString('default', { month: 'long' }) +
-              ' ' +
-              new Date(m.added_at).getFullYear(),
+            // Forum-join year (user-cards created_at), not the date they were
+            // (re)added to the Ambassador group — the latter is misleading for
+            // long-time members who cycled in and out of the program.
+            since: new Date(d?.created_at ?? m.added_at).getFullYear().toString(),
             forumUrl: `${discourseBaseURL()}u/${m.username}/summary`,
             stats: {
               points: pointsById.get(m.id) ?? 0,
               solutions: d?.accepted_answers ?? 0,
-              badges: d?.badge_count ?? 0,
+              likes: likesById.get(m.id) ?? 0,
             },
             monthlyPoints: monthlyPointsById.get(m.id) ?? 0,
           });

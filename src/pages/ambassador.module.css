@@ -34,15 +34,21 @@
 }
 
 .heroHeading {
-  font-size: 28px;
+  font-size: clamp(32px, 4.4vw, 52px);
   font-weight: 800;
   color: var(--ifm-color-primary);
-  line-height: 1.3;
-  margin-bottom: 12px;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  text-wrap: balance;
+}
+.heroHeading em {
+  font-style: normal;
+  color: #ec008c;
 }
 
 .heroBody {
-  font-size: 17px;
+  font-size: clamp(17px, 1.5vw, 20px);
   color: var(--dev-text-color-normal);
   line-height: 1.7;
   margin-bottom: 20px;
@@ -110,6 +116,7 @@
 
 .sectionLast {
   border-bottom: none;
+  padding-top: 40px;
   padding-bottom: 96px;
 }
 
@@ -119,7 +126,7 @@
 }
 
 .sectionHeading {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--ifm-color-primary);
   margin-bottom: 16px;
@@ -156,21 +163,36 @@
   color: var(--dev-text-color-normal);
   line-height: 1.6;
 }
+.qualitiesItem::marker {
+  color: #93d500;
+}
 
 /* ── Benefits grid ─────────────────────────────────────────────────────────── */
 .benefitsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
-  margin-top: 8px;
+  margin-top: 20px;
 }
 
 .benefitCard {
+  position: relative;
+  overflow: hidden;
   background-color: var(--ifm-background-surface-color);
   border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 0.5rem;
-  padding: 22px;
-  transition: border-color 0.2s;
+  padding: 26px 22px 22px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+/* Signature gradient accent along the top of each card */
+.benefitCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #ec008c 0%, #00addc 50%, #93d500 100%);
 }
 
 .benefitTitle {
@@ -195,6 +217,7 @@
   display: flex;
   flex-direction: column;
   gap: 28px;
+  margin-top: 20px;
   margin-bottom: 36px;
 }
 
@@ -359,16 +382,22 @@
   margin-bottom: 20px;
 }
 
+/* Full-width tinted band (like the directory's section bands): light gray in
+   light mode, the directory's card/surface gray in dark mode. */
+.sectionBand {
+  background-color: var(--ifm-color-emphasis-100);
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+[data-theme='dark'] .sectionBand {
+  background-color: #000000;
+}
+
 .directoryPromo {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
-  background-color: var(--ifm-background-surface-color);
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 0.5rem;
-  padding: 28px 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .directoryPromoText {
@@ -377,16 +406,16 @@
 }
 
 .directoryPromoTitle {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--ifm-color-primary);
-  margin: 0 0 8px;
+  margin: 0 0 16px;
 }
 
 .directoryPromoDesc {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--dev-text-color-normal);
-  line-height: 1.6;
+  line-height: 1.8;
   margin: 0;
   max-width: 620px;
 }

@@ -78,10 +78,11 @@ const AmbassadorContent: React.FC = () => {
         <div className={styles.hero}>
           <div className={styles.heroContent}>
             <h1 className={styles.heroHeading}>
-              Your experience and expertise has the power to empower others.
+              Your experience and expertise has the power to <em>empower others</em>
             </h1>
             <p className={styles.heroBody}>
-              Help us chart the future of identity security.
+              Join the builders answering questions, shipping tools, and helping chart the future of
+              identity security.
             </p>
             <Link to="/ambassadors/getting-started" className={styles.heroCta}>
               Getting Started Guide
@@ -123,7 +124,7 @@ const AmbassadorContent: React.FC = () => {
       </div>
 
       {/* Ambassador Directory Link */}
-      <div className={`${styles.section} ${styles.sectionNoBorder}`}>
+      <div className={`${styles.section} ${styles.sectionNoBorder} ${styles.sectionBand}`}>
         <div className={styles.sectionInner}>
           <div className={styles.directoryPromo}>
             <div className={styles.directoryPromoText}>

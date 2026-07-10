@@ -1,6 +1,0 @@
-type: object
-properties:
-  comment:
-    type: string
-    description: Comment associated with the request.
-    example: Approval comment.

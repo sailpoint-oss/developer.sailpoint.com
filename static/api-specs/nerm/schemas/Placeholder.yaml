@@ -1,4 +1,0 @@
-type: object
-properties:
-  placeholder:
-    type: string

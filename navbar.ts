@@ -79,6 +79,7 @@ const navbarConfig = {
               { label: 'Escaping Tool Formatter', to: '/tools/escaping-tool-formatter' },
               { label: 'JSON Path Evaluator', to: '/tools/json-path-evaluator' },
               { label: 'Velocity PlayGround', to: '/tools/velocity-playground' },
+              { label: 'XPath Evaluator', to: '/tools/xpath-evaluator' },
             ],
           },
         ],

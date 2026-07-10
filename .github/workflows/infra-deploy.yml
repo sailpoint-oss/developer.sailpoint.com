@@ -13,6 +13,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  # Triggered by the api-specs repo when specs change on its main branch
+  repository_dispatch:
+    types: [api-specs-updated]
+
 # Allow one concurrent deployment
 concurrency:
   group: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) ||  github.event_name == 'push' && 'main' }}
@@ -83,6 +87,16 @@ jobs:
           token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
           ref: main
 
+      # API specs are no longer committed to this repo — they are fetched here
+      # and copied into static/api-specs by scripts/sync-sdk-docs-local.sh.
+      - name: Check out api-specs
+        uses: actions/checkout@v6
+        with:
+          repository: sailpoint-oss/api-specs
+          path: api-specs
+          token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
+          ref: main
+
       - name: Install rsync and Java
         run: sudo apt-get update -qq && sudo apt-get install -y rsync
 
@@ -100,7 +114,7 @@ jobs:
             python-sdk/sailpoint/**/docs
             powershell-sdk/PSSailpoint/**/docs
             typescript-sdk/sdk-output
-          key: sdk-docs-${{ hashFiles('static/api-specs/idn/apis/**') }}
+          key: sdk-docs-${{ hashFiles('api-specs/idn/apis/**') }}
           restore-keys: sdk-docs-
 
       - name: Setup portal .npmrc

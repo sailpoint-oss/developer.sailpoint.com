@@ -1,6 +1,0 @@
-required: true
-content:
-  application/json:
-    schema:
-      type: object
-      $ref: "../../schemas/POST/SyncedAttribute.yaml"

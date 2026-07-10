@@ -1,9 +1,0 @@
-required: true
-content:
-  application/json:
-    schema:
-      type: object
-      properties:
-        user_manager:
-          type: object
-          $ref: "../../schemas/PATCH/UserManager.yaml"

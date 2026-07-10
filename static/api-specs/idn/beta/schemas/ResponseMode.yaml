@@ -1,7 +1,0 @@
-type: string
-description: Response mode for trigger invocation.
-enum:
-  - SYNC
-  - ASYNC
-  - DYNAMIC
-example: SYNC

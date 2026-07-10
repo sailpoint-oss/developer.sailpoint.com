@@ -1,9 +1,0 @@
-required: true
-content:
-  application/json:
-    schema:
-      type: object
-      properties:
-        page_element:
-          type: object
-          $ref: "../../schemas/PATCH/PageElement.yaml"

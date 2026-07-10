@@ -1,4 +1,0 @@
-type: object
-allOf:
-  - $ref: 'AccessProfileDocument.yaml'
-  - $ref: '../../base/DocumentFields.yaml'

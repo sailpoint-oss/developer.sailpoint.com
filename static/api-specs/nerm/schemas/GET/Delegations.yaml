@@ -1,6 +1,0 @@
-type: object
-properties:
-  delegations:
-    type: array
-    items:
-      $ref: '../GET/Delegation.yaml'

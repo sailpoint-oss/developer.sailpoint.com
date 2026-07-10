@@ -56,7 +56,9 @@ const GettingStarted: React.FC = () => {
         {/* Hero */}
         <div className={styles.hero}>
           <div className={styles.heroInner}>
-            <h1 className={styles.heroHeading}>Getting started as a SailPoint Ambassador</h1>
+            <h1 className={styles.heroHeading}>
+              <em>Getting started</em> as a SailPoint Ambassador
+            </h1>
             <p className={styles.heroBody}>
               Everything you need to know to join the program, contribute effectively, and maintain your status.
             </p>

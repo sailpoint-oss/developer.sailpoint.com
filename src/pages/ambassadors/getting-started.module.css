@@ -9,7 +9,7 @@
 }
 
 .page a:not(.applyBtn):hover {
-  color: var(--ifm-color-primary) !important;
+  color: #ec008c !important;
   text-decoration: none !important;
 }
 
@@ -35,20 +35,26 @@
 }
 
 .heroInner {
-  max-width: 860px;
+  max-width: 980px;
   margin: 0 auto;
 }
 
 .heroHeading {
-  font-size: 28px;
+  font-size: clamp(32px, 4.4vw, 52px);
   font-weight: 800;
   color: var(--ifm-color-primary);
-  line-height: 1.3;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
   margin-bottom: 16px;
+  text-wrap: balance;
+}
+.heroHeading em {
+  font-style: normal;
+  color: #ec008c;
 }
 
 .heroBody {
-  font-size: 17px;
+  font-size: clamp(17px, 1.5vw, 20px);
   color: var(--dev-text-color-normal);
   line-height: 1.7;
   margin-bottom: 18px;
@@ -81,6 +87,7 @@
 }
 
 .sectionCompactFollow {
+  padding-top: 44px; /* match the landing page's hero-to-first-section gap (~76px) */
   padding-bottom: 12px;
 }
 
@@ -93,7 +100,7 @@
 }
 
 .sectionDivider {
-  max-width: 860px;
+  max-width: 980px;
   margin: 0 auto;
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
 }
@@ -103,12 +110,12 @@
 }
 
 .sectionInner {
-  max-width: 860px;
+  max-width: 980px;
   margin: 0 auto;
 }
 
 .sectionHeading {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--ifm-color-primary);
   margin-bottom: 16px;
@@ -213,7 +220,7 @@
 }
 
 [data-theme='dark'] .criteriaLabel {
-  color: #93D500;
+  color: #ec008c;
 }
 
 .criteriaList {
@@ -235,6 +242,12 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+/* Lime-green bullet markers, matching the landing page */
+.linkList > li::marker,
+.subLinkList > li::marker,
+.criteriaList > li::marker {
+  color: #93d500;
 }
 
 .linkList li {

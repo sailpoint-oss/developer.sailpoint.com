@@ -17,23 +17,24 @@ Here is an example of how you can implement Search, along with pagination. Copy 
 
 ```python
 
-import sailpoint
-import sailpoint.v3
+from sailpoint import ApiClient, SearchApi
 from sailpoint.configuration import Configuration
 from sailpoint.paginator import Paginator
+from sailpoint.search.models.search import Search
+from sailpoint.search.models.query import Query
 
 configuration = Configuration()
 
-api_client = sailpoint.v3.ApiClient(configuration)
+api_client = ApiClient(configuration)
 
-search = sailpoint.v3.Search(
+search = Search(
     indices=['identities'], 
-    query=sailpoint.v3.Query(query='*'), 
+    query=Query(query='*'), 
     sort=['-name'])
     
-identities = Paginator.paginate_search(sailpoint.v3.SearchApi(api_client), search, increment=100, limit=1000)
+identities = Paginator.paginate_search(SearchApi(api_client), search, increment=100, limit=1000)
 
-print(identities.count)
+print(len(identities))
 ```
 
 Run this command to run the code:

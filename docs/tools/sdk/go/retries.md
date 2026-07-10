@@ -22,9 +22,9 @@ import (
  "context"
  "fmt"
  "os"
+ "time"
 
- sailpoint "github.com/sailpoint-oss/golang-sdk"
- v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+ sailpoint "github.com/sailpoint-oss/golang-sdk/v3"
 )
 
 func main() {
@@ -36,13 +36,13 @@ func main() {
  configuration.HTTPClient.RetryMax = 10
  configuration.HTTPClient.RetryWaitMax = time.Second * 2
 
- resp, r, err := apiClient.V3.TransformsAPI.ListTransforms(ctx).Filters("This is an incorrect string").Execute()
+ resp, r, err := apiClient.TransformsAPI.ListTransformsV1(ctx).Filters("This is an incorrect string").Execute()
  if err != nil {
-  fmt.Fprintf(os.Stderr, "Error when calling `TransformsApi.ListTransforms``: %v\n", err)
+  fmt.Fprintf(os.Stderr, "Error when calling `TransformsAPI.ListTransformsV1``: %v\n", err)
   fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
  }
- // response from `ListAccounts`: []Account
- fmt.Fprintf(os.Stdout, "First response from `TransformsApi.ListTransforms`: %v\n", resp)
+ // response from `ListTransformsV1`: []Transformread
+ fmt.Fprintf(os.Stdout, "First response from `TransformsAPI.ListTransformsV1`: %v\n", resp)
 
 }
 ```

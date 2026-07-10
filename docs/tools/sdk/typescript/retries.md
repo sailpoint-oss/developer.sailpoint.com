@@ -32,7 +32,7 @@ const getPaginatedAccounts = async () => {
   };
   let api = new AccountsApi(apiConfig);
 
-  const val = await Paginator.paginate(api, api.listAccounts, {limit: 100}, 10);
+  const val = await Paginator.paginate(api, api.listAccountsV1, {limit: 100}, 10);
 
   console.log(val);
 };
@@ -40,8 +40,8 @@ const getPaginatedAccounts = async () => {
 getPaginatedAccounts();
 ```
 
-Run this command to compile and run the code:
+Run this command to run the code:
 
 ```bash
-tsc src/index.ts && node src/index.js
+bun src/index.ts
 ```

@@ -11,11 +11,27 @@ slug: /tools/sdk/go/search
 tags: ['SDK', 'Software Development Kit']
 ---
 
-To try using the ISC [search functionality](/docs/api/search-post-v-1) along with pagination, copy this code into your "sdk.go" file, following the main code:
+To try using the ISC [search functionality](/docs/api/search-post-v-1) along with pagination, create a file in your project called `sdk.go` with the following content:
 
 ```go
-func getSearchResults(ctx context.Context, apiClient *sailpoint.APIClient) {
- search := v3.NewSearchWithDefaults()
+package main
+
+import (
+ "context"
+ "fmt"
+ "os"
+
+ sailpoint "github.com/sailpoint-oss/golang-sdk/v3"
+ api_search "github.com/sailpoint-oss/golang-sdk/v3/search"
+)
+
+func main() {
+
+ ctx := context.TODO()
+ configuration := sailpoint.NewDefaultConfiguration()
+ apiClient := sailpoint.NewAPIClient(configuration)
+
+ search := api_search.NewSearchWithDefaults()
  search.Indices = append(search.Indices, "identities")
  searchString := []byte(`
  {
@@ -31,15 +47,16 @@ func getSearchResults(ctx context.Context, apiClient *sailpoint.APIClient) {
  }
    `)
  search.UnmarshalJSON(searchString)
- resp, r, err := sailpoint.PaginateSearchAPI(ctx, apiClient, *search, 0, 10, 10000)
+ resp, r, err := sailpoint.Paginate[map[string]interface{}](apiClient.SearchAPI.SearchPostV1(ctx).Search(*search), 0, 10, 10000)
  if err != nil {
-  fmt.Fprintf(os.Stderr, "Error when calling `PaginateSearchApi``: %v\n", err)
+  fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.SearchPostV1``: %v\n", err)
   fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
  }
  // response from `search`
  for i := 0; i < len(resp); i++ {
   fmt.Println(resp[i]["name"])
  }
+
 }
 ```
 
@@ -80,7 +97,7 @@ In this example, the `"identities"` string represents an unmarshalled JSON. Chan
 The search example includes the syntax you can use to paginate search results. Edit this line to configure the search result pagination:
 
 ```go
-resp, r, err := sailpoint.PaginateSearchAPI(ctx, apiClient, *search, 0, 10, 10000)
+resp, r, err := sailpoint.Paginate[map[string]interface{}](apiClient.SearchAPI.SearchPostV1(ctx).Search(*search), 0, 10, 10000)
 ```
 
 The first value refers to the `initialOffset`, the starting number for the results, the second refers to the `increment`, the number of records per page, and the third refers to the `limit`, the last record that can be returned.

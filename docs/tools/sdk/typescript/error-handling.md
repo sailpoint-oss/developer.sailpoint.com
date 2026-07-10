@@ -17,7 +17,7 @@ The first method is to use a `catch` function to intercept any unsuccessful resp
 
 ```typescript showLineNumbers
 // Catch any non 2xx response and log the error message and metadata
-let transforms = await api.listTransforms().catch(function (error) {
+let transforms = await api.listTransformsV1().catch(function (error) {
   console.log(error.response.data);
   console.log(error.response.status);
   console.log(error.response.headers);
@@ -30,7 +30,7 @@ If you don't want the program to exit for 4xx response codes, you can use this c
 
 ```typescript showLineNumbers
 // Resolve only if the status code is less than 500
-let transforms = await api.listTransforms(
+let transforms = await api.listTransformsV1(
   {filters: 'id eq'},
   {
     validateStatus: function (status) {
@@ -49,7 +49,7 @@ if (transforms.status === 200) {
 If you don't want the program to exit for any error response, you can use this configuration:
 
 ```typescript
-await api.listTransforms(
+await api.listTransformsV1(
   {},
   {
     validateStatus: function (status) {

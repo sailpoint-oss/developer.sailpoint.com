@@ -24,7 +24,7 @@ const getPaginatedAccounts = async () => {
 
   const val = await Paginator.paginate(
     api,
-    api.listAccounts,
+    api.listAccountsV1,
     {limit: 1000},
     250,
   );
@@ -35,13 +35,13 @@ const getPaginatedAccounts = async () => {
 getPaginatedAccounts();
 ```
 
-Run this command to compile and run the code:
+Run this command to run the code:
 
 ```bash
-tsc src/index.ts && node src/index.js
+bun src/index.ts
 ```
 
-The function takes a few parameters: the first is the API instance that you wish to call, created on line 5. The next parameter is the function in which you want to invoke the pagination against. The earlier example wants to list accounts, so it calls `api.listAccounts`.
+The function takes a few parameters: the first is the API instance that you wish to call, created on line 5. The next parameter is the function in which you want to invoke the pagination against. The earlier example wants to list accounts, so it calls `api.listAccountsV1`.
 
 The `limit` specifies the total number of results you can return, 1000. The following unlabeled number, 250, refers to the `increment`, the number of records per page. For example, changing the `limit` to 50 and the following "250" to 5 would change the request to return a total of 50 records, 5 at a time.
 

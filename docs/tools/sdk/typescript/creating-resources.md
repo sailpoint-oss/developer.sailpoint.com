@@ -13,25 +13,25 @@ tags: ['SDK']
 
 You can use the SDK to create new resources.
 
-Here is an example create workgroup script from the beta APIs you can copy into your typescript project to try it out:
+Here is an example create workgroup script you can copy into your typescript project to try it out:
 
 ```typescript showLineNumbers
 import {
   Configuration,
-  GovernanceGroupsBetaApi,
-  GovernanceGroupsBetaApiCreateWorkgroupRequest,
+  GovernanceGroupsApi,
   PublicIdentitiesApi,
 } from 'sailpoint-api-client';
+import {GovernanceGroupsApiCreateWorkgroupV1Request} from 'sailpoint-api-client/dist/governance_groups/api';
 
 const createWorkGroup = async () => {
   let apiConfig = new Configuration();
   let identitiesApi = new PublicIdentitiesApi(apiConfig);
 
-  let identity = (await identitiesApi.getPublicIdentities({limit: 1})).data[0];
+  let identity = (await identitiesApi.getPublicIdentitiesV1({limit: 1})).data[0];
 
-  let api = new GovernanceGroupsBetaApi(apiConfig);
-  let workgroup: GovernanceGroupsBetaApiCreateWorkgroupRequest = {
-    workgroupDtoBeta: {
+  let api = new GovernanceGroupsApi(apiConfig);
+  let workgroup: GovernanceGroupsApiCreateWorkgroupV1Request = {
+    workgroupdto: {
       name: 'DB Access Governance Group',
       description: 'Description of the Governance Group',
       owner: {
@@ -42,22 +42,22 @@ const createWorkGroup = async () => {
     },
   };
 
-  let val = await api.createWorkgroup(workgroup);
+  let val = await api.createWorkgroupV1(workgroup);
   console.log(val.data);
 };
 
 createWorkGroup();
 ```
 
-Run this command to compile and run the code:
+Run this command to run the code:
 
 ```bash
-tsc src/index.ts && node src/index.js
+bun src/index.ts
 ```
 
-The example uses the `getPublicIdentities` method from the `PublicIdentitiesApi` to pull an identity needed to be the owner of the Workgroup.
+The example uses the `getPublicIdentitiesV1` method from the `PublicIdentitiesApi` to pull an identity needed to be the owner of the Workgroup.
 
-The create workgroup request is initialized on lines 10-20 using the identity's name and id in the owner object.
+The create workgroup request is initialized on lines 15-25 using the identity's name and id in the owner object.
 
 The WorkGroup will be returned by the SDK:
 

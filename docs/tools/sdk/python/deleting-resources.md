@@ -18,30 +18,24 @@ For example, you can run a script that searches by name for a created work group
 This script searches by name for the work group created in the example in [Creating resources](./creating-resources.md) and calls the delete method to remove it from your environment. Copy the script into your Python project to try it out: 
 
 ```python
-import sailpoint
-import sailpoint.beta
-from sailpoint.beta.models.workgroup_dto import WorkgroupDto
-from sailpoint.beta.models.usage_type import UsageType
-from sailpoint.beta.models.owner_dto import OwnerDto
-from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
-from sailpoint.beta.models.json_patch_operation_value import JsonPatchOperationValue
+from sailpoint import ApiClient, GovernanceGroupsApi
 from sailpoint.configuration import Configuration
 
 configuration = Configuration()
 
-api_client_beta = sailpoint.beta.ApiClient(configuration)
+api_client = ApiClient(configuration)
 
-workgroups_api_instance = sailpoint.beta.GovernanceGroupsApi(api_client_beta)
+workgroups_api_instance = GovernanceGroupsApi(api_client)
 
-workgroup = workgroups_api_instance.list_workgroups(filters='name eq "DB Access Governance Group"')[0]
+workgroup = workgroups_api_instance.list_workgroups_v1(filters='name eq "DB Access Governance Group"')[0]
 
 
 try:
-    workgroupResponse = workgroups_api_instance.delete_workgroup_with_http_info(workgroup.id)
-    print("The response of GovernanceGroupsApi->delete_workgroup:\n")
+    workgroupResponse = workgroups_api_instance.delete_workgroup_v1_with_http_info(workgroup.id)
+    print("The response of GovernanceGroupsApi->delete_workgroup_v1:\n")
     print(workgroupResponse)
 except Exception as e:
-    print("Exception when calling GovernanceGroupsApi->delete_workgroup: %s\n" % e)
+    print("Exception when calling GovernanceGroupsApi->delete_workgroup_v1: %s\n" % e)
 ```
 
 Run this command to run the code:
@@ -53,7 +47,7 @@ python sdk.py
 The SDK returns the `deletionStatus` with a value of 204.
 
 ```python
-The response of GovernanceGroupsApi->patch_workgroup:
+The response of GovernanceGroupsApi->delete_workgroup_v1:
 
 status_code=204 
 headers={'Date': 'Wed, 31 Jan 2024 18:37:33 GMT', 'Connection': 'keep-alive', 'Server': 'nginx', 'Vary': 'Access-Control-Request-Headers', 'Cache-Control': 'no-cache, no-store, must-revalidate', 'SLPT-Request-ID': 'acdbe637fc044befbfe0ce16ad2224ad', 'Access-Control-Expose-Headers': 'Retry-After,Connection,SLPT-Request-ID,Date,X-Zuul-ServiceId', 'X-Robots-Tag': 'noindex'} 

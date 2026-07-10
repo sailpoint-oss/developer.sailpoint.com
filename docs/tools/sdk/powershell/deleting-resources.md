@@ -16,9 +16,9 @@ You can use the SDK to delete resources. These cmdlets will typically start with
 Here is an example script that searches for the previously created Workgroup by name and calls the delete cmdlet to remove it from your environment.
 
 ```powershell
-$WorkGroup = Get-BetaWorkgroups -Filters 'name eq "DB Access Governance Group"'
+$WorkGroup = Get-WorkgroupsV1 -Filters 'name eq "DB Access Governance Group"'
 
-Remove-BetaWorkgroup -Id $WorkGroup.id -WithHttpInfo
+Remove-WorkgroupV1 -Id $WorkGroup.id -WithHttpInfo
 ```
 
 Using the [WithHttpInfo Switch](./getting-started.md#withhttpinfo-switch) in the script above, we can verify the operation completed successfully by the 204 status code.

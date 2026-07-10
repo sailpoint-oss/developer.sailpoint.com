@@ -154,6 +154,9 @@ html[data-theme='dark'] .hero {
   font-style: normal;
   color: var(--accent);
 }
+.hero__nowrap {
+  white-space: nowrap;
+}
 .hero__sub {
   font-size: clamp(17px, 1.5vw, 20px);
   color: var(--text-muted);

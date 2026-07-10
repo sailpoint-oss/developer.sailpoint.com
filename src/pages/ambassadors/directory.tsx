@@ -715,10 +715,11 @@ const DirectoryContent: React.FC = () => {
           <div className={cx('hero__inner')}>
             <div className={cx('hero__text')}>
               <h1 className={cx('hero__title')}>
-                <em>People</em> <em>are</em> what makes our developer community <em>exceptional</em>
+                <em>People</em> are what makes our developer{' '}
+                <span className={cx('hero__nowrap')}>community <em>exceptional</em></span>
               </h1>
               <p className={cx('hero__sub')}>
-                Every transform shared, every forum answer, every late-night connector fix. Meet the Ambassadors and
+                Every solution shared, every forum answer, every late-night connector fix. Meet the Ambassadors and
                 Expert Ambassadors shaping identity security together.
               </p>
               <div className={cx('hero__stats')}>
@@ -763,7 +764,7 @@ const DirectoryContent: React.FC = () => {
               <div className={cx('wrap')}>
                 <SectionHead
                   title="Ambassador directory"
-                  desc="The community champions who are answering questions, shipping connectors, and mentoring newcomers every day."
+                  desc="The community champions who are answering questions, pushing the platform forward, and mentoring newcomers every day."
                   accent
                   wide
                 />

@@ -589,44 +589,6 @@ html[data-theme='dark'] .section-head__title--accent {
   border-color: var(--border);
 }
 
-/* ── Spotlight: "top post this month" featured link ── */
-.spotlight__toppost {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  padding: 12px 14px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--surface-2);
-  transition: 0.15s;
-  text-decoration: none;
-}
-.spotlight__toppost:hover {
-  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
-  background: color-mix(in srgb, var(--accent) 6%, var(--surface-2));
-  text-decoration: none;
-}
-.spotlight__toppost-label {
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-.spotlight__toppost-title {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14.5px;
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1.4;
-}
-.spotlight__toppost-title svg {
-  flex: none;
-  color: var(--text-faint);
-}
-
 /* ============ TOOLBAR ============ */
 .toolbar {
   display: flex;

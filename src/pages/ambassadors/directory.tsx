@@ -45,7 +45,6 @@ interface Member {
 interface SpotlightExtra {
   likes: number;
   solutions: number;
-  post?: { title: string; url: string };
 }
 
 /* ---------------- Icons (single-stroke UI glyphs) ---------------- */
@@ -280,20 +279,6 @@ function Spotlight({
             <div className={cx('stat__label')}>Likes this month</div>
           </div>
         </div>
-        {extra?.post && (
-          <a
-            className={cx('spotlight__toppost')}
-            href={extra.post.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <span className={cx('spotlight__toppost-label')}>★ Top post this month</span>
-            <span className={cx('spotlight__toppost-title')}>
-              {extra.post.title} <IconExternal size={13} />
-            </span>
-          </a>
-        )}
         <span className={cx('spotlight__open')}>
           Preview profile <IconArrow size={16} />
         </span>
@@ -523,7 +508,6 @@ async function fetchSpotlightExtra(username: string): Promise<SpotlightExtra> {
   const base = discourseBaseURL();
   let likes = 0;
   let solutions = 0;
-  let post: SpotlightExtra['post'];
   try {
     const di: any = await (
       await fetch(`${base}directory_items.json?period=monthly&name=${encodeURIComponent(username)}`)
@@ -536,19 +520,7 @@ async function fetchSpotlightExtra(username: string): Promise<SpotlightExtra> {
   } catch {
     /* ignore — likes/solutions fall back to 0 */
   }
-  try {
-    const t: any = await (await fetch(`${base}topics/created-by/${encodeURIComponent(username)}.json`)).json();
-    const topics: any[] = t?.topic_list?.topics ?? [];
-    const cutoff = Date.now() - 30 * 24 * 60 * 60 * 1000;
-    const recent = topics.filter((x) => new Date(x.created_at).getTime() >= cutoff);
-    const pool = recent.length ? recent : topics; // fall back to most recent if none in window
-    const score = (x: any) => (x.reply_count ?? 0) + (x.like_count ?? 0);
-    const best = pool.sort((a, b) => score(b) - score(a))[0];
-    if (best) post = { title: best.title, url: `${base}t/${best.slug}/${best.id}` };
-  } catch {
-    /* ignore — no featured post */
-  }
-  return { likes, solutions, post };
+  return { likes, solutions };
 }
 
 function useChampions() {

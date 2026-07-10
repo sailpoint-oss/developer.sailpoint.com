@@ -14,7 +14,7 @@ tags: ['SecureDataShare', 'SDS']
 
 # Secure Data Share Identity Data Dictionary
 
-This page presents the Secure Data Share (SDS) identity data model in a tabular format. It contains the same information as the [Identity ER Diagram](/reporting/sds-er-diagram), organized as tables for easier navigation, searching, and reference.
+This page presents the Secure Data Share (SDS) identity data model in a tabular format. It contains the same information as the [Identity ER Diagram](./identity-er-diagram.md), organized as tables for easier navigation, searching, and reference.
 
 Each section below documents a single table in the identity data model, listing its columns, data types, keys, and descriptions. The [Table relationships](#table-relationships) section at the end summarizes how the tables relate to one another.
 

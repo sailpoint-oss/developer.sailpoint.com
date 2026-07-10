@@ -13,6 +13,7 @@ const navbarConfig = {
         groups: [
           {
             label: 'Identity Security Cloud',
+            description: 'Guides and references for building on ISC.',
             items: [
               { label: 'Overview', to: '/docs' },
               { label: 'Extensibility', to: '/docs/extensibility' },
@@ -23,6 +24,7 @@ const navbarConfig = {
           },
           {
             label: 'IdentityIQ',
+            description: 'Extend and customize your IIQ deployment.',
             items: [
               { label: 'Overview', to: '/docs/iiq' },
               { label: 'Plugin Developer Guide', to: '/docs/iiq/plugin-developer-guide' },
@@ -37,6 +39,7 @@ const navbarConfig = {
         groups: [
           {
             label: 'Identity Security Cloud',
+            description: 'REST API specs and getting-started essentials.',
             items: [
               { label: 'Getting Started', to: '/docs/api/getting-started' },
               { label: 'Authentication', to: '/docs/api/authentication' },
@@ -51,6 +54,7 @@ const navbarConfig = {
           },
           {
             label: 'Other platforms',
+            description: 'Specs for IIQ, NERM, and legacy APIs.',
             items: [
               { label: 'IdentityIQ', to: '/docs/api/iiq' },
               { label: 'NERM', to: '/docs/api/nerm/v1' },
@@ -66,6 +70,7 @@ const navbarConfig = {
         groups: [
           {
             label: 'SDKs & CLI',
+            description: 'Build faster with official SDKs and tooling.',
             items: [
               { label: 'SDKs', to: '/docs/tools/sdk' },
               { label: 'CLI', to: '/docs/tools/cli' },
@@ -75,6 +80,7 @@ const navbarConfig = {
           },
           {
             label: 'Utilities',
+            description: 'Handy in-browser developer utilities.',
             items: [
               { label: 'Escaping Tool Formatter', to: '/tools/escaping-tool-formatter' },
               { label: 'JSON Path Evaluator', to: '/tools/json-path-evaluator' },
@@ -91,6 +97,7 @@ const navbarConfig = {
         groups: [
           {
             label: 'Connect',
+            description: 'Join the conversation and share your work.',
             items: [
               { label: 'Developer forum', to: 'https://developer.sailpoint.com/discuss/' },
               { label: 'CoLab marketplace', to: '/colab' },
@@ -99,6 +106,7 @@ const navbarConfig = {
           },
           {
             label: 'Learn',
+            description: 'Videos, blog posts, and program info.',
             items: [
               { label: 'Video library', to: '/videos' },
               { label: 'Developer blog', to: '/blog' },

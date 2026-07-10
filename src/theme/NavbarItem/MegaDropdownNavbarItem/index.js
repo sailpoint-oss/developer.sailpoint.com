@@ -32,6 +32,14 @@ import {isSamePath, useLocalPathname} from '@docusaurus/theme-common/internal';
 import NavbarNavLink from '@theme/NavbarItem/NavbarNavLink';
 import styles from './styles.module.css';
 
+// ── MegaNav style switcher ────────────────────────────────────────────────
+// Try a different desktop look by changing this value, then reload the page.
+//   'default'   – the original plain columns (no color)
+//   'cards'     – each column is a tinted card with a colored accent edge
+//   'accent'    – colored top rule + colored group titles and link hovers
+//   'spotlight' – bold solid-color header block per column
+const MEGANAV_VARIANT = 'accent';
+
 function isItemActive(item, localPathname) {
   if (isSamePath(item.to, localPathname)) {
     return true;
@@ -97,12 +105,18 @@ function MegaDropdownItemDesktop({groups = [], position, className, ...props}) {
       >
         {props.children ?? props.label}
       </NavbarNavLink>
-      <div className={clsx('dropdown__menu', styles.megaPanel)}>
+      <div
+        className={clsx('dropdown__menu', styles.megaPanel)}
+        data-meganav={MEGANAV_VARIANT}
+      >
         <div className={styles.megaPanelInner}>
           {groups.map((group, groupIdx) => (
             <div className={styles.megaColumn} key={groupIdx}>
               {group.label && (
                 <div className={styles.megaColumnTitle}>{group.label}</div>
+              )}
+              {group.description && (
+                <div className={styles.megaColumnDesc}>{group.description}</div>
               )}
               <ul className={styles.megaColumnList}>
                 {(group.items ?? []).map((item, itemIdx) => (
@@ -164,6 +178,9 @@ function MegaDropdownItemMobile({
           <React.Fragment key={groupIdx}>
             {group.label && (
               <li className={styles.mobileGroupTitle}>{group.label}</li>
+            )}
+            {group.description && (
+              <li className={styles.mobileGroupDesc}>{group.description}</li>
             )}
             {(group.items ?? []).map((item, itemIdx) => (
               <li className="menu__list-item" key={itemIdx}>

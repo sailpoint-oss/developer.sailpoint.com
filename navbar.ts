@@ -39,7 +39,7 @@ const navbarConfig = {
         groups: [
           {
             label: 'Identity Security Cloud',
-            description: 'REST API specs and getting-started essentials.',
+            description: 'API specifications and getting-started essentials.',
             items: [
               { label: 'Getting Started', to: '/docs/api/getting-started' },
               { label: 'Authentication', to: '/docs/api/authentication' },
@@ -49,7 +49,7 @@ const navbarConfig = {
               { label: 'Rate Limits', to: '/docs/api/rate-limit' },
               { label: 'Postman Collections', to: '/docs/api/postman-collections' },
               { label: 'Patch Requests', to: '/docs/api/patch-requests' },
-              { label: 'All ISC API Specs', to: '/docs/api' },
+              { label: 'ISC API Specifications', to: '/docs/api' },
             ],
           },
           {
@@ -58,7 +58,7 @@ const navbarConfig = {
             items: [
               { label: 'IdentityIQ', to: '/docs/api/iiq' },
               { label: 'NERM', to: '/docs/api/nerm/v1' },
-              { label: 'Legacy Specs', to: '/apis/legacy' },
+              { label: 'Legacy Specifications', to: '/apis/legacy' },
             ],
           },
         ],

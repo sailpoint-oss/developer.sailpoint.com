@@ -20,6 +20,11 @@
   /* Per-column accent colors, alternated below. Kept as CSS vars so each
    * variant can reference them without repeating the palette. */
   --mn-accent-a: var(--ifm-color-primary);
+  --mn-accent-b: #cc27b0; /* pink in light mode */
+}
+
+/* Lime green as the secondary accent in dark mode. */
+:global(html[data-theme='dark']) .megaPanel {
   --mn-accent-b: #93d500;
 }
 

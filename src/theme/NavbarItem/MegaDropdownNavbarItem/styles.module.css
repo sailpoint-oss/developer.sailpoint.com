@@ -20,7 +20,7 @@
   /* Per-column accent colors, alternated below. Kept as CSS vars so each
    * variant can reference them without repeating the palette. */
   --mn-accent-a: var(--ifm-color-primary);
-  --mn-accent-b: #cc27b0;
+  --mn-accent-b: #93d500;
 }
 
 .megaPanelInner {
@@ -108,7 +108,7 @@
   color: var(--ifm-color-emphasis-700);
 }
 .megaPanel[data-meganav='cards'] .megaColumnList :global(.dropdown__link):hover {
-  color: var(--mn-col-accent);
+  color: var(--mn-col-accent) !important;
   background: color-mix(in srgb, var(--mn-col-accent) 10%, transparent);
 }
 
@@ -130,7 +130,8 @@
 }
 .megaPanel[data-meganav='accent'] .megaColumnList :global(.dropdown__link):hover {
   background: color-mix(in srgb, var(--mn-col-accent) 12%, transparent);
-  color: var(--mn-col-accent);
+  /* !important to beat the site-wide `.dropdown__link:hover` override in custom.css. */
+  color: var(--mn-col-accent) !important;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
@@ -161,5 +162,5 @@
   padding: 0.6rem 0.5rem 0.5rem;
 }
 .megaPanel[data-meganav='spotlight'] .megaColumnList :global(.dropdown__link):hover {
-  color: var(--mn-col-accent);
+  color: var(--mn-col-accent) !important;
 }

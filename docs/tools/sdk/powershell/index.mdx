@@ -52,23 +52,17 @@ Run this command to install the required dependencies:
 
 ```powershell
 Install-Module -Name PSSailpoint
-Install-Module -Name PSSailpoint.Beta
-Install-Module -Name PSSailpoint.V3
-Install-Module -Name PSSailpoint.V2024
 ```
 
-The command installs the SailPoint PowerShell SDK module. You will be prompted to confirm that you want to install the module from 'PSGallery'. Enter "A" to say "Yes to All".
+The command installs the SailPoint PowerShell SDK module. Starting with version 2.0, the SDK is a single, flat module (`PSSailpoint`) organized by API resource - there are no longer separate `PSSailpoint.Beta`, `PSSailpoint.V3`, or `PSSailpoint.V2024` modules to install. You will be prompted to confirm that you want to install the module from 'PSGallery'. Enter "A" to say "Yes to All".
 
 If you already have a version of the PowerShell SDK installed, you can install a new version side-by-side with it by adding the `-Force` parameter to the end of your `Install-Module` commmand:
 
 ```powershell
 Install-Module -Name PSSailpoint -Force
-Install-Module -Name PSSailpoint.Beta -Force
-Install-Module -Name PSSailpoint.V3 -Force
-Install-Module -Name PSSailpoint.V2024 -Force
 ```
 
-To validate that the module is installed, run this command, `Get-Module -ListAvailable PSSailpoint`, and verify that the module is listed. Additionally, you can run this command, `Get-Command -Module PSSailpoint`, to see the available commands included in the module.
+To validate that the module is installed, run this command, `Get-Module -ListAvailable PSSailpoint`, and verify that the module is listed. Additionally, you can run this command, `Get-SailPointCommand`, to see the available commands included in the SDK.
 
 The SDK is now installed. To learn how to configure the SDK, refer to the [Configure section](#configure).
 
@@ -95,7 +89,7 @@ Follow these steps to manually install the PowerShell module:
    - To install for the Current user: `C:\Users\<username>\Documents\WindowsPowerShell\Modules\PSSailpoint`
    - To install for All users (requires Administrator privileges): `C:\Program Files\WindowsPowerShell\Modules\PSSailpoint`
 4. Run `Import-Module PSSailpoint` to import the module into the current session.
-5. To validate that the module is installed, run `Get-Module -ListAvailable PSSailpoint` and verify that the module is listed. Additionally, you can run `Get-Command -Module PSSailpoint` to see the module's available commands.
+5. To validate that the module is installed, run `Get-Module -ListAvailable PSSailpoint` and verify that the module is listed. Additionally, you can run `Get-SailPointCommand` to see the SDK's available commands.
 
 The SDK is now installed. To learn how to configure the SDK, refer to the [Configure section](#configure).
 

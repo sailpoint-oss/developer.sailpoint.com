@@ -18,22 +18,20 @@ Here is an example script that searches for the Workgroup created in [Create a r
 ```typescript
 import {
   Configuration,
-  GovernanceGroupsBetaApi,
-  GovernanceGroupsBetaApiCreateWorkgroupRequest,
-  GovernanceGroupsBetaApiPatchWorkgroupRequest,
+  GovernanceGroupsApi,
   PublicIdentitiesApi,
 } from 'sailpoint-api-client';
 
 const deleteWorkgroup = async () => {
   let apiConfig = new Configuration();
-  let api = new GovernanceGroupsBetaApi(apiConfig);
+  let api = new GovernanceGroupsApi(apiConfig);
 
   let workgroup = (
-    await api.listWorkgroups({filters: 'name eq "DB Access Governance Group"'})
+    await api.listWorkgroupsV1({filters: 'name eq "DB Access Governance Group"'})
   ).data[0];
 
   if (workgroup.id !== undefined) {
-    let deletionStatus = (await api.deleteWorkgroup({id: workgroup.id})).status;
+    let deletionStatus = (await api.deleteWorkgroupV1({id: workgroup.id})).status;
     console.log(deletionStatus);
   } else {
     console.log('Workgroup was not found, id is missing for delete request.');
@@ -43,10 +41,10 @@ const deleteWorkgroup = async () => {
 deleteWorkgroup();
 ```
 
-Run this command to compile and run the code:
+Run this command to run the code:
 
 ```bash
-tsc src/index.ts && node src/index.js
+bun src/index.ts
 ```
 
 The deletionStatus is returned by the SDK with a value of 204.

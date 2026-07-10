@@ -25,8 +25,7 @@ import (
  "fmt"
  "os"
 
- sailpoint "github.com/sailpoint-oss/golang-sdk"
- v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+ sailpoint "github.com/sailpoint-oss/golang-sdk/v3"
 )
 
 func main() {
@@ -35,12 +34,12 @@ func main() {
  configuration := sailpoint.NewDefaultConfiguration()
  apiClient := sailpoint.NewAPIClient(configuration)
 
- resp, r, err := apiClient.V3.TransformsAPI.ListTransforms(ctx).Execute()
+ resp, r, err := apiClient.TransformsAPI.ListTransformsV1(ctx).Execute()
  if err != nil {
-  fmt.Fprintf(os.Stderr, "Error when calling `TransformsApi.ListTransforms``: %v\n", err)
+  fmt.Fprintf(os.Stderr, "Error when calling `TransformsAPI.ListTransformsV1``: %v\n", err)
   fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
  }
- fmt.Fprintf(os.Stdout, "All Transforms from `TransformsApi.ListTransforms`: %v\n", resp)
+ fmt.Fprintf(os.Stdout, "All Transforms from `TransformsAPI.ListTransformsV1`: %v\n", resp)
 
 }
 ```
@@ -54,9 +53,8 @@ go run sdk.go
 You can make changes to the API you are calling by changing this line:
 
 ```go
-resp, r, err := apiClient.V3.TransformsApi.ListTransforms(ctx).Execute()
+resp, r, err := apiClient.TransformsAPI.ListTransformsV1(ctx).Execute()
 ```
 
-- To call a different version of the APIs, change `V3` to `Beta`, `V2`, or `CC`.
-- To call a different API collection, change `TransformsApi` to another collection, like `SourcesApi`, for example.
-- To call a different endpoint, change `ListTransforms` to another endpoint, like `GetTransform`, for example.
+- To call a different API collection, change `TransformsAPI` to another collection, like `SourcesAPI`, for example.
+- To call a different endpoint, change `ListTransformsV1` to another endpoint, like `GetTransformV1`, for example. Each method name includes the endpoint's version as a suffix (for example, `V1`).

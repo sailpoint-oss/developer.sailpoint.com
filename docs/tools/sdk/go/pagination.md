@@ -23,8 +23,8 @@ import (
  "fmt"
  "os"
 
- sailpoint "github.com/sailpoint-oss/golang-sdk"
- v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+ sailpoint "github.com/sailpoint-oss/golang-sdk/v3"
+ api_accounts "github.com/sailpoint-oss/golang-sdk/v3/accounts"
 )
 
 func main() {
@@ -33,17 +33,17 @@ func main() {
  configuration := sailpoint.NewDefaultConfiguration()
  apiClient := sailpoint.NewAPIClient(configuration)
 
- resp, r, err := sailpoint.PaginateWithDefaults[v3.Account](apiClient.V3.AccountsAPI.ListAccounts(ctx))
+ resp, r, err := sailpoint.PaginateWithDefaults[api_accounts.Account](apiClient.AccountsAPI.ListAccountsV1(ctx))
  if err != nil {
-  fmt.Fprintf(os.Stderr, "Error when calling `PaginateWithDefaults[v3.Account]``: %v\n", err)
+  fmt.Fprintf(os.Stderr, "Error when calling `PaginateWithDefaults[api_accounts.Account]``: %v\n", err)
   fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
  }
- // response from `ListAccounts`: []Account
- fmt.Fprintf(os.Stdout, "First response from `PaginateWithDefaults[v3.Account]`: %v\n", resp[0].Name)
+ // response from `ListAccountsV1`: []Account
+ fmt.Fprintf(os.Stdout, "First response from `PaginateWithDefaults[api_accounts.Account]`: %v\n", resp[0].Name)
 }
 ```
 
-The `PaginateWithDefaults` function takes a return type, `v3.Account`, and the list method to invoke, in this case `ListAccounts` from the AccountsApi. By default, the `PaginateWithDefaults` method gets 10000 results at an increment of 250.
+The `PaginateWithDefaults` function takes a return type, `api_accounts.Account`, and the list method to invoke, in this case `ListAccountsV1` from the AccountsAPI. By default, the `PaginateWithDefaults` method gets 10000 results at an increment of 250.
 
 To change the limit and increment, you can use the available 'Paginate' function:
 
@@ -55,8 +55,8 @@ import (
  "fmt"
  "os"
 
- sailpoint "github.com/sailpoint-oss/golang-sdk"
- v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+ sailpoint "github.com/sailpoint-oss/golang-sdk/v3"
+ api_accounts "github.com/sailpoint-oss/golang-sdk/v3/accounts"
 )
 
 func main() {
@@ -65,14 +65,14 @@ func main() {
  configuration := sailpoint.NewDefaultConfiguration()
  apiClient := sailpoint.NewAPIClient(configuration)
 
- resp, r, err := sailpoint.Paginate[v3.Account](apiClient.V3.AccountsAPI.ListAccounts(ctx), 0, 250, 150000)
+ resp, r, err := sailpoint.Paginate[api_accounts.Account](apiClient.AccountsAPI.ListAccountsV1(ctx), 0, 250, 150000)
  if err != nil {
-  fmt.Fprintf(os.Stderr, "Error when calling `Paginate[v3.Account]``: %v\n", err)
+  fmt.Fprintf(os.Stderr, "Error when calling `Paginate[api_accounts.Account]``: %v\n", err)
   fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
  }
- // response from `ListAccounts`: []Account
- fmt.Fprintf(os.Stdout, "First response from `Paginate[v3.Account]`: %v\n", resp[0].Name)
+ // response from `ListAccountsV1`: []Account
+ fmt.Fprintf(os.Stdout, "First response from `Paginate[api_accounts.Account]`: %v\n", resp[0].Name)
 }
 ```
 
-You must provide the `Paginate` function with the following: the return type, `v3.Account`, the list endpoint, `ListAccounts`, the initial offset, `0`, the increment, `250`, and the limit, `150000`.
+You must provide the `Paginate` function with the following: the return type, `api_accounts.Account`, the list endpoint, `ListAccountsV1`, the initial offset, `0`, the increment, `250`, and the limit, `150000`.

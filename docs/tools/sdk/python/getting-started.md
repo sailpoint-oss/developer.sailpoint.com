@@ -15,33 +15,33 @@ Once your SDK is installed and configured, you can start accessing the SDK's dif
 
 ## List transforms
 
-One of the most useful functionalities of the Python SDK is the ability to easily access all the [V3 APIs](/docs/api) and [Beta APIs](/docs/api) and implement them in your project. 
+One of the most useful functionalities of the Python SDK is the ability to easily access all the [Identity Security Cloud APIs](/docs/api) and implement them in your project.
+
+The SDK is organized by API resource rather than by API version. Each API class (for example, `TransformsApi`) is imported directly from the top-level `sailpoint` package, and each method is suffixed with the version of the endpoint it calls (for example, `list_transforms_v1` calls the `v1` version of the List Transforms endpoint). This lets a single SDK access every version of every endpoint without having to import a separate version package.
 
 Here is an example of how to use the SDK to get a list of available [transforms](/docs/extensibility/transforms). This example leverages the [List Transforms endpoint](/docs/api/list-transforms-v-1). 
 
 Create a file in your project called "sdk.py" and copy this content into it:
 
 ```python
-import sailpoint
-import sailpoint.v3
+from sailpoint import ApiClient, TransformsApi
 from sailpoint.configuration import Configuration
-import urllib3
 
 configuration = Configuration()
-with sailpoint.v3.ApiClient(configuration) as api_client:
+with ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = sailpoint.v3.TransformsApi(api_client)
+    api_instance = TransformsApi(api_client)
 
     # List transforms
     try:
-        api_response = api_instance.list_transforms()
-        print("The response of TransformsApi->list_transforms:\n")
+        api_response = api_instance.list_transforms_v1()
+        print("The response of TransformsApi->list_transforms_v1:\n")
         print(api_response)
     except Exception as e:
-        print("Exception when calling TransformsApi->list_transforms: %s\n" % e)
+        print("Exception when calling TransformsApi->list_transforms_v1: %s\n" % e)
 ```
 
-This example imports the V3 APIs, which allows you to call the List Transforms V3 endpoint in your code. 
+This example imports the Transforms API, which allows you to call the `v1` version of the List Transforms endpoint in your code with `list_transforms_v1`. 
 
 To run the code, run this command:
 
@@ -51,7 +51,7 @@ python sdk.py
 
 The SDK will return a list of available transforms. 
 
-You can use this example as a guide for how to access all the V3 and Beta APIs (you would use `import sailpoint.beta` to import the Beta APIs). 
+You can use this example as a guide for how to access any API. To use a different API, import its class from `sailpoint` (for example, `from sailpoint import AccountsApi` for the Accounts API), and call the method for the endpoint version you need (for example, `list_accounts_v1`). 
 
 ### Use query parameters to filter your tenant's transform list
 
@@ -62,23 +62,21 @@ Refer to the [List Transforms endpoint specification](/docs/api/list-transforms-
 Here is an example that uses query parameters to limit the list to no more than 10 transforms that all start with the name "Test": 
 
 ```python
-import sailpoint
-import sailpoint.v3
+from sailpoint import ApiClient, TransformsApi
 from sailpoint.configuration import Configuration
-import urllib3
 
 configuration = Configuration()
-with sailpoint.v3.ApiClient(configuration) as api_client:
+with ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = sailpoint.v3.TransformsApi(api_client)
+    api_instance = TransformsApi(api_client)
 
     # List transforms
     try:
-        api_response = api_instance.list_transforms(filters='name sw "Test"', limit=10)
-        print("The response of TransformsApi->list_transforms:\n")
+        api_response = api_instance.list_transforms_v1(filters='name sw "Test"', limit=10)
+        print("The response of TransformsApi->list_transforms_v1:\n")
         print(api_response)
     except Exception as e:
-        print("Exception when calling TransformsApi->list_transforms: %s\n" % e)
+        print("Exception when calling TransformsApi->list_transforms_v1: %s\n" % e)
 ```
 
 To run the code, run this command:
@@ -93,6 +91,6 @@ The SDK will return a list of no more than 10 transforms that all start with the
 
 Each method has two versions - one returns only the response sent back from the endpoint, and the other returns the status and other HTTP info along with the response.
 
-An example of the first method version is the `list_transforms()` method from earlier example. This method returns the response from the endpoint but no status or headers.
+An example of the first method version is the `list_transforms_v1()` method from earlier example. This method returns the response from the endpoint but no status or headers.
 
-This is what the second method version would be: `list_transforms_with_http_info()`. This method will return the response as well as status, headers and raw data from the endpoint. 
+This is what the second method version would be: `list_transforms_v1_with_http_info()`. This method will return the response as well as status, headers and raw data from the endpoint. 

@@ -16,38 +16,36 @@ You can use the SDK to update resources. These cmdlets will typically start with
 To see a list of available create cmdlets, run this command:
 
 ```powershell
-Get-Command -Module PSSailpoint | where-object {$_.name -like "*Update-*" } | Sort-Object Name | Get-Help | Format-Table Name, Synopsis
+Get-SailPointCommand -Name 'Update-*' | Get-Help | Format-Table Name, Synopsis
 ```
 
-The SDK returns this output (all beta endpoints are designated by the Beta prefix):
+The SDK returns this output (each cmdlet name carries the endpoint version as a suffix, such as `V1`):
 
 ```powershell
-Name                        Synopsis
-----                        --------
-Update-AccessProfile        Patch a specified Access Profile
-Update-Account              Update Account
-Update-AuthOrgNetworkConfig Update security network configuration.
-Update-AuthUser             Auth User Update
-Update-BetaAccessProfile    Patch a specified Access Profile
-Update-BetaAccount          Update Account
-Update-BetaCampaign         Update a Campaign
-Update-BetaCampaignTemplate Update a Campaign Template
-Update-BetaCommonAccessSta… Bulk update common access status
-Update-BetaConnectorRule    Update a Connector Rule
-Update-BetaEntitlement      Patch an entitlement
-Update-BetaEntitlementsInB… Bulk update an entitlement list
-Update-BetaEntitlementsPot… Edit entitlements for a potential rol…
-Update-BetaFormDefinition   Patch a form definition.
-Update-BetaFormInstance     Patch a form instance.
-Update-BetaIdentityProfile  Update the Identity Profile
-Update-BetaLifecycleStates  Update Lifecycle State
+Name                            Synopsis
+----                            --------
+Update-AccessProfileV1          Patch a specified Access Profile
+Update-AccessProfilesInBulkV1   Update Access Profiles In Bulk
+Update-AccountV1                Update Account
+Update-AuthOrgNetworkConfigV1   Update security network configuration.
+Update-AuthUserV1               Auth User Update
+Update-CampaignTemplateV1       Update a Campaign Template
+Update-CampaignV1               Update a Campaign
+Update-CommonAccessStatusInBulkV1 Bulk update common access status
+Update-EntitlementV1            Patch an entitlement
+Update-EntitlementsInBulkV1     Bulk update an entitlement list
+Update-EntitlementsPotentialRoleV1 Edit entitlements for a potential rol…
+Update-FormDefinitionV1         Patch a form definition.
+Update-FormInstanceV1           Patch a form instance.
+Update-IdentityProfileV1        Update the Identity Profile
+Update-LifecycleStatesV1        Update Lifecycle State
 ...
 ```
 
 Here is an example update WorkGroup script which will update the description for the previously created Workgroup from [Create a Resource](./creating-resources.md):
 
 ```powershell
-$WorkGroup = Get-BetaWorkgroups -Filters 'name eq "DB Access Governance Group"'
+$WorkGroup = Get-WorkgroupsV1 -Filters 'name eq "DB Access Governance Group"'
 
 $WorkGroupUpdate = [PSCustomObject]@{
     op = "replace"
@@ -55,7 +53,7 @@ $WorkGroupUpdate = [PSCustomObject]@{
     value =  "This is an updated description for the workgroup."
 }
 
-Update-BetaWorkgroup -Id $WorkGroup.id -JsonPatchOperation $WorkGroupUpdate
+Update-WorkgroupV1 -Id $WorkGroup.id -JsonPatchOperation $WorkGroupUpdate
 ```
 
 The updated WorkGroup will be returned by the SDK:

@@ -162,6 +162,9 @@ const JsonPathEvaluator: React.FC = () => {
                   onFocus={handleQueryFocus}
                   onBlur={handleQueryBlur}
                 />
+                <Link id="jsonpathToolDocsLink" href="/docs/tools/json-path-evaluator">
+                  Json Path Evaluator Documentation
+                </Link>
                 {documentationLinks[implementation] && (
                   <Link
                     id="jsonpathDocumentationLink"

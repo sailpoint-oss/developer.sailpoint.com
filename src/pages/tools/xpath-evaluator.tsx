@@ -369,15 +369,10 @@ const XPathEvaluator: React.FC = () => {
                   value={root}
                   onChange={handleRootChange}
                 />
-                {documentationLinks[implementation] && (
-                  <Link
-                    id="xpathDocumentationLink"
-                    href={documentationLinks[implementation].url}
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    {documentationLinks[implementation].text}
-                  </Link>
-                )}
+                <Link id="xpathToolDocsLink" href="/docs/tools/xpath-evaluator">
+                  XPath Evaluator Documentation
+                </Link>
+
                 {queryParseError && (
                   <div className={styles.alertContainer}>
                     <Alert id="xpathalert" severity="error">

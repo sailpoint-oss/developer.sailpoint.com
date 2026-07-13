@@ -195,6 +195,10 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'doc',
+      id: 'api/api-versioning-strategy-announcement',
+    },
+    {
+      type: 'doc',
       id: 'api/standard-collection-parameters',
     },
     {

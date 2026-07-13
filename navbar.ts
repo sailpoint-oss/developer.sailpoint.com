@@ -69,7 +69,7 @@ const navbarConfig = {
         position: 'left',
         groups: [
           {
-            label: 'SDKs & CLI',
+            label: 'SDKs and Developer Tools',
             description: 'Build faster with official SDKs and tooling.',
             items: [
               { label: 'SDKs', to: '/docs/tools/sdk' },

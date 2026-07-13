@@ -1,26 +1,26 @@
 ---
-id: api-versioning-strategy-announcement
-title: Upcoming Changes to the SailPoint API Versioning Strategy
-pagination_label: Versioning Migration
-sidebar_label: Versioning Migration
+id: api-versioning-migration
+title: Migration guide for ISC APIs to new versioning model.
+pagination_label: API Versioning Migration
+sidebar_label: API Versioning Migration
 sidebar_position: 8
 sidebar_class_name: apiVersioning
 keywords: ['api', 'versioning', 'announcement']
-description: Upcoming changes to the Identity Security Cloud API versioning strategy.
-slug: /api/api-versioning-strategy-announcement
+description: Migration guide for ISC APIs to new versioning model.
+slug: /api/api-versioning-migration
 tags: ['API Versioning Strategy']
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-We are planning a significant update to how SailPoint's Identity Security Cloud APIs are versioned. This document outlines what is changing, why we are making these changes, and what they mean for you as an API consumer or integration developer.
+We have made a significant update to how SailPoint's Identity Security Cloud APIs are versioned. This document outlines what changed, why we made these changes, how to migrate to the new API versioning system, and what they mean for you as an API consumer or integration developer.
 
-## What Is Changing
+## What Has Changed
 
-SailPoint is moving away from a **shared annual release model** (e.g., `v2024`, `v2025`, `v2026`) toward **true semantic versioning (semver) at the individual service level**.
+SailPoint is moved away from a **shared annual release model** (e.g., `v2024`, `v2025`, `v2026`) toward **true semantic versioning (semver) at the individual service level**.
 
-Under the new strategy, each API service will be versioned independently. A new major version of a service will only be introduced when that service's usage contract actually changes — not because a new calendar year has arrived. The URL structure will follow a pattern like:
+Under the new strategy, each API service are versioned independently. A new major version of a service will only be introduced when that service's usage contract actually changes — not because a new calendar year has arrived. The URL structure will follow a pattern like:
 
 ```
 /accounts/v1
@@ -30,9 +30,9 @@ Under the new strategy, each API service will be versioned independently. A new 
 
 This gives customers a stable, predictable target. As long as a service's contract is unchanged, your integration continues to work — indefinitely. When a breaking change is genuinely required, a new version (e.g., `v2`) will be developed and released **in parallel** with the existing version, and the older version will enter a clearly defined deprecation schedule on its own timeline.
 
-## Why We Are Making This Change
+## Why We Made This Change
 
-The current annual versioning model has introduced a number of pain points for both customers and internal teams. The key issues driving this change are:
+The previous annual versioning model had introduced a number of pain points for both customers and internal teams. The key issues that drove this change are:
 
 ### Customers Are Forced to Update Integrations Even When Nothing Changed
 
@@ -60,7 +60,7 @@ With independent service versioning, each service is documented once and updated
 
 The current model ties all services to a single year-based namespace. If you are migrating from `v2024/accounts` to `v2025/accounts`, you cannot run both versions of the Accounts service concurrently in your application. With per-service versioning, `/accounts/v1` and `/accounts/v2` can coexist and you can migrate on your own schedule.
 
-## What Is Staying the Same
+## What Is Stayed the Same
 
 - The distinction between **public** (production-ready) and **experimental** APIs remains. Experimental APIs may still introduce breaking changes and require an opt-in header.
 - The definition of **breaking vs. non-breaking changes** does not change.
@@ -75,12 +75,6 @@ The current model ties all services to a single year-based namespace. If you are
 | A breaking change is introduced to one service | All services receive a new year-based version | Only the affected service receives a new major version |
 | You want to run v1 and v2 of the same service concurrently | Not supported within the same year namespace | Supported — both versions are accessible simultaneously |
 | An experimental API you rely on graduates to public | You need to find the stable version in the appropriate year's docs | The same service URL path moves to public status; the prior year lookup is not needed |
-
-## Migration Guidance
-
-A full migration guide — including updated SDK documentation, Postman collection changes, and path mapping from the current year-based versions to the new per-service versions — will be published ahead of the transition.
-
-SailPoint will provide migration scripts for SDK and API path updates to reduce the manual effort required.
 
 ### SDK Migration Scripts
 
@@ -241,7 +235,6 @@ The table below maps each service path from its current year-based versions (the
 | `/access-model-metadata/attributes` | beta,v2024,v2025,v2026 | v1 |
 | `/access-model-metadata/bulk-update` | v2025 | v1 |
 | `/access-profiles` | beta,v3,v2024,v2025,v2026 | v1 |
-| `/access-profiles` | New service — no legacy version | v2 |
 | `/access-profiles/bulk-delete` | beta,v3,v2024,v2025,v2026 | v1 |
 | `/access-request-administration` | beta,v3,v2024,v2025,v2026 | v1 |
 | `/access-request-agent` | v2025,v2026 | v1 |
@@ -262,7 +255,6 @@ The table below maps each service path from its current year-based versions (the
 | `/account-requests/machine-account-create/{id}` | v2026 | v1 |
 | `/account-usages` | beta,v3,v2024,v2025,v2026 | v1 |
 | `/accounts` | beta,v3,v2024,v2025,v2026 | v1 |
-| `/accounts` | New service — no legacy version | v2 |
 | `/accounts/bulk-classify` | v2024,v2025,v2026 | v1 |
 | `/accounts/{id}/classify` | v2024,v2025,v2026 | v1 |
 | `/accounts/{id}/entitlements` | beta,v3,v2024,v2025,v2026 | v1 |
@@ -312,11 +304,10 @@ The table below maps each service path from its current year-based versions (the
 | `/das/applications` | v2024,v2025,v2026 | v1 |
 | `/das/identity-collectors` | v2024,v2025,v2026 | v1 |
 | `/das/owners` | v2025,v2026 | v1 |
-| `/das/owners` | New service — no legacy version | v1 |
+| `/das/owners` | N/A | v1 |
 | `/das/tasks` | v2025,v2026 | v1 |
 | `/data-segments` | beta,v2024,v2025,v2026 | v1 |
 | `/data-source-connections` | beta,v2024,v2025,v2026 | v1 |
-| `/devices` | New service — no legacy version | v1 |
 | `/discovered-applications` | beta,v3,v2024,v2025,v2026 | v1 |
 | `/discovery-source-category` | v2025,v2026 | v1 |
 | `/discovery-sources-metadata` | v2025,v2026 | v1 |
@@ -371,13 +362,10 @@ The table below maps each service path from its current year-based versions (the
 | `/machine-accounts/bulk-disable` | v2026 | v1 |
 | `/machine-accounts/bulk-enable` | v2026 | v1 |
 | `/machine-accounts/bulk-reload` | v2026 | v1 |
-| `/machine-accounts/bulk-reload-async` | New service — no legacy version | v1 |
 | `/machine-accounts/bulk-update` | v2026 | v1 |
 | `/machine-identities` | v2026 | v1 |
 | `/machine-identities` | v2027 | v2 |
-| `/machine-identities/anomaly-summaries/unsanctioned` | New service — no legacy version | v1 |
 | `/machine-identities/lifecycle-actions` | v2026 | v1 |
-| `/machine-identities/{id}/anomalies` | New service — no legacy version | v1 |
 | `/machine-identities/{id}/lifecycle-actions` | v2026 | v1 |
 | `/machine-identity-metadata` | v2025,v2026 | v1 |
 | `/machine-identity-user-entitlements` | v2025,v2026 | v1 |
@@ -441,7 +429,6 @@ The table below maps each service path from its current year-based versions (the
 | `/policies` | v2026 | v1 |
 | `/privileged-recommendations` | v2026 | v1 |
 | `/prompt-decisions` | v2026 | v1 |
-| `/prompt-decisions/policy` | New service — no legacy version | v1 |
 | `/prompt-decisions/rules` | v2026 | v1 |
 | `/prompt-insights` | v2026 | v1 |
 | `/public-identities` | beta,v3,v2024,v2025,v2026 | v1 |
@@ -459,8 +446,7 @@ The table below maps each service path from its current year-based versions (the
 | `/role-mining-sessions` | beta,v2024,v2025,v2026 | v1 |
 | `/role-propagation` | v2025,v2026 | v1 |
 | `/role-propagation-config` | v2025,v2026 | v1 |
-| `/roles` | New service — no legacy version | v1 |
-| `/roles` | v2027 | v2 |
+| `/roles` | beta,v2024,v2025,v2026 | v1 |
 | `/roles/count-assigned-identities` | beta,v2024,v2025,v2026 | v1 |
 | `/roles/identity/{id}/roles` | beta,v2024,v2025,v2026 | v1 |
 | `/roles/{id}/access-profiles` | beta,v2024,v2025,v2026 | v1 |
@@ -516,8 +502,8 @@ The table below maps each service path from its current year-based versions (the
 | `/sources/{id}/source-migration` | v2025,v2026 | v1 |
 | `/sources/{id}/subtypes` | v2025,v2026 | v1 |
 | `/sources/{id}/synchronize-attributes` | beta,v2024,v2025,v2026 | v1 |
-| `/sources/{sourceId}/resources/{resourceId}/correlation-configs` | Not yet available | v1 |
-| `/sources/{sourceId}/resources/{resourceId}/correlation-configs/{configId}` | Not yet available | v1 |
+| `/sources/{sourceId}/resources/{resourceId}/correlation-configs` | N/A (future — versionStart: 2027 > current year 2026) | v1 |
+| `/sources/{sourceId}/resources/{resourceId}/correlation-configs/{configId}` | N/A (future — versionStart: 2027 > current year 2026) | v1 |
 | `/sp-config` | beta,v2024,v2025,v2026 | v1 |
 | `/ssf` | v2025,v2026 | v1 |
 | `/ssf-event` | v2025,v2026 | v1 |
@@ -570,10 +556,6 @@ The table below maps each service path from its current year-based versions (the
 | `/workgroups` | beta,v2024,v2025,v2026 | v1 |
 
 </details>
-
-## Timeline
-
-The implementation plan is currently in progress. Updates will be shared through the [Announcements](https://developer.sailpoint.com/discuss/c/announcements/14) forum, developer.sailpoint.com, and direct communications as the rollout date is confirmed.
 
 ---
 

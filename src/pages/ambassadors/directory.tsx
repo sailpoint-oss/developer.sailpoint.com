@@ -8,6 +8,7 @@ import {
   getAmbassadorPoints,
   getAmbassadors,
 } from '../../services/DiscourseService';
+import { discourseFetch } from '../../services/discourseFetch';
 import { developerWebsiteDomain, discourseBaseURL } from '../../util/util';
 import styles from './directory.module.css';
 
@@ -445,12 +446,12 @@ const EXCLUDED_USERNAMES = new Set(['devrel_team']);
 async function fetchGroupMemberIds(group: string): Promise<number[]> {
   const base = discourseBaseURL();
   try {
-    const first: any = await (await fetch(`${base}groups/${group}/members.json?limit=1&offset=0`)).json();
+    const first: any = await (await discourseFetch(`${base}groups/${group}/members.json?limit=1&offset=0`)).json();
     if (!first || !first.meta) return [];
     const total = first.meta.total as number;
     const ids: number[] = [];
     for (let offset = 0; offset < total; offset += 100) {
-      const page: any = await (await fetch(`${base}groups/${group}/members.json?limit=100&offset=${offset}`)).json();
+      const page: any = await (await discourseFetch(`${base}groups/${group}/members.json?limit=100&offset=${offset}`)).json();
       for (const m of page?.members ?? []) ids.push(m.id);
     }
     return ids;
@@ -471,7 +472,7 @@ async function fetchInternalMemberIds(): Promise<Set<number>> {
 async function fetchMonthlyPoints(): Promise<Map<number, number>> {
   const map = new Map<number, number>();
   try {
-    const res: any = await (await fetch(`${discourseBaseURL()}leaderboard/11.json?period=monthly`)).json();
+    const res: any = await (await discourseFetch(`${discourseBaseURL()}leaderboard/11.json?period=monthly`)).json();
     for (const u of res?.users ?? []) map.set(u.id, u.total_score);
   } catch {
     /* ignore — spotlight simply falls back to all-time points */
@@ -487,7 +488,7 @@ async function fetchLikesReceived(): Promise<Map<number, number>> {
   for (let page = 0; page < 60; page++) {
     try {
       const res: any = await (
-        await fetch(`${base}directory_items.json?period=all&order=likes_received&page=${page}`)
+        await discourseFetch(`${base}directory_items.json?period=all&order=likes_received&page=${page}`)
       ).json();
       const items = res?.directory_items ?? [];
       if (!items.length) break;
@@ -510,7 +511,7 @@ async function fetchSpotlightExtra(username: string): Promise<SpotlightExtra> {
   let solutions = 0;
   try {
     const di: any = await (
-      await fetch(`${base}directory_items.json?period=monthly&name=${encodeURIComponent(username)}`)
+      await discourseFetch(`${base}directory_items.json?period=monthly&name=${encodeURIComponent(username)}`)
     ).json();
     const rows = di?.directory_items ?? [];
     const row =
@@ -523,12 +524,52 @@ async function fetchSpotlightExtra(username: string): Promise<SpotlightExtra> {
   return { likes, solutions };
 }
 
+// The directory's data changes slowly (forum profiles, points), so we cache the
+// fully-computed result in sessionStorage. Repeat visits within the same tab
+// session render instantly and skip the whole Discourse fetch burst. Bumping
+// CACHE_VERSION invalidates every previously-cached entry after a shape change.
+const CACHE_VERSION = 'v1';
+const MEMBERS_CACHE_KEY = `ambassador-directory:${CACHE_VERSION}:members`;
+const SPOTLIGHT_CACHE_KEY = `ambassador-directory:${CACHE_VERSION}:spotlight`;
+const CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutes
+
+function readCache<T>(key: string): T | null {
+  try {
+    const raw = sessionStorage.getItem(key);
+    if (!raw) return null;
+    const { ts, data } = JSON.parse(raw);
+    if (typeof ts !== 'number' || Date.now() - ts > CACHE_TTL_MS) {
+      sessionStorage.removeItem(key);
+      return null;
+    }
+    return data as T;
+  } catch {
+    return null; // sessionStorage unavailable (SSR/private mode) or bad JSON
+  }
+}
+
+function writeCache(key: string, data: unknown): void {
+  try {
+    sessionStorage.setItem(key, JSON.stringify({ ts: Date.now(), data }));
+  } catch {
+    /* sessionStorage unavailable or over quota — caching is best-effort */
+  }
+}
+
 function useChampions() {
   const [members, setMembers] = useState<Member[] | undefined>(undefined);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let cancelled = false;
+
+    // Serve from cache when fresh, skipping every Discourse request.
+    const cached = readCache<Member[]>(MEMBERS_CACHE_KEY);
+    if (cached) {
+      setMembers(cached);
+      setLoading(false);
+      return;
+    }
 
     (async () => {
       try {
@@ -594,6 +635,7 @@ function useChampions() {
         }
 
         mapped.sort((a, b) => b.stats.points - a.stats.points);
+        writeCache(MEMBERS_CACHE_KEY, mapped);
         if (!cancelled) {
           setMembers(mapped);
           setLoading(false);
@@ -668,8 +710,18 @@ const DirectoryContent: React.FC = () => {
   useEffect(() => {
     setSpotExtra(null);
     if (!topMember) return;
+
+    // Cache keyed by username so a different spotlight doesn't reuse stale extras.
+    const key = `${SPOTLIGHT_CACHE_KEY}:${topMember.username}`;
+    const cached = readCache<SpotlightExtra>(key);
+    if (cached) {
+      setSpotExtra(cached);
+      return;
+    }
+
     let cancelled = false;
     fetchSpotlightExtra(topMember.username).then((e) => {
+      writeCache(key, e);
       if (!cancelled) setSpotExtra(e);
     });
     return () => {

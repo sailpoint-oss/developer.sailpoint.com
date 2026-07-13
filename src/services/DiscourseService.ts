@@ -1,4 +1,5 @@
 import { discourseBaseURL } from '../util/util';
+import { discourseFetch } from './discourseFetch';
 
 export async function getTopPosts(): Promise<any[]> {
   try {
@@ -16,7 +17,7 @@ export async function getAmbassadors(expert: boolean, limit: number, offset: num
         ? `groups/expert_ambassadors/members.json?limit=${limit}&offset=${offset}`
         : `groups/ambassadors/members.json?limit=${limit}&offset=${offset}`);
     
-    const response = await fetch(url);
+    const response = await discourseFetch(url);
     return await response.json();
   } catch (error) {
     return [];
@@ -25,7 +26,7 @@ export async function getAmbassadors(expert: boolean, limit: number, offset: num
 
 export async function getAmbassadorDetails(id: number[]): Promise<any[]> {
   try {
-    const response = await fetch(discourseBaseURL() + 'user-cards.json?user_ids=' + id.join(','));
+    const response = await discourseFetch(discourseBaseURL() + 'user-cards.json?user_ids=' + id.join(','));
     return await response.json();
   } catch (error) {
     return [];
@@ -40,7 +41,7 @@ export async function getAmbassadorPoints(): Promise<any> {
     // their points instead of defaulting to 0.
     const users: any[] = [];
     for (let page = 0; page < 100; page++) {
-      const response = await fetch(
+      const response = await discourseFetch(
         discourseBaseURL() + `leaderboard/11.json?period=all_time&page=${page}`
       );
       const data = await response.json();

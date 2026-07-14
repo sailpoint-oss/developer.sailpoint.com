@@ -44,21 +44,20 @@ const navbarConfig = {
               { label: 'Getting Started', to: '/docs/api/getting-started' },
               { label: 'Authentication', to: '/docs/api/authentication' },
               { label: 'Authorization', to: '/docs/api/authorization' },
-              { label: 'API Versioning Strategy', to: '/docs/api/api-versioning-strategy' },
-              { label: 'Standard Collection Parameters', to: '/docs/api/standard-collection-parameters' },
-              { label: 'Rate Limits', to: '/docs/api/rate-limit' },
               { label: 'Postman Collections', to: '/docs/api/postman-collections' },
-              { label: 'Patch Requests', to: '/docs/api/patch-requests' },
               { label: 'ISC API Specifications', to: '/docs/api' },
+              { label: 'NERM API Specifications', to: '/docs/api/nerm/v1' },
+              { label: 'Legacy Specifications', to: '/apis/legacy' },
+
+
             ],
           },
           {
-            label: 'Other platforms',
-            description: 'Specs for IIQ, NERM, and legacy APIs.',
+            label: 'IdentityIQ',
+            description: 'API Specifications and authentication details.',
             items: [
               { label: 'IdentityIQ', to: '/docs/api/iiq' },
-              { label: 'NERM', to: '/docs/api/nerm/v1' },
-              { label: 'Legacy Specifications', to: '/apis/legacy' },
+              { label: 'Authentication', to: 'https://documentation.sailpoint.com/identityiq/help/system_configuration/identityiq_global_settings/api_authentication.html'}
             ],
           },
         ],

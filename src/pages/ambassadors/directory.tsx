@@ -408,14 +408,18 @@ function resolveAvatar(template: string): string {
   return sized;
 }
 
+// Discourse caps the group-members page size at 1000 (larger limits return an
+// empty list). Both ambassador groups sit far below that, so this is normally a
+// single request; we still page until a short page in case a group ever grows.
+const MEMBERS_PAGE_MAX = 1000;
+
 async function fetchTier(expert: boolean): Promise<any[]> {
-  const first: any = await getAmbassadors(expert, 1, 0);
-  if (!first || !first.meta) return [];
-  const total = first.meta.total as number;
   const all: any[] = [];
-  for (let offset = 0; offset < total; offset += 50) {
-    const page: any = await getAmbassadors(expert, 50, offset);
-    if (page && page.members) all.push(...page.members);
+  for (let offset = 0; ; offset += MEMBERS_PAGE_MAX) {
+    const page: any = await getAmbassadors(expert, MEMBERS_PAGE_MAX, offset);
+    const members = page?.members ?? [];
+    all.push(...members);
+    if (members.length < MEMBERS_PAGE_MAX) break;
   }
   return all;
 }
@@ -445,14 +449,17 @@ const EXCLUDED_USERNAMES = new Set(['devrel_team']);
 
 async function fetchGroupMemberIds(group: string): Promise<number[]> {
   const base = discourseBaseURL();
+  const ids: number[] = [];
   try {
-    const first: any = await (await discourseFetch(`${base}groups/${group}/members.json?limit=1&offset=0`)).json();
-    if (!first || !first.meta) return [];
-    const total = first.meta.total as number;
-    const ids: number[] = [];
-    for (let offset = 0; offset < total; offset += 100) {
-      const page: any = await (await discourseFetch(`${base}groups/${group}/members.json?limit=100&offset=${offset}`)).json();
-      for (const m of page?.members ?? []) ids.push(m.id);
+    // Page at the server's max size (sailpoint_employees alone is ~1800), and
+    // stop on the first short page — no separate total-count probe needed.
+    for (let offset = 0; ; offset += MEMBERS_PAGE_MAX) {
+      const page: any = await (
+        await discourseFetch(`${base}groups/${group}/members.json?limit=${MEMBERS_PAGE_MAX}&offset=${offset}`)
+      ).json();
+      const members = page?.members ?? [];
+      for (const m of members) ids.push(m.id);
+      if (members.length < MEMBERS_PAGE_MAX) break;
     }
     return ids;
   } catch {
@@ -481,10 +488,13 @@ async function fetchMonthlyPoints(): Promise<Map<number, number>> {
 }
 
 // All-time "likes received" per user, from the paginated forum directory
-// (~11 pages of 50). Returns id -> likes_received.
-async function fetchLikesReceived(): Promise<Map<number, number>> {
+// (50/page, server-fixed). When we know which ambassadors we need, stop as soon
+// as every one has been seen rather than scanning thousands of unrelated users;
+// the page cap bounds it when a target never appears. Returns id -> likes_received.
+async function fetchLikesReceived(targetIds?: Set<number>): Promise<Map<number, number>> {
   const map = new Map<number, number>();
   const base = discourseBaseURL();
+  const remaining = targetIds ? new Set(targetIds) : null;
   for (let page = 0; page < 60; page++) {
     try {
       const res: any = await (
@@ -494,8 +504,12 @@ async function fetchLikesReceived(): Promise<Map<number, number>> {
       if (!items.length) break;
       for (const it of items) {
         const id = it.user?.id ?? it.id;
-        if (id != null) map.set(id, it.likes_received ?? 0);
+        if (id != null) {
+          map.set(id, it.likes_received ?? 0);
+          remaining?.delete(id);
+        }
       }
+      if (remaining && remaining.size === 0) break; // every ambassador found
     } catch {
       break; // out-of-range page (400) or network error — stop paging
     }
@@ -573,13 +587,13 @@ function useChampions() {
 
     (async () => {
       try {
-        const [expertRaw, ambassadorRaw, pointsData, internalIds, monthlyPointsById, likesById] = await Promise.all([
+        // Wave 1: work out who the ambassadors actually are (and which accounts
+        // to hide) before fetching their stats, so the leaderboard/likes scans
+        // below can stop the moment every ambassador has been seen.
+        const [expertRaw, ambassadorRaw, internalIds] = await Promise.all([
           fetchTier(true),
           fetchTier(false),
-          getAmbassadorPoints() as Promise<any>,
           fetchInternalMemberIds(),
-          fetchMonthlyPoints(),
-          fetchLikesReceived(),
         ]);
 
         // Tag tier; a member listed as expert wins over plain ambassador.
@@ -590,6 +604,15 @@ function useChampions() {
         const byId = new Map<number, { m: any; tier: Tier }>();
         for (const m of ambassadorRaw) if (!isExcluded(m)) byId.set(m.id, { m, tier: 'ambassador' });
         for (const m of expertRaw) if (!isExcluded(m)) byId.set(m.id, { m, tier: 'expert' });
+
+        // Wave 2: fetch stats, scanning the leaderboard and likes directory only
+        // as deep as needed to cover the ambassadors resolved above.
+        const targetIds = new Set(byId.keys());
+        const [pointsData, monthlyPointsById, likesById] = await Promise.all([
+          getAmbassadorPoints(targetIds) as Promise<any>,
+          fetchMonthlyPoints(),
+          fetchLikesReceived(targetIds),
+        ]);
 
         const pointsById = new Map<number, number>();
         for (const u of (pointsData?.users ?? []) as any[]) pointsById.set(u.id, u.total_score);

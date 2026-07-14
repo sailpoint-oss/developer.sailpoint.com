@@ -1,0 +1,171 @@
+/**
+ * Styles for the `custom-megaDropdown` navbar item.
+ *
+ * The panel reuses Infima's `.dropdown__menu` for its background, border,
+ * shadow, absolute positioning and hover/show transitions; these rules only
+ * widen it and lay the groups out as columns.
+ *
+ * The desktop panel carries a `data-meganav="<variant>"` attribute (set from
+ * MEGANAV_VARIANT in index.js) so several looks can live side by side and be
+ * swapped from one constant. The base rules below are shared by every variant;
+ * the `[data-meganav='...']` blocks at the bottom add the color treatments.
+ */
+
+.megaPanel {
+  /* Grow to fit the columns instead of the default narrow 10rem dropdown. */
+  min-width: max-content;
+  max-width: min(90vw, 60rem);
+  padding: 1.25rem 1.5rem;
+
+  /* Per-column accent colors, alternated below. Kept as CSS vars so each
+   * variant can reference them without repeating the palette. */
+  --mn-accent-a: var(--ifm-color-primary);
+  --mn-accent-b: #cc27b0; /* pink in light mode */
+}
+
+/* Lime green as the secondary accent in dark mode. */
+:global(html[data-theme='dark']) .megaPanel {
+  --mn-accent-b: #93d500;
+}
+
+.megaPanelInner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 2.5rem;
+}
+
+.megaColumn {
+  display: flex;
+  flex-direction: column;
+  min-width: 13rem;
+  max-width: 18rem;
+  --mn-col-accent: var(--mn-accent-a);
+}
+.megaColumn:nth-child(even) {
+  --mn-col-accent: var(--mn-accent-b);
+}
+
+.megaColumnTitle {
+  margin-bottom: 0.5rem;
+  padding: 0 0.5rem 0.4rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+}
+
+/* Optional short blurb under a group heading ("text under each area"). */
+.megaColumnDesc {
+  margin: -0.2rem 0 0.6rem;
+  padding: 0 0.5rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.megaColumnList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.megaColumnList :global(.dropdown__link) {
+  white-space: nowrap;
+}
+
+/* Mobile sidebar: group heading above its links. */
+.mobileGroupTitle {
+  padding: 0.7rem 1rem 0.2rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  list-style: none;
+}
+.mobileGroupDesc {
+  padding: 0 1rem 0.4rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  list-style: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+ * Variant: cards
+ * Each column becomes a tinted card with a colored left accent edge.
+ * ───────────────────────────────────────────────────────────────────────── */
+.megaPanel[data-meganav='cards'] .megaColumn {
+  padding: 0.85rem 1rem 0.9rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-left: 3px solid var(--mn-col-accent);
+  border-radius: 10px;
+  background: var(--ifm-color-emphasis-100);
+}
+.megaPanel[data-meganav='cards'] .megaColumnTitle {
+  border-bottom: none;
+  padding-bottom: 0.15rem;
+  color: var(--mn-col-accent);
+}
+.megaPanel[data-meganav='cards'] .megaColumnDesc {
+  color: var(--ifm-color-emphasis-700);
+}
+.megaPanel[data-meganav='cards'] .megaColumnList :global(.dropdown__link):hover {
+  color: var(--mn-col-accent) !important;
+  background: color-mix(in srgb, var(--mn-col-accent) 10%, transparent);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+ * Variant: accent
+ * A colored top rule + colored titles, with a soft colored pill on link hover.
+ * ───────────────────────────────────────────────────────────────────────── */
+.megaPanel[data-meganav='accent'] .megaColumn {
+  padding-top: 0.65rem;
+  border-top: 3px solid var(--mn-col-accent);
+}
+.megaPanel[data-meganav='accent'] .megaColumnTitle {
+  border-bottom: none;
+  color: var(--mn-col-accent);
+}
+.megaPanel[data-meganav='accent'] .megaColumnList :global(.dropdown__link) {
+  border-radius: 6px;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+.megaPanel[data-meganav='accent'] .megaColumnList :global(.dropdown__link):hover {
+  background: color-mix(in srgb, var(--mn-col-accent) 12%, transparent);
+  /* !important to beat the site-wide `.dropdown__link:hover` override in custom.css. */
+  color: var(--mn-col-accent) !important;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+ * Variant: spotlight
+ * A bold solid-color header block (title + blurb) sits above each column.
+ * ───────────────────────────────────────────────────────────────────────── */
+.megaPanel[data-meganav='spotlight'] .megaColumn {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.megaPanel[data-meganav='spotlight'] .megaColumnTitle {
+  margin: 0;
+  padding: 0.55rem 0.85rem 0.15rem;
+  border-bottom: none;
+  background: var(--mn-col-accent);
+  color: #fff;
+}
+.megaPanel[data-meganav='spotlight'] .megaColumnDesc {
+  margin: 0;
+  padding: 0 0.85rem 0.55rem;
+  background: var(--mn-col-accent);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.74rem;
+}
+/* When a column has no blurb, round off the header's bottom edge. */
+.megaPanel[data-meganav='spotlight'] .megaColumnList {
+  padding: 0.6rem 0.5rem 0.5rem;
+}
+.megaPanel[data-meganav='spotlight'] .megaColumnList :global(.dropdown__link):hover {
+  color: var(--mn-col-accent) !important;
+}

@@ -22,8 +22,8 @@ import (
  "fmt"
  "os"
 
- sailpoint "github.com/sailpoint-oss/golang-sdk"
- beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
+ sailpoint "github.com/sailpoint-oss/golang-sdk/v3"
+ governance_groups "github.com/sailpoint-oss/golang-sdk/v3/governance_groups"
 )
 
 func main() {
@@ -32,7 +32,7 @@ func main() {
  configuration := sailpoint.NewDefaultConfiguration()
  apiClient := sailpoint.NewAPIClient(configuration)
 
- workgroup, r, err := apiClient.Beta.GovernanceGroupsAPI.ListWorkgroups(ctx).Filters(`name eq "DB Access Governance Group"`).Execute()
+ workgroup, r, err := apiClient.GovernanceGroupsAPI.ListWorkgroupsV1(ctx).Filters(`name eq "DB Access Governance Group"`).Execute()
 
  if err != nil {
   fmt.Fprintf(os.Stderr, "Error when retrieving workgroup`: %v\n", err)
@@ -40,10 +40,10 @@ func main() {
  }
 
  updatedDescription := `This is an updated description for the workgroup.`
- newDescriptionValue := beta.JsonPatchOperationValue{String: &updatedDescription}
- patchArray := []beta.JsonPatchOperation{{Op: "replace", Path: "/description", Value: &newDescriptionValue}}
+ newDescriptionValue := governance_groups.JsonpatchoperationValue{String: &updatedDescription}
+ patchArray := []governance_groups.Jsonpatchoperation{{Op: "replace", Path: "/description", Value: &newDescriptionValue}}
 
- updatedWorkgroup, request, errorMessage := apiClient.Beta.GovernanceGroupsAPI.PatchWorkgroup(ctx, *workgroup[0].Id).JsonPatchOperation(patchArray).Execute()
+ updatedWorkgroup, request, errorMessage := apiClient.GovernanceGroupsAPI.PatchWorkgroupV1(ctx, *workgroup[0].Id).Jsonpatchoperation(patchArray).Execute()
 
  if errorMessage != nil {
   fmt.Fprintf(os.Stderr, "Error when updating workgroup`: %v\n", errorMessage)

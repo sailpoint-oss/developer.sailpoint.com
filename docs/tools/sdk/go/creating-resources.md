@@ -11,7 +11,7 @@ slug: /tools/sdk/go/create
 tags: ['SDK', 'Software Development Kit']
 ---
 
-Here is an example create workgroup script from the beta APIs you can copy into your "sdk.go" instance to try it out:
+Here is an example create workgroup script you can copy into your "sdk.go" instance to try it out:
 
 ```go showLineNumbers
 package main
@@ -22,8 +22,8 @@ import (
  "fmt"
  "os"
 
- sailpoint "github.com/sailpoint-oss/golang-sdk"
- beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
+ sailpoint "github.com/sailpoint-oss/golang-sdk/v3"
+ governance_groups "github.com/sailpoint-oss/golang-sdk/v3/governance_groups"
 )
 
 func main() {
@@ -32,26 +32,26 @@ func main() {
  configuration := sailpoint.NewDefaultConfiguration()
  apiClient := sailpoint.NewAPIClient(configuration)
 
- resp, _, err := apiClient.V3.PublicIdentitiesAPI.GetPublicIdentities(ctx).Limit(1).Execute()
+ resp, _, err := apiClient.PublicIdentitiesAPI.GetPublicIdentitiesV1(ctx).Limit(1).Execute()
 
  identity := "IDENTITY"
  workgroupName := "DB Access Governance Group"
  workgroupDescription := "Description of the Governance Group"
 
- workgroup := beta.WorkgroupDto{
+ workgroup := governance_groups.Workgroupdto{
   Name:        &workgroupName,
   Description: &workgroupDescription,
-  Owner: &beta.OwnerDto{
+  Owner: &governance_groups.WorkgroupdtoOwner{
    Id:   resp[0].Id,
    Name: resp[0].Name,
    Type: &identity,
   },
  }
 
- newWorkgroup, request, errMessage := apiClient.Beta.GovernanceGroupsAPI.CreateWorkgroup(ctx).WorkgroupDto(workgroup).Execute()
+ newWorkgroup, request, errMessage := apiClient.GovernanceGroupsAPI.CreateWorkgroupV1(ctx).Workgroupdto(workgroup).Execute()
 
  if errMessage != nil {
-  fmt.Fprintf(os.Stderr, "Error when calling `GovernanceGroupsApi.CreateWorkgroup``: %v\n", err)
+  fmt.Fprintf(os.Stderr, "Error when calling `GovernanceGroupsAPI.CreateWorkgroupV1``: %v\n", err)
   fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", request)
  }
 
@@ -60,9 +60,9 @@ func main() {
 }
 ```
 
-The example uses the `GetPublicIdentities` method from the `PublicIdentitiesApi` to pull an identity needed to be the owner of the Workgroup.
+The example uses the `GetPublicIdentitiesV1` method from the `PublicIdentitiesAPI` to pull an identity needed to be the owner of the Workgroup.
 
-On lines 20-32 the new workgroup object is initialized and sent to the `CreateWorkgroup` method on line 34.
+On lines 25-33 the new workgroup object is initialized and sent to the `CreateWorkgroupV1` method on line 35.
 
 To run the code, run this command:
 

@@ -17,6 +17,8 @@ This guide will walk through some examples of this functionality.
 
 To make sure that your SDK is connecting to the APIs you need, you can specify the API within the curly brackets in `import {}` at the top of the "index.ts" file. In this example, you could add `Configuration` and `TransformsApi` to add the functionality to list transforms.
 
+The SDK is organized by API resource rather than by API version, so there are no version namespaces to import. Each method name is suffixed with the version of the endpoint it calls. For example, `listTransformsV1` calls the `v1` version of the List Transforms endpoint. This lets a single SDK access every version of every endpoint without having to import a separate version package.
+
 ### List transforms in your tenant
 
 ```typescript
@@ -32,16 +34,14 @@ const getTransforms = async () => {
   let api = new TransformsApi(apiConfig);
 
   // Call out to your tenant to get the list of transforms.
-  let transforms = await api.listTransforms();
+  let transforms = await api.listTransformsV1();
   console.log(transforms);
 };
 
 getTransforms();
 ```
 
-To compile the file, first run the `tsc src/index.ts` command. This command creates a corresponding `index.js` file you can use to run the SDK.
-
-To run the SDK, run the `node src/index.js` command. This command sends the request and outputs a list of transforms stored in your tenant.
+To run the SDK, run the `bun src/index.ts` command. This command sends the request and outputs a list of transforms stored in your tenant.
 
 ### Use query parameters to filter your tenant's transform list
 
@@ -55,7 +55,7 @@ import {Configuration, TransformsApi} from 'sailpoint-api-client';
 const getTransforms = async () => {
   let apiConfig = new Configuration();
   let api = new TransformsApi(apiConfig);
-  let transforms = await api.listTransforms({
+  let transforms = await api.listTransformsV1({
     limit: 10,
     filters: 'name sw "Test"',
   });
@@ -65,8 +65,8 @@ const getTransforms = async () => {
 getTransforms();
 ```
 
-Run this command to compile and run the code:
+Run this command to run the code:
 
 ```bash
-tsc src/index.ts && node src/index.js
+bun src/index.ts
 ```

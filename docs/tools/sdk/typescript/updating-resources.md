@@ -18,24 +18,23 @@ Here is an example update WorkGroup script which will update the description for
 ```typescript
 import {
   Configuration,
-  GovernanceGroupsBetaApi,
-  GovernanceGroupsBetaApiCreateWorkgroupRequest,
-  GovernanceGroupsBetaApiPatchWorkgroupRequest,
+  GovernanceGroupsApi,
   PublicIdentitiesApi,
 } from 'sailpoint-api-client';
+import {GovernanceGroupsApiPatchWorkgroupV1Request} from 'sailpoint-api-client/dist/governance_groups/api';
 
 const updateWorkGroup = async () => {
   let apiConfig = new Configuration();
-  let api = new GovernanceGroupsBetaApi(apiConfig);
+  let api = new GovernanceGroupsApi(apiConfig);
 
   let workgroup = (
-    await api.listWorkgroups({filters: 'name eq "DB Access Governance Group"'})
+    await api.listWorkgroupsV1({filters: 'name eq "DB Access Governance Group"'})
   ).data[0];
 
   if (workgroup.id !== undefined) {
-    let updatedWorkgroup: GovernanceGroupsBetaApiPatchWorkgroupRequest = {
+    let updatedWorkgroup: GovernanceGroupsApiPatchWorkgroupV1Request = {
       id: workgroup.id,
-      jsonPatchOperationBeta: [
+      jsonpatchoperation: [
         {
           op: 'replace',
           path: '/description',
@@ -43,7 +42,7 @@ const updateWorkGroup = async () => {
         },
       ],
     };
-    let val = await api.patchWorkgroup(updatedWorkgroup);
+    let val = await api.patchWorkgroupV1(updatedWorkgroup);
     console.log(val.data);
   } else {
     console.log('Workgroup was not found, id is missing for patch request.');
@@ -53,10 +52,10 @@ const updateWorkGroup = async () => {
 updateWorkGroup();
 ```
 
-Run this command to compile and run the code:
+Run this command to run the code:
 
 ```bash
-tsc src/index.ts && node src/index.js
+bun src/index.ts
 ```
 
 The updated WorkGroup will be returned by the SDK:

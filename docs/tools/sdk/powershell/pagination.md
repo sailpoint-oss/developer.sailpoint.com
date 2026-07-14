@@ -17,17 +17,17 @@ Pagination is implemented with the SDK in the following code block on line 8:
 
 ```powershell showLineNumbers
 $Parameters = @{
-    "Filters" = 'name co "Andrew"'
+    "Filters" = 'name sw "Andrew"'
 }
 
 # Accounts List
 try {
 
-    Invoke-Paginate -Function "Get-Accounts" -Increment 250 -Limit 1000 -InitialOffset 0 -Parameters $Parameters
+    Invoke-Paginate -Function "Get-AccountsV1" -Increment 250 -Limit 1000 -InitialOffset 0 -Parameters $Parameters
 
 } catch {
     Write-Host $_
-    Write-Host ("Exception occurred when calling {1}: {0}" -f ($_.ErrorDetails | ConvertFrom-Json), "Get-Accounts")
+    Write-Host ("Exception occurred when calling {1}: {0}" -f ($_.ErrorDetails | ConvertFrom-Json), "Get-AccountsV1")
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

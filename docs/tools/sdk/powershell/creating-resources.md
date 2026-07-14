@@ -16,35 +16,35 @@ You can use the SDK to create new resources. These cmdlets will typically start 
 To see a list of available create cmdlets, run this command:
 
 ```powershell
-Get-Command -Module PSSailpoint | where-object {$_.name -like "*New-*" } | Sort-Object Name | Get-Help | Format-Table Name, Synopsis
+Get-SailPointCommand -Name 'New-*' | Get-Help | Format-Table Name, Synopsis
 ```
 
-The SDK returns this output (all beta endpoints are designated by the Beta prefix):
+The SDK returns this output (each cmdlet name carries the endpoint version as a suffix, such as `V1`):
 
 ```powershell
-Name                     Synopsis
-----                     --------
-New-AccessProfile        Create an Access Profile
-New-AccessRequest        Submit an Access Request
-New-Account              Create Account
-New-AuthOrgNetworkConfig Create security network configuration.
-New-BetaAccessProfile    Create an Access Profile
-New-BetaAccessRequest    Submit an Access Request
-New-BetaAccount          Create Account
-New-BetaCampaign         Create a campaign
-New-BetaCampaignTemplate Create a Campaign Template
-New-BetaCommonAccess     Create common access items
-New-BetaConnectorRule    Create Connector Rule
-New-BetaCustomPasswordI… Create Custom Password Instructions
-New-BetaDigitToken       Generate a digit token
-New-BetaDomainDkim       Verify domain address via DKIM
+Name                                    Synopsis
+----                                    --------
+New-AccessModelMetadataAttributeV1      Create Access Model Metadata Attribute
+New-AccessProfileV1                     Create an Access Profile
+New-AccessRequestV1                     Submit an Access Request
+New-AccountV1                           Create Account
+New-ApplicationV1                       Create Application
+New-AuthOrgNetworkConfigV1              Create security network configuration.
+New-BrandingItemV1                      Create a branding item
+New-CampaignFilterV1                    Create a Campaign Filter
+New-CampaignTemplateV1                  Create a Campaign Template
+New-CampaignV1                          Create a campaign
+New-CommonAccessV1                      Create common access items
+New-ConnectorCustomizerV1               Create Connector Customizer
+New-ConnectorRuleV1                     Create Connector Rule
+New-CustomPasswordInstructionsV1        Create Custom Password Instructions
 ...
 ```
 
-Here is an example create workgroup script from the beta APIs you can copy into your PowerShell instance to try it out:
+Here is an example create workgroup script you can copy into your PowerShell instance to try it out:
 
 ```powershell showLineNumbers
-$Identity = Get-PublicIdentities -Limit 1
+$Identity = Get-PublicIdentitiesV1 -Limit 1
 
 $JSON = @"
 {
@@ -58,20 +58,20 @@ $JSON = @"
   }
 "@
 
-$WorkGroup = ConvertFrom-BetaJsonToWorkgroupDto -Json $JSON
+$WorkGroup = ConvertFrom-JsonToWorkgroupdto -Json $JSON
 
-$WorkGroup = Initialize-BetaWorkgroupDto -Name "DB Access Governance Group" -Description "Description of the Governance Group" -Owner @{
+$WorkGroup = Initialize-Workgroupdto -Name "DB Access Governance Group" -Description "Description of the Governance Group" -Owner @{
     "type" = "IDENTITY"
     "id" = $Identity.id
     "name" = $Identity.name
 }
 
-New-BetaWorkgroup -WorkgroupDto $WorkGroup
+New-WorkgroupV1 -WorkgroupDto $WorkGroup
 ```
 
-The example uses the `Get-PublicIdentities -Limit` cmdlet to pull an identity needed to be the owner of the Workgroup and shows two ways of creating the new WorkGroup to send with the request.
+The example uses the `Get-PublicIdentitiesV1 -Limit` cmdlet to pull an identity needed to be the owner of the Workgroup and shows two ways of creating the new WorkGroup to send with the request.
 
-The first on lines 3-15 initializes a json string then converts the string into a WorkGroup object with `ConvertFrom-BetaJsonToWorkgroupDto`
+The first on lines 3-15 initializes a json string then converts the string into a WorkGroup object with `ConvertFrom-JsonToWorkgroupdto`
 
 The second on lines 17-21 initializes the WorkGroup object by passing in each property of the WorkGroup.
 

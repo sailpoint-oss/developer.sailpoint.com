@@ -18,34 +18,27 @@ For example, you can run a script to update a work group, also known as a [gover
 This example 'update WorkGroup' script updates the description for the work group created in [Create a Resource](./creating-resources.md). Copy it into your Python project to try it out: 
 
 ```python
-import sailpoint
-import sailpoint.v3
-import sailpoint.beta
-from sailpoint.beta.models.workgroup_dto import WorkgroupDto
-from sailpoint.beta.models.usage_type import UsageType
-from sailpoint.beta.models.owner_dto import OwnerDto
-from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
-from sailpoint.beta.models.json_patch_operation_value import JsonPatchOperationValue
+from sailpoint import ApiClient, GovernanceGroupsApi
+from sailpoint.governance_groups.models.jsonpatchoperation import Jsonpatchoperation
+from sailpoint.governance_groups.models.jsonpatchoperation_value import JsonpatchoperationValue
 from sailpoint.configuration import Configuration
 
 configuration = Configuration()
 
-api_client = sailpoint.v3.ApiClient(configuration)
-api_client_beta = sailpoint.beta.ApiClient(configuration)
+api_client = ApiClient(configuration)
 
-identities_api_instance = sailpoint.v3.PublicIdentitiesApi(api_client)
-workgroups_api_instance = sailpoint.beta.GovernanceGroupsApi(api_client_beta)
+workgroups_api_instance = GovernanceGroupsApi(api_client)
 
-workgroup = workgroups_api_instance.list_workgroups(filters='name eq "DB Access Governance Group"')[0]
+workgroup = workgroups_api_instance.list_workgroups_v1(filters='name eq "DB Access Governance Group"')[0]
 
-json_patch_operation = [JsonPatchOperation(op='replace', path='/description', value=JsonPatchOperationValue('This is an updated description for the workgroup.'))]
+json_patch_operation = [Jsonpatchoperation(op='replace', path='/description', value=JsonpatchoperationValue('This is an updated description for the workgroup.'))]
 
 try:
-    workgroupResponse = workgroups_api_instance.patch_workgroup(workgroup.id,json_patch_operation=json_patch_operation)
-    print("The response of GovernanceGroupsApi->patch_workgroup:\n")
+    workgroupResponse = workgroups_api_instance.patch_workgroup_v1(workgroup.id, jsonpatchoperation=json_patch_operation)
+    print("The response of GovernanceGroupsApi->patch_workgroup_v1:\n")
     print(workgroupResponse)
 except Exception as e:
-    print("Exception when calling GovernanceGroupsApi->patch_workgroup: %s\n" % e)
+    print("Exception when calling GovernanceGroupsApi->patch_workgroup_v1: %s\n" % e)
 ```
 
 Run this command to run the code:
@@ -59,14 +52,14 @@ The example uses a PATCH `replace` operation to update the value in the `/descri
 The SDK will return the updated work group with its new description:
 
 ```python
-The response of GovernanceGroupsApi->patch_workgroup:
+The response of GovernanceGroupsApi->patch_workgroup_v1:
 
 id='d287a1e2-81fc-474e-bc0c-155bd8ab0899' 
 name='DB Access Governance Group' 
 description='This is an updated description for the workgroup.' 
 member_count=0 
 connection_count=0
-owner=OwnerDto(
+owner=WorkgroupdtoOwner(
     type='IDENTITY', 
     id='0003c25c365e492381d4e557b6159f9b', 
     name='Brian Mendoza')

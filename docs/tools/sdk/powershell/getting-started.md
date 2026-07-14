@@ -13,30 +13,32 @@ tags: ['SDK']
 
 Once your SDK is installed and configured, you can start accessing the SDK's different functionalities. To learn how to install and configure the PowerShell SDK, refer to [Installation and Configuration](./index.mdx).
 
+The SDK loads its API cmdlets into separate, per-resource partition modules (`PSSailpoint.Transforms`, `PSSailpoint.Accounts`, and so on), all of which are imported for you when you import `PSSailpoint`. Because those cmdlets don't live in the root `PSSailpoint` module, `Get-Command -Module PSSailpoint` won't list them. Use the `Get-SailPointCommand` cmdlet instead — it discovers cmdlets across all the loaded partition modules and accepts an optional `-Name` wildcard filter.
+
 To get an idea of what cmdlets the SDK offers run the following command. This command lists all available Get cmdlets within the SDK:
 
 ```powershell
-Get-Command -Module PSSailpoint | where-object {$_.name -like "*Get-*" } | Sort-Object Name | Get-Help | Format-Table Name, Synopsis
+Get-SailPointCommand -Name 'Get-*' | Get-Help | Format-Table Name, Synopsis
 ```
 
 The SDK returns this output:
 
 ```powershell
-Name                             Synopsis
-----                             --------
-Get-AccessProfile                Get an Access Profile
-Get-AccessProfileEntitlements    List Access Profile's Entitlements
-Get-AccessProfiles               List Access Profiles
-Get-AccessRequestApprovalSummary Get the number of access-requests-approvals
-Get-AccessRequestConfig          Get Access Request Configuration
-Get-AccessRequestStatus          Access Request Status
-Get-Account                      Account Details
-Get-AccountActivities            List Account Activities
-Get-AccountActivity              Get an Account Activity
-Get-AccountEntitlements          Account Entitlements
-Get-Accounts                     Accounts List
-Get-AccountsSchema               Downloads source accounts schema template
-Get-ActiveCampaigns              List Campaigns
+Name                               Synopsis
+----                               --------
+Get-AccessProfileV1                Get an Access Profile
+Get-AccessProfileEntitlementsV1    List Access Profile's Entitlements
+Get-AccessProfilesV1               List Access Profiles
+Get-AccessRequestApprovalSummaryV1 Get the number of access-requests-approvals
+Get-AccessRequestConfigV1          Get Access Request Configuration
+Get-AccessRequestStatusV1          Access Request Status
+Get-AccountV1                      Account Details
+Get-AccountActivitiesV1            List Account Activities
+Get-AccountActivityV1              Get an Account Activity
+Get-AccountEntitlementsV1          Account Entitlements
+Get-AccountsV1                     Accounts List
+Get-AccountsSchemaV1               Downloads source accounts schema template
+Get-ActiveCampaignsV1              List Campaigns
 ...
 ```
 
@@ -45,24 +47,22 @@ Get-ActiveCampaigns              List Campaigns
 Let's say that you wanted to see all the transforms available in your tenant. You can search for the cmdlet:
 
 ```powershell
-Get-Command -Module PSSailpoint | where-object {$_.name -like "Get-*Transform*" } | Sort-Object Name | Get-Help | Format-Table Name, Synopsis
+Get-SailPointCommand -Name 'Get-*Transform*' | Get-Help | Format-Table Name, Synopsis
 ```
 
-The SDK returns this output (all beta endpoints are designated by the Beta prefix):
+The SDK returns this output (each cmdlet name carries the endpoint version as a suffix, such as `V1`):
 
 ```powershell
-Name               Synopsis
-----               --------
-Get-BetaTransform  Transform by ID
-Get-BetaTransforms List transforms
-Get-Transform      Transform by ID
-Get-Transforms     List transforms
+Name             Synopsis
+----             --------
+Get-TransformV1  Transform by ID
+Get-TransformsV1 List transforms
 ```
 
 To get syntax, description and parameters for a single cmdlet, run this command:
 
 ```powershell
-Get-Help Get-Transforms -Detailed
+Get-Help Get-TransformsV1 -Detailed
 ```
 
 <details>
@@ -70,14 +70,14 @@ Get-Help Get-Transforms -Detailed
 
 ```text
 NAME
-    Get-Transforms
+    Get-TransformsV1
 
 SYNOPSIS
     List transforms
 
 
 SYNTAX
-    Get-Transforms [[-Offset] <Nullable`1>] [[-Limit] <Nullable`1>] [[-Count] <Nullable`1>] [[-Name] <String>] [[-Filters] <String>] [-WithHttpInfo] [<CommonParameters>]
+    Get-TransformsV1 [[-Offset] <Nullable`1>] [[-Limit] <Nullable`1>] [[-Count] <Nullable`1>] [[-Name] <String>] [[-Filters] <String>] [-WithHttpInfo] [<CommonParameters>]
 
 
 DESCRIPTION
@@ -116,16 +116,16 @@ PARAMETERS
 
 </details>
 
-Running `Get-Transforms` will return a list of all transforms in your tenant.
+Running `Get-TransformsV1` will return a list of all transforms in your tenant.
 
-Running `Get-Transforms -Limit 10 -Filter 'name sw Test"'` will return a list of no more than 10 transforms whose names start with `Test`.
+Running `Get-TransformsV1 -Limit 10 -Filters 'name sw "Test"'` will return a list of no more than 10 transforms whose names start with `Test`.
 
 ## WithHttpInfo switch
 
 By default, the cmdlets return just the response from the API without including any information about status code or headers returned. Use the `-WithHttpInfo` switch to return this information with the response.
 
 ```powershell
-Get-Transforms -WithHttpInfo
+Get-TransformsV1 -WithHttpInfo
 
 Name                           Value
 ----                           -----

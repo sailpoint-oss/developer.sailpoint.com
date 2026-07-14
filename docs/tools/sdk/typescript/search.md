@@ -14,7 +14,10 @@ tags: ['SDK']
 To try using the ISC [search functionality](/docs/api/search-post-v-1) along with pagination, copy this code into your "index.ts" file:
 
 ```typescript
-const search = async () => {
+import {Configuration, SearchApi, Paginator} from 'sailpoint-api-client';
+import {Search} from 'sailpoint-api-client/dist/search/api';
+
+const getSearchResults = async () => {
   let apiConfig = new Configuration();
   let api = new SearchApi(apiConfig);
   let search: Search = {
@@ -27,16 +30,18 @@ const search = async () => {
   const val = await Paginator.paginateSearchApi(api, search, 100, 1000);
 
   for (const result of val.data) {
-    const castedResult: IdentityDocument = result;
+    const castedResult = result as any;
     console.log(castedResult.name);
   }
 };
+
+getSearchResults();
 ```
 
-Run this command to compile and run the code:
+Run this command to run the code:
 
 ```bash
-tsc src/index.ts && node src/index.js
+bun src/index.ts
 ```
 
 This example returns 1000 identities, 100 at a time, and sorts them in descending order by name. You can also change the search pagination by changing "100" and "1000", respectively.

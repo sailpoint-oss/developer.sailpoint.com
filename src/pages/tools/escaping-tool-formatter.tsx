@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Layout from '@theme/Layout';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
 import TerminalFontSizeDropdown from '../../components/jsonpath/TerminalFontSizeDropdown';
 import InputTerminal from '../../components/jsonpath/InputTerminal';
 import ResultTerminal from '../../components/jsonpath/ResultTerminal';
@@ -132,6 +133,12 @@ requestEndPoint.setFullUrl(fullUrl);`);
               />
             </Stack>
           </div>
+          <Link
+            id="escapeToolDocsLink"
+            href="/docs/tools/escaping-tool-formatter"
+            sx={{display: 'block', textAlign: 'center', mb: 2}}>
+            String Escaper Documentation
+          </Link>
           <Stack
             sx={{justifyContent: 'center'}}
             direction={{xs: 'column', lg: 'row'}}

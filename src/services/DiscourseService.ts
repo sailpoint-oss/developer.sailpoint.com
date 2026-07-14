@@ -33,13 +33,17 @@ export async function getAmbassadorDetails(id: number[]): Promise<any[]> {
   }
 }
 
-export async function getAmbassadorPoints(): Promise<any> {
+export async function getAmbassadorPoints(targetIds?: Set<number>): Promise<any> {
   try {
-    // The leaderboard paginates 100/page, sorted by total_score descending.
-    // Page through until we hit a record below 300 points (everyone we care
-    // about scores at least that), so members past the first page still get
-    // their points instead of defaulting to 0.
+    // The leaderboard paginates 100/page (server-fixed — it ignores limit),
+    // sorted by total_score descending. When we know which ambassadors we're
+    // after, stop as soon as every one has been seen instead of scanning the
+    // whole community. Otherwise fall back to a >=300-point floor, so members
+    // past the first page still get their points instead of defaulting to 0.
+    // The floor (and hard page cap) also guarantee termination when a target
+    // ambassador never appears on the leaderboard.
     const users: any[] = [];
+    const remaining = targetIds ? new Set(targetIds) : null;
     for (let page = 0; page < 100; page++) {
       const response = await discourseFetch(
         discourseBaseURL() + `leaderboard/11.json?period=all_time&page=${page}`
@@ -54,8 +58,10 @@ export async function getAmbassadorPoints(): Promise<any> {
           break;
         }
         users.push(u);
+        remaining?.delete(u.id);
       }
       if (hitFloor) break;
+      if (remaining && remaining.size === 0) break; // every ambassador found
     }
     return { users };
   } catch (error) {

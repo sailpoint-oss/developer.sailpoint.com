@@ -151,7 +151,7 @@ PATCH requests all share the same essential structure. A PATCH request must incl
 This example request has the basic PATCH structure:
 
 ```text
-PATCH https://{tenant}.api.identitynow.com/v3/sources/:id
+PATCH https://{tenant}.api.identitynow.com/sources/v1/:id
 ```
 
 ```json
@@ -181,7 +181,7 @@ You can specify a single operation, or you can specify multiple. If you are usin
 This example request applies "replace" and "add" ops to different paths:
 
 ```text
-PATCH https://{tenant}.api.identitynow.com/v3/sources/:id
+PATCH https://{tenant}.api.identitynow.com/sources/v1/:id
 ```
 
 ```json
@@ -412,7 +412,7 @@ For example, this snippet from the beginning of the earlier source details examp
 You can send PATCH requests to make changes to some of these paths, like editing the source's description with this PATCH request from earlier:
 
 ```text
-PATCH https://{tenant}.api.identitynow.com/v3/sources/:id
+PATCH https://{tenant}.api.identitynow.com/sources/v1/:id
 ```
 
 ```json
@@ -500,7 +500,7 @@ The paths are often nested within other paths, like within the "connectorAttribu
 You can send a PATCH request to make changes to paths within the "connectorAttributes" path itself. This example request removes the "filterString" path and its value.
 
 ```text
-PATCH https://{tenant}.api.identitynow.com/v3/sources/:id
+PATCH https://{tenant}.api.identitynow.com/sources/v1/:id
 ```
 
 ```json
@@ -528,7 +528,7 @@ The operations that don't require a value are the "copy" and "move" operations. 
 You can specify a single simple value for an operation. In this example from earlier, the PATCH request replaces the source's description:
 
 ```text
-PATCH https://{tenant}.api.identitynow.com/v3/sources/:id
+PATCH https://{tenant}.api.identitynow.com/sources/v1/:id
 ```
 
 ```json
@@ -544,7 +544,7 @@ PATCH https://{tenant}.api.identitynow.com/v3/sources/:id
 You can also specify multiple values for an operation to be applied to, as long as they all affect the same path. For example, this PATCH request replaces the source's current features with a number of new ones:
 
 ```text
-PATCH https://{tenant}.api.identitynow.com/v3/sources/:id
+PATCH https://{tenant}.api.identitynow.com/sources/v1/:id
 ```
 
 ```json
@@ -560,7 +560,7 @@ PATCH https://{tenant}.api.identitynow.com/v3/sources/:id
 A value can also be an object that contains other values within it. For example, this PATCH request adds a new "location" attribute to the end of the source schema's array of attributes:
 
 ```text
-PATCH https://{tenant}.api.identitynow.com//v3/sources/:sourceId/schemas/:schemaId
+PATCH https://{tenant}.api.identitynow.com/sources/v1/:sourceId/schemas/:schemaId
 ```
 
 ```json
@@ -594,7 +594,7 @@ The "move" and "copy" operations allow you to remove or copy information from on
 This example request uses the [PATCH Source schema](https://developer.sailpoint.com/docs/api/update-source-schema-v-1) endpoint to move an attribute, along with its details, from the beginning to the end of a source schema's array of attributes:
 
 ```text
-PATCH https://{tenant}.api.identitynow.com//v3/sources/:sourceId/schemas/:schemaId
+PATCH https://{tenant}.api.identitynow.com/sources/v1/:sourceId/schemas/:schemaId
 ```
 
 ```json

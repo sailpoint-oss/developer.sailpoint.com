@@ -56,7 +56,7 @@ curl --location --request POST 'https://{tenant}.api.identitynow.com/oauth/token
 6. To test your `access_token`, execute the following cURL command, replacing `{tenant}` with your Identity Security Cloud tenant and `access_token` with the token you generated in the previous step. If this is successful, you should get a JSON representation of an identity in your tenant.
 
 ```bash
-curl --request GET --url 'https://{tenant}.api.identitynow.com/v3/public-identities?limit=1' --header 'authorization: Bearer {access_token}'
+curl --request GET --url 'https://{tenant}.api.identitynow.com/public-identities/v1?limit=1' --header 'authorization: Bearer {access_token}'
 ```
 
 For more information about SailPoint Platform authentication, see [API Authentication](./authentication.md)

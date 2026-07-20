@@ -32,8 +32,13 @@ You can use the SaaS Configuration APIs to exclude objects from the imports and 
 This table lists the objects supported for import and export with the SaaS Configuration APIs:
 
 :::note
-This table also lists the objects supported for backup and deploy, the terms used in Configuration Hub for export and import functionality. 
+This table also lists the objects supported for backup and deploy, the terms used in Configuration Hub for export and import functionality.
+**Backup** and **deploy** in Configuration Hub are the same operations as **export** and **import** with the SaaS Configuration APIs — Configuration Hub uses these APIs behind the scenes. A backup is an export of a tenant's configuration, and a deploy imports objects from a backup into a target tenant.
 To learn more about Configuration Hub, refer to [Configuration Hub](https://documentation.sailpoint.com/saas/help/confighub/config_hub.html).
+:::
+
+:::caution
+A ✅ in the **Import** or **Deploy** column indicates support for standard sources only. Non-Employee sources are **not** supported for import or deploy, even when deploying from a backup of another tenant. See the [note below](#importing-configurations) for details.
 :::
 
 | **Object** | **Object Type** | **Export** | **Import** | **Backup** | **Deploy** |
@@ -116,7 +121,14 @@ Source passwords, secret token or other sensitive data is not exported. Those ne
 
 :::caution
 
-You cannot import Non-Employee sources. 
+You cannot import Non-Employee sources.
+
+This limitation applies to both terms used for this functionality:
+
+- You cannot **import** a Non-Employee source with the SaaS Configuration APIs.
+- You cannot **deploy** a Non-Employee source from a backup in Configuration Hub, including a backup taken from a different tenant (for example, deploying a sandbox backup into production).
+
+If you attempt to deploy a Non-Employee source from a backup, the source is created as a standard source rather than a Non-Employee source. This can cause issues in the target tenant. Because this behavior is expected, the **Import** and **Deploy** columns in the [Supported objects](#supported-objects) table reflect standard source support only and do not apply to Non-Employee sources.
 
 :::
 

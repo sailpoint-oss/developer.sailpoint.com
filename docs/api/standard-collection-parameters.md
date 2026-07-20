@@ -13,7 +13,7 @@ tags: ['Standard Collection Parameters','Filter','Sort','Pagination']
 Many endpoints in the Identity Security Cloud API support a generic syntax for paginating, filtering and sorting the results. A collection endpoint has the following characteristics:
 
 - The HTTP verb is always GET.
-- The last component in the URL is a plural noun (ex. `/v3/public-identities`).
+- The last component in the URL is a plural noun (ex. `/public-identities/v1`).
 - The return value from a successful request is always an array of JSON objects. This array may be empty if there are no results.
 
 ## Paginating Results
@@ -28,9 +28,9 @@ Use the following optional query parameters to achieve pagination:
 
 Examples:
 
-- GET `/v3/public-identities?limit=2`
-- GET `/v3/public-identities?limit=20&offset=4`
-- GET `/v3/public-identities?count=true`
+- GET `/public-identities/v1?limit=2`
+- GET `/public-identities/v1?limit=20&offset=4`
+- GET `/public-identities/v1?count=true`
 
 ## Paginating Search Queries
 
@@ -50,7 +50,7 @@ The `searchAfter` capability provides the ability to page on sorted field values
 
 Here is an example of a search API call with `searchAfter` paging. The first query will get the first set of results. The default limit for search is 10,000, which is different from other collection endpoints. For this example, the query is set to page 100 records at a time. Paginating search queries also requires the `sort` property to be set to `id`.
 
-**POST** `https://{tenant}.api.identitynow.com/v3/search?limit=100&count=true`
+**POST** `https://{tenant}.api.identitynow.com/search/v1?limit=100&count=true`
 
 ```json
 {
@@ -64,7 +64,7 @@ Here is an example of a search API call with `searchAfter` paging. The first que
 
 This query will return 100 records. To get the next 100 records, find the last record's `id` and use it in the next query's `searchAfter` property.
 
-**POST** `https://{tenant}.api.identitynow.com/v3/search?limit=100&count=true`
+**POST** `https://{tenant}.api.identitynow.com/search/v1?limit=100&count=true`
 
 ```json
 {
@@ -90,14 +90,14 @@ Filter expressions are applicable to fields of the following types:
 - Numeric
 - Boolean: either **true** or **false**
 - Strings. Enumerated values are a special case of this.
-- Date-time. In V3, all date time values are in ISO-8601 format, as specified in [RFC 3339 - Date and Time on the Internet: Timestamps](https://tools.ietf.org/html/rfc3339).
+- Date-time. All date time values are in ISO-8601 format, as specified in [RFC 3339 - Date and Time on the Internet: Timestamps](https://tools.ietf.org/html/rfc3339).
 
 ### Filter Syntax
 
-The V3 filter syntax is similar to, but not exactly the same as, that specified by the SCIM standard. These are some key differences:
+The filter syntax is similar to, but not exactly the same as, that specified by the SCIM standard. These are some key differences:
 
 - A slightly different set of supported operators
-- Case-sensitivity of operators. All V3 filter operators are in lowercase; specifying "EQ" instead of "eq" is not allowed.
+- Case-sensitivity of operators. All filter operators are in lowercase; specifying "EQ" instead of "eq" is not allowed.
 
 ### Primitive Operators
 
@@ -132,15 +132,15 @@ These operators are applied to other filter expressions:
 
 Certain characters must be escaped before they can be used in a filter expression. For example, the following filter expression attempting to find all sources with the name `#Employees` will produce a 400 error:
 
-`/v3/sources?filters=name eq "#Employees"`
+`/sources/v1?filters=name eq "#Employees"`
 
 To properly escape this filter, do the following:
 
-`/v3/sources?filters=name eq "%23Employees"`
+`/sources/v1?filters=name eq "%23Employees"`
 
 If you are searching for a string containing double quotes, use the following escape sequence:
 
-`/v3/sources/?filters=name eq "\"Employees\""`
+`/sources/v1/?filters=name eq "\"Employees\""`
 
 The following table lists the special characters that are incompatible with `filters` and how to escape them.
 
@@ -158,18 +158,18 @@ Although filter expressions are a very general mechanism, individual API endpoin
 
 Examples:
 
-- `/v3/public-identities?filters=email eq "john.doe@example.com"`
-- `/v3/public-identities?filters=firstname sw "john" or email sw "joe"`
+- `/public-identities/v1?filters=email eq "john.doe@example.com"`
+- `/public-identities/v1?filters=firstname sw "john" or email sw "joe"`
 - `not prop1 eq val1 or prop2 eq val2 and prop3 eq val3` is equivalent to `(not (prop1 eq val1)) or ((prop2 eq val2) and (prop3 eq val3))`
 - `not (prop1 eq val1 or prop2 eq val2) and prop3 eq val3` is equivalent to `(not ((prop1 eq val1) or (prop2 eq val2))) and (prop3 eq val3)`
 
 :::info
 
-- Spaces in URLs must be escaped with `%20`. Most programming languages, frameworks, libraries, and tools will do this for you, but some won't. In the event that your tool doesn't escape spaces, you will need to format your query as `/v3/public-identities?filters=email%20eq%20"john.doe@example.com"`
+- Spaces in URLs must be escaped with `%20`. Most programming languages, frameworks, libraries, and tools will do this for you, but some won't. In the event that your tool doesn't escape spaces, you will need to format your query as `/public-identities/v1?filters=email%20eq%20"john.doe@example.com"`
 
-- Double quotes may need to be escaped with `%22`. Most programming languages, frameworks, libraries, and tools will do this for you, but some won't. In the event that your tool doesn't escape quotes, you will need to format your query as `/v3/public-identities?filters=email%20eq%20%22john.doe@example.com%22`
+- Double quotes may need to be escaped with `%22`. Most programming languages, frameworks, libraries, and tools will do this for you, but some won't. In the event that your tool doesn't escape quotes, you will need to format your query as `/public-identities/v1?filters=email%20eq%20%22john.doe@example.com%22`
 
-- You must escape spaces in URLs with `%20`. Most programming languages, frameworks, libraries, and tools do this for you, but some do not. In the event that your tool does not escape spaces, you must format your query as `/v3/public-identities?filters=email%20eq%20"john.doe@example.com"`
+- You must escape spaces in URLs with `%20`. Most programming languages, frameworks, libraries, and tools do this for you, but some do not. In the event that your tool does not escape spaces, you must format your query as `/public-identities/v1?filters=email%20eq%20"john.doe@example.com"`
 
 - Unless explicitly noted otherwise, strings are compared lexicographically. Most comparisons are not case sensitive. Any situations where the comparisons are case sensitive will be called out.
 
@@ -189,5 +189,5 @@ For example, to sort primarily by **type** in ascending order, and secondarily b
 
 Pagination, filters, and sorters can be mixed and match to achieve the desired output for a given collection endpoint. Here are some examples:
 
-- `/v3/public-identities?limit=20&filters=firstname eq "john"&sorters=-name` returns the first 20 identities that have a first name of John and are sorted in descending order by full name.
-- `/v3/account-activities?limit=10&offset=2&sorters=-created` sorts the results by descending created time, so the most recent activities appear first. The limit and offset returns the 3rd page of this sorted response with 10 records displayed.
+- `/public-identities/v1?limit=20&filters=firstname eq "john"&sorters=-name` returns the first 20 identities that have a first name of John and are sorted in descending order by full name.
+- `/account-activities/v1?limit=10&offset=2&sorters=-created` sorts the results by descending created time, so the most recent activities appear first. The limit and offset returns the 3rd page of this sorted response with 10 records displayed.

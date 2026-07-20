@@ -186,6 +186,7 @@ jobs:
           echo "SECRET_MESSAGE=${{ secrets.SECRET_MESSAGE }}" >> .env
           export NODE_OPTIONS="--max_old_space_size=60000"
           export DOCUSAURUS_IGNORE_SSG_WARNINGS=true
+          export DOCUSAURUS_DISABLE_LAST_UPDATE=true
           export DOCUSAURUS_SSG_WORKER_THREAD_COUNT=10
           export DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY=1000000000
 

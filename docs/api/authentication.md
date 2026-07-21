@@ -406,11 +406,11 @@ A successful request using any of the grant flows to `https://[tenant].api.ident
 }
 ```
 
-You can use the JWT `access_token` to authorize REST API calls through the ISC API gateway. To use the `access_token`, simply include it in the `Authorization` header as a `Bearer` token. This is an example V3 API request that has the access token in the header:
+You can use the JWT `access_token` to authorize REST API calls through the ISC API gateway. To use the `access_token`, simply include it in the `Authorization` header as a `Bearer` token. This is an example API request that has the access token in the header:
 
 ```bash
 curl -X GET \
- 'https://[tenant].api.identitynow.com/v3/account-activities' \
+ 'https://[tenant].api.identitynow.com/account-activities/v1' \
  -H 'Authorization: Bearer {access_token}' \
  -H 'cache-control: no-cache'
 ```
@@ -535,12 +535,10 @@ Having issues? Follow these steps:
 
 1. Verify the structure of the API call:
 2. Verify that the API calls are going through the API gateway: `https://[tenant].api.identitynow.com`
-3. Verify you are calling their version correctly:
+3. Verify you are formatting the url correctly:
 
-   - Private APIs: `https://[tenant].api.identitynow.com/cc/api/{endpoint}`
-   - V2 APIs: `https://[tenant].api.identitynow.com/v2/{endpoint}`
-   - V3 APIs: `https://[tenant].api.identitynow.com/v3/{endpoint}`
-   - Beta APIs: `https://[tenant].api.identitynow.com/beta/{endpoint}`
+   - Example: `https://[tenant].api.identitynow.com/{service}/v1/{action}`
+
 
 4. Verify that the API calls have the correct headers (e.g., `content-type`), query parameters, and body data.
 5. If the HTTP response is **401 Unauthorized** , this is an indication either that there is no `Authorization` header or that the `access_token` is invalid. Verify that the API calls are providing the `access_token` in the `Authorization` header correctly (ex. `Authorization: Bearer {access_token}`) and that the `access_token` has not expired.
@@ -563,13 +561,13 @@ OAuth 2.0 Client ID: `b61429f5-203d-494c-94c3-04f54e17bc5c`
 1. Verify that the OAuth 2.0 client ID exists. You can verify this by calling this endpoint:
 
 ```text
- GET /beta/oauth-clients/{client-id}
+ GET /oauth-clients/v1/{client-id}
 ```
 
 or
 
 ```text
-GET /beta/oauth-clients/
+GET /oauth-clients/v1/
 ```
 
 You can also view all of the active clients in the UI by going to `https://[tenant].identitynow.com/ui/ts/admin/security-settings/api-management`.

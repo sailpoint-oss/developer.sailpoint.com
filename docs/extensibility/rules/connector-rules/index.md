@@ -188,12 +188,14 @@ Content-Type: `application/json-patch+json`
 
 Content-Type: `application/json-patch+json`
 
+_Note: For connector attribute rule attachments, the `value` should be the rule name, not the rule ID._
+
 ```json
 [
   {
     "op": "add",
     "path": "/connectorAttributes/buildMapRule",
-    "value": "Example Rule"
+    "value": "Example Rule Name"
   }
 ]
 ```
@@ -209,7 +211,7 @@ Content-Type: `application/json-patch+json`
   {
     "op": "add",
     "path": "/connectorAttributes/buildMapRule",
-    "value": "Example Rule"
+    "value": "Example Rule Name"
   }
 ]
 ```
@@ -225,7 +227,7 @@ Content-Type: `application/json-patch+json`
   {
     "op": "add",
     "path": "/connectorAttributes/jdbcProvisionRule",
-    "value": "Example Rule"
+    "value": "Example Rule Name"
   }
 ]
 ```
@@ -241,7 +243,7 @@ Content-Type: `application/json-patch+json`
   {
     "op": "add",
     "path": "/connectorAttributes/saphrModifyProvisioningRule",
-    "value": "Example Rule"
+    "value": "Example Rule Name"
   }
 ]
 ```
@@ -259,7 +261,7 @@ _Note: Replace \[\*\] with the index location of the operation the way it is con
   {
     "op": "replace",
     "path": "/connectorAttributes/connectionParameters/[*]/beforeRule",
-    "value": "Example Rule"
+    "value": "Example Rule Name"
   }
 ]
 ```
@@ -277,7 +279,7 @@ _Note: Replace \[\*\] with the index location of the operation the way it is con
   {
     "op": "replace",
     "path": "/connectorAttributes/connectionParameters/[*]/afterRule",
-    "value": "Example Rule"
+    "value": "Example Rule Name"
   }
 ]
 ```

@@ -1,0 +1,43 @@
+allOf:
+  - $ref: ./BaseSettings.yaml
+  - type: object
+    description: Inherits base settings for activity configuration.
+    properties:
+      retentionTimePeriod:
+        type: integer
+        format: int32
+        description: The time period for retaining activity logs.
+        example: 30
+      retentionTimeType:
+        type: string
+        nullable: true
+        description: The type of retention period (e.g., days, months, years).
+        example: "days"
+      excludeUsers:
+        type: array
+        items:
+          type: string
+        nullable: true
+        description: List of user identifiers to exclude from activity tracking.
+        example: ["user1", "user2"]
+      excludeFolders:
+        type: array
+        items:
+          type: string
+        nullable: true
+        description: List of folder paths to exclude from activity tracking.
+        example: ["/tmp", "/archive"]
+      excludeFileExtensions:
+        type: array
+        items:
+          type: string
+        nullable: true
+        description: List of file extensions to exclude from activity tracking.
+        example: [".log", ".bak"]
+      excludeActions:
+        type: array
+        items:
+          type: string
+        nullable: true
+        description: List of actions to exclude from activity tracking.
+        example: ["delete", "move"]

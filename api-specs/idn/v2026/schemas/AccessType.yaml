@@ -1,0 +1,6 @@
+type: string
+enum:
+  - ONLINE
+  - OFFLINE
+description: Access type of API Client indicating online or offline use
+example: "OFFLINE"

@@ -1,0 +1,151 @@
+get:
+  operationId: getMachineIdentityV2
+  tags:
+    - Machine Identities
+  summary: Get machine identity details
+  description: This API returns a single machine identity using the Machine Identity ID.
+  security:
+    - userAuth:
+        - idn:mis-identity:read
+        - idn:mis-identity:manage
+    - applicationAuth:
+        - idn:mis-identity:read
+        - idn:mis-identity:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - HELPDESK
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listMachineIdentitiesV2
+      description: Machine Identity ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      description: A machine identity object.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/machineidentityv2.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+patch:
+  operationId: updateMachineIdentityV2
+  tags:
+    - Machine Identities
+  summary: Partial update of machine identity
+  description: |
+    Use this API to selectively update machine identity details using a JSONPatch payload.
+
+    Patchable fields include **name**, **description**, **nativeIdentity**, **subtype**, **environment**, **attributes**, **owners**, **userEntitlements**, and **manuallyEdited** only.
+  security:
+    - userAuth:
+        - idn:mis-identity:manage
+    - applicationAuth:
+        - idn:mis-identity:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listMachineIdentitiesV2
+      description: Machine Identity ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    required: true
+    description: A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../shared/schemas/jsonpatchoperation.yaml
+        examples:
+          Add machine identity attribute:
+            value:
+              - op: add
+                path: /attributes/securityRisk
+                value: medium
+          Replace machine identity attribute:
+            value:
+              - op: replace
+                path: /attributes/securityRisk
+                value: medium
+          Remove machine identity attribute:
+            value:
+              - op: remove
+                path: /attributes/securityRisk
+  responses:
+    '200':
+      description: Updated machine identity object.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/machineidentityv2.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+delete:
+  operationId: deleteMachineIdentityV2
+  tags:
+    - Machine Identities
+  summary: Delete machine identity
+  description: The API returns a successful response if the requested machine identity was deleted.
+  security:
+    - userAuth:
+        - idn:mis-identity:manage
+    - applicationAuth:
+        - idn:mis-identity:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listMachineIdentitiesV2
+      description: Machine Identity ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '204':
+      $ref: ../../shared/responses/204.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

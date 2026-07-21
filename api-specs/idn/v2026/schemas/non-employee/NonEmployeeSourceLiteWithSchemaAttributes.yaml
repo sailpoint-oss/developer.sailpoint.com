@@ -1,0 +1,9 @@
+allOf:
+  - $ref: './NonEmployeeSourceLite.yaml'
+  - type: object
+    properties:
+      schemaAttributes:
+        description: List of schema attributes associated with this non-employee source.
+        type: array
+        items:
+          $ref: './NonEmployeeSchemaAttribute.yaml'

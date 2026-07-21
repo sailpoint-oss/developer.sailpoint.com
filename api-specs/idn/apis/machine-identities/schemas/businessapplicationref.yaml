@@ -1,0 +1,26 @@
+type: object
+title: Business Application Ref
+description: Reference to a Business Application associated with a machine identity.
+properties:
+  type:
+    type: string
+    description: Reference type.
+    example: BUSINESS_APPLICATION
+  id:
+    type: string
+    description: Business Application ID.
+    example: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+  name:
+    type: string
+    nullable: true
+    description: Business Application display name.
+    example: Cursor
+  sanctionedStatus:
+    $ref: ./sanctionedstatus.yaml
+  correlationType:
+    type: string
+    description: Whether the Business Application reference was manually assigned or automatically correlated.
+    enum:
+      - MANUAL
+      - AUTOMATIC
+    example: MANUAL

@@ -1,0 +1,34 @@
+type: object
+title: Machine Account Create Access Dto
+description: A summary endpoint which returns list of sources and subtypes for which user has an entitlement to request machine accounts.
+properties:
+  sourceId:
+    type: string
+    description: Source ID.
+    example: 1419fc28a8ed4a079f5c0cb5dfad6311
+  sourceName:
+    type: string
+    description: Source name.
+    example: "Source name"
+  subtypes:
+    type: array
+    description: List of subtypes for which the user has an entitlement to request machine accounts.
+    items:
+      type: object
+      properties:
+        subtypeId:
+          type: string
+          description: Subtype ID.
+          example: d7ae9ea3-507f-4d00-9d4f-b4464b344b88
+        entitlementId:
+          type: string
+          description: Entitlement ID.
+          example: a03caa629a624cee90f94048252034cf
+        subtypeDisplayName:
+          type: string
+          description: Subtype display name.
+          example: "Subtype Display Name"
+        subtypeTechnicalName:
+          type: string
+          description: Subtype technical name.
+          example: "Subtype Technical Name"

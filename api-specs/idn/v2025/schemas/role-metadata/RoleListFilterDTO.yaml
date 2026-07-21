@@ -1,0 +1,59 @@
+description: AMMFilterValues
+type: object
+properties:
+  filters:
+    type: string
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+      Filtering is supported for the following fields and operators:
+
+
+      **id**: *eq, in*
+
+
+      **name**: *eq, sw*
+
+
+      **created**: *gt, lt, ge, le*
+
+
+      **modified**: *gt, lt, ge, le*
+
+
+      **owner.id**: *eq, in*
+
+
+      **requestable**: *eq*
+
+
+    example: "dimensional eq false"
+    nullable: true
+  ammKeyValues:
+    nullable: true
+    type: array
+    items:
+      type: object
+      properties:
+          attribute:
+            description: attribute key of a metadata.
+            type: string
+            example:
+              "iscFederalClassifications"
+          values:
+            description: A list of attribute key names to filter roles. 
+              If the values is empty, will only filter by attribute key.
+            type: array
+            items:
+              type: string
+              example: "secret"
+            example: ["secret"]
+    example:
+      [
+        {
+          "attribute": "iscFederalClassifications",
+          "values": [
+            "secret"
+          ]
+        }
+      ]

@@ -1,0 +1,14 @@
+type: object
+properties:
+  name:
+    description: |
+      The name of the scheduled search.
+    type: string
+    example: 'Daily disabled accounts'
+    nullable: true
+  description:
+    description: |
+      The description of the scheduled search.
+    type: string
+    nullable: true
+    example: 'Daily disabled accounts'

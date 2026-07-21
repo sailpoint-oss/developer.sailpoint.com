@@ -1,0 +1,13 @@
+description: Access Profile Bulk update response.
+type: array
+items:
+    $ref: "./AccessProfileUpdateItem.yaml"
+example:
+  [
+      {
+          "id": "464ae7bf-791e-49fd-b746-06a2e4a8",
+          "status": "201",
+          "requestable": false,
+          "description": "Access Profile updated successfully."
+      }
+  ]

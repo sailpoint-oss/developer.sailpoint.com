@@ -1,0 +1,64 @@
+post:
+  tags:
+  - Reports Data Extraction
+  description: >-
+    Use this API to run a report according to report input details. If non-concurrent task is already running then it
+    returns, otherwise new task creates and returns.
+  operationId: startReportV1
+  summary: Run report
+  security:
+  - userAuth:
+    - sp:report:manage
+  - applicationAuth:
+    - sp:report:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - CERT_ADMIN
+  - REPORT_ADMIN
+  - ROLE_ADMIN
+  - ROLE_SUBADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/reportdetails.yaml
+        examples:
+          Account Export Report:
+            $ref: ../examples/account-export-report-details.yaml
+          Identities Details Report:
+            $ref: ../examples/identities-details-report-details.yaml
+          Identities Report:
+            $ref: ../examples/identities-report-details.yaml
+          Identity Profile Identity Error Report:
+            $ref: ../examples/identity-profile-identity-error-report-details.yaml
+          Orphan Identities Report:
+            $ref: ../examples/orphan-identities-report-details.yaml
+          Search Export Report:
+            $ref: ../examples/search-export-report-details.yaml
+          Uncorrelated Accounts Report:
+            $ref: ../examples/uncorrelated-accounts-report-details.yaml
+    required: true
+  responses:
+    '200':
+      description: Details about running report task.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/taskresultdetails.yaml
+          examples:
+            identityDetailsReport:
+              $ref: ../examples/identities-details-report-task-result.yaml
+            searchExportReport:
+              $ref: ../examples/search-export-report-task-result.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

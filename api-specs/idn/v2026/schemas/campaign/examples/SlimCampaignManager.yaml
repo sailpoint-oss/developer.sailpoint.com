@@ -1,0 +1,10 @@
+value:
+  id: 2c918086719eec070171a7e3355a360a
+  name: Manager Review
+  description: A review of everyone's access by their manager.
+  deadline: "2020-12-25T06:00:00.123Z"
+  type: MANAGER
+  status: ACTIVE
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  recommendationsEnabled: false

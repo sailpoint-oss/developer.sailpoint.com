@@ -1,0 +1,111 @@
+type: object
+title: Campaign Filter Details
+description: Campaign Filter Details
+properties:
+  id:
+    type: string
+    description: The unique ID of the campaign filter
+    example: 5ec18cef39020d6fd7a60ad3970aba61
+  name:
+    type: string
+    description: Campaign filter name.
+    example: Identity Attribute Campaign Filter
+  description:
+    type: string
+    description: Campaign filter description.
+    example: Campaign filter to certify data based on an identity attribute's specified property.
+  owner:
+    type: string
+    description: Owner of the filter. This field automatically populates at creation time with the current user.
+    example: SailPoint Support
+    nullable: true
+  mode:
+    type: string
+    description: >-
+      Mode/type of filter, either the INCLUSION or EXCLUSION type. The INCLUSION type includes the data in generated campaigns 
+      as per specified in the criteria, whereas the EXCLUSION type excludes the data in generated campaigns as per specified in criteria.
+    enum:
+      - "INCLUSION"
+      - "EXCLUSION"
+    example: INCLUSION
+  criteriaList:
+    type: array
+    description: List of criteria.
+    items:
+      type: object
+      properties:
+        type:
+          $ref: './CriteriaType.yaml'
+        operation:
+          $ref: './Operation.yaml'
+        property:
+          type: string
+          description: Specified key from the type of criteria.
+          example: displayName
+          nullable: true
+        value:
+          type: string
+          description: Value for the specified key from the type of criteria.
+          example: Allie
+          nullable: true
+        negateResult:
+          type: boolean
+          description: If true, the filter will negate the result of the criteria.
+          example: false
+          default: false
+        shortCircuit:
+          type: boolean
+          description: If true, the filter will short circuit the evaluation of the criteria.
+          example: false
+          default: false
+        recordChildMatches:
+          type: boolean
+          description: If true, the filter will record child matches for the criteria.
+          example: false
+          default: false
+        id:
+          type: string
+          description: The unique ID of the criteria.
+          example: 5ec18cef39020d6fd7a60ad3970aba61
+          nullable: true
+        suppressMatchedItems:
+          type: boolean
+          description: |
+            If this value is true, then matched items will not only be excluded from the campaign, they will also not have archived certification items created. 
+            Such items will not appear in the exclusion report.
+          example: false
+          default: false
+        children:
+          type: array
+          description: List of child criteria.
+          items:
+            type: object
+      required:
+        - type
+        - property
+        - value
+    example: [
+      {
+        "type": "IDENTITY_ATTRIBUTE",
+        "property": "displayName",
+        "value": "support",
+        "operation": "CONTAINS",
+        "negateResult": false,
+        "shortCircuit": false,
+        "recordChildMatches": false,
+        "id": null,
+        "suppressMatchedItems": false,
+        "children": null
+      }
+    ]
+  isSystemFilter:
+    type: boolean
+    default: false
+    description: If true, the filter is created by the system. If false, the filter is created by a user.
+    example: false
+required:
+  - id
+  - name
+  - owner
+  - mode
+  - isSystemFilter

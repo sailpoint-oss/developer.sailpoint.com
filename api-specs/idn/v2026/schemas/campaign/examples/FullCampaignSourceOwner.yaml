@@ -1,0 +1,30 @@
+value:
+  id: fd7b76ba4ea042de8a9414aa12fc977a
+  name: Source Owner
+  description: Source Owner Info
+  deadline: 2020-12-25T06:00:00.468Z
+  type: SOURCE_OWNER
+  status: PENDING
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  created: 2022-08-03T13:34:19.541Z
+  modified: null
+  filter:
+    type: CAMPAIGN_FILTER
+    id: 0fbe863c063c4c88a35fd7f17e8a3df5
+    name: Test Source Owner Filter
+  sunsetCommentsRequired: true
+  sourceOwnerCampaignInfo:
+  sourceIds:
+    - 612b31b1a0f04aaf83123bdb80e70db6
+  searchCampaignInfo: null
+  roleCompositionCampaignInfo: null
+  machineAccountCampaignInfo: null
+  alerts: null
+  totalCertifications: 0
+  completedCertifications: 0
+  sourcesWithOrphanEntitlements: null
+  correlatedStatus: CORRELATED
+  mandatoryCommentRequirement: NO_DECISIONS
+  

@@ -1,0 +1,106 @@
+post:
+  summary: Create application
+  description: >-
+    This endpoint creates a new application in Data Access Security with the specified configuration.
+  security:
+    - userAuth: [ das:applications:manage ]
+    - applicationAuth: [ das:applications:manage ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+    - Data Access Security
+  operationId: createApplication
+  requestBody:
+    description: Request body containing the details required to create a new application.
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/data-access-security/CreateApplicationRequests/BaseCreateApplicationRequest.yaml'
+    required: true
+  responses:
+    '204':
+      description: No Content
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+get:
+  summary: Search applications in DAS.
+  description: >-
+    This endpoint lists all the applications in Data Access Security with optional filtering.
+  security:
+    - userAuth: [ das:applications:read, das:applications:manage ]
+    - applicationAuth: [ das:applications:read, das:applications:manage ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+    - Data Access Security
+  operationId: getApplications
+  parameters:
+    - name: filters
+      in: query
+      schema:
+        type: string
+      required: false
+      example: AppType eq 'ActiveDirectory' and Statuses eq 'Passed'
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **appIds**: *eq, in*
+
+
+        **tagIds**: *eq, in*
+
+
+        **statuses**: *eq, in*
+
+
+        **groupCodes**: *eq, in*
+
+
+        **virtualAppId**: *eq*
+
+
+        **appName**: *eq*
+
+
+        **supportsValidation**: *eq*
+
+
+        Supported composite operators are *and, or*
+    - $ref: '../../parameters/limit.yaml'
+    - $ref: '../../parameters/offset.yaml'
+    - $ref: '../../parameters/count.yaml'
+  responses:
+    '200':
+      description: A list of applications matching the filter criteria.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/data-access-security/ApplicationItem.yaml'
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

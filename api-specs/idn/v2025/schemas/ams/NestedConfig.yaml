@@ -1,0 +1,25 @@
+type: object
+description: A NestedConfig
+properties:
+  ancestorId:
+    type: string
+    description: The unique identifier of the ancestor RightSet.
+    example: idn:ui-ancestor-example
+  depth:
+    type: integer
+    description: The depth level of the configuration.
+    format: int32
+    example: 2
+  parentId:
+    type: string
+    description: The unique identifier of the parent RightSet.
+    example: idn:ui-parent-example
+    nullable: true
+  childrenIds:
+    type: array
+    items:
+      type: string
+    description: List of unique identifiers for child configurations.
+    example:
+      - idn:ui-child-one-example
+      - idn:ui-child-two-example

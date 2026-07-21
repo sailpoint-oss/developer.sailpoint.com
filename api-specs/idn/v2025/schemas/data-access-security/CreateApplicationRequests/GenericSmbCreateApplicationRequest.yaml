@@ -1,0 +1,25 @@
+allOf:
+  - $ref: './BaseCreateApplicationRequest.yaml'
+  - required:
+      - domain
+      - password
+      - serverName
+      - user
+    type: object
+    properties:
+      serverName:
+        type: string
+        description: The name of the SMB server.
+        example: "smb-server-01"
+      domain:
+        type: string
+        description: The domain for SMB authentication.
+        example: "CORP"
+      user:
+        type: string
+        description: The username for SMB authentication.
+        example: "smbuser"
+      password:
+        type: string
+        description: The password for SMB authentication.
+        example: "smbpassword"

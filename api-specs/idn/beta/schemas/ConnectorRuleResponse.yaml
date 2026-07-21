@@ -1,0 +1,22 @@
+description: ConnectorRuleResponse
+allOf:
+  - $ref: './ConnectorRuleCreateRequest.yaml'
+  - type: object
+    nullable: true
+    required:
+      - id
+      - created
+    properties:
+      id:
+        type: string
+        description: the ID of the rule
+        example: '8113d48c0b914f17b4c6072d4dcb9dfe'
+      created:
+        type: string
+        description: an ISO 8601 UTC timestamp when this rule was created
+        example: '021-07-22T15:59:23Z'
+      modified:
+        type: string
+        nullable: true
+        description: an ISO 8601 UTC timestamp when this rule was last modified
+        example: '021-07-22T15:59:23Z'

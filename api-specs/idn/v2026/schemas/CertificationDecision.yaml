@@ -1,0 +1,6 @@
+type: string
+description: The decision to approve or revoke the review item
+enum:
+  - APPROVE
+  - REVOKE
+example: APPROVE

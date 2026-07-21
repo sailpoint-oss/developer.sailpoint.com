@@ -1,0 +1,6 @@
+summary: Query for entitlements
+value:
+  indices:
+    - entitlements
+  query:
+    query: 'source.name:Finance'

@@ -1,0 +1,113 @@
+allOf:
+  - $ref: ../../shared/schemas/basecommondto.yaml
+  - type: object
+    title: Machine Identity V2
+    properties:
+      description:
+        type: string
+        description: Description of the machine identity.
+        example: Service account for nightly batch jobs
+      attributes:
+        type: object
+        additionalProperties: true
+        description: A map of custom machine identity attributes.
+        example:
+          privilegeLevel: HIGH
+          region: APAC
+      connectorAttributes:
+        type: object
+        additionalProperties: true
+        description: A map of attributes sourced from the connector during aggregation.
+        example:
+          objectguid: abc-123
+      manuallyEdited:
+        type: boolean
+        description: Indicates if the machine identity has been manually edited.
+        default: false
+        example: true
+      manuallyCreated:
+        type: boolean
+        description: Indicates if the machine identity has been manually created.
+        default: false
+        example: true
+      owners:
+        description: The owner configuration associated to the machine identity.
+        $ref: ./machineidentityownersv2.yaml
+      subtype:
+        type: string
+        description: The subtype value associated to the machine identity.
+        example: AI_AGENT
+      sourceId:
+        type: string
+        description: The source id associated to the machine identity.
+        example: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa
+      uuid:
+        type: string
+        description: The UUID associated to the machine identity directly aggregated from a source.
+        example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
+      nativeIdentity:
+        type: string
+        description: The native identity associated to the machine identity directly aggregated from a source.
+        example: abc:123:dddd
+      datasetId:
+        type: string
+        description: The dataset id associated to the source from which the identity was retrieved.
+        example: 8886e5e3-63d0-462f-a195-d98da885b8dc
+      environment:
+        type: string
+        description: The environment the machine identity belongs to.
+        example: PRODUCTION
+      existsOnSource:
+        type: string
+        description: Indicates whether the machine identity still exists on the source.
+        example: 'TRUE'
+      status:
+        type: string
+        description: Operational status read from stored attributes.status; null when absent.
+        nullable: true
+        example: ACTIVE
+      resource:
+        description: The source resource this machine identity is derived from.
+        $ref: ./resourcev2.yaml
+      source:
+        description: The source of the machine identity.
+        readOnly: true
+        allOf:
+          - $ref: ../../shared/schemas/basereferencedto.yaml
+          - example:
+              id: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa
+              name: Active Directory
+              type: SOURCE
+      userEntitlements:
+        type: array
+        description: The user entitlements associated to the machine identity.
+        items:
+          $ref: ./userentitlementv2.yaml
+      businessApplicationRefs:
+        type: array
+        nullable: true
+        description: Optional Business Application references associated with this machine identity.
+        items:
+          $ref: ./businessapplicationref.yaml
+      effectiveSanctionedStatus:
+        description: Derived sanctioned status from linked Business Applications; UNKNOWN when no refs are present.
+        $ref: ./sanctionedstatus.yaml
+      risk:
+        type: object
+        readOnly: true
+        description: Risk data for the machine identity; null when no risk data has landed yet.
+        properties:
+          score:
+            type: number
+            format: double
+            description: Normalised risk score 0.0-100.0.
+            example: 72.5
+          severity:
+            type: string
+            description: Risk severity bucket.
+            enum:
+              - CRITICAL
+              - HIGH
+              - MEDIUM
+              - LOW
+            example: HIGH

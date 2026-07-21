@@ -1,0 +1,12 @@
+type: object
+title: Identity Attribute Config
+properties:
+  enabled:
+    type: boolean
+    description: Backend will only promote values if the profile/mapping is enabled.
+    example: true
+    default: true
+  attributeTransforms:
+    type: array
+    items:
+      $ref: './IdentityAttributeTransform.yaml'

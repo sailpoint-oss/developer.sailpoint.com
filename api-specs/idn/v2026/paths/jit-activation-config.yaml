@@ -1,0 +1,103 @@
+get:
+  operationId: getJitActivationConfig
+  tags:
+    - JIT Access
+  summary: Get JIT activation policy configuration
+  description: |
+    Returns the tenant's current JIT activation policy configuration, including governed entitlement IDs, activation and extension time limits, default periods, notification settings, and whether the policy applies to future assignments.
+
+    The tenant comes from the authenticated request context (not the URL). Use **configType** to select which configuration to read. Returns **404** if that configuration has not been stored yet.
+
+    **User level:** POLICY_ADMIN (policy administrator).
+  security:
+    - userAuth:
+        - idn:jit-policy:read
+        - idn:jit-policy:manage
+  x-sailpoint-userLevels:
+    - POLICY_ADMIN
+  parameters:
+    - in: path
+      name: configType
+      required: true
+      schema:
+        type: string
+        enum:
+          - policy
+      description: |
+        Configuration kind to read. Only **policy** (JIT activation policy) is supported today.
+      example: policy
+  responses:
+    '200':
+      description: Current JIT activation policy configuration, including limits, entitlements in scope, and notification-related fields.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/jit-access/JITActivationConfigResponse.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+patch:
+  operationId: patchJitActivationConfig
+  tags:
+    - JIT Access
+  summary: Update JIT activation policy configuration
+  description: |
+    Updates the tenant's JIT activation policy configuration by applying one or more **replace** operations (same shape as JSON Patch: **op**, **path**, **value**). Use this to change entitlement lists, max/default activation and extension durations, notification recipients or template, and the apply-to-future-assignments flag.
+
+    The body must be a non-empty array. Only **replace** is supported; each **path** must be one of the values documented on the request item schema. The tenant is taken from the request context. **configType** selects which configuration to update. Returns **404** if the configuration does not exist, or **400** for an empty body, unknown **configType**, or invalid path/value.
+
+    **User level:** POLICY_ADMIN (policy administrator).
+  security:
+    - userAuth:
+        - idn:jit-policy:update
+        - idn:jit-policy:manage
+  x-sailpoint-userLevels:
+    - POLICY_ADMIN
+  parameters:
+    - in: path
+      name: configType
+      required: true
+      schema:
+        type: string
+        enum:
+          - policy
+      description: |
+        Configuration kind to update. Only **policy** (JIT activation policy) is supported today.
+      example: policy
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          minItems: 1
+          items:
+            $ref: ../schemas/jit-access/JitAccessOperationRequest.yaml
+  responses:
+    '200':
+      description: Full JIT activation policy configuration after applying all requested replace operations.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/jit-access/JITActivationConfigResponse.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

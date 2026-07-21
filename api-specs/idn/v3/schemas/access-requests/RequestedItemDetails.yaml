@@ -1,0 +1,14 @@
+type: object
+properties:
+  type:
+    type: string
+    description: The type of access item requested.
+    enum:
+      - ACCESS_PROFILE
+      - ENTITLEMENT
+      - ROLE
+    example: ENTITLEMENT
+  id:
+    type: string
+    description: The id of the access item requested.
+    example: 779c6fd7171540bba1184e5946112c28

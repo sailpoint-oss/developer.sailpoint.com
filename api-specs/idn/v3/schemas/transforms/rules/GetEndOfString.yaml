@@ -1,0 +1,24 @@
+type: object
+required:
+- name
+- operation
+- numChars
+properties:
+  name: 
+    type: string
+    description: This must always be set to "Cloud Services Deployment Utility"
+    example: 'Cloud Services Deployment Utility'
+  operation:
+    type: string
+    description: The operation to perform `getEndOfString`
+    example: 'getEndOfString'
+  numChars:
+    type: string
+    description: This specifies how many of the rightmost characters within the incoming string should be returned; if the value of numChars is greater than the string length, the transform will return null.
+    example: '4'
+  requiresPeriodicRefresh:
+    type: boolean
+    description: A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+    example: false
+  input:
+    $ref: './input.yaml'

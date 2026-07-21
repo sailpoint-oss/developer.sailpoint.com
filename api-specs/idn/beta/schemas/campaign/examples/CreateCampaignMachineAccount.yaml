@@ -1,0 +1,15 @@
+value:
+  name: Machine Account Owner Campaign
+  description: A review done by a Machine Account's owner.
+  deadline: 2024-12-25T06:00:00.468Z
+  type: MACHINE_ACCOUNT
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  filter:
+    type: CAMPAIGN_FILTER
+    id: 0c46fb26c6b20967a55517ee90d15b93
+  machineAccountCampaignInfo:
+    sourceIds:
+      - d988f117b7624a16ab0b64c439d5dbb8
+    reviewerType: ACCOUNT_OWNER

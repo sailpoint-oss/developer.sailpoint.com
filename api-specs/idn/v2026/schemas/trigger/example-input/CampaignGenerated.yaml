@@ -1,0 +1,79 @@
+title: Campaign Generated
+type: object
+required:
+- campaign
+properties:
+  campaign:
+    description: Details about the campaign that was generated.
+    type: object
+    required:
+    - id
+    - name
+    - description
+    - created
+    - type
+    - campaignOwner
+    - status
+    properties:
+      id:
+        type: string
+        description: The unique ID of the campaign.
+        example: 2c91808576f886190176f88cac5a0010
+      name:
+        type: string
+        description: Human friendly name of the campaign.
+        example: Manager Access Campaign
+      description:
+        type: string
+        description: Extended description of the campaign.
+        example: Audit access for all employees.
+      created:
+        type: string
+        format: date-time
+        description: The date and time the campaign was created.
+        example: '2021-02-16T03:04:45.815Z'
+      modified:
+        nullable: true
+        type: string
+        description: The date and time the campaign was last modified.
+        example: '2021-02-17T03:04:45.815Z'
+      deadline:
+        nullable: true
+        type: string
+        description: The date and time when the campaign must be finished by.
+        example: '2021-02-18T03:04:45.815Z'
+      type:
+        enum:
+        - MANAGER
+        - SOURCE_OWNER
+        - SEARCH
+        - ROLE_COMPOSITION
+        description: The type of campaign that was generated.
+        example: MANAGER
+      campaignOwner:
+        type: object
+        description: The identity that owns the campaign.
+        required:
+        - id
+        - displayName
+        - email
+        properties:
+          id:
+            type: string
+            description: The unique ID of the identity.
+            example: 37f080867702c1910177031320c40n27
+          displayName:
+            type: string
+            description: The display name of the identity.
+            example: John Snow
+          email:
+            type: string
+            description: The primary email address of the identity.
+            example: john.snow@example.com
+      status:
+        enum:
+        - STAGED
+        - ACTIVATING
+        - ACTIVE
+        description: The current status of the campaign.
+        example: STAGED

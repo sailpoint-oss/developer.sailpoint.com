@@ -1,0 +1,9 @@
+type: array
+description: List of error messages
+items:
+  $ref: './ErrorMessageDto.yaml'
+example: {
+   "locale":"en-US",
+   "localeOrigin":"DEFAULT",
+   "text":"Error Message"
+}

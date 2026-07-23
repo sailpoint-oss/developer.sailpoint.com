@@ -18,6 +18,7 @@ const navbarConfig = {
               { label: 'Overview', to: '/docs' },
               { label: 'Extensibility', to: '/docs/extensibility' },
               { label: 'Connectivity', to: '/docs/connectivity' },
+              { label: 'UI Plugins', to: '/docs/ui-plugins' },
               { label: 'Reporting', to: '/docs/reporting' },
               { label: 'Guides', to: '/docs/guides' },
             ],

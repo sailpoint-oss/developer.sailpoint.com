@@ -157,18 +157,19 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         boolean IS_BULK_REASSIGNMENT "Whether the certification is part of a bulk reassignment"
         datetime DUE_DATE "when the certification needs to be reviewed"
         datetime SIGNED_DATE "when the certification was actually signed"
-        datetime FINISHED_DATE "when the certification was actually finished"
+        datetime FINISHED_DATE "Provision end timestamp for an access request. This may match the CREATED date in the SailPoint UI when both refer to the same provision end event."
         datetime EXPIRATION_DATE "When the certification will expire"
         datetime SYNC_DATE "When the row is last synced"
+        text REVIEWER_ID "Identity assigned to review the certification"
     }
     ENTITLEMENT {
         text TENANT_ID "Unique Id for an Organization tenant"
         text ID "Unique Id for the Entitlement"
         text DISPLAY_NAME "Human-readable display name of the object"
         text DESCRIPTION "Description of the object"
-        datetime CREATED_DATE "date when the entitlement was created"
-        datetime UPDATED_DATE "date when the entitlement was modified"
-        datetime DELETED_DATE "date when the entitlement was deleted from the source"
+        timestamp_ntz CREATED_DATE "date when the entitlement was created"
+        timestamp_ntz UPDATED_DATE "date when the entitlement was modified"
+        timestamp_ntz DELETED_DATE "date when the entitlement was deleted from the source"
         text SOURCE_ID "Unique Id of the source or application"
         text ATTRIBUTE "Attribute name that defines the entitlement"
         text VALUE "Value of the attribute"
@@ -180,7 +181,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         boolean HAS_PERMISSIONS "Whether the entitlement has permissions"
         variant ACCESS_MODEL_METADATA "Access model metadata assignments"
         variant ACCESS_REQUEST_CONFIG "Access request configuration"
-        datetime SYNC_DATE "When the row is last synced"
+        timestamp_ntz SYNC_DATE "When the row is last synced"
     }
     ROLE {
         text TENANT_ID "Unique Id for an Organization tenant"
@@ -355,6 +356,28 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         datetime UPDATED_DATE "date when the attribute was modified"
         datetime SYNC_DATE "When the row is last synced"
     }
+    IDENTITY_PROFILE {
+        text TENANT_ID "Unique Id for an Organization tenant"
+        text ID PK "Unique Id for the Identity Profile"
+        text NAME "Name of the Identity Profile"
+        text SOURCE_ID "Unique Id of the source that populates this profile"
+        text OWNER_ID "Identity that owns the profile"
+        datetime CREATED_DATE "date when the profile was created"
+        datetime UPDATED_DATE "date when the profile was modified"
+        text DESCRIPTION "Description of the Identity Profile"
+        boolean IDENTITY_REFRESH_REQUIRED "Whether an identity refresh is required"
+        variant IDENTITY_ATTRIBUTE_CONFIG "Configuration of identity attributes for this profile"
+        datetime SYNC_DATE "When the row is last synced"
+    }
+    IDENTITY_HISTORY_EVENTS {
+        text TENANT_ID "Unique Id for an Organization tenant"
+        text PK PK "Unique primary key for the history event record"
+        text IDENTITY_ID "Unique Id of the identity this event belongs to"
+        datetime EVENT_TIMESTAMP "Timestamp when the identity change event occurred"
+        text EVENT_TYPE "Type of identity change event"
+        variant IDENTITY_CHANGES "Snapshot of identity attribute changes captured in this event"
+        datetime SYNC_DATE "When the row is last synced"
+    }
     IDENTITY ||--|{ IDENTITY_ACCOUNTS: "has and owns"
     IDENTITY ||--o{ IDENTITY_ENTITLEMENTS: "associated to and owns"
     IDENTITY ||--o{ IDENTITY_ROLES: "associated to and owns"
@@ -392,4 +415,6 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     ACCESS_MODEL_METADATA_ATTRIBUTE }o--|| ROLE: "Assignment of Attributes to"
     ROLE ||--o{ DIMENSION: "has dimensions"
     DIMENSION }o--|| IDENTITY: "Owned by"
+    SOURCE ||--o{ IDENTITY_PROFILE: "defines"
+    IDENTITY ||--o{ IDENTITY_HISTORY_EVENTS: "tracked by"
     '></MermaidViewer>

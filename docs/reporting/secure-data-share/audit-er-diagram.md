@@ -33,4 +33,5 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         text OPERATION "Operation happened examples include EMAIL, FORWARD, UPDATE, REQUEST, etc."
         text STATUS "What was the status of the Audit Event, examples include PASSED, FAILED, TERMINATED, etc."
         timestamp_ntz SYNC_DATE "Date Audit Event Synced"
+        variant ATTRIBUTES "Full attributes object associated with the Audit Event"
     }'></MermaidViewer>

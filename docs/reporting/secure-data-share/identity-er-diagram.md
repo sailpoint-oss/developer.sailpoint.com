@@ -167,9 +167,9 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         text ID "Unique Id for the Entitlement"
         text DISPLAY_NAME "Human-readable display name of the object"
         text DESCRIPTION "Description of the object"
-        timestamp_ntz CREATED_DATE "date when the entitlement was created"
-        timestamp_ntz UPDATED_DATE "date when the entitlement was modified"
-        timestamp_ntz DELETED_DATE "date when the entitlement was deleted from the source"
+        datetime CREATED_DATE "date when the entitlement was created"
+        datetime UPDATED_DATE "date when the entitlement was modified"
+        datetime DELETED_DATE "date when the entitlement was deleted from the source"
         text SOURCE_ID "Unique Id of the source or application"
         text ATTRIBUTE "Attribute name that defines the entitlement"
         text VALUE "Value of the attribute"
@@ -181,7 +181,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         boolean HAS_PERMISSIONS "Whether the entitlement has permissions"
         variant ACCESS_MODEL_METADATA "Access model metadata assignments"
         variant ACCESS_REQUEST_CONFIG "Access request configuration"
-        timestamp_ntz SYNC_DATE "When the row is last synced"
+        datetime SYNC_DATE "When the row is last synced"
     }
     ROLE {
         text TENANT_ID "Unique Id for an Organization tenant"

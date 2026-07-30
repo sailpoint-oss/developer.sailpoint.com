@@ -221,9 +221,9 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | ID | text |  | Unique Id for the Entitlement |
 | DISPLAY_NAME | text |  | Human-readable display name of the object |
 | DESCRIPTION | text |  | Description of the object |
-| CREATED_DATE | timestamp_ntz |  | date when the entitlement was created |
-| UPDATED_DATE | timestamp_ntz |  | date when the entitlement was modified |
-| DELETED_DATE | timestamp_ntz |  | date when the entitlement was deleted from the source |
+| CREATED_DATE | datetime |  | date when the entitlement was created |
+| UPDATED_DATE | datetime |  | date when the entitlement was modified |
+| DELETED_DATE | datetime |  | date when the entitlement was deleted from the source |
 | SOURCE_ID | text |  | Unique Id of the source or application |
 | ATTRIBUTE | text |  | Attribute name that defines the entitlement |
 | VALUE | text |  | Value of the attribute |
@@ -235,7 +235,7 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | HAS_PERMISSIONS | boolean |  | Whether the entitlement has permissions |
 | ACCESS_MODEL_METADATA | variant |  | Access model metadata assignments |
 | ACCESS_REQUEST_CONFIG | variant |  | Access request configuration |
-| SYNC_DATE | timestamp_ntz |  | When the row is last synced |
+| SYNC_DATE | datetime |  | When the row is last synced |
 
 
 ### ROLE

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -24,12 +24,32 @@ const VideoCard: React.FC<VideoCardProps> = ({
   username,
   tags = [],
 }) => {
+  // Not every topic gives us a usable poster image, and a stale one can 404, so
+  // fall back to a titled placeholder rather than a broken image.
+  const [thumbnailFailed, setThumbnailFailed] = useState(false);
+  const showPlaceholder = !thumbnail || thumbnailFailed;
+
   return (
     <Link to={videoURL}>
       <div title={username} className={featured ? styles.featuredCard : styles.card}>
         <div className={styles.cardText}>
           <div className={featured ? styles.featuredThumbContainer : styles.thumbContainer}>
-            <img className={featured ? styles.featuredCardImage : styles.cardImage} src={thumbnail} alt={title} />
+            {showPlaceholder ? (
+              <div
+                className={featured ? styles.featuredPlaceholder : styles.placeholder}
+                role="img"
+                aria-label={title}
+              >
+                <span className={styles.placeholderTitle}>{title}</span>
+              </div>
+            ) : (
+              <img
+                className={featured ? styles.featuredCardImage : styles.cardImage}
+                src={thumbnail}
+                alt={title}
+                onError={() => setThumbnailFailed(true)}
+              />
+            )}
           </div>
 
           <div className={featured ? styles.featuredCardTitle : styles.cardTitle}>

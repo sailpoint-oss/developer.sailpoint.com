@@ -85,6 +85,7 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | LIFECYCLE_STATE | text |  | name of the lifecycle state Ex: Active, leaver, dormant etc. |
 | IDENTITY_STATE | text |  | State of the Identity. Can be one of ACTIVE, INACTIVE_SHORT_TERM and INACTIVE_LONG_TERM |
 | SYNC_DATE | datetime |  | When the row is last synced |
+| IDENTITY_PROFILE_ID | text |  | Unique Id of the Identity Profile that governs this identity |
 
 
 ### IDENTITY_ROLES
@@ -525,4 +526,5 @@ The following table describes the relationships between the tables in the identi
 | ROLE | DIMENSION | One to Zero-or-More | has dimensions |
 | DIMENSION | IDENTITY | Many to One | Owned by |
 | SOURCE | IDENTITY_PROFILE | One to Zero-or-More | defines |
+| IDENTITY_PROFILE | IDENTITY | One to Zero-or-More | governs |
 | IDENTITY | IDENTITY_HISTORY_EVENTS | One to Zero-or-More | tracked by |

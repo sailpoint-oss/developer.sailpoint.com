@@ -63,6 +63,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         text LIFECYCLE_STATE "name of the lifecycle state Ex: Active, leaver, dormant etc."
         text IDENTITY_STATE "State of the Identity. Can be one of ACTIVE, INACTIVE_SHORT_TERM and INACTIVE_LONG_TERM"
         datetime SYNC_DATE "When the row is last synced"
+        text IDENTITY_PROFILE_ID "Unique Id of the Identity Profile that governs this identity"
     }
     IDENTITY_ROLES {
         text TENANT_ID "Unique Id for an Organization tenant"
@@ -416,5 +417,6 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     ROLE ||--o{ DIMENSION: "has dimensions"
     DIMENSION }o--|| IDENTITY: "Owned by"
     SOURCE ||--o{ IDENTITY_PROFILE: "defines"
+    IDENTITY_PROFILE ||--o{ IDENTITY: "governs"
     IDENTITY ||--o{ IDENTITY_HISTORY_EVENTS: "tracked by"
     '></MermaidViewer>

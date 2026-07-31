@@ -85,6 +85,7 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | LIFECYCLE_STATE | text |  | name of the lifecycle state Ex: Active, leaver, dormant etc. |
 | IDENTITY_STATE | text |  | State of the Identity. Can be one of ACTIVE, INACTIVE_SHORT_TERM and INACTIVE_LONG_TERM |
 | SYNC_DATE | datetime |  | When the row is last synced |
+| IDENTITY_PROFILE_ID | text |  | Unique Id of the Identity Profile that governs this identity |
 
 
 ### IDENTITY_ROLES
@@ -207,9 +208,10 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | IS_BULK_REASSIGNMENT | boolean |  | Whether the certification is part of a bulk reassignment |
 | DUE_DATE | datetime |  | when the certification needs to be reviewed |
 | SIGNED_DATE | datetime |  | when the certification was actually signed |
-| FINISHED_DATE | datetime |  | when the certification was actually finished |
+| FINISHED_DATE | datetime |  | Provision end timestamp for an access request. This may match the CREATED date in the SailPoint UI when both refer to the same provision end event. |
 | EXPIRATION_DATE | datetime |  | When the certification will expire |
 | SYNC_DATE | datetime |  | When the row is last synced |
+| REVIEWER_ID | text |  | Identity assigned to review the certification |
 
 
 ### ENTITLEMENT
@@ -450,6 +452,36 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | SYNC_DATE | datetime |  | When the row is last synced |
 
 
+### IDENTITY_PROFILE
+
+| Column | Data Type | Key | Description |
+| --- | --- | --- | --- |
+| TENANT_ID | text |  | Unique Id for an Organization tenant |
+| ID | text | PK | Unique Id for the Identity Profile |
+| NAME | text |  | Name of the Identity Profile |
+| SOURCE_ID | text |  | Unique Id of the source that populates this profile |
+| OWNER_ID | text |  | Identity that owns the profile |
+| CREATED_DATE | datetime |  | date when the profile was created |
+| UPDATED_DATE | datetime |  | date when the profile was modified |
+| DESCRIPTION | text |  | Description of the Identity Profile |
+| IDENTITY_REFRESH_REQUIRED | boolean |  | Whether an identity refresh is required |
+| IDENTITY_ATTRIBUTE_CONFIG | variant |  | Configuration of identity attributes for this profile |
+| SYNC_DATE | datetime |  | When the row is last synced |
+
+
+### IDENTITY_HISTORY_EVENTS
+
+| Column | Data Type | Key | Description |
+| --- | --- | --- | --- |
+| TENANT_ID | text |  | Unique Id for an Organization tenant |
+| PK | text | PK | Unique primary key for the history event record |
+| IDENTITY_ID | text |  | Unique Id of the identity this event belongs to |
+| EVENT_TIMESTAMP | datetime |  | Timestamp when the identity change event occurred |
+| EVENT_TYPE | text |  | Type of identity change event |
+| IDENTITY_CHANGES | variant |  | Snapshot of identity attribute changes captured in this event |
+| SYNC_DATE | datetime |  | When the row is last synced |
+
+
 ## Table relationships
 
 The following table describes the relationships between the tables in the identity data model.
@@ -493,3 +525,6 @@ The following table describes the relationships between the tables in the identi
 | ACCESS_MODEL_METADATA_ATTRIBUTE | ROLE | Many to One | Assignment of Attributes to |
 | ROLE | DIMENSION | One to Zero-or-More | has dimensions |
 | DIMENSION | IDENTITY | Many to One | Owned by |
+| SOURCE | IDENTITY_PROFILE | One to Zero-or-More | defines |
+| IDENTITY_PROFILE | IDENTITY | One to Zero-or-More | governs |
+| IDENTITY | IDENTITY_HISTORY_EVENTS | One to Zero-or-More | tracked by |

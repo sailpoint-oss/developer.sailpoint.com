@@ -19,7 +19,7 @@ on:
 
 # Allow one concurrent deployment
 concurrency:
-  group: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) ||  github.event_name == 'push' && 'main' }}
+  group: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || 'main' }}
   cancel-in-progress: true
 
 env:
@@ -216,7 +216,7 @@ jobs:
             built from commit ${{ github.event.pull_request.head.sha }}
         continue-on-error: true
       - name: deploy to prod
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: (github.event_name == 'push' || github.event_name == 'repository_dispatch') && github.ref == 'refs/heads/main'
         id: deploy_github_pages
         uses: crazy-max/ghaction-github-pages@v4
         with:

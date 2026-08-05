@@ -372,7 +372,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     }
     IDENTITY_HISTORY_EVENTS {
         text TENANT_ID "Unique Id for an Organization tenant"
-        text PK PK "Unique primary key for the history event record"
+        text EVENT_PK PK "Unique primary key for the history event record. The actual column name is PK"
         text IDENTITY_ID "Unique Id of the identity this event belongs to"
         datetime EVENT_TIMESTAMP "Timestamp when the identity change event occurred"
         text EVENT_TYPE "Type of identity change event"

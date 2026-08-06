@@ -15,7 +15,7 @@ const baseUrl = '/';
 const config: Config = {
   future: {
     v4: true,
-    experimental_faster: true,
+    faster: true,
   },
   title: 'SailPoint Developer Community',
   tagline:
@@ -54,6 +54,11 @@ const config: Config = {
           sidebarPath: require.resolve('./sidebars.js'),
           docItemComponent: '@theme/ApiItem', // Derived from docusaurus-theme-openapi
         },
+        // The site has a fully custom `/blog` page (src/pages/blog.tsx) backed by
+        // its own components — the built-in blog plugin's content isn't used, and
+        // leaving it enabled makes it generate its own empty index page at the same
+        // `/blog` route, which collides with the custom page under onDuplicateRoutes: 'throw'.
+        blog: false,
         theme: {
           customCss: [
             require.resolve('@fortawesome/fontawesome-free/css/all.min.css'),
@@ -147,6 +152,15 @@ const config: Config = {
 
   markdown: {
     mermaid: true,
+    // future.v4 disables MDX v1 compat (HTML comments, `:::type Title` admonitions,
+    // `{#id}` heading IDs) by default as of Docusaurus 3.10. Existing docs content
+    // still relies on that legacy syntax, so keep it enabled explicitly rather than
+    // migrating every file as part of this version bump.
+    mdx1Compat: {
+      comments: true,
+      admonitions: true,
+      headingIds: true,
+    },
     hooks: {
       onBrokenMarkdownLinks: 'throw'
     }

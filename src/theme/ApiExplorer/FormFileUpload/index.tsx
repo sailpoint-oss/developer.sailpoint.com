@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 import { translate } from "@docusaurus/Translate";
 import FloatingButton from "@theme/ApiExplorer/FloatingButton";
-import { OPENAPI_FORM_FILE_UPLOAD } from "@theme/translationIds";
 import MagicDropzone from "react-magic-dropzone";
 
 type PreviewFile = { preview: string } & File;
@@ -98,7 +97,7 @@ function FormFileUpload({ placeholder, onChange }: Props) {
               }}
             >
               {translate({
-                id: OPENAPI_FORM_FILE_UPLOAD.CLEAR_BUTTON,
+                id: "theme.openapi.formFileUpload.clearButton",
                 message: "Clear",
               })}
             </button>

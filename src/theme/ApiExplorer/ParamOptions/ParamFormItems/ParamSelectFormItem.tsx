@@ -5,7 +5,6 @@ import { ErrorMessage } from "@hookform/error-message";
 import FormSelect from "@theme/ApiExplorer/FormSelect";
 import { Param, setParam } from "@theme/ApiExplorer/ParamOptions/slice";
 import { useTypedDispatch } from "@theme/ApiItem/hooks";
-import { OPENAPI_FORM } from "@theme/translationIds";
 import { Controller, useFormContext } from "react-hook-form";
 
 export interface ParamProps {
@@ -31,7 +30,7 @@ export default function ParamSelectFormItem({ param }: ParamProps) {
         rules={{
           required: param.required
             ? translate({
-                id: OPENAPI_FORM.FIELD_REQUIRED,
+                id: "theme.openapi.form.fieldRequired",
                 message: "This field is required",
               })
             : false,

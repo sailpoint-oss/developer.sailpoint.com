@@ -1,0 +1,12 @@
+type: object
+description: The response body for Evaluate Reassignment Configuration
+properties:
+  reassignToId:
+    type: string
+    description: The Identity ID which should be the recipient of any work items sent to a specific identity & work type
+    example: 869320b6b6f34a169b6178b1a865e66f
+  lookupTrail:
+    type: array
+    description: List of Reassignments found by looking up the next `TargetIdentity` in a ReassignmentConfiguration
+    items:
+      $ref: 'LookupStep.yaml'

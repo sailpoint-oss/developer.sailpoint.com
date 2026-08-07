@@ -1,0 +1,20 @@
+type: object
+description: A named set of conflicting access items that together define one side of a separation-of-duties conflict.
+required:
+  - name
+  - conflictingItems
+properties:
+  name:
+    type: string
+    description: The name of the access criteria grouping.
+    example: money-in
+  conflictingItems:
+    type: array
+    minItems: 1
+    description: The list of access items that make up this side of the conflict.
+    example:
+      - id: 2c9180866166b5b0016167c32ef31a66
+        name: Administrator
+        type: ENTITLEMENT
+    items:
+      $ref: ./conflictingitem.yaml

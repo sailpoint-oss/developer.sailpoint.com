@@ -1,0 +1,4 @@
+type: boolean
+description: This boolean indicates whether the segment is being applied to the accounts. If unpublished its being actively modified to until published
+default: false
+example: true

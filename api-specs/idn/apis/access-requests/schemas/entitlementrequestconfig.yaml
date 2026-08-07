@@ -1,0 +1,7 @@
+type: object
+title: Entitlement Request Config
+properties:
+  accessRequestConfig:
+    $ref: ../../shared/schemas/entitlementaccessrequestconfig.yaml
+  revocationRequestConfig:
+    $ref: ../../shared/schemas/entitlementrevocationrequestconfig.yaml

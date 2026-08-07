@@ -1,0 +1,30 @@
+description: The metadata to be updated, including attribute and values.
+type: array
+nullable: false
+items:
+  type: object
+  required:
+    - attribute
+    - values
+  properties:
+    attribute:
+      type: string
+      description: the key of metadata attribute
+      example: "iscFederalClassifications"
+    values:
+      type: array
+      description: the values of attribute to be updated
+      items:
+        type: string
+        example: "secret"
+      nullable: true
+      example: [ "secret" ]
+example:
+  [
+    {
+      "attribute": "iscFederalClassifications",
+      "values": [
+        "topSecret"
+      ]
+    }
+  ]

@@ -1,0 +1,46 @@
+type: object
+properties:
+  name:
+    type: string
+    maxLength: 128
+    description: The display name of the compensating control.
+    example: "a name"
+  description:
+    type: string
+    maxLength: 1024
+    description: A human-readable description of the compensating control.
+    example: "a description"
+  owner:
+    $ref: ./referenceinput.yaml
+  secondaryOwners:
+    type: array
+    maxItems: 10
+    description: References to additional identities or governance groups that share ownership of the compensating control (maximum 10).
+    example:
+      - id: 943a7c57da334d07ba2454bf7fcf144f
+        type: GOVERNANCE_GROUP
+    items:
+      $ref: ./referenceinput.yaml
+  type:
+    type: string
+    description: The type of compensating control that determines how a violation is addressed.
+    enum: [Mitigation, Remediation]
+    example: "Mitigation"
+  action:
+    type: string
+    description: The action performed when the compensating control is applied.
+    enum: [Workflow, Certification]
+    example: "Workflow"
+  expiration:
+    type: string
+    description: "The duration after which the applied control expires, expressed as a duration string."
+    example: "20d"
+  justificationRequired:
+    type: boolean
+    default: false
+    description: Indicates whether a justification is required when applying this control.
+    example: true
+  workflowID:
+    type: string
+    example: "3e07886555ed43cfb83c85c58d2016e6"
+    description: "Workflow definition ID used when the control action is a workflow."

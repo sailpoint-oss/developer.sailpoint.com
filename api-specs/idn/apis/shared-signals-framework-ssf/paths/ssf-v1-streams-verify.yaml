@@ -1,0 +1,33 @@
+post:
+  operationId: sendStreamVerificationV1
+  security:
+  - userAuth:
+    - sp:ssf-transmitter-streams:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+  - Shared Signals Framework (SSF)
+  summary: Verify stream
+  description: Verifies an SSF stream by publishing a verification event requested by a security events provider.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/verificationrequest.yaml
+        example:
+          stream_id: 550e8400-e29b-41d4-a716-446655440000
+          state: verification-challenge-state-123
+  responses:
+    '204':
+      $ref: ../../shared/responses/204.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

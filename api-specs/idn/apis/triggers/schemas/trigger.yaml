@@ -1,0 +1,76 @@
+type: object
+title: Trigger
+required:
+  - id
+  - name
+  - type
+  - inputSchema
+  - exampleInput
+properties:
+  id:
+    type: string
+    description: Unique identifier of the trigger.
+    example: idn:access-request-dynamic-approver
+  name:
+    type: string
+    description: Trigger Name.
+    example: Access Request Dynamic Approver
+  type:
+    $ref: ./triggertype.yaml
+    example: REQUEST_RESPONSE
+  description:
+    type: string
+    description: Trigger Description.
+    example: Trigger for getting a dynamic approver.
+  inputSchema:
+    type: string
+    description: The JSON schema of the payload that will be sent by the trigger to the subscribed service.
+    example: >-
+      {"definitions":{"record:AccessRequestDynamicApproverInput":{"type":"object","required":["accessRequestId","requestedFor","requestedItems","requestedBy"],"additionalProperties":true,"properties":{"accessRequestId":{"type":"string"},"requestedFor":{"$ref":"#/definitions/record:requestedForIdentityRef"},"requestedItems":{"type":"array","items":{"$ref":"#/definitions/record:requestedObjectRef"}},"requestedBy":{"$ref":"#/definitions/record:requestedByIdentityRef"}}},"record:requestedForIdentityRef":{"type":"object","required":["id","name","type"],"additionalProperties":true,"properties":{"id":{"type":"string"},"name":{"type":"string"},"type":{"type":"string"}}},"record:requestedObjectRef":{"type":"object","optional":["description","comment"],"required":["id","name","type","operation"],"additionalProperties":true,"properties":{"id":{"type":"string"},"name":{"type":"string"},"description":{"oneOf":[{"type":"null"},{"type":"string"}]},"type":{"type":"string"},"operation":{"type":"string"},"comment":{"oneOf":[{"type":"null"},{"type":"string"}]}}},"record:requestedByIdentityRef":{"type":"object","required":["type","id","name"],"additionalProperties":true,"properties":{"type":{"type":"string"},"id":{"type":"string"},"name":{"type":"string"}}}},"$ref":"#/definitions/record:AccessRequestDynamicApproverInput"}
+  exampleInput:
+    description: An example of the JSON payload that will be sent by the trigger to the subscribed service.
+    oneOf:
+      - $ref: ./accessrequestdynamicapprover.yaml
+      - $ref: ./accessrequestpostapproval.yaml
+      - $ref: ./accessrequestpreapproval.yaml
+      - $ref: ./accountaggregationcompleted.yaml
+      - $ref: ./accountattributeschanged.yaml
+      - $ref: ./accountcorrelated.yaml
+      - $ref: ./accountscollectedforaggregation.yaml
+      - $ref: ./accountcreated.yaml
+      - $ref: ./accountuncorrelated.yaml
+      - $ref: ./accountdeleted.yaml
+      - $ref: ./accountupdated.yaml
+      - $ref: ./campaignactivated.yaml
+      - $ref: ./campaignended.yaml
+      - $ref: ./campaigngenerated.yaml
+      - $ref: ./certificationsignedoff.yaml
+      - $ref: ./identityattributeschanged.yaml
+      - $ref: ./identitycreated.yaml
+      - $ref: ./identitydeleted.yaml
+      - $ref: ./machineidentitycreated.yaml
+      - $ref: ./machineidentityupdated.yaml
+      - $ref: ./machineidentitydeleted.yaml
+      - $ref: ./provisioningcompleted.yaml
+      - $ref: ./savedsearchcomplete.yaml
+      - $ref: ./sourceaccountcreated.yaml
+      - $ref: ./sourceaccountdeleted.yaml
+      - $ref: ./sourceaccountupdated.yaml
+      - $ref: ./sourcecreated.yaml
+      - $ref: ./sourcedeleted.yaml
+      - $ref: ./sourceupdated.yaml
+      - $ref: ./vaclusterstatuschangeevent.yaml
+  outputSchema:
+    type: string
+    description: >-
+      The JSON schema of the response that will be sent by the subscribed service to the trigger in response to an
+      event.  This only applies to a trigger type of `REQUEST_RESPONSE`.
+    nullable: true
+    example: >-
+      {"definitions":{"record:AccessRequestDynamicApproverOutput":{"type":["null","object"],"required":["id","name","type"],"additionalProperties":true,"properties":{"id":{"type":"string"},"name":{"type":"string"},"type":{"type":"string"}}}},"$ref":"#/definitions/record:AccessRequestDynamicApproverOutput"}
+  exampleOutput:
+    description: An example of the JSON payload that will be sent by the subscribed service to the trigger in response to an event.
+    nullable: true
+    oneOf:
+      - $ref: ./accessrequestdynamicapprover-2.yaml
+      - $ref: ./accessrequestpreapproval-2.yaml

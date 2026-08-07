@@ -1,0 +1,17 @@
+title: UNCORRELATED_ACCOUNTS
+type: object
+description: >-
+  Arguments for Uncorrelated Accounts report (UNCORRELATED_ACCOUNTS)
+properties:
+  selectedFormats:
+    type: array
+    items:
+      type: string
+      enum:
+        - CSV
+        - PDF
+    description: >-
+      Output report file formats. These are formats for calling GET endpoint as query parameter 'fileFormat'. 
+      In case report won't have this argument there will be ['CSV', 'PDF'] as default.
+    example:
+      - CSV

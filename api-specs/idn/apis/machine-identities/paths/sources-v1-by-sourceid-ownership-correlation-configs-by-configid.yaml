@@ -1,0 +1,190 @@
+get:
+  operationId: getOwnershipCorrelationConfigV1
+  tags:
+    - Machine Identities
+  summary: Get ownership correlation config
+  description: This end-point retrieves a single ownership correlation config by ID for the specified source resource.
+  security:
+    - userAuth:
+        - idn:sources:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      x-sailpoint-resource-operation-id: listSourcesV1
+      description: The Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: resourceId
+      required: true
+      schema:
+        type: string
+      x-sailpoint-resource-operation-id: searchResourceObjectsV1
+      description: The source resource ID (for example, account or aws:iam-role).
+      example: aws:iam-role
+    - in: path
+      name: configId
+      required: true
+      schema:
+        type: string
+        format: uuid
+      description: The correlation config ID.
+      example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
+      x-sailpoint-resource-operation-id: listOwnershipCorrelationConfigsV1
+  responses:
+    '200':
+      description: The requested correlation config.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/correlationconfig.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+patch:
+  operationId: patchOwnershipCorrelationConfigV1
+  tags:
+    - Machine Identities
+  summary: Patch ownership correlation config
+  description: >-
+    Selectively updates an ownership correlation config using an RFC 6902 JSONPatch payload. Only replace on
+    /attributes (full object) and replace on /rules (full array; merge by stable rule id, remove rules omitted
+    from the array) are allowed.
+  security:
+    - userAuth:
+        - idn:sources:update
+    - applicationAuth:
+        - idn:sources:update
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      x-sailpoint-resource-operation-id: listSourcesV1
+      description: The Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: resourceId
+      required: true
+      schema:
+        type: string
+      x-sailpoint-resource-operation-id: searchResourceObjectsV1
+      description: The source resource ID (for example, account or aws:iam-role).
+      example: aws:iam-role
+    - in: path
+      name: configId
+      required: true
+      schema:
+        type: string
+        format: uuid
+      description: The correlation config ID.
+      example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
+      x-sailpoint-resource-operation-id: listOwnershipCorrelationConfigsV1
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the correlation config.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../shared/schemas/jsonpatchoperation.yaml
+        examples:
+          Replace attributes:
+            summary: Replace the full attributes object
+            value:
+              - op: replace
+                path: /attributes
+                value:
+                  syncPrimaryToMachineAccounts: true
+  responses:
+    '200':
+      description: The updated correlation config.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/correlationconfig.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+delete:
+  operationId: deleteOwnershipCorrelationConfigV1
+  tags:
+    - Machine Identities
+  summary: Delete ownership correlation config
+  description: Deletes the ownership correlation config with the specified ID for the given source resource.
+  security:
+    - userAuth:
+        - idn:sources:update
+    - applicationAuth:
+        - idn:sources:update
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      x-sailpoint-resource-operation-id: listSourcesV1
+      description: The Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: resourceId
+      required: true
+      schema:
+        type: string
+      x-sailpoint-resource-operation-id: searchResourceObjectsV1
+      description: The source resource ID (for example, account or aws:iam-role).
+      example: aws:iam-role
+    - in: path
+      name: configId
+      required: true
+      schema:
+        type: string
+        format: uuid
+      description: The correlation config ID.
+      example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
+      x-sailpoint-resource-operation-id: listOwnershipCorrelationConfigsV1
+  responses:
+    '204':
+      $ref: ../../shared/responses/204.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

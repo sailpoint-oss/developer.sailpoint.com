@@ -1,0 +1,24 @@
+type: object
+description: Reference to a source of entity.
+required:
+  - type
+  - id
+  - name
+properties:
+  type:
+    type: string
+    description: Source Type.
+    example: SOURCE
+  id:
+    type: string
+    description: Unique identifier.
+    example: c0201251a6ce4d268aba536cdd60a7f2
+  name:
+    type: string
+    description: Display name.
+    example: IdentityNow
+additionalProperties: true
+example:
+  type: SOURCE
+  id: c0201251a6ce4d268aba536cdd60a7f2
+  name: IdentityNow

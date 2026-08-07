@@ -1,0 +1,27 @@
+type: object
+nullable: true
+description: Defines STANDARD type Role membership
+properties:
+    operation:
+        $ref: './DimensionCriteriaOperation.yaml'
+    key:
+        $ref: './DimensionCriteriaKey.yaml'
+    stringValue:
+        type: string
+        nullable: true
+        description: >-
+            String value to test the Identity attribute specified in the key w/r/t
+            the specified operation. If this criteria is a leaf node, that is, if the operation is one of
+            EQUALS, this field is required. Otherwise, specifying it
+            is an error.
+        example: "carlee.cert1c9f9b6fd@mailinator.com"
+    children:
+        type: array
+        items:
+            $ref: './DimensionCriteriaLevel3.yaml'
+        nullable: true
+        description: >-
+            Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum
+            of three levels of criteria are supported, including leaf nodes. Additionally, AND nodes can only be
+            children or OR nodes and vice-versa.
+            

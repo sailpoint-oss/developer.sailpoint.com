@@ -1,0 +1,19 @@
+type: object
+title: Auth User
+properties:
+  id:
+    type: string
+    description: Identity ID.
+    example: eea1c52bc51c4f7d95565f4f8d6c1e41
+  uid:
+    type: string
+    description: Identity unique identifier.
+    example: john.doe@testmail.identitysoon.com
+  alias:
+    type: string
+    description: Identity alias.
+    example: john.doe
+  displayName:
+    type: string
+    description: Identity name in display format.
+    example: John Doe

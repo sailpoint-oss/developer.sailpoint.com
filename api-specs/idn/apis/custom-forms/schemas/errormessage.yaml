@@ -1,0 +1,19 @@
+title: ErrorMessage is the standard API error response message type.
+type: object
+properties:
+  locale:
+    description: Locale is the current Locale
+    example: en-US
+    type: string
+    x-go-name: Locale
+  localeOrigin:
+    description: LocaleOrigin holds possible values of how the locale was selected
+    example: DEFAULT
+    type: string
+    x-go-name: LocaleOrigin
+  text:
+    description: Text is the actual text of the error message
+    example: This is an error
+    type: string
+    x-go-name: Text
+x-go-package: github.com/sailpoint/atlas-go/atlas/web

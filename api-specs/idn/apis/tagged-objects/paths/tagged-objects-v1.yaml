@@ -1,0 +1,87 @@
+get:
+  operationId: listTaggedObjectsV1
+  security:
+  - userAuth:
+    - idn:tag:read
+    - idn:tag:manage
+  - applicationAuth:
+    - idn:tag:read
+    - idn:tag:manage
+  tags:
+  - Tagged Objects
+  summary: List tagged objects
+  description: This API returns a list of all tagged objects.
+  parameters:
+  - $ref: ../../shared/parameters/limit.yaml
+  - $ref: ../../shared/parameters/offset.yaml
+  - $ref: ../../shared/parameters/count.yaml
+  - in: query
+    name: filters
+    schema:
+      type: string
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection
+      Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **objectRef.id**: *eq, in*
+
+
+      **objectRef.type**: *eq, in*
+
+
+      **tagName**: *eq, in*
+    example: tagName eq "BU_FINANCE"
+    required: false
+  responses:
+    '200':
+      description: List of all tagged objects.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/taggedobject.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+post:
+  operationId: setTagToObjectV1
+  security:
+  - userAuth:
+    - idn:tag:manage
+  - applicationAuth:
+    - idn:tag:manage
+  tags:
+  - Tagged Objects
+  summary: Add tag to object
+  description: This adds a tag to an object.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/taggedobject.yaml
+  responses:
+    '201':
+      description: Created.
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

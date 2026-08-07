@@ -1,0 +1,206 @@
+put:
+  security:
+  - userAuth: [ sp:approvals:write ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  operationId: putApprovalsConfig
+  tags:
+  - Approvals
+  summary: Put Approval Config
+  description: >-
+    Upserts a singular approval configuration that matches the given configID and configScope. 
+    
+    For example to update the approval configurations for all Access Request Approvals please use: '/generic-approvals/config/ACCESS_REQUEST_APPROVAL/APPROVAL_TYPE'
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+    description: The ID defined by the scope field, where [[id]]:[[scope]] is the following
+
+      [[roleID]]:ROLE
+                         
+      [[entitlementID]]:ENTITLEMENT
+     
+      [[accessProfileID]]:ACCESS_PROFILE
+     
+      ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
+     
+      ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
+
+      ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE
+
+      ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE
+
+      MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE
+
+      MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE
+     
+      [[tenantID]]:TENANT
+                         
+      [[domainObjectID]]:DOMAIN_OBJECT
+    example: ACCESS_REQUEST_APPROVAL
+    x-sailpoint-resource-operation-id:
+      - listEntitlements
+      - listRoles
+      - listAccessProfiles
+  - in: path
+    name: scope
+    required: true
+    schema:
+      type: string
+      enum:
+      - DOMAIN_OBJECT
+      - ROLE
+      - ACCESS_PROFILE
+      - ENTITLEMENT
+      - APPROVAL_TYPE
+      - TENANT
+    description: The scope of the field, where [[id]]:[[scope]] is the following
+
+      [[roleID]]:ROLE
+                         
+      [[entitlementID]]:ENTITLEMENT
+     
+      [[accessProfileID]]:ACCESS_PROFILE
+     
+      ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
+     
+      ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
+
+      ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE
+
+      ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE
+
+      MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE
+
+      MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE
+     
+      [[tenantID]]:TENANT
+                         
+      [[domainObjectID]]:DOMAIN_OBJECT
+    example: APPROVAL_TYPE
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ApprovalConfig.yaml'
+  responses:
+    '200':
+      description: Verified Email Status
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ApprovalConfig.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+delete:
+  security:
+  - userAuth: [ sp:approvals:write ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  operationId: deleteApprovalConfigRequest
+  tags:
+  - Approvals
+  summary: Delete Approval Configuration
+  description: |-
+    Deletes an approval configuration.
+    Configurations at the APPROVAL_REQUEST scope cannot be deleted.
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+    description: The ID defined by the scope field, where [[id]]:[[scope]] is the following
+
+      [[roleID]]:ROLE
+                   
+      [[entitlementID]]:ENTITLEMENT
+     
+      [[accessProfileID]]:ACCESS_PROFILE
+     
+      ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
+     
+      ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
+
+      ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE
+
+      ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE
+
+      MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE
+
+      MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE
+     
+      [[tenantID]]:TENANT
+     
+      [[domainObjectID]]:DOMAIN_OBJECT
+    example: ACCESS_REQUEST_APPROVAL
+    x-sailpoint-resource-operation-id:
+      - listEntitlements
+      - listRoles
+      - listAccessProfiles
+  - in: path
+    name: scope
+    required: true
+    schema:
+      type: string
+      enum:
+      - DOMAIN_OBJECT
+      - ROLE
+      - ACCESS_PROFILE
+      - ENTITLEMENT
+      - APPROVAL_TYPE
+      - TENANT
+    description:  The scope of the field, where [[id]]:[[scope]] is the following
+
+      [[roleID]]:ROLE
+                    
+      [[entitlementID]]:ENTITLEMENT
+      
+      [[accessProfileID]]:ACCESS_PROFILE
+      
+      ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE
+      
+      ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE
+
+      ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE
+
+      ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE
+
+      MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE
+
+      MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE
+      
+      [[tenantID]]:TENANT
+      
+      [[domainObjectID]]:DOMAIN_OBJECT
+    example: APPROVAL_TYPE
+    x-go-name: Type
+  responses:
+    '204':
+      $ref: '../responses/204.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

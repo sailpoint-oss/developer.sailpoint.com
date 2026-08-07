@@ -1,0 +1,15 @@
+allOf:
+- $ref: '../../v3/schemas/SodReportResultDto.yaml'
+- type : object
+  properties:
+    status:
+      type: string
+      description: Status of a SOD policy violation report.
+      enum:
+        - SUCCESS
+        - WARNING
+        - ERROR
+        - TERMINATED
+        - TEMP_ERROR
+        - PENDING
+      example: PENDING

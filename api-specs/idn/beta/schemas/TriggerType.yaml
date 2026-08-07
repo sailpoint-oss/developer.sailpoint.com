@@ -1,0 +1,6 @@
+type: string
+description: The type of trigger.
+example: FIRE_AND_FORGET
+enum:
+- REQUEST_RESPONSE
+- FIRE_AND_FORGET

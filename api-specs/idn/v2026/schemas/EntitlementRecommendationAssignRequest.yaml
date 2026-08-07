@@ -1,0 +1,18 @@
+description: Request body for assigning a set of entitlement recommendations to a reviewer.
+type: object
+title: Entitlement Recommendation Assign Request
+required:
+  - items
+  - assignee
+properties:
+  items:
+    description: The list of recommendation record IDs to assign.
+    type: array
+    items:
+      type: string
+      format: uuid
+    example:
+      - "79db50d4-723c-4aa0-a824-83c2205d82d1"
+      - "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+  assignee:
+    $ref: ./EntitlementRecommendationAssignee.yaml

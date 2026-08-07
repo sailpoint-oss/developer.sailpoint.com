@@ -1,0 +1,9 @@
+description: Internal Server Error - returned on unhandled exceptions.
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        error:
+          description: A message describing the error
+          example: "Sorry something went wrong"

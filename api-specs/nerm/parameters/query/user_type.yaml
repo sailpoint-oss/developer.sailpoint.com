@@ -1,0 +1,8 @@
+name: type
+in: query
+description: user type
+required: false
+schema:
+  type: string
+  enum: [NeprofileUser, NeaccessUser]
+  example: NeprofileUser

@@ -1,0 +1,7 @@
+get:
+  $ref: './auth-support-tenant-list.yaml'
+post:
+  $ref: './auth-support-tenant-create.yaml'
+delete:
+  $ref: './auth-support-tenant-delete.yaml'
+

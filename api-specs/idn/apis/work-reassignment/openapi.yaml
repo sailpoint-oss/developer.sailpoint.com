@@ -1,0 +1,67 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Work Reassignment
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Work Reassignment
+    description: >
+      Use this API to implement work reassignment functionality.
+
+
+      Work Reassignment allows access request reviews, certifications, and manual provisioning tasks assigned to a user
+      to be reassigned to a different user. This is primarily used for:
+
+
+      - Temporarily redirecting work for users who are out of office, such as on vacation or sick leave
+
+      - Permanently redirecting work for users who should not be assigned these tasks at all, such as senior executives
+      or service identities
+
+
+      Users can define reassignments for themselves, managers can add them for their team members, and administrators
+      can configure them on any user's behalf. Work assigned during the specified reassignment timeframes will be
+      automatically reassigned to the designated user as it is created.
+
+
+      Refer to [Work Reassignment](https://documentation.sailpoint.com/saas/help/users/work_reassignment.html) for more
+      information about this topic.
+paths:
+  /reassignment-configurations/v1/types:
+    $ref: ./paths/reassignment-configurations-v1-types.yaml
+  /reassignment-configurations/v1:
+    $ref: ./paths/reassignment-configurations-v1.yaml
+  /reassignment-configurations/v1/{identityId}:
+    $ref: ./paths/reassignment-configurations-v1-by-identityid.yaml
+  /reassignment-configurations/v1/{identityId}/{configType}:
+    $ref: ./paths/reassignment-configurations-v1-by-identityid-by-configtype.yaml
+  /reassignment-configurations/v1/{identityId}/evaluate/{configType}:
+    $ref: ./paths/reassignment-configurations-v1-by-identityid-evaluate-by-configtype.yaml
+  /reassignment-configurations/v1/tenant-config:
+    $ref: ./paths/reassignment-configurations-v1-tenant-config.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

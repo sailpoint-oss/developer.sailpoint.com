@@ -1,0 +1,67 @@
+get:
+  operationId: getOngoingRolePropagation
+  summary: Get ongoing Role Propagation process
+  tags:
+    - Role Propagation
+  description: >-
+    This endpoint returns the information of ongoing role change propagation process for a tenant.
+    It returns the information whether the role propagation process is currently running or not,
+    If it is running it returns the details of the ongoing role propagation process.
+    The execution stage of the role propagation process can be one of the following:
+    - PENDING - The role propagation process is queued to be executed.
+    - DATA_AGGREGATION_RUNNING - The role propagation process is currently aggregating data.
+    - LAUNCH_PROVISIONING - The role propagation process has started to provision the access to the identities.
+    - SUCCEEDED - The role propagation process has successfully completed.
+    - FAILED - The role propagation process has failed.
+    - TERMINATED - The role propagation process was externally terminated.
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  responses:
+    '200':
+      description: Information of ongoing role propagation process.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/role-change-propagation/role-propagation-ongoing-response.yaml'
+          example:
+            {
+              "isRunning": true,
+              "rolePropagationDetails": {
+                "id": "f11f4239-d442-4261-a390-996a62d757e9",
+                "status": "RUNNING",
+                "executionStage": "DATA_AGGREGATION_RUNNING",
+                "launched": "2025-05-29T22:27:40Z",
+                "launchedBy": {
+                  "id": "3315765f71c44c849e41a9cb9b271d7b",
+                  "type": "IDENTITY",
+                  "name": "support"
+                },
+                "skipRoleRefresh": false
+              }
+            }
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+  security:
+    - userAuth: [idn:role-propagation:read]
+    - applicationAuth: [idn:role-propagation:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - API
+    - HELPDESK

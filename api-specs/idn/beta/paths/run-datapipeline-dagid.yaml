@@ -1,0 +1,43 @@
+post:
+  operationId: runDataPipelineByDagId
+  tags:
+    - IAI Data Pipeline
+  summary: Run a specific data pipeline dag by dag id
+  description: >-
+    This starts a specific type of data pipeline dag by dag id.
+
+    Requires security scope of 'iai:data-pipeline:run'.
+
+  parameters:
+    - in: path
+      name: type
+      schema:
+        type: string
+        enum:
+          - PGA
+          - STREAMING
+      required: true
+      description: The data pipeline type
+      example: STREAMING
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The dag id
+      example: 'airflow-dag-1'
+  responses:
+    '202':
+      $ref: '../../v3/responses/202.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  # security:
+  #   - oauth2: [iai:data-pipeline:run]

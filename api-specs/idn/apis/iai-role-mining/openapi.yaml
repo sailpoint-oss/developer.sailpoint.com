@@ -1,0 +1,78 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - IAI Role Mining
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: IAI Role Mining
+paths:
+  /role-mining-sessions/v1:
+    $ref: ./paths/role-mining-sessions-v1.yaml
+  /role-mining-sessions/v1/{sessionId}:
+    $ref: ./paths/role-mining-sessions-v1-by-sessionid.yaml
+  /role-mining-sessions/v1/{sessionId}/status:
+    $ref: ./paths/role-mining-sessions-v1-by-sessionid-status.yaml
+  /role-mining-sessions/v1/{sessionId}/potential-role-summaries:
+    $ref: ./paths/role-mining-sessions-v1-by-sessionid-potential-role-summaries.yaml
+  /role-mining-sessions/v1/{sessionId}/potential-role-summaries/{potentialRoleId}:
+    $ref: ./paths/role-mining-sessions-v1-by-sessionid-potential-role-summaries-by-potentialroleid.yaml
+  /role-mining-sessions/v1/{sessionId}/potential-role-summaries/{potentialRoleId}/applications:
+    $ref: ./paths/role-mining-sessions-v1-by-sessionid-potential-role-summaries-by-potentialroleid-applications.yaml
+  /role-mining-sessions/v1/{sessionId}/potential-role-summaries/{potentialRoleId}/entitlements:
+    $ref: ./paths/role-mining-sessions-v1-by-sessionid-potential-role-summaries-by-potentialroleid-entitlements.yaml
+  /role-mining-sessions/v1/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularities:
+    $ref: ./paths/role-mining-sessions-v1-by-sessionid-potential-roles-by-potentialroleid-entitlement-popularities.yaml
+  /role-mining-sessions/v1/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularity-distribution:
+    $ref: >-
+      ./paths/role-mining-sessions-v1-by-sessionid-potential-roles-by-potentialroleid-entitlement-popularity-distribution.yaml
+  /role-mining-sessions/v1/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements:
+    $ref: ./paths/role-mining-sessions-v1-by-sessionid-potential-roles-by-potentialroleid-edit-entitlements.yaml
+  /role-mining-sessions/v1/{sessionId}/potential-roles/{potentialRoleId}/identities:
+    $ref: ./paths/role-mining-sessions-v1-by-sessionid-potential-roles-by-potentialroleid-identities.yaml
+  /role-mining-sessions/v1/{sessionId}/potential-roles/{potentialRoleId}/export:
+    $ref: ./paths/role-mining-sessions-v1-by-sessionid-potential-roles-by-potentialroleid-export.yaml
+  /role-mining-sessions/v1/{sessionId}/potential-roles/{potentialRoleId}/export-async:
+    $ref: ./paths/role-mining-sessions-v1-by-sessionid-potential-roles-by-potentialroleid-export-async.yaml
+  /role-mining-sessions/v1/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId}:
+    $ref: ./paths/role-mining-sessions-v1-by-sessionid-potential-roles-by-potentialroleid-export-async-by-exportid.yaml
+  /role-mining-sessions/v1/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId}/download:
+    $ref: >-
+      ./paths/role-mining-sessions-v1-by-sessionid-potential-roles-by-potentialroleid-export-async-by-exportid-download.yaml
+  /role-mining-sessions/v1/{sessionId}/potential-roles/{potentialRoleId}/provision:
+    $ref: ./paths/role-mining-sessions-v1-by-sessionid-potential-roles-by-potentialroleid-provision.yaml
+  /role-mining-sessions/v1/{sessionId}/potential-roles/{potentialRoleId}/excluded-entitlements:
+    $ref: ./paths/role-mining-sessions-v1-by-sessionid-potential-roles-by-potentialroleid-excluded-entitlements.yaml
+  /role-mining-potential-roles/v1:
+    $ref: ./paths/role-mining-potential-roles-v1.yaml
+  /role-mining-potential-roles/v1/{potentialRoleId}:
+    $ref: ./paths/role-mining-potential-roles-v1-by-potentialroleid.yaml
+  /role-mining-potential-roles/v1/saved:
+    $ref: ./paths/role-mining-potential-roles-v1-saved.yaml
+  /role-mining-potential-roles/v1/{potentialRoleId}/sources/{sourceId}/identityUsage:
+    $ref: ./paths/role-mining-potential-roles-v1-by-potentialroleid-sources-by-sourceid-identityusage.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

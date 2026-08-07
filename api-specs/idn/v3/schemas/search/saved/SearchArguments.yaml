@@ -1,0 +1,18 @@
+type: object
+properties:
+  scheduleId:
+    description: |
+      The ID of the scheduled search that triggered the saved search execution.
+    type: string
+    example: '7a724640-0c17-4ce9-a8c3-4a89738459c8'
+  owner:
+    description: |
+        The owner of the scheduled search being tested.
+    allOf:
+    - $ref: '../model/base/TypedReference.yaml'
+  recipients:
+    description: |
+      The email recipients of the scheduled search being tested.
+    type: array
+    items:
+      $ref: '../model/base/TypedReference.yaml'

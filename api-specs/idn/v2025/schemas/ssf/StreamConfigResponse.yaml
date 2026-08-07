@@ -1,0 +1,56 @@
+type: object
+description: Full stream configuration returned by create/get/update/replace.
+properties:
+  stream_id:
+    type: string
+    description: Unique stream identifier.
+    example: "550e8400-e29b-41d4-a716-446655440000"
+  iss:
+    type: string
+    description: Issuer (transmitter) URL.
+    example: "https://tenant.sailpoint.com"
+  aud:
+    type: string
+    description: Audience for the stream.
+    example: "https://receiver.example.com"
+  delivery:
+    $ref: ./DeliveryResponse.yaml
+  events_supported:
+    type: array
+    items:
+      type: string
+      format: uri
+    description: |
+      Event types supported by the transmitter. Use CAEP event-type URIs in the form:
+      `https://schemas.openid.net/secevent/caep/event-type/{event-type}` (e.g. session-revoked).
+    example: ["https://schemas.openid.net/secevent/caep/event-type/{event-type}"]
+  events_requested:
+    type: array
+    items:
+      type: string
+      format: uri
+    description: |
+      Event types requested by the receiver. Use CAEP event-type URIs in the form:
+      `https://schemas.openid.net/secevent/caep/event-type/{event-type}` (e.g. session revoke).
+    example: ["https://schemas.openid.net/secevent/caep/event-type/{event-type}"]
+  events_delivered:
+    type: array
+    items:
+      type: string
+      format: uri
+    description: Event types currently being delivered (intersection of supported and requested).
+    example: ["https://schemas.openid.net/secevent/caep/event-type/{event-type}"]
+  description:
+    type: string
+    description: Optional stream description.
+    example: "Production event stream"
+  inactivity_timeout:
+    type: integer
+    format: int32
+    description: Inactivity timeout in seconds (optional).
+    example: 3600
+  min_verification_interval:
+    type: integer
+    format: int32
+    description: Minimum verification interval in seconds (optional).
+    example: 300

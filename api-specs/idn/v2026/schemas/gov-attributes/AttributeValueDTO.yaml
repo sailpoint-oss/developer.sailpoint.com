@@ -1,0 +1,17 @@
+type: "object"
+properties:
+  value:
+    type: "string"
+    description: >-
+      Technical name of the Attribute value. This is unique and cannot be changed after creation.
+    example: "public"
+  name:
+    type: "string"
+    description: >-
+      The display name of the Attribute value.
+    example: "Public"
+  status:
+    type: "string"
+    description: >-
+      The status of the Attribute value.
+    example: "active"

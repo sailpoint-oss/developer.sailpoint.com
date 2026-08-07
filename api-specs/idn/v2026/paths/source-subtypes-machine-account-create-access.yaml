@@ -1,0 +1,75 @@
+get:
+  tags:
+    - Machine Account Creation Request
+  summary: Machine Account Create Access
+  description: |- 
+    This endpoint retrieves the list of sources and subtypes for which logged in user has the entitlement to create a machine account.
+    The response includes a list of object detailing the source, subtype and entitlement details which enables the clients to understand if they can submit the request to create a machine account for the given subtype.
+  operationId: getMachineAccountCreateAccessInfo
+  security:
+    - userAuth: [ ]
+  x-sailpoint-userLevels:
+    - USER
+    - API
+  parameters:
+    - in: header
+      name: X-SailPoint-Experimental
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+    - name: offset
+      in: query
+      description: |-
+        Offset
+
+        Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+        The offset value is record-based, not page-based, and the index starts at 0.
+      schema:
+        type: integer
+        format: int64
+        default: 0
+        x-go-name: Offset
+      example: 0
+      required: false
+      x-go-name: Offset
+    - name: limit
+      in: query
+      description: |-
+        Limit
+
+        Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+        If it is not specified, a default limit is used.
+      schema:
+        type: integer
+        format: int64
+        minimum: 0
+        maximum: 250
+        default: 250
+        x-go-name: Limit
+      example: 250
+      required: false
+      x-go-name: Limit
+  responses:
+    '200':
+      description: List of source and the subtypes.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/MachineAccountCreateAccessDto.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

@@ -1,0 +1,8 @@
+type: object
+oneOf:
+  - $ref: ./accessprofiledocument.yaml
+  - $ref: ./accountactivitydocument.yaml
+  - $ref: ./entitlementdocument.yaml
+  - $ref: ./eventdocument.yaml
+  - $ref: ./identitydocument.yaml
+  - $ref: ./roledocument.yaml

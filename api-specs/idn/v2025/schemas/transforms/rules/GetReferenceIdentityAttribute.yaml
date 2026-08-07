@@ -1,0 +1,25 @@
+type: object
+required:
+- name
+- operation
+- uid
+properties:
+  name:
+    type: string
+    description: This must always be set to "Cloud Services Deployment Utility"
+    example: 'Cloud Services Deployment Utility'
+  operation:
+    type: string
+    description: The operation to perform `getReferenceIdentityAttribute`
+    example: 'getReferenceIdentityAttribute'
+  uid:
+    type: string
+    description: |
+      This is the SailPoint User Name (uid) value of the identity whose attribute is desired
+
+      As a convenience feature, you can use the `manager` keyword to dynamically look up the user's manager and then get that manager's identity attribute.
+    example: 2c91808570313110017040b06f344ec9
+  requiresPeriodicRefresh:
+    type: boolean
+    description: A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+    example: false

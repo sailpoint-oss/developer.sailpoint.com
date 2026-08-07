@@ -1,0 +1,21 @@
+type: object
+title: Attributes Changed
+required:
+  - attributeChanges
+properties:
+  attributeChanges:
+    type: array
+    items:
+      $ref: './AttributeChange.yaml'
+  eventType:
+    type: string
+    description: the event type
+    example: AttributesChanged
+  identityId:
+    type: string
+    description: the identity id
+    example: 8c190e6787aa4ed9a90bd9d5344523fb
+  dateTime:
+    type: string
+    description: the date of event
+    example: '2019-03-08T22:37:33.901Z'

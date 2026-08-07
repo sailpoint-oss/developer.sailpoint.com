@@ -1,0 +1,14 @@
+      in: query
+      name: offset
+      description: >-
+        Offset into the full result set. Usually specified with *limit* to paginate through the results.
+
+        See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)
+        for more information.
+      required: false
+      example: 0
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        default: 0

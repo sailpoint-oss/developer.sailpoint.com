@@ -1,0 +1,66 @@
+title: Access Request Dynamic Approver
+type: object
+required:
+- accessRequestId
+- requestedFor
+- requestedItems
+- requestedBy
+properties:
+  accessRequestId:
+    type: string
+    description: Unique ID of the access request object. You can use this ID with the [Access Request Status endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-request-status) to get the request's status.
+    example: 4b4d982dddff4267ab12f0f1e72b5a6d
+  requestedFor:
+    type: array
+    description: Identities access was requested for. 
+    items: 
+      $ref: './AccessItemRequestedForDto.yaml'
+    minItems: 1
+    maxItems: 10
+  requestedItems:
+    description: Requested access items.
+    type: array
+    items:
+      type: object
+      required:
+      - id
+      - name
+      - type
+      - operation
+      properties:
+        id:
+          type: string
+          description: Access item's unique identifier.
+          example: 2c91808b6ef1d43e016efba0ce470904
+        name:
+          type: string
+          description: Access item's name.
+          example: Engineering Access
+        description:
+          nullable: true
+          type: string
+          description: Access item's extended description.
+          example: Engineering Access
+        type:
+          enum:
+          - ACCESS_PROFILE
+          - ROLE
+          - ENTITLEMENT
+          description: Type of access item being requested.
+          example: ACCESS_PROFILE
+        operation:
+          enum:
+          - Add
+          - Remove
+          description: Action to perform on the requested access item.
+          example: Add
+        comment:
+          nullable: true
+          type: string
+          description: Comment from the requester about why the access is necessary.
+          example: William needs this access for his day to day job activities.
+    minItems: 1
+    maxItems: 25
+  requestedBy:
+    allOf:
+    - $ref: './AccessItemRequesterDto.yaml'

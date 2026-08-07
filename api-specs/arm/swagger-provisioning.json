@@ -1,0 +1,3832 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0",
+    "title": "Access Risk Management Provisioning Services Web APIs"
+  },
+  "tags":[{"name":"AutomatedProvisioning"},{"name":"TenancyCheck"}],
+  "paths": {
+    "/api/provisioning/requests/{erpSystemId}": {
+      "get": {
+        "tags": [
+          "AutomatedProvisioning"
+        ],
+        "summary": "Gets a list of provisioning request for the specified system.",
+        "operationId": "GetRequests",
+        "parameters": [
+          {
+            "name": "erpSystemId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 1,
+              "maximum": 2147483647
+            }
+          },
+          {
+            "name": "displayType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "undefined",
+                "all",
+                "mine"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                  }
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                  }
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                  }
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                  }
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/api/provisioning/export/{erpSystemId}": {
+      "get": {
+        "tags": [
+          "AutomatedProvisioning"
+        ],
+        "summary": "Exports a list of provisioning request as an Excel file.",
+        "operationId": "Export",
+        "parameters": [
+          {
+            "name": "oDataOptions",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "erpSystemId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 1,
+              "maximum": 2147483647
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/provisioning/requestDetails/{requestId}": {
+      "get": {
+        "tags": [
+          "AutomatedProvisioning"
+        ],
+        "summary": "Gets a provisioning request for the specified id.",
+        "operationId": "GetRequest",
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/api/provisioning/newUser": {
+      "post": {
+        "tags": [
+          "AutomatedProvisioning"
+        ],
+        "summary": "Creates a new user provisioning request. Returns the unique identifier of the new request.",
+        "operationId": "NewUserProvisioningRequest",
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.NewUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.NewUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.NewUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.NewUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.NewUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.NewUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.NewUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.NewUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.NewUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.NewUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.NewUserProvisioningRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.NewUserProvisioningRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.NewUserProvisioningRequest"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.NewUserProvisioningRequest"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.NewUserProvisioningRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.NewUserProvisioningRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.NewUserProvisioningRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/api/provisioning/existingUser": {
+      "post": {
+        "tags": [
+          "AutomatedProvisioning"
+        ],
+        "summary": "Creates an existing user provisioning request. Returns the unique identifier of the new request.",
+        "operationId": "ExistingUserProvisioningRequest",
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.ExistingUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.ExistingUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.ExistingUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.ExistingUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.ExistingUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.ExistingUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.ExistingUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.ExistingUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.ExistingUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.ExistingUserProvisioningRequest"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.ExistingUserProvisioningRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.ExistingUserProvisioningRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.ExistingUserProvisioningRequest"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.ExistingUserProvisioningRequest"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.ExistingUserProvisioningRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.ExistingUserProvisioningRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.ExistingUserProvisioningRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/api/provisioning/executeAction": {
+      "post": {
+        "tags": [
+          "AutomatedProvisioning"
+        ],
+        "summary": "Creates a new user provisioning request. Returns the unique identifier of the new request.",
+        "operationId": "ExecuteAction",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/provisioning": {
+      "put": {
+        "tags": [
+          "AutomatedProvisioning"
+        ],
+        "summary": "Updates an existing provisioning request.",
+        "operationId": "UpdateProvisioningRequest",
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/api/v1/provisioning/executeActon/noValidations": {
+      "post": {
+        "tags": [
+          "AutomatedProvisioning"
+        ],
+        "summary": "Approve the request if exist bypassing the approval validations",
+        "operationId": "ExecuteRequestV2BypassingValidation",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/tenancycheck/erpsystem/{systemId}": {
+      "post": {
+        "tags": [
+          "TenancyCheck"
+        ],
+        "summary": "Verifies if provided ERP System belongs to the Customer.",
+        "operationId": "ErpSystemTenancyCheck",
+        "parameters": [
+          {
+            "name": "systemId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ErpSystemTenancyCheckCustomerids"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/tenancycheck/username/{systemId}/{username}": {
+      "post": {
+        "tags": [
+          "TenancyCheck"
+        ],
+        "summary": "Verifies if user with provided Username belongs to the Customer.",
+        "operationId": "UsernameTenancyCheck",
+        "parameters": [
+          {
+            "name": "systemId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ErpSystemTenancyCheckCustomerids"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        },
+        "deprecated": true
+      }
+    }
+  },
+  "components": {
+    "requestBodies": {
+      "ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel": {
+        "content": {
+          "application/json;odata.metadata=minimal;odata.streaming=true": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+            }
+          },
+          "application/json;odata.metadata=minimal;odata.streaming=false": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+            }
+          },
+          "application/json;odata.metadata=minimal": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+            }
+          },
+          "application/json;odata.metadata=full;odata.streaming=true": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+            }
+          },
+          "application/json;odata.metadata=full;odata.streaming=false": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+            }
+          },
+          "application/json;odata.metadata=full": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+            }
+          },
+          "application/json;odata.metadata=none;odata.streaming=true": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+            }
+          },
+          "application/json;odata.metadata=none;odata.streaming=false": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+            }
+          },
+          "application/json;odata.metadata=none": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+            }
+          },
+          "application/json;odata.streaming=true": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+            }
+          },
+          "application/json;odata.streaming=false": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+            }
+          },
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+            }
+          },
+          "application/prs.odatatestxx-odata": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+            }
+          },
+          "application/json-patch+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+            }
+          },
+          "text/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+            }
+          },
+          "application/*+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel"
+            }
+          }
+        }
+      },
+      "ErpSystemTenancyCheckCustomerids": {
+        "content": {
+          "application/json;odata.metadata=minimal;odata.streaming=true": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/json;odata.metadata=minimal;odata.streaming=false": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/json;odata.metadata=minimal": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/json;odata.metadata=full;odata.streaming=true": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/json;odata.metadata=full;odata.streaming=false": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/json;odata.metadata=full": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/json;odata.metadata=none;odata.streaming=true": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/json;odata.metadata=none;odata.streaming=false": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/json;odata.metadata=none": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/json;odata.streaming=true": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/json;odata.streaming=false": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/prs.odatatestxx-odata": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/json-patch+json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "text/json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/*+json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "ErpMaestro.ProvisioningServices.Common.Enums.AuthorshipDisplayType": {
+        "enum": [
+          "undefined",
+          "all",
+          "mine"
+        ],
+        "type": "string"
+      },
+      "ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel": {
+        "description": "Represents the model for an automated provisioning request.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "format": "uuid",
+            "description": "The unique identifier of the request.",
+            "type": "string"
+          },
+          "displayId": {
+            "description": "Represents a friendly version of the id for display purposes.",
+            "type": "string",
+            "readOnly": true
+          },
+          "accountId": {
+            "format": "int32",
+            "description": "The id of the parent account.",
+            "type": "integer"
+          },
+          "erpSystemId": {
+            "format": "int32",
+            "description": "The id of the parent ERP system.",
+            "type": "integer"
+          },
+          "securityExtractId": {
+            "format": "int32",
+            "description": "The id of the security extract used in the request.",
+            "type": "integer"
+          },
+          "state": {
+            "description": "The current state of the request.\r\nOne of the ErpMaestro.ProvisioningServices.Common.Enums.AutomatedProvisioningState elements.",
+            "type": "string",
+            "readOnly": true
+          },
+          "results": {
+            "description": "Represents the current results of the request.",
+            "type": "string"
+          },
+          "requestedFor": {
+            "description": "Represents the username of the user the request is for.",
+            "type": "string"
+          },
+          "requestedBy": {
+            "description": "Represents the username of the user who performed the request.",
+            "type": "string"
+          },
+          "requestDate": {
+            "format": "date-time",
+            "description": "Represents the date and time the request was made.",
+            "type": "string"
+          },
+          "completionDate": {
+            "format": "date-time",
+            "description": "Represents the date and time the request was completed.",
+            "type": "string"
+          },
+          "enableManagerApprovals": {
+            "description": "Represents if Manager Approvals are enabled.",
+            "type": "boolean"
+          },
+          "approvers": {
+            "description": "Represents a collection of approvers for the request.",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningApproverModel"
+            }
+          },
+          "actions": {
+            "description": "Represents the available actions for the request based on ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningRequestModel.RequestState\r\nand user permissions. One of the ErpMaestro.ProvisioningServices.Common.Enums.AutomatedProvisioningActions elements.",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Enums.AutomatedProvisioningActions"
+            }
+          },
+          "activityHistory": {
+            "description": "Represents the activity history for the request.",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.EmergencyAccess.RequestActivity"
+            }
+          },
+          "roleChanges": {
+            "description": "Represents a collection of role changes for the request.",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.RoleChange"
+            }
+          },
+          "userDetails": {
+            "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.SapUserModel"
+          },
+          "comment": {
+            "description": "Represents the comments of the request.",
+            "type": "string"
+          },
+          "provisionPartialRoles": {
+            "description": "Determines if request could be provisioned even if some of its roles have been rejected.",
+            "type": "boolean"
+          },
+          "jobId": {
+            "format": "int32",
+            "description": "Job id",
+            "type": "integer"
+          },
+          "cloneRolesFromUser": {
+            "description": "ERP user name to clone roles from",
+            "type": "string"
+          }
+        }
+      },
+      "ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningApproverModel": {
+        "description": "Represents the model for an EAM user.",
+        "type": "object",
+        "properties": {
+          "userId": {
+            "format": "uuid",
+            "description": "The user's unique identifier.",
+            "type": "string"
+          },
+          "email": {
+            "description": "The user's email.",
+            "type": "string"
+          },
+          "fullName": {
+            "description": "The user's full name.",
+            "type": "string"
+          },
+          "username": {
+            "description": "The user's username.",
+            "type": "string"
+          },
+          "approvalState": {
+            "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Enums.AutomatedProvisioningApprovalState"
+          },
+          "approverType": {
+            "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Enums.ApproverType"
+          }
+        }
+      },
+      "ErpMaestro.ProvisioningServices.Common.Enums.AutomatedProvisioningActions": {
+        "enum": [
+          "undefined",
+          "view",
+          "approve",
+          "reject"
+        ],
+        "type": "string"
+      },
+      "ErpMaestro.ProvisioningServices.Common.Models.EmergencyAccess.RequestActivity": {
+        "type": "object",
+        "properties": {
+          "timeStamp": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "activity": {
+            "type": "string"
+          },
+          "userName": {
+            "type": "string"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "ErpMaestro.ProvisioningServices.Common.Models.RoleChange": {
+        "description": "Represents the model of a role change.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "format": "uuid",
+            "description": "The unique identifier of the role.",
+            "type": "string"
+          },
+          "roleName": {
+            "description": "The role name.",
+            "type": "string"
+          },
+          "description": {
+            "description": "Represents the description of the role changed.",
+            "type": "string"
+          },
+          "changeType": {
+            "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Enums.RoleChangeType"
+          },
+          "validFrom": {
+            "format": "date-time",
+            "description": "The start date of the validity of the role.",
+            "type": "string"
+          },
+          "validTo": {
+            "format": "date-time",
+            "description": "The end date of the validity of the role.",
+            "type": "string"
+          },
+          "approvers": {
+            "description": "Role's approvers.",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "approvalState": {
+            "description": "Role's state of approval",
+            "enum": [
+              "waitingOnApprover",
+              "approved",
+              "rejected",
+              "noAction"
+            ],
+            "type": "string"
+          }
+        }
+      },
+      "ErpMaestro.ProvisioningServices.Common.Models.SapUserModel": {
+        "description": "Represents the model for a SAP user.",
+        "required": [
+          "username",
+          "email",
+          "lastName",
+          "userType"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "description": "Represents the id of the user.",
+            "maxLength": 12,
+            "type": "string"
+          },
+          "email": {
+            "description": "Represents the user's email address.",
+            "type": "string"
+          },
+          "firstName": {
+            "description": "Represents the user's first name.",
+            "type": "string"
+          },
+          "lastName": {
+            "description": "Represents the user's last name.",
+            "type": "string"
+          },
+          "userType": {
+            "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Enums.SapUserType"
+          },
+          "userClass": {
+            "description": "Represents the user's class.",
+            "type": "string"
+          },
+          "validFrom": {
+            "format": "date-time",
+            "description": "Represents the date from which the user is valid.",
+            "type": "string"
+          },
+          "validTo": {
+            "format": "date-time",
+            "description": "Represents the date to which the user is valid.",
+            "type": "string"
+          }
+        }
+      },
+      "ErpMaestro.ProvisioningServices.Common.Enums.AutomatedProvisioningApprovalState": {
+        "enum": [
+          "waitingOnApprover",
+          "approved",
+          "rejected",
+          "noAction"
+        ],
+        "type": "string"
+      },
+      "ErpMaestro.ProvisioningServices.Common.Enums.ApproverType": {
+        "enum": [
+          "undefined",
+          "manager",
+          "roleApprover",
+          "ruleApprover"
+        ],
+        "type": "string"
+      },
+      "ErpMaestro.ProvisioningServices.Common.Enums.RoleChangeType": {
+        "enum": [
+          "add",
+          "remove",
+          "change"
+        ],
+        "type": "string"
+      },
+      "ErpMaestro.ProvisioningServices.Common.Enums.SapUserType": {
+        "enum": [
+          "a",
+          "b",
+          "c",
+          "l",
+          "s"
+        ],
+        "type": "string"
+      },
+      "Microsoft.AspNetCore.Http.HttpRequest": {
+        "type": "object",
+        "properties": {
+          "httpContext": {
+            "$ref": "#/components/schemas/Microsoft.AspNetCore.Http.HttpContext"
+          },
+          "method": {
+            "type": "string"
+          },
+          "scheme": {
+            "type": "string"
+          },
+          "isHttps": {
+            "type": "boolean"
+          },
+          "host": {
+            "$ref": "#/components/schemas/Microsoft.AspNetCore.Http.HostString"
+          },
+          "pathBase": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "queryString": {
+            "$ref": "#/components/schemas/Microsoft.AspNetCore.Http.QueryString"
+          },
+          "query": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair_2_System.String_System.Private.CoreLib_Version_4.0.0.0_Culture_neutral_PublicKeyToken_7cec85d7bea7798e_Microsoft.Extensions.Primitives.StringValues_Microsoft.Extensions.Primitives_Version_3.0.0.0_Culture_neutral_PublicKeyToken_adb9793829ddae60_"
+            }
+          },
+          "protocol": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "additionalProperties": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "readOnly": true
+          },
+          "cookies": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair_2_System.String_System.Private.CoreLib_Version_4.0.0.0_Culture_neutral_PublicKeyToken_7cec85d7bea7798e_System.String_System.Private.CoreLib_Version_4.0.0.0_Culture_neutral_PublicKeyToken_7cec85d7bea7798e_"
+            }
+          },
+          "contentLength": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "contentType": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/components/schemas/System.IO.Stream"
+          },
+          "hasFormContentType": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "form": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair_2_System.String_System.Private.CoreLib_Version_4.0.0.0_Culture_neutral_PublicKeyToken_7cec85d7bea7798e_Microsoft.Extensions.Primitives.StringValues_Microsoft.Extensions.Primitives_Version_3.0.0.0_Culture_neutral_PublicKeyToken_adb9793829ddae60_"
+            }
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.ODataQueryContext": {
+        "type": "object",
+        "properties": {
+          "defaultQuerySettings": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.DefaultQuerySettings"
+          },
+          "model": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmModel"
+          },
+          "elementType": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmType"
+          },
+          "navigationSource": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmNavigationSource"
+          },
+          "elementClrType": {
+            "type": "string",
+            "readOnly": true
+          },
+          "path": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Routing.ODataPath"
+          },
+          "requestContainer": {
+            "$ref": "#/components/schemas/System.IServiceProvider"
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Query.ODataRawQueryOptions": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "string",
+            "readOnly": true
+          },
+          "apply": {
+            "type": "string",
+            "readOnly": true
+          },
+          "orderBy": {
+            "type": "string",
+            "readOnly": true
+          },
+          "top": {
+            "type": "string",
+            "readOnly": true
+          },
+          "skip": {
+            "type": "string",
+            "readOnly": true
+          },
+          "select": {
+            "type": "string",
+            "readOnly": true
+          },
+          "expand": {
+            "type": "string",
+            "readOnly": true
+          },
+          "count": {
+            "type": "string",
+            "readOnly": true
+          },
+          "format": {
+            "type": "string",
+            "readOnly": true
+          },
+          "skipToken": {
+            "type": "string",
+            "readOnly": true
+          },
+          "deltaToken": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Query.SelectExpandQueryOption": {
+        "type": "object",
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.ODataQueryContext"
+          },
+          "rawSelect": {
+            "type": "string",
+            "readOnly": true
+          },
+          "rawExpand": {
+            "type": "string",
+            "readOnly": true
+          },
+          "validator": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.Validators.SelectExpandQueryValidator"
+          },
+          "selectExpandClause": {
+            "$ref": "#/components/schemas/Microsoft.OData.UriParser.SelectExpandClause"
+          },
+          "levelsMaxLiteralExpansionDepth": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Query.ApplyQueryOption": {
+        "type": "object",
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.ODataQueryContext"
+          },
+          "resultClrType": {
+            "type": "string",
+            "readOnly": true
+          },
+          "applyClause": {
+            "$ref": "#/components/schemas/Microsoft.OData.UriParser.Aggregation.ApplyClause"
+          },
+          "rawValue": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Query.FilterQueryOption": {
+        "type": "object",
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.ODataQueryContext"
+          },
+          "validator": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.Validators.FilterQueryValidator"
+          },
+          "filterClause": {
+            "$ref": "#/components/schemas/Microsoft.OData.UriParser.FilterClause"
+          },
+          "rawValue": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Query.OrderByQueryOption": {
+        "type": "object",
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.ODataQueryContext"
+          },
+          "orderByNodes": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.OrderByNode"
+            },
+            "readOnly": true
+          },
+          "rawValue": {
+            "type": "string",
+            "readOnly": true
+          },
+          "validator": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.Validators.OrderByQueryValidator"
+          },
+          "orderByClause": {
+            "$ref": "#/components/schemas/Microsoft.OData.UriParser.OrderByClause"
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Query.SkipQueryOption": {
+        "type": "object",
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.ODataQueryContext"
+          },
+          "rawValue": {
+            "type": "string",
+            "readOnly": true
+          },
+          "value": {
+            "format": "int32",
+            "type": "integer",
+            "readOnly": true
+          },
+          "validator": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.Validators.SkipQueryValidator"
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Query.SkipTokenQueryOption": {
+        "type": "object",
+        "properties": {
+          "rawValue": {
+            "type": "string",
+            "readOnly": true
+          },
+          "context": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.ODataQueryContext"
+          },
+          "validator": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.Validators.SkipTokenQueryValidator"
+          },
+          "querySettings": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.ODataQuerySettings"
+          },
+          "queryOptions": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.ODataQueryOptions"
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Query.TopQueryOption": {
+        "type": "object",
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.ODataQueryContext"
+          },
+          "rawValue": {
+            "type": "string",
+            "readOnly": true
+          },
+          "value": {
+            "format": "int32",
+            "type": "integer",
+            "readOnly": true
+          },
+          "validator": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.Validators.TopQueryValidator"
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Query.CountQueryOption": {
+        "type": "object",
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.ODataQueryContext"
+          },
+          "rawValue": {
+            "type": "string",
+            "readOnly": true
+          },
+          "value": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "validator": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.Validators.CountQueryValidator"
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Query.Validators.ODataQueryValidator": {
+        "type": "object"
+      },
+      "Microsoft.AspNetCore.Http.HttpContext": {
+        "type": "object",
+        "properties": {
+          "features": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair_2_System.Type_System.Private.CoreLib_Version_4.0.0.0_Culture_neutral_PublicKeyToken_7cec85d7bea7798e_System.Object_System.Private.CoreLib_Version_4.0.0.0_Culture_neutral_PublicKeyToken_7cec85d7bea7798e_"
+            },
+            "readOnly": true
+          },
+          "request": {
+            "$ref": "#/components/schemas/Microsoft.AspNetCore.Http.HttpRequest"
+          },
+          "response": {
+            "$ref": "#/components/schemas/Microsoft.AspNetCore.Http.HttpResponse"
+          },
+          "connection": {
+            "$ref": "#/components/schemas/Microsoft.AspNetCore.Http.ConnectionInfo"
+          },
+          "webSockets": {
+            "$ref": "#/components/schemas/Microsoft.AspNetCore.Http.WebSocketManager"
+          },
+          "user": {
+            "$ref": "#/components/schemas/System.Security.Claims.ClaimsPrincipal"
+          },
+          "items": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          },
+          "requestServices": {
+            "$ref": "#/components/schemas/System.IServiceProvider"
+          },
+          "requestAborted": {
+            "$ref": "#/components/schemas/System.Threading.CancellationToken"
+          },
+          "traceIdentifier": {
+            "type": "string"
+          },
+          "session": {
+            "$ref": "#/components/schemas/Microsoft.AspNetCore.Http.ISession"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Http.HostString": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "readOnly": true
+          },
+          "hasValue": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "host": {
+            "type": "string",
+            "readOnly": true
+          },
+          "port": {
+            "format": "int32",
+            "type": "integer",
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Http.QueryString": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "readOnly": true
+          },
+          "hasValue": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        }
+      },
+      "System.IO.Stream": {
+        "type": "object",
+        "properties": {
+          "canRead": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "canSeek": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "canTimeout": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "canWrite": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "length": {
+            "format": "int64",
+            "type": "integer",
+            "readOnly": true
+          },
+          "position": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "readTimeout": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "writeTimeout": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Query.DefaultQuerySettings": {
+        "type": "object",
+        "properties": {
+          "enableExpand": {
+            "type": "boolean"
+          },
+          "enableSelect": {
+            "type": "boolean"
+          },
+          "enableCount": {
+            "type": "boolean"
+          },
+          "enableOrderBy": {
+            "type": "boolean"
+          },
+          "enableFilter": {
+            "type": "boolean"
+          },
+          "maxTop": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "enableSkipToken": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Microsoft.OData.Edm.IEdmModel": {
+        "type": "object",
+        "properties": {
+          "schemaElements": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmSchemaElement"
+            },
+            "readOnly": true
+          },
+          "vocabularyAnnotations": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.OData.Edm.Vocabularies.IEdmVocabularyAnnotation"
+            },
+            "readOnly": true
+          },
+          "referencedModels": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmModel"
+            },
+            "readOnly": true
+          },
+          "declaredNamespaces": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true
+          },
+          "directValueAnnotationsManager": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.Vocabularies.IEdmDirectValueAnnotationsManager"
+          },
+          "entityContainer": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmEntityContainer"
+          }
+        }
+      },
+      "Microsoft.OData.Edm.IEdmType": {
+        "type": "object",
+        "properties": {
+          "typeKind": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.EdmTypeKind"
+          }
+        }
+      },
+      "Microsoft.OData.Edm.IEdmNavigationSource": {
+        "type": "object",
+        "properties": {
+          "navigationPropertyBindings": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmNavigationPropertyBinding"
+            },
+            "readOnly": true
+          },
+          "path": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmPathExpression"
+          },
+          "type": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmType"
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Routing.ODataPath": {
+        "type": "object",
+        "properties": {
+          "edmType": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmType"
+          },
+          "navigationSource": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmNavigationSource"
+          },
+          "segments": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.OData.UriParser.ODataPathSegment"
+            },
+            "readOnly": true
+          },
+          "pathTemplate": {
+            "type": "string",
+            "readOnly": true
+          },
+          "path": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.OData.UriParser.ODataPathSegment"
+            },
+            "readOnly": true
+          }
+        }
+      },
+      "System.IServiceProvider": {
+        "type": "object"
+      },
+      "Microsoft.AspNet.OData.Query.Validators.SelectExpandQueryValidator": {
+        "type": "object"
+      },
+      "Microsoft.OData.UriParser.SelectExpandClause": {
+        "type": "object",
+        "properties": {
+          "selectedItems": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.OData.UriParser.SelectItem"
+            },
+            "readOnly": true
+          },
+          "allSelected": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.OData.UriParser.Aggregation.ApplyClause": {
+        "type": "object",
+        "properties": {
+          "transformations": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.OData.UriParser.Aggregation.TransformationNode"
+            },
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Query.Validators.FilterQueryValidator": {
+        "type": "object"
+      },
+      "Microsoft.OData.UriParser.FilterClause": {
+        "type": "object",
+        "properties": {
+          "expression": {
+            "$ref": "#/components/schemas/Microsoft.OData.UriParser.SingleValueNode"
+          },
+          "rangeVariable": {
+            "$ref": "#/components/schemas/Microsoft.OData.UriParser.RangeVariable"
+          },
+          "itemType": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmTypeReference"
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Query.OrderByNode": {
+        "type": "object",
+        "properties": {
+          "direction": {
+            "$ref": "#/components/schemas/Microsoft.OData.UriParser.OrderByDirection"
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Query.Validators.OrderByQueryValidator": {
+        "type": "object"
+      },
+      "Microsoft.OData.UriParser.OrderByClause": {
+        "type": "object",
+        "properties": {
+          "thenBy": {
+            "$ref": "#/components/schemas/Microsoft.OData.UriParser.OrderByClause"
+          },
+          "expression": {
+            "$ref": "#/components/schemas/Microsoft.OData.UriParser.SingleValueNode"
+          },
+          "direction": {
+            "$ref": "#/components/schemas/Microsoft.OData.UriParser.OrderByDirection"
+          },
+          "rangeVariable": {
+            "$ref": "#/components/schemas/Microsoft.OData.UriParser.RangeVariable"
+          },
+          "itemType": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmTypeReference"
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Query.Validators.SkipQueryValidator": {
+        "type": "object"
+      },
+      "Microsoft.AspNet.OData.Query.Validators.SkipTokenQueryValidator": {
+        "type": "object"
+      },
+      "Microsoft.AspNet.OData.Query.ODataQuerySettings": {
+        "type": "object",
+        "properties": {
+          "ensureStableOrdering": {
+            "type": "boolean"
+          },
+          "handleNullPropagation": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.HandleNullPropagationOption"
+          },
+          "enableConstantParameterization": {
+            "type": "boolean"
+          },
+          "enableCorrelatedSubqueryBuffering": {
+            "type": "boolean"
+          },
+          "pageSize": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "handleReferenceNavigationPropertyExpandFilter": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Query.ODataQueryOptions": {
+        "type": "object",
+        "properties": {
+          "request": {
+            "$ref": "#/components/schemas/Microsoft.AspNetCore.Http.HttpRequest"
+          },
+          "context": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.ODataQueryContext"
+          },
+          "rawValues": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.ODataRawQueryOptions"
+          },
+          "selectExpand": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.SelectExpandQueryOption"
+          },
+          "apply": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.ApplyQueryOption"
+          },
+          "filter": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.FilterQueryOption"
+          },
+          "orderBy": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.OrderByQueryOption"
+          },
+          "skip": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.SkipQueryOption"
+          },
+          "skipToken": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.SkipTokenQueryOption"
+          },
+          "top": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.TopQueryOption"
+          },
+          "count": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.CountQueryOption"
+          },
+          "validator": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.Validators.ODataQueryValidator"
+          },
+          "ifMatch": {
+            "type": "object",
+            "readOnly": true
+          },
+          "ifNoneMatch": {
+            "type": "object",
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Query.Validators.TopQueryValidator": {
+        "type": "object"
+      },
+      "Microsoft.AspNet.OData.Query.Validators.CountQueryValidator": {
+        "type": "object"
+      },
+      "Microsoft.AspNetCore.Http.HttpResponse": {
+        "type": "object",
+        "properties": {
+          "httpContext": {
+            "$ref": "#/components/schemas/Microsoft.AspNetCore.Http.HttpContext"
+          },
+          "statusCode": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "headers": {
+            "type": "object",
+            "additionalProperties": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "readOnly": true
+          },
+          "body": {
+            "$ref": "#/components/schemas/System.IO.Stream"
+          },
+          "contentLength": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "contentType": {
+            "type": "string"
+          },
+          "cookies": {
+            "$ref": "#/components/schemas/Microsoft.AspNetCore.Http.IResponseCookies"
+          },
+          "hasStarted": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Http.ConnectionInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "remoteIpAddress": {
+            "$ref": "#/components/schemas/System.Net.IPAddress"
+          },
+          "remotePort": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "localIpAddress": {
+            "$ref": "#/components/schemas/System.Net.IPAddress"
+          },
+          "localPort": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "clientCertificate": {
+            "$ref": "#/components/schemas/System.Security.Cryptography.X509Certificates.X509Certificate2"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Http.WebSocketManager": {
+        "type": "object",
+        "properties": {
+          "isWebSocketRequest": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "webSocketRequestedProtocols": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true
+          }
+        }
+      },
+      "System.Security.Claims.ClaimsPrincipal": {
+        "type": "object",
+        "properties": {
+          "claims": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/System.Security.Claims.Claim"
+            },
+            "readOnly": true
+          },
+          "identities": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/System.Security.Claims.ClaimsIdentity"
+            },
+            "readOnly": true
+          },
+          "identity": {
+            "$ref": "#/components/schemas/System.Security.Principal.IIdentity"
+          }
+        }
+      },
+      "System.Threading.CancellationToken": {
+        "type": "object",
+        "properties": {
+          "isCancellationRequested": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "canBeCanceled": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "waitHandle": {
+            "$ref": "#/components/schemas/System.Threading.WaitHandle"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Http.ISession": {
+        "type": "object",
+        "properties": {
+          "isAvailable": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "id": {
+            "type": "string",
+            "readOnly": true
+          },
+          "keys": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.OData.Edm.IEdmSchemaElement": {
+        "type": "object",
+        "properties": {
+          "schemaElementKind": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.EdmSchemaElementKind"
+          },
+          "namespace": {
+            "type": "string",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.OData.Edm.Vocabularies.IEdmVocabularyAnnotation": {
+        "type": "object",
+        "properties": {
+          "qualifier": {
+            "type": "string",
+            "readOnly": true
+          },
+          "term": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.Vocabularies.IEdmTerm"
+          },
+          "target": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.Vocabularies.IEdmVocabularyAnnotatable"
+          },
+          "value": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmExpression"
+          }
+        }
+      },
+      "Microsoft.OData.Edm.Vocabularies.IEdmDirectValueAnnotationsManager": {
+        "type": "object"
+      },
+      "Microsoft.OData.Edm.IEdmEntityContainer": {
+        "type": "object",
+        "properties": {
+          "elements": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmEntityContainerElement"
+            },
+            "readOnly": true
+          },
+          "schemaElementKind": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.EdmSchemaElementKind"
+          },
+          "namespace": {
+            "type": "string",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.OData.Edm.EdmTypeKind": {
+        "enum": [
+          "none",
+          "primitive",
+          "entity",
+          "complex",
+          "collection",
+          "entityReference",
+          "enum",
+          "typeDefinition",
+          "untyped",
+          "path"
+        ],
+        "type": "string"
+      },
+      "Microsoft.OData.Edm.IEdmNavigationPropertyBinding": {
+        "type": "object",
+        "properties": {
+          "navigationProperty": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmNavigationProperty"
+          },
+          "target": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmNavigationSource"
+          },
+          "path": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmPathExpression"
+          }
+        }
+      },
+      "Microsoft.OData.Edm.IEdmPathExpression": {
+        "type": "object",
+        "properties": {
+          "pathSegments": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true
+          },
+          "path": {
+            "type": "string",
+            "readOnly": true
+          },
+          "expressionKind": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.EdmExpressionKind"
+          }
+        }
+      },
+      "Microsoft.OData.UriParser.ODataPathSegment": {
+        "type": "object",
+        "properties": {
+          "edmType": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmType"
+          },
+          "identifier": {
+            "type": "string"
+          }
+        }
+      },
+      "Microsoft.OData.UriParser.SelectItem": {
+        "type": "object"
+      },
+      "Microsoft.OData.UriParser.Aggregation.TransformationNode": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/Microsoft.OData.UriParser.Aggregation.TransformationNodeKind"
+          }
+        }
+      },
+      "Microsoft.OData.UriParser.SingleValueNode": {
+        "type": "object",
+        "properties": {
+          "typeReference": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmTypeReference"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/Microsoft.OData.UriParser.QueryNodeKind"
+          }
+        }
+      },
+      "Microsoft.OData.UriParser.RangeVariable": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "readOnly": true
+          },
+          "typeReference": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmTypeReference"
+          },
+          "kind": {
+            "format": "int32",
+            "type": "integer",
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.OData.Edm.IEdmTypeReference": {
+        "type": "object",
+        "properties": {
+          "isNullable": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "definition": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmType"
+          }
+        }
+      },
+      "Microsoft.OData.UriParser.OrderByDirection": {
+        "enum": [
+          "ascending",
+          "descending"
+        ],
+        "type": "string"
+      },
+      "Microsoft.AspNet.OData.Query.HandleNullPropagationOption": {
+        "enum": [
+          "default",
+          "true",
+          "false"
+        ],
+        "type": "string"
+      },
+      "Microsoft.AspNetCore.Http.IResponseCookies": {
+        "type": "object"
+      },
+      "System.Net.IPAddress": {
+        "type": "object",
+        "properties": {
+          "addressFamily": {
+            "$ref": "#/components/schemas/System.Net.Sockets.AddressFamily"
+          },
+          "scopeId": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "isIPv6Multicast": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isIPv6LinkLocal": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isIPv6SiteLocal": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isIPv6Teredo": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isIPv4MappedToIPv6": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        }
+      },
+      "System.Security.Cryptography.X509Certificates.X509Certificate2": {
+        "type": "object",
+        "properties": {
+          "archived": {
+            "type": "boolean"
+          },
+          "extensions": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "readOnly": true
+          },
+          "friendlyName": {
+            "type": "string"
+          },
+          "hasPrivateKey": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "privateKey": {
+            "$ref": "#/components/schemas/System.Security.Cryptography.AsymmetricAlgorithm"
+          },
+          "issuerName": {
+            "$ref": "#/components/schemas/System.Security.Cryptography.X509Certificates.X500DistinguishedName"
+          },
+          "notAfter": {
+            "format": "date-time",
+            "type": "string",
+            "readOnly": true
+          },
+          "notBefore": {
+            "format": "date-time",
+            "type": "string",
+            "readOnly": true
+          },
+          "publicKey": {
+            "$ref": "#/components/schemas/System.Security.Cryptography.X509Certificates.PublicKey"
+          },
+          "rawData": {
+            "format": "byte",
+            "type": "string",
+            "readOnly": true
+          },
+          "serialNumber": {
+            "type": "string",
+            "readOnly": true
+          },
+          "signatureAlgorithm": {
+            "$ref": "#/components/schemas/System.Security.Cryptography.Oid"
+          },
+          "subjectName": {
+            "$ref": "#/components/schemas/System.Security.Cryptography.X509Certificates.X500DistinguishedName"
+          },
+          "thumbprint": {
+            "type": "string",
+            "readOnly": true
+          },
+          "version": {
+            "format": "int32",
+            "type": "integer",
+            "readOnly": true
+          },
+          "handle": {
+            "type": "object",
+            "readOnly": true
+          },
+          "issuer": {
+            "type": "string",
+            "readOnly": true
+          },
+          "subject": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "System.Security.Claims.Claim": {
+        "type": "object",
+        "properties": {
+          "issuer": {
+            "type": "string",
+            "readOnly": true
+          },
+          "originalIssuer": {
+            "type": "string",
+            "readOnly": true
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "readOnly": true
+          },
+          "subject": {
+            "$ref": "#/components/schemas/System.Security.Claims.ClaimsIdentity"
+          },
+          "type": {
+            "type": "string",
+            "readOnly": true
+          },
+          "value": {
+            "type": "string",
+            "readOnly": true
+          },
+          "valueType": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "System.Security.Claims.ClaimsIdentity": {
+        "type": "object",
+        "properties": {
+          "authenticationType": {
+            "type": "string",
+            "readOnly": true
+          },
+          "isAuthenticated": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "actor": {
+            "$ref": "#/components/schemas/System.Security.Claims.ClaimsIdentity"
+          },
+          "bootstrapContext": {
+            "type": "object"
+          },
+          "claims": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/System.Security.Claims.Claim"
+            },
+            "readOnly": true
+          },
+          "label": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          },
+          "nameClaimType": {
+            "type": "string",
+            "readOnly": true
+          },
+          "roleClaimType": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "System.Security.Principal.IIdentity": {
+        "type": "object",
+        "properties": {
+          "authenticationType": {
+            "type": "string",
+            "readOnly": true
+          },
+          "isAuthenticated": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "System.Threading.WaitHandle": {
+        "type": "object",
+        "properties": {
+          "safeWaitHandle": {
+            "$ref": "#/components/schemas/Microsoft.Win32.SafeHandles.SafeWaitHandle"
+          }
+        }
+      },
+      "Microsoft.OData.Edm.EdmSchemaElementKind": {
+        "enum": [
+          "none",
+          "typeDefinition",
+          "term",
+          "action",
+          "entityContainer",
+          "function"
+        ],
+        "type": "string"
+      },
+      "Microsoft.OData.Edm.Vocabularies.IEdmTerm": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmTypeReference"
+          },
+          "appliesTo": {
+            "type": "string",
+            "readOnly": true
+          },
+          "defaultValue": {
+            "type": "string",
+            "readOnly": true
+          },
+          "schemaElementKind": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.EdmSchemaElementKind"
+          },
+          "namespace": {
+            "type": "string",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.OData.Edm.Vocabularies.IEdmVocabularyAnnotatable": {
+        "type": "object"
+      },
+      "Microsoft.OData.Edm.IEdmExpression": {
+        "type": "object",
+        "properties": {
+          "expressionKind": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.EdmExpressionKind"
+          }
+        }
+      },
+      "Microsoft.OData.Edm.IEdmEntityContainerElement": {
+        "type": "object",
+        "properties": {
+          "containerElementKind": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.EdmContainerElementKind"
+          },
+          "container": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmEntityContainer"
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.OData.Edm.IEdmNavigationProperty": {
+        "type": "object",
+        "properties": {
+          "partner": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmNavigationProperty"
+          },
+          "onDelete": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.EdmOnDeleteAction"
+          },
+          "containsTarget": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "referentialConstraint": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmReferentialConstraint"
+          },
+          "propertyKind": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.EdmPropertyKind"
+          },
+          "type": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmTypeReference"
+          },
+          "declaringType": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmStructuredType"
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.OData.Edm.EdmExpressionKind": {
+        "enum": [
+          "none",
+          "binaryConstant",
+          "booleanConstant",
+          "dateTimeOffsetConstant",
+          "decimalConstant",
+          "floatingConstant",
+          "guidConstant",
+          "integerConstant",
+          "stringConstant",
+          "durationConstant",
+          "null",
+          "record",
+          "collection",
+          "path",
+          "if",
+          "cast",
+          "isType",
+          "functionApplication",
+          "labeledExpressionReference",
+          "labeled",
+          "propertyPath",
+          "navigationPropertyPath",
+          "dateConstant",
+          "timeOfDayConstant",
+          "enumMember",
+          "annotationPath"
+        ],
+        "type": "string"
+      },
+      "Microsoft.OData.UriParser.Aggregation.TransformationNodeKind": {
+        "enum": [
+          "aggregate",
+          "groupBy",
+          "filter",
+          "compute",
+          "expand"
+        ],
+        "type": "string"
+      },
+      "Microsoft.OData.UriParser.QueryNodeKind": {
+        "enum": [
+          "none",
+          "constant",
+          "convert",
+          "nonResourceRangeVariableReference",
+          "binaryOperator",
+          "unaryOperator",
+          "singleValuePropertyAccess",
+          "collectionPropertyAccess",
+          "singleValueFunctionCall",
+          "any",
+          "collectionNavigationNode",
+          "singleNavigationNode",
+          "singleValueOpenPropertyAccess",
+          "singleResourceCast",
+          "all",
+          "collectionResourceCast",
+          "resourceRangeVariableReference",
+          "singleResourceFunctionCall",
+          "collectionFunctionCall",
+          "collectionResourceFunctionCall",
+          "namedFunctionParameter",
+          "parameterAlias",
+          "entitySet",
+          "keyLookup",
+          "searchTerm",
+          "collectionOpenPropertyAccess",
+          "collectionComplexNode",
+          "singleComplexNode",
+          "count",
+          "singleValueCast",
+          "collectionPropertyNode",
+          "aggregatedCollectionPropertyNode",
+          "in",
+          "collectionConstant"
+        ],
+        "type": "string"
+      },
+      "System.Net.Sockets.AddressFamily": {
+        "enum": [
+          "unknown",
+          "unspecified",
+          "unix",
+          "interNetwork",
+          "impLink",
+          "pup",
+          "chaos",
+          "nS",
+          "ipx",
+          "iso",
+          "osi",
+          "ecma",
+          "dataKit",
+          "ccitt",
+          "sna",
+          "decNet",
+          "dataLink",
+          "lat",
+          "hyperChannel",
+          "appleTalk",
+          "netBios",
+          "voiceView",
+          "fireFox",
+          "banyan",
+          "atm",
+          "interNetworkV6",
+          "cluster",
+          "ieee12844",
+          "irda",
+          "networkDesigners",
+          "max"
+        ],
+        "type": "string"
+      },
+      "System.Security.Cryptography.AsymmetricAlgorithm": {
+        "type": "object",
+        "properties": {
+          "keySize": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "legalKeySizes": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/System.Security.Cryptography.KeySizes"
+            },
+            "readOnly": true
+          },
+          "signatureAlgorithm": {
+            "type": "string",
+            "readOnly": true
+          },
+          "keyExchangeAlgorithm": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "System.Security.Cryptography.X509Certificates.X500DistinguishedName": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "readOnly": true
+          },
+          "oid": {
+            "$ref": "#/components/schemas/System.Security.Cryptography.Oid"
+          },
+          "rawData": {
+            "format": "byte",
+            "type": "string"
+          }
+        }
+      },
+      "System.Security.Cryptography.X509Certificates.PublicKey": {
+        "type": "object",
+        "properties": {
+          "encodedKeyValue": {
+            "$ref": "#/components/schemas/System.Security.Cryptography.AsnEncodedData"
+          },
+          "encodedParameters": {
+            "$ref": "#/components/schemas/System.Security.Cryptography.AsnEncodedData"
+          },
+          "key": {
+            "$ref": "#/components/schemas/System.Security.Cryptography.AsymmetricAlgorithm"
+          },
+          "oid": {
+            "$ref": "#/components/schemas/System.Security.Cryptography.Oid"
+          }
+        }
+      },
+      "System.Security.Cryptography.Oid": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "friendlyName": {
+            "type": "string"
+          }
+        }
+      },
+      "Microsoft.Win32.SafeHandles.SafeWaitHandle": {
+        "type": "object",
+        "properties": {
+          "isInvalid": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isClosed": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.OData.Edm.EdmContainerElementKind": {
+        "enum": [
+          "none",
+          "entitySet",
+          "actionImport",
+          "functionImport",
+          "singleton"
+        ],
+        "type": "string"
+      },
+      "Microsoft.OData.Edm.EdmOnDeleteAction": {
+        "enum": [
+          "none",
+          "cascade"
+        ],
+        "type": "string"
+      },
+      "Microsoft.OData.Edm.IEdmReferentialConstraint": {
+        "type": "object",
+        "properties": {
+          "propertyPairs": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.OData.Edm.EdmReferentialConstraintPropertyPair"
+            },
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.OData.Edm.EdmPropertyKind": {
+        "enum": [
+          "none",
+          "structural",
+          "navigation"
+        ],
+        "type": "string"
+      },
+      "Microsoft.OData.Edm.IEdmStructuredType": {
+        "type": "object",
+        "properties": {
+          "isAbstract": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isOpen": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "baseType": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmStructuredType"
+          },
+          "declaredProperties": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmProperty"
+            },
+            "readOnly": true
+          },
+          "typeKind": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.EdmTypeKind"
+          }
+        }
+      },
+      "System.Security.Cryptography.KeySizes": {
+        "type": "object",
+        "properties": {
+          "minSize": {
+            "format": "int32",
+            "type": "integer",
+            "readOnly": true
+          },
+          "maxSize": {
+            "format": "int32",
+            "type": "integer",
+            "readOnly": true
+          },
+          "skipSize": {
+            "format": "int32",
+            "type": "integer",
+            "readOnly": true
+          }
+        }
+      },
+      "System.Security.Cryptography.AsnEncodedData": {
+        "type": "object",
+        "properties": {
+          "oid": {
+            "$ref": "#/components/schemas/System.Security.Cryptography.Oid"
+          },
+          "rawData": {
+            "format": "byte",
+            "type": "string"
+          }
+        }
+      },
+      "Microsoft.OData.Edm.EdmReferentialConstraintPropertyPair": {
+        "type": "object",
+        "properties": {
+          "dependentProperty": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmStructuralProperty"
+          },
+          "principalProperty": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmStructuralProperty"
+          }
+        }
+      },
+      "Microsoft.OData.Edm.IEdmProperty": {
+        "type": "object",
+        "properties": {
+          "propertyKind": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.EdmPropertyKind"
+          },
+          "type": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmTypeReference"
+          },
+          "declaringType": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmStructuredType"
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "Microsoft.OData.Edm.IEdmStructuralProperty": {
+        "type": "object",
+        "properties": {
+          "defaultValueString": {
+            "type": "string",
+            "readOnly": true
+          },
+          "propertyKind": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.EdmPropertyKind"
+          },
+          "type": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmTypeReference"
+          },
+          "declaringType": {
+            "$ref": "#/components/schemas/Microsoft.OData.Edm.IEdmStructuredType"
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "ErpMaestro.ProvisioningServices.Common.Models.NewUserProvisioningRequest": {
+        "description": "Represents the model for a new user provisioning request.",
+        "required": [
+          "userDetails",
+          "erpSystemId"
+        ],
+        "type": "object",
+        "properties": {
+          "userDetails": {
+            "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.SapUserModel"
+          },
+          "accountId": {
+            "format": "int32",
+            "description": "Represents the id of the account under which the provisioning was requested.",
+            "type": "integer"
+          },
+          "erpSystemId": {
+            "format": "int32",
+            "description": "Represents the id of the ERP system.",
+            "type": "integer"
+          },
+          "roleChanges": {
+            "description": "Represents a collection of role changes to check for conflicts.",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.RoleChange"
+            }
+          },
+          "comment": {
+            "description": "Represents optional comments for request.",
+            "type": "string"
+          },
+          "provisionPartialRoles": {
+            "description": "Determines if request could be provisioned even if some of its roles have been rejected.",
+            "type": "boolean"
+          },
+          "cloneRolesFromUser": {
+            "description": "ERP user name to clone roles from",
+            "type": "string"
+          }
+        }
+      },
+      "ErpMaestro.ProvisioningServices.Common.Models.ExistingUserProvisioningRequest": {
+        "description": "Represents the model of an existing user provisioning request.",
+        "required": [
+          "username",
+          "erpSystemId"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "description": "Represents the username of the existing user.",
+            "type": "string"
+          },
+          "enableManagerApprovals": {
+            "description": "Represents a value indicating whether to enable manager approvals.",
+            "type": "boolean"
+          },
+          "accountId": {
+            "format": "int32",
+            "description": "Represents the id of the account under which the provisioning was requested.",
+            "type": "integer"
+          },
+          "erpSystemId": {
+            "format": "int32",
+            "description": "Represents the id of the ERP system.",
+            "type": "integer"
+          },
+          "roleChanges": {
+            "description": "Represents a collection of role changes to check for conflicts.",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Models.RoleChange"
+            }
+          },
+          "comment": {
+            "description": "Represents optional comments for request.",
+            "type": "string"
+          },
+          "provisionPartialRoles": {
+            "description": "Determines if request could be provisioned even if some of its roles have been rejected.",
+            "type": "boolean"
+          },
+          "cloneRolesFromUser": {
+            "description": "ERP user name to clone roles from",
+            "type": "string"
+          }
+        }
+      },
+      "ErpMaestro.ProvisioningServices.Common.Models.AutomatedProvisioningActionModel": {
+        "description": "Represents the model for an automated provisioning action request.",
+        "required": [
+          "requestId",
+          "action"
+        ],
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "format": "uuid",
+            "description": "Represents the id of the automated provisioning request.",
+            "type": "string"
+          },
+          "action": {
+            "$ref": "#/components/schemas/ErpMaestro.ProvisioningServices.Common.Enums.AutomatedProvisioningActions"
+          },
+          "comment": {
+            "description": "Represents the comments for the specified request action.",
+            "type": "string"
+          }
+        }
+      },
+      "Microsoft.AspNet.OData.Query.ODataQueryOptions_1_ErpMaestro.ProvisioningServices.DataAccess.Entities.SecureProvisioningRequest_ErpMaestro.ProvisioningServices.DataAccess_Version_2021.2.15.2_Culture_neutral_PublicKeyToken_null_": {
+        "type": "object",
+        "properties": {
+          "ifMatch": {
+            "type": "object",
+            "readOnly": true
+          },
+          "ifNoneMatch": {
+            "type": "object",
+            "readOnly": true
+          },
+          "request": {
+            "$ref": "#/components/schemas/Microsoft.AspNetCore.Http.HttpRequest"
+          },
+          "context": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.ODataQueryContext"
+          },
+          "rawValues": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.ODataRawQueryOptions"
+          },
+          "selectExpand": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.SelectExpandQueryOption"
+          },
+          "apply": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.ApplyQueryOption"
+          },
+          "filter": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.FilterQueryOption"
+          },
+          "orderBy": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.OrderByQueryOption"
+          },
+          "skip": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.SkipQueryOption"
+          },
+          "skipToken": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.SkipTokenQueryOption"
+          },
+          "top": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.TopQueryOption"
+          },
+          "count": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.CountQueryOption"
+          },
+          "validator": {
+            "$ref": "#/components/schemas/Microsoft.AspNet.OData.Query.Validators.ODataQueryValidator"
+          }
+        }
+      },
+      "System.Collections.Generic.KeyValuePair_2_System.String_System.Private.CoreLib_Version_4.0.0.0_Culture_neutral_PublicKeyToken_7cec85d7bea7798e_Microsoft.Extensions.Primitives.StringValues_Microsoft.Extensions.Primitives_Version_3.0.0.0_Culture_neutral_PublicKeyToken_adb9793829ddae60_": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "readOnly": true
+          },
+          "value": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true
+          }
+        }
+      },
+      "System.Collections.Generic.KeyValuePair_2_System.String_System.Private.CoreLib_Version_4.0.0.0_Culture_neutral_PublicKeyToken_7cec85d7bea7798e_System.String_System.Private.CoreLib_Version_4.0.0.0_Culture_neutral_PublicKeyToken_7cec85d7bea7798e_": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "readOnly": true
+          },
+          "value": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "System.Collections.Generic.KeyValuePair_2_System.Type_System.Private.CoreLib_Version_4.0.0.0_Culture_neutral_PublicKeyToken_7cec85d7bea7798e_System.Object_System.Private.CoreLib_Version_4.0.0.0_Culture_neutral_PublicKeyToken_7cec85d7bea7798e_": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "readOnly": true
+          },
+          "value": {
+            "type": "object",
+            "readOnly": true
+          }
+        }
+      }
+    }
+  }
+}

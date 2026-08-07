@@ -1,0 +1,19 @@
+post:
+  summary: SOD Violation Closed
+  operationId: sodViolationClosedEvent
+  x-displayName: SODViolationClosed
+  description: >-
+    This event trigger fires once the violation no longer applies and its status is updated to **Closed**. This is a `FIRE_AND_FORGET` event trigger. You can have a maximum of 50 subscriptions for this trigger. 
+
+    **previousStatus** indicates whether the violation was **Open** or **Mitigated** immediately before closure;
+    **currentStatus** is **Closed**.
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/webhooks/SODViolationClosedPayload.yaml

@@ -19,7 +19,7 @@ on:
 
 # Allow one concurrent deployment
 concurrency:
-  group: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) ||  github.event_name == 'push' && 'main' }}
+  group: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || 'main' }}
   cancel-in-progress: true
 
 env:
@@ -117,6 +117,11 @@ jobs:
           key: sdk-docs-${{ hashFiles('api-specs/idn/apis/**') }}
           restore-keys: sdk-docs-
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
       - name: Setup portal .npmrc
         run: echo ${{ secrets.NPM_FONTAWESOME_CONFIG }} | base64 -d >> .npmrc
 
@@ -181,6 +186,7 @@ jobs:
           echo "SECRET_MESSAGE=${{ secrets.SECRET_MESSAGE }}" >> .env
           export NODE_OPTIONS="--max_old_space_size=60000"
           export DOCUSAURUS_IGNORE_SSG_WARNINGS=true
+          export DOCUSAURUS_DISABLE_LAST_UPDATE=true
           export DOCUSAURUS_SSG_WORKER_THREAD_COUNT=10
           export DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY=1000000000
 
@@ -210,7 +216,7 @@ jobs:
             built from commit ${{ github.event.pull_request.head.sha }}
         continue-on-error: true
       - name: deploy to prod
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: (github.event_name == 'push' || github.event_name == 'repository_dispatch') && github.ref == 'refs/heads/main'
         id: deploy_github_pages
         uses: crazy-max/ghaction-github-pages@v4
         with:

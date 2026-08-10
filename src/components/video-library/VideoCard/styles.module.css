@@ -83,6 +83,37 @@
   border-radius: 0.5rem;
 }
 
+/* Stand-in for topics that don't give us a video poster image */
+.placeholder,
+.featuredPlaceholder {
+  align-items: center;
+  background: linear-gradient(135deg, #0033a1 0%, #1e4bb8 55%, #cc27b0 100%);
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.placeholderTitle {
+  color: #ffffff;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.35;
+  overflow: hidden;
+}
+
+.featuredPlaceholder .placeholderTitle {
+  font-size: 18px;
+  -webkit-line-clamp: 3;
+}
+
 .avatarContainer {
   padding-left: 2rem;
   position: relative;

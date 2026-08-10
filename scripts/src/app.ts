@@ -21,7 +21,7 @@ const personas = [
     {
         id: 4,
         paths: [
-            {path: '../docs/api/v2025', recursive: true}
+            {path: '../docs/api', recursive: false}
         ]
     },
     {

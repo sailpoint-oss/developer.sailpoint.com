@@ -8,7 +8,6 @@ import ApiCodeBlock from "@theme/ApiExplorer/ApiCodeBlock";
 import { useTypedDispatch, useTypedSelector } from "@theme/ApiItem/hooks";
 import SchemaTabs from "@theme/SchemaTabs";
 import TabItem from "@theme/TabItem";
-import { OPENAPI_RESPONSE } from "@theme/translationIds";
 import clsx from "clsx";
 import type { ApiItem } from "docusaurus-plugin-openapi-docs/src/types";
 import type { ThemeConfig } from "docusaurus-theme-openapi-docs/src/types";
@@ -75,7 +74,7 @@ function Response({ item }: { item: ApiItem }) {
     <div className="openapi-explorer__response-container">
       <div className="openapi-explorer__response-title-container">
         <span className="openapi-explorer__response-title">
-          {translate({ id: OPENAPI_RESPONSE.TITLE, message: "Response" })}
+          {translate({ id: "theme.openapi.response.title", message: "Response" })}
         </span>
         <span
           className="openapi-explorer__response-clear-btn"
@@ -85,7 +84,7 @@ function Response({ item }: { item: ApiItem }) {
             dispatch(clearHeaders());
           }}
         >
-          {translate({ id: OPENAPI_RESPONSE.CLEAR, message: "Clear" })}
+          {translate({ id: "theme.openapi.response.clear", message: "Clear" })}
         </span>
       </div>
       <div
@@ -120,7 +119,7 @@ function Response({ item }: { item: ApiItem }) {
                 {prettyResponse || (
                   <p className="openapi-explorer__response-placeholder-message">
                     {translate({
-                      id: OPENAPI_RESPONSE.PLACEHOLDER,
+                      id: "theme.openapi.response.placeholder",
                       message:
                         "Click the <code>Send API Request</code> button above and see the response here!",
                     })}
@@ -131,7 +130,7 @@ function Response({ item }: { item: ApiItem }) {
             {/* @ts-ignore */}
             <TabItem
               label={translate({
-                id: OPENAPI_RESPONSE.HEADERS_TAB,
+                id: "theme.openapi.response.headersTab",
                 message: "Headers",
               })}
               value="headers"
@@ -157,7 +156,7 @@ function Response({ item }: { item: ApiItem }) {
         ) : (
           <p className="openapi-explorer__response-placeholder-message">
             {translate({
-              id: OPENAPI_RESPONSE.PLACEHOLDER,
+              id: "theme.openapi.response.placeholder",
               message:
                 "Click the <code>Send API Request</code> button above and see the response here!",
             })}

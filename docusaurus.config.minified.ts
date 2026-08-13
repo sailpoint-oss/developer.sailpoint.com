@@ -37,7 +37,7 @@ const baseUrl = '/';
 const config: Config = {
   future: {
     v4: true,
-    experimental_faster: true,
+    faster: true,
   },
   title: 'SailPoint Developer Community',
   tagline:
@@ -97,6 +97,8 @@ const config: Config = {
             'api/nerm/**',
           ],
         },
+        // See docusaurus.config.ts for why the built-in blog plugin is disabled.
+        blog: false,
         theme: {
           customCss: [
             require.resolve('@fortawesome/fontawesome-free/css/all.min.css'),
@@ -187,6 +189,12 @@ const config: Config = {
 
   markdown: {
     mermaid: true,
+    // See docusaurus.config.ts for why MDX v1 compat is kept enabled explicitly.
+    mdx1Compat: {
+      comments: true,
+      admonitions: true,
+      headingIds: true,
+    },
     hooks: {
       onBrokenMarkdownLinks: 'warn',
     },

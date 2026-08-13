@@ -318,6 +318,14 @@ case "$ONLY_SDK" in
 esac
 
 if ! $DRY_RUN; then
+  echo ""
+  echo "=== Escaping MDX-unsafe curly braces in SDK reference docs ==="
+  # openapi-generator collapses multi-line descriptions into table cells and
+  # HTML-escapes their backticks, leaving placeholders like {accountID} as bare
+  # text that MDX v3 parses as JSX expressions (breaks `docusaurus build` with
+  # "ReferenceError: <name> is not defined"). Escape them to literal text.
+  node "$PORTAL_ROOT/scripts/escape-sdk-doc-braces.js" "$PORTAL_ROOT/docs/tools/sdk"
+
   write_category_files
   apply_code_examples
   echo ""

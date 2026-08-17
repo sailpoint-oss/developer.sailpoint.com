@@ -1,0 +1,137 @@
+---
+title: MCP Server
+description: Connect an AI client to the SailPoint MCP Server and drive identity tasks in plain language.
+wrapperClassName: hack-day-track
+---
+
+import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs';
+
+[← All Hack Day tracks](/hack-day)
+
+# Track 04 · MCP Server
+
+Trade the UI for a conversation. You will pick your preferred programming language, get the SailPoint
+MCP server template running from the matching repository, and then build your own tools on top of it.
+
+## How to get started
+
+Work through the steps in order. If a step leaves you stuck, open the hint under it to unblock
+yourself and keep moving — using them costs you nothing.
+
+### 1. Clone the template
+
+Choose your preferred language and clone that repository.
+
+<Tabs>
+  <TabItem value="python" label="Python" default>
+
+```bash
+git clone git@github.com:sailpoint-oss/python-mcp-server-template.git
+```
+
+  </TabItem>
+  <TabItem value="typescript" label="TypeScript">
+
+```bash
+git clone git@github.com:sailpoint-oss/typescript-mcp-server-template.git
+```
+
+  </TabItem>
+  <TabItem value="golang" label="GoLang">
+
+```bash
+git clone git@github.com:sailpoint-oss/golang-mcp-server-template.git
+```
+
+  </TabItem>
+</Tabs>
+
+Here's what comes out of the box to get you started:
+
+- Authentication to SailPoint handled via personal access token and the SDK
+- A foundational MCP server with copyable tool templates
+
+### 2. Pick your AI client
+
+The examples in each repository use Claude as their example client for interacting with the MCP
+server. You can use any AI client that supports MCP connections.
+
+### 3. Create your credentials
+
+When you registered for Hack Day you should have received a demo tenant. Log in to the tenant and
+generate a personal access token with `sp:scopes:all`, then save the credentials for the next step.
+
+See [Generating a personal access token](https://documentation.sailpoint.com/saas/help/common/api_keys.html#generating-a-personal-access-token)
+for the full walkthrough.
+
+### 4. Configure the MCP server
+
+Follow the README in the repository for the language you chose.
+
+<Tabs>
+  <TabItem value="python" label="Python" default>
+
+[python-mcp-server-template README](https://github.com/sailpoint-oss/python-mcp-server-template/blob/main/README.md)
+
+  </TabItem>
+  <TabItem value="typescript" label="TypeScript">
+
+[typescript-mcp-server-template README](https://github.com/sailpoint-oss/typescript-mcp-server-template/blob/main/README.md)
+
+  </TabItem>
+  <TabItem value="golang" label="GoLang">
+
+[golang-mcp-server-template README](https://github.com/sailpoint-oss/golang-mcp-server-template/blob/main/README.md)
+
+  </TabItem>
+</Tabs>
+
+### 5. Make an example call
+
+Open your AI client and make an example call — try asking something like "Tell me more about the
+identity Adam Archer."
+
+Watch the Search Identities tool get called on the template MCP server. The JSON it returns goes back
+to the AI client, which turns it into a readable answer.
+
+<details>
+<summary>Stuck? Reveal what a successful call looks like</summary>
+
+Placeholder: paste an example prompt and the response attendees should expect to see.
+
+</details>
+
+### 6. Build
+
+Now that you have the full picture, build a tool or a set of tools that solves a real-world problem.
+What you build should:
+
+- Leverage SailPoint APIs to provide actionable insights or data
+- Be small, self-contained, and functional
+- Demonstrate a clear and intentional use case
+
+## Judging criteria
+
+Placeholder: list what the judges will score submissions on.
+
+## Stretch goal
+
+Placeholder: an optional extension for attendees who finish early.
+
+## Documentation
+
+- [MCP Server overview](/docs/extensibility/mcp)
+- [Getting started](/docs/extensibility/mcp-getting-started)
+- [Available tools](/docs/extensibility/mcp-available-tools)
+- [Example guides](/docs/extensibility/mcp-example-guides)
+- [Claude Code integration](/docs/extensibility/mcp/integrations/claude-code)
+
+## Still stuck?
+
+Grab a SailPoint developer advocate in the room, or reach for the community and tooling.
+
+- [Developer Forum](https://developer.sailpoint.com/discuss/)
+- [SDKs](/docs/tools/sdk)
+- [CLI](/docs/tools/cli)
+- [Back to all tracks](/hack-day)

@@ -930,3 +930,39 @@ article:has(.community-policy-page) footer {
 .theme-unlisted-banner {
   display: none !important;
 }
+
+/* ── Hack Day track pages (src/pages/hack-day/*.mdx) ───────────────────────────
+   Scoped by `wrapperClassName: hack-day-track` in each page's front matter, which
+   Docusaurus stamps onto <html>. This keeps the track pages as plain markdown —
+   no JSX imports needed for the theming. */
+
+/* Signature gradient rule (sky → leaf → sun) just under the page heading */
+html.hack-day-track article > h1::after {
+  content: '';
+  display: block;
+  height: 6px;
+  margin-top: 20px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #54c0e8 0%, #93d500 50%, #ffc61e 100%);
+}
+
+/* Back link above the heading reads as an eyebrow, not body copy */
+html.hack-day-track article > p:first-child {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Spoilers: recolor the themed <details> from info blue to sun amber so a
+   collapsed hint reads as "reveal me" rather than "read me". */
+html.hack-day-track details.alert {
+  --ifm-alert-background-color: var(--ifm-color-warning-contrast-background);
+  --ifm-alert-background-color-highlight: rgba(255, 198, 30, 0.15);
+  --ifm-alert-foreground-color: var(--ifm-color-warning-contrast-foreground);
+  --ifm-alert-border-color: #ffc61e;
+  border-left-width: 4px;
+}
+
+html.hack-day-track details.alert > summary {
+  font-weight: 700;
+}

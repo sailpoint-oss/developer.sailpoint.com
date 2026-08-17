@@ -1,0 +1,120 @@
+---
+title: SaaS Connectivity
+description: Build and deploy a cloud-hosted SaaS connector for Identity Security Cloud.
+wrapperClassName: hack-day-track
+---
+
+[← All Hack Day tracks](/hack-day)
+
+# Track 02 · SaaS Connectivity
+
+Wire a new system into the platform. You will build a cloud-hosted connector in TypeScript that
+aggregates accounts and entitlements and provisions access — all without standing up a virtual
+appliance.
+
+## How to get started
+
+Work through the steps in order. If a step leaves you stuck, open the hint under it to unblock
+yourself and keep moving — using them costs you nothing.
+
+### 1. Install the prerequisites
+
+Placeholder: list the Node version, CLI, and any accounts attendees need before starting.
+
+<details>
+<summary>Stuck? Reveal the install commands</summary>
+
+Placeholder hint: everything you need in one block.
+
+```bash
+# Placeholder
+npm install -g @sailpoint/connector-cli
+```
+
+</details>
+
+### 2. Scaffold a new connector project
+
+Placeholder: describe generating the project and what each generated file is for.
+
+<details>
+<summary>Stuck? Reveal the scaffold command</summary>
+
+Placeholder hint: the command that creates the starter project.
+
+```bash
+# Placeholder
+sail conn init my-connector
+```
+
+</details>
+
+### 3. Define the connector spec
+
+Placeholder: explain the account schema and the commands this connector will support.
+
+<details>
+<summary>Stuck? Reveal a working connector spec</summary>
+
+Placeholder hint: a complete spec you can drop in and adapt.
+
+```json
+{
+  "placeholder": "connector spec"
+}
+```
+
+</details>
+
+### 4. Implement account aggregation
+
+Placeholder: walk through implementing `std:account:list` and `std:account:read`.
+
+<details>
+<summary>Stuck? Reveal the handler implementation</summary>
+
+Placeholder hint: a reference implementation of the aggregation handlers.
+
+```typescript
+// Placeholder
+export const connector = createConnector();
+```
+
+</details>
+
+### 5. Test and deploy
+
+Placeholder: describe testing locally, then building and uploading the connector.
+
+<details>
+<summary>Stuck? Reveal the test and deploy commands</summary>
+
+Placeholder hint: the full local-test-then-deploy sequence.
+
+```bash
+# Placeholder
+sail conn invoke std:account:list
+```
+
+</details>
+
+### 6. Stretch goal
+
+Placeholder: an optional extension, such as adding provisioning or entitlement support.
+
+## Documentation
+
+- [SaaS Connectivity overview](/docs/connectivity/saas-connectivity)
+- [Prerequisites](/docs/connectivity/saas-connectivity/prerequisites) — set this up before you start
+- [Build a basic connector](/docs/connectivity/saas-connectivity/build-basic-connector)
+- [Test, build, and deploy](/docs/connectivity/saas-connectivity/test-build-deploy)
+- [Example connectors](/docs/connectivity/saas-connectivity/example-connectors)
+
+## Still stuck?
+
+Grab a SailPoint developer advocate in the room, or reach for the community and tooling.
+
+- [Developer Forum](https://developer.sailpoint.com/discuss/)
+- [SDKs](/docs/tools/sdk)
+- [CLI](/docs/tools/cli)
+- [Back to all tracks](/hack-day)

@@ -96,7 +96,7 @@
 /* ── Track cards ───────────────────────────────────────────────────────────── */
 .trackGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   margin-top: 20px;
 }
@@ -370,5 +370,9 @@
 
   .section {
     padding: 36px 24px;
+  }
+
+  .trackGrid {
+    grid-template-columns: 1fr;
   }
 }

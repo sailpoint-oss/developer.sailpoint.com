@@ -4,111 +4,718 @@ description: Build and deploy a cloud-hosted SaaS connector for Identity Securit
 wrapperClassName: hack-day-track
 ---
 
+import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs';
+
 [← All Hack Day tracks](/hack-day)
 
 # Track 02 · SaaS Connectivity
 
-Wire a new system into the platform. You will build a cloud-hosted connector in TypeScript that
-aggregates accounts and entitlements and provisions access — all without standing up a virtual
-appliance.
+Wire a new connector into the platform. You will build a cloud-hosted connector in TypeScript that
+aggregates accounts and entitlements from a live demo system, then run it in your own tenant — no
+virtual appliance, and no system of your own to stand up.
+
+The system you integrate with is the **SaaS Connectivity Demo**, a disposable target application
+built for this track. One click gives you a private set of accounts and entitlements to aggregate.
+
+:::info Your target system
+
+**[Open the SaaS Connectivity Demo →](https://di3u013yjgxuh.cloudfront.net/welcome)**
+
+API base URL: `https://dugfer5z7k.execute-api.us-east-1.amazonaws.com`
+
+:::
 
 ## How to get started
 
-Work through the steps in order. If a step leaves you stuck, open the hint under it to unblock
-yourself and keep moving — using them costs you nothing.
+Work through the steps in order. You build one command at a time, and each one is testable on its own
+before you move to the next. If a step leaves you stuck, open the hint under it to unblock yourself
+and keep moving — using them costs you nothing.
 
 ### 1. Install the prerequisites
 
-Placeholder: list the Node version, CLI, and any accounts attendees need before starting.
-
-<details>
-<summary>Stuck? Reveal the install commands</summary>
-
-Placeholder hint: everything you need in one block.
+#### Node 18 or newer
 
 ```bash
-# Placeholder
-npm install -g @sailpoint/connector-cli
+node --version
+```
+
+If that prints anything below 18, grab a current release from [nodejs.org](https://nodejs.org/en/download).
+
+#### SailPoint CLI
+
+<Tabs>
+  <TabItem value="macos" label="macOS" default>
+
+```bash
+brew tap sailpoint-oss/tap && brew install sailpoint-cli
+```
+
+  </TabItem>
+  <TabItem value="windows" label="Windows">
+
+Download `sail_x.x.x_windows_amd64.msi` from the
+[releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases), double click it, and follow
+the installer. 64-bit Windows only.
+
+  </TabItem>
+  <TabItem value="linux" label="Linux">
+
+Download the `.deb` or `.rpm` from the
+[releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases), then install it:
+
+```bash
+sudo apt install ./sail_x.x.x_linux_amd64.deb
+```
+
+```bash
+sudo yum localinstall ./sail_x.x.x_linux_amd64.rpm
+```
+
+  </TabItem>
+</Tabs>
+
+Confirm it landed:
+
+```bash
+sail --version
+```
+
+#### Personal access token
+
+- In your tenant, open **Preferences → Personal Access Tokens**, or go straight to
+  `https://[tenant].identitynow.com/ui/d/user-preferences/personal-access-tokens`.
+- Click **New Token**, give it a description, then **Create Token**.
+- Copy the **Client ID** and **Client Secret** now. The secret is never shown again.
+
+More detail: [personal access tokens](/docs/api/authentication#generate-a-personal-access-token).
+
+#### Point the CLI at your tenant
+
+You will be prompted for your tenant URL (`https://[tenant].identitynow.com`) and API URL
+(`https://[tenant].api.identitynow.com`), then for the client ID and secret from above.
+
+```bash
+sail env create hackday
+sail set pat
+sail set auth pat
+```
+
+Check it authenticates — this should return without an error:
+
+```bash
+sail conn list
+```
+
+More detail: [CLI install and configuration](/docs/tools/cli).
+
+### 2. Get your demo system
+
+Open the [demo app](https://di3u013yjgxuh.cloudfront.net/welcome), click **Create API key**, then
+**Continue**, then **Seed data**.
+
+You now have 50 accounts and 8 entitlements that only your key can see. Copy the key somewhere safe —
+it is shown once.
+
+:::caution
+
+Your key and all of its data are deleted **7 days** after you create it. It is a training sandbox, so
+never put real data in it.
+
+:::
+
+<details>
+<summary>Stuck? Do it from the terminal instead</summary>
+
+```bash
+export DEMO_API=https://dugfer5z7k.execute-api.us-east-1.amazonaws.com
+
+# Create a key
+export DEMO_KEY=$(curl -sX POST "$DEMO_API/v1/keys" | jq -r .apiKey)
+echo $DEMO_KEY
+
+# Seed 50 accounts and 8 entitlements
+curl -sX POST "$DEMO_API/v1/seed" -H "Authorization: Bearer $DEMO_KEY" | jq
+
+# Look at an account
+curl -s "$DEMO_API/v1/users?limit=1&include=email" -H "Authorization: Bearer $DEMO_KEY" | jq
 ```
 
 </details>
 
-### 2. Scaffold a new connector project
-
-Placeholder: describe generating the project and what each generated file is for.
-
-<details>
-<summary>Stuck? Reveal the scaffold command</summary>
-
-Placeholder hint: the command that creates the starter project.
+### 3. Scaffold the connector project
 
 ```bash
-# Placeholder
-sail conn init my-connector
+sail conn init "saas-connectivity-demo"
+cd saas-connectivity-demo
+npm install
 ```
 
-</details>
+Three files matter:
 
-### 3. Define the connector spec
+| File | What it does |
+| --- | --- |
+| `connector-spec.json` | Tells ISC which commands you support, what config to prompt for, and your schemas |
+| `src/my-client.ts` | Your HTTP calls to the demo API |
+| `src/index.ts` | Maps the demo API's data onto the `std:*` commands |
 
-Placeholder: explain the account schema and the commands this connector will support.
+- [Prerequisites and project layout](/docs/connectivity/saas-connectivity/prerequisites)
 
-<details>
-<summary>Stuck? Reveal a working connector spec</summary>
+### 4. Define the connector spec
 
-Placeholder hint: a complete spec you can drop in and adapt.
+The spec is the contract between ISC and your code. Edit the generated `connector-spec.json` — here is
+what has to be in it and where it goes.
 
-```json
-{
-  "placeholder": "connector spec"
+| Key | Set it to | Why |
+| --- | --- | --- |
+| `name` | `saas-connectivity-demo` | What the source shows up as in ISC |
+| `commands` | the four `std:*` commands you implement | ISC only ever calls commands listed here, even if your code handles more |
+| `keyType` | `simple` | Demo accounts have one opaque id, so a single-valued key is enough |
+| `sourceConfig` | `baseUrl` and `apiKey` fields | Renders the form an admin fills in when creating the source |
+| `accountSchema` | the account attributes to import | Defines the columns ISC stores per account |
+| `entitlementSchemas` | the group attributes to import | Defines what an entitlement looks like |
+
+**`sourceConfig`** is a menu of sections of items. The `key` you give each item is exactly what comes
+back from `readConfig()` in your code, so `"key": "baseUrl"` becomes `config.baseUrl`. Give `apiKey`
+`"type": "secret"` so it is masked in the UI and encrypted at rest, and mark both `required`.
+
+**`accountSchema`** needs three pointers plus the attribute list:
+
+- `identityAttribute` → `id`. This is the account's permanent unique key. Use the opaque `usr_...`
+  value, not `userName` — logins change, and if the identity attribute changes ISC sees a delete and a
+  create rather than an update.
+- `displayAttribute` → `displayName`. Cosmetic; what a reviewer reads in the UI.
+- `groupAttribute` → `groups`. Names the attribute that holds entitlements. It must match the name of
+  the attribute you flag as an entitlement below.
+- `attributes` → at minimum `id`, `userName`, `displayName`, `email`, and `groups`. Add
+  `department` and `title` if you want something to build a role around later.
+
+The `groups` attribute is the one with flags on it. It needs `"entitlement": true` so ISC treats each
+value as an entitlement rather than plain text, `"multi": true` because an account belongs to several
+groups, and `"managed": true` so ISC is allowed to add and remove them during provisioning.
+
+**`entitlementSchemas`** is an array — one entry per entitlement type. Use `"type": "group"`, which is
+the only type ISC supports. Point `identityAttribute` at `id` and `displayAttribute` at `name`, and set
+`"includePermissions": true` if you want permission detail; that flag is what makes ISC ask for it and
+what the demo API's `includePermissions` query parameter mirrors.
+
+Two things to notice, because they are what a real source makes you deal with:
+
+- `id` is an opaque `usr_...` value, not the login. Real systems usually have both, and you have to
+  pick one.
+- `groups` holds opaque `grp_...` entitlement ids, not group names. ISC resolves them for you *only*
+  if the entitlement schema's `identityAttribute` matches what accounts store.
+
+The demo app will write the whole file for you if you want to skip ahead: go to
+**Schema → connector-spec.json** and click **Download**.
+
+- [Connector spec reference](/docs/connectivity/saas-connectivity/connector-spec)
+
+### 5. Implement `std:test-connection`
+
+ISC calls this when an admin clicks **Test Connection**. Return an empty object on success, or throw —
+there is no "false" to return.
+
+**Endpoint:** `GET /v1/health`. It is authenticated on purpose, so a bad key fails the test rather
+than reporting a healthy source.
+
+Start with `src/my-client.ts`. The SDK ships an HTTP client that already handles auth headers, retries,
+and logging, so do not add Axios yourself:
+
+```typescript
+import {AxiosInstance, createConnectorHttpClient} from '@sailpoint/connector-sdk'
+
+export class MyClient {
+    private readonly httpClient: AxiosInstance
+
+    constructor(config: any) {
+        this.httpClient = createConnectorHttpClient({
+            baseURL: config.baseUrl,
+            auth: {type: 'bearer', token: config.apiKey},
+        })
+    }
 }
 ```
 
-</details>
+Every later call is then a relative path off `baseURL` — `this.httpClient.get('/health')`.
 
-### 4. Implement account aggregation
+Now wire the command in `src/index.ts` using `readConfig()` to get the values the admin typed into
+`sourceConfig`, and `.stdTestConnection()` to register the handler.
 
-Placeholder: walk through implementing `std:account:list` and `std:account:read`.
-
-<details>
-<summary>Stuck? Reveal the handler implementation</summary>
-
-Placeholder hint: a reference implementation of the aggregation handlers.
-
-```typescript
-// Placeholder
-export const connector = createConnector();
-```
-
-</details>
-
-### 5. Test and deploy
-
-Placeholder: describe testing locally, then building and uploading the connector.
-
-<details>
-<summary>Stuck? Reveal the test and deploy commands</summary>
-
-Placeholder hint: the full local-test-then-deploy sequence.
+Test it. `npm run dev` starts a local server on port 3000 and reloads on save, so leave it running.
 
 ```bash
-# Placeholder
-sail conn invoke std:account:list
+npm run dev
 ```
+
+In a second terminal:
+
+```bash
+curl -sX POST localhost:3000 -H "Content-Type: application/json" -d '{
+  "type": "std:test-connection",
+  "input": {},
+  "config": {
+    "baseUrl": "https://dugfer5z7k.execute-api.us-east-1.amazonaws.com/v1",
+    "apiKey": "sck_your_key_here"
+  }
+}'
+```
+
+You want `{}` back. Note the `/v1` on the end of `baseUrl` — leave it off and every call 404s.
+
+:::tip Check your answer
+
+The demo API implements all fifteen commands itself, so you can compare your output against a
+known-good answer at any point. (`$DEMO_API` and `$DEMO_KEY` are the variables from step 2.)
+
+```bash
+curl -sX POST "$DEMO_API/v1/commands/test-connection" \
+  -H "Authorization: Bearer $DEMO_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"input":{}}'
+```
+
+Swap `test-connection` for `account-list`, `account-read`, or `entitlement-list` as you go. The app's
+**API** page has a copy-paste recipe for each one.
+
+:::
+
+<details>
+<summary>Stuck? Reveal the code</summary>
+
+`src/my-client.ts`:
+
+```typescript
+import {AxiosInstance, ConnectorError, createConnectorHttpClient} from '@sailpoint/connector-sdk'
+
+export class MyClient {
+    private readonly httpClient: AxiosInstance
+
+    constructor(config: any) {
+        if (!config?.baseUrl || !config?.apiKey) {
+            throw new ConnectorError('baseUrl and apiKey must be provided from config')
+        }
+
+        this.httpClient = createConnectorHttpClient({
+            baseURL: config.baseUrl,
+            auth: {type: 'bearer', token: config.apiKey},
+        })
+    }
+
+    async testConnection(): Promise<any> {
+        try {
+            await this.httpClient.get('/health')
+            return {}
+        } catch (error: any) {
+            if (error?.response?.status === 401) {
+                throw new ConnectorError('The demo API rejected this key. Demo keys expire after 7 days.')
+            }
+            throw error
+        }
+    }
+}
+```
+
+`src/index.ts`:
+
+```typescript
+import {
+    Context,
+    createConnector,
+    readConfig,
+    Response,
+    StdTestConnectionInput,
+    StdTestConnectionOutput,
+} from '@sailpoint/connector-sdk'
+import {MyClient} from './my-client'
+
+export const connector = async () => {
+    const config = await readConfig()
+    const myClient = new MyClient(config)
+
+    return createConnector()
+        .stdTestConnection(
+            async (context: Context, input: StdTestConnectionInput, res: Response<StdTestConnectionOutput>) => {
+                res.send(await myClient.testConnection())
+            }
+        )
+}
+```
+
+Each command you add in the next steps chains another `.stdSomething()` onto that same call.
+
+- [Test connection](/docs/connectivity/saas-connectivity/commands/test-connection)
+- [HTTP client](/docs/connectivity/saas-connectivity/in-depth/http-client)
+- [Error handling](/docs/connectivity/saas-connectivity/in-depth/error-handling)
 
 </details>
 
-### 6. Stretch goal
+### 6. Implement `std:account:list`
 
-Placeholder: an optional extension, such as adding provisioning or entitlement support.
+This is full aggregation — every account in the source, every time.
+
+**Endpoint:** `GET /v1/users`. Two things to handle:
+
+- **It pages.** Default page size is 10, capped at 100. Keep passing the `cursor` from the last
+  response back as a query parameter until no `cursor` comes back. A page can have fewer items than
+  you asked for and still not be the last one, so trust the cursor, not the count.
+- **`email` is withheld** from the list response, the way plenty of real APIs withhold contact details
+  from bulk endpoints. Pass `include=email` for now; making the per-account fan-out work is a stretch
+  goal.
+
+Add a `getAllAccounts()` method to `MyClient` that loops the cursor and returns a flat array.
+
+In `index.ts`, register `.stdAccountList()`. The output is a **stream, not an array** — call
+`res.send()` once per account inside your loop. For each account, set:
+
+| Output field | From |
+| --- | --- |
+| `identity`, `uuid` | `account.id` |
+| `key` | `SimpleKey(account.id)` |
+| `disabled` | `!account.active` — the source stores the positive form, ISC wants the negative |
+| `locked` | `account.locked` |
+| `attributes` | Every attribute you declared in the account schema |
+
+Write the account-to-output mapping as its own function. `std:account:read` in the next step needs the
+identical shape, and if you inline it twice the two will drift.
+
+```bash
+curl -sX POST localhost:3000 -H "Content-Type: application/json" -d '{
+  "type": "std:account:list",
+  "input": {},
+  "config": {
+    "baseUrl": "https://dugfer5z7k.execute-api.us-east-1.amazonaws.com/v1",
+    "apiKey": "sck_your_key_here"
+  }
+}'
+```
+
+You want 50 objects, not 10 — if you get 10, your cursor loop is not looping.
+
+<details>
+<summary>Stuck? Reveal the code</summary>
+
+Add to `src/my-client.ts`:
+
+```typescript
+    // The demo API paginates by opaque cursor, so keep going until there isn't one.
+    async getAllAccounts(): Promise<any[]> {
+        const accounts: any[] = []
+        let cursor: string | undefined
+
+        do {
+            const params: any = {limit: 50, include: 'email'}
+            if (cursor) {
+                params.cursor = cursor
+            }
+            const response = await this.httpClient.get('/users', {params})
+            accounts.push(...response.data.items)
+            cursor = response.data.cursor
+        } while (cursor)
+
+        return accounts
+    }
+```
+
+Add to `src/index.ts` — the shared mapper, then the handler:
+
+```typescript
+// One mapper, used by both account:list and account:read, so they cannot drift.
+const toAccount = (account: any): StdAccountReadOutput => ({
+    identity: account.id,
+    uuid: account.id,
+    key: SimpleKey(account.id),
+    disabled: !account.active, // the source stores the positive form
+    locked: account.locked,
+    attributes: {
+        id: account.id,
+        userName: account.userName,
+        displayName: account.displayName,
+        firstName: account.firstName,
+        lastName: account.lastName,
+        email: account.email,
+        department: account.department,
+        title: account.title,
+        groups: account.groups,
+    },
+})
+```
+
+```typescript
+        .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
+            const accounts = await myClient.getAllAccounts()
+
+            // Send one object per account. This is a stream, not an array.
+            for (const account of accounts) {
+                res.send(toAccount(account))
+            }
+            logger.info(`stdAccountList sent ${accounts.length} accounts`)
+        })
+```
+
+Your imports from `@sailpoint/connector-sdk` now also need `logger`, `SimpleKey`,
+`StdAccountListInput`, `StdAccountListOutput`, and `StdAccountReadOutput`.
+
+- [Account list](/docs/connectivity/saas-connectivity/commands/account-list)
+
+</details>
+
+### 7. Implement `std:account:read`
+
+ISC calls this to refresh a single account — after a provisioning operation, or when someone clicks
+**Reload Account**.
+
+**Endpoint:** `GET /v1/users/{id}`. Same `include=email` caveat as the list.
+
+Two things to get right:
+
+- **Finding the id.** `input.key` is a union of simple and compound keys, so TypeScript will not let
+  you reach straight for `input.key.simple.id` — narrow it first. Fall back to `input.identity` so your
+  local test payloads work without a `key` block.
+- **Missing accounts.** An unknown id returns `404`. Map that onto
+  `ConnectorErrorType.NotFound` — that specific error is how ISC knows to fall through to
+  `std:account:create` instead of failing the whole operation. Anything else you throw is a hard
+  failure.
+
+Reuse the mapper from step 6, then test with an id from the demo app's **Accounts** table:
+
+```bash
+curl -sX POST localhost:3000 -H "Content-Type: application/json" -d '{
+  "type": "std:account:read",
+  "input": {"identity": "usr_..."},
+  "config": {
+    "baseUrl": "https://dugfer5z7k.execute-api.us-east-1.amazonaws.com/v1",
+    "apiKey": "sck_your_key_here"
+  }
+}'
+```
+
+Then try a made-up id and confirm you get a `notFound` error rather than a generic one.
+
+<details>
+<summary>Stuck? Reveal the code</summary>
+
+Add to `src/my-client.ts`:
+
+```typescript
+    async getAccount(id: string): Promise<any> {
+        try {
+            const response = await this.httpClient.get(`/users/${id}`, {
+                params: {include: 'email'},
+            })
+            return response.data
+        } catch (error: any) {
+            // Let ISC fall through to std:account:create when the account is gone.
+            if (error?.response?.status === 404) {
+                throw new ConnectorError(`Account ${id} not found`, ConnectorErrorType.NotFound)
+            }
+            throw error
+        }
+    }
+```
+
+Add to `src/index.ts`:
+
+```typescript
+        .stdAccountRead(async (context: Context, input: StdAccountReadInput, res: Response<StdAccountReadOutput>) => {
+            // Narrow the key union, and fall back to identity so the local
+            // test payloads work without a key block.
+            const id = input.key && 'simple' in input.key ? input.key.simple.id : input.identity
+            res.send(toAccount(await myClient.getAccount(id)))
+        })
+```
+
+`my-client.ts` now also needs `ConnectorErrorType` in its imports, and `index.ts` needs
+`StdAccountReadInput`.
+
+- [Account read](/docs/connectivity/saas-connectivity/commands/account-read)
+
+</details>
+
+### 8. Implement `std:entitlement:list`
+
+Same shape as `std:account:list`, but for groups — and this is the one to run **first** in ISC, so
+accounts have something to correlate their `groups` values against.
+
+**Endpoint:** `GET /v1/groups`. It pages the same way, but 8 entitlements fit in one page at
+`limit=100`. Pass `includePermissions=true` to get permission detail back; without it the field is
+withheld, mirroring the schema flag ISC passes you.
+
+Each `res.send()` needs a bit more than an account did:
+
+| Output field | From |
+| --- | --- |
+| `identity`, `uuid` | `entitlement.id` |
+| `key` | `SimpleKey(entitlement.id)` |
+| `type` | `'group'` — must match the `type` in your entitlement schema |
+| `deleted` | `false` |
+| `attributes` | The attributes you declared in the entitlement schema |
+| `permissions` | `entitlement.permissions` |
+
+```bash
+curl -sX POST localhost:3000 -H "Content-Type: application/json" -d '{
+  "type": "std:entitlement:list",
+  "input": {"type": "group"},
+  "config": {
+    "baseUrl": "https://dugfer5z7k.execute-api.us-east-1.amazonaws.com/v1",
+    "apiKey": "sck_your_key_here"
+  }
+}'
+```
+
+You want 8 objects, with `permissions` populated on a few of them.
+
+<details>
+<summary>Stuck? Reveal the code</summary>
+
+Add to `src/my-client.ts`:
+
+```typescript
+    async getAllEntitlements(): Promise<any[]> {
+        const response = await this.httpClient.get('/groups', {
+            params: {limit: 100, includePermissions: true},
+        })
+        return response.data.items
+    }
+```
+
+Add to `src/index.ts`:
+
+```typescript
+        .stdEntitlementList(
+            async (context: Context, input: StdEntitlementListInput, res: Response<StdEntitlementListOutput>) => {
+                const entitlements = await myClient.getAllEntitlements()
+
+                for (const entitlement of entitlements) {
+                    res.send({
+                        identity: entitlement.id,
+                        uuid: entitlement.id,
+                        key: SimpleKey(entitlement.id),
+                        type: 'group',
+                        deleted: false,
+                        attributes: {
+                            id: entitlement.id,
+                            name: entitlement.name,
+                            displayName: entitlement.displayName,
+                            description: entitlement.description,
+                        },
+                        permissions: entitlement.permissions,
+                    })
+                }
+                logger.info(`stdEntitlementList sent ${entitlements.length} entitlements`)
+            }
+        )
+```
+
+`index.ts` now also needs `StdEntitlementListInput` and `StdEntitlementListOutput`.
+
+- [Entitlement list](/docs/connectivity/saas-connectivity/commands/entitlement-list)
+- [Test, build, and deploy](/docs/connectivity/saas-connectivity/test-build-deploy)
+
+</details>
+
+### 9. Deploy to your tenant
+
+Package the connector, create an entry for it in your org, and upload it.
+
+```bash
+npm run pack-zip
+sail conn create "saas-connectivity-demo"
+sail conn upload -c saas-connectivity-demo -f dist/saas-connectivity-demo-0.1.0.zip
+```
+
+The zip filename comes from `name` and `version` in `package.json` — run `ls dist` if you are not sure.
+
+Then run a command against the uploaded connector. Put your `baseUrl` and `apiKey` in a
+`config.json` first.
+
+```bash
+sail conn invoke account-list -c saas-connectivity-demo -p config.json
+```
+
+<details>
+<summary>Stuck? Reveal the config file and debugging commands</summary>
+
+`config.json`:
+
+```json
+{
+    "baseUrl": "https://dugfer5z7k.execute-api.us-east-1.amazonaws.com/v1",
+    "apiKey": "sck_your_key_here"
+}
+```
+
+```bash
+# What did I upload?
+sail conn list
+sail conn tags list -c saas-connectivity-demo
+
+# Watch the connector's logs in your org
+sail conn logs tail
+
+# Read-only integration tests
+sail conn validate -p config.json -c saas-connectivity-demo -r
+```
+
+- [Common CLI commands](/docs/connectivity/saas-connectivity/common-cli-commands)
+
+</details>
+
+### 10. Create the source and aggregate
+
+In your tenant, go to **Admin → Connections → Sources → Create Source**, search for
+**saas-connectivity-demo**, and select it.
+
+1. Give the source a name and assign an owner.
+2. On the configuration screen, paste your **Demo API base URL** and **Demo API key**.
+3. Click **Test Connection**.
+4. Go to **Import Data → Entitlement Aggregation** and run it — entitlements first, so accounts have
+   groups to correlate against.
+5. Then run **Import Data → Account Aggregation**.
+
+You should see 8 entitlements and 50 accounts land in ISC. Open an account and check the attributes
+came through the way you mapped them, and that its entitlements resolved to group names rather than
+raw `grp_...` ids.
+
+### 11. Stretch goals
+
+Pick whichever looks most interesting. Each one maps to something real sources actually do.
+
+- **Make the email fan-out real.** Drop `include=email` from your account list call. The demo API
+  withholds email from bulk responses, exactly like Discourse does, so you have to fetch
+  `/users/{id}/emails` per account — use `Promise.all` to avoid doing it serially.
+- **Add provisioning.** Implement `std:account:create`, `std:account:update`, `std:account:enable`,
+  `std:account:disable`, and `std:account:unlock`. Watch the `AttributeChange` semantics: `Set`
+  replaces a whole multi-valued list, `Add` only works on multi-valued attributes, and an update that
+  changes nothing must return `{}`.
+- **Add delta aggregation.** Set `supportsStatefulCommands` in your spec, then use the demo API's
+  `updatedSince` filter with `res.saveState()`. Six of the seeded accounts have recent timestamps, so
+  a delta run returns a genuine subset.
+- **Handle failure properly.** Create a second key with
+  `curl -X POST "$DEMO_API/v1/keys?readOnly=true"`. Every write then returns `403`. Note that
+  `ConnectorErrorType` only has `Generic` and `NotFound` — for anything else you throw a
+  `ConnectorError` with a message worth reading, or define your own subclasses as the
+  [error handling guide](/docs/connectivity/saas-connectivity/in-depth/error-handling) shows.
+- **Populate a dropdown.** Implement `std:source-data:discover` and `std:source-data:read` so a
+  source config field offers the demo system's real departments and locations.
 
 ## Documentation
 
 - [SaaS Connectivity overview](/docs/connectivity/saas-connectivity)
 - [Prerequisites](/docs/connectivity/saas-connectivity/prerequisites) — set this up before you start
 - [Build a basic connector](/docs/connectivity/saas-connectivity/build-basic-connector)
+- [Connector commands](/docs/connectivity/saas-connectivity/connector-commands)
+- [Connector spec](/docs/connectivity/saas-connectivity/connector-spec)
 - [Test, build, and deploy](/docs/connectivity/saas-connectivity/test-build-deploy)
+- [Common CLI commands](/docs/connectivity/saas-connectivity/common-cli-commands)
 - [Example connectors](/docs/connectivity/saas-connectivity/example-connectors)
+
+## Demo system reference
+
+- [Open the demo app](https://di3u013yjgxuh.cloudfront.net/welcome) — create a key, seed and edit data, browse the schema
+- [OpenAPI description](https://di3u013yjgxuh.cloudfront.net/openapi/saas-connectivity-demo.yaml) — every endpoint and command
+- The app's **API** page has copy-paste `curl` recipes for all fifteen commands, pre-filled with the
+  right base URL.
 
 ## Still stuck?
 

@@ -90,6 +90,24 @@ sail --version
 
 More detail: [personal access tokens](/docs/api/authentication#generate-a-personal-access-token).
 
+#### Postman (optional)
+
+If you would rather click than type, every test in this guide has a Postman equivalent.
+
+- Install [Postman](https://www.postman.com/downloads/), or use the web version.
+- Fork the [**SaaS Connectivity collection**](https://god.gw.postman.com/run-collection/23226990-a0b5c429-d8dd-4fe2-a4a2-eb7ff85322ef?action=collection%2Ffork&collection-url=entityId%3D23226990-a0b5c429-d8dd-4fe2-a4a2-eb7ff85322ef%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) into your own workspace.
+- Open the **Connector Commands** folder. Every request already POSTs to `http://localhost:3000`,
+  which is exactly where `npm run dev` listens, so the URLs need no editing.
+- The only thing you must change is the `config` block. The collection ships with a generic
+  `{"token": "apikey"}` placeholder — replace it with the `baseUrl` and `apiKey` your connector
+  actually reads.
+
+To poke at the demo API directly rather than at your connector, import its
+[OpenAPI description](https://di3u013yjgxuh.cloudfront.net/openapi/saas-connectivity-demo.yaml) as a
+second collection: **Import → Link**.
+
+More detail: [Postman collection](/docs/connectivity/saas-connectivity/postman-collection).
+
 #### Point the CLI at your tenant
 
 You will be prompted for your tenant URL (`https://[tenant].identitynow.com`) and API URL
@@ -169,8 +187,7 @@ what has to be in it and where it goes.
 | Key | Set it to | Why |
 | --- | --- | --- |
 | `name` | `saas-connectivity-demo` | What the source shows up as in ISC |
-| `commands` | the four `std:*` commands you implement | ISC only ever calls commands listed here, even if your code handles more |
-| `keyType` | `simple` | Demo accounts have one opaque id, so a single-valued key is enough |
+| `commands` | the four `std:*` commands you implement, `std:entitlement:list` is the only one you need to add here | ISC only ever calls commands listed here, even if your code handles more |
 | `sourceConfig` | `baseUrl` and `apiKey` fields | Renders the form an admin fills in when creating the source |
 | `accountSchema` | the account attributes to import | Defines the columns ISC stores per account |
 | `entitlementSchemas` | the group attributes to import | Defines what an entitlement looks like |
@@ -182,7 +199,7 @@ back from `readConfig()` in your code, so `"key": "baseUrl"` becomes `config.bas
 **`accountSchema`** needs three pointers plus the attribute list:
 
 - `identityAttribute` → `id`. This is the account's permanent unique key. Use the opaque `usr_...`
-  value, not `userName` — logins change, and if the identity attribute changes ISC sees a delete and a
+  value, not `userName`. Logins change, and if the identity attribute changes ISC sees a delete and a
   create rather than an update.
 - `displayAttribute` → `displayName`. Cosmetic; what a reviewer reads in the UI.
 - `groupAttribute` → `groups`. Names the attribute that holds entitlements. It must match the name of
@@ -250,6 +267,9 @@ npm run dev
 
 In a second terminal:
 
+<Tabs groupId="client">
+  <TabItem value="curl" label="curl" default>
+
 ```bash
 curl -sX POST localhost:3000 -H "Content-Type: application/json" -d '{
   "type": "std:test-connection",
@@ -260,6 +280,25 @@ curl -sX POST localhost:3000 -H "Content-Type: application/json" -d '{
   }
 }'
 ```
+
+  </TabItem>
+  <TabItem value="postman" label="Postman">
+
+Open **Connector Commands → Test local stdTestConnection** and replace the body with:
+
+```json
+{
+  "type": "std:test-connection",
+  "input": {},
+  "config": {
+    "baseUrl": "https://dugfer5z7k.execute-api.us-east-1.amazonaws.com/v1",
+    "apiKey": "sck_your_key_here"
+  }
+}
+```
+
+  </TabItem>
+</Tabs>
 
 You want `{}` back. Note the `/v1` on the end of `baseUrl` — leave it off and every call 404s.
 
@@ -379,6 +418,9 @@ In `index.ts`, register `.stdAccountList()`. The output is a **stream, not an ar
 Write the account-to-output mapping as its own function. `std:account:read` in the next step needs the
 identical shape, and if you inline it twice the two will drift.
 
+<Tabs groupId="client">
+  <TabItem value="curl" label="curl" default>
+
 ```bash
 curl -sX POST localhost:3000 -H "Content-Type: application/json" -d '{
   "type": "std:account:list",
@@ -389,6 +431,29 @@ curl -sX POST localhost:3000 -H "Content-Type: application/json" -d '{
   }
 }'
 ```
+
+  </TabItem>
+  <TabItem value="postman" label="Postman">
+
+Open **Connector Commands → Test local stdAccountList** and replace the body with:
+
+```json
+{
+  "type": "std:account:list",
+  "input": {},
+  "config": {
+    "baseUrl": "https://dugfer5z7k.execute-api.us-east-1.amazonaws.com/v1",
+    "apiKey": "sck_your_key_here"
+  }
+}
+```
+
+The shipped body also sets `"stateful": true`, which asks for a delta run. Leaving it in does no
+harm — your handler ignores it and returns everything — but delta aggregation is a stretch goal, so
+clear it out to keep the request honest.
+
+  </TabItem>
+</Tabs>
 
 You want 50 objects, not 10 — if you get 10, your cursor loop is not looping.
 
@@ -479,6 +544,9 @@ Two things to get right:
 
 Reuse the mapper from step 6, then test with an id from the demo app's **Accounts** table:
 
+<Tabs groupId="client">
+  <TabItem value="curl" label="curl" default>
+
 ```bash
 curl -sX POST localhost:3000 -H "Content-Type: application/json" -d '{
   "type": "std:account:read",
@@ -489,6 +557,31 @@ curl -sX POST localhost:3000 -H "Content-Type: application/json" -d '{
   }
 }'
 ```
+
+  </TabItem>
+  <TabItem value="postman" label="Postman">
+
+Open **Connector Commands → Test local stdAccountRead** and replace the body with:
+
+```json
+{
+  "type": "std:account:read",
+  "input": {
+    "key": {"simple": {"id": "usr_..."}},
+    "identity": "usr_..."
+  },
+  "config": {
+    "baseUrl": "https://dugfer5z7k.execute-api.us-east-1.amazonaws.com/v1",
+    "apiKey": "sck_your_key_here"
+  }
+}
+```
+
+The shipped body uses `john.doe` in both places — swap in a real `usr_...` id. Sending `key` and
+`identity` together is the realistic case, and exercises the narrowing above.
+
+  </TabItem>
+</Tabs>
 
 Then try a made-up id and confirm you get a `notFound` error rather than a generic one.
 
@@ -552,6 +645,9 @@ Each `res.send()` needs a bit more than an account did:
 | `attributes` | The attributes you declared in the entitlement schema |
 | `permissions` | `entitlement.permissions` |
 
+<Tabs groupId="client">
+  <TabItem value="curl" label="curl" default>
+
 ```bash
 curl -sX POST localhost:3000 -H "Content-Type: application/json" -d '{
   "type": "std:entitlement:list",
@@ -562,6 +658,27 @@ curl -sX POST localhost:3000 -H "Content-Type: application/json" -d '{
   }
 }'
 ```
+
+  </TabItem>
+  <TabItem value="postman" label="Postman">
+
+Open **Connector Commands → Test local stdEntitlementList** and replace the body with:
+
+```json
+{
+  "type": "std:entitlement:list",
+  "input": {
+    "type": "group"
+  },
+  "config": {
+    "baseUrl": "https://dugfer5z7k.execute-api.us-east-1.amazonaws.com/v1",
+    "apiKey": "sck_your_key_here"
+  }
+}
+```
+
+  </TabItem>
+</Tabs>
 
 You want 8 objects, with `permissions` populated on a few of them.
 
@@ -708,6 +825,7 @@ Pick whichever looks most interesting. Each one maps to something real sources a
 - [Connector spec](/docs/connectivity/saas-connectivity/connector-spec)
 - [Test, build, and deploy](/docs/connectivity/saas-connectivity/test-build-deploy)
 - [Common CLI commands](/docs/connectivity/saas-connectivity/common-cli-commands)
+- [Postman collection](/docs/connectivity/saas-connectivity/postman-collection)
 - [Example connectors](/docs/connectivity/saas-connectivity/example-connectors)
 
 ## Demo system reference

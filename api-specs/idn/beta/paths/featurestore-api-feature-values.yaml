@@ -1,0 +1,32 @@
+post:
+  operationId: getFeatures
+  tags:
+    - IAI MLOPS Feature Store
+  summary: Request feature values from featurestore
+  description: >-
+    This API receives a list of feature names and entity id mappings and returns the requested feature values from the online store
+  requestBody:
+    description: A mapping of feature aliases to feature store view and column name as well as a list of entity key value mappings to request values for
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/FeatureStoreFeatureValuesRequest.yaml'
+  responses:
+    '200':
+      description: List of feature and entity values
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/FeatureStoreFeatureValuesResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [mlops:feature-data:read]

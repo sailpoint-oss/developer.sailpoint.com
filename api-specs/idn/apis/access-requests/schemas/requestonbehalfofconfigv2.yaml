@@ -1,0 +1,31 @@
+type: object
+title: Request On Behalf Of Config
+properties:
+  allowRequestOnBehalfOfAnyoneByAnyone:
+    type: boolean
+    description: If this is true, anyone can request access for anyone.
+    default: false
+    example: true
+  allowRequestOnBehalfOfEmployeeByManager:
+    type: boolean
+    description: If this is true, a manager can request access for his or her direct reports.
+    default: false
+    example: true
+  allowRequestOnBehalfOfForMachineIdentity:
+    type: boolean
+    description: >
+      If this is true, anyone can request access on behalf of machine identities.
+      Machine access request authorization is evaluated as follows:
+      1. If this flag is true, any requester is allowed.
+      2. Else if `allowRequestForMachineByOwner` is true, the requester must be an admin or a primary/secondary owner of
+      every requested machine identity.
+      3. Else admins are still allowed; non-admins receive 403.
+    default: true
+    example: true
+  allowRequestForMachineByOwner:
+    type: boolean
+    description: >
+      When `allowRequestOnBehalfOfForMachineIdentity` is false and this flag is true, only admins and primary/secondary
+      owners of the requested machine identities may submit machine access requests. Defaults to false (opt-in).
+    default: false
+    example: false

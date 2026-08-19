@@ -1,0 +1,39 @@
+type: object
+title: Access Item Role Response
+properties:
+  id:
+    type: string
+    example: 2c918087763e69d901763e72e97f006f
+    description: the access item id
+  accessType:
+    type: string
+    example: role
+    description: the access item type. role in this case
+  displayName:
+    type: string
+    example: sample
+    description: the role display name
+  sourceName:
+    type: string
+    example: Source Name
+    description: the associated source name if it exists
+    nullable: true
+  description:
+    type: string
+    example: Role - Workday/Citizenship access
+    description: the description for the role
+  startDate:
+    type: string
+    example: '2024-07-01T05:00:00.00Z'
+    description: the date the access profile will be assigned to the specified identity, in case requested with a future start date
+    nullable: true
+  removeDate:
+    type: string
+    example: '2024-07-01T06:00:00.00Z'
+    description: the date the role is no longer assigned to the specified identity
+  revocable:
+    type: boolean
+    example: true
+    description: indicates whether the role is revocable
+required:
+  - revocable

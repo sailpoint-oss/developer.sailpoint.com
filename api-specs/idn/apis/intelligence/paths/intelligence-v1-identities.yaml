@@ -1,0 +1,153 @@
+get:
+  operationId: getIdentityIntelligenceV1
+  security:
+  - userAuth:
+    - sp:identity-sec-intel:read
+  - applicationAuth:
+    - sp:identity-sec-intel:read
+  x-required-right: sp:identity-sec-intel:read
+  x-sailpoint-userLevels:
+  - Any
+  tags:
+  - Intelligence
+  summary: Get identity by filter
+  description: |
+    Requires tenant license idn:response-and-remediation.
+
+    **Authentication and data segmentation**
+
+    Intelligence forwards the caller JWT to downstream identity and search services (context client).
+    Enriched results, including non-human identity resolution, are filtered to the caller's Data
+    Segmentation visibility.
+
+    **Caution:** Generic API Management API keys are not tied to a user identity. When Data
+    Segmentation is enabled, API key authentication may fail or return incomplete data because
+    downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token)
+    or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html)
+    and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).
+
+    Resolves exactly one identity using a single SCIM-style filters expression.
+
+    **Supported filters**
+
+    | Filter field | Lookup mode | Notes |
+    |---|---|---|
+    | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. |
+    | email eq | Human only | Human identity lookup by email only. |
+    | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |
+
+    Single-clause filters only; composite and or expressions are rejected with HTTP 400.
+
+    **identityGraph deep link**
+
+    When the tenant has the idg:base license, Human and NHI aggregate responses may include
+    `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity.
+    Opening the link requires the **Identity Graph Read Only** user level. The link is omitted
+    when the tenant lacks idg:base.
+
+    **Human envelope (type Human)**
+
+    Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount
+    from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when
+    totalCount exceeds the items returned on this page. Slices are always present (empty uses
+    items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries
+    next or totalCount. When the tenant has idn:machine-identity-security, nonHumanIdentityOwnership
+    is included with agents and applications categories; each category is a flat object with
+    independently paged primaryOwned and secondaryOwned buckets, and optional message/reason when
+    upstream ownership fetch fails for that category (reason UPSTREAM_UNAVAILABLE). When the tenant
+    lacks that license, nonHumanIdentityOwnership is omitted. Continue ownership paging with
+    GET .../non-human-identity-ownership/{category} and optional ownershipRole=primary|secondary
+    (defaults to primary). If any enrichment upstream fails, the whole request fails with HTTP 500,
+    except outliers (omitted when the tenant lacks the IDA-outliers license) and
+    nonHumanIdentityOwnership category-level degrade (aggregate still returns HTTP 200).
+
+    **Non-human identity envelope (type NHI)**
+
+    Returns flat non-human identity fields at the top level plus correlated machine accounts on the
+    aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary).
+    Omits Human-only slices (privilegedAccess, outliers, accessHistory, nonHumanIdentityOwnership).
+    Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates
+    to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent
+    identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values.
+  parameters:
+  - in: query
+    name: filters
+    required: true
+    schema:
+      type: string
+    examples:
+      byId:
+        value: id eq "ef38f94347e94562b5bb8424a56397d8"
+      byEmail:
+        value: email eq "user@example.com"
+      byOpaqueIdentifier:
+        value: opaqueIdentifier eq "arn:aws:bedrock:us-east-1:336721:agent/ABCDEFGHI"
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection
+      Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **id**: *eq*
+
+
+      **email**: *eq*
+
+
+      **opaqueIdentifier**: *eq*
+  responses:
+    '200':
+      description: Exactly one identity matched.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/intelidentityenvelope.yaml
+          examples:
+            Human identity:
+              $ref: ../examples/intel-identity-human-envelope.yaml
+            Non-human identity (NHI):
+              $ref: ../examples/intel-identity-nhi-envelope.yaml
+    '400':
+      description: |
+        Missing or invalid filters, unsupported filter field or operator, composite and or filter
+        combination, or opaqueIdentifier lookup when non-human machine resolution is disabled for
+        the tenant.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      description: Unauthorized access
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+    '404':
+      description: No identity matched the filter (detailCode IDC_IDENTITY_NOT_FOUND).
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/intelidentitynotfoundbody.yaml
+    '409':
+      description: |
+        Multiple identities matched the filter (detailCode IDC_IDENTITY_AMBIGUOUS), including
+        human email or id multi-hit, human and machine id eq clash, and non-human opaque resolution
+        ambiguity. Response includes candidates with id and displayName for refinement.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/intel-identity-ambiguous-body.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      description: |
+        Upstream or internal failure. Identity resolution may pass an
+        upstream non-2xx through; enrichment-slice failures are sanitized to a generic HTTP 500.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml

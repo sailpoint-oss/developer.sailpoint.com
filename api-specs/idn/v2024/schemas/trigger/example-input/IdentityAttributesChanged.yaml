@@ -1,0 +1,75 @@
+title: Identity Attributes Changed
+type: object
+required:
+- identity
+- changes
+properties:
+  identity:
+    required:
+    - id
+    - type
+    - name
+    type: object
+    description: Identity whose attributes changed. 
+    properties:
+      type:
+        type: string 
+        description: DTO type of identity whose attributes changed. 
+        enum: 
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: ID of identity whose attributes changed. 
+        example: 2c7180a46faadee4016fb4e018c20642
+      name:
+        type: string
+        description: Display name of identity whose attributes changed. 
+        example: Michael Michaels
+  changes:
+    description: A list of one or more identity attributes that changed on the identity.
+    type: array
+    items:
+      type: object
+      required:
+      - attribute
+      properties:
+        attribute:
+          type: string
+          description: The name of the identity attribute that changed.
+          example: department
+        oldValue:
+          description: The value of the identity attribute before it changed.
+          nullable: true
+          example: sales
+          oneOf:
+          - type: string
+          - type: boolean
+          - type: array
+            items:
+              type: string
+          - type: object
+            nullable: true
+            additionalProperties:
+              oneOf:
+              - type: string
+              - type: number
+              - type: integer
+              - type: boolean
+        newValue:
+          description: The value of the identity attribute after it changed.
+          example: marketing
+          oneOf:
+          - type: string
+          - type: boolean
+          - type: array
+            items:
+              type: string
+          - type: object
+            nullable: true
+            additionalProperties:
+              oneOf:
+              - type: string
+              - type: number
+              - type: integer
+              - type: boolean  

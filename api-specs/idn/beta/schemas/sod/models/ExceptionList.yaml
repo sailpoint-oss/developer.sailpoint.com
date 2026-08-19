@@ -1,0 +1,7 @@
+type: object
+properties:
+  exceptions:
+    type: array
+    description: List of exceptions.
+    items:
+      $ref: './Exception.yaml'

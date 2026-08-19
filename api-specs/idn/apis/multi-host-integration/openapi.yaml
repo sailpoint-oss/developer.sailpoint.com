@@ -1,0 +1,62 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Multi-Host Integration
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Multi-Host Integration
+    description: >
+      Use this API to build a Multi-Host Integration.
+
+      Multi-Host Integration will help customers to configure and manage similar type of target system in Identity
+      Security Cloud.
+
+      In Identity Security Cloud, administrators can create a Multi-Host Integration by going to Admin > Connections >
+      Multi-Host Sources and selecting 'Create.'
+paths:
+  /multihosts/v1:
+    $ref: ./paths/multihosts-v1.yaml
+  /multihosts/v1/types:
+    $ref: ./paths/multihosts-v1-types.yaml
+  /multihosts/v1/{multihostId}:
+    $ref: ./paths/multihosts-v1-by-multihostid.yaml
+  /multihosts/v1/{multihostId}/sources/testConnection:
+    $ref: ./paths/multihosts-v1-by-multihostid-sources-testconnection.yaml
+  /multihosts/v1/{multihostId}/sources/{sourceId}/testConnection:
+    $ref: ./paths/multihosts-v1-by-multihostid-sources-by-sourceid-testconnection.yaml
+  /multihosts/v1/{multihostId}/sources:
+    $ref: ./paths/multihosts-v1-by-multihostid-sources.yaml
+  /multihosts/v1/{multiHostId}/sources/errors:
+    $ref: ./paths/multihosts-v1-by-multihostid-sources-errors.yaml
+  /multihosts/v1/{multiHostId}/sources/bulk-delete:
+    $ref: ./paths/multihosts-v1-by-multihostid-sources-bulk-delete.yaml
+  /multihosts/v1/{multihostId}/acctAggregationGroups:
+    $ref: ./paths/multihosts-v1-by-multihostid-acctaggregationgroups.yaml
+  /multihosts/v1/{multiHostId}/entitlementAggregationGroups:
+    $ref: ./paths/multihosts-v1-by-multihostid-entitlementaggregationgroups.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

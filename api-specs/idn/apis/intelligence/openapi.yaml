@@ -1,0 +1,81 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Intelligence
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Intelligence
+    description: |
+      HTTP API that returns the Intelligence (identity context) for SecOps enrichment
+      use cases (SIEM/SOAR connectors, MCP, browser extension), and accepts asynchronous
+      response actions for remediation. Identity reads are backed by Atlas internal-REST
+      calls to MICE, Shelby List Accounts, SDS Search, IDA-outliers, and identity-history.
+
+      ## License-based segmentation
+
+      - **`idn:response-and-remediation`** (required): enforced on all `/intelligence/*` routes.
+      - **`IDA-outliers`** (optional): governs the Human `outliers.rareAccess` slice only. When the
+        tenant lacks this license, the `outliers` key is omitted.
+      - **`idg:base`** (optional): governs the root-level `identityGraph` deep link on aggregate
+        responses. When the tenant lacks this license, `identityGraph` is omitted.
+      - **`idn:machine-identity-security`** (optional): governs the Human `nonHumanIdentityOwnership`
+        slice. When the tenant lacks this license, `nonHumanIdentityOwnership` is omitted on the
+        aggregate GET and the `/non-human-identity-ownership/{category}` child route returns
+        **403 Forbidden**.
+
+      ## Pagination
+
+      The aggregated Human GET embeds the first **10** items per paged slice. Each upstream paged call
+      sends `count=true` and reads `X-Total-Count`. Parent slices expose `totalCount` when `items` is
+      non-empty and set `next` when `totalCount > offset + len(items)` (aggregate offset is always 0).
+      Empty slices render as `items: []` with no `totalCount`. `privilegedAccess` is never paged and
+      carries no `totalCount`. When licensed, `nonHumanIdentityOwnership` pages each
+      `primaryOwned` / `secondaryOwned` bucket independently under `agents` and `applications`.
+
+      Human child routes (`/accounts`, `/outliers/rare-access`, `/access-history/*`,
+      `/non-human-identity-ownership/{category}`) follow the SailPoint V3 pattern: pass `count=true`
+      to receive `X-Total-Count` (including `0` on empty pages). When `count` is omitted, upstream
+      count work is skipped and the header is omitted.
+paths:
+  /intelligence/v1/identities:
+    $ref: ./paths/intelligence-v1-identities.yaml
+  /intelligence/v1/identities/{id}/accounts:
+    $ref: ./paths/intelligence-v1-identities-by-id-accounts.yaml
+  /intelligence/v1/identities/{id}/outliers/rare-access:
+    $ref: ./paths/intelligence-v1-identities-by-id-outliers-rare-access.yaml
+  /intelligence/v1/identities/{id}/access-history/access-items:
+    $ref: ./paths/intelligence-v1-identities-by-id-access-history-access-items.yaml
+  /intelligence/v1/identities/{id}/access-history/certifications:
+    $ref: ./paths/intelligence-v1-identities-by-id-access-history-certifications.yaml
+  /intelligence/v1/identities/{id}/non-human-identity-ownership/{category}:
+    $ref: ./paths/intelligence-v1-identities-by-id-non-human-identity-ownership-by-category.yaml
+  /intelligence/v1/response-actions:
+    $ref: ./paths/intelligence-v1-response-actions.yaml
+  /intelligence/v1/response-actions/{id}/status:
+    $ref: ./paths/intelligence-v1-response-actions-by-id-status.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

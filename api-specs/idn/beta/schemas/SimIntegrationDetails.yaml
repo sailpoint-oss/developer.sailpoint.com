@@ -1,0 +1,66 @@
+type: object
+title: Sim Integration Details
+allOf:
+  - $ref: './BaseCommonDto.yaml'
+  - type: object
+    properties:
+      description:
+        type: string
+        description: The description of the integration
+        example: 'Integration description'
+        nullable: false
+      type:
+        type: string
+        description: The integration type
+        example: 'ServiceNow Service Desk'
+        nullable: false
+      attributes:
+        type: object
+        description: The attributes map containing the credentials used to configure the integration.
+        nullable: true
+        example: '{"uid":"Walter White","firstname":"walter","cloudStatus":"UNREGISTERED","displayName":"Walter White","identificationNumber":"942","lastSyncDate":1470348809380,"email":"walter@gmail.com","lastname":"white"}'
+      sources:
+        type: array
+        description: The list of sources (managed resources)
+        items:
+          type: string
+        example:
+          - 2c9180835d191a86015d28455b4a2329
+          - 2c5680835d191a85765d28455b4a9823
+        nullable: false
+      cluster:
+        type: string
+        description: The cluster/proxy
+        example: 'xyzzy999'
+        nullable: false
+      statusMap:
+        type: object
+        description: Custom mapping between the integration result and the provisioning result
+        example:
+          closed_cancelled: Failed
+          closed_complete: Committed
+          closed_incomplete: Failed
+          closed_rejected: Failed
+          in_process: Queued
+          requested: Queued
+      request:
+        type: object
+        description: Request data to customize desc and body of the created ticket
+        example:
+          description: SailPoint Access Request,
+          req_description: The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,
+          req_short_description: SailPoint New Access Request Created from IdentityNow,
+          short_description: SailPoint Access Request $!plan.arguments.identityRequestId
+      beforeProvisioningRule:
+        description: Before provisioning rule of integration
+        properties:
+          type:
+            $ref: '../../v3/schemas/DtoType.yaml'
+          id:
+            type: string
+            description: ID of the rule
+            example: 2c918085708c274401708c2a8a760001
+          name:
+            type: string
+            description: Human-readable display name of the rule
+            example: Example Rule

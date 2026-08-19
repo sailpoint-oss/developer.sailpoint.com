@@ -1,0 +1,48 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    description: The id of the workflow action performer that was created.
+    example: e6905f25-489a-43cd-a758-bdacaf60dcab
+  contributor_attribute_id:
+    type: string
+    format: uuid
+    description: The id of the user attribute to perform the action.
+    example: e6905f25-489a-43cd-a758-bdacaf60dcab
+  contributors:
+    type: boolean
+    default: false
+    description: Set to allow profile contributor to perform the action.
+    example: true
+  contributors_manager_attribute_id:
+    type: string
+    format: uuid
+    description: The id of the user attribute to perform the action.
+    example: e6905f25-489a-43cd-a758-bdacaf60dcab
+  owner:
+    type: boolean
+    default: false
+    description: Set to allow profile owner to perform the action.
+    example: true
+  profiles_contributors_attribute_id:
+    type: string
+    format: uuid
+    description: The id of the profile attribute to perform the action.
+    example: e6905f25-489a-43cd-a758-bdacaf60dcab
+  requester:
+    type: boolean
+    default: false
+    description: Set to allow requester from the request to perform the action.
+    example: true
+  requesters_manager:
+    type: boolean
+    default: false
+    description: Set to allow the requester's manager from the request to perform the action.
+    example: true
+  workflow_action_id:
+    type: string
+    format: uuid
+    description: The id of the workflow action.
+    example: e6905f25-489a-43cd-a758-bdacaf60dcab
+  

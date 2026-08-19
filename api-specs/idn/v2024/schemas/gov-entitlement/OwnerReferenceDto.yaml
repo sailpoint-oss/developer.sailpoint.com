@@ -1,0 +1,17 @@
+type: object
+description: Simplified DTO for the owner object of the entitlement
+properties:
+  id:
+    type: string
+    description: The owner id for the entitlement
+    example: '2a2fdacca5e345f18bf7970cfbb8fec2'
+  name:
+    type: string
+    description: The owner name for the entitlement
+    example: 'identity 1'
+  type:
+    type: string
+    enum:
+      - IDENTITY
+    description: The type of the owner. Initially only type IDENTITY is supported
+    example: 'IDENTITY'

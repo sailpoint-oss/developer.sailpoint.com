@@ -1,0 +1,85 @@
+type: object
+title: Template Slack
+nullable: true
+properties:
+  key:
+    type: string
+    nullable: true
+    description: The template key
+  text:
+    type: string
+    description: The main text content of the Slack message
+    example: "You have a new approval request"
+  blocks:
+    type: string
+    nullable: true
+    description: JSON string of Slack Block Kit blocks for rich formatting
+  attachments:
+    type: string
+    description: JSON string of Slack attachments
+    example: "[]"
+  notificationType:
+    type: string
+    nullable: true
+    description: The type of notification
+  approvalId:
+    type: string
+    nullable: true
+    description: The approval request ID
+  requestId:
+    type: string
+    nullable: true
+    description: The request ID
+  requestedById:
+    type: string
+    nullable: true
+    description: The ID of the user who made the request
+  isSubscription:
+    type: boolean
+    nullable: true
+    default: false
+    description: Whether this is a subscription notification
+  autoApprovalData:
+    type: object
+    nullable: true
+    properties:
+      isAutoApproved:
+        type: string
+        nullable: true
+        description: Whether the request was auto-approved
+      itemId:
+        type: string
+        nullable: true
+        description: The item ID
+      itemType:
+        type: string
+        nullable: true
+        description: The item type
+      autoApprovalMessageJSON:
+        type: string
+        nullable: true
+        description: JSON message for auto-approval
+      autoApprovalTitle:
+        type: string
+        nullable: true
+        description: Title for auto-approval
+  customFields:
+    type: object
+    nullable: true
+    properties:
+      requestType:
+        type: string
+        nullable: true
+        description: The type of request
+      containsDeny:
+        type: string
+        nullable: true
+        description: Whether the request contains a deny action
+      campaignId:
+        type: string
+        nullable: true
+        description: The campaign ID
+      campaignStatus:
+        type: string
+        nullable: true
+        description: The campaign status

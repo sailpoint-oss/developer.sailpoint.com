@@ -1,0 +1,17 @@
+type: object
+description: Reference to an identity or governance group supplied on a request body.
+required:
+  - id
+  - type
+properties:
+  id:
+    type: string
+    maxLength: 2048
+    description: >
+      Opaque identifier in the exact form required by the owning service (case, dashes, etc. must be preserved).
+    example: "3e07886555ed43cfb83c85c58d2016e6"
+  type:
+    type: string
+    description: The type of object being referenced.
+    enum: [IDENTITY, GOVERNANCE_GROUP]
+    example: "IDENTITY"

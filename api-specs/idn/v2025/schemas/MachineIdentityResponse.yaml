@@ -1,0 +1,58 @@
+# The Identity DTO returned by the v3 identities APIs
+allOf:
+  - $ref: './MachineIdentity.yaml'
+  - type: object
+    title: Machine Identity Response
+    properties:
+      manuallyEdited:
+        type: boolean
+        description:
+          Indicates if the machine identity has been manually edited
+        default: false
+        example: true
+      manuallyCreated:
+        type: boolean
+        description:
+          Indicates if the machine identity has been manually created
+        default: false
+        example: true
+      source:
+        type: object
+        description: The source of the machine identity
+        allOf:
+          - $ref: './BaseReferenceDto.yaml'
+          - example:
+              id: '6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa'
+              name: 'Active Directory'
+              type: 'SOURCE'
+      datasetId:
+        type: string
+        description: The dataset id associated to the source in which the identity was retrieved from
+        example: '8886e5e3-63d0-462f-a195-d98da885b8dc'
+      userEntitlements:
+        type: array
+        description: The user entitlements associated to the machine identity
+        items:
+          type: object
+          properties:
+            sourceId:
+              type: string
+              description: The source ID of the entitlement
+              example: '5898b7c1-620c-49c6-cccc-cbf81eb4bddd'
+            entitlementId:
+              type: string
+              description: The ID of the entitlement
+              example: '6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa'
+            displayName:
+              type: string
+              description: The display name of the entitlement
+              example: 'Entitlement Name'
+            source:
+              type: object
+              description: The source of the entitlement
+              allOf:
+                - $ref: './BaseReferenceDto.yaml'
+                - example:
+                    id: '5898b7c1-620c-49c6-cccc-cbf81eb4bddd'
+                    name: 'Test Source'
+                    type: 'SOURCE'

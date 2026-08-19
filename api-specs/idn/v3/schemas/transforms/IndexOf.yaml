@@ -1,0 +1,13 @@
+title: indexOf
+type: object
+required:
+- substring
+properties:
+  substring:
+    type: string
+    description: A substring to search for, searches the entire calling string, and returns the index of the first occurrence of the specified substring.
+    example: 'admin_'
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml'
+  input:
+    $ref: './input.yaml'

@@ -1,0 +1,15 @@
+post:
+  summary: Create a create profile action
+  operationId: createCreateProfileAction
+  description: Create a create profile action
+  tags:
+    - workflow actions
+  requestBody:
+    $ref: "../../requestBodies/POST/WorkflowActions/CreateProfileAction.yaml"
+  responses:
+    '200':
+      $ref: "../../responses/WorkflowAction.yaml"
+    '400':
+      $ref: "../../responses/400.yaml"
+    '500':
+      $ref: "../../responses/500.yaml"

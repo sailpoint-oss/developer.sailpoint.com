@@ -1,0 +1,71 @@
+get:
+  operationId: getAccessRequestConfig
+  deprecated: true
+  x-deprecated-description: |
+    This endpoint has been deprecated as of 2026-02-26. Please use the [v2026 get-access-request-config](https://developer.sailpoint.com/docs/api/v2026/get-access-request-config) endpoint instead.
+  security:
+    - userAuth:
+        - 'idn:access-request-config:read'
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - USER
+  summary: Get access request configuration
+  tags:
+    - Access Requests
+  description: This endpoint returns the current access-request configuration.
+  responses:
+    '200':
+      description: Access Request Configuration Details.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/AccessRequestConfig.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+put:
+  operationId: setAccessRequestConfig
+  deprecated: true
+  x-deprecated-description: |
+    This endpoint has been deprecated as of 2026-02-26. Please use the [v2026 set-access-request-config](https://developer.sailpoint.com/docs/api/v2026/set-access-request-config) endpoint instead.
+  security:
+    - userAuth:
+        - 'idn:access-request-config:manage'
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  summary: Update access request configuration
+  tags:
+    - Access Requests
+  description: This endpoint replaces the current access-request configuration.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/AccessRequestConfig.yaml
+  responses:
+    '200':
+      description: Access Request Configuration Details.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/AccessRequestConfig.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

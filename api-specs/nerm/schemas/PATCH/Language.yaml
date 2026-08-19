@@ -1,0 +1,15 @@
+type: object
+properties:
+  default:
+    type: boolean    
+    description: Set default to True to set a default language, to set another language to default, set default to True on the target language and the current default will become disabled
+    example: true
+  enabled:
+    type: boolean
+    description: True when the language is enabled, False when it is not
+    example: true    
+  locale:
+    type: string
+    description: The locale string for the language, current options are- en, fr, es, de, fr-CA
+    example: es
+  

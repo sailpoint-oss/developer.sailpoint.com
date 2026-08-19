@@ -1,0 +1,50 @@
+patch:
+  operationId: patchEntitlementConnectionById
+  tags:
+    - Entitlement Connections
+  summary: Update entitlement connection
+  description: |
+    Applies JSON Patch operations to an entitlement connection selected by `connectionId`.
+  security:
+    - userAuth:
+        - idn:entitlement-connections:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: path
+      name: connectionId
+      required: true
+      schema:
+        type: string
+      x-sailpoint-resource-operation-id: listEntitlementConnections
+      example: 6c692d9972f8400ca4560a68f62c4c5f
+      description: Connection ID (UUID with or without hyphens).
+  requestBody:
+    required: true
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../schemas/JsonPatchOperation.yaml
+  responses:
+    '200':
+      description: Updated entitlement connection.
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/entitlement-connections/EntitlementConnection.yaml
+    '400':
+      $ref: ../../responses/400.yaml
+    '401':
+      $ref: ../../responses/401.yaml
+    '403':
+      $ref: ../../responses/403.yaml
+    '404':
+      $ref: ../../responses/404.yaml
+    '412':
+      $ref: ../../responses/412.yaml
+    '429':
+      $ref: ../../responses/429.yaml
+    '500':
+      $ref: ../../responses/500.yaml

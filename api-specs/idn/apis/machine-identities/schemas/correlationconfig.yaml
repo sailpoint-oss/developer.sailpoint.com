@@ -1,0 +1,57 @@
+type: object
+title: Correlation Config
+description: >-
+  An ownership correlation config scoped to a source resource. Configs are of type OWNER_PRIMARY or
+  OWNER_SECONDARY and drive how machine identity owners are correlated.
+required:
+  - id
+  - sourceId
+  - resourceId
+  - type
+  - attributes
+  - rules
+properties:
+  id:
+    type: string
+    format: uuid
+    description: System-generated unique ID of the correlation config.
+    example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
+  sourceId:
+    type: string
+    description: The source ID this config belongs to.
+    example: 2c9180835d191a86015d28455b4a2329
+  resourceId:
+    type: string
+    description: The source resource identifier for this config scope.
+    example: aws:iam-role
+  type:
+    type: string
+    description: The correlation config type.
+    enum:
+      - OWNER_PRIMARY
+      - OWNER_SECONDARY
+    example: OWNER_PRIMARY
+  attributes:
+    type: object
+    additionalProperties: true
+    description: >-
+      JSON object of config attributes. May include syncPrimaryToMachineAccounts (boolean) on OWNER_PRIMARY only.
+    example:
+      syncPrimaryToMachineAccounts: true
+  rules:
+    type: array
+    description: The ordered set of correlation rules for this config.
+    items:
+      $ref: ./correlationrule.yaml
+  created:
+    type: string
+    format: date-time
+    readOnly: true
+    description: Creation date of the config.
+    example: '2015-05-28T14:07:17Z'
+  modified:
+    type: string
+    format: date-time
+    readOnly: true
+    description: Last modification date of the config.
+    example: '2015-05-28T14:07:17Z'

@@ -1,0 +1,46 @@
+get:
+  tags:
+    - Prompt Insights
+  operationId: getPromptInsightsMetrics
+  summary: Get prompt insights metrics
+  description: Returns aggregate prompt insights metrics for the requested time window.
+  parameters:
+    - in: query
+      name: interval
+      required: true
+      description: Relative lookback window for metrics aggregation.
+      example: "-7d"
+      schema:
+        type: string
+        enum:
+          - "-1h"
+          - "-1d"
+          - "-7d"
+          - "-30d"
+  responses:
+    '200':
+      description: Aggregate prompt insights metrics for the requested interval.
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/prompt-insights/PromptInsightsMetrics.yaml
+          example:
+            promptsScanned: 125000
+            promptsRedacted: 89
+    '400':
+      $ref: ../../responses/400.yaml
+    '401':
+      $ref: ../../responses/401.yaml
+    '403':
+      $ref: ../../responses/403.yaml
+    '429':
+      $ref: ../../responses/429.yaml
+    '500':
+      $ref: ../../responses/500.yaml
+  security:
+    - userAuth:
+        - idn:prompt-insights:read
+    - applicationAuth:
+        - idn:prompt-insights:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

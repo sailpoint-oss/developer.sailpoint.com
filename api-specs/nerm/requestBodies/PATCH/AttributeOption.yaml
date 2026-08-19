@@ -1,0 +1,8 @@
+required: true
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        ne_attribute_option:
+          $ref: "../../schemas/PATCH/AttributeOption.yaml"

@@ -1,0 +1,9 @@
+type: object
+properties:
+  id:
+    type: string
+    format: UUID
+    description: Identity id.
+    example: 2c91808570313110017040b06f344ec9
+required:
+  - id

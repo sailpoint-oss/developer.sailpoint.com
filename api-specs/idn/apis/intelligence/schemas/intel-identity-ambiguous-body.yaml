@@ -1,0 +1,18 @@
+allOf:
+  - $ref: ../../shared/schemas/errorresponsedto.yaml
+  - type: object
+    required:
+      - detailCode
+      - candidates
+    properties:
+      detailCode:
+        type: string
+        enum:
+          - IDC_IDENTITY_AMBIGUOUS
+        description: Constant detail code indicating that more than one identity matched the filter.
+        example: IDC_IDENTITY_AMBIGUOUS
+      candidates:
+        type: array
+        description: Identities that matched the ambiguous filter expression.
+        items:
+          $ref: ./intel-identity-ambiguous-candidate.yaml

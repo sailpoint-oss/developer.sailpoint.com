@@ -1,0 +1,17 @@
+type: object
+title: EntitlementConnectionBulkUpdateItem
+required:
+  - connectionId
+  - type
+properties:
+  connectionId:
+    type: string
+    description: Connection ID to update.
+    example: d532fa5cb15748e2873c6a01e5923ec4
+  type:
+    type: string
+    description: Target connection type.
+    example: JIT
+    enum:
+      - JIT
+      - STANDING

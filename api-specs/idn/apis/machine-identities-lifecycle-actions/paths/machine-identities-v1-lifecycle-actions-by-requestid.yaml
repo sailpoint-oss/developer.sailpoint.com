@@ -1,0 +1,69 @@
+get:
+  operationId: getMachineIdentityLifecycleActionV1
+  tags:
+  - Machine Identity Lifecycle Actions
+  summary: Get lifecycle action by requestId
+  description: |
+    Returns one lifecycle request snapshot by `requestId`. Used for request-level inspection,
+    including cancel acceptance and subsequent status changes.
+
+    The original requester is always allowed to read their request. Otherwise, callers must have
+    the `idn:machine-identity-lifecycle-action:manage` scope **and** role-context access to the target
+    machine identity (organization admin, source admin, scoped source sub-admin, or effective owner).
+
+    **403 Forbidden**
+
+    - `FORBIDDEN.lifecycle-request-access-denied` - caller is not the submitter and lacks both the
+      `idn:machine-identity-lifecycle-action:manage` scope and target role-context (response includes `requestId` as a parameter).
+    - `FORBIDDEN.unsupported-type` - the persisted lifecycle row is not scoped to `AI_AGENT`
+      (`targetType` on read-by-request-id paths).
+
+    **404 Not Found**
+
+    - `NOT_FOUND.detailed` - unknown `requestId`, or persisted `targetType` does not match the
+      target machine identity's subtype-to-resource-type mapping.
+  security:
+  - userAuth:
+    - idn:mis-identity:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  - USER
+  parameters:
+  - in: path
+    name: requestId
+    schema:
+      type: string
+      format: uuid
+    required: true
+    x-sailpoint-resource-operation-id: listMachineIdentityLifecycleActionsV1
+    description: Lifecycle request identifier.
+    example: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Lifecycle action request snapshot.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/lifecycleactionrequest.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

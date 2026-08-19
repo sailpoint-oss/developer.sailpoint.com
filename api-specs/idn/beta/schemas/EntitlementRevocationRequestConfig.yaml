@@ -1,0 +1,8 @@
+type: object
+title: Entitlement Revocation Request Config
+properties:
+  approvalSchemes:
+    type: array
+    description: Ordered list of approval steps for the access request. Empty when no approval is required.
+    items:
+      $ref: './EntitlementApprovalScheme.yaml'

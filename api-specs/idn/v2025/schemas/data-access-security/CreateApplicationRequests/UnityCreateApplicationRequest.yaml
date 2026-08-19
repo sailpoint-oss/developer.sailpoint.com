@@ -1,0 +1,25 @@
+allOf:
+  - $ref: './BaseCreateApplicationRequest.yaml'
+  - required:
+      - domain
+      - host
+      - password
+      - userName
+    type: object
+    properties:
+      host:
+        type: string
+        description: The hostname or IP address of the Unity server.
+        example: "unity.company.com"
+      domain:
+        type: string
+        description: The domain for Unity authentication.
+        example: "CORP"
+      userName:
+        type: string
+        description: The username for Unity authentication.
+        example: "unityuser"
+      password:
+        type: string
+        description: The password for Unity authentication.
+        example: "unitypassword"

@@ -1,0 +1,53 @@
+title: Source Deleted
+type: object
+required:
+- id
+- name
+- type
+- deleted
+- connector
+- actor
+properties:
+  id:
+    type: string
+    description: The unique ID of the source.
+    example: 2c9180866166b5b0016167c32ef31a66
+  name:
+    type: string
+    description: Human friendly name of the source.
+    example: Test source
+  type:
+    type: string
+    description: The connection type.
+    example: DIRECT_CONNECT
+  deleted:
+    type: string
+    format: date-time
+    description: The date and time the source was deleted.
+    example: "2021-03-29T22:01:50.474Z"
+  connector:
+    type: string
+    description: The connector type used to connect to the source.
+    example: active-directory
+  actor:
+    required:
+    - id
+    - name
+    - type
+    type: object
+    description: Identity who deleted the source. 
+    properties:
+      type:
+        type: string 
+        description: DTO type of identity who deleted the source. 
+        enum: 
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: ID of identity who deleted the source. 
+        example: 2c7180a46faadee4016fb4e018c20648
+      name:
+        type: string
+        description: Display name of identity who deleted the source. 
+        example: William Wilson

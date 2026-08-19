@@ -1,0 +1,25 @@
+type: object
+title: CC/BCC Preference Entry
+description: >-
+  One CC or BCC routing entry. Dynamic recipient types are resolved at notification send time.
+  Field applicability depends on type: IDENTITY and GOVERNANCE_GROUP require `id`; STATIC_EMAIL
+  requires `email`; MANAGER_OF may optionally include `id` (manager of that identity, otherwise
+  manager of the notification recipient); ORG_ADMINS does not use `id` or `email`.
+required:
+  - type
+properties:
+  type:
+    $ref: ./ccbccrecipienttype.yaml
+  id:
+    type: string
+    nullable: true
+    description: >-
+      Identity or governance group id when required by the recipient type. For MANAGER_OF, when
+      provided this is the identity whose manager should receive the email.
+    example: 6b0b8e47cc1f4c3fa961a38fc718e989
+  email:
+    type: string
+    format: email
+    nullable: true
+    description: Static email address when type is STATIC_EMAIL.
+    example: cc-recipient@example.com

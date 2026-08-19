@@ -1,0 +1,9 @@
+type: object
+title: Source Entitlement Request Config
+description: Entitlement Request Configuration
+properties:
+  accessRequestConfig:
+    $ref: './EntitlementAccessRequestConfig.yaml'
+    description: Configuration for requesting access to entitlements
+  revocationRequestConfig:
+    $ref: './EntitlementRevocationRequestConfig.yaml'

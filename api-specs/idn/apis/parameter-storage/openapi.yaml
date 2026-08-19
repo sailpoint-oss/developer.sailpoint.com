@@ -1,0 +1,80 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Parameter Storage
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Parameter Storage
+    description: >
+      The Parameter Storage is SailPoint's centralized repository for authentication, authorization, and connection
+      configurations, stored as typed Parameters.
+
+
+      The APIs can be used to input Parameters, which can then be referenced by other services, such as Workflow
+      configurations. When these services are executed, the relevant values are fetched via an internal API (not
+      documented here).
+
+
+      The usage of Parameters can be monitored via References managed by Parameter Storage. References provide an
+      indirect mapping between a Parameter and its usage (e.g., within a Workflow), allowing for reports such as
+      "Parameter X is used in Workflow Y" via APIs.
+
+
+      A Parameter is a named instance of typed configuration, where the state is stored as Fields. These Fields are
+      either Public (cleartext, searchable) or Private (encrypted).
+
+
+      Parameter Types are grouped and fall into three Categories: Authentication, Authorization, and Connection.
+
+
+      Parameters are strongly typed; each Type's fields are named and exposed to the consumer. This means that if a
+      service states that it expects a Credential Type, it will receive a Parameter with a Username and Password.
+
+
+      Fields are named, typed variables within a Parameter; the Fields on a Parameter depend on the Parameter's Type.
+      Fields contain customer-provided data that will be referenced by another service, and their typing determines
+      whether they're stored in cleartext or encrypted.
+
+
+      The Specification documents the supported Categories, Types, Fields, Field Names, and their relationships.
+
+
+      A Reference is an indirect pointer to a Parameter, where each usage of a Parameter has a corresponding Reference.
+      This allows for usage tracking and safe deletion.
+paths:
+  /parameter-storage/v1/attestation:
+    $ref: ./paths/parameter-storage-v1-attestation.yaml
+  /parameter-storage/v1/parameters:
+    $ref: ./paths/parameter-storage-v1-parameters.yaml
+  /parameter-storage/v1/parameters/{id}:
+    $ref: ./paths/parameter-storage-v1-parameters-by-id.yaml
+  /parameter-storage/v1/parameters/{id}/references:
+    $ref: ./paths/parameter-storage-v1-parameters-by-id-references.yaml
+  /parameter-storage/v1/specification:
+    $ref: ./paths/parameter-storage-v1-specification.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

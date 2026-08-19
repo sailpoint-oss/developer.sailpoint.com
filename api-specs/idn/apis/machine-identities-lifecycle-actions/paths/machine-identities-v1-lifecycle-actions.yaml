@@ -1,0 +1,130 @@
+get:
+  operationId: listMachineIdentityLifecycleActionsV1
+  tags:
+  - Machine Identity Lifecycle Actions
+  summary: List lifecycle actions
+  description: |
+    Lists lifecycle requests visible to the requester identity in the current request context.
+
+    Results are automatically scoped to the calling identity. If requester identity context is
+    missing, an empty list is returned.
+
+    When `limit` is omitted, this endpoint applies a default limit of 50.
+  security:
+  - userAuth:
+    - sp:scopes:all
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  - USER
+  parameters:
+  - in: query
+    name: filters
+    required: false
+    schema:
+      type: string
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection
+      Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **resourceType**: *eq, in*
+
+
+      **operationType**: *eq, in*
+
+
+      **status**: *eq, in*
+
+
+      **completed**: *eq*
+
+
+      **targetId**: *eq*
+
+
+      **targetName**: *eq, sw*
+
+
+      **sourceId**: *eq*
+
+
+      **created**: *gt, ge, lt, le*
+    example: status in ("RECEIVED","COMPLETED")
+  - in: query
+    name: sorters
+    schema:
+      type: string
+      format: comma-separated
+    required: false
+    description: >-
+      Sort results using the standard syntax described in [V3 API Standard Collection
+      Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+      Sorting is supported for the following fields: **created, modified, status**
+
+
+      Default sort is **-created** (newest first).
+    example: -created
+  - in: query
+    name: limit
+    description: >-
+      Max number of results to return. When omitted, the default limit is 50. The maximum allowed
+      limit is 250.
+
+
+      See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)
+      for more information.
+    required: false
+    example: 50
+    schema:
+      type: integer
+      format: int32
+      minimum: 0
+      maximum: 250
+      default: 50
+  - $ref: ../../shared/parameters/offset.yaml
+  - $ref: ../../shared/parameters/count.yaml
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: List of lifecycle action requests for the requester.
+      headers:
+        X-Total-Count:
+          description: The total result count (returned when count=true is passed).
+          schema:
+            type: integer
+            format: int32
+        Cache-Control:
+          description: Response cache directive for requester-scoped polling.
+          schema:
+            type: string
+            example: private, max-age=5
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/lifecycleactionrequest.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

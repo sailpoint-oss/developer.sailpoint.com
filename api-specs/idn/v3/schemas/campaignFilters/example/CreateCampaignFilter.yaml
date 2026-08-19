@@ -1,0 +1,19 @@
+description: >-
+  This creates a filter that can be used while generating campaigns to include/exclude the data to certify
+value:
+  name: Test Campaign Filter Exclusion
+  description: this is for testing purpose of Exclusion.
+  owner: SailPoint Support
+  mode: EXCLUSION
+  criteriaList:
+    - name: Manager Review
+      type: IDENTITY_ATTRIBUTE
+      property: displayName
+      value: support
+      operation: CONTAINS
+      negateResult: false
+      shortCircuit: false
+      recordChildMatches: false
+      id: null
+      suppressMatchedItems: false
+      children: null

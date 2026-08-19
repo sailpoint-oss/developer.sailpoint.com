@@ -1,0 +1,31 @@
+type: object
+title: Config Export Response Body
+description: Response model for config export download response.
+properties:
+  version:
+    type: integer
+    description: Current version of the export results object.
+    example: 1
+  timestamp:
+    type: string
+    format: 'date-time'
+    description: Time the export was completed.
+    example: "2021-05-11T22:23:16Z"
+  tenant:
+    type: string
+    description: >-
+      Name of the tenant where this export originated.
+    example: "sample-tenant"
+  description:
+    type: string
+    description: >-
+      Optional user defined description/name for export job.
+    example: "Export Job 1 Test"
+  options:
+    $ref: '../../beta/schemas/ExportOptions.yaml'
+    description: >-
+      Options used to create this export.
+  objects:
+    type: array
+    items:
+      $ref: '../../beta/schemas/ConfigObject.yaml'

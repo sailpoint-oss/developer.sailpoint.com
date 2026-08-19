@@ -1,0 +1,80 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Custom Forms
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Custom Forms
+    description: >
+      Use this API to build and manage custom forms.
+
+      With this functionality in place, administrators can create and view form definitions and form instances.
+
+
+      Forms are composed of sections and fields. Sections split the form into logical groups of fields and fields are
+      the data collection points within the form. Configure conditions to modify elements of the form as the responder
+      provides input. Create form inputs to pass information from a calling feature, like a workflow, to your form.
+
+
+      Forms can be used within workflows as an action or as a trigger. The Form Action allows you to assign a form as a
+      step in a running workflow, suspending the workflow until the form is submitted or times out, and the workflow
+      resumes. The Form Submitted Trigger initiates a workflow when a form is submitted. The trigger can be configured
+      to initiate on submission of a full form, a form element with any value, or a form element with a particular
+      value.
+
+
+      Refer to [Forms](https://documentation.sailpoint.com/saas/help/forms/index.html) for more information about using
+      forms in Identity Security Cloud.
+paths:
+  /form-definitions/v1:
+    $ref: ./paths/form-definitions-v1.yaml
+  /form-definitions/v1/{formDefinitionID}:
+    $ref: ./paths/form-definitions-v1-by-formdefinitionid.yaml
+  /form-definitions/v1/{formDefinitionID}/data-source:
+    $ref: ./paths/form-definitions-v1-by-formdefinitionid-data-source.yaml
+  /form-definitions/v1/export:
+    $ref: ./paths/form-definitions-v1-export.yaml
+  /form-definitions/v1/forms-action-dynamic-schema:
+    $ref: ./paths/form-definitions-v1-forms-action-dynamic-schema.yaml
+  /form-definitions/v1/import:
+    $ref: ./paths/form-definitions-v1-import.yaml
+  /form-definitions/v1/{formDefinitionID}/upload:
+    $ref: ./paths/form-definitions-v1-by-formdefinitionid-upload.yaml
+  /form-definitions/v1/{formDefinitionID}/file/{fileID}:
+    $ref: ./paths/form-definitions-v1-by-formdefinitionid-file-by-fileid.yaml
+  /form-instances/v1:
+    $ref: ./paths/form-instances-v1.yaml
+  /form-instances/v1/{formInstanceID}:
+    $ref: ./paths/form-instances-v1-by-forminstanceid.yaml
+  /form-instances/v1/{formInstanceID}/data-source/{formElementID}:
+    $ref: ./paths/form-instances-v1-by-forminstanceid-data-source-by-formelementid.yaml
+  /form-instances/v1/{formInstanceID}/file/{fileID}:
+    $ref: ./paths/form-instances-v1-by-forminstanceid-file-by-fileid.yaml
+  /form-definitions/v1/predefined-select-options:
+    $ref: ./paths/form-definitions-v1-predefined-select-options.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

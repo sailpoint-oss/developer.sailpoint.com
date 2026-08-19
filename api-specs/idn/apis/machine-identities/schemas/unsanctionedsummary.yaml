@@ -1,0 +1,25 @@
+type: object
+title: Unsanctioned Application Anomaly Summary
+description: >-
+  Aggregate counts of machine identities flagged with unsanctioned-application anomalies,
+  used to power the Unsanctioned Agents card.
+properties:
+  anomalyType:
+    type: string
+    description: The anomaly type these counts describe. Always unsanctioned_app for this endpoint.
+    example: unsanctioned_app
+  agentCount:
+    type: integer
+    format: int64
+    description: Number of distinct agents with at least one unsanctioned-application anomaly.
+    example: 23
+  userCount:
+    type: integer
+    format: int64
+    description: Number of distinct owners (users) associated with unsanctioned-application anomalies.
+    example: 254
+  eventCount:
+    type: integer
+    format: int64
+    description: Total number of unsanctioned-application anomaly records.
+    example: 97

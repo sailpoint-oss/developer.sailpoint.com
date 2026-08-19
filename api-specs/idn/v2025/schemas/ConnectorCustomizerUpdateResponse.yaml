@@ -1,0 +1,14 @@
+description: ConnectorCustomizerUpdateResponse
+allOf:
+  - type: object
+    properties:
+      imageVersion:
+        type: integer
+        format: int64
+        description: Connector customizer image version.
+        example: 1
+      imageID:
+        type: string
+        description: Connector customizer image id.
+        example: 2c91808568c529c60168cca6f90c1324
+  - $ref: './ConnectorCustomizerCreateResponse.yaml'

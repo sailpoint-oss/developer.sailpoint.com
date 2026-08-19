@@ -1,0 +1,12 @@
+allOf:
+  - $ref: ../../shared/schemas/errorresponsedto.yaml
+  - type: object
+    required:
+      - detailCode
+    properties:
+      detailCode:
+        type: string
+        enum:
+          - IDC_IDENTITY_NOT_FOUND
+        description: Constant detail code indicating that no identity matched the supplied filter.
+        example: IDC_IDENTITY_NOT_FOUND

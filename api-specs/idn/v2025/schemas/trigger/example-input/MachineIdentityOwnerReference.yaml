@@ -1,0 +1,30 @@
+type: object
+description: Reference to an owner of the machine identity.
+"required":
+  - id
+  - name
+  - type
+properties:
+  type:
+    type: string
+    description: Owner's type.
+    example: IDENTITY
+  id:
+    type: string
+    description: Owner ID.
+    example: 84d8c1b819144608b8b8bc3b84ddbb7b
+  name:
+    type: string
+    description: Owner's display name.
+    example: Jerrie admin3cf084
+  isPrimary:
+    type: boolean
+    description: Indicates if this owner is the primary owner.
+    default: false
+    example: true
+additionalProperties: true
+example:
+  type: IDENTITY
+  id: 84d8c1b819144608b8b8bc3b84ddbb7b
+  name: Jerrie admin3cf084
+  isPrimary: true

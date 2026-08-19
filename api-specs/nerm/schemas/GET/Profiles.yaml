@@ -1,0 +1,6 @@
+type: object
+properties:
+  profiles:
+    type: array
+    items:
+      $ref: '../GET/Profile.yaml'

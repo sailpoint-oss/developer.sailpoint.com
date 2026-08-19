@@ -1,0 +1,50 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Auth Profile
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Auth Profile
+    description: >
+      Use this API to implement Auth Profile functionality. 
+
+      With this functionality in place, users can read authentication profiles and make changes to them. 
+
+
+      An authentication profile represents an identity profile's authentication configuration. 
+
+      When the identity profile is created, its authentication profile is also created. 
+
+      An authentication profile includes information like its authentication profile type (`BLOCK`, `MFA`, `NON_PTA`,
+      PTA`) and settings controlling whether or not it blocks access from off network or untrusted geographies. 
+paths:
+  /auth-profiles/v1:
+    $ref: ./paths/auth-profiles-v1.yaml
+  /auth-profiles/v1/{id}:
+    $ref: ./paths/auth-profiles-v1-by-id.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

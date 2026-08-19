@@ -1,0 +1,202 @@
+get:
+  operationId: getBusinessApplicationV1
+  tags:
+    - Business Applications
+  summary: Get Business Application
+  description: >-
+    Returns a single Business Application by ID for the requesting tenant. Requires the
+    `idn:business-application:read` right and the Machine Identity Security product to be enabled.
+  security:
+    - userAuth:
+        - idn:business-application:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+        format: uuid
+      required: true
+      x-sailpoint-resource-operation-id: listBusinessApplicationsV1
+      description: Business Application ID.
+      example: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+  responses:
+    '200':
+      description: A Business Application object.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/businessapplication.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      description: Not Found - Returned if no Business Application exists for the given ID.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+          examples:
+            '404':
+              value:
+                detailCode: 400.1.404 Referenced Object Not Found
+                trackingId: b21b1f7ce4da4d639f2c62a57171b427
+                messages:
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: Referenced 'BusinessApplication' with id 'a1b2c3d4-e5f6-7890-abcd-ef1234567890' not found.
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+patch:
+  operationId: updateBusinessApplicationV1
+  tags:
+    - Business Applications
+  summary: Update Business Application
+  description: >-
+    Updates a Business Application using the [JSON Patch](https://tools.ietf.org/html/rfc6902)
+    standard. Requires the `idn:business-application:update` right and the Machine Identity
+    Security product to be enabled. Patchable fields: `name`, `description`, `owner`,
+    `additionalOwners`, `sanctionedStatus`, and `signatures`. Modifying `signatures` additionally
+    requires the custom Business Application feature to be enabled.
+  security:
+    - userAuth:
+        - idn:business-application:update
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+        format: uuid
+      required: true
+      x-sailpoint-resource-operation-id: listBusinessApplicationsV1
+      description: Business Application ID.
+      example: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+  requestBody:
+    required: true
+    description: A JSON array of patch operations per RFC 6902.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../shared/schemas/jsonpatchoperation.yaml
+        examples:
+          Replace sanctioned status:
+            value:
+              - op: replace
+                path: /sanctionedStatus
+                value: SANCTIONED
+          Replace description:
+            value:
+              - op: replace
+                path: /description
+                value: Updated description.
+          Replace owner:
+            value:
+              - op: replace
+                path: /owner
+                value:
+                  type: IDENTITY
+                  id: 2c91808568c529c60168cca6f90c1313
+                  name: William Wilson
+          Replace signatures:
+            value:
+              - op: replace
+                path: /signatures
+                value:
+                  - type: AI Agent
+                    name: cursor
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../shared/schemas/jsonpatchoperation.yaml
+  responses:
+    '200':
+      description: The updated Business Application.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/businessapplication.yaml
+    '400':
+      description: >-
+        Client Error - Returned if the patch is malformed, targets a non-patchable field, clears
+        the required `name`, or specifies an invalid signature.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+          examples:
+            Blank name:
+              value:
+                detailCode: 400.1.0 Required Data Missing Or Empty
+                trackingId: b21b1f7ce4da4d639f2c62a57171b427
+                messages:
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: Required field 'name' was missing or empty.
+            Non-patchable field:
+              value:
+                detailCode: 400.1 Bad Request Content
+                trackingId: b21b1f7ce4da4d639f2c62a57171b427
+                messages:
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: Field 'origin' is not patchable.
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      description: Not Found - Returned if no Business Application exists for the given ID.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+          examples:
+            '404':
+              value:
+                detailCode: 400.1.404 Referenced Object Not Found
+                trackingId: b21b1f7ce4da4d639f2c62a57171b427
+                messages:
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: Referenced 'BusinessApplication' with id 'a1b2c3d4-e5f6-7890-abcd-ef1234567890' not found.
+    '409':
+      description: >-
+        Conflict - Returned if the new `name` is already in use by another Business Application in
+        the tenant, or if a requested signature is already assigned to another Business
+        Application.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+          examples:
+            Name already in use:
+              value:
+                detailCode: 400.1.409 Reference Conflict
+                trackingId: b21b1f7ce4da4d639f2c62a57171b427
+                messages:
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: Business Application with name "Cursor" already exists.
+            Signature already assigned:
+              value:
+                detailCode: 400.1.409 Reference Conflict
+                trackingId: b21b1f7ce4da4d639f2c62a57171b427
+                messages:
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: Signature(s) is already associated with "another Business Application" "[AI_AGENT|cursor]".
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

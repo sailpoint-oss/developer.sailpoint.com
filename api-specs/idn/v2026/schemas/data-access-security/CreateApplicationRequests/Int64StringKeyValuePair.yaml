@@ -1,0 +1,12 @@
+type: object
+properties:
+  key:
+    type: integer
+    format: int64
+    description: The key for the tag or pair.
+    example: 1
+  value:
+    type: string
+    nullable: true
+    description: The value for the tag or pair.
+    example: "Confidential"

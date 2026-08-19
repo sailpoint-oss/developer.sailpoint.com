@@ -1,0 +1,6 @@
+type: object
+properties:
+  ne_attribute_options:
+    type: array
+    items:
+      $ref: '../GET/AttributeOption.yaml'

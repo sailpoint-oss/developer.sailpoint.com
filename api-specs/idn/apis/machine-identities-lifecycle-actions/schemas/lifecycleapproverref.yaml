@@ -1,0 +1,15 @@
+type: object
+title: Lifecycle Approver Reference
+properties:
+  type:
+    type: string
+    description: Approver reference type.
+    example: IDENTITY
+  id:
+    type: string
+    description: Identifier of the approver.
+    example: 2c9180858082150f0180893dbaf44201
+  name:
+    type: string
+    description: Display name of the approver.
+    example: Alex Approver

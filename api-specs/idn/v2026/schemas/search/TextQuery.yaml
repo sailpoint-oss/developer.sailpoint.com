@@ -1,0 +1,41 @@
+type: object
+description: >-
+  Query parameters used to construct an Elasticsearch text query object.
+required:
+  - terms
+  - fields
+properties:
+  terms:
+    description: >-
+      Words or characters that specify a particular thing to be searched for.
+    type: array
+    items:
+      type: string
+    example: 
+      - 'The quick brown fox'
+      - '3141592'
+      - '7'
+  fields:
+    description: >-
+      The fields to be searched.
+    type: array
+    items:
+      type: string
+    example: 
+      - 'displayName'
+      - 'employeeNumber'
+      - 'roleCount'
+  matchAny:
+    description: >-
+      Indicates that at least one of the terms must be found in the specified fields; 
+      otherwise, all terms must be found.
+    type: boolean
+    default: false
+    example: false
+  contains:
+    description: >-
+      Indicates that the terms can be located anywhere in the specified fields; 
+      otherwise, the fields must begin with the terms.
+    type: boolean
+    default: false
+    example: true

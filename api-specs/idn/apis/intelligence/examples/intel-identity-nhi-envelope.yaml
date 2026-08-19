@@ -1,0 +1,107 @@
+description: Non-human identity (NHI) envelope returned for machine identities (type NHI).
+value:
+  id: a1b2c3d4e5f6478990abcdef12345678
+  type: NHI
+  displayName: Example AI Agent
+  description: Example alias
+  subtype: AI Agent
+  created: '2026-07-23T07:04:33.151661Z'
+  modified: '2026-07-24T07:18:45.541749Z'
+  matchConfidence: exact
+  identityGraph:
+    href: https://tenant.identitynow.com/ui/identity-graph?entity=machine_identity&id=a1b2c3d4e5f6478990abcdef12345678
+  accounts:
+    items:
+      - id: 8a38d5adb13d48fdadbc9d85d1509aa0
+        name: account-name
+        nativeIdentity: arn:aws:bedrock:us-east-1:336721:agent/ABCDEFGHI/MNO
+        source:
+          id: 310a15aa1cf34939a8730cc16b6473da
+          name: Example Source
+          type: SOURCE
+        enabled: true
+        locked: false
+        machineIdentity:
+          type: MACHINE_IDENTITY
+          id: a1b2c3d4e5f6478990abcdef12345678
+          name: Example AI Agent
+        classificationMethod: MANUAL
+        manuallyEdited: true
+        manuallyCorrelated: false
+        hasEntitlements: true
+        created: '2026-07-23T09:21:47.622754Z'
+        modified: '2026-07-23T11:14:31.531508Z'
+        connectorAttributes: {}
+      - id: 67c094871fa94561846d6e10342ce738
+        name: account-name
+        nativeIdentity: arn:aws:bedrock:us-east-1:336721:agent/ABCDEFGHI/XYZ
+        source:
+          id: 310a15aa1cf34939a8730cc16b6473da
+          name: Example Source
+          type: SOURCE
+        enabled: true
+        locked: false
+        machineIdentity:
+          type: MACHINE_IDENTITY
+          id: a1b2c3d4e5f6478990abcdef12345678
+          name: Example AI Agent
+        ownerIdentity:
+          type: IDENTITY
+          id: 161aac3ec4b84ed6994048d21a19359a
+          name: Example Owner
+        classificationMethod: MANUAL
+        manuallyEdited: true
+        manuallyCorrelated: false
+        hasEntitlements: true
+        created: '2026-07-23T09:21:48.661594Z'
+        modified: '2026-07-23T09:23:11.913994Z'
+        connectorAttributes: {}
+  nativeIdentity: arn:aws:bedrock:us-east-1:336721:agent/ABCDEFGHI
+  datasetId: aws:bedrock
+  source:
+    id: 310a15aa1cf34939a8730cc16b6473da
+    name: Example Source
+    type: SOURCE
+  existsOnSource: 'TRUE'
+  manuallyEdited: true
+  manuallyCreated: false
+  owners:
+    primaryIdentity:
+      type: IDENTITY
+      id: 161aac3ec4b84ed6994048d21a19359a
+      name: Example Owner
+    secondaryIdentities:
+      - type: IDENTITY
+        id: dd412c69f49c47249b116866e6b366a2
+        name: Example Secondary Owner
+  userEntitlements:
+    - sourceId: 9c9e187d40334052a7cef2bb853d027e
+      entitlementId: 0207801fcc593323aa5d709546272d0e
+      displayName: Example Entitlement
+      source:
+        id: 9c9e187d40334052a7cef2bb853d027e
+        name: Example Source
+        type: SOURCE
+  attributes:
+    agentAliasStatus: PREPARED
+    agentId: <agent-id>
+    agentName: Example AI Agent
+    aliasName: Example alias
+    region: us-east-1
+  derived:
+    isOrphaned: true
+    authorizedHumanIdentities:
+      - type: IDENTITY
+        id: 161aac3ec4b84ed6994048d21a19359a
+        name: Example Owner
+        email: user@example.com
+      - type: IDENTITY
+        id: ca49dd488c784b3e9c41b519b154f9df
+        name: Example Authorized User
+        email: user@example.com
+    blastRadiusSummary:
+      impactedSources:
+        - Example Source
+      impactedAccounts: 2
+      impactedHumans: 3
+      hasEntitlements: true

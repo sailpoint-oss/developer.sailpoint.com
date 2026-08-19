@@ -1,0 +1,17 @@
+type: object
+title: Public Machine Identity Owner
+description: Primary owner of a machine identity exposed by the public list endpoint.
+properties:
+  id:
+    type: string
+    description: Identity id of the primary owner.
+    example: 2c9180857182305e0171993735622948
+  name:
+    type: string
+    description: Human-readable display name of the primary owner.
+    example: Alison Ferguso
+  email:
+    nullable: true
+    type: string
+    description: Email address of the primary owner.
+    example: alison.ferguso@acme-solar.com

@@ -1,0 +1,50 @@
+get:
+  operationId: listWorkflowLibraryActionsV1
+  tags:
+  - Workflows
+  summary: List workflow library actions
+  description: This lists the workflow actions available to you.
+  externalDocs:
+    description: Additional documentation for each action
+    url: https://documentation.sailpoint.com/saas/help/workflows/index.html#actions
+  parameters:
+  - $ref: ../../shared/parameters/limit.yaml
+  - $ref: ../../shared/parameters/offset.yaml
+  - in: query
+    name: filters
+    required: false
+    schema:
+      type: string
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection
+      Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **id**: *eq*
+    example: id eq "sp:create-campaign"
+  security:
+  - userAuth:
+    - sp:workflow:read
+    - sp:workflow:manage
+  responses:
+    '200':
+      description: List of workflow actions
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/workflowlibraryaction.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

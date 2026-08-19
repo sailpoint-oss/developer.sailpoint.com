@@ -1,0 +1,32 @@
+description: >-
+  A single item in a bulk entitlement recommendation approval request. The recordType is optional; the backend resolves
+  the type by ID lookup when omitted. Description applies to SED items only; privilegeLevel is required for privilege
+  items.
+type: object
+title: Bulk Approve Entitlement Recommendation Item
+required:
+  - id
+properties:
+  id:
+    description: The unique identifier of the recommendation record to approve.
+    type: string
+    format: uuid
+    example: 79db50d4-723c-4aa0-a824-83c2205d82d1
+  recordType:
+    description: The type of the recommendation. When omitted, the backend resolves the type by looking up the ID.
+    type: string
+    nullable: true
+    enum:
+      - SED
+      - privilege
+    example: SED
+  description:
+    description: The approved description text. Required for SED-type items; ignored for privilege items.
+    type: string
+    nullable: true
+    example: Provides access and permissions related to the Delinea Secret Server Cloud system.
+  privilegeLevel:
+    description: The approved privilege level. Required for privilege-type items; ignored for SED items.
+    type: string
+    nullable: true
+    example: high

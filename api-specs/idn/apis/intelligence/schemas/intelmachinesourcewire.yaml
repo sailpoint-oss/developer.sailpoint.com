@@ -1,0 +1,18 @@
+type: object
+required:
+  - id
+  - name
+  - type
+properties:
+  id:
+    type: string
+    description: Source identifier.
+    example: 60de165099e649cb828553a5e8510fc4
+  name:
+    type: string
+    description: Source display name.
+    example: Example Directory
+  type:
+    type: string
+    description: Source type label from upstream.
+    example: DelimitedFile

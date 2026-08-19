@@ -1,0 +1,59 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Custom User Levels
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Custom User Levels
+    description: >
+      Use this API to implement custom user level functionality.
+
+      With this functionality in place, administrators can create custom user levels and configure them for use
+      throughout Identity Security Cloud.
+
+
+      Custom user levels allow administrators to create custom user levels that can be used to control access to
+      Identity Security Cloud features and APIs.
+
+
+      Refer to [User Levels](https://documentation.sailpoint.com/saas/help/common/users/index.html) for more information
+      about User Levels.
+paths:
+  /authorization/v1/custom-user-levels:
+    $ref: ./paths/authorization-v1-custom-user-levels.yaml
+  /authorization/v1/custom-user-levels/{id}/publish:
+    $ref: ./paths/authorization-v1-custom-user-levels-by-id-publish.yaml
+  /authorization/v1/custom-user-levels/{id}:
+    $ref: ./paths/authorization-v1-custom-user-levels-by-id.yaml
+  /authorization/v1/authorization-assignable-right-sets:
+    $ref: ./paths/authorization-v1-authorization-assignable-right-sets.yaml
+  /authorization/v1/user-levels/{id}/identities:
+    $ref: ./paths/authorization-v1-user-levels-by-id-identities.yaml
+  /authorization/v1/user-levels/get-identity-count:
+    $ref: ./paths/authorization-v1-user-levels-get-identity-count.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

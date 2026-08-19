@@ -1,0 +1,52 @@
+type: object
+title: Preferences Dto
+description: >-
+  Tenant notification preferences for a notification key, including preferred mediums and optional
+  CC/BCC email recipients.
+properties:
+  key:
+    type: string
+    description: The template notification key.
+    example: cloud_manual_work_item_summary
+  mediums:
+    type: array
+    description: >-
+      List of preferred notification mediums, i.e., the mediums (or method) for which notifications
+      are enabled. An empty list means the notification is disabled for the tenant. More mediums may
+      be added in the future.
+    items:
+      $ref: ./Medium.yaml
+    example:
+      - EMAIL
+  modified:
+    type: string
+    description: Modified date of preference.
+    format: date-time
+    readOnly: true
+    example: '2020-05-15T14:37:06.909Z'
+  ccList:
+    type: array
+    maxItems: 5
+    description: >-
+      Optional CC recipients for email notifications for this key. Requires EMAIL to be included in
+      `mediums`. Maximum of five entries. The same recipient cannot appear in both `ccList` and
+      `bccList`.
+    items:
+      $ref: ./CcBccPreferenceEntry.yaml
+    example:
+      - type: IDENTITY
+        id: 6b0b8e47cc1f4c3fa961a38fc718e989
+      - type: STATIC_EMAIL
+        email: cc-recipient@example.com
+  bccList:
+    type: array
+    maxItems: 5
+    description: >-
+      Optional BCC recipients for email notifications for this key. Requires EMAIL to be included in
+      `mediums`. Maximum of five entries. The same recipient cannot appear in both `ccList` and
+      `bccList`.
+    items:
+      $ref: ./CcBccPreferenceEntry.yaml
+    example:
+      - type: MANAGER_OF
+      - type: ORG_ADMINS

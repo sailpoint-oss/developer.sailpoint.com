@@ -1,0 +1,33 @@
+description: A parameter to add to parameter storage. The public and private fields must match the type specification.
+type: object
+required:
+  - ownerId
+  - name
+  - type
+properties:
+  ownerId:
+    type: string
+    description: The UUID of the parameter owner.
+    example: c0b4568a4fe7458c434ee77d1fbt156b
+  name:
+    type: string
+    description: The human-readable name for the parameter.
+    example: Credentials for server.
+  type:
+    type: string
+    description: The type of the parameter. This cannot be changed after being set. Please see the types document for more information.
+    example: "1.1"
+  publicFields:
+    type: object
+    description: The content must be a JSON object containing the public fields that can be stored with this parameter.
+    example: '{"username": "username"}'
+  privateFields:
+    type: string
+    description: |
+      Must be a JWE AES256 encrypted blob.
+      The content of the blob must be a JSON object containing the private fields that can be stored with this parameter.
+    example: ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu
+  description:
+    type: string
+    description: Describe the parameter
+    example: Credentials for server.

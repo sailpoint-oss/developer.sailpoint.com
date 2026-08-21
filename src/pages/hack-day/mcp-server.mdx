@@ -1,6 +1,6 @@
 ---
 title: MCP Server
-description: Connect an AI client to the SailPoint MCP Server and drive identity tasks in plain language.
+description: Extend an MCP Server and drive identity tasks in plain language.
 wrapperClassName: hack-day-track
 ---
 
@@ -11,8 +11,17 @@ import Tabs from '@theme/Tabs';
 
 # Track 04 · MCP Server
 
-Trade the UI for a conversation. You will pick your preferred programming language, get the SailPoint
-MCP server template running from the matching repository, and then build your own tools on top of it.
+In this track we are asking you to extend an MCP server with tools to solve a business use case.
+
+The Model Context Protocol (MCP) is an open standard for connecting AI clients to outside systems:
+rather than hard-coding an integration into a single assistant, you expose your capabilities as
+*tools* on an MCP server, and any MCP-capable client can discover and call them. 
+
+Each tool is a named function with a typed input schema — the model decides when to call it, your server handles
+authentication and talks to the real API, and the JSON that comes back is turned into a
+natural-language answer.
+
+Here that means wrapping SailPoint APIs so someone can ask a question in plain language and get identity data back without ever opening the UI.
 
 ## How to get started
 
@@ -56,43 +65,230 @@ Here's what comes out of the box to get you started:
 The examples in each repository use Claude as their example client for interacting with the MCP
 server. You can use any AI client that supports MCP connections.
 
-### 3. Create your credentials
+### 3. Generate your Person Access Token
 
-When you registered for Hack Day you should have received a demo tenant. Log in to the tenant and
-generate a personal access token with `sp:scopes:all`, then save the credentials for the next step.
+When you registered for Hack Day you should have received a demo tenant. Log in to the tenant with the credentials provided to you.
+
+1. Select the **User** icon from the upper-right corner of the page.
+
+2. From the dropdown menu, select Preferences.
+
+3. Select **Personal Access Tokens** from the left menu and select New Token.
+
+4. Set an expiration date for the personal access token. By default, the expiration date is set for 6 months. If this field is left blank, the token is created with no expiration date.
+
+5. Select the Other / No associated vendor integration checkbox.
+
+6. Select **sp:scopes:all** to authorize the personal access token to all scopes granted by the user’s assigned user level.
+
+:::warning
+
+Copy and save the Secret value before you close this panel. Otherwise, you will have to delete the token and create a new one since this value cannot be retrieved later.
+
+:::
+
+7. Save the Secret value somewhere safe.
 
 See [Generating a personal access token](https://documentation.sailpoint.com/saas/help/common/api_keys.html#generating-a-personal-access-token)
 for the full walkthrough.
 
 ### 4. Configure the MCP server
 
-Follow the README in the repository for the language you chose.
+Everything you need is below — open the tab for the language you cloned.
 
 <Tabs>
   <TabItem value="python" label="Python" default>
 
-[python-mcp-server-template README](https://github.com/sailpoint-oss/python-mcp-server-template/blob/main/README.md)
+**Install the dependencies**
+
+```bash
+cd python-mcp-server-template
+
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev]"
+```
+
+**Add your credentials**
+
+Copy the example file, then fill in the three values:
+
+```bash
+cp .env.example .env
+```
+
+```bash
+SAIL_BASE_URL=https://your-tenant.api.identitynow.com
+SAIL_CLIENT_ID=...
+SAIL_CLIENT_SECRET=...
+```
+
+These are the variable names the SailPoint SDK reads natively, so the same `.env` works for any
+other SDK script you write.
+
+**Verify the credentials before touching an MCP client**
+
+```bash
+python scripts/check_auth.py "<Search String>"
+```
+
+You should see three `OK` lines and a JSON identity record. If this fails, the problem is your
+credentials or tenant URL — fix it here, where the error messages are readable.
+
+**Register it with the MCP inspector**
+
+Use the MCP inspector to build out your tools, verify their output and get them ready for an agent to use.
+
+Run the command to save the config for the MCP inspector on your computer. 
+
+**Be sure to update the command with the full path to your virtual python environment.**
+
+```bash
+cat > mcp-inspector.json <<'EOF'
+{
+  "mcpServers": {
+    "sailpoint": {
+      "command": "/absolute/path/to/python-mcp-server/.venv/bin/python",
+      "args": ["-m", "sailpoint_mcp"]
+    }
+  }
+}
+EOF
+```
+
 
   </TabItem>
   <TabItem value="typescript" label="TypeScript">
 
-[typescript-mcp-server-template README](https://github.com/sailpoint-oss/typescript-mcp-server-template/blob/main/README.md)
+**Install and build**
+
+```bash
+cd typescript-mcp-server-template
+
+npm install
+npm run build
+```
+
+**Add your credentials**
+
+Export the three values in the shell you will launch the inspector from. These are the variable
+names the SailPoint SDK reads natively, and the inspector passes them down to the server it starts.
+
+```bash
+export SAIL_BASE_URL=https://your-tenant.api.identitynow.com
+export SAIL_CLIENT_ID=...
+export SAIL_CLIENT_SECRET=...
+```
+
+**Verify the credentials before touching an MCP client**
+
+```bash
+node smoke.js
+```
+
+This does a handshake, lists the tools, and makes one live `search_identities` call. If it fails,
+the problem is your credentials or tenant URL — fix it here, where the error messages are readable.
+
+**Register it with the MCP inspector**
+
+Use the MCP inspector to build out your tools, verify their output and get them ready for an agent to use.
+
+Run the command to save the config for the MCP inspector on your computer.
+
+**Be sure to update the command with the full path to your built server.**
+
+```bash
+cat > mcp-inspector.json <<'EOF'
+{
+  "mcpServers": {
+    "sailpoint": {
+      "command": "node",
+      "args": ["/absolute/path/to/typescript-mcp-server-template/dist/index.js"]
+    }
+  }
+}
+EOF
+```
 
   </TabItem>
   <TabItem value="golang" label="GoLang">
 
-[golang-mcp-server-template README](https://github.com/sailpoint-oss/golang-mcp-server-template/blob/main/README.md)
+**Build it**
+
+Requires Go 1.25+.
+
+```bash
+cd golang-mcp-server-template
+
+make build          # -> bin/sailpoint-mcp-server
+```
+
+**Add your credentials**
+
+Export the three values in the shell you will launch the inspector from. These are the variable
+names the SailPoint SDK reads natively, and the inspector passes them down to the server it starts.
+
+```bash
+export SAIL_BASE_URL=https://your-tenant.api.identitynow.com
+export SAIL_CLIENT_ID=...
+export SAIL_CLIENT_SECRET=...
+```
+
+The server validates the resolved base URL, client ID, client secret and token URL at startup and
+exits with a descriptive message if any are missing, rather than failing on the first tool call.
+
+**Verify the credentials before touching an MCP client**
+
+```bash
+make smoke
+```
+
+This does a handshake, lists the tools, and makes one live `search_identities` call. If it fails,
+the problem is your credentials or tenant URL — fix it here, where the error messages are readable.
+
+**Register it with the MCP inspector**
+
+Use the MCP inspector to build out your tools, verify their output and get them ready for an agent to use.
+
+Run the command to save the config for the MCP inspector on your computer.
+
+**Be sure to update the command with the full path to your built binary.**
+
+```bash
+cat > mcp-inspector.json <<'EOF'
+{
+  "mcpServers": {
+    "sailpoint": {
+      "command": "/absolute/path/to/golang-mcp-server-template/bin/sailpoint-mcp-server"
+    }
+  }
+}
+EOF
+```
 
   </TabItem>
 </Tabs>
 
+From here the steps are the same whichever language you chose.
+
+Run the following command in your terminal, passing in your configuration and your preferred server name:
+
+```bash
+npx @modelcontextprotocol/inspector --config mcp-inspector.json --server sailpoint
+```
+
+This opens an MCP inspector instance in your browser. Use the toggle on the servers card to connect.
+
 ### 5. Make an example call
 
-Open your AI client and make an example call — try asking something like "Tell me more about the
-identity Adam Archer."
+Once connected, open the `Tools` tab. You will see the default tool created as a part of this
+template, `search_identities`.
 
-Watch the Search Identities tool get called on the template MCP server. The JSON it returns goes back
-to the AI client, which turns it into a readable answer.
+Click `search_identities` in the tools sidebar to open the tool execution window.
+
+Type `Adam Kennedy` into the query input and click **Execute Tool**.
+
+You will see the result from the MCP server that an agent would use when answering your question.
 
 ### 6. Build
 
@@ -103,5 +299,33 @@ What you build should:
 - Be small, self-contained, and functional
 - Demonstrate a clear and intentional use case
 
+## Connect it to an AI agent
+
+The inspector is for building and testing your tools. Once they behave the way you want, point a
+real agent at the server. Every platform below launches a local stdio server from the same
+`command` and `args` pair you already put in `mcp-inspector.json`, so that file is your template.
+
+- **[Claude Code](https://code.claude.com/docs/en/mcp)** — register from the terminal with
+  `claude mcp add sailpoint -- <command> <args>`, or commit a `.mcp.json` to share the server with
+  your team.
+- **[Claude Desktop](https://modelcontextprotocol.io/docs/develop/connect-local-servers)** — add the
+  server to `claude_desktop_config.json`, then restart the app.
+- **[Cursor](https://cursor.com/docs/mcp)** — `.cursor/mcp.json` for a single project, or
+  `~/.cursor/mcp.json` to make the server available everywhere.
+- **[VS Code](https://code.visualstudio.com/docs/agent-customization/mcp-servers)** — `.vscode/mcp.json`
+  for the workspace, used by Copilot's agent mode.
+- **[ChatGPT](https://learn.chatgpt.com/docs/extend/mcp)** — **Settings → MCP servers → Add server**,
+  choosing **STDIO**. The desktop app, Codex CLI, and IDE extension share this configuration.
+
+:::note
+
+ChatGPT on the web only accepts remote servers over HTTPS and rejects `localhost`, so use the
+desktop app or Codex CLI for the local server you just built.
+
+:::
+
+Whichever you pick, use absolute paths — the agent does not run from your project directory — and
+remember that `SAIL_BASE_URL`, `SAIL_CLIENT_ID`, and `SAIL_CLIENT_SECRET` must reach the server
+process, either exported in the environment that launches it or set in that platform's `env` block.
 
 - [Back to all tracks](/hack-day)

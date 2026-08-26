@@ -13,6 +13,10 @@
  * transform is idempotent and only touches description/summary strings.
  *
  * Run from the repo root: node scripts/sanitize-iiq-spec.js
+ *
+ * Called automatically by scripts/sync-sdk-docs-local.sh after the spec is
+ * copied in from the api-specs repo (locally and in CI), because that copy
+ * overwrites any previously sanitized version.
  */
 const fs = require('fs');
 const path = require('path');
@@ -47,6 +51,10 @@ function walk(node) {
 }
 
 function main() {
+  if (!fs.existsSync(SPEC_PATH)) {
+    console.log(`No IIQ 9.0 spec at ${SPEC_PATH}, nothing to sanitize.`);
+    return;
+  }
   const raw = fs.readFileSync(SPEC_PATH, 'utf8');
   const doc = yaml.load(raw);
   walk(doc);

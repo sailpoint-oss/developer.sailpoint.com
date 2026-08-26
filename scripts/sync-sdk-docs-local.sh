@@ -114,6 +114,15 @@ sync_api_specs() {
       run_rsync "$src/$area/" "$PORTAL_ROOT/static/api-specs/$area/"
     fi
   done
+
+  # The IIQ 9.0 spec contains prose with pseudo-tags (<pre>, <attributeName>)
+  # that MDX v3 parses as JSX and that break `docusaurus build`. Escape them
+  # every time the spec is copied in, since rsync overwrites any earlier fix.
+  if $DRY_RUN; then
+    echo "[dry-run] node scripts/sanitize-iiq-spec.js"
+  else
+    node "$PORTAL_ROOT/scripts/sanitize-iiq-spec.js"
+  fi
 }
 
 write_file() {

@@ -93,7 +93,7 @@ PARAMETERS
         Max number of results to return. For more information, refer to [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters).
 
     -Count <Nullable`1>
-        If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a
+        If *true* it will populate the *x-total-count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a
         performance impact, it is recommended not to send **count=true** if that value will not be used. For more information, refer to [V3 API Standard Collection
         Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters).
 

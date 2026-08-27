@@ -143,7 +143,7 @@ never put real data in it.
 :::
 
 <details>
-<summary>Stuck? Do it from the terminal instead</summary>
+<summary>Optional: Do it from the terminal instead</summary>
 
 ```bash
 export DEMO_API=https://dugfer5z7k.execute-api.us-east-1.amazonaws.com
@@ -188,7 +188,7 @@ what has to be in it and where it goes.
 | --- | --- | --- |
 | `name` | `saas-connectivity-demo` | What the source shows up as in ISC |
 | `commands` | the four `std:*` commands you implement, `std:entitlement:list` is the only one you need to add here | ISC only ever calls commands listed here, even if your code handles more |
-| `sourceConfig` | `baseUrl` and `apiKey` fields | Renders the form an admin fills in when creating the source |
+| `sourceConfig` | `baseUrl` and `apiKey` fields inside the `Authentication` section | Renders the form an admin fills in when creating the source. It comes pre-filled with an authentication section, you just need to update it with the two additional fields |
 | `accountSchema` | the account attributes to import | Defines the columns ISC stores per account |
 | `entitlementSchemas` | the group attributes to import | Defines what an entitlement looks like |
 
@@ -198,9 +198,7 @@ back from `readConfig()` in your code, so `"key": "baseUrl"` becomes `config.bas
 
 **`accountSchema`** needs three pointers plus the attribute list:
 
-- `identityAttribute` → `id`. This is the account's permanent unique key. Use the opaque `usr_...`
-  value, not `userName`. Logins change, and if the identity attribute changes ISC sees a delete and a
-  create rather than an update.
+- `identityAttribute` → `id`. This is the account's permanent unique key.
 - `displayAttribute` → `displayName`. Cosmetic; what a reviewer reads in the UI.
 - `groupAttribute` → `groups`. Names the attribute that holds entitlements. It must match the name of
   the attribute you flag as an entitlement below.
@@ -225,6 +223,201 @@ Two things to notice, because they are what a real source makes you deal with:
 
 The demo app will write the whole file for you if you want to skip ahead: go to
 **Schema → connector-spec.json** and click **Download**.
+
+<details>
+<summary>See the complete connector-spec.json</summary>
+
+```json
+{
+  "name": "SaaS Connectivity Demo",
+  "keyType": "simple",
+  "commands": [
+    "std:test-connection",
+    "std:account:list",
+    "std:account:read",
+    "std:entitlement:list",
+    "std:entitlement:read"
+  ],
+  "supportsStatefulCommands": true,
+  "showDebugLoggingOption": true,
+  "sourceConfigInitialValues": {
+    "baseUrl": "https://dugfer5z7k.execute-api.us-east-1.amazonaws.com/v1"
+  },
+  "sourceConfig": [
+    {
+      "type": "menu",
+      "label": "Configuration",
+      "items": [
+        {
+          "type": "section",
+          "sectionTitle": "Demo API connection",
+          "sectionHelpMessage": "Create a demo API key in the SaaS Connectivity Demo web app. Keys and their data expire 7 days after creation.",
+          "docLink": "https://developer.sailpoint.com/docs/connectivity/saas-connectivity",
+          "items": [
+            {
+              "key": "baseUrl",
+              "label": "Demo API base URL",
+              "type": "url",
+              "required": true,
+              "placeholder": "https://dugfer5z7k.execute-api.us-east-1.amazonaws.com/v1"
+            },
+            {
+              "key": "apiKey",
+              "label": "Demo API key",
+              "type": "secret",
+              "required": true,
+              "placeholder": "sck_..."
+            },
+            {
+              "key": "spConnEnableStatefulCommands",
+              "label": "Enable delta aggregation",
+              "type": "checkbox",
+              "required": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "accountSchema": {
+    "displayAttribute": "displayName",
+    "identityAttribute": "id",
+    "groupAttribute": "groups",
+    "attributes": [
+      {
+        "name": "id",
+        "type": "string",
+        "description": "Opaque unique identifier assigned by the source"
+      },
+      {
+        "name": "userName",
+        "type": "string",
+        "description": "Login name, unique within the source"
+      },
+      {
+        "name": "displayName",
+        "type": "string",
+        "description": "Full name as shown in the source UI"
+      },
+      {
+        "name": "firstName",
+        "type": "string",
+        "description": "Given name"
+      },
+      {
+        "name": "lastName",
+        "type": "string",
+        "description": "Family name"
+      },
+      {
+        "name": "email",
+        "type": "string",
+        "description": "Primary email address"
+      },
+      {
+        "name": "department",
+        "type": "string",
+        "description": "Department the account belongs to"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "description": "Job title"
+      },
+      {
+        "name": "manager",
+        "type": "string",
+        "description": "The manager's account id, or null for none"
+      },
+      {
+        "name": "employeeId",
+        "type": "string",
+        "description": "HR employee number"
+      },
+      {
+        "name": "location",
+        "type": "string",
+        "description": "Primary office location"
+      },
+      {
+        "name": "costCenter",
+        "type": "string",
+        "description": "Cost center code used for chargeback"
+      },
+      {
+        "name": "phone",
+        "type": "string",
+        "description": "Contact phone number"
+      },
+      {
+        "name": "active",
+        "type": "boolean",
+        "description": "Whether the account is active. Note this is the inverse of the ISC \"disabled\" flag."
+      },
+      {
+        "name": "locked",
+        "type": "boolean",
+        "description": "Whether the account is locked out of the source"
+      },
+      {
+        "name": "groups",
+        "type": "string",
+        "entitlement": true,
+        "managed": true,
+        "multi": true,
+        "description": "Entitlement ids the account is a member of, as an array of strings"
+      }
+    ]
+  },
+  "entitlementSchemas": [
+    {
+      "type": "group",
+      "displayAttribute": "name",
+      "identityAttribute": "id",
+      "includePermissions": true,
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Opaque unique identifier assigned by the source (grp_...)"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Short group name"
+        },
+        {
+          "name": "displayName",
+          "type": "string",
+          "description": "Human-readable group name"
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "What access the group grants"
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Group lifecycle status (active or deprecated)"
+        },
+        {
+          "name": "created",
+          "type": "string",
+          "description": "ISO-8601 creation time"
+        },
+        {
+          "name": "updated",
+          "type": "string",
+          "description": "ISO-8601 last modification time"
+        }
+      ]
+    }
+  ]
+}
+```
+
+</details>
 
 - [Connector spec reference](/docs/connectivity/saas-connectivity/connector-spec)
 
@@ -256,8 +449,45 @@ export class MyClient {
 
 Every later call is then a relative path off `baseURL` — `this.httpClient.get('/health')`.
 
-Now wire the command in `src/index.ts` using `readConfig()` to get the values the admin typed into
-`sourceConfig`, and `.stdTestConnection()` to register the handler.
+Now add a `testConnection()` method to `MyClient` that hits `GET /health` and returns `{}` on
+success. The happy path is two lines. If you want to handle a bad key gracefully, catch the 401 and
+throw a `ConnectorError` with a readable message:
+
+```typescript
+    async testConnection(): Promise<any> {
+        await this.httpClient.get('/health')
+        return {}
+    }
+```
+
+Now wire it in `src/index.ts`. The scaffolded file already exports a `connector` factory — replace
+its contents with the shell below, then fill in the one line inside the handler:
+
+```typescript
+import {
+    Context,
+    createConnector,
+    readConfig,
+    Response,
+    StdTestConnectionInput,
+    StdTestConnectionOutput,
+} from '@sailpoint/connector-sdk'
+import {MyClient} from './my-client'
+
+export const connector = async () => {
+    const config = await readConfig()
+    const myClient = new MyClient(config)
+
+    return createConnector()
+        .stdTestConnection(
+            async (context: Context, input: StdTestConnectionInput, res: Response<StdTestConnectionOutput>) => {
+                // call myClient.testConnection() and pass the result to res.send()
+            }
+        )
+}
+```
+
+Each command you add in later steps chains another `.stdSomething()` onto that same `createConnector()` call.
 
 Test it. `npm run dev` starts a local server on port 3000 and reloads on save, so leave it running.
 
@@ -300,24 +530,13 @@ Open **Connector Commands → Test local stdTestConnection** and replace the bod
   </TabItem>
 </Tabs>
 
-You want `{}` back. Note the `/v1` on the end of `baseUrl` — leave it off and every call 404s.
-
-:::tip Check your answer
-
-The demo API implements all fifteen commands itself, so you can compare your output against a
-known-good answer at any point. (`$DEMO_API` and `$DEMO_KEY` are the variables from step 2.)
-
-```bash
-curl -sX POST "$DEMO_API/v1/commands/test-connection" \
-  -H "Authorization: Bearer $DEMO_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"input":{}}'
+You should get back a response like this:
+```json
+{
+    "data": {},
+    "type": "output"
+}
 ```
-
-Swap `test-connection` for `account-list`, `account-read`, or `entitlement-list` as you go. The app's
-**API** page has a copy-paste recipe for each one.
-
-:::
 
 <details>
 <summary>Stuck? Reveal the code</summary>
@@ -381,8 +600,6 @@ export const connector = async () => {
 }
 ```
 
-Each command you add in the next steps chains another `.stdSomething()` onto that same call.
-
 - [Test connection](/docs/connectivity/saas-connectivity/commands/test-connection)
 - [HTTP client](/docs/connectivity/saas-connectivity/in-depth/http-client)
 - [Error handling](/docs/connectivity/saas-connectivity/in-depth/error-handling)
@@ -402,21 +619,70 @@ This is full aggregation — every account in the source, every time.
   from bulk endpoints. Pass `include=email` for now; making the per-account fan-out work is a stretch
   goal.
 
-Add a `getAllAccounts()` method to `MyClient` that loops the cursor and returns a flat array.
+Add a `getAllAccounts()` method to `MyClient` that loops the cursor and returns a flat array. The
+API response looks like this:
 
-In `index.ts`, register `.stdAccountList()`. The output is a **stream, not an array** — call
-`res.send()` once per account inside your loop. For each account, set:
+```json
+{
+  "items": [ ... ],
+  "cursor": "dXNlcl8w..."
+}
+```
+
+When `cursor` is present in the response, pass it back as a query parameter on the next request to
+get the next page. When the response has no `cursor`, you are on the last page. The loop structure
+is a `do...while` — you always make at least one request first, then check whether to continue.
+Fill in the two lines inside the loop body:
+
+```typescript
+    async getAllAccounts(): Promise<any[]> {
+        const accounts: any[] = []
+        let cursor: string | undefined
+
+        do {
+            const params: any = {limit: 50, include: 'email'}
+            if (cursor) {
+                params.cursor = cursor
+            }
+            const response = await this.httpClient.get('/users', {params})
+            // push response.data.items onto accounts
+            // update cursor from response.data.cursor (undefined when there are no more pages)
+        } while (cursor)
+
+        return accounts
+    }
+```
+
+In `index.ts`, chain `.stdAccountList()` onto `createConnector()`. The output is a **stream, not an
+array** — call `res.send()` once per account inside your loop, using the field mapping in the table
+below:
 
 | Output field | From |
 | --- | --- |
-| `identity`, `uuid` | `account.id` |
-| `key` | `SimpleKey(account.id)` |
-| `disabled` | `!account.active` — the source stores the positive form, ISC wants the negative |
-| `locked` | `account.locked` |
+| `identity` | `account.id` |
+| `uuid` | `account.id` |
 | `attributes` | Every attribute you declared in the account schema |
 
-Write the account-to-output mapping as its own function. `std:account:read` in the next step needs the
-identical shape, and if you inline it twice the two will drift.
+```typescript
+        .stdAccountList(
+            async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
+                const accounts = await myClient.getAllAccounts()
+                for (const account of accounts) {
+                    res.send({
+                        identity: account.id,
+                        uuid: account.id,
+                        attributes: {
+                            // map each attribute you declared in accountSchema
+                        },
+                    })
+                }
+                logger.info(`stdAccountList sent ${accounts.length} accounts`)
+            }
+        )
+```
+
+You will also need to add `logger`, `StdAccountListInput`, and `StdAccountListOutput` to your
+imports from `@sailpoint/connector-sdk`.
 
 <Tabs groupId="client">
   <TabItem value="curl" label="curl" default>
@@ -455,7 +721,26 @@ clear it out to keep the request honest.
   </TabItem>
 </Tabs>
 
-You want 50 objects, not 10 — if you get 10, your cursor loop is not looping.
+You want 50 objects, not 10 — if you get 10, your cursor loop is not looping. Each object in the
+stream will look like this:
+
+```json
+{
+    "data": {
+        "identity": "usr_...",
+        "uuid": "usr_...",
+        "disabled": false,
+        "locked": false,
+        "attributes": {
+            "id": "usr_...",
+            "userName": "jane.doe",
+            "displayName": "Jane Doe",
+            ...
+        }
+    },
+    "type": "output"
+}
+```
 
 <details>
 <summary>Stuck? Reveal the code</summary>
@@ -482,44 +767,36 @@ Add to `src/my-client.ts`:
     }
 ```
 
-Add to `src/index.ts` — the shared mapper, then the handler:
-
-```typescript
-// One mapper, used by both account:list and account:read, so they cannot drift.
-const toAccount = (account: any): StdAccountReadOutput => ({
-    identity: account.id,
-    uuid: account.id,
-    key: SimpleKey(account.id),
-    disabled: !account.active, // the source stores the positive form
-    locked: account.locked,
-    attributes: {
-        id: account.id,
-        userName: account.userName,
-        displayName: account.displayName,
-        firstName: account.firstName,
-        lastName: account.lastName,
-        email: account.email,
-        department: account.department,
-        title: account.title,
-        groups: account.groups,
-    },
-})
-```
+Add to `src/index.ts`:
 
 ```typescript
         .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
             const accounts = await myClient.getAllAccounts()
-
-            // Send one object per account. This is a stream, not an array.
             for (const account of accounts) {
-                res.send(toAccount(account))
+                res.send({
+                    identity: account.id,
+                    uuid: account.id,
+                    disabled: !account.active,
+                    locked: account.locked,
+                    attributes: {
+                        id: account.id,
+                        userName: account.userName,
+                        displayName: account.displayName,
+                        firstName: account.firstName,
+                        lastName: account.lastName,
+                        email: account.email,
+                        department: account.department,
+                        title: account.title,
+                        groups: account.groups,
+                    },
+                })
             }
             logger.info(`stdAccountList sent ${accounts.length} accounts`)
         })
 ```
 
-Your imports from `@sailpoint/connector-sdk` now also need `logger`, `SimpleKey`,
-`StdAccountListInput`, `StdAccountListOutput`, and `StdAccountReadOutput`.
+Your imports from `@sailpoint/connector-sdk` now also need `logger`, `StdAccountListInput`, and
+`StdAccountListOutput`.
 
 - [Account list](/docs/connectivity/saas-connectivity/commands/account-list)
 
@@ -542,7 +819,46 @@ Two things to get right:
   `std:account:create` instead of failing the whole operation. Anything else you throw is a hard
   failure.
 
-Reuse the mapper from step 6, then test with an id from the demo app's **Accounts** table:
+Add a `getAccount()` method to `MyClient`. It hits `GET /v1/users/{id}` with `include=email` and
+returns the account. Catch the `404` and throw a `ConnectorError` with `ConnectorErrorType.NotFound`:
+
+```typescript
+    async getAccount(id: string): Promise<any> {
+        try {
+            const response = await this.httpClient.get(`/users/${id}`, {
+                params: {include: 'email'},
+            })
+            return response.data
+        } catch (error: any) {
+            // TODO: if error.response.status === 404, throw ConnectorError with ConnectorErrorType.NotFound
+            throw error
+        }
+    }
+```
+
+Then chain the handler in `index.ts`. The id extraction is the tricky part — `input.key` can be
+simple or compound, so narrow it before reading `.id`, and fall back to `input.identity`:
+
+```typescript
+        .stdAccountRead(
+            async (context: Context, input: StdAccountReadInput, res: Response<StdAccountReadOutput>) => {
+                const id = input.key && 'simple' in input.key ? input.key.simple.id : input.identity
+                const account = await myClient.getAccount(id)
+                res.send({
+                    identity: account.id,
+                    uuid: account.id,
+                    attributes: {
+                        // same attributes as stdAccountList
+                    },
+                })
+            }
+        )
+```
+
+You will also need to add `ConnectorErrorType` to your `my-client.ts` imports, and
+`StdAccountReadInput` and `StdAccountReadOutput` to your `index.ts` imports.
+
+Then test with an id from the demo app's **Accounts** table:
 
 <Tabs groupId="client">
   <TabItem value="curl" label="curl" default>
@@ -611,15 +927,30 @@ Add to `src/index.ts`:
 
 ```typescript
         .stdAccountRead(async (context: Context, input: StdAccountReadInput, res: Response<StdAccountReadOutput>) => {
-            // Narrow the key union, and fall back to identity so the local
-            // test payloads work without a key block.
             const id = input.key && 'simple' in input.key ? input.key.simple.id : input.identity
-            res.send(toAccount(await myClient.getAccount(id)))
+            const account = await myClient.getAccount(id)
+            res.send({
+                identity: account.id,
+                uuid: account.id,
+                disabled: !account.active,
+                locked: account.locked,
+                attributes: {
+                    id: account.id,
+                    userName: account.userName,
+                    displayName: account.displayName,
+                    firstName: account.firstName,
+                    lastName: account.lastName,
+                    email: account.email,
+                    department: account.department,
+                    title: account.title,
+                    groups: account.groups,
+                },
+            })
         })
 ```
 
 `my-client.ts` now also needs `ConnectorErrorType` in its imports, and `index.ts` needs
-`StdAccountReadInput`.
+`StdAccountReadInput` and `StdAccountReadOutput`.
 
 - [Account read](/docs/connectivity/saas-connectivity/commands/account-read)
 

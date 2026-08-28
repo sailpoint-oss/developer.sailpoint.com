@@ -214,6 +214,32 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | REVIEWER_ID | text |  | Identity assigned to review the certification |
 
 
+### CERTIFICATION_V2
+
+| Column | Data Type | Key | Description |
+| --- | --- | --- | --- |
+| TENANT_ID | text |  | Unique Id for an Organization tenant |
+| ID | text | PK | Unique Id for the Certification |
+| NAME | text |  | Name of the object in ISC |
+| CREATED_DATE | datetime |  | date when the object was created |
+| UPDATED_DATE | datetime |  | date when the object was modified |
+| DELETED_DATE | datetime |  | date when the object was deleted |
+| SOURCE_ID | text |  | **Deprecated.** Unique Id of the source or application |
+| SIGNER_ID | text |  | Signer assigned to the certification |
+| MANAGER_ID | text |  | **Deprecated.** Manager - reviewing the certification |
+| CAMPAIGN_ID | text |  | Campaign the certification is Spawned from |
+| ORIGINAL_CERTIFICATION_ID | text |  | original certification before reassignment |
+| COMPLETE | boolean |  | Status of the certification |
+| PHASE | text |  | Current Phase like Active, Staged, end etc. |
+| IS_BULK_REASSIGNMENT | boolean |  | **Deprecated.** Whether the certification is part of a bulk reassignment |
+| DUE_DATE | datetime |  | when the certification needs to be reviewed |
+| SIGNED_DATE | datetime |  | when the certification was actually signed |
+| FINISHED_DATE | datetime |  | Provision end timestamp for an access request. This may match the CREATED date in the SailPoint UI when both refer to the same provision end event. |
+| EXPIRATION_DATE | datetime |  | **Deprecated.** When the certification will expire |
+| SYNC_DATE | datetime |  | When the row is last synced |
+| REVIEWER_ID | text |  | Identity assigned to review the certification |
+
+
 ### ENTITLEMENT
 
 | Column | Data Type | Key | Description |
@@ -321,6 +347,46 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | SYNC_DATE | datetime |  | When the row is last synced |
 
 
+### CERTIFICATION_ITEM_V2
+
+| Column | Data Type | Key | Description |
+| --- | --- | --- | --- |
+| TENANT_ID | text |  | Unique Id for an Organization tenant |
+| ID | text | PK | Unique Id for the certification item |
+| CREATED_DATE | datetime |  | date when the object was created |
+| UPDATED_DATE | datetime |  | date when the object was modified |
+| DELETED_DATE | datetime |  | date when the object was deleted |
+| IDENTITY_ID | text |  | Identity to which the access is reviewed for |
+| REVIEWER_ID | text |  | Identity who is reviewing the access |
+| ENTITLEMENT_ID | text |  | Entitlement that is being reviewed |
+| ROLE_ID | text |  | Role that is being reviewed |
+| CERTIFICATION_ID | text |  | certification from where the item spawned |
+| ACCOUNT_ID | text |  | Account corresponding to the Identity |
+| SOURCE_ID | text |  | source or application related to account/entitlement |
+| REVIEWED_ID | text |  | Who actually reviewed the access item |
+| REVIEWED_TYPE | text |  | What type of access item was reviewed Ex: Account, Role, Entitlement etc. |
+| TYPE | text |  | **Deprecated.** Type of certification item Ex: Bundle, Exception, Account Etc. |
+| SUB_TYPE | text |  | **Deprecated.** Associated Sub_type for each of the type |
+| COMPLETED_DATE | datetime |  | time the access item certification was completed |
+| DECISION_DATE | datetime |  | time the decision was submitted on ISC |
+| APPROVED | number |  | Whether the item was approved(1) or rejected(0) |
+| STATUS | text |  | Status of the certification item |
+| DECISION | text |  | Decision taken by reviewer on the access item Ex: Approved, Mitigated, remediated etc. |
+| DECISION_COMMENT | text |  | Comment provided by the reviewer along with the decision |
+| BULK | boolean |  | **Deprecated.** decision made was part of bulk selection |
+| REMEDIATED | boolean |  | True when the decision was remediated |
+| PRIVILEGED | boolean |  | if any of the access items are privileged |
+| REMEDIATION_ACTION | text |  | **Deprecated.** Associated action on remediation |
+| MITIGATION_EXPIRATION | datetime |  | **Deprecated.** Time when the decision to mitigate was set to expire |
+| NATIVE_IDENTITY | text |  | Identity from the source |
+| INSTANCE | text |  | **Deprecated.** instance |
+| ACCOUNT_ONLY | boolean |  | **Deprecated.** if only account is reviewed without any access items |
+| NEW_ACCESS | boolean |  | if the access item is new |
+| POLICY_NAME | text |  | **Deprecated.** Policy if any |
+| CONSTRAINT_NAME | text |  | **Deprecated.** Constraint if any |
+| SYNC_DATE | datetime |  | When the row is last synced |
+
+
 ### IDENTITY_REQUEST_ITEM
 
 | Column | Data Type | Key | Description |
@@ -401,6 +467,24 @@ Use the table of contents on the right-hand side of the page to jump directly to
 
 
 ### CERTIFICATION_CAMPAIGN
+
+| Column | Data Type | Key | Description |
+| --- | --- | --- | --- |
+| TENANT_ID | text |  | Unique Id for an Organization tenant |
+| ID | text | PK | Unique Id for the Certification Campaign |
+| NAME | text |  | Name of the campaign |
+| CREATED_DATE | datetime |  | date when the campaign was created |
+| UPDATED_DATE | datetime |  | date when the campaign was modified |
+| DELETED_DATE | datetime |  | date when the campaign was deleted |
+| STATUS | text |  | Status of the campaign Ex: Active, Completed etc. |
+| DEADLINE | datetime |  | Deadline for the campaign |
+| TYPE | text |  | Type of certification campaign |
+| COMPLETED_CERTIFICATIONS | number |  | Number of completed certifications in the campaign |
+| TOTAL_CERTIFICATIONS | number |  | Total number of certifications in the campaign |
+| SYNC_DATE | datetime |  | When the row is last synced |
+
+
+### CERTIFICATION_CAMPAIGN_V2
 
 | Column | Data Type | Key | Description |
 | --- | --- | --- | --- |
@@ -519,6 +603,12 @@ The following table describes the relationships between the tables in the identi
 | ACCOUNT | ACCOUNT_ENTITLEMENTS | One to Zero-or-More | has |
 | ENTITLEMENT | ACCOUNT_ENTITLEMENTS | One to Zero-or-More | associated to |
 | CERTIFICATION_CAMPAIGN | CERTIFICATION | One to One-or-More | spawns |
+| CERTIFICATION_CAMPAIGN_V2 | CERTIFICATION_V2 | One to One-or-More | spawns |
+| CERTIFICATION_V2 | CERTIFICATION_ITEM_V2 | One to One-or-More | contains |
+| CERTIFICATION_V2 | IDENTITY | One to One-or-More | contains |
+| CERTIFICATION_ITEM_V2 | IDENTITY | One to One | contains |
+| CERTIFICATION_ITEM_V2 | ROLE | One to Zero-or-One | contains |
+| CERTIFICATION_ITEM_V2 | ENTITLEMENT | One to Zero-or-One | contains |
 | GOVERNANCE_GROUP | IDENTITY | Many to One | Owned by or members of |
 | ACCESS_MODEL_METADATA_ATTRIBUTE | ENTITLEMENT | Many to One | Assignment of Attributes to |
 | ACCESS_MODEL_METADATA_ATTRIBUTE | ACCESS_PROFILE | Many to One | Assignment of Attributes to |

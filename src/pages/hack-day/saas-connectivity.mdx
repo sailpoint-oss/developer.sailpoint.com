@@ -883,7 +883,6 @@ Open **Connector Commands → Test local stdAccountRead** and replace the body w
 {
   "type": "std:account:read",
   "input": {
-    "key": {"simple": {"id": "usr_..."}},
     "identity": "usr_..."
   },
   "config": {
@@ -893,8 +892,7 @@ Open **Connector Commands → Test local stdAccountRead** and replace the body w
 }
 ```
 
-The shipped body uses `john.doe` in both places — swap in a real `usr_...` id. Sending `key` and
-`identity` together is the realistic case, and exercises the narrowing above.
+Swap in a real `usr_...` id from the demo app's **Accounts** table.
 
   </TabItem>
 </Tabs>
@@ -961,20 +959,55 @@ Add to `src/index.ts`:
 Same shape as `std:account:list`, but for groups — and this is the one to run **first** in ISC, so
 accounts have something to correlate their `groups` values against.
 
-**Endpoint:** `GET /v1/groups`. It pages the same way, but 8 entitlements fit in one page at
-`limit=100`. Pass `includePermissions=true` to get permission detail back; without it the field is
+**Endpoint:** `GET /v1/groups`. 8 entitlements fit in one page at `limit=100`, so no cursor loop is
+needed. Pass `includePermissions=true` to get permission detail back; without it the field is
 withheld, mirroring the schema flag ISC passes you.
 
-Each `res.send()` needs a bit more than an account did:
+Add a `getAllEntitlements()` method to `MyClient`. It is a single request — no pagination loop:
 
-| Output field | From |
+```typescript
+    async getAllEntitlements(): Promise<any[]> {
+        const response = await this.httpClient.get('/groups', {
+            // TODO: pass limit and includePermissions as params
+        })
+        return response.data.items
+    }
+```
+
+Then chain the handler in `index.ts`. Each `res.send()` needs a few extra fields compared to
+accounts — use the table below to fill in the object:
+
+| Output field | Value |
 | --- | --- |
 | `identity`, `uuid` | `entitlement.id` |
-| `key` | `SimpleKey(entitlement.id)` |
 | `type` | `'group'` — must match the `type` in your entitlement schema |
 | `deleted` | `false` |
 | `attributes` | The attributes you declared in the entitlement schema |
 | `permissions` | `entitlement.permissions` |
+
+```typescript
+        .stdEntitlementList(
+            async (context: Context, input: StdEntitlementListInput, res: Response<StdEntitlementListOutput>) => {
+                const entitlements = await myClient.getAllEntitlements()
+                for (const entitlement of entitlements) {
+                    res.send({
+                        identity: entitlement.id,
+                        uuid: entitlement.id,
+                        type: 'group',
+                        deleted: false,
+                        attributes: {
+                            // map each attribute you declared in entitlementSchemas
+                        },
+                        permissions: entitlement.permissions,
+                    })
+                }
+                logger.info(`stdEntitlementList sent ${entitlements.length} entitlements`)
+            }
+        )
+```
+
+You will also need to add `StdEntitlementListInput` and `StdEntitlementListOutput` to your imports
+from `@sailpoint/connector-sdk`.
 
 <Tabs groupId="client">
   <TabItem value="curl" label="curl" default>
@@ -1011,7 +1044,27 @@ Open **Connector Commands → Test local stdEntitlementList** and replace the bo
   </TabItem>
 </Tabs>
 
-You want 8 objects, with `permissions` populated on a few of them.
+You want 8 objects, with `permissions` populated on a few of them. Each object in the stream will
+look like this:
+
+```json
+{
+    "data": {
+        "identity": "grp_...",
+        "uuid": "grp_...",
+        "type": "group",
+        "deleted": false,
+        "attributes": {
+            "id": "grp_...",
+            "name": "engineering",
+            "displayName": "Engineering",
+            "description": "Access to engineering systems"
+        },
+        "permissions": []
+    },
+    "type": "output"
+}
+```
 
 <details>
 <summary>Stuck? Reveal the code</summary>
@@ -1074,8 +1127,15 @@ sail conn upload -c saas-connectivity-demo -f dist/saas-connectivity-demo-0.1.0.
 
 The zip filename comes from `name` and `version` in `package.json` — run `ls dist` if you are not sure.
 
-Then run a command against the uploaded connector. Put your `baseUrl` and `apiKey` in a
-`config.json` first.
+Then run a command against the uploaded connector. Create a `config.json` in the project root with
+your API key:
+
+```json
+{
+    "baseUrl": "https://dugfer5z7k.execute-api.us-east-1.amazonaws.com/v1",
+    "apiKey": "sck_your_key_here"
+}
+```
 
 ```bash
 sail conn invoke account-list -c saas-connectivity-demo -p config.json
@@ -1111,15 +1171,15 @@ sail conn validate -p config.json -c saas-connectivity-demo -r
 
 ### 10. Create the source and aggregate
 
-In your tenant, go to **Admin → Connections → Sources → Create Source**, search for
-**saas-connectivity-demo**, and select it.
+In your tenant, go to **Admin → Connections → Sources → Create New**, search for
+**SaaS Connectivity Demo**, and click the `Configure` button.
 
-1. Give the source a name and assign an owner.
+1. Give the source a name, description and assign an owner.
 2. On the configuration screen, paste your **Demo API base URL** and **Demo API key**.
-3. Click **Test Connection**.
-4. Go to **Import Data → Entitlement Aggregation** and run it — entitlements first, so accounts have
+3. Click **Test Connection** in the "Review and Test" screen
+4. Go to **Entitlement Management → Entitlement Aggregation** and click the "Start Aggregation" button — entitlements first, so accounts have
    groups to correlate against.
-5. Then run **Import Data → Account Aggregation**.
+5. Then go to **Account Management → Account Aggregation** and click the "Start Aggregation" button.
 
 You should see 8 entitlements and 50 accounts land in ISC. Open an account and check the attributes
 came through the way you mapped them, and that its entitlements resolved to group names rather than
@@ -1130,7 +1190,7 @@ raw `grp_...` ids.
 Pick whichever looks most interesting. Each one maps to something real sources actually do.
 
 - **Make the email fan-out real.** Drop `include=email` from your account list call. The demo API
-  withholds email from bulk responses, exactly like Discourse does, so you have to fetch
+  withholds email from bulk responses, exactly like other sources do, so you have to fetch
   `/users/{id}/emails` per account — use `Promise.all` to avoid doing it serially.
 - **Add provisioning.** Implement `std:account:create`, `std:account:update`, `std:account:enable`,
   `std:account:disable`, and `std:account:unlock`. Watch the `AttributeChange` semantics: `Set`
@@ -1145,7 +1205,7 @@ Pick whichever looks most interesting. Each one maps to something real sources a
   `ConnectorError` with a message worth reading, or define your own subclasses as the
   [error handling guide](/docs/connectivity/saas-connectivity/in-depth/error-handling) shows.
 - **Populate a dropdown.** Implement `std:source-data:discover` and `std:source-data:read` so a
-  source config field offers the demo system's real departments and locations.
+  source config field offers the demo system's real departments and locations. (useful for custom forms)
 
 ## Documentation
 

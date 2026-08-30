@@ -140,13 +140,52 @@ const pluginConfig = [
       docsPluginId: 'iiq',
       config: {
         iiq: {
-          specPath: 'static/api-specs/iiq/sailpoint-api.iiq.yaml',
+          specPath: 'static/api-specs/iiq/sailpoint-api.iiq-9.0.yaml',
           outputDir: 'docs/api/iiq',
           downloadUrl:
-            'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/iiq/sailpoint-api.iiq.yaml',
+            'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/iiq/sailpoint-api.iiq-9.0.yaml',
           sidebarOptions: {
             groupPathsBy: 'tag',
             categoryLinkSource: 'tag',
+            sidebarGenerators: {
+              createDocItem(item, {sidebarOptions: {customProps}, basePath}) {
+                const sidebar_label = item.frontMatter.sidebar_label;
+                const title = item.title;
+                const id =
+                  item.type === 'schema' ? `schemas/${item.id}` : item.id;
+                const className =
+                  item.type === 'api'
+                    ? clsx(
+                        {
+                          'menu__list-item--deprecated': item.api.deprecated,
+                          'menu__list-item--experimental':
+                            !!item.api.parameters?.find(
+                              (header) =>
+                                header.name === 'X-SailPoint-Experimental',
+                            ),
+                          'api-method': !!item.api.method,
+                        },
+                        item.api.method,
+                      )
+                    : clsx(
+                        {
+                          'menu__list-item--deprecated': item.schema.deprecated,
+                        },
+                        'schema',
+                      );
+                return {
+                  type: 'doc' as const,
+                  id:
+                    basePath === '' || undefined
+                      ? `${id}`
+                      : `${basePath}/${id}`,
+                  label: (sidebar_label as string) ?? title ?? id,
+                  key: id + '-' + title.toLowerCase().replace(/ /g, '-'),
+                  customProps: customProps,
+                  className: className ? className : undefined,
+                };
+              },
+            },
           },
           template: 'api.mustache',
         },

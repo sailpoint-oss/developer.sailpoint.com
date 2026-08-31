@@ -95,6 +95,14 @@ const config: Config = {
             'index.md',
             'api/iiq/**',
             'api/nerm/**',
+            // Community policy pages use the communityPoliciesSidebar, which is
+            // not part of the ISC API-only minified build.
+            'ai-policy.md',
+            'ambassador-agreement.md',
+            'ambassador-code-of-conduct.md',
+            'community-code-of-conduct.md',
+            'community-policies.md',
+            'event-code-of-conduct.md',
           ],
         },
         // See docusaurus.config.ts for why the built-in blog plugin is disabled.

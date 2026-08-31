@@ -68,11 +68,18 @@ sudo yum localinstall ./sail_2.4.0_linux_amd64.rpm
   </TabItem>
 </Tabs>
 
-Confirm it landed:
+Confirm it landed and that the version is **2.4.0 or newer**:
 
 ```bash
 sail --version
 ```
+
+:::warning
+
+If the version printed is below 2.4.0, upgrade before continuing — some commands used in this guide are not available in older releases. Re-run the install command for your platform above to get the latest version.
+
+:::
+
 
 #### Personal access token
 
@@ -741,6 +748,12 @@ Your imports from `@sailpoint/connector-sdk` now also need `logger`, `StdAccount
 </details>
 
 ### 7. Implement `std:account:read`
+
+:::tip Short on time?
+
+This step is optional. You can skip straight to [step 8](#8-implement-stdentitlementlist) and still end up with a fully working source.
+
+:::
 
 ISC calls this to refresh a single account — after a provisioning operation, or when someone clicks
 **Reload Account**.

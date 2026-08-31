@@ -6,6 +6,7 @@ wrapperClassName: hack-day-track
 
 import TabItem from '@theme/TabItem';
 import Tabs from '@theme/Tabs';
+import ApiKeyInput from '@site/src/components/ApiKeyInput';
 
 [← All Hack Day tracks](/hack-day)
 
@@ -46,7 +47,7 @@ brew tap sailpoint-oss/tap && brew install sailpoint-cli
   </TabItem>
   <TabItem value="windows" label="Windows">
 
-Download `sail_x.x.x_windows_amd64.msi` from the
+Download `sail_2.4.0_windows_amd64.msi` from the
 [releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases), double click it, and follow
 the installer. 64-bit Windows only.
 
@@ -57,11 +58,11 @@ Download the `.deb` or `.rpm` from the
 [releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases), then install it:
 
 ```bash
-sudo apt install ./sail_x.x.x_linux_amd64.deb
+sudo apt install ./sail_2.4.0_linux_amd64.deb
 ```
 
 ```bash
-sudo yum localinstall ./sail_x.x.x_linux_amd64.rpm
+sudo yum localinstall ./sail_2.4.0_linux_amd64.rpm
 ```
 
   </TabItem>
@@ -126,6 +127,8 @@ Open the [demo app](https://di3u013yjgxuh.cloudfront.net/welcome), click **Creat
 
 You now have 50 accounts and 8 entitlements that only your key can see. Copy the key somewhere safe —
 it is shown once.
+
+<ApiKeyInput />
 
 :::caution
 

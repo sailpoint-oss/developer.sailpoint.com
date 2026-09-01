@@ -32,6 +32,13 @@ const tracks = [
     description:
       'Trade the UI for a conversation. Point an AI client at the SailPoint MCP Server and drive identity tasks in plain language.',
   },
+  {
+    label: 'Main Hack Judging Criteria',
+    title: 'Main Hack Judging Criteria',
+    href: '/hack-day/judging-criteria',
+    description:
+      'Learn how the main hack will be judged.',
+  },
 ];
 
 const HackDay: React.FC = () => (

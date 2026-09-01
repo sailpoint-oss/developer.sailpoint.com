@@ -101,6 +101,9 @@ Everything you need is below — open the tab for the language you cloned.
 
 **Install the dependencies**
 
+<Tabs groupId="os">
+  <TabItem value="mac-linux" label="macOS / Linux" default>
+
 ```bash
 cd python-mcp-server-template
 
@@ -109,13 +112,40 @@ source .venv/bin/activate
 pip install -e ".[dev]"
 ```
 
+  </TabItem>
+  <TabItem value="windows" label="Windows (PowerShell)">
+
+```powershell
+cd python-mcp-server-template
+
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -e ".[dev]"
+```
+
+  </TabItem>
+</Tabs>
+
 **Add your credentials**
 
 Copy the example file, then fill in the three values:
 
+<Tabs groupId="os">
+  <TabItem value="mac-linux" label="macOS / Linux" default>
+
 ```bash
 cp .env.example .env
 ```
+
+  </TabItem>
+  <TabItem value="windows" label="Windows (PowerShell)">
+
+```powershell
+Copy-Item .env.example .env
+```
+
+  </TabItem>
+</Tabs>
 
 ```bash
 SAIL_BASE_URL=https://your-tenant.api.identitynow.com
@@ -141,20 +171,41 @@ Use the MCP inspector to build out your tools, verify their output and get them 
 
 Run the command to save the config for the MCP inspector on your computer. 
 
-**Be sure to update the command with the full path to your virtual python environment.**
+<Tabs groupId="os">
+  <TabItem value="mac-linux" label="macOS / Linux" default>
 
 ```bash
-cat > mcp-inspector.json <<'EOF'
+cat > mcp-inspector.json <<EOF
 {
   "mcpServers": {
     "sailpoint": {
-      "command": "/absolute/path/to/python-mcp-server/.venv/bin/python",
+      "command": "$(pwd)/.venv/bin/python",
       "args": ["-m", "sailpoint_mcp"]
     }
   }
 }
 EOF
 ```
+
+  </TabItem>
+  <TabItem value="windows" label="Windows (PowerShell)">
+
+```powershell
+$repoPath = (Get-Location).Path -replace '\\', '\\\\'
+@"
+{
+  "mcpServers": {
+    "sailpoint": {
+      "command": "$repoPath\\.venv\\Scripts\\python.exe",
+      "args": ["-m", "sailpoint_mcp"]
+    }
+  }
+}
+"@ | Set-Content mcp-inspector.json
+```
+
+  </TabItem>
+</Tabs>
 
 
   </TabItem>
@@ -174,11 +225,26 @@ npm run build
 Export the three values in the shell you will launch the inspector from. These are the variable
 names the SailPoint SDK reads natively, and the inspector passes them down to the server it starts.
 
+<Tabs groupId="os">
+  <TabItem value="mac-linux" label="macOS / Linux" default>
+
 ```bash
 export SAIL_BASE_URL=https://your-tenant.api.identitynow.com
 export SAIL_CLIENT_ID=...
 export SAIL_CLIENT_SECRET=...
 ```
+
+  </TabItem>
+  <TabItem value="windows" label="Windows (PowerShell)">
+
+```powershell
+$env:SAIL_BASE_URL = "https://your-tenant.api.identitynow.com"
+$env:SAIL_CLIENT_ID = "..."
+$env:SAIL_CLIENT_SECRET = "..."
+```
+
+  </TabItem>
+</Tabs>
 
 **Verify the credentials before touching an MCP client**
 
@@ -195,20 +261,41 @@ Use the MCP inspector to build out your tools, verify their output and get them 
 
 Run the command to save the config for the MCP inspector on your computer.
 
-**Be sure to update the command with the full path to your built server.**
+<Tabs groupId="os">
+  <TabItem value="mac-linux" label="macOS / Linux" default>
 
 ```bash
-cat > mcp-inspector.json <<'EOF'
+cat > mcp-inspector.json <<EOF
 {
   "mcpServers": {
     "sailpoint": {
       "command": "node",
-      "args": ["/absolute/path/to/typescript-mcp-server-template/dist/index.js"]
+      "args": ["$(pwd)/dist/index.js"]
     }
   }
 }
 EOF
 ```
+
+  </TabItem>
+  <TabItem value="windows" label="Windows (PowerShell)">
+
+```powershell
+$repoPath = (Get-Location).Path -replace '\\', '\\\\'
+@"
+{
+  "mcpServers": {
+    "sailpoint": {
+      "command": "node",
+      "args": ["$repoPath\\dist\\index.js"]
+    }
+  }
+}
+"@ | Set-Content mcp-inspector.json
+```
+
+  </TabItem>
+</Tabs>
 
   </TabItem>
   <TabItem value="golang" label="GoLang">
@@ -228,11 +315,26 @@ make build          # -> bin/sailpoint-mcp-server
 Export the three values in the shell you will launch the inspector from. These are the variable
 names the SailPoint SDK reads natively, and the inspector passes them down to the server it starts.
 
+<Tabs groupId="os">
+  <TabItem value="mac-linux" label="macOS / Linux" default>
+
 ```bash
 export SAIL_BASE_URL=https://your-tenant.api.identitynow.com
 export SAIL_CLIENT_ID=...
 export SAIL_CLIENT_SECRET=...
 ```
+
+  </TabItem>
+  <TabItem value="windows" label="Windows (PowerShell)">
+
+```powershell
+$env:SAIL_BASE_URL = "https://your-tenant.api.identitynow.com"
+$env:SAIL_CLIENT_ID = "..."
+$env:SAIL_CLIENT_SECRET = "..."
+```
+
+  </TabItem>
+</Tabs>
 
 The server validates the resolved base URL, client ID, client secret and token URL at startup and
 exits with a descriptive message if any are missing, rather than failing on the first tool call.
@@ -252,19 +354,39 @@ Use the MCP inspector to build out your tools, verify their output and get them 
 
 Run the command to save the config for the MCP inspector on your computer.
 
-**Be sure to update the command with the full path to your built binary.**
+<Tabs groupId="os">
+  <TabItem value="mac-linux" label="macOS / Linux" default>
 
 ```bash
-cat > mcp-inspector.json <<'EOF'
+cat > mcp-inspector.json <<EOF
 {
   "mcpServers": {
     "sailpoint": {
-      "command": "/absolute/path/to/golang-mcp-server-template/bin/sailpoint-mcp-server"
+      "command": "$(pwd)/bin/sailpoint-mcp-server"
     }
   }
 }
 EOF
 ```
+
+  </TabItem>
+  <TabItem value="windows" label="Windows (PowerShell)">
+
+```powershell
+$repoPath = (Get-Location).Path -replace '\\', '\\\\'
+@"
+{
+  "mcpServers": {
+    "sailpoint": {
+      "command": "$repoPath\\bin\\sailpoint-mcp-server.exe"
+    }
+  }
+}
+"@ | Set-Content mcp-inspector.json
+```
+
+  </TabItem>
+</Tabs>
 
   </TabItem>
 </Tabs>

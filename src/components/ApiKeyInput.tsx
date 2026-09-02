@@ -9,35 +9,38 @@ const PLACEHOLDER = 'sck_your_key_here';
  */
 export default function ApiKeyInput(): JSX.Element {
   const [apiKey, setApiKey] = useState('');
-  // Tracks what value is currently written into the DOM so we can replace it
-  // on the next keystroke rather than always hunting for the static placeholder.
-  const liveValueRef = useRef<string>(PLACEHOLDER);
+  // Text node -> its original text, captured the first time we see the
+  // placeholder in it. Every update rewrites from that original, so we never
+  // search the page for a partially typed key: replacing the previous value
+  // would turn a one-character key into a find-and-replace across all prose.
+  const originalsRef = useRef<Map<Text, string>>(new Map());
 
   useEffect(() => {
     const next = apiKey.trim() || PLACEHOLDER;
-    const prev = liveValueRef.current;
+    const originals = originalsRef.current;
 
-    if (next === prev) return;
-
-    // Walk every text node in the document body and replace in-place.
-    // Prism keeps each syntax token as its own text node so the placeholder
-    // will always appear as a complete substring within a single text node.
+    // Pick up any text node we have not seen yet. Newly mounted content -- a
+    // tab the reader just switched to, for example -- still holds the
+    // untouched placeholder. Prism keeps each syntax token in its own text
+    // node, so the placeholder always appears whole within a single node.
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-    const hits: Text[] = [];
-    let node = walker.nextNode();
-    while (node) {
-      if ((node as Text).nodeValue?.includes(prev)) {
-        hits.push(node as Text);
+    for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+      const text = node as Text;
+      if (!originals.has(text) && text.nodeValue?.includes(PLACEHOLDER)) {
+        originals.set(text, text.nodeValue);
       }
-      node = walker.nextNode();
     }
 
-    const escaped = prev.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    hits.forEach((n) => {
-      n.nodeValue = n.nodeValue!.replace(new RegExp(escaped, 'g'), next);
+    originals.forEach((original, text) => {
+      if (!text.isConnected) {
+        originals.delete(text);
+        return;
+      }
+      const replaced = original.split(PLACEHOLDER).join(next);
+      if (text.nodeValue !== replaced) {
+        text.nodeValue = replaced;
+      }
     });
-
-    liveValueRef.current = next;
   }, [apiKey]);
 
   return (

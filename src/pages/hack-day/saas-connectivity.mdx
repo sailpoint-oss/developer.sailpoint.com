@@ -83,10 +83,18 @@ If the version printed is below 2.4.0, upgrade before continuing — some comman
 
 #### Personal access token
 
+The CLI acts on your behalf against your tenant's APIs, so it needs credentials. A personal access
+token (PAT) is the quickest way to get a pair — no OAuth app to register.
+
 - In your tenant, open **Preferences → Personal Access Tokens**, or go straight to
   `https://[tenant].identitynow.com/ui/d/user-preferences/personal-access-tokens`.
-- Click **New Token**, give it a description, then **Create Token**.
-- Copy the **Client ID** and **Client Secret** now. The secret is never shown again.
+- Click **New Token** and give it a description, such as `hack-day-cli`.
+- For the vendor integration, choose **Other / No associated vendor integration**.
+- Leave the scopes list empty. An empty list means the token defaults to `sp:scopes:all` and inherits
+  your own access, which is what the connector commands in step 9 need — pick narrower scopes and
+  those commands will fail with a `403`.
+- Click **Create Token**, then copy the **Client ID** and **Client Secret**. The secret is never
+  shown again.
 
 More detail: [personal access tokens](/docs/api/authentication#generate-a-personal-access-token).
 
@@ -110,8 +118,11 @@ More detail: [Postman collection](/docs/connectivity/saas-connectivity/postman-c
 
 #### Point the CLI at your tenant
 
-You will be prompted for your tenant URL (`https://[tenant].identitynow.com`) and API URL
-(`https://[tenant].api.identitynow.com`), then for the client ID and secret from above.
+In your terminal, run these three commands one at a time. The first creates a named environment
+pointing at your tenant, the second stores the PAT you just created, and the third tells the CLI to
+authenticate with that PAT. You will be prompted for your tenant URL
+(`https://[tenant].identitynow.com`) and API URL (`https://[tenant].api.identitynow.com`), then for
+the client ID and secret from above.
 
 ```bash
 sail env create hackday
@@ -119,11 +130,15 @@ sail set pat
 sail set auth pat
 ```
 
-Check it authenticates — this should return without an error:
+Check that it authenticates. In your terminal, run:
 
 ```bash
 sail conn list
 ```
+
+It should return without an error. An empty list is a pass — it just means you have not created a
+connector yet. A `403` or a scopes error means the PAT was created with narrower scopes than
+`sp:scopes:all`; delete it and create a new one with the scopes list left empty.
 
 More detail: [CLI install and configuration](/docs/tools/cli).
 
@@ -147,11 +162,21 @@ never put real data in it.
 
 ### 3. Scaffold the connector project
 
+In your terminal, paste these commands one at a time. `sail conn init` generates a working starter
+project in a new folder, `cd` moves you into it, and `npm install` downloads its dependencies.
+
 ```bash
 sail conn init "saas-connectivity-demo"
 cd saas-connectivity-demo
 npm install
 ```
+
+A SaaS connector is a small TypeScript app that ISC runs for you. ISC never calls the demo API
+itself — it sends your connector a command such as "list every account", and your connector turns
+that into HTTP calls and hands the results back in the shape ISC expects. What you just generated is
+a complete but nearly empty version of that app: the build scripts, a local dev server, and one
+placeholder command are wired up, and the translation between the two systems is left to you.
+Everything from here is you filling in that translation, one command at a time.
 
 Three files matter:
 
@@ -165,7 +190,16 @@ Three files matter:
 
 ### 4. Define the connector spec
 
-Replace the contents of `connector-spec.json` with the following:
+The spec is your connector's contract with ISC, and ISC reads it before any of your code runs. It
+answers three questions: which commands ISC is allowed to send you, which configuration fields to
+show an admin setting up a source, and what shape the data you return will be in. Code you write in
+later steps has no effect until it is declared here.
+
+The scaffold ships a placeholder spec describing a fictional system, so you swap it for one that
+describes the demo system. Open `connector-spec.json` in your editor and replace its entire contents
+with the following:
+
+<div style={{maxHeight: '400px', overflowY: 'auto'}}>
 
 ```json
 {
@@ -357,6 +391,8 @@ Replace the contents of `connector-spec.json` with the following:
 }
 ```
 
+</div>
+
 Key things to note about what was changed from the scaffold:
 
 - **`commands`** — `std:entitlement:list` and `std:entitlement:read` are added. ISC will only invoke commands listed here.
@@ -368,14 +404,20 @@ Key things to note about what was changed from the scaffold:
 
 ### 5. Implement `std:test-connection`
 
-ISC calls this when an admin clicks **Test Connection**. Return an empty object on success, or throw —
+This is the first of four commands you will implement, and the smallest — a good way to prove your
+credentials, your build, and your test loop all work before writing anything harder. ISC calls it
+when an admin clicks **Test Connection** while configuring a source, and it is the only signal they
+get that the base URL and API key they typed are right. Return an empty object on success, or throw —
 there is no "false" to return.
 
 **Endpoint:** `GET /v1/health`. It is authenticated on purpose, so a bad key fails the test rather
 than reporting a healthy source.
 
-Start with `src/my-client.ts`. The SDK ships an HTTP client that already handles auth headers, retries,
-and logging, so do not add Axios yourself:
+Start in `src/my-client.ts`. This file is the only place in the project that speaks HTTP; everything
+else calls methods on it. It currently holds a scaffolded example client, so replace its entire
+contents with the code below, which builds one reusable HTTP client from the `baseUrl` and `apiKey`
+the admin entered in the source config. The SDK's client already handles auth headers, retries, and
+logging, so do not add Axios yourself:
 
 ```typescript
 import {AxiosInstance, createConnectorHttpClient} from '@sailpoint/connector-sdk'
@@ -394,9 +436,9 @@ export class MyClient {
 
 Every later call is then a relative path off `baseURL` — `this.httpClient.get('/health')`.
 
-Now add a `testConnection()` method to `MyClient` that hits `GET /health` and returns `{}` on
-success. The happy path is two lines. If you want to handle a bad key gracefully, catch the 401 and
-throw a `ConnectorError` with a readable message:
+Now add a `testConnection()` method inside the `MyClient` class — below the constructor, above the
+class's closing brace. It calls `GET /health` and returns `{}` on success, so the happy path is two
+lines:
 
 ```typescript
     async testConnection(): Promise<any> {
@@ -405,8 +447,16 @@ throw a `ConnectorError` with a readable message:
     }
 ```
 
-Now wire it in `src/index.ts`. The scaffolded file already exports a `connector` factory — replace
-its contents with the shell below, then fill in the one line inside the handler:
+That is enough to pass the test. For a friendlier failure, wrap the call in a `try/catch` and, on a
+`401`, throw a `ConnectorError` with a message an admin can act on — the **See details** section at
+the end of this step shows that version.
+
+Now wire it up in `src/index.ts`. That file is your connector's entry point: ISC loads it, gives it
+the source config, and dispatches every incoming command to a handler registered there. The
+scaffolded version registers handlers for a fictional system, so replace its entire contents with
+the shell below. It reads the config, builds one `MyClient` from it, and registers a single handler
+for `std:test-connection`, leaving you one line to write inside that handler — call
+`myClient.testConnection()` and pass what it returns to `res.send()`:
 
 ```typescript
 import {
@@ -434,13 +484,18 @@ export const connector = async () => {
 
 Each command you add in later steps chains another `.stdSomething()` onto that same `createConnector()` call.
 
-Test it. `npm run dev` starts a local server on port 3000 and reloads on save, so leave it running.
+Now test it without deploying anything. In your terminal, run:
 
 ```bash
 npm run dev
 ```
 
-In a second terminal:
+That starts a local server at `http://localhost:3000` which accepts the same command payloads ISC
+sends, and reloads every time you save a file — so leave it running for the rest of the walkthrough.
+
+Open a **second terminal** window, since the first is busy running the server, and send the server a
+`std:test-connection` command yourself. This is the same request ISC would make, so if it works here
+it will work in your tenant — and you get an answer in a second instead of after a deploy:
 
 <Tabs groupId="client">
   <TabItem value="curl" label="curl" default>
@@ -484,7 +539,12 @@ You should get back a response like this:
 ```
 
 <details>
-<summary>Stuck? Reveal the code</summary>
+<summary>See details: step recap and the full code</summary>
+
+You replaced `src/my-client.ts` with a client that builds one authenticated HTTP client out of the
+source config and added a `testConnection()` method to it, then replaced `src/index.ts` with an entry
+point that registers a single `std:test-connection` handler. Both files in full — this version also
+catches the `401` and reports it in language an admin can act on:
 
 `src/my-client.ts`:
 
@@ -553,7 +613,12 @@ export const connector = async () => {
 
 ### 6. Implement `std:account:list`
 
-This is full aggregation — every account in the source, every time.
+This is the command that gets identity data into ISC. *Aggregation* is the run — scheduled, or
+started by hand — where ISC asks a source for its accounts and reconciles what comes back against
+the identities it already knows about, so this handler is what an admin actually triggers when they
+click **Start Aggregation**. Yours does **full** aggregation: every account in the source, every
+time, with no attempt to send only what changed. (More on what ISC does with the results:
+[loading account data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html).)
 
 **Endpoint:** `GET /v1/users`. Two things to handle:
 
@@ -564,8 +629,10 @@ This is full aggregation — every account in the source, every time.
   from bulk endpoints. Pass `include=email` for now; making the per-account fan-out work is a stretch
   goal.
 
-Add a `getAllAccounts()` method to `MyClient` that loops the cursor and returns a flat array. The
-API response looks like this:
+Back in `my-client.ts`, your handler needs *every* account, but one request returns only one page of
+them. So add a `getAllAccounts()` method inside `MyClient`, below `testConnection()`, that does the
+paging and hands back a single flat array — keeping the paging here is what lets the handler in
+`index.ts` stay a simple loop. Each page of the response looks like this:
 
 ```json
 {
@@ -577,7 +644,10 @@ API response looks like this:
 When `cursor` is present in the response, pass it back as a query parameter on the next request to
 get the next page. When the response has no `cursor`, you are on the last page. The loop structure
 is a `do...while` — you always make at least one request first, then check whether to continue.
-Fill in the two lines inside the loop body:
+
+Paste the method below, then write the two missing lines in the loop body: one that appends this
+page's `response.data.items` onto the `accounts` array, and one that sets `cursor` from
+`response.data.cursor`, so the next pass either fetches another page or ends the loop.
 
 ```typescript
     async getAllAccounts(): Promise<any[]> {
@@ -598,9 +668,15 @@ Fill in the two lines inside the loop body:
     }
 ```
 
-In `index.ts`, chain `.stdAccountList()` onto `createConnector()`. The output is a **stream, not an
-array** — call `res.send()` once per account inside your loop, using the field mapping in the table
-below:
+Now register the handler ISC will call. In `index.ts`, chain `.stdAccountList()` onto the same
+`createConnector()` call from the last step — every command you implement adds another link to that
+chain, and a command with no handler registered simply fails. The handler calls your client, then
+translates each raw demo-API account into ISC's account shape.
+
+The output is a **stream, not an array**: you call `res.send()` once per account inside the loop
+rather than returning a list, which is what lets a source with 100,000 accounts aggregate without
+holding them all in memory. Use the field mapping in the table below to fill in the `attributes`
+block:
 
 | Output field | From |
 | --- | --- |
@@ -626,8 +702,15 @@ below:
         )
 ```
 
-You will also need to add `logger`, `StdAccountListInput`, and `StdAccountListOutput` to your
-imports from `@sailpoint/connector-sdk`.
+That snippet uses three things the file does not import yet, so add `logger`, `StdAccountListInput`,
+and `StdAccountListOutput` to the existing import from `@sailpoint/connector-sdk`. The two `Std...`
+names are the TypeScript types for what ISC sends this handler and what it expects back, so your
+editor autocompletes the fields and flags a bad mapping before you deploy. `logger` writes to the
+connector log, which is how you see what happened once the connector is running in your tenant
+instead of on your laptop.
+
+Save the files — the dev server reloads on its own — then send the new command from your second
+terminal:
 
 <Tabs groupId="client">
   <TabItem value="curl" label="curl" default>
@@ -688,7 +771,11 @@ stream will look like this:
 ```
 
 <details>
-<summary>Stuck? Reveal the code</summary>
+<summary>See details: step recap and the full code</summary>
+
+You added a `getAllAccounts()` method that follows the demo API's cursor until there are no pages
+left, and a `stdAccountList` handler that streams one `res.send()` per account with the attributes
+you declared in the spec. Both pieces in full:
 
 Add to `src/my-client.ts`:
 
@@ -755,8 +842,11 @@ This step is optional. You can skip straight to [step 8](#8-implement-stdentitle
 
 :::
 
-ISC calls this to refresh a single account — after a provisioning operation, or when someone clicks
-**Reload Account**.
+Aggregation hands ISC the whole source at once, but plenty of things only need one account. ISC
+calls `std:account:read` to refresh a single account — after a provisioning operation changed it, or
+when someone clicks **Reload Account** — instead of re-reading all 50 to pick up one change. It
+returns the same account shape as `std:account:list`, so most of this step is work you have already
+done.
 
 **Endpoint:** `GET /v1/users/{id}`. Same `include=email` caveat as the list.
 
@@ -770,8 +860,11 @@ Two things to get right:
   `std:account:create` instead of failing the whole operation. Anything else you throw is a hard
   failure.
 
-Add a `getAccount()` method to `MyClient`. It hits `GET /v1/users/{id}` with `include=email` and
-returns the account. Catch the `404` and throw a `ConnectorError` with `ConnectorErrorType.NotFound`:
+In `my-client.ts`, add a `getAccount()` method inside `MyClient`, below `getAllAccounts()`. It is the
+single-account counterpart to that method: one request to `GET /v1/users/{id}` with `include=email`,
+returning one account. Paste the code below, then replace the `TODO` comment with the missing check —
+if `error.response.status` is `404`, throw a `ConnectorError` whose second argument is
+`ConnectorErrorType.NotFound`, and let anything else rethrow untouched:
 
 ```typescript
     async getAccount(id: string): Promise<any> {
@@ -787,8 +880,12 @@ returns the account. Catch the `404` and throw a `ConnectorError` with `Connecto
     }
 ```
 
-Then chain the handler in `index.ts`. The id extraction is the tricky part — `input.key` can be
-simple or compound, so narrow it before reading `.id`, and fall back to `input.identity`:
+Then chain the handler onto `createConnector()` in `index.ts`, the same way you did for
+`stdAccountList`. Pulling the id out of the input is the tricky part. `input.key` is typed as a union,
+because some sources identify an account with a single value and others with a combination of
+several, so TypeScript will not let you read `.simple.id` until you have proved which of the two you
+are holding — that is all the `'simple' in input.key` check is doing. The `input.identity` fallback
+covers the local test payloads below, which send a bare identity and no `key` block:
 
 ```typescript
         .stdAccountRead(
@@ -806,8 +903,10 @@ simple or compound, so narrow it before reading `.id`, and fall back to `input.i
         )
 ```
 
-You will also need to add `ConnectorErrorType` to your `my-client.ts` imports, and
-`StdAccountReadInput` and `StdAccountReadOutput` to your `index.ts` imports.
+Two more imports. `ConnectorErrorType` in `my-client.ts` is the enum that holds `NotFound`, the
+value telling ISC it hit a missing account rather than a broken connector. `StdAccountReadInput` and
+`StdAccountReadOutput` in `index.ts` are this command's input and output types, exactly like the
+`StdAccountList...` pair in the last step.
 
 Then test with an id from the demo app's **Accounts** table:
 
@@ -851,7 +950,11 @@ Swap in a real `usr_...` id from the demo app's **Accounts** table.
 Then try a made-up id and confirm you get a `notFound` error rather than a generic one.
 
 <details>
-<summary>Stuck? Reveal the code</summary>
+<summary>See details: step recap and the full code</summary>
+
+You added a `getAccount()` method that fetches one account and turns a `404` into
+`ConnectorErrorType.NotFound`, and a `stdAccountRead` handler that narrows `input.key` to find the id
+before calling it. Both pieces in full:
 
 Add to `src/my-client.ts`:
 
@@ -914,7 +1017,10 @@ accounts have something to correlate their `groups` values against.
 needed. Pass `includePermissions=true` to get permission detail back; without it the field is
 withheld, mirroring the schema flag ISC passes you.
 
-Add a `getAllEntitlements()` method to `MyClient`. It is a single request — no pagination loop:
+In `my-client.ts`, add a `getAllEntitlements()` method inside `MyClient`, below `getAccount()`. It is
+the groups equivalent of `getAllAccounts()` and much simpler, because all 8 groups fit in one page
+and there is no cursor to follow. Paste the code below and replace the `TODO` comment with the two
+query parameters: `limit: 100` and `includePermissions: true`.
 
 ```typescript
     async getAllEntitlements(): Promise<any[]> {
@@ -957,8 +1063,11 @@ accounts — use the table below to fill in the object:
         )
 ```
 
-You will also need to add `StdEntitlementListInput` and `StdEntitlementListOutput` to your imports
-from `@sailpoint/connector-sdk`.
+Add `StdEntitlementListInput` and `StdEntitlementListOutput` to your imports from
+`@sailpoint/connector-sdk` — this command's input and output types, the same pattern as the last two
+steps. `logger` is already imported from step 6.
+
+Save, then test from your second terminal:
 
 <Tabs groupId="client">
   <TabItem value="curl" label="curl" default>
@@ -1018,7 +1127,10 @@ look like this:
 ```
 
 <details>
-<summary>Stuck? Reveal the code</summary>
+<summary>See details: step recap and the full code</summary>
+
+You added a single-request `getAllEntitlements()` method and a `stdEntitlementList` handler that
+streams each group along with its `type`, `deleted` flag, and `permissions`. Both pieces in full:
 
 Add to `src/my-client.ts`:
 
@@ -1068,7 +1180,10 @@ Add to `src/index.ts`:
 
 ### 9. Deploy to your tenant
 
-Package the connector, create an entry for it in your org, and upload it.
+Everything so far has run on your laptop. These commands put the connector in your tenant so ISC can
+run it. In your terminal — the second one, not the one running `npm run dev` — paste them one at a
+time. The first bundles your code into a zip, the second registers a connector under that name in
+your org, and the third uploads the zip to that registration.
 
 ```bash
 npm run pack-zip
@@ -1078,8 +1193,10 @@ sail conn upload -c saas-connectivity-demo -f dist/saas-connectivity-demo-0.1.0.
 
 The zip filename comes from `name` and `version` in `package.json` — run `ls dist` if you are not sure.
 
-Then run a command against the uploaded connector. Create a `config.json` in the project root with
-your API key:
+Now run a command against the uploaded copy instead of the local one. When ISC runs your connector
+it passes in the config an admin filled out on the source form, but you have no source yet — so the
+CLI needs somewhere else to read those values from. Create a `config.json` in the project root with
+the same keys your `sourceConfig` declares; it stands in for that form:
 
 ```json
 {
@@ -1088,12 +1205,17 @@ your API key:
 }
 ```
 
+Then, in your terminal, run:
+
 ```bash
 sail conn invoke account-list -c saas-connectivity-demo -p config.json
 ```
 
+`config.json` is only used for CLI runs like this one — it is not part of the uploaded zip. It holds
+a live key, so do not commit it.
+
 <details>
-<summary>Stuck? Reveal the config file and debugging commands</summary>
+<summary>See details: the config file and debugging commands</summary>
 
 `config.json`:
 

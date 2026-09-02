@@ -413,7 +413,7 @@ there is no "false" to return.
 **Endpoint:** `GET /v1/health`. It is authenticated on purpose, so a bad key fails the test rather
 than reporting a healthy source.
 
-Start in `src/my-client.ts`. This file is the only place in the project that speaks HTTP; everything
+Start in `src/my-client.ts`. This file is where the HTTP calls happen to communicate with the actual source. Everything
 else calls methods on it. It currently holds a scaffolded example client, so replace its entire
 contents with the code below, which builds one reusable HTTP client from the `baseUrl` and `apiKey`
 the admin entered in the source config. The SDK's client already handles auth headers, retries, and
@@ -493,7 +493,7 @@ npm run dev
 That starts a local server at `http://localhost:3000` which accepts the same command payloads ISC
 sends, and reloads every time you save a file — so leave it running for the rest of the walkthrough.
 
-Open a **second terminal** window, since the first is busy running the server, and send the server a
+Open a **second terminal** window, or open Postman. Since the first is busy running the server, and send the server a
 `std:test-connection` command yourself. This is the same request ISC would make, so if it works here
 it will work in your tenant — and you get an answer in a second instead of after a deploy:
 

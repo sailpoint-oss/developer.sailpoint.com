@@ -190,6 +190,8 @@ Use the table of contents on the right-hand side of the page to jump directly to
 
 ### CERTIFICATION
 
+Contains certification data sourced from **Certs 1.0**.
+
 | Column | Data Type | Key | Description |
 | --- | --- | --- | --- |
 | TENANT_ID | text |  | Unique Id for an Organization tenant |
@@ -215,6 +217,8 @@ Use the table of contents on the right-hand side of the page to jump directly to
 
 
 ### CERTIFICATION_V2
+
+Contains certification data sourced from **Certs 2.0**.
 
 | Column | Data Type | Key | Description |
 | --- | --- | --- | --- |
@@ -310,6 +314,8 @@ Use the table of contents on the right-hand side of the page to jump directly to
 
 ### CERTIFICATION_ITEM
 
+Contains certification item data sourced from **Certs 1.0**.
+
 | Column | Data Type | Key | Description |
 | --- | --- | --- | --- |
 | TENANT_ID | text |  | Unique Id for an Organization tenant |
@@ -348,6 +354,8 @@ Use the table of contents on the right-hand side of the page to jump directly to
 
 
 ### CERTIFICATION_ITEM_V2
+
+Contains certification item data sourced from **Certs 2.0**.
 
 | Column | Data Type | Key | Description |
 | --- | --- | --- | --- |
@@ -468,6 +476,8 @@ Use the table of contents on the right-hand side of the page to jump directly to
 
 ### CERTIFICATION_CAMPAIGN
 
+Contains certification campaign data sourced from **Certs 1.0**.
+
 | Column | Data Type | Key | Description |
 | --- | --- | --- | --- |
 | TENANT_ID | text |  | Unique Id for an Organization tenant |
@@ -485,6 +495,8 @@ Use the table of contents on the right-hand side of the page to jump directly to
 
 
 ### CERTIFICATION_CAMPAIGN_V2
+
+Contains certification campaign data sourced from **Certs 2.0**.
 
 | Column | Data Type | Key | Description |
 | --- | --- | --- | --- |

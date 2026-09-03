@@ -162,9 +162,10 @@
 
 .trackCta {
   margin-top: auto;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   color: #00addc;
+  text-decoration: none !important;
 }
 
 .trackCard:hover .trackCta {
@@ -264,6 +265,32 @@
 .featureCard:hover .trackCta {
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* Primary CTA and the judging link, on one row */
+.featureActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+}
+
+.featureCta {
+  margin-top: 0;
+  font-size: 17px;
+}
+
+/* Makes the whole card clickable while the judging link stays on top */
+.stretchedLink::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.featureActions > * {
+  position: relative;
+  z-index: 2;
 }
 
 /* ── Steps (track sub-pages) ───────────────────────────────────────────────── */
@@ -438,16 +465,8 @@
   text-underline-offset: 3px;
 }
 
-.helpRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: center;
-  margin-top: 8px;
-}
-
 .helpLink {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--link-color) !important;
   text-decoration: underline !important;
   text-underline-offset: 3px;
@@ -477,5 +496,11 @@
 
   .featureTitle {
     font-size: 23px;
+  }
+
+  .featureActions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
   }
 }

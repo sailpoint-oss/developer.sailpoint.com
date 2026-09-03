@@ -78,12 +78,12 @@ const HackDay: React.FC = () => (
         <div className={styles.sectionInner}>
           <h2 className={styles.sectionHeading}>The main hack</h2>
           <p className={styles.sectionBody}>
-            The main hack takes several hours and gives you room for your own ideas. It includes
+            The main hack takes several hours and gives you room for creativity. It includes
             templates that give you a start, but you must bring your own solution. It is also the
             only track that the judges score. The best projects start with a real business
             problem.
           </p>
-          <Link to="/hack-day/mcp-server" className={styles.featureCard}>
+          <div className={styles.featureCard}>
             <div className={styles.featureLabel}>Main Hack</div>
             <div className={styles.featureTitle}>MCP Server</div>
             <div className={`${styles.trackBadge} ${styles.featureBadge}`}>Several hours</div>
@@ -91,12 +91,17 @@ const HackDay: React.FC = () => (
               Replace the UI with a conversation. You add your own tools to a prebuilt MCP
               Server. Then an AI client can do real identity tasks in plain language.
             </p>
-            <div className={styles.trackCta}>Get started →</div>
-          </Link>
-          <div className={styles.helpRow}>
-            <Link to="/hack-day/judging-criteria" className={styles.helpLink}>
-              See how the judges score the main hack →
-            </Link>
+            <div className={styles.featureActions}>
+              <Link
+                to="/hack-day/mcp-server"
+                className={`${styles.trackCta} ${styles.featureCta} ${styles.stretchedLink}`}
+              >
+                Get started →
+              </Link>
+              <Link to="/hack-day/judging-criteria" className={`${styles.trackCta} ${styles.featureCta} ${styles.stretchedLink}`}>
+                See how the judges score the main hack →
+              </Link>
+            </div>
           </div>
         </div>
       </div>

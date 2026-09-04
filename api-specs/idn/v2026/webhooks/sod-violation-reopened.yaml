@@ -1,0 +1,24 @@
+post:
+  summary: SOD Violation Reopened
+  operationId: sodViolationReopenedEvent
+  x-displayName: SODViolationReopened
+  description: >-
+    This event trigger fires when a mitigated SOD violation returns to an open state. This is a `FIRE_AND_FORGET` event trigger. You can have a maximum of 50 subscriptions for this trigger. 
+
+    It is emitted in these situations:
+
+    - **Conflicting criteria updated** — conflicting access criteria change such that the violation is no longer considered mitigated and moves from **Mitigated** to **Open**.
+
+    - **Applied control expired** — the compensating control that mitigated the violation expires, moving the violation from **Mitigated** to **Open**.
+
+    The payload includes **previousStatus**, **currentStatus**, and **reason** to distinguish these cases (`Conflicting Criteria Updated` or `Applied Control Expired`).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/webhooks/SODViolationReopenedPayload.yaml

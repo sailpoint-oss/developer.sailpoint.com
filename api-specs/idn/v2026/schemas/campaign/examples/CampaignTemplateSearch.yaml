@@ -1,0 +1,46 @@
+value:
+  id: b7e6459eed5247ac8b98a5fed81fe27f
+  name: Reporting Access Review
+  created: 2022-07-28T19:19:40.035Z
+  modified: null
+  description: A review of everyone's access to the reporting system.
+  deadlineDuration: P14D
+  ownerRef:
+    email: support@testmail.identitysoon.com
+    type: IDENTITY
+    id: 7ec252acbd4245548bc25df22348cb75
+    name: SailPoint Support
+  scheduled: false
+  campaign:
+    created: null
+    modified: null
+    filter:
+      type: CAMPAIGN_FILTER
+      id: e0adaae69852e8fe8b8a3d48e5ce757c
+      name: Test Search Filter
+    sunsetCommentsRequired: true
+    sourceOwnerCampaignInfo: null
+    searchCampaignInfo:
+      type: ACCESS
+      description: Identities with reporting abilities
+      reviewerId: null
+      reviewer: null
+      query: "@access(name: (\"reporter\"))"
+      identityIds: null
+      accessConstraints: [ ]
+    roleCompositionCampaignInfo: null
+    alerts: null
+    totalCertifications: null
+    completedCertifications: null
+    sourcesWithOrphanEntitlements: null
+    id: null
+    name: Search Campaign Review
+    description: Review everyone's access to the reporting system.
+    deadline: null
+    type: SEARCH
+    status: null
+    emailNotificationEnabled: true
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    correlatedStatus: CORRELATED
+    mandatoryCommentRequirement: NO_DECISIONS

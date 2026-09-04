@@ -1,0 +1,15 @@
+type: object
+required:
+- name
+- sourceId
+properties:
+  name:
+    type: string
+    description: The display name for the new identity collector. Must be unique within the tenant.
+    example: Active Directory Identity Collector
+  sourceId:
+    type: string
+    description: >-
+      The identifier of the source to create the identity collector for, represented as a UUID. Both hyphenated and
+      non-hyphenated formats are accepted. The identity collector type is derived from this source.
+    example: 2c9180835d2e5168015d32f890ca1581

@@ -1,0 +1,19 @@
+title: Error is the standard API error response type.
+type: object
+properties:
+  detailCode:
+    description: DetailCode is the text of the status code returned
+    example: Internal Server Error
+    type: string
+    x-go-name: DetailCode
+  messages:
+    type: array
+    items:
+      $ref: './ErrorMessage.yaml'
+    x-go-name: Messages
+  trackingId:
+    description: TrackingID is the request tracking unique identifier
+    example: 9cd03ef80e6a425eb6b11bdbb057cdb4
+    type: string
+    x-go-name: TrackingID
+x-go-package: github.com/sailpoint/atlas-go/atlas/web

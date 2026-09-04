@@ -1,0 +1,125 @@
+get:
+  operationId: getNativeChangeDetectionConfig
+  tags:
+    - Sources
+  summary: Native change detection configuration
+  security:
+    - userAuth:
+        - idn:sources:read
+    - applicationAuth:
+        - idn:sources:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  description: This API returns the existing native change detection configuration for a source specified by the given ID.
+  parameters:
+    - in: path
+      name: id
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      schema:
+        type: string
+      description: The source id
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '200':
+      description: Native change detection configuration for a source
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/NativeChangeDetectionConfig.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+put:
+  operationId: putNativeChangeDetectionConfig
+  tags:
+    - Sources
+  summary: Update native change detection configuration
+  security:
+    - userAuth:
+        - idn:sources:update
+    - applicationAuth:
+        - idn:sources:update
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  description: Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
+  parameters:
+    - in: path
+      name: id
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      schema:
+        type: string
+      description: The source id
+      example: 2c9180835d191a86015d28455b4a2329
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/NativeChangeDetectionConfig.yaml
+  responses:
+    '200':
+      description: Updated native change detection configuration for a source
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/NativeChangeDetectionConfig.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+delete:
+  operationId: deleteNativeChangeDetectionConfig
+  tags:
+    - Sources
+  summary: Delete native change detection configuration
+  description: Deletes the native change detection configuration for the source specified by the given ID.
+  security:
+    - userAuth:
+        - idn:sources:manage
+    - applicationAuth:
+        - idn:sources:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: path
+      name: id
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      schema:
+        type: string
+      description: The source id
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '204':
+      $ref: ../responses/204.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

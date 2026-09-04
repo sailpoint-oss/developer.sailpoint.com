@@ -1,0 +1,7 @@
+description: Bad Request - unable to complete.
+content:
+  application/json:
+    schema:
+      oneOf:
+        - $ref: "./InvalidJson.yaml"
+        - $ref: "./ValidationErrors.yaml"

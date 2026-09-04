@@ -1,0 +1,6 @@
+title: Operation is a single JSON-Patch step, such as a single 'add' operation.
+type: object
+additionalProperties:
+  type: object
+  properties: { }
+x-go-package: github.com/evanphx/json-patch

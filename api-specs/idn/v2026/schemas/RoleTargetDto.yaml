@@ -1,0 +1,19 @@
+type: object
+title: Role Target Dto
+properties:
+  source:
+    $ref: "./BaseReferenceDto.yaml"
+    description: "Source Id and Name related to this assignment"
+    example:
+      id: "d18b74853739439986501ad180b27db6"
+      type: "SOURCE"
+      name: "Active Directory"
+  accountInfo:
+    $ref: "./AccountInfoDto.yaml"
+  role:
+    $ref: "./BaseReferenceDto.yaml"
+    description: "Role reference for this account target"
+    example:
+      id: "e7697a1e96d04db1ac7b0f4544915d2c"
+      type: "ACCESS_PROFILE"
+      name: "Marketing Access Profile"

@@ -1,0 +1,52 @@
+description: Effect produced by a condition.
+properties:
+  effectType:
+    description: |-
+      Type of effect to perform when the conditions are evaluated for this logic block.
+      HIDE ConditionEffectTypeHide  Disables validations.
+      SHOW ConditionEffectTypeShow  Enables validations.
+      DISABLE ConditionEffectTypeDisable  Disables validations.
+      ENABLE ConditionEffectTypeEnable  Enables validations.
+      REQUIRE ConditionEffectTypeRequire
+      OPTIONAL ConditionEffectTypeOptional
+      SUBMIT_MESSAGE ConditionEffectTypeSubmitMessage
+      SUBMIT_NOTIFICATION ConditionEffectTypeSubmitNotification
+      SET_DEFAULT_VALUE ConditionEffectTypeSetDefaultValue  This value is ignored on purpose.
+    enum:
+      - HIDE
+      - SHOW
+      - DISABLE
+      - ENABLE
+      - REQUIRE
+      - OPTIONAL
+      - SUBMIT_MESSAGE
+      - SUBMIT_NOTIFICATION
+      - SET_DEFAULT_VALUE
+    example: HIDE
+    type: string
+    x-go-enum-desc: |-
+      HIDE ConditionEffectTypeHide  Disables validations.
+      SHOW ConditionEffectTypeShow  Enables validations.
+      DISABLE ConditionEffectTypeDisable  Disables validations.
+      ENABLE ConditionEffectTypeEnable  Enables validations.
+      REQUIRE ConditionEffectTypeRequire
+      OPTIONAL ConditionEffectTypeOptional
+      SUBMIT_MESSAGE ConditionEffectTypeSubmitMessage
+      SUBMIT_NOTIFICATION ConditionEffectTypeSubmitNotification
+      SET_DEFAULT_VALUE ConditionEffectTypeSetDefaultValue  This value is ignored on purpose.
+    x-go-name: EffectType
+  config:
+    description: Arbitrary map containing a configuration based on the EffectType.
+    type: object
+    properties: 
+        defaultValueLabel: 
+          type: string
+          description: Effect type's label. 
+          example: Access to Remove
+        element: 
+          type: string
+          description: Element's identifier. 
+          example: 8110662963316867
+    x-go-name: Config
+type: object
+x-go-package: github.com/sailpoint/sp-forms/domain

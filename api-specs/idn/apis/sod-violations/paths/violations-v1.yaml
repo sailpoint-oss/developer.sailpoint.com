@@ -1,0 +1,103 @@
+get:
+  security:
+  - userAuth:
+    - idn:sod-violation:read
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  operationId: listViolationsV1
+  tags:
+  - SOD Violations
+  summary: List Policy Violations
+  description: >
+    Returns a paged list of policy violations for the current tenant.
+    Requires the read scope (idn:sod-violation:read).
+
+    This endpoint uses the standard collection parameters defined in
+    [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters/).
+
+    This endpoint supports standard V3 collection parameters:
+    `limit`, `offset`, `count`, `filters`, and `sorters`.
+
+    Embedded references in each violation (`owner`, `target`, `policy`, and references
+    inside `appliedControls`) follow the `ReferenceResponse` schema: `id` and `type` are
+    always present; `name` is included when display metadata resolves.
+
+    Filters and sorters are validated against a fixed whitelist of fields to
+    ensure safe queries and to align with underlying database indexes.
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  - $ref: ../../shared/parameters/limit.yaml
+  - $ref: ../../shared/parameters/offset.yaml
+  - $ref: ../../shared/parameters/count.yaml
+  - in: query
+    name: filters
+    description: |-
+      Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+      Filtering is supported for the following fields and operators:
+
+      **status**: *eq, in*
+
+      **policyId**: *eq*
+
+      **ownerId**: *eq*
+
+      **level**: *eq, in*
+
+      **policyName**: *eq, in, sw, co*
+
+      **ownerName**: *eq, in, sw, co*
+
+      **targetName**: *eq, in, sw, co*
+
+      **targetId**: *eq, in*
+    schema:
+      type: string
+    required: false
+    example: status in ("Open","Mitigated") and level eq "High" and policyId eq "bc693f07-e7b6-4553-9626-c25954c58554" and ownerId eq "de305d54-75b4-431b-adb2-eb6b9e546014"
+  - in: query
+    name: sorters
+    description: |-
+      Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+      Sorting is supported for the following fields: **level**
+
+      Prefix a field with - for descending order, for example -level. If no sorters are provided, results default to created descending, then id descending.
+    schema:
+      type: string
+    required: false
+    example: -level
+  responses:
+    '200':
+      description: List of policy violations
+      headers:
+        X-Total-Count:
+          description: >
+            Total number of matching violations (only present when `count=true`).
+          schema:
+            type: integer
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/policyviolationresponse.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

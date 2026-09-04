@@ -1,0 +1,15 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  uid:
+    type: string
+    readOnly: true
+  user_id:
+    type: string
+    format: uuid
+  role_id:
+    type: string
+    format: uuid

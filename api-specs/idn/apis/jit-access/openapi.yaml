@@ -1,0 +1,45 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - JIT Access
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: JIT Access
+    description: >
+      Use these APIs to configure JIT provisioning activation policy for the tenant.
+
+      OAuth scopes: **idn:jit-policy:read** and **idn:jit-policy:manage** (get config), **idn:jit-policy:update** and
+      **idn:jit-policy:manage** (update config). JIT activation workflow APIs use **idn:jit-activation-workflow:***
+      scopes (activate, extend, deactivate, manage, and **idn:jit-activation-workflow-internal:manage**).
+
+      For REST contract details, use the JIT Access operations in this specification and the [SailPoint API
+      documentation](https://developer.sailpoint.com/idn/api/).
+paths:
+  /jit-activation-config/v1/{configType}:
+    $ref: ./paths/jit-activation-config-v1-by-configtype.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

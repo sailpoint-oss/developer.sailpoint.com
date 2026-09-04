@@ -1,0 +1,297 @@
+get:
+  operationId: getSourceResourceV1
+  security:
+  - userAuth:
+    - idn:sources:read
+    - idn:source-schema:read
+    - idn:sources:manage
+    - idn:source-schema:manage
+  - applicationAuth:
+    - idn:sources:read
+    - idn:source-schema:read
+    - idn:sources:manage
+    - idn:source-schema:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  tags:
+  - Sources
+  summary: Get source resource by id
+  description: |
+    Use this API to get a resource by id on the specified source in Identity Security Cloud (ISC).
+    The response includes the full CIS schema for the resource.
+  parameters:
+  - in: path
+    name: sourceId
+    required: true
+    x-sailpoint-resource-operation-id: listSourcesV1
+    schema:
+      type: string
+    description: Source ID.
+    example: 2c9180835d191a86015d28455b4a2329
+  - in: path
+    name: resourceId
+    required: true
+    x-sailpoint-resource-operation-id: getSourceResourcesV1
+    schema:
+      type: string
+    description: Resource ID.
+    example: account
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: The requested source resource was successfully retrieved.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/sourcedatasetresource.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+put:
+  operationId: putSourceResourceV1
+  security:
+  - userAuth:
+    - idn:sources:update
+    - idn:source-schema:update
+    - idn:sources:manage
+    - idn:source-schema:manage
+  - applicationAuth:
+    - idn:sources:update
+    - idn:source-schema:update
+    - idn:sources:manage
+    - idn:source-schema:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  tags:
+  - Sources
+  summary: Update source resource (full)
+  description: |
+    Use this API to replace a resource on the specified source in Identity Security Cloud (ISC).
+
+
+    After creation, schema attribute edits should be made through the source schema APIs. Connectors
+    with the `supportDatasetCreation` label can update additional resource fields.
+  parameters:
+  - in: path
+    name: sourceId
+    required: true
+    x-sailpoint-resource-operation-id: listSourcesV1
+    schema:
+      type: string
+    description: Source ID.
+    example: 2c9180835d191a86015d28455b4a2329
+  - in: path
+    name: resourceId
+    required: true
+    x-sailpoint-resource-operation-id: getSourceResourcesV1
+    schema:
+      type: string
+    description: Resource ID.
+    example: account
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/sourcedatasetresource.yaml
+  responses:
+    '200':
+      description: The resource was successfully replaced.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/sourcedatasetresource.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+patch:
+  operationId: updateSourceResourceV1
+  security:
+  - userAuth:
+    - idn:sources:update
+    - idn:source-schema:update
+    - idn:sources:manage
+    - idn:source-schema:manage
+  - applicationAuth:
+    - idn:sources:update
+    - idn:source-schema:update
+    - idn:sources:manage
+    - idn:source-schema:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  tags:
+  - Sources
+  summary: Update source resource (partial)
+  description: |
+    Use this API to selectively update an existing resource using a JSONPatch payload.
+
+
+    After creation, schema attribute edits should be made through the source schema APIs. Connectors
+    with the `supportDatasetCreation` label can update additional resource fields.
+  parameters:
+  - in: path
+    name: sourceId
+    required: true
+    x-sailpoint-resource-operation-id: listSourcesV1
+    schema:
+      type: string
+    description: Source ID.
+    example: 2c9180835d191a86015d28455b4a2329
+  - in: path
+    name: resourceId
+    required: true
+    x-sailpoint-resource-operation-id: getSourceResourcesV1
+    schema:
+      type: string
+    description: Resource ID.
+    example: account
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the resource.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../shared/schemas/jsonpatchoperation.yaml
+        examples:
+          replace-features:
+            summary: Replace resource features
+            value:
+            - op: replace
+              path: /features
+              value:
+              - Create
+              - Delete
+  responses:
+    '200':
+      description: The resource was successfully updated.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/sourcedatasetresource.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+delete:
+  operationId: deleteSourceResourceV1
+  security:
+  - userAuth:
+    - idn:sources:update
+    - idn:source-schema:delete
+    - idn:sources:manage
+    - idn:source-schema:manage
+  - applicationAuth:
+    - idn:sources:update
+    - idn:source-schema:delete
+    - idn:sources:manage
+    - idn:source-schema:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  tags:
+  - Sources
+  summary: Delete source resource by id
+  description: |
+    Use this API to delete a resource on the specified source in Identity Security Cloud (ISC).
+
+
+    The resource schema is deleted and the resource is unlinked from any dataset rows on the source.
+  parameters:
+  - in: path
+    name: sourceId
+    required: true
+    x-sailpoint-resource-operation-id: listSourcesV1
+    schema:
+      type: string
+    description: Source ID.
+    example: 2c9180835d191a86015d28455b4a2329
+  - in: path
+    name: resourceId
+    required: true
+    x-sailpoint-resource-operation-id: getSourceResourcesV1
+    schema:
+      type: string
+    description: Resource ID.
+    example: account
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '204':
+      $ref: ../../shared/responses/204.yaml
+      description: The resource was successfully deleted.
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

@@ -1,0 +1,21 @@
+allOf:
+  - $ref: './BaseCommonDto.yaml'
+  - type: object
+    description: This is the model for a Service Desk integration template, used to create and edit Service Desk Integrations.
+    required:
+      - type
+      - attributes
+      - provisioningConfig
+    properties:
+      type:
+        description: The 'type' property specifies the type of the Service Desk integration template.
+        type: string
+        example: Web Service SDIM
+        default: Web Service SDIM
+      attributes:
+        description: The 'attributes' property value is a map of attributes available for integrations using this Service Desk integration template.
+        type: object
+        additionalProperties: true
+      provisioningConfig:
+        description: The 'provisioningConfig' property specifies the configuration used to provision integrations using the template.
+        $ref: './ProvisioningConfig.yaml'

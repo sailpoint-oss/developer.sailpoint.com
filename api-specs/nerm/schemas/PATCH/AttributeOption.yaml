@@ -1,0 +1,7 @@
+type: object
+properties:
+  ne_attribute_id:
+    type: string
+    format: uuid
+  option:
+    type: string

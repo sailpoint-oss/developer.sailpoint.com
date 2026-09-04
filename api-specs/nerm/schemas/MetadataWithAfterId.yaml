@@ -1,0 +1,30 @@
+type: object
+properties:
+  limit:
+    type: integer
+    description: The maximum number of records to return in the search
+    example: /endpoint?limit=10
+    format: int32
+  offset:
+    type: integer
+    description: The number of records to skip before starting to return results.
+    example: /endpoint?offset=60
+    format: int32
+  total:
+    type: integer
+    description: The total number of records available matching the search criteria.
+    example: /endpoint?total=10
+    format: int32
+  next:
+    type: string
+    description: The ID of the first record in the next set of results
+    example: /endpoint?limit=10&offset=60
+  previous:
+    type: string
+    description: The ID of the last record in the previous set of results
+    example: /endpoint?limit=10&offset=40
+  after_id:
+    type: string
+    format: uuid
+    example: 4eaa719f-4312-4c5b-9264-d0eb04d4a02a
+    description: The ID from which the search will start, ignoring all records before it.

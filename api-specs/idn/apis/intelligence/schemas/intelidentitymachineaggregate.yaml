@@ -1,0 +1,106 @@
+type: object
+description: |
+  Non-human identity response (type NHI). Machine identity fields are hoisted to the top level
+  (no machine wrapper). Omits human-only fields and slices (email, alias, privilegedAccess, outliers,
+  accessHistory). Top-level sourceId is omitted; use source.id when present. matchConfidence is
+  present for opaque prefix resolution (exact or partial); omitted for direct id eq and exact opaque
+  matches. The identityGraph deep link is omitted when the tenant lacks the idg:base license.
+required:
+  - id
+  - type
+  - accounts
+  - nativeIdentity
+  - owners
+  - attributes
+  - derived
+properties:
+  id:
+    type: string
+    description: Identity Security Cloud identifier for this non-human identity.
+    example: ef38f94347e94562b5bb8424a56397d8
+  type:
+    type: string
+    enum:
+      - NHI
+    description: Identity type for the matched record.
+    example: NHI
+  displayName:
+    type: string
+    description: Preferred display name for the non-human identity.
+    example: display name
+  description:
+    type: string
+    nullable: true
+    description: Optional description from upstream when present.
+  subtype:
+    type: string
+    nullable: true
+    description: Sub-classification label for that NHI.
+    example: AI Agent
+  created:
+    type: string
+    format: date-time
+    description: Timestamp when the identity record was created in Identity Security Cloud.
+    example: '2026-05-12T08:00:00Z'
+  modified:
+    type: string
+    format: date-time
+    description: Timestamp when the identity record was last modified in Identity Security Cloud.
+    example: '2026-05-12T09:15:30Z'
+  matchConfidence:
+    type: string
+    enum:
+      - exact
+      - partial
+    description: Match quality for opaque prefix resolution; omitted for direct id eq and exact opaque matches.
+    example: exact
+  identityGraph:
+    type: object
+    description: Omitted when the tenant lacks the idg:base license.
+    allOf:
+      - $ref: ./intelidentitygraphlink.yaml
+  accounts:
+    $ref: ./intelmachineaccountsslice.yaml
+  nativeIdentity:
+    type: string
+    description: Native identifier on the source system.
+    example: arn:aws:bedrock:us-east-1:336721:agent/ABCDEFGHI
+  datasetId:
+    type: string
+    nullable: true
+    description: Dataset identifier from upstream machine-identity services when present.
+    example: dataset-001
+  source:
+    nullable: true
+    description: Source metadata for the machine identity when present upstream.
+    allOf:
+      - $ref: ./intelmachinesourcewire.yaml
+  existsOnSource:
+    type: string
+    nullable: true
+    description: Upstream existsOnSource value. Wire uses uppercase strings such as TRUE or FALSE.
+    example: 'TRUE'
+  manuallyEdited:
+    type: boolean
+    default: false
+    description: True when an administrator manually edited machine identity attributes.
+    example: false
+  manuallyCreated:
+    type: boolean
+    default: false
+    description: True when the machine identity was created manually in Identity Security Cloud.
+    example: false
+  owners:
+    $ref: ./intelmachineidentityowners.yaml
+  userEntitlements:
+    type: array
+    description: Entitlements associated with the machine identity from upstream.
+    items:
+      $ref: ./intelmachineuserentitlement.yaml
+  attributes:
+    type: object
+    additionalProperties: true
+    description: Connector or runtime metadata; empty object when absent upstream.
+    example: {}
+  derived:
+    $ref: ./intelmachinederived.yaml

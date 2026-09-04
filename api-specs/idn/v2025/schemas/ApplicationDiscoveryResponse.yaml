@@ -1,0 +1,103 @@
+# The Application Discovery DTO returned by the API
+type: object
+title: Application Discovery Response
+properties:
+  id:
+    type: string
+    description: System-generated unique ID of the Object
+    example: '8886e5e3-63d0-462f-a195-d98da885b8dc'
+  type:
+    description: Type of task for app discovery
+    type: string
+    enum:
+      - QUARTZ
+      - QPOC
+      - QUEUED_TASK
+    example: QUARTZ
+  uniqueName:
+    description: Name of the task for app discovery
+    type: string
+    example: "Application Discovery - ID123"
+  description:
+    description: Description of the app discovery aggregation
+    type: string
+    example: "Application Discovery - From given dataset IDs"
+  parentName:
+    description: Name of the parent of the task for app discovery
+    nullable: true
+    type: string
+    example: "Parent Task"
+  launcher:
+    description: Service to execute app discovery
+    type: string
+    example: "System"
+  target:
+    description: The target(source) of app discovery
+    allOf:
+      - $ref: './BaseReferenceDto.yaml'
+      - type: object
+        example:
+          id: '6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa'
+          name: 'Source name'
+          type: 'APPLICATION'
+  created:
+    description: Creation date of app discovery task
+    type: string
+    format: date-time
+    example: '2020-07-11T21:23:15.000Z'
+  modified:
+    description: Last modification date of app discovery task
+    type: string
+    format: date-time
+    example: '2020-07-11T21:23:15.000Z'
+  launched:
+    description: Launch date of app discovery task
+    nullable: true
+    type: string
+    format: date-time
+    example: '2020-07-11T21:23:15.000Z'
+  completed:
+    description: Completion date of app discovery task
+    nullable: true
+    type: string
+    format: date-time
+    example: '2020-07-11T21:23:15.000Z'
+  taskDefinitionSummary:
+    $ref: './TaskDefinitionSummary.yaml'
+  completionStatus:
+    description: Completion status of app discovery task
+    type: string
+    nullable: true
+    enum:
+      - SUCCESS
+      - WARNING
+      - ERROR
+      - TERMINATED
+      - TEMPERROR
+      - null
+    example: SUCCESS
+  messages:
+    description: Messages associated with the app discovery task
+    type: array
+    items:
+      $ref: './TaskStatusMessage.yaml'
+  returns:
+    description: Return values associated with the app discovery task
+    type: array
+    items:
+      $ref: './TaskReturnDetails.yaml'
+  attributes:
+    description: Attributes of the app discovery task
+    type: object
+    additionalProperties: true
+    example: {"creatorRequestId": "ed5a371bbaba411fb8f1f6970b842334"}
+  progress:
+    description: Current progress of aggregation
+    nullable: true
+    type: string
+    example: 'Started'
+  percentComplete:
+    description: Current percentage completion of app discovery task
+    type: integer
+    format: int32
+    example: 100

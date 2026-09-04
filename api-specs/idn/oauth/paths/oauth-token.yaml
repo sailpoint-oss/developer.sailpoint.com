@@ -1,0 +1,113 @@
+servers:
+  - url: https://{tenant}.api.{domain}.com
+    description: Use so Postman gets https://{{tenant}}.api.{{domain}}.com/oauth/token (not baseUrl).
+    variables:
+      tenant:
+        default: sailpoint
+        description: Tenant name
+      domain:
+        default: identitynow
+        description: Domain (e.g. identitynow for identitynow.com)
+tags:
+  - OAuth
+summary: Create OAuth access token
+post:
+  operationId: createOauthToken
+  security:
+    - clientSecretBasic: []
+    - { }
+  x-sailpoint-userLevels:
+    - Any
+  tags:
+    - OAuth
+  summary: Create OAuth access token
+  description: >-
+    Exchanges credentials or an authorization/refresh code for a JWT access token. Supports
+    client_credentials (PAT or API client), authorization_code (exchange code from /oauth/authorize),
+    and refresh_token grant types.
+
+    Client authentication is always required and depends on whether the OAuth client is confidential or public:
+
+    - **Confidential clients** must always provide both `client_id` and `client_secret`. They can be
+      delivered as either:
+      - **client-secret-basic**: Base64-encoded `client_id:client_secret` in the `Authorization` header.
+      - **client-secret-post**: `client_id` and `client_secret` as form-data parameters.
+    - **Public clients** (supported for `authorization_code` and `refresh_token` grant types only) must
+      always provide `client_id` as a form-data parameter. No client secret is required.
+
+    See [SailPoint Authentication](https://developer.sailpoint.com/docs/api/v2025/authentication).
+  requestBody:
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          required:
+            - grant_type
+          properties:
+            grant_type:
+              type: string
+              enum: [client_credentials, authorization_code, refresh_token]
+              description: The OAuth 2.0 grant type.
+            client_id:
+              type: string
+              description: >-
+                The OAuth client ID. Required for public clients (always in the request body).
+                For confidential clients using client-secret-post, include here alongside client_secret.
+                For confidential clients using client-secret-basic, provide in the Authorization header instead.
+            client_secret:
+              type: string
+              description: >-
+                The OAuth client secret. Required for confidential clients across all grant types.
+                Not required for public clients (e.g. those used for MCP features), which support
+                the authorization_code and refresh_token grant types without a secret.
+                Deliver via the Authorization header (client-secret-basic) or as a form-data
+                parameter alongside client_id (client-secret-post).
+            code:
+              type: string
+              description: Authorization code from /oauth/authorize (required for authorization_code).
+            redirect_uri:
+              type: string
+              format: uri
+              description: Redirect URI used in the authorization request (required for authorization_code).
+            refresh_token:
+              type: string
+              description: Refresh token from a previous token response (required for refresh_token).
+            code_verifier:
+              type: string
+              description: PKCE code verifier (required when authorization request included code_challenge). Raw value that was used to generate the code_challenge.
+            scope:
+              type: string
+              description: Optional scope (e.g. sp:scope:all).
+  responses:
+    '200':
+      description: Token response with access_token (JWT), token_type, expires_in, and optionally refresh_token.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              access_token:
+                type: string
+                description: JWT access token for API authorization.
+              token_type:
+                type: string
+                example: Bearer
+                description: Token type. Returns "Bearer" from SailPoint's OAuth Authorization Server.
+              expires_in:
+                type: integer
+                format: int64
+                description: UNIX timestamp (seconds since epoch) indicating when the access token expires.
+              refresh_token:
+                type: string
+                description: Present when using authorization_code with offline access.
+              scope:
+                type: string
+    '400':
+      $ref: '../../apis/shared/responses/400.yaml'
+    '401':
+      $ref: '../../apis/shared/responses/401.yaml'
+    '429':
+      $ref: '../../apis/shared/responses/429.yaml'
+    '500':
+      $ref: '../../apis/shared/responses/500.yaml'

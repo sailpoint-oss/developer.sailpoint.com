@@ -1,0 +1,15 @@
+type: object
+allOf:
+  - $ref: 'EventDocument.yaml'
+  - properties:
+      pod:
+        type: string
+        example: pod01-useast1
+      org:
+        type: string
+        example: org-name
+      _type:
+        $ref: "../base/DocumentType.yaml"
+      _version:
+        type: string
+        example: v2

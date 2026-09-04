@@ -1,0 +1,86 @@
+title: VA Cluster Status Change Event
+type: object
+required:
+- created
+- type
+- application
+- healthCheckResult
+- previousHealthCheckResult
+properties:
+  created:
+    type: string
+    format: date-time
+    description: The date and time the status change occurred.
+    example: '2020-06-29T22:01:50.474Z'
+  type:
+    enum:
+    - SOURCE
+    - CLUSTER
+    description: The type of the object that initiated this event.
+    example: CLUSTER
+  application:
+    type: object
+    description: Details about the `CLUSTER` or `SOURCE` that initiated this event.
+    required:
+    - id
+    - name
+    - attributes
+    properties:
+      id:
+        type: string
+        description: The GUID of the application
+        example: 2c9180866166b5b0016167c32ef31a66
+      name:
+        type: string
+        description: The name of the application
+        example: Production VA Cluster
+      attributes:
+        type: object
+        description: Custom map of attributes for a source.  This will only be populated if type is `SOURCE` and the source has a proxy.
+        additionalProperties: true
+        nullable: true
+        example: null
+  healthCheckResult:
+    type: object
+    description: The results of the most recent health check.
+    required:
+    - message
+    - resultType
+    - status
+    properties:
+      message:
+        type: string
+        description: Detailed message of the result of the health check.
+        example: "Test Connection failed with exception. Error message - java.lang Exception"
+      resultType:
+        type: string
+        description: The type of the health check result.
+        example: SOURCE_STATE_ERROR_CLUSTER
+      status:
+        enum:
+        - Succeeded
+        - Failed
+        description: The status of the health check.
+        example: Succeeded
+  previousHealthCheckResult:
+    type: object
+    description: The results of the last health check.
+    required:
+    - message
+    - resultType
+    - status
+    properties:
+      message:
+        type: string
+        description: Detailed message of the result of the health check.
+        example: "Test Connection failed with exception. Error message - java.lang Exception"
+      resultType:
+        type: string
+        description: The type of the health check result.
+        example: SOURCE_STATE_ERROR_CLUSTER
+      status:
+        enum:
+        - Succeeded
+        - Failed
+        description: The status of the health check.
+        example: Failed

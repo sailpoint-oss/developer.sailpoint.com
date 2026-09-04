@@ -1,0 +1,191 @@
+get:
+  operationId: getControlV1
+  tags:
+  - SOD Controls
+  summary: Get compensating control by ID
+  description: Returns a single compensating control by ID.
+  security:
+  - userAuth:
+    - idn:sod-control:read
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOD_CONTROL_ADMIN
+  - SOD_POLICY_ADMIN
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  - in: path
+    name: id
+    required: true
+    x-sailpoint-resource-operation-id: listControlsV1
+    description: The ID of the compensating control to fetch
+    schema:
+      type: string
+      format: uuid
+    example: "3e078865-55ed-43cf-b83c-85c58d2016e6"
+  responses:
+    '200':
+      description: Single compensating control
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/compensatingcontrolresponse.yaml
+          example:
+            id: 3e078865-55ed-43cf-b83c-85c58d2016e6
+            name: Example Name
+            description: a description
+            owner:
+              id: 943a7c57da334d07ba2454bf7fcf144f
+              type: IDENTITY
+              name: John Doe
+            secondaryOwners: []
+            type: MITIGATION
+            action: action
+            expiration: "720h"
+            justificationRequired: true
+            workflowID: "3e07886555ed43cfb83c85c58d2016e6"
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+put:
+  operationId: putControlV1
+  tags:
+  - SOD Controls
+  summary: Put Compensating Control
+  description: Updates the specified compensating control.
+  security:
+  - userAuth:
+    - idn:sod-control:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOD_CONTROL_ADMIN
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  - in: path
+    name: id
+    required: true
+    x-sailpoint-resource-operation-id: listControlsV1
+    description: The unique identifier of the Compensating Control to be updated.
+    schema:
+      type: string
+    example: "3e078865-55ed-43cf-b83c-85c58d2016e6"
+  requestBody:
+    required: true
+    description: Data needed to put a Compensating Control
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/compensatingcontrolupdate.yaml
+        example:
+          name: a name
+          description: a description
+          owner:
+            id: 3e07886555ed43cfb83c85c58d2016e6
+            type: IDENTITY
+          secondaryOwners:
+          - id: 943a7c57da334d07ba2454bf7fcf144f
+            type: GOVERNANCE_GROUP
+          type: Mitigation
+          action: Workflow
+          expiration: 20d
+          justificationRequired: true
+          workflowID: "3e07886555ed43cfb83c85c58d2016e6"
+  responses:
+    '200':
+      description: Compensating Control successfully patched
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/compensatingcontrolresponse.yaml
+          example:
+            id: 3e078865-55ed-43cf-b83c-85c58d2016e6
+            name: Example Name
+            description: a description
+            owner:
+              id: 943a7c57da334d07ba2454bf7fcf144f
+              type: IDENTITY
+              name: John Doe
+            secondaryOwners: []
+            type: MITIGATION
+            action: action
+            expiration: "720h"
+            justificationRequired: true
+            workflowID: "3e07886555ed43cfb83c85c58d2016e6"
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+delete:
+  operationId: deleteControlV1
+  tags:
+  - SOD Controls
+  summary: Delete compensating control by ID
+  description: Deletes the specified compensating control from the data store.
+  security:
+  - userAuth:
+    - idn:sod-control:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  - in: path
+    name: id
+    required: true
+    x-sailpoint-resource-operation-id: listControlsV1
+    description: the ID (UUID) of the compensating control to delete.
+    schema:
+      type: string
+      format: uuid
+    example: "3e078865-55ed-43cf-b83c-85c58d2016e6"
+  responses:
+    '204':
+      $ref: ../../shared/responses/204.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

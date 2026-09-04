@@ -1,0 +1,127 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Lifecycle States
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Lifecycle States
+    description: >
+      Use this API to implement and customize lifecycle state functionality.
+
+      With this functionality in place, administrators can create and configure custom lifecycle states for use across
+      their organizations, which is key to controlling which users have access, when they have access, and the access
+      they have.
+
+
+      A lifecycle state describes a user's status in a company. For example, two lifecycle states come by default with
+      Identity Security Cloud: 'Active' and 'Inactive.' 
+
+      When an active employee takes an extended leave of absence from a company, his or her lifecycle state may change
+      to 'Inactive,' for security purposes. 
+
+      The inactive employee would lose access to all the applications, sources, and sensitive data during the leave of
+      absence, but when the employee returns and becomes active again, all that access would be restored. 
+
+      This saves administrators the time that would otherwise be spent provisioning the employee's access to each
+      individual tool, reviewing the employee's certification history, etc. 
+
+
+      Administrators can create a variety of custom lifecycle states. Refer to [Planning New Lifecycle
+      States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#planning-new-lifecycle-states)
+      for some custom lifecycle state ideas.
+
+
+      Administrators must define the criteria for being in each lifecycle state, and they must define how Identity
+      Security Cloud manages users' access to apps and sources for each lifecycle state.
+
+
+      In Identity Security Cloud, administrators can manage lifecycle states by going to Admin > Identities > Identity
+      Profile, selecting the identity profile whose lifecycle states they want to manage, selecting the 'Provisioning'
+      tab, and using the left panel to either select the lifecycle state they want to modify or create a new lifecycle
+      state. 
+
+
+      In the 'Provisioning' tab, administrators can make the following access changes to an identity profile's lifecycle
+      state: 
+
+
+      - Enable/disable the lifecycle state for the identity profile.
+
+
+      - Enable/disable source accounts for the identity profile's lifecycle state.
+
+
+      - Add existing access profiles to grant to the identity profiles in that lifecycle state.
+
+
+      - Create a new access profile to grant to the identity profile in that lifecycle state.
+
+
+      Access profiles granted in a previous lifecycle state are automatically revoked when the identity moves to a new
+      lifecycle state. 
+
+      To maintain access across multiple lifecycle states, administrators must grant the access profiles in each
+      lifecycle state. 
+
+      For example, if an administrator wants users with the 'HR Employee' identity profile to maintain their building
+      access in both the 'Active' and 'Leave of Absence' lifecycle states, the administrator must grant the access
+      profile for that building access to both lifecycle states.
+
+
+      During scheduled refreshes, Identity Security Cloud evaluates lifecycle states to determine whether their assigned
+      identities have the access defined in the lifecycle states' access profiles. 
+
+      If the identities are missing access, Identity Security Cloud provisions that access. 
+
+
+      Administrators can also use the 'Provisioning' tab to configure email notifications for Identity Security Cloud to
+      send whenever an identity with that identity profile has a lifecycle state change. 
+
+      Refer to [Configuring Lifecycle State
+      Notifications](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#configuring-lifecycle-state-notifications)
+      for more information on how to do so.
+
+
+      An identity's lifecycle state can have four different statuses: the lifecycle state's status can be 'Active,' it
+      can be 'Not Set,' it can be 'Not Valid,' or it 'Does Not Match Technical Name Case.' 
+
+      Refer to [Moving Identities into Lifecycle
+      States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#moving-identities-into-lifecycle-states)
+      for more information about these different lifecycle state statuses. 
+
+
+      Refer to [Setting Up Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html)
+      for more information about lifecycle states.
+paths:
+  /identities/v1/{identity-id}/set-lifecycle-state:
+    $ref: ./paths/identities-v1-by-identity-id-set-lifecycle-state.yaml
+  /identity-profiles/v1/{identity-profile-id}/lifecycle-states:
+    $ref: ./paths/identity-profiles-v1-by-identity-profile-id-lifecycle-states.yaml
+  /identity-profiles/v1/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}:
+    $ref: ./paths/identity-profiles-v1-by-identity-profile-id-lifecycle-states-by-lifecycle-state-id.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

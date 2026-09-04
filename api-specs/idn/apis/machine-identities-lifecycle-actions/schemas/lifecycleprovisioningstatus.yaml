@@ -1,0 +1,8 @@
+type: string
+description: Provisioning execution status for the downstream workflow window.
+enum:
+  - NOT_STARTED
+  - IN_PROGRESS
+  - COMPLETED
+  - FAILED
+example: NOT_STARTED

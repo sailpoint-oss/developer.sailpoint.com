@@ -1,0 +1,104 @@
+get:
+  operationId: listEntitlementConnectionsForCurrentIdentity
+  tags:
+    - Entitlement Connections
+  summary: List my entitlement connections
+  description: |
+    Returns entitlement connections constrained to the authenticated identity.
+    This endpoint proxies to Search and supports standard collection query parameters.
+  security:
+    - userAuth:
+        - idn:entitlement-connections:read
+  x-sailpoint-userLevels:
+    - USER
+  parameters:
+    - $ref: ../../parameters/offset.yaml
+    - $ref: ../../parameters/limit.yaml
+    - $ref: ../../parameters/count.yaml
+    - $ref: ../../parameters/searchAfter.yaml
+    - in: query
+      name: filters
+      required: false
+      schema:
+        type: string
+      example: state.value co "Available"
+      description: |
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+        Filtering is supported for the following fields and operators:
+
+        **identity.id**: *eq, in*
+
+        **identity.name**: *eq, in, co*
+
+        **source.id**: *eq, in*
+
+        **source.name**: *eq, in, co*
+
+        **account.id**: *eq, in*
+
+        **account.name**: *eq, in, co*
+
+        **entitlement.id**: *eq, in*
+
+        **entitlement.attribute**: *eq, in, co*
+
+        **entitlement.value**: *eq, in, co*
+
+        **entitlement.privilegeLevel.effective**: *eq, in, co*
+
+        **type**: *eq, in*
+
+        **state.value**: *eq, in, co*
+
+        **standalone**: *eq, in*
+
+        **jit.activation**: *gt, lt, ge, le*
+
+        **jit.provision**: *gt, lt, ge, le*
+
+        **jit.deactivation**: *gt, lt, ge, le*
+
+        **jit.deprovision**: *gt, lt, ge, le*
+
+        **jit.expiration**: *gt, lt, ge, le*
+
+        The authenticated identity scope is always applied by the service.
+    - in: query
+      name: sorters
+      required: false
+      schema:
+        type: string
+      example: id
+      description: |
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+        Sorting is supported for the following fields: **id, identity.id, identity.name, source.id, source.name, account.id, account.name, entitlement.id, entitlement.displayName, entitlement.attribute, entitlement.privilegeLevel.effective, type, state.value, standalone, jit.activation, jit.provision, jit.deactivation, jit.deprovision, jit.expiration**
+  responses:
+    '200':
+      description: List of entitlement connections for the current identity.
+      headers:
+        X-Total-Count:
+          description: Included when `count=true` and available from Search.
+          schema:
+            type: string
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../schemas/entitlement-connections/EntitlementConnectionSearchHit.yaml
+    '400':
+      $ref: ../../responses/400.yaml
+    '401':
+      $ref: ../../responses/401.yaml
+    '403':
+      $ref: ../../responses/403.yaml
+    '404':
+      $ref: ../../responses/404.yaml
+    '412':
+      $ref: ../../responses/412.yaml
+    '429':
+      $ref: ../../responses/429.yaml
+    '500':
+      $ref: ../../responses/500.yaml

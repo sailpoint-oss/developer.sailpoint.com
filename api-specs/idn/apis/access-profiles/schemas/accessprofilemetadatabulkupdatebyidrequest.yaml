@@ -1,0 +1,69 @@
+description: >-
+  Request to bulk update Access Model Metadata on a list of access profiles identified by ID. The maximum access profile
+  count in a single request is 3000. A single access profile cannot be assigned more than 25 metadata values. Adding or
+  replacing custom metadata requires a suite license.
+type: object
+properties:
+  accessProfiles:
+    description: The IDs of the access profiles to update.
+    type: array
+    maxItems: 3000
+    items:
+      type: string
+    example:
+      - b1db89554cfa431cb8b9921ea38d9367
+  operation:
+    description: The operation to be performed
+    type: string
+    enum:
+      - ADD
+      - REMOVE
+      - REPLACE
+    example: REPLACE
+  replaceScope:
+    description: >-
+      The choice of update scope. **ATTRIBUTE** replaces only the values of the attributes named in `values`, and
+      **ALL** replaces every metadata attribute on the access profile.
+    type: string
+    enum:
+      - ALL
+      - ATTRIBUTE
+    example: ATTRIBUTE
+  values:
+    description: The metadata to be updated, including attribute key and value.
+    type: array
+    nullable: false
+    items:
+      type: object
+      required:
+        - attribute
+        - values
+      properties:
+        attribute:
+          type: string
+          description: The technical name of the metadata attribute.
+          example: iscFederalClassifications
+        values:
+          type: array
+          description: The values of the attribute to be updated.
+          items:
+            type: string
+            example: secret
+          nullable: true
+          example:
+            - secret
+        objectType:
+          type: string
+          description: >-
+            The type of the metadata attribute. Set to `custom` for custom metadata attributes, which require a suite
+            license.
+          example: custom
+    example:
+      - attribute: iscFederalClassifications
+        values:
+          - topSecret
+required:
+  - accessProfiles
+  - operation
+  - replaceScope
+  - values

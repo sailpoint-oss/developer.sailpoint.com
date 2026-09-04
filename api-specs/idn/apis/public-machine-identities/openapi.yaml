@@ -1,0 +1,43 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Public Machine Identities
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Public Machine Identities
+    description: >
+      Use this API to list machine identities with a reduced, public-safe payload for catalog and request workflows.
+
+      Responses always include `id`, `name`, and `description`. When your tenant returns enriched public machine
+      identity data, responses also include `subtype` and the primary `owner` (`id`, `name`, and `email`). When those
+      enriched fields are not enabled for your tenant, `subtype` and `owner` are omitted or null and requests that
+      filter or sort on `subtype` or filter on `owner.id`/`owner` return `400 Bad Request`.
+paths:
+  /public-machine-identities/v1:
+    $ref: ./paths/public-machine-identities-v1.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

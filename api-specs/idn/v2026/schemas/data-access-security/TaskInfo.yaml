@@ -1,0 +1,57 @@
+type: object
+title: TaskInfo
+properties:
+  taskId:
+    type: integer
+    format: int64
+    nullable: true
+    description: The unique identifier for the task.
+    example: 1001
+  taskTypeName:
+    type: string
+    nullable: true
+    description: The type or category of the task.
+    example: "DataSync"
+  startTime:
+    type: integer
+    format: int64
+    nullable: true
+    description: The start time of the task, represented as epoch seconds.
+    example: 1762237200
+  endTime:
+    type: integer
+    format: int64
+    nullable: true
+    description: The end time of the task, represented as epoch seconds.
+    example: 1762240800
+  taskName:
+    type: string
+    nullable: true
+    description: The display name of the task.
+    example: "Daily Data Sync"
+  createdByDisplayName:
+    type: string
+    nullable: true
+    description: The display name of the user who created the task.
+    example: "Jane Doe"
+  progress:
+    type: integer
+    format: int32
+    description: The progress of the task, typically represented as a percentage (0-100).
+    example: 75
+  status:
+    type: string
+    nullable: true
+    description: The current status of the task (e.g., "Running", "Completed", "Failed").
+    example: "Running"
+  details:
+    type: string
+    nullable: true
+    description: Additional details or information about the task.
+    example: "Task is processing files in the Finance folder."
+  scheduleTaskId:
+    type: integer
+    format: int64
+    nullable: true
+    description: The unique identifier of the associated scheduled task, if applicable.
+    example: 2001

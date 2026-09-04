@@ -1,0 +1,15 @@
+type: object
+description: A reference to an Identity
+properties:
+  type:
+    $ref: '../DtoType.yaml'
+    example: 'IDENTITY'
+  id:
+    type: string
+    description: Identity id
+    example: '2c9180a46faadee4016fb4e018c20639'
+  name:
+    type: string
+    nullable: true
+    description: Human-readable display name of the Identity.
+    example: 'Thomas Edison'

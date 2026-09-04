@@ -1,0 +1,53 @@
+# Standalone OAuth + SAML spec for Postman collection generation.
+# Use this spec (instead of sailpoint-api.v2025.yaml) when generating the OAuth/SAML
+# Postman collection so that requests use the correct base URL:
+#   - Token, introspect, revoke, SAML: https://{{tenant}}.api.{{domain}}.com
+#   - Authorize: https://{{tenant}}.login.sailpoint.com (path-level server in authorize path)
+# Root server order puts the API base first so generators that use "first server" for
+# token/introspect/revoke/saml get the right URL. Authorize path has its own server override.
+openapi: 3.0.1
+info:
+  title: SailPoint Identity Security Cloud - OAuth & SAML
+  description: OAuth 2.0 and SAML endpoints for authentication and token management. Use this spec to generate a Postman collection with correct URLs (tenant + domain, no version path).
+  version: 1.0.0
+servers:
+  - url: https://{tenant}.api.{domain}.com
+    description: OAuth API base. Postman will use https://{{tenant}}.api.{{domain}}.com for token, introspect, revoke, and SAML.
+    variables:
+      tenant:
+        default: sailpoint
+        description: Tenant name
+      domain:
+        default: identitynow
+        description: Domain (e.g. identitynow for identitynow.com)
+  - url: https://{tenant}.login.sailpoint.com
+    description: OAuth authorize (login). Used for /oauth/authorize.
+    variables:
+      tenant:
+        default: sailpoint
+        description: Tenant name
+paths:
+  /.well-known/oauth-authorization-server:
+    $ref: ./oauth/paths/oauth-well-known.yaml
+  /oauth/authorize:
+    $ref: ./oauth/paths/oauth-authorize.yaml
+  /oauth/token:
+    $ref: ./oauth/paths/oauth-token.yaml
+  /oauth/introspect:
+    $ref: ./oauth/paths/oauth-introspect.yaml
+  /oauth/revoke:
+    $ref: ./oauth/paths/oauth-revoke.yaml
+  /saml/metadata/alias/{tenant}-sp:
+    $ref: ./oauth/paths/saml-metadata-alias.yaml
+components:
+  securitySchemes:
+    clientSecretBasic:
+      type: http
+      scheme: basic
+      description: >-
+        HTTP Basic authentication using the OAuth client credentials (client_id:client_secret,
+        base64-encoded in the Authorization header). Used for client-secret-basic authentication
+        on endpoints that require client authentication such as /oauth/revoke.
+tags:
+  - name: OAuth
+    description: OAuth 2.0 and SAML endpoints for authentication and token management.

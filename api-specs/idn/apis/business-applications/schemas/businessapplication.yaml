@@ -1,0 +1,90 @@
+type: object
+title: Business Application
+description: >-
+  A Business Application groups machine identities (for example AI agents or applications) under a
+  common owner and sanctioned status, either discovered from a source or defined by an
+  administrator.
+required:
+  - name
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+    description: Business Application ID. Assigned by the service on create.
+    example: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+  name:
+    type: string
+    description: Human-readable display name. Must be unique within the tenant.
+    example: Cursor
+  description:
+    type: string
+    nullable: true
+    description: Free-text description of the Business Application.
+    example: AI coding assistant used by the platform engineering team.
+  vendor:
+    type: string
+    nullable: true
+    description: Vendor or publisher of the Business Application.
+    example: Cursor
+  signatures:
+    type: array
+    description: >-
+      Signatures used to automatically correlate machine identities to this Business Application.
+      Modifying this field requires the custom Business Application feature to be enabled.
+    items:
+      $ref: ./businessapplicationsignature.yaml
+  owner:
+    type: object
+    nullable: true
+    description: Primary owner of the Business Application.
+    allOf:
+      - $ref: ../../shared/schemas/basereferencedto.yaml
+      - example:
+          type: IDENTITY
+          id: 2c91808568c529c60168cca6f90c1313
+          name: William Wilson
+  additionalOwners:
+    type: array
+    nullable: true
+    description: Additional (secondary) owners of the Business Application.
+    items:
+      allOf:
+        - $ref: ../../shared/schemas/basereferencedto.yaml
+        - example:
+            type: IDENTITY
+            id: 5898b7c1-620c-49c6-cccc-cbf81eb4bddd
+            name: Jane Doe
+  sanctionedStatus:
+    allOf:
+      - $ref: ./sanctionedstatus.yaml
+    description: Sanctioned status of the Business Application. Defaults to `UNKNOWN`.
+  origin:
+    allOf:
+      - $ref: ./businessapplicationorigin.yaml
+    readOnly: true
+  source:
+    type: object
+    nullable: true
+    readOnly: true
+    description: >-
+      Discovery source of the Business Application. `null` for out-of-the-box or
+      administrator-defined Business Applications that were not discovered from a source.
+    allOf:
+      - $ref: ../../shared/schemas/basereferencedto.yaml
+      - example:
+          type: SOURCE
+          id: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa
+          name: Active Directory
+  created:
+    type: string
+    format: date-time
+    readOnly: true
+    description: Time the Business Application was created.
+    example: '2026-01-15T13:45:12.312Z'
+  modified:
+    type: string
+    format: date-time
+    readOnly: true
+    description: Time the Business Application was last modified.
+    example: '2026-02-20T09:31:47.882Z'

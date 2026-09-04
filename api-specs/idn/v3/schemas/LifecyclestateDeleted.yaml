@@ -1,0 +1,19 @@
+type: object
+title: Lifecyclestate Deleted
+description: Deleted lifecycle state. 
+properties:
+  type:
+    type: string 
+    description: Deleted lifecycle state's DTO type. 
+    enum: 
+      - LIFECYCLE_STATE
+      - TASK_RESULT
+    example: LIFECYCLE_STATE
+  id:
+    type: string
+    description: Deleted lifecycle state ID. 
+    example: 12345
+  name:
+    type: string
+    description: Deleted lifecycle state's display name. 
+    example: Contractor Lifecycle

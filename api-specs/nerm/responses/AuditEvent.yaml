@@ -1,0 +1,22 @@
+type: Object
+properties:
+  id:
+    type: string
+  type:
+    type: string
+  tenant_id:
+    type: string
+  created_at:
+    type: string
+  authority:
+    type: string
+  subject_id:
+    type: string
+  subject_type:
+    type: string
+  performer_id:
+    type: string
+  performer_type:
+    type: string
+  data:
+    type: Object

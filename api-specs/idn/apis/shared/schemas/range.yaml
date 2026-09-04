@@ -1,0 +1,9 @@
+type: object
+description: The range of values to be filtered.
+properties:
+  lower:
+    description: The lower bound of the range.
+    $ref: ./bound.yaml
+  upper:
+    description: The upper bound of the range.
+    $ref: ./bound.yaml

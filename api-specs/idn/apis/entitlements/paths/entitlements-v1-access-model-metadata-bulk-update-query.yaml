@@ -1,0 +1,70 @@
+post:
+  operationId: updateEntitlementsMetadataByQueryV1
+  summary: Bulk-update metadata by query
+  tags:
+  - Entitlements
+  description: |-
+    This API initiates a bulk update of Access Model Metadata for every entitlement matching the supplied search query.
+
+    The update is processed asynchronously. The response returns the ID of the task performing the update.
+
+    Adding or replacing custom metadata requires a suite license.
+
+    This API replaces the deprecated `updateAccessModelMetadataByQueryV1` operation.
+  requestBody:
+    description: Attribute metadata bulk update request body.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/entitlementmetadatabulkupdatebyqueryrequest.yaml
+        example:
+          query:
+            indices:
+            - entitlements
+            queryType: TEXT
+            textQuery:
+              terms:
+              - test123
+              fields:
+              - id
+              matchAny: false
+              contains: true
+            includeNested: false
+          operation: REPLACE
+          replaceScope: ATTRIBUTE
+          values:
+          - attribute: iscFederalClassifications
+            values:
+            - topSecret
+  responses:
+    '202':
+      description: Returned if the bulk update request was created.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/entitlementmetadatabulkupdateresponse.yaml
+          examples:
+            Update request created successfully:
+              value:
+                id: 2d82ac17-eb0d-4ba6-9918-dcad6ee0294d
+                type: ENTITLEMENT
+                status: CREATED
+                created: '2024-09-16T18:59:06.871594Z'
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:entitlement:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN

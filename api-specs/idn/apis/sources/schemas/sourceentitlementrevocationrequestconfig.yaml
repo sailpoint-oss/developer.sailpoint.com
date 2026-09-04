@@ -1,0 +1,8 @@
+type: object
+title: Source Entitlement Revocation Request Config
+properties:
+  approvalSchemes:
+    type: array
+    description: Ordered list of approval steps for the revocation request. Empty when no approval is required.
+    items:
+      $ref: ./sourceentitlementapprovalscheme.yaml

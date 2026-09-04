@@ -1,0 +1,9 @@
+required: true
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        profile:
+          type: object
+          $ref: "../../schemas/PATCH/Profile.yaml"

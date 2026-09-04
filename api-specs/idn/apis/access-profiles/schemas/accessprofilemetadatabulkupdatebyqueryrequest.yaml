@@ -1,0 +1,79 @@
+description: >-
+  Request to bulk update Access Model Metadata on every access profile matching a search query. A single access profile
+  cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
+
+
+  For more information about the query object, refer to [V3 API Perform
+  Search](https://developer.sailpoint.com/docs/api/v3/search-post).
+type: object
+properties:
+  query:
+    description: The search query selecting the access profiles to update.
+    type: object
+    example:
+      indices:
+        - accessprofiles
+      queryType: TEXT
+      textQuery:
+        terms:
+          - test123
+        fields:
+          - id
+        matchAny: false
+        contains: true
+      includeNested: false
+  operation:
+    description: The operation to be performed
+    type: string
+    enum:
+      - ADD
+      - REMOVE
+      - REPLACE
+    example: REPLACE
+  replaceScope:
+    description: >-
+      The choice of update scope. **ATTRIBUTE** replaces only the values of the attributes named in `values`, and
+      **ALL** replaces every metadata attribute on the access profile.
+    type: string
+    enum:
+      - ALL
+      - ATTRIBUTE
+    example: ATTRIBUTE
+  values:
+    description: The metadata to be updated, including attribute key and value.
+    type: array
+    nullable: false
+    items:
+      type: object
+      required:
+        - attribute
+        - values
+      properties:
+        attribute:
+          type: string
+          description: The technical name of the metadata attribute.
+          example: iscFederalClassifications
+        values:
+          type: array
+          description: The values of the attribute to be updated.
+          items:
+            type: string
+            example: secret
+          nullable: true
+          example:
+            - secret
+        objectType:
+          type: string
+          description: >-
+            The type of the metadata attribute. Set to `custom` for custom metadata attributes, which require a suite
+            license.
+          example: custom
+    example:
+      - attribute: iscFederalClassifications
+        values:
+          - topSecret
+required:
+  - query
+  - operation
+  - replaceScope
+  - values

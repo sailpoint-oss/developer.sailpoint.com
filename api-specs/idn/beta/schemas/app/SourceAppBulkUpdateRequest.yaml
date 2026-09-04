@@ -1,0 +1,35 @@
+type: object
+properties:
+  appIds:
+    type: array
+    description: List of source app ids to update
+    maxItems: 50
+    items:
+      type: string
+    example:
+      [
+        "2c91808a7624751a01762f19d665220d",
+        "2c91808a7624751a01762f19d67c220e",
+        "2c91808a7624751a01762f19d692220f"
+      ]
+  jsonPatch:
+    type: array
+    items:
+      $ref: '../../../v3/schemas/JsonPatchOperation.yaml'
+    description: The JSONPatch payload used to update the source app.
+    example:
+      [
+        {
+          "op": "replace",
+          "path": "/enabled",
+          "value": false
+        },
+        {
+          "op": "replace",
+          "path": "/matchAllAccounts",
+          "value": false
+        }
+      ]
+required:
+  - appIds
+  - jsonPatch

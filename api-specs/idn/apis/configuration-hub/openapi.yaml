@@ -1,0 +1,86 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Configuration Hub
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Configuration Hub
+    description: >
+      Use this API to implement and customize configuration settings management. With this functionality, you can access
+      the Configuration Hub actions and build your own automated pipeline for Identity Security Cloud configuration
+      change delivery and deployment.
+
+
+      Common usages for Configuration Hub includes:
+
+
+      - Upload configuration file - Configuration files can be managed and deployed using Configuration Hub by uploading
+      a JSON file which contains configuration data.
+
+      - Manage object mapping - Create rules to map and substitute attributes when migrating configurations.
+
+      - Manage backups for configuration settings
+
+      - Manage configuration drafts
+
+      - Upload configurations and manage object mappings between tenants.
+
+
+      Refer to [Using the SailPoint Configuration
+      Hub](https://documentation.sailpoint.com/saas/help/confighub/config_hub.html) for more information about
+      Configuration Hub.
+paths:
+  /configuration-hub/v1/object-mappings/{sourceOrg}:
+    $ref: ./paths/configuration-hub-v1-object-mappings-by-sourceorg.yaml
+  /configuration-hub/v1/object-mappings/{sourceOrg}/{objectMappingId}:
+    $ref: ./paths/configuration-hub-v1-object-mappings-by-sourceorg-by-objectmappingid.yaml
+  /configuration-hub/v1/object-mappings/{sourceOrg}/bulk-create:
+    $ref: ./paths/configuration-hub-v1-object-mappings-by-sourceorg-bulk-create.yaml
+  /configuration-hub/v1/object-mappings/{sourceOrg}/bulk-patch:
+    $ref: ./paths/configuration-hub-v1-object-mappings-by-sourceorg-bulk-patch.yaml
+  /configuration-hub/v1/scheduled-actions:
+    $ref: ./paths/configuration-hub-v1-scheduled-actions.yaml
+  /configuration-hub/v1/scheduled-actions/{id}:
+    $ref: ./paths/configuration-hub-v1-scheduled-actions-by-id.yaml
+  /configuration-hub/v1/backups/uploads:
+    $ref: ./paths/configuration-hub-v1-backups-uploads.yaml
+  /configuration-hub/v1/backups/uploads/{id}:
+    $ref: ./paths/configuration-hub-v1-backups-uploads-by-id.yaml
+  /configuration-hub/v1/backups:
+    $ref: ./paths/configuration-hub-v1-backups.yaml
+  /configuration-hub/v1/backups/{id}:
+    $ref: ./paths/configuration-hub-v1-backups-by-id.yaml
+  /configuration-hub/v1/drafts:
+    $ref: ./paths/configuration-hub-v1-drafts.yaml
+  /configuration-hub/v1/drafts/{id}:
+    $ref: ./paths/configuration-hub-v1-drafts-by-id.yaml
+  /configuration-hub/v1/deploys:
+    $ref: ./paths/configuration-hub-v1-deploys.yaml
+  /configuration-hub/v1/deploys/{id}:
+    $ref: ./paths/configuration-hub-v1-deploys-by-id.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

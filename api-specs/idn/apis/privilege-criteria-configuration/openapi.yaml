@@ -1,0 +1,85 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Privilege Criteria Configuration
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Privilege Criteria Configuration
+    description: >
+      Use this API to manage the configuration of privilege criteria.
+
+
+      **globalPrivilegeLevelEnabled**: Boolean flag indicating whether privilege classification is enabled.
+
+
+
+      **privilegeClassificationMode**: Enum specifying the mode (CRITERIA_PRIVILEGE_LEVEL, SINGLE_PRIVILEGE_LEVEL) to
+      use for privilege classification. CRITERIA_PRIVILEGE_LEVEL mode uses criteria to determine privilege levels, while
+      SINGLE_PRIVILEGE_LEVEL assigns the same privilege level to all enititlements based on the value of
+      singlePrivilegeLevel.privilegeLevel.
+
+
+
+      **singlePrivilegeLevel.privilegeLevel**: Enum specifying the privilege level (HIGH, MEDIUM, LOW) to assign to all
+      privileges when the privilege classification mode is SINGLE_PRIVILEGE_LEVEL.
+
+
+
+      **criteriaPrivilegeLevel.connectorHighEnabled**: Boolean flag indicating whether HIGH level connector criteria is
+      used for privilege classification.
+
+
+
+      **criteriaPrivilegeLevel.connectorMediumEnabled**: Boolean flag indicating whether MEDIUM level connector criteria
+      is used for privilege classification.
+
+
+
+      **criteriaPrivilegeLevel.connectorLowEnabled**: Boolean flag indicating whether LOW level connector criteria is
+      used for privilege classification.
+
+
+
+      **criteriaPrivilegeLevel.customHighEnabled**: Boolean flag indicating whether HIGH level custom criteria is used
+      for privilege classification.
+
+
+
+      **criteriaPrivilegeLevel.customMediumEnabled**: Boolean flag indicating whether MEDIUM level custom criteria is
+      used for privilege classification.
+
+
+
+      **criteriaPrivilegeLevel.customLowEnabled**: Boolean flag indicating whether LOW level custom criteria is used for
+      privilege classification.
+paths:
+  /criteria-config/v1/privilege/{criteriaConfigId}:
+    $ref: ./paths/criteria-config-v1-privilege-by-criteriaconfigid.yaml
+  /criteria-config/v1/privilege:
+    $ref: ./paths/criteria-config-v1-privilege.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

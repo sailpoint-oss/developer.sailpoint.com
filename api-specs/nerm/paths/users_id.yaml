@@ -1,0 +1,47 @@
+get:
+  summary: Find user by id
+  operationId: getUser
+  description: Info for a specific user
+  tags:
+    - users
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/User.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update a user by id
+  operationId: patchUser
+  description: Update a user by id
+  tags:
+    - users
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  requestBody:
+    $ref: "../requestBodies/PATCH/User.yaml"
+  responses:
+    '200':
+      $ref: "../responses/User.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+delete:
+  summary: Delete a user
+  operationId: deleteUser
+  description: Delete a user
+  tags:
+    - users
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Info.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

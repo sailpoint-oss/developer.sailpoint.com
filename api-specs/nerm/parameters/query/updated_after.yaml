@@ -1,0 +1,8 @@
+name: updated_after
+in: query
+description: Adds support for filtering profiles based on the date of the latest modification made on them. Can be used alongside the after_id parameter.
+required: false
+schema:
+  type: string
+  format: date
+  example: "2025-05-05"

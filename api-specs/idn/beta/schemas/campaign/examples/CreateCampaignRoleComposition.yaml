@@ -1,0 +1,20 @@
+value:
+  name: Role Composition Campaign
+  description: A review done by a role owner.
+  deadline: 2020-12-25T06:00:00.468Z
+  type: ROLE_COMPOSITION
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  filter:
+    type: CAMPAIGN_FILTER
+    id: 0c46fb26c6b20967a55517ee90d15b93
+  roleCompositionCampaignInfo:
+    remediatorRef:
+      type: IDENTITY
+      id: 7ec252acbd4245548bc25df22348cb75
+      name: SailPoint Support
+    roleIds:
+      - b15d609fc5c8434b865fe552315fda8f
+    mandatoryCommentRequirement: NO_DECISIONS
+

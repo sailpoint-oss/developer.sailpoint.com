@@ -1,0 +1,20 @@
+description: >-
+  GRANT_ACCESS for a human identity using requestedForWithRequestedItems, with accountSelection, optional
+  formInstanceId when the requested object has an associated form, and optional sunrise/sunset dates on the item.
+value:
+  requestType: GRANT_ACCESS
+  requestedForWithRequestedItems:
+    - identityId: 2c918084660f45d6016617daa9210584
+      identityType: HUMAN
+      requestedItems:
+        - type: ACCESS_PROFILE
+          id: 2c9180835d2e5168015d32f890ca1581
+          comment: Requesting access profile for John Doe
+          formInstanceId: 9f3a1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e
+          startDate: '2027-01-15T21:22:23.000Z'
+          removeDate: '2027-07-11T21:23:15.000Z'
+          accountSelection:
+            - sourceId: cb89bc2f1ee6445fbea12224c526ba3a
+              accounts:
+                - accountUuid: '{fab7119e-004f-4822-9c33-b8d570d6c6a6}'
+                  nativeIdentity: CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local

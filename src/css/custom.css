@@ -966,3 +966,19 @@ html.hack-day-track details.alert {
 html.hack-day-track details.alert > summary {
   font-weight: 700;
 }
+
+/* Code blocks — force monospace. The global `html *` rule above paints Poppins
+   onto everything including <pre>, which silently destroys any column-aligned
+   content: the ASCII diagrams and the aligned `Name:`/`Department:` email
+   bodies on these pages. Same override the AI Policy examples need. */
+html.hack-day-track pre,
+html.hack-day-track pre code,
+html.hack-day-track pre *,
+html.hack-day-track [class*='codeBlockContent'],
+html.hack-day-track [class*='codeBlockContent'] *,
+html.hack-day-track [class*='codeBlockLines'],
+html.hack-day-track [class*='codeBlockLines'] * {
+  font-family: 'input-mono', ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace !important;
+  font-size: var(--ifm-code-font-size);
+}

@@ -87,6 +87,14 @@ jobs:
           token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
           ref: main
 
+      - name: Check out angular-sdk
+        uses: actions/checkout@v6
+        with:
+          repository: sailpoint-oss/angular-sdk
+          path: angular-sdk
+          token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
+          ref: main
+
       # API specs are no longer committed to this repo — they are fetched here
       # and copied into static/api-specs by scripts/sync-sdk-docs-local.sh.
       - name: Check out api-specs
@@ -114,6 +122,7 @@ jobs:
             python-sdk/sailpoint/**/docs
             powershell-sdk/PSSailpoint/**/docs
             typescript-sdk/sdk-output
+            angular-sdk/sdk-output
           key: sdk-docs-${{ hashFiles('api-specs/idn/apis/**') }}
           restore-keys: sdk-docs-
 

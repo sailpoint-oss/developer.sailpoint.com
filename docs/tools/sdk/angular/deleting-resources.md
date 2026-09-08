@@ -18,7 +18,7 @@ Here is an example component that finds the governance group created in [Create 
 ```typescript title="src/app/delete-group.component.ts"
 import {Component, inject} from '@angular/core';
 import {switchMap, throwError} from 'rxjs';
-import {GovernanceGroupsService} from 'sailpoint-angular-sdk/governance_groups';
+import {GovernanceGroupsService} from '@sailpoint/angular-sdk/governance_groups';
 
 @Component({
   selector: 'app-delete-group',

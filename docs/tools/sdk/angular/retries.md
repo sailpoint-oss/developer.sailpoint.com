@@ -29,7 +29,7 @@ Set `retries` and `retryDelay` in `provideSailPoint()`:
 
 ```typescript title="src/app/app.config.ts"
 import {ApplicationConfig} from '@angular/core';
-import {provideSailPoint} from 'sailpoint-angular-sdk';
+import {provideSailPoint} from '@sailpoint/angular-sdk';
 
 export const appConfig: ApplicationConfig = {
   providers: [

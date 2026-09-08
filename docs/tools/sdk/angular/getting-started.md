@@ -21,7 +21,7 @@ Every API resource is an injectable Angular service. Inject the service you need
 
 The SDK is organized by API resource rather than by API version, so there are no version namespaces to import. Each method name ends with the version of the endpoint it calls. For example, `listTransformsV1` calls the `v1` version of the List Transforms endpoint. This lets a single SDK reach every version of every endpoint without a separate version package.
 
-Import services and models from the resource sub-path, for example `sailpoint-angular-sdk/transforms`. Import the SDK utilities, such as `provideSailPoint`, `SailPointConfigService`, and `Paginator`, from `sailpoint-angular-sdk`.
+Import services and models from the resource sub-path, for example `@sailpoint/angular-sdk/transforms`. Import the SDK utilities, such as `provideSailPoint`, `SailPointConfigService`, and `Paginator`, from `@sailpoint/angular-sdk`.
 
 Every method takes one object of named parameters and returns an RxJS `Observable`. Subscribe to the `Observable` to send the request. Without a subscription, the SDK sends nothing.
 
@@ -29,7 +29,7 @@ Every method takes one object of named parameters and returns an RxJS `Observabl
 
 ```typescript title="src/app/transforms.component.ts"
 import {Component, OnInit, inject, signal} from '@angular/core';
-import {TransformsService, TransformRead} from 'sailpoint-angular-sdk/transforms';
+import {TransformsService, TransformRead} from '@sailpoint/angular-sdk/transforms';
 
 @Component({
   selector: 'app-transforms',
@@ -94,7 +94,7 @@ An in-flight request holds a reference to your component. Pipe the request throu
 ```typescript
 import {Component, DestroyRef, inject} from '@angular/core';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
-import {TransformsService} from 'sailpoint-angular-sdk/transforms';
+import {TransformsService} from '@sailpoint/angular-sdk/transforms';
 
 @Component({selector: 'app-transforms', template: ''})
 export class TransformsComponent {
@@ -116,7 +116,7 @@ export class TransformsComponent {
 
 ```typescript
 import {Component, inject} from '@angular/core';
-import {GenericService} from 'sailpoint-angular-sdk';
+import {GenericService} from '@sailpoint/angular-sdk';
 
 @Component({selector: 'app-generic', template: ''})
 export class GenericComponent {

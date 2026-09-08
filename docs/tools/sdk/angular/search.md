@@ -15,13 +15,13 @@ tags: ['SDK']
 
 ```typescript title="src/app/search.component.ts"
 import {Component, inject} from '@angular/core';
-import {Paginator, PaginationParams} from 'sailpoint-angular-sdk';
+import {Paginator, PaginationParams} from '@sailpoint/angular-sdk';
 import {
   Index,
   Search,
   SearchPostV1RequestParams,
   SearchService,
-} from 'sailpoint-angular-sdk/search';
+} from '@sailpoint/angular-sdk/search';
 
 @Component({selector: 'app-search', template: ''})
 export class SearchComponent {

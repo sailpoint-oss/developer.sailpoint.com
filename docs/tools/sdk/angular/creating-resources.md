@@ -21,8 +21,8 @@ import {switchMap} from 'rxjs';
 import {
   GovernanceGroupsService,
   WorkgroupDto,
-} from 'sailpoint-angular-sdk/governance_groups';
-import {PublicIdentitiesService} from 'sailpoint-angular-sdk/public_identities';
+} from '@sailpoint/angular-sdk/governance_groups';
+import {PublicIdentitiesService} from '@sailpoint/angular-sdk/public_identities';
 
 @Component({
   selector: 'app-create-group',

@@ -13,7 +13,7 @@ tags: ['SDK']
 
 By default, a list request returns a maximum of 250 records. To return more, you must paginate. To learn more about pagination, refer to [Paginating Results](/docs/api/standard-collection-parameters/#paginating-results).
 
-The `Paginator` class runs the paging loop for you. Import it from `sailpoint-angular-sdk`.
+The `Paginator` class runs the paging loop for you. Import it from `@sailpoint/angular-sdk`.
 
 ## Collect every page into one array
 
@@ -21,8 +21,8 @@ The `Paginator` class runs the paging loop for you. Import it from `sailpoint-an
 
 ```typescript title="src/app/accounts.component.ts" showLineNumbers
 import {Component, inject} from '@angular/core';
-import {Paginator} from 'sailpoint-angular-sdk';
-import {AccountsService} from 'sailpoint-angular-sdk/accounts';
+import {Paginator} from '@sailpoint/angular-sdk';
+import {AccountsService} from '@sailpoint/angular-sdk/accounts';
 
 @Component({selector: 'app-accounts', template: ''})
 export class AccountsComponent {

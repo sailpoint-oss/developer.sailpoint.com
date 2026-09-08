@@ -38,7 +38,7 @@ A browser application cannot keep a secret. Anything you ship to the browser is 
 Run this command in your Angular project to add the SDK to your dependencies:
 
 ```bash
-npm install sailpoint-angular-sdk
+npm install @sailpoint/angular-sdk
 ```
 
 To build the package from source instead, clone the repository and build the library:
@@ -62,7 +62,7 @@ Call `provideSailPoint()` in the `providers` array of your application configura
 
 ```typescript title="src/app/app.config.ts"
 import {ApplicationConfig} from '@angular/core';
-import {provideSailPoint} from 'sailpoint-angular-sdk';
+import {provideSailPoint} from '@sailpoint/angular-sdk';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -120,7 +120,7 @@ Inject `SailPointConfigService` and call `configure()` to change the configurati
 
 ```typescript
 import {Component, inject} from '@angular/core';
-import {SailPointConfigService} from 'sailpoint-angular-sdk';
+import {SailPointConfigService} from '@sailpoint/angular-sdk';
 
 @Component({selector: 'app-config', template: ''})
 export class ConfigComponent {

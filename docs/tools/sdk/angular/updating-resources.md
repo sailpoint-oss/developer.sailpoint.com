@@ -21,7 +21,7 @@ import {switchMap, throwError} from 'rxjs';
 import {
   GovernanceGroupsService,
   JsonPatchOperationOpEnum,
-} from 'sailpoint-angular-sdk/governance_groups';
+} from '@sailpoint/angular-sdk/governance_groups';
 
 @Component({
   selector: 'app-update-group',

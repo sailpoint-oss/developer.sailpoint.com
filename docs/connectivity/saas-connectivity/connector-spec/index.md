@@ -6,14 +6,14 @@ sidebar_label: Connector Spec File
 sidebar_position: 4
 sidebar_class_name: connectorSpecFile
 keywords: ['connectivity', 'connectors', 'spec', 'specification']
-description: The connector spec file tells ISC how the connector should interact between ISC and the custom connector. It is the glue between ISC and the connector, so understanding the different sections are key to understanding how to build a custom connectors.
+description: The connector spec file tells SHF how the connector should interact between SHF and the custom connector. It is the glue between SHF and the connector, so understanding the different sections are key to understanding how to build a custom connectors.
 slug: /connectivity/saas-connectivity/connector-spec
 tags: ['Connectivity']
 ---
 
 ## Summary
 
-The connector spec file tells ISC how the connector should interact between ISC and the custom connector. It is the glue between ISC and the connector, so understanding the different sections are important to understand when building a custom connector.
+The connector spec file tells SHF how the connector should interact between SHF and the custom connector. It is the glue between SHF and the connector, so understanding the different sections are important to understand when building a custom connector.
 
 For a complete example, see [connector-spec.json](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/connector-spec.json).
 
@@ -21,29 +21,29 @@ For a complete example, see [connector-spec.json](https://github.com/sailpoint-o
 
 | Property | Type | Required | Description |
 |---|---|---|---|
-| `name` | string | Yes | The name of the connector as it appears in ISC. Tags can be appended to this name. |
+| `name` | string | Yes | The name of the connector as it appears in SHF. Tags can be appended to this name. |
 | `keyType` | string | Yes | Either `simple` or `compound`. Determines which key type the connector expects to receive and send back for each command. For example, if `simple`, then `StdAccountReadInput.key` will be of type `SimpleKey`. |
 | `commands` | string[] | Yes | The list of commands the connector supports. See the full list of [available commands](../connector-commands/index.md). |
 | `supportsStatefulCommands` | boolean | No | Set to `true` if the connector supports stateful commands. |
-| `showDebugLoggingOption` | boolean | No | When `true`, exposes an **Enable Debug Logging** toggle in the ISC source's Administrator Settings UI. When enabled, the connector emits `debug`-level log entries in addition to `info` and `error` levels. Defaults to `false`. |
+| `showDebugLoggingOption` | boolean | No | When `true`, exposes an **Enable Debug Logging** toggle in the SHF source's Administrator Settings UI. When enabled, the connector emits `debug`-level log entries in addition to `info` and `error` levels. Defaults to `false`. |
 | `sourceConfigInitialValues` | object | No | Key-value pairs of source config item keys and their default values. See [Initial Values](./connector-spec/initial-value). |
-| `sourceConfig` | object[] | Yes | A list of menus defining the configuration UI shown when creating a source in ISC. The order of items is preserved in the UI. See [sourceConfig](#sourceconfig). |
-| `accountSchema` | object | Yes | The schema for accounts in ISC populated by data from the source. See [accountSchema](#accountschema). |
-| `entitlementSchemas` | object[] | No | A list of entitlement schemas in ISC populated by data from the source. See [entitlementSchemas](#entitlementschemas). |
-| `accountCreateTemplate` | object | No | A map of identity attributes ISC passes to the connector when creating an account in the target source. See [accountCreateTemplate](#accountcreatetemplate). |
+| `sourceConfig` | object[] | Yes | A list of menus defining the configuration UI shown when creating a source in SHF. The order of items is preserved in the UI. See [sourceConfig](#sourceconfig). |
+| `accountSchema` | object | Yes | The schema for accounts in SHF populated by data from the source. See [accountSchema](#accountschema). |
+| `entitlementSchemas` | object[] | No | A list of entitlement schemas in SHF populated by data from the source. See [entitlementSchemas](#entitlementschemas). |
+| `accountCreateTemplate` | object | No | A map of identity attributes SHF passes to the connector when creating an account in the target source. See [accountCreateTemplate](#accountcreatetemplate). |
 
 ---
 
 ## sourceConfig
 
-`sourceConfig` is an array of menu objects that define the sidebar and configuration fields shown when creating a source in ISC.
+`sourceConfig` is an array of menu objects that define the sidebar and configuration fields shown when creating a source in SHF.
 
 ### Menu
 
 | Property | Type | Required | Description |
 |---|---|---|---|
 | `type` | string | Yes | Always `"menu"`. Indicates a new sidebar section. Multiple menus can be defined for complex configurations. |
-| `label` | string | Yes | The text displayed on the sidebar in ISC. |
+| `label` | string | Yes | The text displayed on the sidebar in SHF. |
 | `items` | [Section](#section)[] | Yes | An array of section objects displayed within this menu. |
 
 ### Section
@@ -92,14 +92,14 @@ For a complete example, see [connector-spec.json](https://github.com/sailpoint-o
 
 ## accountSchema
 
-Defines the schema for accounts in ISC populated by data from the source.
+Defines the schema for accounts in SHF populated by data from the source.
 
 ### accountSchema Fields
 
 | Property | Type | Required | Description |
 |---|---|---|---|
-| `displayAttribute` | string | Yes | The attribute used to map to `Account Name` in ISC. Should be unique so ISC can correlate accounts between ISC and the source. |
-| `identityAttribute` | string | Yes | The attribute used to map to `Account ID` in ISC. Must be a globally unique identifier (e.g., email address, employee ID). |
+| `displayAttribute` | string | Yes | The attribute used to map to `Account Name` in SHF. Should be unique so SHF can correlate accounts between SHF and the source. |
+| `identityAttribute` | string | Yes | The attribute used to map to `Account ID` in SHF. Must be a globally unique identifier (e.g., email address, employee ID). |
 | `groupAttribute` | string | No | The attribute used to map accounts to entitlements (e.g., `"groups"`). |
 | `attributes` | [Account Attribute](#account-attribute)[] | Yes | One or more attributes mapping to user attributes on the target source. |
 
@@ -107,11 +107,11 @@ Defines the schema for accounts in ISC populated by data from the source.
 
 | Property | Type | Required | Description |
 |---|---|---|---|
-| `name` | string | Yes | The attribute's name as it appears in ISC. |
+| `name` | string | Yes | The attribute's name as it appears in SHF. |
 | `type` | string | Yes | The attribute's data type. Valid values: `string`, `boolean`, `long`, `int`. |
 | `description` | string | No | A helpful description of the attribute, useful to source owners reviewing the account schema. |
 | `entitlement` | boolean | No | Whether this attribute is an entitlement. Entitlements grant identities privileges on the source system. |
-| `managed` | boolean | No | Whether the entitlements are manageable through ISC (`true`) or read-only (`false`). |
+| `managed` | boolean | No | Whether the entitlements are manageable through SHF (`true`) or read-only (`false`). |
 | `multi` | boolean | No | Whether this attribute stores multiple entitlements in an array format. |
 
 ---
@@ -133,7 +133,7 @@ An array of entitlement schema objects defining the entitlement types available 
 
 | Property | Type | Required | Description |
 |---|---|---|---|
-| `name` | string | Yes | The attribute's name as it appears in ISC. |
+| `name` | string | Yes | The attribute's name as it appears in SHF. |
 | `type` | string | Yes | The attribute's data type. Valid values: `string`, `boolean`, `long`, `int`. |
 | `description` | string | No | A helpful description of the attribute, useful to source owners reviewing the entitlement schema. |
 
@@ -141,7 +141,7 @@ An array of entitlement schema objects defining the entitlement types available 
 
 ## accountCreateTemplate
 
-Maps identity attributes ISC will pass to the connector when creating an account in the target source.
+Maps identity attributes SHF will pass to the connector when creating an account in the target source.
 
 ### accountCreateTemplate Fields
 
@@ -153,10 +153,10 @@ Maps identity attributes ISC will pass to the connector when creating an account
 
 | Property | Type | Required | Description |
 |---|---|---|---|
-| `key` | string | Yes | The unique identifier for the attribute. Also the name shown in the Create Profile screen in ISC. |
+| `key` | string | Yes | The unique identifier for the attribute. Also the name shown in the Create Profile screen in SHF. |
 | `label` | string | Yes | A friendly display name for the attribute. |
 | `type` | string | Yes | The attribute's data type. Valid values: `string`, `boolean`, `long`, `int`. |
-| `required` | boolean | No | Whether this attribute is required for account creation. If `true` and ISC encounters an identity missing this attribute, the account will not be sent to the connector for creation. Defaults to `false`. |
+| `required` | boolean | No | Whether this attribute is required for account creation. If `true` and SHF encounters an identity missing this attribute, the account will not be sent to the connector for creation. Defaults to `false`. |
 | `initialValue` | [Initial Value](#initial-value) | No | Specifies a default, identity-mapped, or generated value for the attribute. |
 
 ### Initial Value

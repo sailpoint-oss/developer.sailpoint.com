@@ -21,11 +21,11 @@ In order to create an IP Address Allow list, you need to know what region your t
 
 ### Finding your tenant using the admin console
 
-Go to the admin console in Identity Security Cloud and find the 'Org Details' section. You will find your tenant's host region there:
+Go to the admin console in SailPoint Human Fabric and find the 'Org Details' section. You will find your tenant's host region there:
 
 ![img](./img/idn-console.PNG)
 
-### Finding your tenant programatically using the IP address returned by Identity Security Cloud
+### Finding your tenant programatically using the IP address returned by SailPoint Human Fabric {#finding-your-tenant-programatically-using-the-ip-address-returned-by-identity-security-cloud}
 
 If you can't access the admin console or you want to dynamically find the region through code, follow these steps to find it:
 
@@ -33,13 +33,13 @@ If you can't access the admin console or you want to dynamically find the region
 
 ![img](./img/postman1.PNG)
 
-2. After a succesful call to Identity Security Cloud, hover over the globe icon in the response window in postman to get the IP address:
+2. After a succesful call to SailPoint Human Fabric, hover over the globe icon in the response window in postman to get the IP address:
 
 ![img](./img/postman2.PNG)
 
 3. Download the [IP Address ranges from AWS](https://ip-ranges.amazonaws.com/ip-ranges.json)
 
-4. Compare the IP address found when calling Identity Security Cloud to the list provided by AWS to determine where your tenant is hosted. You can run a simple Python script to easily find what region the IP address belongs to:
+4. Compare the IP address found when calling SailPoint Human Fabric to the list provided by AWS to determine where your tenant is hosted. You can run a simple Python script to easily find what region the IP address belongs to:
 
 ```python
 from ipaddress import ip_network, ip_address
@@ -74,7 +74,7 @@ The URL used to find your range of allow list URLs can be constructed using the 
 https://files.accessiq.sailpoint.com/network/REGION/FILENAME
 ```
 
-Where REGION is the region of your Identity Security Cloud Tenant and FILENAME is one of the three following:
+Where REGION is the region of your SailPoint Human Fabric Tenant and FILENAME is one of the three following:
 
 ```
 source_ips.yaml
@@ -100,7 +100,7 @@ which will result in a file similar to the following:
   - '54.243.179.37/32'
 ```
 
-These IP Address ranges can now be used as an allow list to permit any call from your Identity Security Cloud tenant to access your internal network.
+These IP Address ranges can now be used as an allow list to permit any call from your SailPoint Human Fabric tenant to access your internal network.
 
 ## Limitations
 

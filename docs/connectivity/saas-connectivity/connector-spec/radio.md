@@ -18,7 +18,7 @@ You can use the `radio` type to create radio buttons for users to interact with 
 | Property | Type | Required | Description |
 |---|---|---|---|
 | `key` | string | Yes | The config key used to access the selected value in connector code. |
-| `label` | string | Yes | The label displayed for the radio group in the ISC UI. |
+| `label` | string | Yes | The label displayed for the radio group in the SHF UI. |
 | `type` | string | Yes | Must be `"radio"`. |
 | `required` | boolean | No | Whether the user must select an option before saving. Defaults to `false`. |
 | `options` | object[] | Yes | The list of radio options. Each option has a `label` (displayed text) and a `value` (the string stored in config). |

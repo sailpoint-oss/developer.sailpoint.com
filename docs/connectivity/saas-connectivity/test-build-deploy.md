@@ -37,17 +37,17 @@ As you implement command handlers, you must test them. The connector SDK provide
 
 ## Create and upload connector bundle
 
-Follow these steps to use the CLI to package a connector bundle, create it in your Identity Security Cloud org, and upload it to Identity Security Cloud.
+Follow these steps to use the CLI to package a connector bundle, create it in your SailPoint Human Fabric org, and upload it to SailPoint Human Fabric.
 
 ### Package connector files
 
-You must compress the files in the connector project into a zip file before uploading them to Identity Security Cloud.
+You must compress the files in the connector project into a zip file before uploading them to SailPoint Human Fabric.
 
 Use the CLI to run `npm run pack-zip` to build and package the connector bundle. Put the resulting zip file in the `dist` folder.
 
 ### Create connector in your org
 
-Before uploading the zip file, you must create an entry for the connector in your Identity Security Cloud org. Run `sail conn create "my-project"` to create a connector entry.
+Before uploading the zip file, you must create an entry for the connector in your SailPoint Human Fabric org. Run `sail conn create "my-project"` to create a connector entry.
 
 The response to this command contains a connector ID you can use to manage this connector.
 
@@ -76,9 +76,9 @@ $ sail conn list
 +--------------------------------------+----------------------------+
 ```
 
-### Upload connector zip file to Identity Security Cloud
+### Upload connector zip file to SailPoint Human Fabric {#upload-connector-zip-file-to-identity-security-cloud}
 
-Run `sail conn upload -c [connectorID | connectorAlias] -f dist/[connector filename].zip` to upload the zip file built from the previous step to Identity Security Cloud.
+Run `sail conn upload -c [connectorID | connectorAlias] -f dist/[connector filename].zip` to upload the zip file built from the previous step to SailPoint Human Fabric.
 
 ```bash
 $ sail conn upload -c example-connector -f dist/example-connector-0.1.0.zip
@@ -102,15 +102,15 @@ $ sail conn tags list -c example-connector
 
 :::caution Important
 
-Make sure that you implement a form of version control or regular backup process for your connectors. You cannot recover the source code from ISC because it gets sent to ISC as a compiled and minified JavaScript (JS) bundle that cannot be easily expanded into its original source code structure.
+Make sure that you implement a form of version control or regular backup process for your connectors. You cannot recover the source code from SHF because it gets sent to SHF as a compiled and minified JavaScript (JS) bundle that cannot be easily expanded into its original source code structure.
 
 :::
 
-## Test your connector in Identity Security Cloud
+## Test your connector in SailPoint Human Fabric {#test-your-connector-in-identity-security-cloud}
 
-Follow these steps to test a connector bundle in both Identity Security Cloud and the Identity Security Cloud user interface (UI).
+Follow these steps to test a connector bundle in both SailPoint Human Fabric and the SailPoint Human Fabric user interface (UI).
 
-### Test your connector bundle in Identity Security Cloud
+### Test your connector bundle in SailPoint Human Fabric {#test-your-connector-bundle-in-identity-security-cloud}
 
 The connector CLI provides ways to test invoking commands with any connector upload version. Before running a command, create a file, **config.json**, in the root project folder. Include any configuration items required to interact with the target web service in this file, such as API token, username, password, organization, version, etc. The following snippet is an example:
 
@@ -140,8 +140,8 @@ $ sail connectors invoke account-list -c example-connector -p config.json
 >
 > Ensure that you add config.json to your .gitignore file so you do not accidentally store secrets in your code repository.
 
-## Test your connector from Identity Security Cloud UI
+## Test your connector from SailPoint Human Fabric UI {#test-your-connector-from-identity-security-cloud-ui}
 
-Go to your Identity Security Cloud org’s source section. Create a source from the connector you just uploaded. This connector will display in the dropdown list: **example-connector (tag: latest)**
+Go to your SailPoint Human Fabric org’s source section. Create a source from the connector you just uploaded. This connector will display in the dropdown list: **example-connector (tag: latest)**
 
-After creating a source, you can to test connection, aggregate account, etc. from the Identity Security Cloud UI.
+After creating a source, you can to test connection, aggregate account, etc. from the SailPoint Human Fabric UI.

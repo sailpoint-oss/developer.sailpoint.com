@@ -23,13 +23,13 @@ NERM supports two authentication methods:
 
 To authenticate with a NERM-specific API key, you will need to generate a token by following the instructions here: [Generating a New API Key](https://documentation.sailpoint.com/ne-admin/help/setup/api.html). Once you have your token, you are ready to start making calls!
 
-### 2. Identity Security Cloud (ISC) API Token (Recommended)
+### 2. SailPoint Human Fabric (SHF) API Token (Recommended) {#2-identity-security-cloud-isc-api-token-recommended}
 
-NERM now supports authentication using Identity Security Cloud (ISC) personal access tokens. This allows you to use the same authentication method across both ISC and NERM APIs.
+NERM now supports authentication using SailPoint Human Fabric (SHF) personal access tokens. This allows you to use the same authentication method across both SHF and NERM APIs.
 
-To authenticate with an ISC token:
+To authenticate with an SHF token:
 
-1. **Find your ISC tenant's OAuth details** - Your ISC instance is likely using the domain name supplied by SailPoint (`[tenant].api.identitynow.com`). If you have admin access but don't know your tenant name, you can find it in your ISC instance under Dashboard > Overview > Org Details.
+1. **Find your SHF tenant's OAuth details** - Your SHF instance is likely using the domain name supplied by SailPoint (`[tenant].api.identitynow.com`). If you have admin access but don't know your tenant name, you can find it in your SHF instance under Dashboard > Overview > Org Details.
 
 2. **Generate a personal access token (PAT)** - Follow these steps:
    - Select **Preferences** from the drop-down menu under your username, then **Personal Access Tokens** on the left
@@ -54,7 +54,7 @@ curl --location 'https://mycompany.nonemployee.com/api/v1/non-employee-sources' 
 --header 'Authorization: Bearer {access_token}'
 ```
 
-For more detailed information about ISC authentication, refer to the [ISC Authentication Guide](/docs/api/authentication).
+For more detailed information about SHF authentication, refer to the [SHF Authentication Guide](/docs/api/authentication).
 
 ## API Tools
 

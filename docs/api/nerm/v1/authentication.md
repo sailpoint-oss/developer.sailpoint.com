@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 NERM supports two authentication methods to allow customers to authenticate to NERM API endpoints:
 
 1. **NERM API Key (Legacy)** - NERM-specific bearer tokens
-2. **Identity Security Cloud (ISC) API Token (Recommended)** - OAuth 2.0 JWT access tokens from ISC
+2. **SailPoint Human Fabric (SHF) API Token (Recommended)** - OAuth 2.0 JWT access tokens from SHF
 
 Both authentication methods use bearer tokens in the request header.
 
@@ -42,17 +42,17 @@ curl --location 'https://mycompany.nonemployee.com/api/v1/non-employee-sources' 
 ```
 
   </TabItem>
-  <TabItem value="isc" label="ISC API Token">
+  <TabItem value="isc" label="SHF API Token">
 
-### ISC API Token Authentication
+### SHF API Token Authentication {#isc-api-token-authentication}
 
-NERM now supports authentication using Identity Security Cloud (ISC) personal access tokens. This allows you to use the same authentication method across both ISC and NERM APIs.
+NERM now supports authentication using SailPoint Human Fabric (SHF) personal access tokens. This allows you to use the same authentication method across both SHF and NERM APIs.
 
 #### Generate a Personal Access Token
 
-A personal access token (PAT) is a method of authenticating to an API as a user without providing a username and password. Any ISC user can generate a PAT by following these steps:
+A personal access token (PAT) is a method of authenticating to an API as a user without providing a username and password. Any SHF user can generate a PAT by following these steps:
 
-1. Select **Preferences** from the drop-down menu under your username, then **Personal Access Tokens** on the left. You can also go directly to the page by using this URL (replace `[tenant]` with your Identity Security Cloud tenant): `https://[tenant].identitynow.com/ui/d/user-preferences/personal-access-tokens`
+1. Select **Preferences** from the drop-down menu under your username, then **Personal Access Tokens** on the left. You can also go directly to the page by using this URL (replace `[tenant]` with your SailPoint Human Fabric tenant): `https://[tenant].identitynow.com/ui/d/user-preferences/personal-access-tokens`
 
 2. Click **New Token** and enter a meaningful description to help differentiate the token from others.
 
@@ -115,6 +115,6 @@ The `expires_in` value in the token response describes the lifetime, in seconds,
 
 ## More Information
 
-For detailed information about ISC authentication methods, grant flows, and troubleshooting, refer to the [ISC Authentication Guide](/docs/api/authentication).
+For detailed information about SHF authentication methods, grant flows, and troubleshooting, refer to the [SHF Authentication Guide](/docs/api/authentication).
 
-For information about authorization and scopes, refer to the [ISC Authorization Guide](/docs/api/authorization).
+For information about authorization and scopes, refer to the [SHF Authorization Guide](/docs/api/authorization).

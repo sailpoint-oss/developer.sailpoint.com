@@ -13,15 +13,15 @@ tags: ['Transforms', 'Guides', 'First']
 
 ## Overview
 
-In this guide, you will learn how to use [Identity Security Cloud's Transform REST APIs](/docs/api/transforms) to do the following:
+In this guide, you will learn how to use [SailPoint Human Fabric's Transform REST APIs](/docs/api/transforms) to do the following:
 
-- [List Transforms in Your Identity Security Cloud Tenant](#list-transforms-in-your-identity-security-cloud-tenant)
+- [List Transforms in Your SailPoint Human Fabric Tenant](#list-transforms-in-your-identity-security-cloud-tenant)
 - [Create a Transform](#create-a-transform)
 - [Get Transform by ID](#get-transform-by-id)
 - [Update a Transform](#update-a-transform)
 - [Delete a Transform](#delete-a-transform)
 
-## List transforms in your Identity Security Cloud tenant
+## List transforms in your SailPoint Human Fabric tenant {#list-transforms-in-your-identity-security-cloud-tenant}
 
 To call the APIs for transforms, you need a personal access token and your tenant's name to provide with the request. For more information about how to get a personal access token, see [Personal Access Tokens](../../../api/authentication.md#generate-a-personal-access-token). For more information about how to get the name of your tenant, see [Finding Your Organization Tenant Name](../../../api/getting-started.md#find-your-tenant-name).
 
@@ -118,7 +118,7 @@ curl --location --request POST 'https://{tenant}.api.identitynow.com/v3/transfor
 }
 ```
 
-Once you have created the transform, you can find it in Identity Security Cloud by going to **Admin** > **Identities** > **Identity Profiles** > (An Identity Profile) > **Mappings** (tab).
+Once you have created the transform, you can find it in SailPoint Human Fabric by going to **Admin** > **Identities** > **Identity Profiles** > (An Identity Profile) > **Mappings** (tab).
 
 ![Mappings Tab](./img/mappings_tab.png)
 

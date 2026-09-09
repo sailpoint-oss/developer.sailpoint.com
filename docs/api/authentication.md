@@ -326,6 +326,61 @@ Once you have the JWT access token, you can pass the token as a basic "Authoriza
 
 For more information about the OAuth authorization code grant flow, refer [here](https://oauth.net/2/grant-types/authorization-code/).
 
+### Authorization code grant flow for desktop and CLI applications
+
+A desktop application or a command line application cannot receive a redirect on
+a public URL. SailPoint developer tools solve this with a static page at
+`https://developer.sailpoint.com/sailapps`, which displays a one-time code for
+the user to copy.
+
+The application does every security-relevant step itself. No SailPoint-operated
+service receives the authorization code, the PKCE verifier, or the token.
+
+These are the steps:
+
+1. The application generates a PKCE `code_verifier` and a random `state`, and it
+   keeps both in memory.
+
+2. The application opens the browser at the tenant authorize endpoint, with
+   `redirect_uri=https://developer.sailpoint.com/sailapps`,
+   `code_challenge_method=S256`, and the `state`.
+
+3. The user signs in. Identity Security Cloud redirects the browser to the page
+   with `code` and `state` in the query string.
+
+4. The page removes the query string from the address bar, and it displays one
+   value that packs both parameters:
+
+   ```text
+   sp1.<base64url of {"v":1,"code":"...","state":"..."}>
+   ```
+
+5. The user copies that value and pastes it into the application.
+
+6. The application unpacks the value and rejects it unless the `state` matches
+   the `state` from step 1. A mismatch means the code came from a different
+   sign-in attempt.
+
+7. The application posts the code to the tenant token endpoint with its
+   `client_id` and the `code_verifier`, and it receives the tokens directly. The
+   token endpoint is always built from the tenant URL in the application
+   configuration, so a discovery response cannot move the code to another host.
+   Vanity domains work, because the host is not restricted to a fixed list.
+
+The page and the application both display a confirmation code, which is the
+first eight characters of the `state` formatted as `XXXX-XXXX`. Compare the two
+values before you paste. A code without the matching verifier is worthless to an
+attacker, so PKCE limits the damage if a code leaks.
+
+:::warning
+
+Paste the one-time code only into the application that started sign-in. The code
+grants access to your tenant for that application.
+
+:::
+
+The SailPoint CLI and the UI Development Kit both use this flow.
+
 ### Request access token with refresh token grant flow
 
 Clients use this grant type in order to exchange a refresh token for a new `access_token` once the existing `access_token` has expired. This allows clients to continue to have a valid `access_token` without the need for the user to login as frequently.

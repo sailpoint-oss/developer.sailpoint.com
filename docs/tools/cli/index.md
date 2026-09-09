@@ -128,6 +128,24 @@ You will be prompted for the following information:
 
 With the default environment values populated you can immediately begin using the CLI with OAuth authentication. Just make sure OAuth is your selected authentication method, this can be done by running `sail set auth oauth`.
 
+The CLI runs the authorization code flow with PKCE, and it exchanges the code with your tenant directly. These are the steps:
+
+1. The CLI opens your browser and prints a confirmation code, such as `Ab3d-9Kx1`.
+
+2. You sign in to Identity Security Cloud.
+
+3. The page at `https://developer.sailpoint.com/sailapps` shows the same confirmation code and a one-time code that starts with `sp1.`. Make sure that both confirmation codes match.
+
+4. You copy the one-time code and paste it into the CLI prompt.
+
+The CLI refuses the one-time code if it belongs to a different sign-in attempt. Paste the code only into the CLI window that started sign-in.
+
+:::info
+
+OAuth login needs an interactive terminal, because you must paste the code. Use a personal access token in a pipeline or in any other non-interactive session.
+
+:::
+
 ### PAT authentication
 
 After you have configured your environment, if you want to use PAT authentication, run the `sail set pat` command. You can then provide your PAT client ID and client secret.

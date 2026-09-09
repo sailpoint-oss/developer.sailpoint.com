@@ -155,3 +155,25 @@
     opacity: 0.9;
     line-height: 1.4;
   }
+
+  .pasteCodeLabel {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.75;
+    margin-bottom: 8px;
+  }
+
+  .pasteCode {
+    display: block;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 12px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: left;
+    word-break: break-all;
+    user-select: all;
+  }

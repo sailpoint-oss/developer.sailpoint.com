@@ -12,8 +12,8 @@ const navbarConfig = {
         position: 'left',
         groups: [
           {
-            label: 'Identity Security Cloud',
-            description: 'Guides and references for building on ISC.',
+            label: 'SailPoint Human Fabric',
+            description: 'Guides and references for building on SHF.',
             items: [
               { label: 'Overview', to: '/docs' },
               { label: 'Extensibility', to: '/docs/extensibility' },
@@ -38,14 +38,14 @@ const navbarConfig = {
         position: 'left',
         groups: [
           {
-            label: 'Identity Security Cloud',
+            label: 'SailPoint Human Fabric',
             description: 'API specifications and getting-started essentials.',
             items: [
               { label: 'Getting Started', to: '/docs/api/getting-started' },
               { label: 'Authentication', to: '/docs/api/authentication' },
               { label: 'Authorization', to: '/docs/api/authorization' },
               { label: 'Postman Collections', to: '/docs/api/postman-collections' },
-              { label: 'ISC API Specifications', to: '/docs/api' },
+              { label: 'SHF API Specifications', to: '/docs/api' },
               { label: 'NERM API Specifications', to: '/docs/api/nerm/v1' },
               { label: 'Legacy Specifications', to: '/apis/legacy' },
 

@@ -24,7 +24,7 @@ export default function Home(): ReactNode {
           description={
             "If you still aren't sure where to get started, try one of the <b>Getting Started Guides</b> below, or see what our platform has to offer."
           }
-          link={'https://www.sailpoint.com/products/identity-security-cloud'}
+          link={'https://www.sailpoint.com/products/human-fabric'}
           title={'Start with the basics'}
           image={'user'}
           buttonText={'Explore our platform'}

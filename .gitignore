@@ -37,6 +37,7 @@ yarn.lock
 /docs/tools/sdk/python/Reference/
 /docs/tools/sdk/powershell/Reference/
 /docs/tools/sdk/typescript/Reference/
+/docs/tools/sdk/angular/Reference/
 
 # API specs synced from sailpoint-oss/api-specs at build time (arm/ is maintained here)
 /static/api-specs/idn/

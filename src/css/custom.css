@@ -825,6 +825,16 @@ li.tabs__item.openapi-tabs__code-item.openapi-tabs__code-item--typescript::after
   z-index: 1; /* Ensure it is above other content */
 }
 
+li.tabs__item.openapi-tabs__code-item.openapi-tabs__code-item--angular::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background-image: url('../../static/icons/angular-svgrepo-com.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
 details ol li a:link,
 details p a:link {
   text-decoration: underline !important;

@@ -14,7 +14,7 @@ import {
 } from "../utils/sailappsAuthMessages";
 import styles from "./sailapps.module.css";
 
-/** @typedef {'loading' | 'ready' | 'error'} PageStatus */
+/** @typedef {'loading' | 'ready' | 'outdated' | 'error'} PageStatus */
 
 /**
  * Version prefix for the paste code. The prefix lets a client reject a value
@@ -43,6 +43,22 @@ function buildPasteCode(code, state) {
 	return (
 		PASTE_CODE_PREFIX + toBase64Url(JSON.stringify({ v: 1, code, state }))
 	);
+}
+
+/**
+ * Detects a sign-in started by an outdated SailPoint CLI or UI Development Kit.
+ *
+ * Versions before the paste flow sent a state value that was Base64-encoded
+ * JSON holding a session id, because a hosted service completed the exchange.
+ * The current flow sends an opaque random value, which never decodes to JSON.
+ */
+function isLegacyOAuthState(stateParam) {
+	try {
+		const decoded = JSON.parse(atob(stateParam));
+		return Boolean(decoded && typeof decoded === "object" && decoded.id);
+	} catch {
+		return false;
+	}
 }
 
 /**
@@ -124,6 +140,11 @@ function SailApps() {
 			return;
 		}
 
+		if (isLegacyOAuthState(stateParam)) {
+			setPageStatus("outdated");
+			return;
+		}
+
 		const confirmation = formatConfirmationCode(stateParam);
 		if (!confirmation) {
 			setResultDisplay(getInvalidStateDisplay());
@@ -149,17 +170,64 @@ function SailApps() {
 		<Layout noFooter title="SailPoint Application Authentication">
 			<div className={styles.gettingStartedText}>
 				<FontAwesomeIcon
-					icon={faKey}
+					icon={pageStatus === "outdated" ? faTriangleExclamation : faKey}
 					style={{ fontSize: "3rem" }}
 					className={styles.docCardIcon}
 					size="3x"
 				/>
 				<h1 className={styles.gettingStartedOne}>
-					SailPoint Application Authentication
+					{pageStatus === "outdated"
+						? "Update required"
+						: "SailPoint Application Authentication"}
 				</h1>
 
 				{pageStatus === "loading" ? (
 					<p className={styles.gettingStartedTwo}>Loading…</p>
+				) : null}
+
+				{pageStatus === "outdated" ? (
+					<>
+						<p className={styles.gettingStartedTwo}>
+							Your SailPoint tool uses a sign-in method that no longer works.
+							Update the tool, then start sign-in again.
+						</p>
+
+						<div className={styles.updateBlock}>
+							<h2 className={styles.updateHeading}>SailPoint CLI</h2>
+							<p className={styles.updateText}>
+								On macOS, run this command:
+							</p>
+							<code className={styles.updateCode}>
+								brew upgrade sailpoint-cli
+							</code>
+							<p className={styles.updateText}>
+								On Windows and Linux, install the newest build from the{" "}
+								<a
+									href="https://github.com/sailpoint-oss/sailpoint-cli/releases"
+									target="_blank"
+									rel="noreferrer"
+								>
+									releases page
+								</a>
+								.
+							</p>
+						</div>
+
+						<div className={styles.updateBlock}>
+							<h2 className={styles.updateHeading}>UI Development Kit</h2>
+							<p className={styles.updateText}>
+								You can install the newest build from the{" "}
+								<a
+									href="https://github.com/sailpoint-oss/ui-development-kit/releases"
+									target="_blank"
+									rel="noreferrer"
+								>
+									releases page
+								</a>
+								.
+							</p>
+						</div>
+					</>
 				) : null}
 
 				{pageStatus === "ready" ? (

@@ -150,13 +150,6 @@ jobs:
         with:
           go-version: 1.21
 
-      - name: build backend
-        run: |
-          ls -la
-          cd ./backend/src/mithrandir
-          npm ci
-          npm run build
-
       - name: setup SAM
         uses: aws-actions/setup-sam@v2
       - name: set env vars

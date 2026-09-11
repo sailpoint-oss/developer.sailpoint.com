@@ -1,4 +1,3 @@
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import {
 	faCircleCheck,
 	faCircleExclamation,
@@ -8,35 +7,69 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Layout from "@theme/Layout";
 import { useEffect, useState } from "react";
-import { SailAppsAuthError, sendCode } from "../services/SailAppsService";
 import {
-	getApiErrorDisplay,
 	getInvalidStateDisplay,
 	getMissingCallbackParamsDisplay,
 	getOAuthRedirectErrorDisplay,
-	SUCCESS_DISPLAY,
 } from "../utils/sailappsAuthMessages";
 import styles from "./sailapps.module.css";
 
-/** @typedef {'loading' | 'ready' | 'success' | 'error'} PageStatus */
+/** @typedef {'loading' | 'ready' | 'outdated' | 'error'} PageStatus */
 
-function formatConfirmationCode(uuid) {
-	if (!uuid || uuid.length < 4) {
-		return "----";
+/**
+ * Version prefix for the paste code. The prefix lets a client reject a value
+ * that came from somewhere else, and lets us change the payload later.
+ */
+const PASTE_CODE_PREFIX = "sp1.";
+
+function toBase64Url(value) {
+	const bytes = new TextEncoder().encode(value);
+	let binary = "";
+	for (const byte of bytes) {
+		binary += String.fromCharCode(byte);
 	}
-	const tail = uuid.slice(-8);
-	return `${tail.slice(0, 4).toUpperCase()}-${tail.slice(4).toUpperCase()}`;
+	return btoa(binary)
+		.replace(/\+/g, "-")
+		.replace(/\//g, "_")
+		.replace(/=+$/, "");
 }
 
-function formatApiOrigin(baseURL) {
-	if (!baseURL) {
-		return null;
-	}
+/**
+ * Packs the authorization code and the state into one value the user copies.
+ * The application that started sign-in unpacks it, compares the state with the
+ * value it sent, and exchanges the code for a token itself.
+ */
+function buildPasteCode(code, state) {
+	return (
+		PASTE_CODE_PREFIX + toBase64Url(JSON.stringify({ v: 1, code, state }))
+	);
+}
+
+/**
+ * Detects a sign-in started by an outdated SailPoint CLI or UI Development Kit.
+ *
+ * Versions before the paste flow sent a state value that was Base64-encoded
+ * JSON holding a session id, because a hosted service completed the exchange.
+ * The current flow sends an opaque random value, which never decodes to JSON.
+ */
+function isLegacyOAuthState(stateParam) {
 	try {
-		return new URL(baseURL).origin;
+		const decoded = JSON.parse(atob(stateParam));
+		return Boolean(decoded && typeof decoded === "object" && decoded.id);
 	} catch {
+		return false;
+	}
+}
+
+/**
+ * Derives the short code shown in both the application and this page.
+ * The application derives the same value from the state it sent.
+ */
+function formatConfirmationCode(state) {
+	if (!state || state.length < 8) {
 		return null;
 	}
+	return `${state.slice(0, 4)}-${state.slice(4, 8)}`;
 }
 
 function ResultBanner({ display }) {
@@ -73,20 +106,23 @@ function ResultBanner({ display }) {
 }
 
 function SailApps() {
-	const [authCode, setAuthCode] = useState("");
-	const [state, setState] = useState("");
-	const [uuid, setUuid] = useState("");
-	const [apiOrigin, setApiOrigin] = useState("");
+	const [pasteCode, setPasteCode] = useState("");
+	const [confirmationCode, setConfirmationCode] = useState("");
 	/** @type {[PageStatus, function]} */
 	const [pageStatus, setPageStatus] = useState("loading");
-	const [isSending, setIsSending] = useState(false);
+	const [copied, setCopied] = useState(false);
 	const [resultDisplay, setResultDisplay] = useState(null);
-	const { siteConfig } = useDocusaurusContext();
 
 	useEffect(() => {
 		const urlParams = new URLSearchParams(window.location.search);
 		const oauthError = urlParams.get("error");
 		const oauthErrorDescription = urlParams.get("error_description");
+		const code = urlParams.get("code");
+		const stateParam = urlParams.get("state");
+
+		// Remove the authorization code from the address bar before anything else
+		// runs. The code must not reach browser history, a bookmark, or a referrer.
+		window.history.replaceState({}, document.title, window.location.pathname);
 
 		if (oauthError) {
 			setResultDisplay(
@@ -96,9 +132,6 @@ function SailApps() {
 			return;
 		}
 
-		const code = urlParams.get("code");
-		const stateParam = urlParams.get("state");
-
 		if (!code || !stateParam) {
 			setResultDisplay(
 				getMissingCallbackParamsDisplay(Boolean(code), Boolean(stateParam)),
@@ -107,121 +140,128 @@ function SailApps() {
 			return;
 		}
 
-		try {
-			const decodedState = JSON.parse(atob(stateParam));
-			if (!decodedState?.id) {
-				throw new Error("missing session id");
-			}
-			setAuthCode(code);
-			setState(stateParam);
-			setUuid(decodedState.id);
-			setApiOrigin(formatApiOrigin(decodedState.baseURL) || "");
-			setPageStatus("ready");
-		} catch {
-			setResultDisplay(getInvalidStateDisplay());
-			setPageStatus("error");
+		if (isLegacyOAuthState(stateParam)) {
+			setPageStatus("outdated");
+			return;
 		}
-	}, []);
 
-	const handleConfirm = async () => {
-		if (!authCode) {
-			setResultDisplay(getApiErrorDisplay("Code not provided"));
+		const confirmation = formatConfirmationCode(stateParam);
+		if (!confirmation) {
+			setResultDisplay(getInvalidStateDisplay());
 			setPageStatus("error");
 			return;
 		}
 
-		setIsSending(true);
-		setResultDisplay(null);
+		setPasteCode(buildPasteCode(code, stateParam));
+		setConfirmationCode(confirmation);
+		setPageStatus("ready");
+	}, []);
 
+	const handleCopy = async () => {
 		try {
-			const result = await sendCode(
-				siteConfig.customFields.CMS_APP_API_ENDPOINT,
-				authCode,
-				state,
-			);
-
-			if (result?.message === "Token added successfully") {
-				setPageStatus("success");
-				setResultDisplay(SUCCESS_DISPLAY);
-			} else {
-				setPageStatus("error");
-				setResultDisplay(
-					getApiErrorDisplay(
-						"Authentication failed: Unexpected response from server",
-					),
-				);
-			}
-		} catch (error) {
-			setPageStatus("error");
-			if (error instanceof SailAppsAuthError) {
-				setResultDisplay(getApiErrorDisplay(error.message, error.status));
-			} else if (error instanceof Error) {
-				setResultDisplay(getApiErrorDisplay(error.message));
-			} else {
-				setResultDisplay(getApiErrorDisplay());
-			}
-		} finally {
-			setIsSending(false);
+			await navigator.clipboard.writeText(pasteCode);
+			setCopied(true);
+		} catch {
+			setCopied(false);
 		}
 	};
-
-	const showConfirmation = pageStatus === "ready" && state && uuid;
-	const showGrantButton = showConfirmation && !isSending;
 
 	return (
 		<Layout noFooter title="SailPoint Application Authentication">
 			<div className={styles.gettingStartedText}>
 				<FontAwesomeIcon
-					icon={faKey}
+					icon={pageStatus === "outdated" ? faTriangleExclamation : faKey}
 					style={{ fontSize: "3rem" }}
 					className={styles.docCardIcon}
 					size="3x"
 				/>
 				<h1 className={styles.gettingStartedOne}>
-					SailPoint Application Authentication
+					{pageStatus === "outdated"
+						? "Update required"
+						: "SailPoint Application Authentication"}
 				</h1>
 
 				{pageStatus === "loading" ? (
 					<p className={styles.gettingStartedTwo}>Loading…</p>
 				) : null}
 
-				{pageStatus === "ready" ? (
-					<p className={styles.gettingStartedTwo}>
-						Confirm the application you are authorizing shows the same
-						confirmation code
-						{apiOrigin ? ` and SailPoint URL (${apiOrigin})` : ""} before
-						granting access.
-					</p>
+				{pageStatus === "outdated" ? (
+					<>
+						<p className={styles.gettingStartedTwo}>
+							Your SailPoint tool uses a sign-in method that no longer works.
+							Update the tool, then start sign-in again.
+						</p>
+
+						<div className={styles.updateBlock}>
+							<h2 className={styles.updateHeading}>SailPoint CLI</h2>
+							<p className={styles.updateText}>
+								On macOS, run this command:
+							</p>
+							<code className={styles.updateCode}>
+								brew upgrade sailpoint-cli
+							</code>
+							<p className={styles.updateText}>
+								On Windows and Linux, install the newest build from the{" "}
+								<a
+									href="https://github.com/sailpoint-oss/sailpoint-cli/releases"
+									target="_blank"
+									rel="noreferrer"
+								>
+									releases page
+								</a>
+								.
+							</p>
+						</div>
+
+						<div className={styles.updateBlock}>
+							<h2 className={styles.updateHeading}>UI Development Kit</h2>
+							<p className={styles.updateText}>
+								You can install the newest build from the{" "}
+								<a
+									href="https://github.com/sailpoint-oss/ui-development-kit/releases"
+									target="_blank"
+									rel="noreferrer"
+								>
+									releases page
+								</a>
+								.
+							</p>
+						</div>
+					</>
 				) : null}
 
-				{showConfirmation ? (
-					<div className={styles.gettingStartedThree}>
-						<p>
-							Your confirmation code:
-							<br />
-							<span className={styles.bold}>
-								{formatConfirmationCode(uuid)}
-							</span>
+				{pageStatus === "ready" ? (
+					<>
+						<p className={styles.gettingStartedTwo}>
+							Copy the code below and paste it into the application that
+							started sign-in. Make sure that the application shows the
+							confirmation code <strong>{confirmationCode}</strong>.
 						</p>
-						{showGrantButton ? (
+
+						<div className={styles.gettingStartedThree}>
+							<p className={styles.pasteCodeLabel}>Your one-time code</p>
+							<code className={styles.pasteCode}>{pasteCode}</code>
 							<div className={styles.button}>
 								<button
 									type="button"
-									onClick={handleConfirm}
-									disabled={isSending}
+									onClick={handleCopy}
 									className={styles.link}
 								>
-									{isSending
-										? "Confirming and sending…"
-										: "Grant application access"}
+									{copied ? "Copied" : "Copy code"}
 								</button>
 							</div>
-						) : null}
-					</div>
-				) : null}
+						</div>
 
-				{isSending ? (
-					<p className={styles.gettingStartedThree}>Completing sign-in…</p>
+						<ResultBanner
+							display={{
+								severity: "warning",
+								title: "Paste this code only into the application you started",
+								message:
+									"The code grants access to your SailPoint tenant for that application.",
+								hint: "The code works one time only, and it expires in a few minutes. This page never sends the code anywhere.",
+							}}
+						/>
+					</>
 				) : null}
 
 				{resultDisplay ? <ResultBanner display={resultDisplay} /> : null}

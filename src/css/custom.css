@@ -825,6 +825,16 @@ li.tabs__item.openapi-tabs__code-item.openapi-tabs__code-item--typescript::after
   z-index: 1; /* Ensure it is above other content */
 }
 
+li.tabs__item.openapi-tabs__code-item.openapi-tabs__code-item--angular::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background-image: url('../../static/icons/angular-svgrepo-com.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
 details ol li a:link,
 details p a:link {
   text-decoration: underline !important;
@@ -929,4 +939,17 @@ article:has(.community-policy-page) footer {
 
 .theme-unlisted-banner {
   display: none !important;
+}
+
+/*
+ * Legacy heading anchors kept alive across the Identity Security Cloud ->
+ * SailPoint Human Fabric rename. The heading now generates its own
+ * brand-correct id, and an empty <a id="old-slug"> sits just above it so
+ * pre-rename deep links still land. Docusaurus only applies its sticky-navbar
+ * scroll offset to real headings, so mirror it here or the old links scroll
+ * the target underneath the fixed navbar.
+ */
+.legacy-anchor {
+  display: block;
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 0.5rem);
 }

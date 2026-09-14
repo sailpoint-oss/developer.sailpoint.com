@@ -1,0 +1,179 @@
+---
+id: angular-sdk
+title: Angular SDK
+pagination_label: Angular SDK
+sidebar_label: Angular
+sidebar_position: 5
+sidebar_class_name: angularsdk
+keywords: ['angular', 'typescript', 'sdk']
+description: Easy ISC development in Angular.
+slug: /tools/sdk/angular
+tags: ['SDK']
+---
+
+## Overview
+
+The Angular SDK is an Angular library for the Identity Security Cloud (ISC) APIs. Learn how to install and configure it in this guide.
+
+Every API resource is an injectable Angular service, and every service method returns an RxJS `Observable`. The SDK also installs an HTTP interceptor that adds the base URL, attaches the access token, and retries failed requests for you.
+
+## Requirements
+
+You need the following to use the Angular SDK:
+
+- **Node**. To learn how to download it and set it up, go [here](https://nodejs.org/en/download).
+
+- **Angular 15 or later**. The SDK registers itself with the `provideSailPoint()` function, which uses the standalone provider APIs that Angular added in version 15.
+
+- Your tenant name in ISC. To learn how to find it, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The SDK uses this tenant name to build the base URL of your ISC instance.
+
+- Credentials for your tenant. The SDK accepts either a personal access token (PAT) or an OAuth2 client ID and client secret. To learn how to create a PAT in ISC, refer to [Personal Access Tokens](https://documentation.sailpoint.com/saas/help/common/api_keys.html#generating-a-personal-access-token).
+
+:::warning
+A browser application cannot keep a secret. Anything you ship to the browser is readable by anyone who loads the page. Use a client secret only in a trusted context, such as a local development build or a SailPoint plugin. For a production web application, obtain a short-lived token from your own backend. Pass that token to the SDK with the `accessToken` function. Refer to [Provide a token per request](#provide-a-token-per-request).
+:::
+
+## Install
+
+Run this command in your Angular project to add the SDK to your dependencies:
+
+```bash
+npm install @sailpoint/angular-sdk
+```
+
+To build the package from source instead, clone the repository and build the library:
+
+```bash
+git clone https://github.com/sailpoint-oss/angular-sdk.git
+cd angular-sdk/sdk-output
+npm install
+npm run build
+```
+
+The build writes a package to `sdk-output/dist`. Install that package in your project:
+
+```bash
+npm install /path/to/angular-sdk/sdk-output/dist
+```
+
+## Configure
+
+Call `provideSailPoint()` in the `providers` array of your application configuration. The function provides `HttpClient` together with the SailPoint interceptor, so do not call `provideHttpClient()` yourself.
+
+```typescript title="src/app/app.config.ts"
+import {ApplicationConfig} from '@angular/core';
+import {provideSailPoint} from '@sailpoint/angular-sdk';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideSailPoint({
+      baseUrl: 'https://[tenant].api.identitynow.com',
+      accessToken: 'eyJ...',
+    }),
+  ],
+};
+```
+
+A second `provideHttpClient()` call replaces the first one, and the SailPoint interceptor is then no longer registered. Every SDK request fails without it, because the interceptor is what turns a relative SDK path into an absolute URL and attaches the token.
+
+### Configuration options
+
+`provideSailPoint()` accepts these parameters:
+
+| Parameter | Description |
+| --- | --- |
+| `baseUrl` | Root API URL for your tenant, for example `https://acme.api.identitynow.com`. Do not add a trailing slash or a version segment. |
+| `nermBaseUrl` | Root NERM URL for your tenant, for example `https://acme.nonemployee.com`. A NERM service call needs this value. Nothing else does. |
+| `accessToken` | An access token. Pass a string, or pass a function that returns a string, a `Promise`, or an `Observable`. |
+| `clientId` | OAuth2 client ID. Use it together with `clientSecret`. |
+| `clientSecret` | OAuth2 client secret. |
+| `tokenUrl` | Overrides the token URL. The default is `{baseUrl}/oauth/token`. |
+| `retries` | Number of retries on a 429 or 5xx response. The default is 3. |
+| `retryDelay` | Base delay in milliseconds for the exponential back-off. The default is 1000. |
+
+### Authenticate with a client ID and secret
+
+Pass `clientId` and `clientSecret` instead of `accessToken`. The SDK exchanges them for a token on the first request and caches that token. At expiry, the SDK requests a new one.
+
+```typescript
+provideSailPoint({
+  baseUrl: 'https://[tenant].api.identitynow.com',
+  clientId: '[clientID]',
+  clientSecret: '[clientSecret]',
+});
+```
+
+### Provide a token per request
+
+Pass a function as `accessToken` to resolve the token on every request. Use this to fetch a short-lived token from your own backend.
+
+```typescript
+provideSailPoint({
+  baseUrl: 'https://[tenant].api.identitynow.com',
+  accessToken: () => fetch('/api/sailpoint-token').then((r) => r.text()),
+});
+```
+
+### Configure at runtime
+
+Inject `SailPointConfigService` and call `configure()` to change the configuration after the application starts. Your application can use this to apply credentials that the user typed in.
+
+```typescript
+import {Component, inject} from '@angular/core';
+import {SailPointConfigService} from '@sailpoint/angular-sdk';
+
+@Component({selector: 'app-config', template: ''})
+export class ConfigComponent {
+  private readonly config = inject(SailPointConfigService);
+
+  save(baseUrl: string, accessToken: string): void {
+    this.config.configure({baseUrl, accessToken});
+  }
+}
+```
+
+`configure()` merges the new values into the current configuration and clears the cached token.
+
+### Configure inside a SailPoint plugin
+
+A SailPoint plugin host exposes a `window.sailpointConfig()` function that returns the base URL and an access token. The SDK detects that function and uses it, so call `provideSailPoint()` without parameters:
+
+```typescript
+provideSailPoint();
+```
+
+### Call NERM
+
+Non-Employee Risk Management (NERM) is a separate product on a separate host. Add `nermBaseUrl` to reach it:
+
+```typescript
+provideSailPoint({
+  baseUrl: 'https://[tenant].api.identitynow.com',
+  nermBaseUrl: 'https://[tenant].nonemployee.com',
+  accessToken: 'eyJ...',
+});
+```
+
+The interceptor routes every NERM service to `nermBaseUrl` and every other service to `baseUrl`.
+
+## Getting support
+
+To get support for the Angular SDK, please see our GitHub page, https://github.com/sailpoint-oss/angular-sdk.
+
+To submit a bug report, please [click here](https://github.com/sailpoint-oss/angular-sdk/issues/new?assignees=&labels=bug&template=bug-report.md).
+
+To submit a feature request, please [click here](https://github.com/sailpoint-oss/angular-sdk/issues/new?assignees=&labels=enhancement&template=feature-request.md)
+
+## Contribute
+
+Do you have an idea to help improve the Angular SDK? You can contribute directly!
+
+Before you contribute, you must sign our [CLA](https://cla-assistant.io/sailpoint-oss/angular-sdk) and read the [Contribution Guidelines](https://github.com/sailpoint-oss/developer.sailpoint.com/blob/main/CONTRIBUTING.md).
+
+## Discuss
+
+You can use this SDK to build new tools that extend your ISC platform and improve experiences across your organization. Use this guide to get started, and if you have questions, reach out on the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss.
+
+## Getting started
+
+To get started using the SDK, refer to the [Getting Started Guide](./getting-started.md).

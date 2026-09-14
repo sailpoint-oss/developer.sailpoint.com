@@ -63,6 +63,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         text LIFECYCLE_STATE "name of the lifecycle state Ex: Active, leaver, dormant etc."
         text IDENTITY_STATE "State of the Identity. Can be one of ACTIVE, INACTIVE_SHORT_TERM and INACTIVE_LONG_TERM"
         datetime SYNC_DATE "When the row is last synced"
+        text IDENTITY_PROFILE_ID "Unique Id of the Identity Profile that governs this identity"
     }
     IDENTITY_ROLES {
         text TENANT_ID "Unique Id for an Organization tenant"
@@ -110,7 +111,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     ACCESS_PROFILE {
         text TENANT_ID "Unique Id for an Organization tenant"
         text ID "Unique Id for the Access Profile"
-        text NAME "Name of the object in ISC"
+        text NAME "Name of the object in SHF"
         text DISPLAY_NAME "Human-readable display name of the object"
         text DESCRIPTION "Description of the object"
         datetime CREATED_DATE "date when the object was created"
@@ -127,14 +128,14 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     ACCESS_REQUEST {
         text TENANT_ID "Unique Id for an Organization tenant"
         text ID "Unique Id for the Access Profile"
-        text NAME "Name of the object in ISC"
+        text NAME "Name of the object in SHF"
         datetime CREATED_DATE "date when the object was created"
         datetime UPDATED_DATE "date when the object was modified"
         datetime DELETED_DATE "date when the object was deleted"
         text TARGET_ID "Identity ID whose access is getting updated"
         text REQUESTER_ID "Identity ID who raised this access request"
         datetime END_DATE "date when the access request was completed"
-        text EXECUTION_STATUS "Execution status at ISC Ex: Completed, Terminated etc."
+        text EXECUTION_STATUS "Execution status at SHF Ex: Completed, Terminated etc."
         text COMPLETION_STATUS "Completion status Ex: Success, Failure etc."
         text PRIORITY "one of low, Normal and high"
         text TYPE " type of access item or Identity items requested"
@@ -143,7 +144,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     CERTIFICATION {
         text TENANT_ID "Unique Id for an Organization tenant"
         text ID "Unique Id for the Certification"
-        text NAME "Name of the object in ISC"
+        text NAME "Name of the object in SHF"
         datetime CREATED_DATE "date when the object was created"
         datetime UPDATED_DATE "date when the object was modified"
         datetime DELETED_DATE "date when the object was deleted"
@@ -157,9 +158,10 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         boolean IS_BULK_REASSIGNMENT "Whether the certification is part of a bulk reassignment"
         datetime DUE_DATE "when the certification needs to be reviewed"
         datetime SIGNED_DATE "when the certification was actually signed"
-        datetime FINISHED_DATE "when the certification was actually finished"
+        datetime FINISHED_DATE "Provision end timestamp for an access request. This may match the CREATED date in the SailPoint UI when both refer to the same provision end event."
         datetime EXPIRATION_DATE "When the certification will expire"
         datetime SYNC_DATE "When the row is last synced"
+        text REVIEWER_ID "Identity assigned to review the certification"
     }
     ENTITLEMENT {
         text TENANT_ID "Unique Id for an Organization tenant"
@@ -185,7 +187,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     ROLE {
         text TENANT_ID "Unique Id for an Organization tenant"
         text ID "Unique Id for the Role"
-        text NAME "Name of the object in ISC"
+        text NAME "Name of the object in SHF"
         datetime CREATED_DATE "date when the object was created"
         datetime UPDATED_DATE "date when the object was modified"
         datetime DELETED_DATE "date when the object was deleted"
@@ -235,7 +237,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         text TYPE "Type of certification item Ex: Bundle, Exception, Account Etc."
         text SUB_TYPE "Assocaited Sub_type for each of the type"
         datetime COMPLETED_DATE "time the access item certification was completed"
-        datetime DECISION_DATE "time the decision was submitted on ISC"
+        datetime DECISION_DATE "time the decision was submitted on SHF"
         number APPROVED "Whether the item was approved(1) or rejected(0)"
         text STATUS "Status of the certification item"
         text DECISION "Decision taken by reviewer on the access item Ex: Approved, Mitigated, remediated etc."
@@ -355,6 +357,28 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         datetime UPDATED_DATE "date when the attribute was modified"
         datetime SYNC_DATE "When the row is last synced"
     }
+    IDENTITY_PROFILE {
+        text TENANT_ID "Unique Id for an Organization tenant"
+        text ID PK "Unique Id for the Identity Profile"
+        text NAME "Name of the Identity Profile"
+        text SOURCE_ID "Unique Id of the source that populates this profile"
+        text OWNER_ID "Identity that owns the profile"
+        datetime CREATED_DATE "date when the profile was created"
+        datetime UPDATED_DATE "date when the profile was modified"
+        text DESCRIPTION "Description of the Identity Profile"
+        boolean IDENTITY_REFRESH_REQUIRED "Whether an identity refresh is required"
+        variant IDENTITY_ATTRIBUTE_CONFIG "Configuration of identity attributes for this profile"
+        datetime SYNC_DATE "When the row is last synced"
+    }
+    IDENTITY_HISTORY_EVENTS {
+        text TENANT_ID "Unique Id for an Organization tenant"
+        text EVENT_PK PK "Unique primary key for the history event record. The actual column name is PK"
+        text IDENTITY_ID "Unique Id of the identity this event belongs to"
+        datetime EVENT_TIMESTAMP "Timestamp when the identity change event occurred"
+        text EVENT_TYPE "Type of identity change event"
+        variant IDENTITY_CHANGES "Snapshot of identity attribute changes captured in this event"
+        datetime SYNC_DATE "When the row is last synced"
+    }
     IDENTITY ||--|{ IDENTITY_ACCOUNTS: "has and owns"
     IDENTITY ||--o{ IDENTITY_ENTITLEMENTS: "associated to and owns"
     IDENTITY ||--o{ IDENTITY_ROLES: "associated to and owns"
@@ -392,4 +416,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     ACCESS_MODEL_METADATA_ATTRIBUTE }o--|| ROLE: "Assignment of Attributes to"
     ROLE ||--o{ DIMENSION: "has dimensions"
     DIMENSION }o--|| IDENTITY: "Owned by"
+    SOURCE ||--o{ IDENTITY_PROFILE: "defines"
+    IDENTITY_PROFILE ||--o{ IDENTITY: "governs"
+    IDENTITY ||--o{ IDENTITY_HISTORY_EVENTS: "tracked by"
     '></MermaidViewer>

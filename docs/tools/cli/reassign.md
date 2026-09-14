@@ -6,12 +6,12 @@ sidebar_label: Reassign
 sidebar_position: 10
 sidebar_class_name: cli-reassign
 keywords: ['cli', 'cli reassign', 'reassign']
-description: Learn how to use the CLI to reassign the owner on objects in Identity Security Cloud.
+description: Learn how to use the CLI to reassign the owner on objects in SailPoint Human Fabric.
 slug: /tools/cli/reassign
 tags: ['CLI']
 ---
 
-Learn how to use the SailPoint CLI to reassign the owner on objects in Identity Security Cloud.
+Learn how to use the SailPoint CLI to reassign the owner on objects in SailPoint Human Fabric.
 
 The `reassign` command makes it easy to reassign ownership for the following supported object types:
 

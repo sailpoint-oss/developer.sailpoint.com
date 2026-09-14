@@ -6,7 +6,7 @@ sidebar_label: Authentication
 sidebar_position: 2
 sidebar_class_name: authentication
 keywords: ['authentication']
-description: Authenticate to the ISC APIs.
+description: Authenticate to the SHF APIs.
 slug: /api/authentication
 tags: ['Authentication']
 ---
@@ -15,7 +15,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 ## Overview
 
-With SailPoint's Identity Security Cloud (ISC) APIs, you can extend your ISC platform far beyond its current capabilities. To be able to do so, you must first authenticate to the ISC APIs. Authentication is the act of validating a user's identity, generally by passing some kind of credentials. A fast, simple way to authenticate to the APIs is to generate a [personal access token](#generate-a-personal-access-token) and pass that token.
+With SailPoint Human Fabric (SHF) APIs, you can extend your SHF platform far beyond its current capabilities. To be able to do so, you must first authenticate to the SHF APIs. Authentication is the act of validating a user's identity, generally by passing some kind of credentials. A fast, simple way to authenticate to the APIs is to generate a [personal access token](#generate-a-personal-access-token) and pass that token.
 
 If the PAT is valid, the API responds with a JSON Web Token (JWT) `access_token` that you can provide to authorize your API requests. Authorization is the act of validating the user's permission to access a given resource. A successful API request must include the `access_token` in the `Authorization` request header.
 
@@ -29,14 +29,14 @@ This diagram shows the flow of this authentication/authorization process:
 sequenceDiagram
     autonumber
     participant H as HTTP Client
-    participant I as Identity Security Cloud
+    participant I as SailPoint Human Fabric
 
     H->>I: Access Token Request
     I->>H: Access Token Response
 
     loop Until token expires
     H->>I: API Request + Access Token
-    I->>H: Identity Security Cloud API Response
+    I->>H: SailPoint Human Fabric API Response
     end
 ```
 
@@ -44,20 +44,20 @@ sequenceDiagram
 
 The flow involves these four key steps:
 
-1. **Access Token Request**: The HTTP client (a script, application, Postman, cURL, etc.) makes a request to ISC to get a JWT `access_token`.
-2. **Access Token Response**: If the request is valid, ISC responds to the HTTP client with a JWT `access_token`.
-3. **API Request**: The HTTP client makes a request to an ISC endpoint with the header, `Authorization: Bearer {access_token}`.
-4. **API Response**: If both the request itself and the JWT `access_token` in its header are valid, ISC responds to the client. If you encounter unexpected errors, refer to the [Troubleshooting](#troubleshooting) section of this document.
+1. **Access Token Request**: The HTTP client (a script, application, Postman, cURL, etc.) makes a request to SHF to get a JWT `access_token`.
+2. **Access Token Response**: If the request is valid, SHF responds to the HTTP client with a JWT `access_token`.
+3. **API Request**: The HTTP client makes a request to an SHF endpoint with the header, `Authorization: Bearer {access_token}`.
+4. **API Response**: If both the request itself and the JWT `access_token` in its header are valid, SHF responds to the client. If you encounter unexpected errors, refer to the [Troubleshooting](#troubleshooting) section of this document.
 
-The idea is that once you have authenticated to the ISC APIs and you have received an `access_token`, you can use that `access_token` to provide authorization for your API requests.
+The idea is that once you have authenticated to the SHF APIs and you have received an `access_token`, you can use that `access_token` to provide authorization for your API requests.
 
 This document includes all the information you need to know to engage in this authentication/authorization process, as well as a guide on how to get started.
 
 ## Get started
 
-Read this guide to learn how to authenticate to SailPoint's ISC APIs.
+Read this guide to learn how to authenticate to SailPoint's SHF APIs.
 
-To authenticate to the ISC APIs, you must be able to connect to your tenant to send the access token request. To do so, you need to do the following:
+To authenticate to the SHF APIs, you must be able to connect to your tenant to send the access token request. To do so, you need to do the following:
 
 1. [Find your tenant's OAuth details](#find-your-tenants-oauth-details)
 2. [Generate personal access token](#generate-a-personal-access-token)
@@ -68,12 +68,12 @@ To authenticate to the ISC APIs, you must be able to connect to your tenant to s
 
 Your tenant's OAuth details refer to the details you need to know to connect it to the APIs. You need to know your tenant's name, its `authorizeEndpoint` URL, and its `tokenEndpoint` URL.
 
-Your ISC instance is likely using the domain name supplied by SailPoint (`[tenant].api.identitynow.com`), in which case, the tenant name is in the URL. This is assumed to be the case in this guide.  
-However, if your ISC instance is using a vanity URL, you must enter this URL into your browser to get your OAuth info: `https://[tenant].api.identitynow.com/oauth/info`
+Your SHF instance is likely using the domain name supplied by SailPoint (`[tenant].api.identitynow.com`), in which case, the tenant name is in the URL. This is assumed to be the case in this guide.  
+However, if your SHF instance is using a vanity URL, you must enter this URL into your browser to get your OAuth info: `https://[tenant].api.identitynow.com/oauth/info`
 
 If you have admin access but don't know your tenant name, you can learn it by following these steps:
 
-1. Log into your ISC instance.
+1. Log into your SHF instance.
 2. Select the 'Dashboard' dropdown.
 3. Select 'Overview'.
 4. Find the tenant name ('Org Name') in the dashboard's `Org Details` section.
@@ -111,9 +111,9 @@ You can use the `authorizeEndpoint` and `tokenEndpoint` URLs from your tenant to
 
 A personal access token (PAT) is a method of authenticating to an API as a user without providing a username and password. PATs are primarily used in scripts or programs that lack an easy way to implement an OAuth2 flow but need to call API endpoints that require user context. PATs are also convenient for use in tools like [Postman](https://www.postman.com/) when you are exploring and testing the APIs.
 
-Any ISC user can generate a PAT. To do so, follow these steps:
+Any SHF user can generate a PAT. To do so, follow these steps:
 
-1. Select **Preferences** from the drop-down menu under your username, then **Personal Access Tokens** on the left. You can also go directly to the page by using this URL (replace `[tenant]` with your Identity Security Cloud tenant): `https://[tenant].identitynow.com/ui/d/user-preferences/personal-access-tokens`
+1. Select **Preferences** from the drop-down menu under your username, then **Personal Access Tokens** on the left. You can also go directly to the page by using this URL (replace `[tenant]` with your SailPoint Human Fabric tenant): `https://[tenant].identitynow.com/ui/d/user-preferences/personal-access-tokens`
 
 2. Click **New Token** and enter a meaningful description to help differentiate the token from others.
 
@@ -142,7 +142,7 @@ Once you have created the PAT and you know its `Client ID` and `Client Secret`, 
 There are several different authorization flows that OAuth 2.0 supports, and each has a grant-type defining its different use cases. You must choose the one that best serves your purposes. This document covers these three common flows:
 
 1. [**Client Credentials**](https://oauth.net/2/grant-types/client-credentials/) - Clients use this grant type to obtain a JWT `access_token` without user involvement such as scripts, programs or system to system integration.
-2. [**Authorization Code**](https://oauth.net/2/grant-types/authorization-code/) - Clients use this grant type to exchange an authorization code for an `access_token`. Authorization codes are mainly used by web applications because there is a login into ISC with a subsequent redirect back to the web application/client.
+2. [**Authorization Code**](https://oauth.net/2/grant-types/authorization-code/) - Clients use this grant type to exchange an authorization code for an `access_token`. Authorization codes are mainly used by web applications because there is a login into SHF with a subsequent redirect back to the web application/client.
 3. [**Refresh Token**](https://oauth.net/2/grant-types/refresh-token/) - Clients use this grant type to exchange a refresh token for a new `access_token` when the existing `access_token` has expired. This allows clients to continue using the APIs without having to re-authenticate as frequently. This grant type can only be used together with `Authorization Code` to prevent a user from having to log in several times per day.
 
 One way to determine which authorization flow you need to use is to look at the specification for the endpoint you want to use. The endpoint will have the supported OAuth flows listed under the 'Authorization' dropdown, like the [List Access Profiles endpoint](https://developer.sailpoint.com/docs/api/list-access-profiles-v-1):
@@ -157,9 +157,9 @@ The guide will detail the three different authorization grant flows you can use 
 
 Clients use the 'Client Credentials' grant type to obtain access tokens without user involvement. This is the simplest authentication flow.
 
-API endpoints that require [user level permissions](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html) require the use of Personal access tokens (PATs). Correspondingly, the endpoints a personal access token (PAT) can call depends on the permissions of the user who generated it and the configuration of ISC.
+API endpoints that require [user level permissions](https://documentation.sailpoint.com/saas/help/common/users/user_level_matrix.html) require the use of Personal access tokens (PATs). Correspondingly, the endpoints a personal access token (PAT) can call depends on the permissions of the user who generated it and the configuration of SHF.
 
-Note: If an API Key is used then ISC API calls are made outside of the context of a user and some API calls will not work.
+Note: If an API Key is used then SHF API calls are made outside of the context of a user and some API calls will not work.
 
 An OAuth 2.0 client using the client credentials grant flow must have `CLIENT_CREDENTIALS` as one of its grantTypes (PATs are implicitly granted the `CLIENT_CREDENTIALS` grant type):
 
@@ -180,7 +180,7 @@ An OAuth 2.0 client using the client credentials grant flow must have `CLIENT_CR
 
 This is the overall authorization flow:
 
-1. The client first submits an OAuth 2.0 token request to ISC in this form:
+1. The client first submits an OAuth 2.0 token request to SHF in this form:
 
 ```text
 POST https://[tenant].api.identitynow.com/oauth/token
@@ -217,7 +217,7 @@ curl --location 'https://[tenant].api.identitynow.com/oauth/token' \
 --form 'client_secret="{clientSecret}"'
 ```
 
-2. ISC validates the token request and responds. If the request is successful, the response contains a JWT access token. For more information about the JWT access token in the response, refer to [#OAuth-token-response](#oauth-token-response).
+2. SHF validates the token request and responds. If the request is successful, the response contains a JWT access token. For more information about the JWT access token in the response, refer to [#OAuth-token-response](#oauth-token-response).
 
 Once you have the JWT access token, you can pass the token as a basic "Authorization" header in your requests using the OAuth endpoints.
 
@@ -227,7 +227,7 @@ To learn more about the OAuth client credentials grant flow, refer [here](https:
 
 Further Reading: [https://oauth.net/2/grant-types/authorization-code/](https://oauth.net/2/grant-types/authorization-code/)
 
-Clients use this grant type to exchange an authorization code for an `access_token`. This is mainly used for web apps because there is a login into ISC with a subsequent redirect back to the web app/client.
+Clients use this grant type to exchange an authorization code for an `access_token`. This is mainly used for web apps because there is a login into SHF with a subsequent redirect back to the web app/client.
 
 The OAuth 2.0 client you are using must have `AUTHORIZATION_CODE` as one of its grant types. The redirect URLs must also match the list in the client as well:
 
@@ -261,7 +261,7 @@ sequenceDiagram
     autonumber
     participant U as User
     participant W as Web App
-    participant I as Identity Security Cloud
+    participant I as SailPoint Human Fabric
 
     U->>W: Click login link
     W->>I: Authorization request to https://[tenant].login.sailpoint.com/oauth/authorize
@@ -278,19 +278,19 @@ This is the overall authorization flow:
 
 1. The user clicks the login link on a web app.
 
-2. The web app sends an authorization request to ISC in this form:
+2. The web app sends an authorization request to SHF in this form:
 
 ```Text
 GET https://[tenant].login.sailpoint.com/oauth/authorize?client_id={client-id}&response_type=code&redirect_uri={redirect-url}
 ```
 
-3. ISC redirects the user to a login prompt to authenticate to Identity Security Cloud.
+3. SHF redirects the user to a login prompt to authenticate to SailPoint Human Fabric.
 
-4. The user authenticates to ISC.
+4. The user authenticates to SHF.
 
-5. Once authentication is successful, ISC issues an authorization code back to the web app.
+5. Once authentication is successful, SHF issues an authorization code back to the web app.
 
-6. The web app submits an OAuth 2.0 token request to ISC in this form:
+6. The web app submits an OAuth 2.0 token request to SHF in this form:
 
 ```text
 POST https://[tenant].api.identitynow.com/oauth/token?grant_type=authorization_code&client_id={client-id}&code={code}&redirect_uri={redirect-url}
@@ -302,7 +302,7 @@ The token endpoint URL is `[tenant].api.identitynow.com`, and the authorize URL 
 
 :::
 
-7. ISC validates the token request and submits a response. If the request is successful, the response contains a JWT `access_token`. For more information about the JWT access token in the response, refer to [#OAuth-token-response](#oauth-token-response).
+7. SHF validates the token request and submits a response. If the request is successful, the response contains a JWT `access_token`. For more information about the JWT access token in the response, refer to [#OAuth-token-response](#oauth-token-response).
 
 These are the query parameters in the OAuth 2.0 token request for the authorization code grant:
 
@@ -325,6 +325,61 @@ curl -X POST \
 Once you have the JWT access token, you can pass the token as a basic "Authorization" header in your requests using the OAuth endpoints.
 
 For more information about the OAuth authorization code grant flow, refer [here](https://oauth.net/2/grant-types/authorization-code/).
+
+### Authorization code grant flow for desktop and CLI applications
+
+A desktop application or a command line application cannot receive a redirect on
+a public URL. SailPoint developer tools solve this with a static page at
+`https://developer.sailpoint.com/sailapps`, which displays a one-time code for
+the user to copy.
+
+The application does every security-relevant step itself. No SailPoint-operated
+service receives the authorization code, the PKCE verifier, or the token.
+
+These are the steps:
+
+1. The application generates a PKCE `code_verifier` and a random `state`, and it
+   keeps both in memory.
+
+2. The application opens the browser at the tenant authorize endpoint, with
+   `redirect_uri=https://developer.sailpoint.com/sailapps`,
+   `code_challenge_method=S256`, and the `state`.
+
+3. The user signs in. Identity Security Cloud redirects the browser to the page
+   with `code` and `state` in the query string.
+
+4. The page removes the query string from the address bar, and it displays one
+   value that packs both parameters:
+
+   ```text
+   sp1.<base64url of {"v":1,"code":"...","state":"..."}>
+   ```
+
+5. The user copies that value and pastes it into the application.
+
+6. The application unpacks the value and rejects it unless the `state` matches
+   the `state` from step 1. A mismatch means the code came from a different
+   sign-in attempt.
+
+7. The application posts the code to the tenant token endpoint with its
+   `client_id` and the `code_verifier`, and it receives the tokens directly. The
+   token endpoint is always built from the tenant URL in the application
+   configuration, so a discovery response cannot move the code to another host.
+   Vanity domains work, because the host is not restricted to a fixed list.
+
+The page and the application both display a confirmation code, which is the
+first eight characters of the `state` formatted as `XXXX-XXXX`. Compare the two
+values before you paste. A code without the matching verifier is worthless to an
+attacker, so PKCE limits the damage if a code leaks.
+
+:::warning
+
+Paste the one-time code only into the application that started sign-in. The code
+grants access to your tenant for that application.
+
+:::
+
+The SailPoint CLI and the UI Development Kit both use this flow.
 
 ### Request access token with refresh token grant flow
 
@@ -352,13 +407,13 @@ This is the overall authorization flow:
 
 1. The client application receives an `access_token` and a `refresh_token` when using the `AUTHORIZATION_CODE` grant flow.
 2. The client application detects that the `access_token` is about to expire, based on the `expires_in` attribute contained within the JWT token.
-3. The client submits an OAuth 2.0 token request to ISC in this form:
+3. The client submits an OAuth 2.0 token request to SHF in this form:
 
 ```text
 POST https://[tenant].api.identitynow.com/oauth/token?grant_type=refresh_token&client_id={client_id}&client_secret={client_secret}&refresh_token={refresh_token}
 ```
 
-4. ISC validates the token request and submits a response. If the request is successful, the response contains a new `access_token` and `refresh_token`.
+4. SHF validates the token request and submits a response. If the request is successful, the response contains a new `access_token` and `refresh_token`.
 
 These are the query parameters in the OAuth 2.0 token request for the refresh token grant flow:
 
@@ -406,11 +461,11 @@ A successful request using any of the grant flows to `https://[tenant].api.ident
 }
 ```
 
-You can use the JWT `access_token` to authorize REST API calls through the ISC API gateway. To use the `access_token`, simply include it in the `Authorization` header as a `Bearer` token. This is an example V3 API request that has the access token in the header:
+You can use the JWT `access_token` to authorize REST API calls through the SHF API gateway. To use the `access_token`, simply include it in the `Authorization` header as a `Bearer` token. This is an example API request that has the access token in the header:
 
 ```bash
 curl -X GET \
- 'https://[tenant].api.identitynow.com/v3/account-activities' \
+ 'https://[tenant].api.identitynow.com/account-activities/v1' \
  -H 'Authorization: Bearer {access_token}' \
  -H 'cache-control: no-cache'
 ```
@@ -423,7 +478,7 @@ Some of the other values can also be useful to know:
 
 - The `user_id` and `identity_id` define the identity context of the person who authenticated. However, these values aren't set for the client credentials grant type because it doesn't have a user context.
 
-With the JWT `access_token`, you can now successfully send authenticated ISC API requests. To learn more about authorization and the scopes you can apply to further control access to the APIs, refer to [Authorization](/docs/api/authorization).
+With the JWT `access_token`, you can now successfully send authenticated SHF API requests. To learn more about authorization and the scopes you can apply to further control access to the APIs, refer to [Authorization](/docs/api/authorization).
 
 ## More Information
 
@@ -503,25 +558,25 @@ For daily work or short, quick administrative actions, you can just use a PAT. T
 
 Follow these steps to do so:
 
-1. Log in to ISC.
+1. Log in to SHF.
 2. Go to 'Preferences', then 'Personal Access Tokens', and [generate a PAT](#generate-a-personal-access-token).
 3. The PAT's `client_id` and `client_secret` provide the necessary authentication to send API requests, without any grant flow.
 
 #### Postman
 
-[Postman](https://www.postman.com/) is a popular HTTP client you can use to design, build, test, and iterate your APIs. Postman users and teams can create public workspaces they can use to make it easy to access their API collections and environments and get started. SailPoint maintains a [public workspace for the Identity Security Cloud API collections](https://www.postman.com/sailpoint/workspace/identitynow). You can use this workspace to access all the ISC API collections and stay up to date.
+[Postman](https://www.postman.com/) is a popular HTTP client you can use to design, build, test, and iterate your APIs. Postman users and teams can create public workspaces they can use to make it easy to access their API collections and environments and get started. SailPoint maintains a [public workspace for the SailPoint Human Fabric API collections](https://www.postman.com/sailpoint/workspace/identitynow). You can use this workspace to access all the SHF API collections and stay up to date.
 
 If you're using Postman, you have some different ways to set up your authorization. You can just leverage the accessToken as mentioned above, or you can configure Postman to use OAuth 2.0 directly. For more information about how to do so, refer [here](https://learning.postman.com/docs/sending-requests/authorization/).
 
 #### Web applications
 
-If you are making a web application, the best grant flow to use is the [Authorization Code grant flow](#request-access-token-with-authorization-code-grant-flow). This will allow users to be directed to ISC to login and then redirected back to the web application through a URL redirect. This also works well with Single Sign-on (SSO), strong authentication, and pass-through authentication mechanisms.
+If you are making a web application, the best grant flow to use is the [Authorization Code grant flow](#request-access-token-with-authorization-code-grant-flow). This will allow users to be directed to SHF to login and then redirected back to the web application through a URL redirect. This also works well with Single Sign-on (SSO), strong authentication, and pass-through authentication mechanisms.
 
-SailPoint doesn't recommend using a password grant flow for web applications because doing so would involve entering ISC credentials in the web application. This flow also doesn't allow you to work with SSO, strong authentication, or pass-through authentication.
+SailPoint doesn't recommend using a password grant flow for web applications because doing so would involve entering SHF credentials in the web application. This flow also doesn't allow you to work with SSO, strong authentication, or pass-through authentication.
 
 #### Scripts, programs or system to system integration
 
-If you are writing scripts, programs or system integrations that leverage the ISC APIs, the OAuth 2.0 grant you should use typically depends on what you're doing and the user context you need to operate under.
+If you are writing scripts, programs or system integrations that leverage the SHF APIs, the OAuth 2.0 grant you should use typically depends on what you're doing and the user context you need to operate under.
 
 Because scripts, code, and programs lack an interactive web-interface, it is difficult, but not impossible, to implement a working authorization code grant flow. System to system integrations may require an elevated level of access and utilize a service account to make API calls beyond the privileges of the authenticated user.
 
@@ -535,12 +590,10 @@ Having issues? Follow these steps:
 
 1. Verify the structure of the API call:
 2. Verify that the API calls are going through the API gateway: `https://[tenant].api.identitynow.com`
-3. Verify you are calling their version correctly:
+3. Verify you are formatting the url correctly:
 
-   - Private APIs: `https://[tenant].api.identitynow.com/cc/api/{endpoint}`
-   - V2 APIs: `https://[tenant].api.identitynow.com/v2/{endpoint}`
-   - V3 APIs: `https://[tenant].api.identitynow.com/v3/{endpoint}`
-   - Beta APIs: `https://[tenant].api.identitynow.com/beta/{endpoint}`
+   - Example: `https://[tenant].api.identitynow.com/{service}/v1/{action}`
+
 
 4. Verify that the API calls have the correct headers (e.g., `content-type`), query parameters, and body data.
 5. If the HTTP response is **401 Unauthorized** , this is an indication either that there is no `Authorization` header or that the `access_token` is invalid. Verify that the API calls are providing the `access_token` in the `Authorization` header correctly (ex. `Authorization: Bearer {access_token}`) and that the `access_token` has not expired.
@@ -563,13 +616,13 @@ OAuth 2.0 Client ID: `b61429f5-203d-494c-94c3-04f54e17bc5c`
 1. Verify that the OAuth 2.0 client ID exists. You can verify this by calling this endpoint:
 
 ```text
- GET /beta/oauth-clients/{client-id}
+ GET /oauth-clients/v1/{client-id}
 ```
 
 or
 
 ```text
-GET /beta/oauth-clients/
+GET /oauth-clients/v1/
 ```
 
 You can also view all of the active clients in the UI by going to `https://[tenant].identitynow.com/ui/ts/admin/security-settings/api-management`.

@@ -15,7 +15,7 @@ Once your SDK is installed and configured, you can start accessing the SDK's dif
 
 ## List transforms
 
-One of the most useful functionalities of the Python SDK is the ability to easily access all the [Identity Security Cloud APIs](/docs/api) and implement them in your project.
+One of the most useful functionalities of the Python SDK is the ability to easily access all the [SailPoint Human Fabric APIs](/docs/api) and implement them in your project.
 
 The SDK is organized by API resource rather than by API version. Each API class (for example, `TransformsApi`) is imported directly from the top-level `sailpoint` package, and each method is suffixed with the version of the endpoint it calls (for example, `list_transforms_v1` calls the `v1` version of the List Transforms endpoint). This lets a single SDK access every version of every endpoint without having to import a separate version package.
 

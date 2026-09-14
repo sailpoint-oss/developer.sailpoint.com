@@ -6,14 +6,14 @@ sidebar_label: Getting Started
 sidebar_position: 1
 sidebar_class_name: gettingStarted
 keywords: ['getting started']
-description: Start using the ISC APIs.
+description: Start using the SHF APIs.
 slug: /api/getting-started
 tags: ['Getting Started']
 ---
 
 ## Overview
 
-This guide is intended to help you quickly Make your first API call to SailPoint Identity Security Cloud and assumes an intermediate level of understanding of APIs. For beginners to APIs, we recommend you watch this presentation that covers the fundamentals of APIs with visual demonstrations of how to make an API call in SailPoint.
+This guide is intended to help you quickly Make your first API call to SailPoint Human Fabric and assumes an intermediate level of understanding of APIs. For beginners to APIs, we recommend you watch this presentation that covers the fundamentals of APIs with visual demonstrations of how to make an API call in SailPoint.
 
 <div className="text--center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HOzkXRLx-T4?si=i9SvAS42kJaOirk1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
@@ -21,13 +21,13 @@ This guide is intended to help you quickly Make your first API call to SailPoint
 
 ## Find Your Tenant Name
 
-To form the proper URL for an API request, you must know your tenant name. To find your tenant name, log into Identity Security Cloud, navigate to Admin, select the Dashboard dropdown, and select Overview. The org name is displayed within the Org Details section of the dashboard. If you do not have admin access, you can still find your tenant name and the API base URL you will use for API calls. To do so, view your session details when you are logged into your Identity Security Cloud instance. Change your URL to the following: `https://{your-Identity Security Cloud-hostname}.com/ui/session`, where `{your-Identity Security Cloud-hostname}` is your company's domain name for accessing Identity Security Cloud. The session detail you want is the `baseUrl`, which has the form of `https://{tenant}.api.identitynow.com`.
+To form the proper URL for an API request, you must know your tenant name. To find your tenant name, log into SailPoint Human Fabric, navigate to Admin, select the Dashboard dropdown, and select Overview. The org name is displayed within the Org Details section of the dashboard. If you do not have admin access, you can still find your tenant name and the API base URL you will use for API calls. To do so, view your session details when you are logged into your SailPoint Human Fabric instance. Change your URL to the following: `https://{your-tenant-hostname}.com/ui/session`, where `{your-tenant-hostname}` is your company's domain name for accessing SailPoint Human Fabric. The session detail you want is the `baseUrl`, which has the form of `https://{tenant}.api.identitynow.com`.
 
 ## Make your first API call
 
-To get started, create a [personal access token](./authentication.md#generate-a-personal-access-token), which can then be used to generate access tokens to authenticate your API calls. To generate a personal access token from Identity Security Cloud, after logging into your Identity Security Cloud instance, do the following:
+To get started, create a [personal access token](./authentication.md#generate-a-personal-access-token), which can then be used to generate access tokens to authenticate your API calls. To generate a personal access token from SailPoint Human Fabric, after logging into your SailPoint Human Fabric instance, do the following:
 
-1. Select **Preferences** from the drop-down menu under your username. Then select **Personal Access Tokens** on the left. You can also go straight to the page using this URL, replacing `{tenant}` with your Identity Security Cloud tenant: `https://{tenant}.identitynow.com/ui/d/user-preferences/personal-access-tokens`.
+1. Select **Preferences** from the drop-down menu under your username. Then select **Personal Access Tokens** on the left. You can also go straight to the page using this URL, replacing `{tenant}` with your SailPoint Human Fabric tenant: `https://{tenant}.identitynow.com/ui/d/user-preferences/personal-access-tokens`.
 
 2. Select **New Token** and enter a meaningful description to differentiate the token from others.
 
@@ -47,16 +47,16 @@ The **New Token** button will be disabled when you reach the limit of 10 persona
 
 4. Copy both values somewhere that will be secure and accessible to you when you need to use the the token.
 
-5. To create an `access_token` that can be used to authenticate API requests, use the following cURL command, replacing `{tenant}` with your Identity Security Cloud tenant. The response body will contain an `access_token`, which will look like a long string of random characters.
+5. To create an `access_token` that can be used to authenticate API requests, use the following cURL command, replacing `{tenant}` with your SailPoint Human Fabric tenant. The response body will contain an `access_token`, which will look like a long string of random characters.
 
 ```bash
 curl --location --request POST 'https://{tenant}.api.identitynow.com/oauth/token?grant_type=client_credentials&client_id={client_id}&client_secret={secret}'
 ```
 
-6. To test your `access_token`, execute the following cURL command, replacing `{tenant}` with your Identity Security Cloud tenant and `access_token` with the token you generated in the previous step. If this is successful, you should get a JSON representation of an identity in your tenant.
+6. To test your `access_token`, execute the following cURL command, replacing `{tenant}` with your SailPoint Human Fabric tenant and `access_token` with the token you generated in the previous step. If this is successful, you should get a JSON representation of an identity in your tenant.
 
 ```bash
-curl --request GET --url 'https://{tenant}.api.identitynow.com/v3/public-identities?limit=1' --header 'authorization: Bearer {access_token}'
+curl --request GET --url 'https://{tenant}.api.identitynow.com/public-identities/v1?limit=1' --header 'authorization: Bearer {access_token}'
 ```
 
 For more information about SailPoint Platform authentication, see [API Authentication](./authentication.md)

@@ -6,14 +6,14 @@ sidebar_label: Audit Events Reference
 sidebar_position: 4
 sidebar_class_name: auditEventsReference
 keywords: ['audit', 'events', 'search', 'reference', 'event types']
-description: Complete reference of all audit event action names and types supported by the ISC Search API.
+description: Complete reference of all audit event action names and types supported by the SHF Search API.
 slug: /guides/audit-events-reference
 tags: ['Search', 'Audit', 'Events', 'Reference']
 ---
 
 ## Overview
 
-This page lists every audit event supported by the Identity Security Cloud Search API.
+This page lists every audit event supported by the SailPoint Human Fabric Search API.
 
 The **Search Field** column tells you which field to use in your query:
 

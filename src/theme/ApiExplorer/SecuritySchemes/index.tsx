@@ -3,7 +3,6 @@ import React from "react";
 import Link from "@docusaurus/Link";
 import { translate } from "@docusaurus/Translate";
 import { useTypedSelector } from "@theme/ApiItem/hooks";
-import { OPENAPI_SECURITY_SCHEMES } from "@theme/translationIds";
 
 function SecuritySchemes(props: any) {
   const options = useTypedSelector((state: any) => state.auth.options);
@@ -20,19 +19,19 @@ function SecuritySchemes(props: any) {
 
   const keyTranslations: Record<string, { id: string; message: string }> = {
     description: {
-      id: OPENAPI_SECURITY_SCHEMES.DESCRIPTION,
+      id: "theme.openapi.securitySchemes.description",
       message: "description:",
     },
     scheme: {
-      id: OPENAPI_SECURITY_SCHEMES.SCHEME,
+      id: "theme.openapi.securitySchemes.scheme",
       message: "scheme:",
     },
     bearerFormat: {
-      id: OPENAPI_SECURITY_SCHEMES.BEARER_FORMAT,
+      id: "theme.openapi.securitySchemes.bearerFormat",
       message: "bearerFormat:",
     },
     openIdConnectUrl: {
-      id: OPENAPI_SECURITY_SCHEMES.OPEN_ID_CONNECT_URL,
+      id: "theme.openapi.securitySchemes.openIdConnectUrl",
       message: "openIdConnectUrl:",
     },
   };
@@ -80,7 +79,7 @@ function SecuritySchemes(props: any) {
                   <span>
                     <strong>
                       {translate({
-                        id: OPENAPI_SECURITY_SCHEMES.NAME,
+                        id: "theme.openapi.securitySchemes.name",
                         message: "name:",
                       })}
                     </strong>{" "}
@@ -89,7 +88,7 @@ function SecuritySchemes(props: any) {
                   <span>
                     <strong>
                       {translate({
-                        id: OPENAPI_SECURITY_SCHEMES.TYPE,
+                        id: "theme.openapi.securitySchemes.type",
                         message: "type:",
                       })}
                     </strong>{" "}
@@ -99,7 +98,7 @@ function SecuritySchemes(props: any) {
                     <span>
                       <strong>
                         {translate({
-                          id: OPENAPI_SECURITY_SCHEMES.SCOPES,
+                          id: "theme.openapi.securitySchemes.scopes",
                           message: "scopes:",
                         })}
                       </strong>{" "}
@@ -127,7 +126,7 @@ function SecuritySchemes(props: any) {
                   <span>
                     <strong>
                       {translate({
-                        id: OPENAPI_SECURITY_SCHEMES.NAME,
+                        id: "theme.openapi.securitySchemes.name",
                         message: "name:",
                       })}
                     </strong>{" "}
@@ -136,7 +135,7 @@ function SecuritySchemes(props: any) {
                   <span>
                     <strong>
                       {translate({
-                        id: OPENAPI_SECURITY_SCHEMES.TYPE,
+                        id: "theme.openapi.securitySchemes.type",
                         message: "type:",
                       })}
                     </strong>{" "}
@@ -146,7 +145,7 @@ function SecuritySchemes(props: any) {
                     <span>
                       <strong>
                         {translate({
-                          id: OPENAPI_SECURITY_SCHEMES.SCOPES,
+                          id: "theme.openapi.securitySchemes.scopes",
                           message: "scopes:",
                         })}
                       </strong>{" "}
@@ -172,7 +171,7 @@ function SecuritySchemes(props: any) {
                 <span>
                   <strong>
                     {translate({
-                      id: OPENAPI_SECURITY_SCHEMES.NAME,
+                      id: "theme.openapi.securitySchemes.name",
                       message: "name:",
                     })}
                   </strong>{" "}
@@ -181,7 +180,7 @@ function SecuritySchemes(props: any) {
                 <span>
                   <strong>
                     {translate({
-                      id: OPENAPI_SECURITY_SCHEMES.TYPE,
+                      id: "theme.openapi.securitySchemes.type",
                       message: "type:",
                     })}
                   </strong>{" "}
@@ -190,7 +189,7 @@ function SecuritySchemes(props: any) {
                 <span>
                   <strong>
                     {translate({
-                      id: OPENAPI_SECURITY_SCHEMES.IN,
+                      id: "theme.openapi.securitySchemes.in",
                       message: "in:",
                     })}
                   </strong>{" "}
@@ -215,7 +214,7 @@ function SecuritySchemes(props: any) {
                 <span>
                   <strong>
                     {translate({
-                      id: OPENAPI_SECURITY_SCHEMES.NAME,
+                      id: "theme.openapi.securitySchemes.name",
                       message: "name:",
                     })}
                   </strong>{" "}
@@ -224,7 +223,7 @@ function SecuritySchemes(props: any) {
                 <span>
                   <strong>
                     {translate({
-                      id: OPENAPI_SECURITY_SCHEMES.TYPE,
+                      id: "theme.openapi.securitySchemes.type",
                       message: "type:",
                     })}
                   </strong>{" "}
@@ -234,7 +233,7 @@ function SecuritySchemes(props: any) {
                   <span>
                     <strong>
                       {translate({
-                        id: OPENAPI_SECURITY_SCHEMES.SCOPES,
+                        id: "theme.openapi.securitySchemes.scopes",
                         message: "scopes:",
                       })}
                     </strong>{" "}
@@ -332,7 +331,7 @@ function SecuritySchemes(props: any) {
                 <span>
                   <strong>
                     {translate({
-                      id: OPENAPI_SECURITY_SCHEMES.NAME,
+                      id: "theme.openapi.securitySchemes.name",
                       message: "name:",
                     })}
                   </strong>{" "}
@@ -341,7 +340,7 @@ function SecuritySchemes(props: any) {
                 <span>
                   <strong>
                     {translate({
-                      id: OPENAPI_SECURITY_SCHEMES.TYPE,
+                      id: "theme.openapi.securitySchemes.type",
                       message: "type:",
                     })}
                   </strong>{" "}
@@ -351,7 +350,7 @@ function SecuritySchemes(props: any) {
                   <span>
                     <strong>
                       {translate({
-                        id: OPENAPI_SECURITY_SCHEMES.SCOPES,
+                        id: "theme.openapi.securitySchemes.scopes",
                         message: "scopes:",
                       })}
                     </strong>{" "}

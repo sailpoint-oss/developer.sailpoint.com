@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import BlogCard from '../BlogCard';
 import NewtonsCradle from '../../newtonsCradle';
-import { discourseBaseURL, developerWebsiteDomain } from '../../../util/util';
+import {
+  discourseBaseURL,
+  developerWebsiteDomain,
+  SHF_PRODUCT_TAG,
+} from '../../../util/util';
 import { getBlogPosts, getUserTitle } from '../../../services/DiscourseService';
 
 // Define the types for props
@@ -34,10 +38,10 @@ const BlogCards: React.FC<BlogCardsProps> = ({ filterCallback, limit, featured }
   const [loadingCards, setLoadingCards] = useState<boolean>(true);
 
   const getPosts = async () => {
-    let filters = filterCallback ?? ['identity-security-cloud'];
+    let filters = filterCallback ?? [SHF_PRODUCT_TAG];
     if (featured) filters = ['featured'];
     
-    const data = await getBlogPosts(filters.join('+'));
+    const data = await getBlogPosts(filters);
     const resultset: BlogPost[] = [];
     const titleList: { group: string; title: string }[] = [];
 

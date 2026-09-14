@@ -1,9 +1,9 @@
 import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 
-// Minified sidebar config — only includes ISC API sidebars.
+// Minified sidebar config — only includes SHF API sidebars.
 // openApiSidebar, iiqSideBar, iiqApiSideBar, nermSideBar, and nerm_2025_sidebar
-// are intentionally omitted to keep the minified build focused on ISC API docs only.
+// are intentionally omitted to keep the minified build focused on SHF API docs only.
 const sidebars: SidebarsConfig = {
   isc_api_sidebar: [
     {
@@ -45,7 +45,7 @@ const sidebars: SidebarsConfig = {
         type: 'generated-index',
         title: 'SailPoint APIs',
         description:
-          'Use these APIs to interact with the IdentityNow platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
+          'Use these APIs to interact with the SailPoint Human Fabric platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.',
         slug: '/api',
       },
       items: require('./docs/api/sidebar.ts'),

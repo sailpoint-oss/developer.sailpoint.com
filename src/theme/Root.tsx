@@ -18,9 +18,6 @@ declare global {
  */
 function getPageType(path: string): string {
   if (path === '/') return 'homepage';
-  if (path.startsWith('/docs/api/v3/')) return 'api-v3';
-  if (path.startsWith('/docs/api/beta/')) return 'api-beta';
-  if (path.startsWith('/docs/api/v2024/')) return 'api-v2024';
   if (path.startsWith('/docs/api/')) return 'api-reference';
   if (path.startsWith('/docs/extensibility/')) return 'docs-extensibility';
   if (path.startsWith('/docs/connectivity/')) return 'docs-connectivity';

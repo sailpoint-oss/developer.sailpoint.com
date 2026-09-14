@@ -1,9 +1,9 @@
 import React, { isValidElement, ReactNode } from "react";
 
-import { CodeBlockProps } from "@docusaurus/theme-common/internal";
 import useIsBrowser from "@docusaurus/useIsBrowser";
 import ElementContent from "@theme/ApiExplorer/ApiCodeBlock/Content/Element";
 import StringContent from "@theme/ApiExplorer/ApiCodeBlock/Content/String";
+import type { Props as CodeBlockProps } from "@theme/CodeBlock";
 
 /**
  * Best attempt to make the children a plain string so it is copyable. If there

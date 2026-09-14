@@ -1,13 +1,14 @@
 import React, { cloneElement, ReactElement, useEffect, useRef } from "react";
 
+import useIsBrowser from "@docusaurus/useIsBrowser";
+import { useScrollPositionBlocker } from "@theme/utils/scrollUtils";
 import {
   sanitizeTabsChildren,
+  type TabItemProps,
   type TabProps,
-  useScrollPositionBlocker,
-  useTabs,
-} from "@docusaurus/theme-common/internal";
-import { TabItemProps } from "@docusaurus/theme-common/lib/utils/tabsUtils";
-import useIsBrowser from "@docusaurus/useIsBrowser";
+  TabsProvider,
+  useTabsContextValue,
+} from "@theme/utils/tabsUtils";
 import clsx from "clsx";
 
 import { Language } from "../CodeSnippets/code-snippets-types";
@@ -36,7 +37,7 @@ function TabList({
   selectedValue,
   selectValue,
   tabValues,
-}: CodeTabsProps & ReturnType<typeof useTabs>) {
+}: CodeTabsProps & ReturnType<typeof useTabsContextValue>) {
   const tabRefs = useRef<(HTMLLIElement | null)[]>([]);
   const tabsScrollContainerRef = useRef<any>(null);
   const { blockElementScrollPositionUntilNextRender } =
@@ -185,7 +186,8 @@ function TabContent({
   lazy,
   children,
   selectedValue,
-}: CodeTabsProps & ReturnType<typeof useTabs>): React.JSX.Element | null {
+}: CodeTabsProps &
+  ReturnType<typeof useTabsContextValue>): React.JSX.Element | null {
   const childTabs = (Array.isArray(children) ? children : [children]).filter(
     Boolean
   ) as ReactElement<TabItemProps>[];
@@ -212,16 +214,21 @@ function TabContent({
 }
 
 function TabsComponent(props: CodeTabsProps & Props): React.JSX.Element {
-  const tabs = useTabs(props);
+  const tabs = useTabsContextValue(props);
   const { className } = props;
 
   return (
-    <div
-      className={clsx("tabs-container openapi-tabs__code-container", className)}
-    >
-      <TabList {...props} {...tabs} />
-      <TabContent {...props} {...tabs} />
-    </div>
+    <TabsProvider value={tabs}>
+      <div
+        className={clsx(
+          "tabs-container openapi-tabs__code-container",
+          className
+        )}
+      >
+        <TabList {...props} {...tabs} />
+        <TabContent {...props} {...tabs} />
+      </div>
+    </TabsProvider>
   );
 }
 

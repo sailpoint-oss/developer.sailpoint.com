@@ -4,16 +4,16 @@ title: Getting Started with Transforms in CoLab
 pagination_label: Getting Started with Transforms
 sidebar_label: Transforms Guide
 sidebar_position: 12
-keywords: ['CoLab', 'Transforms', 'ISC']
+keywords: ['CoLab', 'Transforms', 'SHF']
 description: Learn how to download, update, test, and upload CoLab transforms.
 slug: /tools/colab/getting-started-with-transforms
 tags: ['CoLab']
 ---
 
-Use this category to view and download Identity Security Cloud (ISC) transforms built by the community.
+Use this category to view and download SailPoint Human Fabric (SHF) transforms built by the community.
 
 :::warning
-You must update transform inputs to match your Identity Security Cloud environment **before** uploading.
+You must update transform inputs to match your SailPoint Human Fabric environment **before** uploading.
 :::
 
 Follow these steps to download and use a transform:

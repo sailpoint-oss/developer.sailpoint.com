@@ -11,7 +11,7 @@ tags: ['Connectivity', 'Connector Command']
 
 :::note
 
-At this time Entitlement Read is not triggered from ISC for any specific workflow and as such it is not necessary to implement this in order to have a fully functional connector.
+At this time Entitlement Read is not triggered from SHF for any specific workflow and as such it is not necessary to implement this in order to have a fully functional connector.
 
 :::
 
@@ -67,7 +67,7 @@ To use this command, you must specify this value in the `commands` array: `std:e
 
 ## Response Schema
 
-Entitlement read fetches a single entitlement’s attributes and returns the resulting object to ISC, similar to how entitlement list does. You can implement this in the main connector file, [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts):
+Entitlement read fetches a single entitlement’s attributes and returns the resulting object to SHF, similar to how entitlement list does. You can implement this in the main connector file, [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts):
 
 ```javascript
 ...

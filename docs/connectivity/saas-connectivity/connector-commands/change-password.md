@@ -35,7 +35,7 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-The change password command is triggered in ISC when a user changes their password through ISC. When this occurs, if your source has change password enabled, then you can change the user password on the source system through ISC.
+The change password command is triggered in SHF when a user changes their password through SHF. When this occurs, if your source has change password enabled, then you can change the user password on the source system through SHF.
 
 To use this command, you must specify this value in the `commands` array: `std:change-password`
 
@@ -45,7 +45,7 @@ The `input` object contains three relevant fields:
 
 | Field | Description |
 |---|---|
-| `input.key` | The account's key as stored in ISC. Use `input.key.simple?.id` to extract the native account ID. |
+| `input.key` | The account's key as stored in SHF. Use `input.key.simple?.id` to extract the native account ID. |
 | `input.identity` | The account's identity string (usually the same as the key ID). |
 | `input.password` | The new plaintext password to set on the source system. |
 
@@ -79,9 +79,11 @@ import {
 ```
 
 :::caution
-The password in `input.password` is the new plaintext password that has already been validated against the source's password policy by ISC. Do not perform additional policy validation in your connector — pass it directly to the source API.
+The password in `input.password` is the new plaintext password that has already been validated against the source's password policy by SHF. Do not perform additional policy validation in your connector — pass it directly to the source API.
 :::
 
-## Testing in Identity Security Cloud
+<a id="testing-in-identity-security-cloud" class="legacy-anchor"></a>
 
-In order to test in Identity Security Cloud, the source application must be configured so that it is able to accept password change requests through the Password Manager. Once this setup is complete, you can log in as a user whose identity exists in the configured application and change their password in the Password Manager.
+## Testing in SailPoint Human Fabric
+
+In order to test in SailPoint Human Fabric, the source application must be configured so that it is able to accept password change requests through the Password Manager. Once this setup is complete, you can log in as a user whose identity exists in the configured application and change their password in the Password Manager.

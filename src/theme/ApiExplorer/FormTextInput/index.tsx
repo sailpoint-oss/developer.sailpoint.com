@@ -3,7 +3,6 @@ import React from "react";
 
 import { translate } from "@docusaurus/Translate";
 import { ErrorMessage } from "@hookform/error-message";
-import { OPENAPI_FORM } from "@theme/translationIds";
 import clsx from "clsx";
 import { useFormContext } from "react-hook-form";
 
@@ -37,7 +36,7 @@ function FormTextInput({
     ? register(paramName, {
         required: isRequired
           ? translate({
-              id: OPENAPI_FORM.FIELD_REQUIRED,
+              id: "theme.openapi.form.fieldRequired",
               message: "This field is required",
             })
           : false,

@@ -19,7 +19,6 @@ import {
 } from "@theme/ApiExplorer/Response/slice";
 import Server from "@theme/ApiExplorer/Server";
 import { useTypedDispatch, useTypedSelector } from "@theme/ApiItem/hooks";
-import { OPENAPI_REQUEST } from "@theme/translationIds";
 import type { ParameterObject } from "docusaurus-plugin-openapi-docs/src/openapi/types";
 import type { ApiItem } from "docusaurus-plugin-openapi-docs/src/types";
 import type { ThemeConfig } from "docusaurus-theme-openapi-docs/src/types";
@@ -123,26 +122,26 @@ function Request({ item }: { item: ApiItem }) {
     switch (errorType) {
       case "timeout":
         return translate({
-          id: OPENAPI_REQUEST.ERROR_TIMEOUT,
+          id: "theme.openapi.request.error.timeout",
           message:
             "The request timed out waiting for the server to respond. Please try again. If the issue persists, try using a different client (e.g., curl) with a longer timeout.",
         });
       case "network":
         return translate({
-          id: OPENAPI_REQUEST.ERROR_NETWORK,
+          id: "theme.openapi.request.error.network",
           message:
             "Unable to reach the server. Please check your network connection and verify the server URL is correct. If the server is running, this may be a CORS issue.",
         });
       case "cors":
         return translate({
-          id: OPENAPI_REQUEST.ERROR_CORS,
+          id: "theme.openapi.request.error.cors",
           message:
             "The request was blocked, possibly due to CORS restrictions. Ensure the server allows requests from this origin, or try using a proxy.",
         });
       case "unknown":
       default:
         return translate({
-          id: OPENAPI_REQUEST.ERROR_UNKNOWN,
+          id: "theme.openapi.request.error.unknown",
           message:
             "An unexpected error occurred while making the request. Please try again.",
         });
@@ -153,7 +152,7 @@ function Request({ item }: { item: ApiItem }) {
     dispatch(
       setResponse(
         translate({
-          id: OPENAPI_REQUEST.FETCHING_MESSAGE,
+          id: "theme.openapi.request.fetchingMessage",
           message: "Fetching...",
         })
       )
@@ -179,7 +178,7 @@ function Request({ item }: { item: ApiItem }) {
         errorMessage = getErrorMessage(e.type);
       } else {
         errorMessage = translate({
-          id: OPENAPI_REQUEST.CONNECTION_FAILED,
+          id: "theme.openapi.request.connectionFailed",
           message: "Connection failed",
         });
       }
@@ -237,7 +236,7 @@ function Request({ item }: { item: ApiItem }) {
         <div className="openapi-explorer__request-header-container">
           <span className="openapi-explorer__request-title">
             {translate({
-              id: OPENAPI_REQUEST.REQUEST_TITLE,
+              id: "theme.openapi.request.title",
               message: "Request",
             })}
           </span>
@@ -247,7 +246,7 @@ function Request({ item }: { item: ApiItem }) {
               onClick={collapseAllDetails}
             >
               {translate({
-                id: OPENAPI_REQUEST.COLLAPSE_ALL,
+                id: "theme.openapi.request.collapseAll",
                 message: "Collapse all",
               })}
             </span>
@@ -257,7 +256,7 @@ function Request({ item }: { item: ApiItem }) {
               onClick={expandAllDetails}
             >
               {translate({
-                id: OPENAPI_REQUEST.EXPAND_ALL,
+                id: "theme.openapi.request.expandAll",
                 message: "Expand all",
               })}
             </span>
@@ -277,7 +276,7 @@ function Request({ item }: { item: ApiItem }) {
                 }}
               >
                 {translate({
-                  id: OPENAPI_REQUEST.BASE_URL_TITLE,
+                  id: "theme.openapi.request.baseUrl.title",
                   message: "Base URL",
                 })}
               </summary>
@@ -296,7 +295,7 @@ function Request({ item }: { item: ApiItem }) {
                   setExpandAuth(!expandAuth);
                 }}
               >
-                {translate({ id: OPENAPI_REQUEST.AUTH_TITLE, message: "Auth" })}
+                {translate({ id: "theme.openapi.request.auth.title", message: "Auth" })}
               </summary>
               <Authorization />
             </details>
@@ -316,7 +315,7 @@ function Request({ item }: { item: ApiItem }) {
                 }}
               >
                 {translate({
-                  id: OPENAPI_REQUEST.PARAMETERS_TITLE,
+                  id: "theme.openapi.request.parameters.title",
                   message: "Parameters",
                 })}
               </summary>
@@ -335,12 +334,12 @@ function Request({ item }: { item: ApiItem }) {
                   setExpandBody(!expandBody);
                 }}
               >
-                {translate({ id: OPENAPI_REQUEST.BODY_TITLE, message: "Body" })}
+                {translate({ id: "theme.openapi.request.body.title", message: "Body" })}
                 {requestBodyRequired && (
                   <span className="openapi-schema__required">
                     &nbsp;
                     {translate({
-                      id: OPENAPI_REQUEST.REQUIRED_LABEL,
+                      id: "theme.openapi.request.requiredLabel",
                       message: "required",
                     })}
                   </span>
@@ -369,7 +368,7 @@ function Request({ item }: { item: ApiItem }) {
                 }}
               >
                 {translate({
-                  id: OPENAPI_REQUEST.ACCEPT_TITLE,
+                  id: "theme.openapi.request.accept.title",
                   message: "Accept",
                 })}
               </summary>
@@ -379,7 +378,7 @@ function Request({ item }: { item: ApiItem }) {
           {showRequestButton && item.method !== "event" && (
             <button className="openapi-explorer__request-btn" type="submit">
               {translate({
-                id: OPENAPI_REQUEST.SEND_BUTTON,
+                id: "theme.openapi.request.sendButton",
                 message: "Send API Request",
               })}
             </button>

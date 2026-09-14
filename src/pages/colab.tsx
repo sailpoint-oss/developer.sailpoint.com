@@ -129,34 +129,10 @@ const Marketplace: React.FC = () => {
               </summary>
               <div className={styles.answerContent}>
                 <p className={styles.answerText}>
-                  All items in CoLab are community-developed and community-driven. These are not supported by SailPoint support plans or SLAs. We have two
-                  support models:
+                  If you need help with something you downloaded from the CoLab Marketplace, reach
+                  out to the author directly. You can find the author&apos;s name at the top of the
+                  solution page. Post a reply there or send them a message.
                 </p>
-                <table className={styles.supportTable}>
-                  <thead>
-                    <tr>
-                      <th>Support Model</th>
-                      <th>Description</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>sailpoint-certified</td>
-                      <td>
-                        Available to SailPoint Technology Alliance program members. Result of a
-                        co-development process with additional validation. Supported by the listed
-                        partner.
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>community-developed</td>
-                      <td>
-                        Supported by the community. Items tagged &ldquo;unsupported&rdquo; have no
-                        active maintainer - contributions are welcome.
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
               </div>
             </details>
 

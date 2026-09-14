@@ -6,13 +6,13 @@ sidebar_label: Patch Requests
 sidebar_position: 8
 sidebar_class_name: patchRequests
 keywords: ['patch']
-description: Send PATCH ISC API requests.
+description: Send PATCH SHF API requests.
 tags: ['patch', 'guide']
 ---
 
 ## PATCH requests
 
-You can use the Identity Security Cloud APIs to update existing resources. Many of the APIs offer multiple ways to do so:
+You can use the SailPoint Human Fabric APIs to update existing resources. Many of the APIs offer multiple ways to do so:
 
 - You can send a **PUT** request to replace the existing resource with a new one. For example, if you wanted to update one of John Doe's source accounts, you could use the [Put Account](https://developer.sailpoint.com/docs/api/put-account-v-1) endpoint to replace John Doe's existing source account with a new one. This is a viable way to update a resource, but it requires you to update the entire resource each time.
 
@@ -24,9 +24,9 @@ This guide will focus on the partial update method, PATCH requests. Read this gu
 
 To use PATCH to update a resource, you first need to know the resource ID.
 
-Not all resource IDs are available in the Identity Security Cloud UI, so you may need to use the API to find the ID for the resource you want to update.
+Not all resource IDs are available in the SailPoint Human Fabric UI, so you may need to use the API to find the ID for the resource you want to update.
 
-For example, account IDs aren't avilable in the Identity Security Cloud UI. If you want to use the [Patch Account](https://developer.sailpoint.com/docs/api/update-account-v-1) endpoint to make a change to a specific account, you first need to find out the account's ID.
+For example, account IDs aren't avilable in the SailPoint Human Fabric UI. If you want to use the [Patch Account](https://developer.sailpoint.com/docs/api/update-account-v-1) endpoint to make a change to a specific account, you first need to find out the account's ID.
 
 You can use the [List Accounts](https://developer.sailpoint.com/docs/api/list-accounts-v-1) endpoint to view all the accounts in your tenant, along with their details, such as their identities. You can find your account and its ID in this list.
 
@@ -151,7 +151,7 @@ PATCH requests all share the same essential structure. A PATCH request must incl
 This example request has the basic PATCH structure:
 
 ```text
-PATCH https://{tenant}.api.identitynow.com/v3/sources/:id
+PATCH https://{tenant}.api.identitynow.com/sources/v1/:id
 ```
 
 ```json
@@ -181,7 +181,7 @@ You can specify a single operation, or you can specify multiple. If you are usin
 This example request applies "replace" and "add" ops to different paths:
 
 ```text
-PATCH https://{tenant}.api.identitynow.com/v3/sources/:id
+PATCH https://{tenant}.api.identitynow.com/sources/v1/:id
 ```
 
 ```json
@@ -412,7 +412,7 @@ For example, this snippet from the beginning of the earlier source details examp
 You can send PATCH requests to make changes to some of these paths, like editing the source's description with this PATCH request from earlier:
 
 ```text
-PATCH https://{tenant}.api.identitynow.com/v3/sources/:id
+PATCH https://{tenant}.api.identitynow.com/sources/v1/:id
 ```
 
 ```json
@@ -500,7 +500,7 @@ The paths are often nested within other paths, like within the "connectorAttribu
 You can send a PATCH request to make changes to paths within the "connectorAttributes" path itself. This example request removes the "filterString" path and its value.
 
 ```text
-PATCH https://{tenant}.api.identitynow.com/v3/sources/:id
+PATCH https://{tenant}.api.identitynow.com/sources/v1/:id
 ```
 
 ```json
@@ -528,7 +528,7 @@ The operations that don't require a value are the "copy" and "move" operations. 
 You can specify a single simple value for an operation. In this example from earlier, the PATCH request replaces the source's description:
 
 ```text
-PATCH https://{tenant}.api.identitynow.com/v3/sources/:id
+PATCH https://{tenant}.api.identitynow.com/sources/v1/:id
 ```
 
 ```json
@@ -544,7 +544,7 @@ PATCH https://{tenant}.api.identitynow.com/v3/sources/:id
 You can also specify multiple values for an operation to be applied to, as long as they all affect the same path. For example, this PATCH request replaces the source's current features with a number of new ones:
 
 ```text
-PATCH https://{tenant}.api.identitynow.com/v3/sources/:id
+PATCH https://{tenant}.api.identitynow.com/sources/v1/:id
 ```
 
 ```json
@@ -560,7 +560,7 @@ PATCH https://{tenant}.api.identitynow.com/v3/sources/:id
 A value can also be an object that contains other values within it. For example, this PATCH request adds a new "location" attribute to the end of the source schema's array of attributes:
 
 ```text
-PATCH https://{tenant}.api.identitynow.com//v3/sources/:sourceId/schemas/:schemaId
+PATCH https://{tenant}.api.identitynow.com/sources/v1/:sourceId/schemas/:schemaId
 ```
 
 ```json
@@ -594,7 +594,7 @@ The "move" and "copy" operations allow you to remove or copy information from on
 This example request uses the [PATCH Source schema](https://developer.sailpoint.com/docs/api/update-source-schema-v-1) endpoint to move an attribute, along with its details, from the beginning to the end of a source schema's array of attributes:
 
 ```text
-PATCH https://{tenant}.api.identitynow.com//v3/sources/:sourceId/schemas/:schemaId
+PATCH https://{tenant}.api.identitynow.com/sources/v1/:sourceId/schemas/:schemaId
 ```
 
 ```json
@@ -623,6 +623,6 @@ When the request is successful, the API will return the updated resource.
 
 ## Get started
 
-Now you can use PATCH requests partially update resources. For more information about PATCH requests, refer to this [documentation](https://datatracker.ietf.org/doc/html/rfc6902). For more information about the Identity Security Cloud PATCH endpoints and which paths can be changed for each one, refer to their API specifications.
+Now you can use PATCH requests partially update resources. For more information about PATCH requests, refer to this [documentation](https://datatracker.ietf.org/doc/html/rfc6902). For more information about the SailPoint Human Fabric PATCH endpoints and which paths can be changed for each one, refer to their API specifications.
 
 Use this guide to get started, and if you have questions, don't hesitate to reach out on the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss!

@@ -33,7 +33,7 @@ const personas = [
     {
         id: 4,  // AI Persona ID from Discourse
         paths: [
-            {path: '../docs/api/v2025', recursive: true}
+            {path: '../docs/api', recursive: false}
         ]
     }
 ]

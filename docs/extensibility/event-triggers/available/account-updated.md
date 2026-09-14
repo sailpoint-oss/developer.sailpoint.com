@@ -12,7 +12,7 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 ## Event Context
 
-This event trigger fires when an account is updated in Identity Security Cloud.
+This event trigger fires when an account is updated in SailPoint Human Fabric.
 
 Accounts can be updated via aggregations or provisioning, including when entitlements are added or removed.
 

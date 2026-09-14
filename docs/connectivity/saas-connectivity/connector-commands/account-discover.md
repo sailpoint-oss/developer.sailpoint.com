@@ -345,7 +345,9 @@ This code produces the following payload that will be sent back to SHF.
 
 There are many properties in this payload, so you may want to remove some, but it can be hard to determine which properties to keep in a dynamic way. If you can programmatically determine which properties to remove, you can alter the `discoverSchema()` function to remove them.
 
-## Test in SailPoint Human Fabric {#test-in-identity-security-cloud}
+<a id="test-in-identity-security-cloud" class="legacy-anchor"></a>
+
+## Test in SailPoint Human Fabric
 
 To test the account discover schema command in SHF, ensure that you upload your latest connector code and create a new source in SHF. After you configure and test your source connection, go to the ‘Account Schema’ page. You will see an empty schema.
 

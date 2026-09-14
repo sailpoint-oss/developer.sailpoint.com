@@ -76,7 +76,9 @@ $ sail conn list
 +--------------------------------------+----------------------------+
 ```
 
-### Upload connector zip file to SailPoint Human Fabric {#upload-connector-zip-file-to-identity-security-cloud}
+<a id="upload-connector-zip-file-to-identity-security-cloud" class="legacy-anchor"></a>
+
+### Upload connector zip file to SailPoint Human Fabric
 
 Run `sail conn upload -c [connectorID | connectorAlias] -f dist/[connector filename].zip` to upload the zip file built from the previous step to SailPoint Human Fabric.
 
@@ -106,11 +108,15 @@ Make sure that you implement a form of version control or regular backup process
 
 :::
 
-## Test your connector in SailPoint Human Fabric {#test-your-connector-in-identity-security-cloud}
+<a id="test-your-connector-in-identity-security-cloud" class="legacy-anchor"></a>
+
+## Test your connector in SailPoint Human Fabric
 
 Follow these steps to test a connector bundle in both SailPoint Human Fabric and the SailPoint Human Fabric user interface (UI).
 
-### Test your connector bundle in SailPoint Human Fabric {#test-your-connector-bundle-in-identity-security-cloud}
+<a id="test-your-connector-bundle-in-identity-security-cloud" class="legacy-anchor"></a>
+
+### Test your connector bundle in SailPoint Human Fabric
 
 The connector CLI provides ways to test invoking commands with any connector upload version. Before running a command, create a file, **config.json**, in the root project folder. Include any configuration items required to interact with the target web service in this file, such as API token, username, password, organization, version, etc. The following snippet is an example:
 
@@ -140,7 +146,9 @@ $ sail connectors invoke account-list -c example-connector -p config.json
 >
 > Ensure that you add config.json to your .gitignore file so you do not accidentally store secrets in your code repository.
 
-## Test your connector from SailPoint Human Fabric UI {#test-your-connector-from-identity-security-cloud-ui}
+<a id="test-your-connector-from-identity-security-cloud-ui" class="legacy-anchor"></a>
+
+## Test your connector from SailPoint Human Fabric UI
 
 Go to your SailPoint Human Fabric org’s source section. Create a source from the connector you just uploaded. This connector will display in the dropdown list: **example-connector (tag: latest)**
 

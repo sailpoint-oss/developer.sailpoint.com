@@ -226,7 +226,9 @@ async createAccount(input: StdAccountCreateInput): Promise<AirtableAccount> {
 }
 ```
 
-## Testing in SailPoint Human Fabric {#testing-in-identity-security-cloud}
+<a id="testing-in-identity-security-cloud" class="legacy-anchor"></a>
+
+## Testing in SailPoint Human Fabric
 
 One way to test whether the account create code works in SHF is to set up an access profile and role that grants members an entitlement from the connector’s target source. Start by creating an access profile that grants one or more entitlements from the target source.
 

@@ -82,6 +82,8 @@ import {
 The password in `input.password` is the new plaintext password that has already been validated against the source's password policy by SHF. Do not perform additional policy validation in your connector — pass it directly to the source API.
 :::
 
-## Testing in SailPoint Human Fabric {#testing-in-identity-security-cloud}
+<a id="testing-in-identity-security-cloud" class="legacy-anchor"></a>
+
+## Testing in SailPoint Human Fabric
 
 In order to test in SailPoint Human Fabric, the source application must be configured so that it is able to accept password change requests through the Password Manager. Once this setup is complete, you can log in as a user whose identity exists in the configured application and change their password in the Password Manager.

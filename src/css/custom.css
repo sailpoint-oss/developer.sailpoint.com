@@ -930,3 +930,16 @@ article:has(.community-policy-page) footer {
 .theme-unlisted-banner {
   display: none !important;
 }
+
+/*
+ * Legacy heading anchors kept alive across the Identity Security Cloud ->
+ * SailPoint Human Fabric rename. The heading now generates its own
+ * brand-correct id, and an empty <a id="old-slug"> sits just above it so
+ * pre-rename deep links still land. Docusaurus only applies its sticky-navbar
+ * scroll offset to real headings, so mirror it here or the old links scroll
+ * the target underneath the fixed navbar.
+ */
+.legacy-anchor {
+  display: block;
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 0.5rem);
+}

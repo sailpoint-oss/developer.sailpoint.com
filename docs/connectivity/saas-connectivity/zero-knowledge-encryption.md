@@ -73,12 +73,16 @@ VA clusters can be deployed within each datacenter or geography to keep security
 Sensitive data in the enterprise is not limited to administrative credentials. 
 It is common for other critical information and credentials to be used as well, and their usage is not always obvious. SHF ensures this data is always secure.
 
-### SailPoint Human Fabric login and authentication information {#identity-security-cloud-login-and-authentication-information}
+<a id="identity-security-cloud-login-and-authentication-information" class="legacy-anchor"></a>
+
+### SailPoint Human Fabric login and authentication information
 
 SailPoint uses *Zero Knowledge Encryption* along with multiple layers of encryption for authentication in SHF. 
 The specific methods of encryption are tailored for whichever authentication method is chosen by the administrator.
 
-#### SailPoint Human Fabric password {#identity-security-cloud-password}
+<a id="identity-security-cloud-password" class="legacy-anchor"></a>
+
+#### SailPoint Human Fabric password
 
 When an SHF user creates their password, an SHA-256 hash is calculated, using a salt that itself is an SHA-256 hash of a random string. 
 This creates a cryptographic representation of the password that is then sent to SHF over a secure TLS connection, giving two layers of encryption. 

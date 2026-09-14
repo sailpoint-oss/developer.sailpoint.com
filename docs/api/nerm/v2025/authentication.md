@@ -44,7 +44,9 @@ curl --location 'https://mycompany.nonemployee.com/api/v2025/non-employee-source
   </TabItem>
   <TabItem value="isc" label="SHF API Token">
 
-### SHF API Token Authentication {#isc-api-token-authentication}
+<a id="isc-api-token-authentication" class="legacy-anchor"></a>
+
+### SHF API Token Authentication
 
 NERM now supports authentication using SailPoint Human Fabric (SHF) personal access tokens. This allows you to use the same authentication method across both SHF and NERM APIs.
 

@@ -19,13 +19,15 @@ Search attributes allow you to search across accounts and sources to determine w
 
 There are three critical components involves with working with searchable attributes:
 
-- [Configuration of search attributes within SailPoint Human Fabric](#configuration-of-search-attributes-within-identity-security-cloud)
+- [Configuration of search attributes within SailPoint Human Fabric](#configuration-of-search-attributes-within-sailpoint-human-fabric)
   - Seed data for accounts already aggregated into the system.
   - Ensure attribute promotion happens for new/changed accounts that are aggregated.
 - [Create rules that can be used to query the newly created attribute values](#create-rules-that-can-be-used-to-query-the-newly-created-attribute-values)
 - [Implement rules within the Create Profile section of each source an account is being provisioned for](#implement-rules-within-the-create-profile-section-of-each-source-for-an-acount-is-being-provisioned-for)
 
-## Configuration of search attributes within SailPoint Human Fabric {#configuration-of-search-attributes-within-identity-security-cloud}
+<a id="configuration-of-search-attributes-within-identity-security-cloud" class="legacy-anchor"></a>
+
+## Configuration of search attributes within SailPoint Human Fabric
 
 When you are planning to implement search attributes, it is important that you consider the way new accounts' values will be generated and which attributes should be used as references.
 
@@ -62,7 +64,9 @@ The following information is necessary to create your search attribute:
 - Display name for the new attribute configuration:
   - `Promoted Email Address`
 
-### Create the new search attribute in SailPoint Human Fabric {#create-the-new-search-attribute-in-identity-security-cloud}
+<a id="create-the-new-search-attribute-in-identity-security-cloud" class="legacy-anchor"></a>
+
+### Create the new search attribute in SailPoint Human Fabric
 
 To call the APIs for search attributes, you need a personal access token and the name of your tenant to provide with the request. To retrieve a personal access token, see [Personal Access Tokens](../../api/authentication.md#generate-a-personal-access-token). To get the name of your tenant, see [Finding Your Organization Tenant Name](../../api/getting-started.md#find-your-tenant-name)
 

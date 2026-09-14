@@ -176,7 +176,9 @@ import {
 Check whether your source API accepts a partial update (PATCH with only changed fields) or requires the full object (PUT). If the API uses PUT, you must merge the `updates` payload into the full current account object before sending, otherwise unchanged fields will be overwritten with empty values.
 :::
 
-## Testing in SailPoint Human Fabric {#testing-in-identity-security-cloud}
+<a id="testing-in-identity-security-cloud" class="legacy-anchor"></a>
+
+## Testing in SailPoint Human Fabric
 
 You can test the account update command the way you test the [Account Create](./account-create.md) command. Follow the steps in “Testing in SailPoint Human Fabric” from “Account Create” to set up an access profile and role. Be sure to run the aggregation so the account(s) are created in the target source. Once the account(s) are created in the target source, modify the access profile to grant an additional entitlement. Return to the role and click the ‘Update’ button in the upper right corner. Doing so triggers the account update command because the accounts are already created in the target source. Once the update is complete, ensure the account(s) have the additional entitlement.
 

@@ -11,7 +11,9 @@ slug: /connectivity/saas-connectivity/customizers/upload
 tags: ['Connectivity']
 ---
 
-# Building and uploading to SailPoint Human Fabric {#building-and-uploading-to-identity-security-cloud}
+<a id="building-and-uploading-to-identity-security-cloud" class="legacy-anchor"></a>
+
+# Building and uploading to SailPoint Human Fabric
 
 ### Initial requirements
 
@@ -48,7 +50,9 @@ After the build is complete, you will see a message like this:
 Connector zip file created under dist folder: my-connector-customizer-0.1.0.zip
 ```
 
-### Upload to SailPoint Human Fabric {#upload-to-identity-security-cloud}
+<a id="upload-to-identity-security-cloud" class="legacy-anchor"></a>
+
+### Upload to SailPoint Human Fabric
 
 To upload the customizer to SailPoint Human Fabric, use the upload command:
 

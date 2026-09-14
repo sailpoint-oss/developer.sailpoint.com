@@ -25,7 +25,9 @@ Go to the admin console in SailPoint Human Fabric and find the 'Org Details' sec
 
 ![img](./img/idn-console.PNG)
 
-### Finding your tenant programatically using the IP address returned by SailPoint Human Fabric {#finding-your-tenant-programatically-using-the-ip-address-returned-by-identity-security-cloud}
+<a id="finding-your-tenant-programatically-using-the-ip-address-returned-by-identity-security-cloud" class="legacy-anchor"></a>
+
+### Finding your tenant programatically using the IP address returned by SailPoint Human Fabric
 
 If you can't access the admin console or you want to dynamically find the region through code, follow these steps to find it:
 

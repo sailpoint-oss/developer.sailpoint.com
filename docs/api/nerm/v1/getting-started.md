@@ -23,7 +23,9 @@ NERM supports two authentication methods:
 
 To authenticate with a NERM-specific API key, you will need to generate a token by following the instructions here: [Generating a New API Key](https://documentation.sailpoint.com/ne-admin/help/setup/api.html). Once you have your token, you are ready to start making calls!
 
-### 2. SailPoint Human Fabric (SHF) API Token (Recommended) {#2-identity-security-cloud-isc-api-token-recommended}
+<a id="2-identity-security-cloud-isc-api-token-recommended" class="legacy-anchor"></a>
+
+### 2. SailPoint Human Fabric (SHF) API Token (Recommended)
 
 NERM now supports authentication using SailPoint Human Fabric (SHF) personal access tokens. This allows you to use the same authentication method across both SHF and NERM APIs.
 

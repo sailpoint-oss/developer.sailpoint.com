@@ -1249,7 +1249,9 @@ export class AirtableAccount {
 
 </details>
 
-## Connect to SHF {#connect-to-isc}
+<a id="connect-to-isc" class="legacy-anchor"></a>
+
+## Connect to SHF
 
 Before implementing any more new commands, this is a good time to connect your SaaS connector to SHF. 
 
@@ -1258,11 +1260,11 @@ You're going to use your terminal in VSCode and your command line to leverage th
 To create your SaaS connector in SHF and load account data from Airtable, you must follow these steps: 
 
 1. [Build Project](#build-project)
-2. [Create Empty SHF Connector](#create-empty-isc-connector)
-3. [Upload Connector to SHF](#upload-connector-to-isc)
+2. [Create Empty SHF Connector](#create-empty-shf-connector)
+3. [Upload Connector to SHF](#upload-connector-to-shf)
 4. [Test Connector](#test-connector)
-5. [Create Empty SHF Connector](#create-empty-isc-connector)
-6. [Configure SHF Connector](#configure-isc-connector)
+5. [Create Empty SHF Connector](#create-empty-shf-connector)
+6. [Configure SHF Connector](#configure-shf-connector)
 7. [Aggregate Airtable Account Data](#aggregate-airtable-account-data)
 
 ### Build project
@@ -1430,7 +1432,9 @@ The authentication process now looks for the correct keys, `apiKey` and `airtabl
 
     This command bundles the SaaS connector project's files into a zip file, 'your-projectname-0.1.0.zip', located in your project's 'dist' folder. You can now send this zip file to SHF. 
 
-### Create empty SHF connector {#create-empty-isc-connector}
+<a id="create-empty-isc-connector" class="legacy-anchor"></a>
+
+### Create empty SHF connector
 
 Before you can upload your SaaS connector to SHF, you must create an entry for the connector in your SHF tenant. 
 
@@ -1454,7 +1458,9 @@ The output includes your new connector entry's name (alias) and its ID. You will
 
 You can use the the `sail conn list` command to list the available connectors at any time. To learn more about the other available SaaS connector commands you can use with the SailPoint CLI, refer to [Connectors](/docs/tools/cli/connectors/#commands). 
 
-### Upload connector to SHF {#upload-connector-to-isc}
+<a id="upload-connector-to-isc" class="legacy-anchor"></a>
+
+### Upload connector to SHF
 
 Once you have created the SaaS connector in SHF and gotten its connector ID, you can upload your SaaS connector project to SHF. To upload your connector, run this command: 
 
@@ -1525,7 +1531,9 @@ The CLI will go through the different commands and skip tests for any commands t
 +--------------------------+---------+--------+----------+--------------------------------+
 ```
 
-### Configure SHF connector {#configure-isc-connector}
+<a id="configure-isc-connector" class="legacy-anchor"></a>
+
+### Configure SHF connector
 
 Once you have uploaded the SaaS connector to SHF and tested it, you can configure it in SHF. Follow these steps to configure your connector in SHF: 
 

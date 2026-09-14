@@ -15,13 +15,15 @@ tags: ['Transforms', 'Guides', 'First']
 
 In this guide, you will learn how to use [SailPoint Human Fabric's Transform REST APIs](/docs/api/transforms) to do the following:
 
-- [List Transforms in Your SailPoint Human Fabric Tenant](#list-transforms-in-your-identity-security-cloud-tenant)
+- [List Transforms in Your SailPoint Human Fabric Tenant](#list-transforms-in-your-sailpoint-human-fabric-tenant)
 - [Create a Transform](#create-a-transform)
 - [Get Transform by ID](#get-transform-by-id)
 - [Update a Transform](#update-a-transform)
 - [Delete a Transform](#delete-a-transform)
 
-## List transforms in your SailPoint Human Fabric tenant {#list-transforms-in-your-identity-security-cloud-tenant}
+<a id="list-transforms-in-your-identity-security-cloud-tenant" class="legacy-anchor"></a>
+
+## List transforms in your SailPoint Human Fabric tenant
 
 To call the APIs for transforms, you need a personal access token and your tenant's name to provide with the request. For more information about how to get a personal access token, see [Personal Access Tokens](../../../api/authentication.md#generate-a-personal-access-token). For more information about how to get the name of your tenant, see [Finding Your Organization Tenant Name](../../../api/getting-started.md#find-your-tenant-name).
 

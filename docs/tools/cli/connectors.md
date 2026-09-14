@@ -80,7 +80,7 @@ The entitlement commands require an additional flag (`-t [entitlementType]`), li
 sail conn invoke entitlement-list -t [entitlementType] -c [connectorID | connectorAlias] -p [config.json] -v [version]
 ```
 
-For more information about invoking commands, refer to the [Test your connector in SailPoint Human Fabric](/docs/connectivity/saas-connectivity/test-build-deploy#test-your-connector-in-identity-security-cloud) section of the SaaS Connectivity documentation.
+For more information about invoking commands, refer to the [Test your connector in SailPoint Human Fabric](/docs/connectivity/saas-connectivity/test-build-deploy#test-your-connector-in-sailpoint-human-fabric) section of the SaaS Connectivity documentation.
 
 ### List connectors
 

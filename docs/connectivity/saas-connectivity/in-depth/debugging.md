@@ -87,6 +87,8 @@ With these configurations set, you can run the debugger by selecting the options
 
 ![debugging 2](./img/debugging2.png)
 
-## Debug in SailPoint Human Fabric {#debug-in-identity-security-cloud}
+<a id="debug-in-identity-security-cloud" class="legacy-anchor"></a>
+
+## Debug in SailPoint Human Fabric
 
 You can use the `sail conn logs` command to gain insight into how your connector is performing while running in SHF. See the section on logging for more information.

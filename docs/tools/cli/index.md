@@ -44,7 +44,6 @@ Learn how to use the SailPoint command line interface (CLI) in this guide.
 - [Contribution](#contribution)
 - [Questions](#questions)
 
-
 ## Get the CLI
 
 To install the SailPoint CLI: use a package manager for the OS of your choice. Prebuilt binaries for OS X, Windows, and Linux are provided in each [release](https://github.com/sailpoint-oss/sailpoint-cli/releases).
@@ -66,7 +65,7 @@ To install the MSI file, double click on it and follow the prompts in the instal
 MacOS users can use [Homebrew](https://brew.sh/) to install the CLI. Run these commands in your terminal:
 
 ```bash
-brew tap sailpoint-oss/tap && brew install sailpoint-cli
+brew install sailpoint-oss/tap/sailpoint-cli
 ```
 
 Then make sure you can run the `sail` command.

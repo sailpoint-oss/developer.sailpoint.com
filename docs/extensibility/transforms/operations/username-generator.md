@@ -25,7 +25,7 @@ Use the username generator transform to specify logic to use when it derives a u
 
 The username generator transform is intended for use as a configuration within the account create profile for a source. Thus, this transform's structure is more extensive than a typical Seaspray implementation -- it must be assigned to a create profile attribute (designated by `name`) and provide certain uniqueness check attributes such as `cloudMaxSize`, `cloudMaxUniqueChecks`, and `cloudRequired`.
 
-The `cloudMaxSize` attribute denotes the maximum length of generated data allowable as a result of the generator logic. The transform truncates any characters over the `cloudMaxSize`. The `cloudMaxUniqueChecks` attribute determines the maximum number of iterations the generator must attempt before failing to generate a value. The `cloudRequired` attribute is an internal flag required for the Identity Security Cloud platform - leave it as `true`.
+The `cloudMaxSize` attribute denotes the maximum length of generated data allowable as a result of the generator logic. The transform truncates any characters over the `cloudMaxSize`. The `cloudMaxUniqueChecks` attribute determines the maximum number of iterations the generator must attempt before failing to generate a value. The `cloudRequired` attribute is an internal flag required for the SailPoint Human Fabric platform - leave it as `true`.
 
 Provide the username generator transform itself in the create profile attribute entry's `transform` parameter.
 
@@ -128,9 +128,9 @@ The `attributes` object contains the username generation configuration.
 #### Optional
 
 - **sourceCheck** `boolean` _(optional)_  
-  Whether the generator checks only the Identity Security Cloud database or queries the target system directly.
+  Whether the generator checks only the SailPoint Human Fabric database or queries the target system directly.
   - `true` - Check the target system directly (only if the system supports `getObject`). For systems that lack the ability to query for single account objects, the generator ignores this setting and defaults to `false`. The generator only checks the attribute identified in the account schema as the `accountID`.
-  - `false` - Check only the Identity Security Cloud database (default). The generator only checks the `accountID`.
+  - `false` - Check only the SailPoint Human Fabric database (default). The generator only checks the `accountID`.
 
 #### Optional (dynamic variables)
 

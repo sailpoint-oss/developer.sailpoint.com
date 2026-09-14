@@ -11,7 +11,7 @@ slug: /api/nerm/v2025/pagination-filtering
 tags: ['Pagination Filtering']
 ---
 
-Many endpoints in the Identity Security Cloud API support a generic syntax for paginating, filtering and sorting the results. A collection endpoint has the following characteristics:
+Many endpoints in the SailPoint Human Fabric API support a generic syntax for paginating, filtering and sorting the results. A collection endpoint has the following characteristics:
 
 - The HTTP verb is always GET.
 - The last component in the URL is a plural noun (ex. `/v3/public-identities`).

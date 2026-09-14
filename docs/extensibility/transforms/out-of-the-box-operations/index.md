@@ -10,7 +10,7 @@ slug: /extensibility/transforms/ootb
 tags: ['Transforms', 'Transform Operations']
 ---
 
-Identity Security Cloud ships out of the box with a number of primitive transforms. The following sections describe the transforms.
+SailPoint Human Fabric ships out of the box with a number of primitive transforms. The following sections describe the transforms.
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

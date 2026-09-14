@@ -6,21 +6,21 @@ sidebar_label: Postman Collections
 sidebar_position: 7
 sidebar_class_name: postmanCollections
 keywords: ['postman']
-description: Run ISC APIs in Postman.
+description: Run SHF APIs in Postman.
 tags: ['postman']
 ---
 
 import CMSLinkComponent from '@site/src/components/PostmanLink';
 
-[Postman](https://www.postman.com/) is a platform you can use to design, build, test, and iterate your APIs. Postman users and teams can create public workspaces they can use to make it easy to access their API collections and environments and get started. SailPoint maintains a [public workspace for the Identity Security Cloud API collections](https://www.postman.com/sailpoint/workspace/identitynow). You can use this workspace to access all the ISC API collections and stay up to date.
+[Postman](https://www.postman.com/) is a platform you can use to design, build, test, and iterate your APIs. Postman users and teams can create public workspaces they can use to make it easy to access their API collections and environments and get started. SailPoint maintains a [public workspace for the SailPoint Human Fabric API collections](https://www.postman.com/sailpoint/workspace/identitynow). You can use this workspace to access all the SHF API collections and stay up to date.
 
 ## Run in Postman
 
-The following table lists the available ISC API collections. To import a collection into your workspace, select the 'Run in Postman' button for your desired collection. Doing so forks the collection into your workspace.
+The following table lists the available SHF API collections. To import a collection into your workspace, select the 'Run in Postman' button for your desired collection. Doing so forks the collection into your workspace.
 
 | API | Postman Collection |
 | --- | --- |
-| ISC API | <CMSLinkComponent source="iscCollectionUrl"></CMSLinkComponent> |
+| SHF API | <CMSLinkComponent source="iscCollectionUrl"></CMSLinkComponent> |
 | NERM API | <CMSLinkComponent source="nermCollectionUrl"></CMSLinkComponent> |
 | NERM 2025 API | <CMSLinkComponent source="nerm-v2025CollectionUrl"></CMSLinkComponent> |
 | SaaS Connectivity | [![Run in Postman](./img/button.svg)](https://god.gw.postman.com/run-collection/23226990-a0b5c429-d8dd-4fe2-a4a2-eb7ff85322ef?action=collection%2Ffork&collection-url=entityId%3D23226990-a0b5c429-d8dd-4fe2-a4a2-eb7ff85322ef%26entityType%3Dcollection%26workspaceId%3D80af54be-a333-4712-af5e-41aa9eccbdd0) |
@@ -29,7 +29,7 @@ You can also fork a collection by selecting the ellipses to the right of the col
 
 ## Update your collections
 
-SailPoint is often making improvements to the ISC API collections. In order to get the latest updates to the Postman collection, you will need to visit the [sailpoint workspace](https://www.postman.com/sailpoint/workspace/identitynow) or click the "Run in Postman" button for the desired collection above. This will create a new fork in your Postman workspace while leaving your previous forks as-is.
+SailPoint is often making improvements to the SHF API collections. In order to get the latest updates to the Postman collection, you will need to visit the [sailpoint workspace](https://www.postman.com/sailpoint/workspace/identitynow) or click the "Run in Postman" button for the desired collection above. This will create a new fork in your Postman workspace while leaving your previous forks as-is.
 
 ## Configure your environment
 
@@ -37,13 +37,13 @@ The SailPoint workspace provides an environment, a set of variables you can use 
 
 | Environment | |
 | --- | --- |
-| ISC Environment | [![Run in Postman](./img/button.svg)](https://www.postman.com/sailpoint/workspace/identitynow/environment/23226990-ed571d4f-37a3-4a2c-9105-5d8d8cce1d20/fork) |
+| SHF Environment | [![Run in Postman](./img/button.svg)](https://www.postman.com/sailpoint/workspace/identitynow/environment/23226990-ed571d4f-37a3-4a2c-9105-5d8d8cce1d20/fork) |
 
 To send API requests in Postman, you must authenticate to the APIs. To authenticate to the APIs, you must specify these variables in your Postman environment:
 
 | Environment Variable | Required | Description |
 | --- | --- | --- |
-| tenant | Yes | Your ISC tenant, typically your company's name |
+| tenant | Yes | Your SHF tenant, typically your company's name |
 | clientId | Yes | The client ID for the API client or personal access token |
 | clientSecret | Yes | The client secret for the API client or personal access token |
 | domain | No | This optional field is only necessary for those who have a domain in their API URL that isn't "identitynow". |
@@ -64,7 +64,7 @@ Anything you want to change about the Postman collection? We love feedback! Disc
 
 ## Deprecated collections
 
-The following collections are no longer actively maintained. They are provided here for reference, but we recommend migrating to the **ISC API** collection above.
+The following collections are no longer actively maintained. They are provided here for reference, but we recommend migrating to the **SHF API** collection above.
 
 | API | Postman Collection |
 | --- | --- |

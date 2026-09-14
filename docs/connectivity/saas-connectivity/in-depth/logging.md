@@ -13,7 +13,7 @@ tags: ['Connectivity']
 
 ## Printing Logs with the CLI
 
-Fetch logs from ISC by issuing the `sail conn logs` command:
+Fetch logs from SHF by issuing the `sail conn logs` command:
 
 ```bash
 $ sail conn logs
@@ -117,7 +117,7 @@ export const connector = async () => {
 
 ### Adding the option to your connector spec
 
-To expose a debug logging toggle in the ISC source configuration UI, add `"showDebugLoggingOption": true` to your `connector-spec.json`:
+To expose a debug logging toggle in the SHF source configuration UI, add `"showDebugLoggingOption": true` to your `connector-spec.json`:
 
 ```json
 {
@@ -132,7 +132,7 @@ To expose a debug logging toggle in the ISC source configuration UI, add `"showD
 
 Once `showDebugLoggingOption` is enabled in the spec, an administrator can activate debug logging without redeploying the connector:
 
-1. In ISC, go to **Admin** > **Connections** > **Sources** and open the source.
+1. In SHF, go to **Admin** > **Connections** > **Sources** and open the source.
 2. Click **Edit Configuration**, then open the **Administrator Settings** tab.
 3. Enable the **Enable Debug Logging** toggle.
 4. Select an expiry duration for how long debug logging should remain active.
@@ -158,7 +158,7 @@ export const connector = async () => {
 
             logger.debug({count: accounts.length}, 'Fetched accounts from Airtable')
             for (const account of accounts) {
-                logger.debug({accountId: account.id}, 'Sending account to ISC')
+                logger.debug({accountId: account.id}, 'Sending account to SHF')
                 res.send(account.toStdAccountListOutput())
             }
         })
@@ -174,7 +174,7 @@ $ sail conn logs tail
 
 [2022-07-14T11:23:05.100-04:00] DEBUG | connectorMessage ▶︎ {"commandType":"std:account:list","connectorName":"Airtable","message":"Starting account list fetch",...}
 [2022-07-14T11:23:05.200-04:00] DEBUG | connectorMessage ▶︎ {"commandType":"std:account:list","connectorName":"Airtable","count":3,"message":"Fetched accounts from Airtable",...}
-[2022-07-14T11:23:05.210-04:00] DEBUG | connectorMessage ▶︎ {"commandType":"std:account:list","connectorName":"Airtable","accountId":"recdUN76q9KibYMir","message":"Sending account to ISC",...}
+[2022-07-14T11:23:05.210-04:00] DEBUG | connectorMessage ▶︎ {"commandType":"std:account:list","connectorName":"Airtable","accountId":"recdUN76q9KibYMir","message":"Sending account to SHF",...}
 ```
 
 When debug logging is **not** enabled, these `logger.debug` calls produce no output, so there is no performance or noise impact in normal operation.

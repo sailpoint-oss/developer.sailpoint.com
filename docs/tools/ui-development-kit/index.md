@@ -13,9 +13,9 @@ tags: ['UI']
 
 ## Overview
 
-The SailPoint UI Development Kit is a project you can use to develop custom user interfaces that interact with Identity Security Cloud (ISC).
+The SailPoint UI Development Kit is a project you can use to develop custom user interfaces that interact with SailPoint Human Fabric (SHF).
 
-The UI Development Kit provides you with a framework you can use to build your own applications or processes on the ISC platform.
+The UI Development Kit provides you with a framework you can use to build your own applications or processes on the SHF platform.
 
 Read this guide to learn how to use the SailPoint UI Development Kit.
 
@@ -37,7 +37,7 @@ These are the requirements to use the UI Development Kit:
 npm install -g typescript
 ```
 
-- **Your ISC tenant name**. To find your ISC tenant name, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The UI Development Kit uses your tenant name to connect to your ISC instance.
+- **Your SHF tenant name**. To find your SHF tenant name, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The UI Development Kit uses your tenant name to connect to your SHF instance.
 
 ## Clone the project
 
@@ -115,6 +115,6 @@ Before contributing, you must sign our [CLA](https://cla-assistant.io/sailpoint-
 
 ## Discuss
 
-The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions.
+The most valuable resource for SHF developers is the SailPoint Developer Community itself, where SHF users and experts all over the world come together to ask questions and provide solutions.
 
-To learn more about the ISC UI Development Kit and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6).
+To learn more about the SHF UI Development Kit and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6).

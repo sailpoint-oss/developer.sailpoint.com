@@ -56,7 +56,7 @@ To use this command, you must specify this value in the `commands` array: `std:a
 
 ## Implementation
 
-Implementing account enable is similar to implementing the account update command. Most source APIs expose either a dedicated enable endpoint or accept a status field via PATCH/PUT. After enabling the account, return the updated account object so ISC reflects the new `disabled: false` state.
+Implementing account enable is similar to implementing the account update command. Most source APIs expose either a dedicated enable endpoint or accept a status field via PATCH/PUT. After enabling the account, return the updated account object so SHF reflects the new `disabled: false` state.
 
 ```typescript
 import {

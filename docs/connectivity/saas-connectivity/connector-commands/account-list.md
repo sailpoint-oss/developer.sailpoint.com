@@ -4,7 +4,7 @@ title: Account List
 pagination_label: Account List
 sidebar_label: Account List
 keywords: ['connectivity', 'connectors', 'account list']
-description: Aggregate all accounts from the source into Identity Security Cloud.
+description: Aggregate all accounts from the source into SailPoint Human Fabric.
 slug: /connectivity/saas-connectivity/commands/account-list
 tags: ['Connectivity', 'Connector Command']
 ---
@@ -47,7 +47,7 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-The account list command aggregates all accounts from the target source into Identity Security Cloud. ISC calls this command during a manual or scheduled account aggregation.
+The account list command aggregates all accounts from the target source into SailPoint Human Fabric. SHF calls this command during a manual or scheduled account aggregation.
 
 To use this command, you must specify this value in the `commands` array: `std:account:list`
 
@@ -75,13 +75,13 @@ async getAllAccounts(): Promise<AirtableAccount[]> {
 
 :::caution Important
 
-ISC will throw a connection timeout error if your connector doesn't respond within 3 minutes, and there are memory limitations involved with aggregating data. To prevent large memory utilization or timeout errors, you should set up your connectors to send data to ISC as it's retrieved from your source system. For more details and an example, refer to [Connector Timeouts](../in-depth/connector-timeouts.md).
+SHF will throw a connection timeout error if your connector doesn't respond within 3 minutes, and there are memory limitations involved with aggregating data. To prevent large memory utilization or timeout errors, you should set up your connectors to send data to SHF as it's retrieved from your source system. For more details and an example, refer to [Connector Timeouts](../in-depth/connector-timeouts.md).
 
 :::
 
 :::caution Important
 
-ISC supports [delta aggregation](#delta-aggregation-state). If your source has a large number of accounts that will be syncronized with ISC, then it is highly recommended to utilize [delta aggregation](#delta-aggregation-state) for the source.
+SHF supports [delta aggregation](#delta-aggregation-state). If your source has a large number of accounts that will be syncronized with SHF, then it is highly recommended to utilize [delta aggregation](#delta-aggregation-state) for the source.
 
 :::
 
@@ -107,7 +107,7 @@ export const connector = async () => {
 ...
 ```
 
-ISC expects each user in the target source to be converted into a format ISC understands. The specific attributes the web service returns depend on what your source provides.
+SHF expects each user in the target source to be converted into a format SHF understands. The specific attributes the web service returns depend on what your source provides.
 
 ```javascript
 public toStdAccountListOutput(): StdAccountListOutput {
@@ -132,7 +132,7 @@ private buildStandardObject(): StdAccountListOutput | StdAccountCreateOutput | S
 }
 ```
 
-The result of the account list command is not an array of objects but several individual objects. This is the format ISC expects, so if you see something like the following result while testing, it is normal:
+The result of the account list command is not an array of objects but several individual objects. This is the format SHF expects, so if you see something like the following result while testing, it is normal:
 
 ```javascript
 {
@@ -195,7 +195,7 @@ If your source can keep track of changes to the data in some way, then delta agg
 }
 ```
 
-2. In the `stdAccountList` command, when you are done sending accounts, you need to also send the state to ISC so it knows where to start the next time it sends a list request:
+2. In the `stdAccountList` command, when you are done sending accounts, you need to also send the state to SHF so it knows where to start the next time it sends a list request:
 
 ```javascript
 const state = {"data": Date.now().toString()}
@@ -308,7 +308,7 @@ curl -X PATCH \
 
 </details>  
 
-2. In the `stdAccountList` command, before sending the Resource Object (accounts), you need to filter the accounts. Accounts which match the filter string will be filtered. Accounts which do not match, will be sent to ISC as normal.
+2. In the `stdAccountList` command, before sending the Resource Object (accounts), you need to filter the accounts. Accounts which match the filter string will be filtered. Accounts which do not match, will be sent to SHF as normal.
 
 ```javascript
 export class GitHubConnector {
@@ -339,7 +339,7 @@ In the above example, we are setting the constructor with filter string value fe
 
 
     const filterEvaluator = new Filter(ro.attributes);
-    // process the RO if the filterString is not provided by the user or matcher returns false else skip the RO from sending it to ISC
+    // process the RO if the filterString is not provided by the user or matcher returns false else skip the RO from sending it to SHF
     if (this.filterString === undefined || !filterEvaluator.matcher(this.filterString)) {
         res.send(ro);
         accountCount++;

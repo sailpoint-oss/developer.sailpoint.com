@@ -1,12 +1,12 @@
-// Minified Docusaurus config — builds only docs/api/v* (ISC API) for faster iteration in PRs.
+// Minified Docusaurus config — builds only docs/api/v* (SHF API) for faster iteration in PRs.
 // Run with: npm run start-minified  or  npm run build-minified
 //
 // Key differences from the main config:
 //   - onBrokenLinks/onBrokenMarkdownLinks set to 'warn' (api docs may link to non-api pages)
-//   - Uses sidebars.minified.ts (ISC API sidebars only)
+//   - Uses sidebars.minified.ts (SHF API sidebars only)
 //   - Docs plugin excludes all non-API directories
 //   - Plugins imported from plugins.ts with iiq-api, nerm-api, GTM, and redirects filtered out
-//   - Simplified navbar with only ISC API-spec link
+//   - Simplified navbar with only SHF API-spec link
 
 import { ThemeConfig } from '@docusaurus/preset-classic';
 import { Config } from '@docusaurus/types';
@@ -17,7 +17,7 @@ import allPlugins from './plugins';
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
 
-// Exclude plugins that are not needed for the ISC API-only minified build.
+// Exclude plugins that are not needed for the SHF API-only minified build.
 const EXCLUDED_PLUGIN_NAMES = new Set([
   '@docusaurus/plugin-google-tag-manager',
   '@docusaurus/plugin-client-redirects',
@@ -96,7 +96,7 @@ const config: Config = {
             'api/iiq/**',
             'api/nerm/**',
             // Community policy pages use the communityPoliciesSidebar, which is
-            // not part of the ISC API-only minified build.
+            // not part of the SHF API-only minified build.
             'ai-policy.md',
             'ambassador-agreement.md',
             'ambassador-code-of-conduct.md',
@@ -148,7 +148,7 @@ const config: Config = {
           label: 'API specifications',
           position: 'left',
           items: [
-            { label: 'Identity Security Cloud', to: '/docs/api' },
+            { label: 'SailPoint Human Fabric', to: '/docs/api' },
           ],
         },
         {

@@ -13,7 +13,7 @@ tags: ['Connectivity']
 
 ## Objectives 
 
-This guide will walk you through the process of building a SaaS connector. You will learn how to build a SaaS connector that connects Identity Security Cloud (ISC) to a cloud-based source called [Airtable](https://airtable.com).
+This guide will walk you through the process of building a SaaS connector. You will learn how to build a SaaS connector that connects SailPoint Human Fabric (SHF) to a cloud-based source called [Airtable](https://airtable.com).
 
 In addition to learning how to build the SaaS connector, you will learn how to deploy, debug, and test it as well. 
 
@@ -32,13 +32,13 @@ Once you have learned how to build an Airtable connector, you will know how to b
 
 ## SaaS connectivity 
 
-[Connectors](https://documentation.sailpoint.com/saas/help/sources/index.html) are the bridges between ISC and the various source systems ISC needs to communicate with and aggregate data from. These connectors require the use of virtual appliances (VAs). 
+[Connectors](https://documentation.sailpoint.com/saas/help/sources/index.html) are the bridges between SHF and the various source systems SHF needs to communicate with and aggregate data from. These connectors require the use of virtual appliances (VAs). 
 
-**SaaS connectors** use [SaaS Connectivity](https://developer.sailpoint.com/docs/connectivity/saas-connectivity), a framework you can use to connect ISC, a SaaS platform, to other cloud-based sources without the use of a VA as a go-between. 
+**SaaS connectors** use [SaaS Connectivity](https://developer.sailpoint.com/docs/connectivity/saas-connectivity), a framework you can use to connect SHF, a SaaS platform, to other cloud-based sources without the use of a VA as a go-between. 
 
 SaaS Connectivity provides these benefits: 
 
-- The ability to develop, debug, and test custom connectors locally, without any dependencies on ISC. 
+- The ability to develop, debug, and test custom connectors locally, without any dependencies on SHF. 
 - Features you can use to customize the user interface (UI) in ways specific to the source. 
 - Support for modern languages and frameworks. 
 
@@ -51,7 +51,7 @@ To build an Airtable connector, you will need these resources:
 - [SailPoint CLI](https://developer.sailpoint.com/docs/tools/cli): The SailPoint command line interface (CLI) is a command line tool you can use to leverage the SaaS Connectivity functionality and start building SaaS connectors much more quickly and easily. Get the latest release [here](https://github.com/sailpoint-oss/sailpoint-cli/releases). 
 - [IDE](https://code.visualstudio.com/): Use an integrated development environment (IDE), like [VSCode](https://code.visualstudio.com/), to develop, deploy, and debug the SaaS connector. You can get the latest release [here](https://code.visualstudio.com/Download). 
 - [Postman](https://www.postman.com/): Postman is an API platform you can use to send test API requests. SailPoint maintains a collection of SaaS Connectivity commands in Postman that you can access [here](https://www.postman.com/sailpoint/identitynow/folder/kv75eb5/connector-commands). This collection of commands makes it quick and easy for you to test SaaS connector commands. 
-- [ISC](https://documentation.sailpoint.com/saas/help/setup/get_started.html): You need an ISC tenant you can connect to Airtable. 
+- [SHF](https://documentation.sailpoint.com/saas/help/setup/get_started.html): You need an SHF tenant you can connect to Airtable. 
 - [Airtable](https://airtable.com/): You need to create an account on Airtable, the source you are connecting to. Airtable is a cloud-based relational database platform - it is a bit like Excel, but it is useful for this example because you can send API requests to modify the data in the tables. 
 
 ## Create project 
@@ -177,7 +177,7 @@ Open [Airtable](https://airtable.com/). Follow these steps to create the table y
     - Name the fourth column, 'fullname'. 
 5. Populate the table with some dummy data. Create at least two accounts, along with their attributes. 
 
-You will use your SaaS connector to aggregate this table's accounts into ISC and make changes to those accounts. 
+You will use your SaaS connector to aggregate this table's accounts into SHF and make changes to those accounts. 
 
 The table will look something like this example: 
 
@@ -418,26 +418,26 @@ Your SaaS connector is now configured to authenticate its API requests to Airtab
 
 Once your SaaS connector's authentication is configured, you can configure Postman to test the connection between the SaaS connector and Airtable. 
 
-1. Open Postman. In the upper right corner, you can select the environment variables you will store so you can use them whenever you send API requests to Airtable or ISC. 
+1. Open Postman. In the upper right corner, you can select the environment variables you will store so you can use them whenever you send API requests to Airtable or SHF. 
 
 2. Use the '+' button to create a new environment. 
 
-    The first three environment variables you need, `tenant`, `clientId`, and `clientSecret`, will authenticate your API requests to ISC. If you have configured your SailPoint CLI, you can the same variables from your CLI's PAT. Otherwise, you can refer to [Authentication](/docs/api/authentication/#generate-a-personal-access-token) to learn how to create a PAT and get these variables. 
+    The first three environment variables you need, `tenant`, `clientId`, and `clientSecret`, will authenticate your API requests to SHF. If you have configured your SailPoint CLI, you can the same variables from your CLI's PAT. Otherwise, you can refer to [Authentication](/docs/api/authentication/#generate-a-personal-access-token) to learn how to create a PAT and get these variables. 
 
     The fourth environment variable, `airtableAPIKey` will authenticate your API requests. You will use the PAT you generated in Airtable for this variable. 
 
-3. To authenticate your API requests to ISC, specify values for these variables in their 'Initial value' and 'Current value' fields: 
+3. To authenticate your API requests to SHF, specify values for these variables in their 'Initial value' and 'Current value' fields: 
 
     | Environment Variable | Required | Description |
     | --- | --- | --- |
-    | `tenant` | Yes | Your ISC tenant, typically your company's name. |
+    | `tenant` | Yes | Your SHF tenant, typically your company's name. |
     | `clientId` | Yes | The client ID for the API client or personal access token. Keep this private and secure. |
     | `clientSecret` | Yes | The client secret for the API client or personal access token. Keep this private and secure. |
     | `airtableAPIKey` | Yes | The Airtable PAT. Keep this private and secure. | 
 
 4. Save your environment to finalize your changes. 
 
-5. Select the environment from the environment dropdown menu. All your API requests will automatically include these variables, authenticating them for both Airtable and ISC. 
+5. Select the environment from the environment dropdown menu. All your API requests will automatically include these variables, authenticating them for both Airtable and SHF. 
 
 ## Implement test connection command 
 
@@ -708,7 +708,7 @@ Click the breakpoint again to remove it so that you can run your connector witho
 
 ## Implement Account List Command 
 
-The next command you're going to run is [Account List](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-list). This command allows you to get all the accounts from your table, along with their account attributes. This command also allows you to manually aggregate Airtable account data within ISC. 
+The next command you're going to run is [Account List](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-list). This command allows you to get all the accounts from your table, along with their account attributes. This command also allows you to manually aggregate Airtable account data within SHF. 
 
 To implement Account List, follow these steps: 
 
@@ -718,7 +718,7 @@ To implement Account List, follow these steps:
 
 ### Create AirtableAccount Typescript file
 
-To implement Account List and successfully aggregate account data into ISC, the first thing you must do is create a new Typescript file, titled 'AirtableAccount.ts'. You will use this file to create a class that will act as a wrapper around the Airtable account record data, which you can then convert to standard output formats and back to Airtable-compatible objects. 
+To implement Account List and successfully aggregate account data into SHF, the first thing you must do is create a new Typescript file, titled 'AirtableAccount.ts'. You will use this file to create a class that will act as a wrapper around the Airtable account record data, which you can then convert to standard output formats and back to Airtable-compatible objects. 
 
 Follow these steps to configure your 'AirtableAccount.ts' file: 
 
@@ -764,9 +764,9 @@ Follow these steps to configure your 'AirtableAccount.ts' file:
     }
     ```
 
-    The `createwithRecords` static method takes a `Record` and its `Fieldset` from the Airtable table as an input and uses it to create an `AirtableAccount` instance with all the account's attributes. You will then be able to use this instance to create the Airtable account's corresponding ISC account. This is essential for aggregating the Airtable account data into ISC. 
+    The `createwithRecords` static method takes a `Record` and its `Fieldset` from the Airtable table as an input and uses it to create an `AirtableAccount` instance with all the account's attributes. You will then be able to use this instance to create the Airtable account's corresponding SHF account. This is essential for aggregating the Airtable account data into SHF. 
 
-    The `identity` refers to the actual table row of the account in Airtable. ISC will use the `identity` for an 'Native Identity ID', as well as their 'Account ID' on the source. 
+    The `identity` refers to the actual table row of the account in Airtable. SHF will use the `identity` for an 'Native Identity ID', as well as their 'Account ID' on the source. 
 
 6. Write the `buildStandardObject` private method within the `AirtableAccount` class, after the `createwithRecords` static method: 
 
@@ -878,7 +878,7 @@ Once you have finished creating your 'AirtableAccount.ts' file, you can implemen
     }
     ```
 
-    This command now uses the `AirtableAccount` class to not only return all the Airtable table's lists but also create an instance you can later use to aggregate the account data into ISC. 
+    This command now uses the `AirtableAccount` class to not only return all the Airtable table's lists but also create an instance you can later use to aggregate the account data into SHF. 
 
 5. To simplify the file, remove the `getAccount` asynchronous function for now. You will implement it correctly later. 
 
@@ -1097,7 +1097,7 @@ Your SaaS connector will get a successful response from Airtable, listing all th
 
 At this point, your SaaS connector can successfully connect to Airtable and list accounts along with their attributes.
 
-Before implementing more commands, you will learn how to configure the other side of the bridge, the connection to ISC. 
+Before implementing more commands, you will learn how to configure the other side of the bridge, the connection to SHF. 
 
 This is a good time to stop and examine your code. This is how your code should currently look:
 
@@ -1249,33 +1249,35 @@ export class AirtableAccount {
 
 </details>
 
-## Connect to ISC
+<a id="connect-to-isc" class="legacy-anchor"></a>
 
-Before implementing any more new commands, this is a good time to connect your SaaS connector to ISC. 
+## Connect to SHF
 
-You're going to use your terminal in VSCode and your command line to leverage the SailPoint CLI. You will build your SaaS connector project, create an empty SaaS connector in ISC, and then upload your connector to ISC. 
+Before implementing any more new commands, this is a good time to connect your SaaS connector to SHF. 
 
-To create your SaaS connector in ISC and load account data from Airtable, you must follow these steps: 
+You're going to use your terminal in VSCode and your command line to leverage the SailPoint CLI. You will build your SaaS connector project, create an empty SaaS connector in SHF, and then upload your connector to SHF. 
+
+To create your SaaS connector in SHF and load account data from Airtable, you must follow these steps: 
 
 1. [Build Project](#build-project)
-2. [Create Empty ISC Connector](#create-empty-isc-connector)
-3. [Upload Connector to ISC](#upload-connector-to-isc)
+2. [Create Empty SHF Connector](#create-empty-shf-connector)
+3. [Upload Connector to SHF](#upload-connector-to-shf)
 4. [Test Connector](#test-connector)
-5. [Create Empty ISC Connector](#create-empty-isc-connector)
-6. [Configure ISC Connector](#configure-isc-connector)
+5. [Create Empty SHF Connector](#create-empty-shf-connector)
+6. [Configure SHF Connector](#configure-shf-connector)
 7. [Aggregate Airtable Account Data](#aggregate-airtable-account-data)
 
 ### Build project
 
-Building your SaaS connector project means compressing your SaaS connector project's files into a zip file before uploading the connector to ISC. Before you can build your connector, however, you must update your 'connector-spec.json' file. 
+Building your SaaS connector project means compressing your SaaS connector project's files into a zip file before uploading the connector to SHF. Before you can build your connector, however, you must update your 'connector-spec.json' file. 
 
-The 'connector-spec.json' file tells ISC how the connector works. At a high level, it provides this information: 
+The 'connector-spec.json' file tells SHF how the connector works. At a high level, it provides this information: 
 
 - Commands the connector supports
 - The `config` values the user must provide when they create the connector
 - Account schema definitions
 - Entitlement schema definitions
-- Definitions for the Account Create template that maps fields between ISC and the connector
+- Definitions for the Account Create template that maps fields between SHF and the connector
 
 You must make some edits to this file because the authentication configuration and account schema are currently incorrect. To do so, follow these steps: 
 
@@ -1371,7 +1373,7 @@ The authentication process now looks for the correct keys, `apiKey` and `airtabl
 	]
     ```
 
-    The `entitlementSchemas` tell ISC the format and data types to expect for entitlement objects. 
+    The `entitlementSchemas` tell SHF the format and data types to expect for entitlement objects. 
 
 4. Add the `accountCreateTemplate` account mapping after the `entitlementSchemas`: 
 
@@ -1418,7 +1420,7 @@ The authentication process now looks for the correct keys, `apiKey` and `airtabl
 	}
     ```
 
-    The `accountCreateTemplate` is provides ISC with a template it can use to map incoming values to their respective fields in ISC. 
+    The `accountCreateTemplate` is provides SHF with a template it can use to map incoming values to their respective fields in SHF. 
 
 5. Save these changes and run the project with `npm run dev` to ensure that the changes didn't break anything. 
 
@@ -1428,11 +1430,13 @@ The authentication process now looks for the correct keys, `apiKey` and `airtabl
     npm run pack-zip
     ```
 
-    This command bundles the SaaS connector project's files into a zip file, 'your-projectname-0.1.0.zip', located in your project's 'dist' folder. You can now send this zip file to ISC. 
+    This command bundles the SaaS connector project's files into a zip file, 'your-projectname-0.1.0.zip', located in your project's 'dist' folder. You can now send this zip file to SHF. 
 
-### Create empty ISC connector
+<a id="create-empty-isc-connector" class="legacy-anchor"></a>
 
-Before you can upload your SaaS connector to ISC, you must create an entry for the connector in your ISC tenant. 
+### Create empty SHF connector
+
+Before you can upload your SaaS connector to SHF, you must create an entry for the connector in your SHF tenant. 
 
 To create an empty connector to upload your file to, run this command in your terminal or command line:
 
@@ -1440,7 +1444,7 @@ To create an empty connector to upload your file to, run this command in your te
 sail conn create my-projectname 
 ```
 
-This command creates an empty connector in your ISC tenant. You will use this empty connector's ID to upload your connector to ISC. When you run the command successfully, the terminal outputs a response like this:
+This command creates an empty connector in your SHF tenant. You will use this empty connector's ID to upload your connector to SHF. When you run the command successfully, the terminal outputs a response like this:
 
 ```powershell
 +--------------------------------------+--------------------+
@@ -1454,15 +1458,17 @@ The output includes your new connector entry's name (alias) and its ID. You will
 
 You can use the the `sail conn list` command to list the available connectors at any time. To learn more about the other available SaaS connector commands you can use with the SailPoint CLI, refer to [Connectors](/docs/tools/cli/connectors/#commands). 
 
-### Upload connector to ISC 
+<a id="upload-connector-to-isc" class="legacy-anchor"></a>
 
-Once you have created the SaaS connector in ISC and gotten its connector ID, you can upload your SaaS connector project to ISC. To upload your connector, run this command: 
+### Upload connector to SHF
+
+Once you have created the SaaS connector in SHF and gotten its connector ID, you can upload your SaaS connector project to SHF. To upload your connector, run this command: 
 
 ```powershell
 sail conn upload -c [connector ID] -f dist/[connector filename].zip
 ```
 
-You must provide the connector ID, name (alias), and zip filename to upload it to ISC. 
+You must provide the connector ID, name (alias), and zip filename to upload it to SHF. 
 
 A successful response looks like this: 
 
@@ -1476,9 +1482,9 @@ A successful response looks like this:
 
 ### Test connector 
 
-It can be very helpful to test your SaaS connector before you go through all the steps of configuring it in ISC. 
+It can be very helpful to test your SaaS connector before you go through all the steps of configuring it in SHF. 
 
-The SailPoint CLI has a [validate command](/docs/tools/cli/connectors/#validate-a-connector) you can use to run a suite of integration tests against your connector to ensure that all the basic functionality works. The CLI also has an [invoke command](/docs/tools/cli/connectors/#invoke-command) you can use to test specific connector commands. The `validate` and `invoke` commands allow you to use the CLI to run tests without ever having to actually go into ISC. 
+The SailPoint CLI has a [validate command](/docs/tools/cli/connectors/#validate-a-connector) you can use to run a suite of integration tests against your connector to ensure that all the basic functionality works. The CLI also has an [invoke command](/docs/tools/cli/connectors/#invoke-command) you can use to test specific connector commands. The `validate` and `invoke` commands allow you to use the CLI to run tests without ever having to actually go into SHF. 
 
 Before you can run the tests, you must create a 'config.json' file. You must include your `apiKey` and `airtableBase` credentials in the 'config.json' file to authenticate the requests you want to send for the tests. 
 
@@ -1525,19 +1531,21 @@ The CLI will go through the different commands and skip tests for any commands t
 +--------------------------+---------+--------+----------+--------------------------------+
 ```
 
-### Configure ISC connector 
+<a id="configure-isc-connector" class="legacy-anchor"></a>
 
-Once you have uploaded the SaaS connector to ISC and tested it, you can configure it in ISC. Follow these steps to configure your connector in ISC: 
+### Configure SHF connector
 
-1. Open ISC and log in. Go to 'Admin' and expand the 'Connections' dropdown menu. Select 'Sources' from the menu.
+Once you have uploaded the SaaS connector to SHF and tested it, you can configure it in SHF. Follow these steps to configure your connector in SHF: 
+
+1. Open SHF and log in. Go to 'Admin' and expand the 'Connections' dropdown menu. Select 'Sources' from the menu.
     
-    You will see a list of the available sources in your ISC tenant. 
+    You will see a list of the available sources in your SHF tenant. 
 
-2. To create a new source in ISC to connect to Airtable, select the 'Create New' button. 
+2. To create a new source in SHF to connect to Airtable, select the 'Create New' button. 
 
 3. You will see a list of available connectors, or source types. Find your connector by its name. Select 'Configure'. 
 
-4. You will see a panel with the connector's 'Base Configuration', fields you can use to provide your connector's required details: 'Source Name', 'Description', and 'Source Owner'. Name your source, provide a description, and select a source owner in ISC from the list. 
+4. You will see a panel with the connector's 'Base Configuration', fields you can use to provide your connector's required details: 'Source Name', 'Description', and 'Source Owner'. Name your source, provide a description, and select a source owner in SHF from the list. 
 
 5. Once you have provided those details, you will see the full source configuration page. Open the next section, 'Configuration'. You will see the 'apiKey' and 'airtableBase' fields from your connector listed. Provide your Airtable API key and the base ID and save your changes. 
 
@@ -1545,11 +1553,11 @@ Once you have uploaded the SaaS connector to ISC and tested it, you can configur
 
 ### Aggregate Airtable account data 
 
-Once you have configured your SaaS connector in ISC and successfully connected to your Airtable base, you can aggregate the Airtable account data into ISC. To do so, follow these steps: 
+Once you have configured your SaaS connector in SHF and successfully connected to your Airtable base, you can aggregate the Airtable account data into SHF. To do so, follow these steps: 
 
-First, open the SaaS connector and open its 'Account Aggregation' tab, under 'Account Management. To load the account data into ISC, click 'Start Aggregation' in the upper right. Doing so starts an aggregation whose progress you can track at the bottom of the window. 
+First, open the SaaS connector and open its 'Account Aggregation' tab, under 'Account Management. To load the account data into SHF, click 'Start Aggregation' in the upper right. Doing so starts an aggregation whose progress you can track at the bottom of the window. 
 
-Once the accounts have been successfully loaded into ISC, you can view them by opening the 'Accounts' tab. 
+Once the accounts have been successfully loaded into SHF, you can view them by opening the 'Accounts' tab. 
 
 If you click an account in the list, you can see the account's attributes: `fullname`, `email`, `id`, and `entitlements`.
 
@@ -1569,7 +1577,7 @@ To implement Account Read, follow these steps:
     }
     ```
 
-    This command now uses the `buildStandardObject` private method to build a standard ISC account object when you get the account. You can now leverage the `toStdAccountReadOutput` method in your 'index.ts' file. 
+    This command now uses the `buildStandardObject` private method to build a standard SHF account object when you get the account. You can now leverage the `toStdAccountReadOutput` method in your 'index.ts' file. 
 
 3. Open 'index.ts' and write the `.stdAccountRead` command handler like this, after `.stdAccountList`: 
 
@@ -1610,7 +1618,7 @@ To implement Account Read, follow these steps:
     }
     ```
 
-    This is the logic: First, you must provide the Airtable record `id`. Then, the connector will loop through the records until it finds the one that matches your specified value. Once it finds the value, it will create an array of the one account record and return that array of one. It uses that record to build an ISC object for the account. If it can't find the record, it throws an error.
+    This is the logic: First, you must provide the Airtable record `id`. Then, the connector will loop through the records until it finds the one that matches your specified value. Once it finds the value, it will create an array of the one account record and return that array of one. It uses that record to build an SHF object for the account. If it can't find the record, it throws an error.
 
 ## Read Airtable account 
 
@@ -2098,7 +2106,7 @@ To implement the Account Create command, follow these steps:
 
 ## Create Airtable account
 
-Once you have configured the Account Create command, you can use your connector to create accounts in Airtable, which can then be synced with ISC. 
+Once you have configured the Account Create command, you can use your connector to create accounts in Airtable, which can then be synced with SHF. 
 
 To test the Account Create command, open Postman and open the 'Test local stdAccountCreate' command. 
 
@@ -2357,7 +2365,7 @@ To check your changes, you can open Airtable and see the identity's updated enti
 
 ## Complete code 
 
-You now have a SaaS connector that can get account data from Airtable and send it to ISC. You can also use the connector to make changes to the Airtable account data without opening Airtable at all. 
+You now have a SaaS connector that can get account data from Airtable and send it to SHF. You can also use the connector to make changes to the Airtable account data without opening Airtable at all. 
 
 Your completed code will look something like this: 
 
@@ -2814,6 +2822,6 @@ export class AirtableAccount {
 
 Now that you know how to build a SaaS connector to Airtable, you know everything you need to build a basic SaaS connector. The only things you need are some way to retrieve and modify your source account data and some way to authenticate your requests for that data. Then you can go further and customize the SaaS connector to truly suit your organization's needs.
 
-The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions.
+The most valuable resource for SHF developers is the SailPoint Developer Community itself, where SHF users and experts all over the world come together to ask questions and provide solutions.
 
 To learn more about SaaS Connectivity and discuss the different SaaS Connectivity options with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/tag/saas-connector).

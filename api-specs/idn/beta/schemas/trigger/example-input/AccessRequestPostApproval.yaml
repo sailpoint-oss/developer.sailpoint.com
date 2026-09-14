@@ -1,0 +1,113 @@
+title: Access Request Post Approval
+type: object
+required:
+- accessRequestId
+- requestedFor
+- requestedItemsStatus
+- requestedBy
+properties:
+  accessRequestId:
+    type: string
+    description: Access request's unique ID.
+    example: 2c91808b6ef1d43e016efba0ce470904
+  requestedFor:
+    required:
+    - id
+    - type
+    - name
+    type: array
+    description: Identities whom access was requested for. 
+    items: 
+      $ref: './AccessItemRequestedForDto.yaml'
+    minItems: 1
+    maxItems: 10
+  requestedItemsStatus:
+    description: Details about the outcome of each requested access item.
+    type: array
+    items:
+      type: object
+      required:
+      - id
+      - name
+      - type
+      - operation
+      - approvalInfo
+      properties:
+        id:
+          type: string
+          description: Access item's unique ID.
+          example: 2c91808b6ef1d43e016efba0ce470904
+        name:
+          type: string
+          description: Access item's name.
+          example: Engineering Access
+        description:
+          nullable: true
+          type: string
+          description: Access item's description.
+          example: Access to engineering database
+        type:
+          enum:
+          - ACCESS_PROFILE
+          - ROLE
+          - ENTITLEMENT
+          description: Access item's type.
+          example: ACCESS_PROFILE
+        operation:
+          enum:
+          - Add
+          - Remove
+          description: Action to perform on the requested access item.
+          example: Add
+        comment:
+          nullable: true
+          type: string
+          description: Comment from the identity requesting access.
+          example: William needs this access to do his job.
+        clientMetadata:
+          description: Additional customer defined metadata about the access item.
+          nullable: true
+          type: object
+          additionalProperties: true
+          example:
+            applicationName: My application
+        approvalInfo:
+          description: List of approvers for the access request.
+          type: array
+          items:
+            type: object
+            required:
+            - approvalDecision
+            - approverName
+            - approver
+            properties:
+              approvalComment:
+                nullable: true
+                type: string
+                description: Approver's comment.
+                example: This access looks good. Approved.
+              approvalDecision:
+                enum:
+                - APPROVED
+                - DENIED
+                description: Approver's final decision.
+                example: APPROVED
+              approverName:
+                type: string
+                description: Approver's name.
+                example: Stephen.Austin
+              approver:
+                required:
+                - id
+                - type
+                - name
+                allOf:
+                - $ref: './AccessItemApproverDto.yaml'
+                description: Approver's identity.
+  requestedBy:
+    required:
+    - id
+    - type
+    - name
+    allOf:
+    - $ref: './AccessItemRequesterDto.yaml'

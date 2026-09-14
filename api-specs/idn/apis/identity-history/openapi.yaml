@@ -1,0 +1,56 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Identity History
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Identity History
+paths:
+  /historical-identities/v1:
+    $ref: ./paths/historical-identities-v1.yaml
+  /historical-identities/v1/{id}:
+    $ref: ./paths/historical-identities-v1-by-id.yaml
+  /historical-identities/v1/{id}/access-items:
+    $ref: ./paths/historical-identities-v1-by-id-access-items.yaml
+  /historical-identities/v1/{id}/snapshots:
+    $ref: ./paths/historical-identities-v1-by-id-snapshots.yaml
+  /historical-identities/v1/{id}/snapshot-summary:
+    $ref: ./paths/historical-identities-v1-by-id-snapshot-summary.yaml
+  /historical-identities/v1/{id}/snapshots/{date}:
+    $ref: ./paths/historical-identities-v1-by-id-snapshots-by-date.yaml
+  /historical-identities/v1/{id}/snapshots/{date}/access-items:
+    $ref: ./paths/historical-identities-v1-by-id-snapshots-by-date-access-items.yaml
+  /historical-identities/v1/{id}/events:
+    $ref: ./paths/historical-identities-v1-by-id-events.yaml
+  /historical-identities/v1/{id}/start-date:
+    $ref: ./paths/historical-identities-v1-by-id-start-date.yaml
+  /historical-identities/v1/{id}/compare:
+    $ref: ./paths/historical-identities-v1-by-id-compare.yaml
+  /historical-identities/v1/{id}/compare/{access-type}:
+    $ref: ./paths/historical-identities-v1-by-id-compare-by-access-type.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

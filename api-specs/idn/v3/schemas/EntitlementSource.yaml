@@ -1,0 +1,18 @@
+type: object
+title: Entitlement Source
+description: Source the entitlement belongs to. 
+properties:
+  type:
+    type: string 
+    description: DTO type of source the entitlement belongs to. 
+    enum: 
+      - SOURCE
+    example: SOURCE
+  id:
+    type: string
+    description: ID of source the entitlement belongs to. 
+    example: 2c9180835d191a86015d28455b4b232a
+  name:
+    type: string
+    description: Human-readable name of source the entitlement belongs to.
+    example: HR Active Directory

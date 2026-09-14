@@ -1,0 +1,8 @@
+type: string
+description: Provision state
+enum:
+  - POTENTIAL
+  - PENDING
+  - COMPLETE
+  - FAILED
+example: POTENTIAL

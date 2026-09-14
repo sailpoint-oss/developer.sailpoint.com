@@ -1,0 +1,38 @@
+post:
+  security:
+  - userAuth:
+    - idn:notification-templates:create
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  operationId: sendTestNotification
+  tags:
+  - Notifications
+  summary: Send test notification
+  description: Send a Test Notification
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/SendTestNotificationRequestDto.yaml
+        example:
+          key: cloud_manual_work_item_summary
+          medium: EMAIL
+          context:
+            numberOfPendingTasks: '4'
+            ownerId: 201327fda1c44704ac01181e963d463c
+  responses:
+    '204':
+      $ref: ../responses/204.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

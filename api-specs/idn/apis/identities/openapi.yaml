@@ -1,0 +1,89 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Identities
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Identities
+    description: >
+      Use this API to implement identity functionality.
+
+      With this functionality in place, administrators can synchronize an identity's attributes with its various source
+      attributes.
+
+
+      Identity Security Cloud uses identities as users' authoritative accounts. Identities can own other accounts,
+      entitlements, and attributes.
+
+
+      An identity has a variety of attributes, such as an account name, an email address, a job title, and more.
+
+      These identity attributes can be correlated with different attributes on different sources.
+
+      For example, the identity John.Smith can own an account in the GitHub source with the account name John-Smith-Org,
+      and Identity Security Cloud knows they are the same person with the same access and attributes.
+
+
+      In Identity Security Cloud, administrators often set up these synchronizations to get triggered automatically with
+      a change or to run on a schedule.
+
+      To manually synchronize attributes for an identity, administrators can use the Identities drop-down menu and
+      select Identity List to view the list of identities.
+
+      They can then select the identity they want to manually synchronize and use the hamburger menu to select
+      'Synchronize Attributes.'
+
+      Doing so immediately begins the attribute synchronization and analyzes all accounts for the selected identity.
+
+
+      Refer to [Synchronizing Attributes](https://documentation.sailpoint.com/saas/help/provisioning/attr_sync.html) for
+      more information about synchronizing attributes.
+paths:
+  /identities/v1:
+    $ref: ./paths/identities-v1.yaml
+  /identities/v1/{id}:
+    $ref: ./paths/identities-v1-by-id.yaml
+  /identities/v1/{identityId}/ownership:
+    $ref: ./paths/identities-v1-by-identityid-ownership.yaml
+  /identities/v1/{id}/reset:
+    $ref: ./paths/identities-v1-by-id-reset.yaml
+  /identities/v1/{identityId}/role-assignments:
+    $ref: ./paths/identities-v1-by-identityid-role-assignments.yaml
+  /identities/v1/{identityId}/role-assignments/{assignmentId}:
+    $ref: ./paths/identities-v1-by-identityid-role-assignments-by-assignmentid.yaml
+  /entitlements/v1/identities/{id}/entitlements:
+    $ref: ./paths/entitlements-v1-identities-by-id-entitlements.yaml
+  /identities/v1/{identityId}/synchronize-attributes:
+    $ref: ./paths/identities-v1-by-identityid-synchronize-attributes.yaml
+  /identities/v1/invite:
+    $ref: ./paths/identities-v1-invite.yaml
+  /identities/v1/{id}/verification/account/send:
+    $ref: ./paths/identities-v1-by-id-verification-account-send.yaml
+  /identities/v1/process:
+    $ref: ./paths/identities-v1-process.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

@@ -1,0 +1,16 @@
+type: object
+title: BulkRejectRequestDTO
+description: BulkRejectRequestDTO is the input struct that represents the request body required to facilitate a bulk reject action for a set of generic approval requests.
+properties:
+  approvalIds:
+    type: array
+    items:
+      type: string
+    description: Array of Approval IDs to be bulk rejected
+    example:
+    - "38453251-6be2-5f8f-df93-5ce19e295837"
+    - "38453251-6be2-5f8f-df93-5ce19e295838"
+  comment:
+    type: string
+    description: Optional comment to include with the bulk reject request
+    example: "Bulk reject by admin"

@@ -1,0 +1,16 @@
+type: object
+title: Lifecycle Provisioning
+description: Provisioning execution window for the lifecycle request.
+properties:
+  status:
+    $ref: ./lifecycleprovisioningstatus.yaml
+  started:
+    type: string
+    format: date-time
+    description: Time when provisioning started (ISO-8601).
+    example: '2026-05-26T19:05:00Z'
+  ended:
+    type: string
+    format: date-time
+    description: Time when provisioning ended (ISO-8601).
+    example: '2026-05-26T19:10:00Z'

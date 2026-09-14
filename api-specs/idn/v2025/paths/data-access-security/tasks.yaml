@@ -1,0 +1,71 @@
+get:
+  security:
+    - userAuth: [ das:task:read, das:task:manage ]
+    - applicationAuth: [ das:task:read, das:task:manage ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+    - Data Access Security
+  operationId: getTasks
+  summary: Lists all DAS tasks.
+  description: >-
+    This end-point lists all the tasks in Data Access Security.
+  parameters:
+    - name: filters
+      in: query
+      schema:
+        type: string
+      example:  TaskTypeName eq "DataClassification and EndBeforeTime eq 1762240800
+      required: false
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard
+        Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **taskIds**: *eq, in*
+
+
+        **statuses**: *eq, in*
+
+
+        **taskTypeName**: *eq, in*
+
+
+        **taskName**: *eq*
+
+
+        **endBeforeTime**: *eq*
+
+
+        Supported composite operators are *and, or*
+
+
+        Example: taskTypeName eq "DataSync" and endBeforeTime eq 1762240800
+    - $ref: '../../parameters/limit.yaml'
+    - $ref: '../../parameters/offset.yaml'
+    - $ref: '../../parameters/count.yaml'
+  responses:
+    '200':
+      description: >-
+        OK. Returns a list of Data Access Security tasks.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/data-access-security/TaskInfo.yaml'
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

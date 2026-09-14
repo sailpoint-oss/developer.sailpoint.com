@@ -1,0 +1,31 @@
+description: Client Runtime Logging Configuration
+title: Set Duration Minutes
+nullable: true
+type: object
+required:
+  - rootLevel
+properties:
+  clientId:
+    description: Log configuration's client ID
+    type: string
+    example: 3a38a51992e8445ab51a549c0a70ee66  
+  durationMinutes:
+    description: Duration in minutes for log configuration to remain in effect before resetting to defaults.
+    type: integer
+    format: int32
+    example: 120
+    default: 240
+    minimum: 5
+    maximum: 1440
+  rootLevel:
+    description: Root log level to apply, the default level for all logs. For more information about logging levels, refer to the "Logging Levels" table in [Enabling Connector Logging in IdentityNow](https://community.sailpoint.com/t5/IdentityNow-Articles/Enabling-Connector-Logging-in-IdentityNow/ta-p/188107).
+    default: INFO
+    example: INFO
+    $ref: './StandardLevel.yaml'
+  logLevels:
+    description: Map of log level by key. The keys are logging classes, and the values are logging levels. To see the available connectors and their logging classes, refer to the "Logging Classes" table in [Enabling Connector Logging in IdentityNow](https://community.sailpoint.com/t5/IdentityNow-Articles/Enabling-Connector-Logging-in-IdentityNow/ta-p/188107).
+    example: {
+        "sailpoint.connector.ADLDAPConnector": "TRACE",
+        "sailpoint.connector.JDBCConnector": "DEBUG"
+    }
+    $ref: './LogLevelSpec.yaml'

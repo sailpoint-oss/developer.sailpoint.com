@@ -1,0 +1,68 @@
+get:
+  tags:
+    - Connector Customizers
+  operationId: listConnectorCustomizers
+  summary: List all connector customizers
+  description: List all connector customizers.
+  parameters:
+    - $ref: ../parameters/offset.yaml
+    - $ref: ../parameters/limit.yaml
+  responses:
+    '200':
+      description: List all connector customizers.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/ConnectorCustomizersResponse.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - sp:connector:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+post:
+  tags:
+    - Connector Customizers
+  operationId: createConnectorCustomizer
+  summary: Create connector customizer
+  description: Create a connector customizer.
+  requestBody:
+    required: true
+    description: Connector customizer to create.
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/ConnectorCustomizerCreateRequest.yaml
+  responses:
+    '201':
+      description: Created connector customizer.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/ConnectorCustomizerCreateResponse.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - sp:connector:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

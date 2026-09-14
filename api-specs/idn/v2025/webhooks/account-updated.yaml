@@ -1,0 +1,25 @@
+post:
+  summary: Account updated
+  operationId: accountUpdatedEvent
+  description: >-
+    This event trigger fires when an account is updated in Identity Security Cloud.
+
+    Accounts can be updated via aggregations or provisioning, including when entitlements are added or removed.
+
+    You could use this event trigger to fire a Workflow that takes additional actions after a new entitlement has been provisioned to a privileged account.
+
+    See [Aggregating Accounts](https://documentation.sailpoint.com/saas/help/accounts/index.html#aggregating-accounts) and [Configuring Source Account Provisioning](https://documentation.sailpoint.com/saas/help/provisioning/create_profile.html) for more information about the scenarios that lead to account updates.
+
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [Account Updated](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/account-updated).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/AccountUpdated.yaml'

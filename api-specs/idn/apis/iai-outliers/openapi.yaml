@@ -1,0 +1,52 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - IAI Outliers
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: IAI Outliers
+paths:
+  /outlier-summaries/v1:
+    $ref: ./paths/outlier-summaries-v1.yaml
+  /outlier-summaries/v1/latest:
+    $ref: ./paths/outlier-summaries-v1-latest.yaml
+  /outliers/v1:
+    $ref: ./paths/outliers-v1.yaml
+  /outliers/v1/{outlierId}/contributing-features:
+    $ref: ./paths/outliers-v1-by-outlierid-contributing-features.yaml
+  /outliers/v1/{outlierId}/feature-details/{contributingFeatureName}/access-items:
+    $ref: ./paths/outliers-v1-by-outlierid-feature-details-by-contributingfeaturename-access-items.yaml
+  /outliers/v1/ignore:
+    $ref: ./paths/outliers-v1-ignore.yaml
+  /outliers/v1/unignore:
+    $ref: ./paths/outliers-v1-unignore.yaml
+  /outliers/v1/export:
+    $ref: ./paths/outliers-v1-export.yaml
+  /outlier-feature-summaries/v1/{outlierFeatureId}:
+    $ref: ./paths/outlier-feature-summaries-v1-by-outlierfeatureid.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

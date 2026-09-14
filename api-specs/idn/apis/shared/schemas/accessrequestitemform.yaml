@@ -1,0 +1,72 @@
+type: object
+title: Access Request Item Form
+nullable: true
+description: >-
+  Completed form instance associated with an access request item. Omitted when the item has no associated form or no
+  form answers were captured. All listed properties may be present when form answers exist. Optional structural keys
+  (`formElements`, `formConditions`, `formInstanceInputs`) may also be present; their shape follows the form instance
+  payload.
+additionalProperties: true
+properties:
+  formDefinitionId:
+    type: string
+    nullable: true
+    description: ID of the form definition that was completed for this item.
+    example: b2c1808f-77f5-4a3a-9f3a-1d2e3f4a5b6c
+  formInstanceId:
+    type: string
+    nullable: true
+    description: ID of the completed form instance.
+    example: 9f3a1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e
+  formData:
+    type: object
+    nullable: true
+    additionalProperties: true
+    description: Key-value pairs (form field technical name to value) from the completed form instance.
+    example:
+      department: Engineering
+      notifyRequester: true
+      platforms:
+        - AWS
+        - GCP
+  formElements:
+    type: array
+    nullable: true
+    description: >-
+      Optional form element definitions when present. Shape follows the form instance payload.
+    items:
+      type: object
+      additionalProperties: true
+    example:
+      - id: 00000000-0000-0000-0000-000000000000
+        elementType: TEXT
+  formConditions:
+    type: array
+    nullable: true
+    description: >-
+      Optional conditional display rules when present. Shape follows the form instance payload; do not depend on a
+      fixed condition schema in this API.
+    items:
+      type: object
+      additionalProperties: true
+    example:
+      - ruleOperator: AND
+        rules: []
+        effects: []
+  formInstanceInputs:
+    type: object
+    nullable: true
+    additionalProperties: true
+    description: >-
+      Optional inputs passed into the form instance when present. Copied from the form instance payload as-is.
+    example:
+      department: Engineering
+example:
+  formDefinitionId: b2c1808f-77f5-4a3a-9f3a-1d2e3f4a5b6c
+  formInstanceId: 9f3a1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e
+  formData:
+    department: Engineering
+    notifyRequester: true
+    platforms:
+      - AWS
+      - GCP

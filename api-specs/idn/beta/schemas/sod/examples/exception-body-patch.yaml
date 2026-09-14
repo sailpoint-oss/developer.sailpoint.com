@@ -1,0 +1,10 @@
+value:
+  - op: "replace"
+    path: "/sodPolicy/id"
+    value: "c61499ae-6912-4fb5-b216-a97eb6781105"
+  - op: "replace"
+    path: "/mitigatingControl"
+    value: "Modified mitigating control"
+  - op: "replace"
+    path: "/end"
+    value: "2020-01-03T00:00:00.000Z"

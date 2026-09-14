@@ -1,0 +1,34 @@
+type: object
+properties:
+  value:
+    type: string
+    pattern: '^[a-zA-Z0-9]([a-zA-Z0-9_-]*[a-zA-Z0-9])?$'
+    maxLength: 255
+    description: >-
+      Technical name of the Attribute value. This is unique and cannot be changed after creation.
+      Allowed characters are letters, numbers, dashes (-), and underscores (_); the value cannot
+      start or end with a dash or underscore.
+    example: public
+  name:
+    type: string
+    maxLength: 100
+    description: >-
+      The display name of the Attribute value. Allowed characters are letters, numbers, whitespace,
+      and the following special characters: . / | , ( ) & _ -
+    example: Public
+  status:
+    type: string
+    description: The status of the Attribute value.
+    example: active
+  type:
+    type: string
+    nullable: true
+    enum:
+      - static
+      - adhoc
+    description: >-
+      Indicates how this Attribute value was created. static values are pre-defined and created
+      directly through this API. adhoc values are created dynamically through an internal
+      service-to-service flow when the parent Attribute has isAdhoc set to true, and cannot be
+      created directly through the public create-value API.
+    example: static

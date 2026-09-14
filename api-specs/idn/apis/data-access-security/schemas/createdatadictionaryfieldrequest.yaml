@@ -1,0 +1,19 @@
+type: object
+description: Request body for creating a custom data dictionary field.
+properties:
+  name:
+    type: string
+    description: The unique field name to create.
+    example: Department
+  dataDictionaryType:
+    type: string
+    description: The data dictionary that owns this field.
+    enum:
+      - Users
+      - Roles
+      - Permission Types
+      - Business Resources
+    example: Users
+required:
+  - name
+  - dataDictionaryType

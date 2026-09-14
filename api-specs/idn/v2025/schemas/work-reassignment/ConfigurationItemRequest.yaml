@@ -1,0 +1,24 @@
+type: object
+description: The request body for creation or update of a Reassignment Configuration for a single identity and work type
+properties:
+  reassignedFromId:
+    type: string
+    description: The identity id to reassign an item from
+    example: '2c91808781a71ddb0181b9090b5c504e'
+  reassignedToId:
+    type: string
+    description: The identity id to reassign an item to
+    example: '2c91808781a71ddb0181b9090b53504a'
+  configType:
+    $ref: 'ConfigTypeEnum.yaml'
+  startDate:
+    type: string
+    description: The date from which to start reassigning work items
+    format: 'date-time'
+    example: '2022-07-21T11:13:12.345Z'
+  endDate:
+    type: string
+    description: The date from which to stop reassigning work items.  If this is an null string it indicates a permanent reassignment.
+    format: 'date-time'
+    nullable: true
+    example: '2022-07-30T17:00:00.000Z'

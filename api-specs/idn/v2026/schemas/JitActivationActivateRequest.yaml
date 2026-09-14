@@ -1,0 +1,17 @@
+type: object
+title: JIT Activation Activate Request
+required:
+  - connectionId
+  - activationPeriodMins
+properties:
+  connectionId:
+    type: string
+    format: uuid
+    description: Entitlement connection identifier for the activation.
+    example: 757fb803-9024-5861-e510-83a56e4c5bd3
+  activationPeriodMins:
+    type: integer
+    format: int32
+    minimum: 1
+    description: Requested activation duration in minutes.
+    example: 120

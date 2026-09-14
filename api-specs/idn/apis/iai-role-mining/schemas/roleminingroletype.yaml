@@ -1,0 +1,6 @@
+type: string
+description: Role type
+enum:
+  - SPECIALIZED
+  - COMMON
+example: SPECIALIZED

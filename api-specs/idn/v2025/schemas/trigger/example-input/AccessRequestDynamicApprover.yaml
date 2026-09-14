@@ -1,0 +1,67 @@
+title: Access Request Dynamic Approver
+type: object
+required:
+- accessRequestId
+- requestedFor
+- requestedItems
+- requestedBy
+properties:
+  accessRequestId:
+    type: string
+    description: |
+      The unique ID of the access request object. Can be used with the [access request status endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-request-status) to get the status of the request.
+    example: 4b4d982dddff4267ab12f0f1e72b5a6d
+  requestedFor:
+    type: array
+    description: Identities access was requested for. 
+    items: 
+      $ref: './AccessItemRequestedForDto.yaml'
+    minItems: 1
+    maxItems: 10
+  requestedItems:
+    description: The access items that are being requested.
+    type: array
+    items:
+      type: object
+      required:
+      - id
+      - name
+      - type
+      - operation
+      properties:
+        id:
+          type: string
+          description: The unique ID of the access item.
+          example: 2c91808b6ef1d43e016efba0ce470904
+        name:
+          type: string
+          description: Human friendly name of the access item.
+          example: Engineering Access
+        description:
+          nullable: true
+          type: string
+          description: Extended description of the access item.
+          example: Engineering Access
+        type:
+          enum:
+          - ACCESS_PROFILE
+          - ROLE
+          - ENTITLEMENT
+          description: The type of access item being requested.
+          example: ACCESS_PROFILE
+        operation:
+          enum:
+          - Add
+          - Remove
+          description: Grant or revoke the access item
+          example: Add
+        comment:
+          nullable: true
+          type: string
+          description: A comment from the requestor on why the access is needed.
+          example: William needs this access for his day to day job activities.
+    minItems: 1
+    maxItems: 25
+  requestedBy:
+    allOf:
+    - $ref: './AccessItemRequesterDto.yaml'

@@ -1,0 +1,165 @@
+- id: e7dbec99d49349c8951bd84f58a05120
+  name: Manager Review
+  created: 2022-08-02T19:16:42.632Z
+  modified: null
+  description: A review of everyone's access by their manager.
+  deadlineDuration: P14D
+  ownerRef:
+    email: support@testmail.identitysoon.com
+    type: IDENTITY
+    id: 7ec252acbd4245548bc25df22348cb75
+    name: SailPoint Support
+  scheduled: false
+  campaign:
+    created: null
+    modified: null
+    filter:
+      type: CAMPAIGN_FILTER
+      id: e0adaae69852e8fe8b8a3d48e5ce757c
+      name: Test Manager Filter
+    sunsetCommentsRequired: true
+    sourceOwnerCampaignInfo: null
+    searchCampaignInfo: null
+    roleCompositionCampaignInfo: null
+    alerts: null
+    totalCertifications: null
+    completedCertifications: null
+    sourcesWithOrphanEntitlements: null
+    id: null
+    name: Manager Review
+    description: Review everyone's access.
+    deadline: null
+    type: MANAGER
+    status: null
+    emailNotificationEnabled: true
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    mandatoryCommentRequirement: NO_DECISIONS
+- id: b7e6459eed5247ac8b98a5fed81fe27f
+  name: Reporting Access Review
+  created: 2022-07-28T19:19:40.035Z
+  modified: null
+  description: A review of everyone's access to the reporting system.
+  deadlineDuration: P14D
+  ownerRef:
+    email: support@testmail.identitysoon.com
+    type: IDENTITY
+    id: 7ec252acbd4245548bc25df22348cb75
+    name: SailPoint Support
+  scheduled: false
+  campaign:
+    created: null
+    modified: null
+    filter:
+      type: CAMPAIGN_FILTER
+      id: e0adaae69852e8fe8b8a3d48e5ce757c
+      name: Test Search Filter
+    sunsetCommentsRequired: true
+    sourceOwnerCampaignInfo: null
+    searchCampaignInfo:
+      type: ACCESS
+      description: Identities with reporting abilities
+      reviewerId: null
+      reviewer: null
+      query: "@access(name: (\"reporter\"))"
+      identityIds: null
+      accessConstraints: [ ]
+    roleCompositionCampaignInfo: null
+    alerts: null
+    totalCertifications: null
+    completedCertifications: null
+    sourcesWithOrphanEntitlements: null
+    id: null
+    name: Search Campaign
+    description: Review everyone's access to the reporting system.
+    deadline: null
+    type: SEARCH
+    status: null
+    emailNotificationEnabled: true
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    mandatoryCommentRequirement: NO_DECISIONS
+- id: b9f41bc69e7a4291b9de0630396d030d
+  name: Campaign With Admin Role
+  created: 2022-08-02T13:40:36.857Z
+  modified: null
+  description: Campaign With Admin Role
+  deadlineDuration: null
+  ownerRef:
+    email: support@testmail.identitysoon.com
+    type: IDENTITY
+    id: 7ec252acbd4245548bc25df22348cb75
+    name: SailPoint Support
+  scheduled: false
+  campaign:
+    created: null
+    modified: null
+    filter: null
+    sunsetCommentsRequired: true
+    sourceOwnerCampaignInfo: null
+    searchCampaignInfo: null
+    roleCompositionCampaignInfo:
+      remediatorRef:
+        type: IDENTITY
+        id: 7ec252acbd4245548bc25df22348cb75
+        name: SailPoint Support
+      reviewerId: null
+      reviewer: null
+      roleIds:
+        - b15d609fc5c8434b865fe552315fda8f
+      query: null
+      description: null
+    alerts: null
+    totalCertifications: null
+    completedCertifications: null
+    sourcesWithOrphanEntitlements: null
+    id: null
+    name: Campaign With Admin Role
+    description: Campaign With Admin Role
+    deadline: null
+    type: ROLE_COMPOSITION
+    status: null
+    emailNotificationEnabled: false
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    mandatoryCommentRequirement: NO_DECISIONS
+- id: b9f41bc69e7a4291b9de0630396d030d
+  name: AD Source Review
+  created: 2022-08-02T13:40:36.857Z
+  modified: null
+  description: A review of our AD source.
+  deadlineDuration: P1M
+  ownerRef:
+    email: support@testmail.identitysoon.com
+    type: IDENTITY
+    id: 7ec252acbd4245548bc25df22348cb75
+    name: SailPoint Support
+  scheduled: false
+  campaign:
+    created: null
+    modified: null
+    filter:
+      type: CAMPAIGN_FILTER
+      id: e0adaae69852e8fe8b8a3d48e5ce757c
+      name: Test Source Owner Filter
+    sunsetCommentsRequired: true
+    sourceOwnerCampaignInfo:
+      sourceIds:
+        - 2c918084707deba501709d45ce4e5569
+    searchCampaignInfo: null
+    roleCompositionCampaignInfo: null
+    alerts: null
+    totalCertifications: null
+    completedCertifications: null
+    sourcesWithOrphanEntitlements: null
+    id: null
+    name: AD Source Review
+    description: Review everyone's access.
+    deadline: null
+    type: SOURCE_OWNER
+    status: null
+    emailNotificationEnabled: true
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    correlatedStatus: CORRELATED
+    mandatoryCommentRequirement: NO_DECISIONS

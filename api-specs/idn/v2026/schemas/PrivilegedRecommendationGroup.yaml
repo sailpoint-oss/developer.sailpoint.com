@@ -1,0 +1,31 @@
+description: A group of entitlement instances that share the same entitlement name and connector type, aggregated for privileged-access review.
+type: object
+title: Privileged Recommendation Group
+properties:
+  entitlementName:
+    description: The name of the entitlement shared across all instances in this group.
+    type: string
+    example: "Domain Admins"
+  connectorType:
+    description: The connector type associated with all instances in this group.
+    type: string
+    example: "Active Directory - Direct"
+  recommendationScore:
+    description: A decimal string representing the confidence score of the privilege recommendation (0.0-1.0).
+    type: string
+    example: ".85"
+  orgCount:
+    description: The number of organizations in which this entitlement appears as privileged.
+    type: integer
+    format: int32
+    example: 8
+  instanceCount:
+    description: The total number of individual entitlement instances in this group.
+    type: integer
+    format: int32
+    example: 2
+  instances:
+    description: The individual entitlement instances belonging to this group.
+    type: array
+    items:
+      $ref: ./PrivilegedRecommendationInstance.yaml

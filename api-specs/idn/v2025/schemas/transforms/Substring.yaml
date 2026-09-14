@@ -1,0 +1,42 @@
+title: substring
+type: object
+required:
+- begin
+properties:
+  begin:
+    type: integer
+    description: |
+      The index of the first character to include in the returned substring.
+      
+      
+      If `begin` is set to -1, the transform will begin at character 0 of the input data
+    example: 1
+    format: int32
+  beginOffset:
+    type: integer
+    description: |
+      This integer value is the number of characters to add to the begin attribute when returning a substring. 
+      
+      This attribute is only used if begin is not -1.
+    example: 3
+    format: int32
+  end:
+    type: integer
+    description: |
+      The index of the first character to exclude from the returned substring.
+
+      If end is -1 or not provided at all, the substring transform will return everything up to the end of the input string.
+    example: 6
+    format: int32
+  endOffset:
+    type: integer
+    description: |
+      This integer value is the number of characters to add to the end attribute when returning a substring. 
+    
+      This attribute is only used if end is provided and is not -1.
+    example: 1
+    format: int32
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml'
+  input:
+    $ref: './input.yaml'

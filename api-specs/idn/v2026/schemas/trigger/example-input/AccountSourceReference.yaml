@@ -1,0 +1,51 @@
+type: object
+description: Details about the account source.
+required:
+  - id
+  - name
+  - alias
+  - owner
+  - governanceGroup
+properties:
+  id:
+    type: string
+    description: The unique ID of the source.
+    example: 2c918082814e693601816e09471b29b6
+  name:
+    type: string
+    description: The name of the source.
+    example: Active Directory
+  alias:
+    type: string
+    description: The alias of the source.
+    example: AD
+  owner:
+    type: object
+    description: Details about the owner of the source.
+    required:
+      - id
+      - name
+    properties:
+      id:
+        type: string
+        description: ID of the source owner.
+        example: owner-123
+      name:
+        type: string
+        description: Name of the source owner.
+        example: owner-name
+  governanceGroup:
+    type: object
+    description: Details about the governance group of the source.
+    required:
+      - id
+      - name
+    properties:
+      id:
+        type: string
+        description: ID of the governance group.
+        example: group-456
+      name:
+        type: string
+        description: Name of the governance group.
+        example: governance-group-name

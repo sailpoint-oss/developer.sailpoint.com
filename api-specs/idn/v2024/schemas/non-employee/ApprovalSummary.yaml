@@ -1,0 +1,17 @@
+type: object
+properties:
+  pending:
+    type: integer
+    description: The number of pending access requests approvals.
+    format: int32
+    example: 4
+  approved:
+    type: integer
+    description: The number of approved access requests approvals.
+    format: int32
+    example: 2
+  rejected:
+    type: integer
+    description: The number of rejected access requests approvals.
+    format: int32
+    example: 1

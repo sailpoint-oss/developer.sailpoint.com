@@ -1,0 +1,130 @@
+type: object
+title: Account Action Request Dto
+description: Represents a request to perform an action on an account, such as deletion or modification.
+properties:
+  accountRequestId:
+    type: string
+    description: Account requester ID.
+    example: 2d8180a46faadee4016fb4e018c20648
+  requestType:
+    type: string
+    description: Access item requester's identity ID.
+    example: 2c7180a46faadee4016fb4e018c20648
+  createdAt:
+    description: Creation date and time of account deletion request date.
+    type: string
+    example: 2026-01-20T21:30:00Z
+    format: date-time
+    readOnly: true
+  completedAt:
+    description: Account deletion request completion date and time.
+    type: string
+    example: 2026-01-20T21:35:00Z
+    format: date-time
+    readOnly: true
+  overallStatus:
+    type: string
+    description: Overall status of deletion request.
+    example: SUCCESS
+  requester:
+    allOf:
+      - $ref: './BaseReferenceDto.yaml'
+      - description: The identity who request this account delete request.
+        nullable: false
+        example:
+          type: IDENTITY
+          id: SailPoint Support
+          name: 85131bd73fdc423599e57f40b29f01fe
+  requesterComments:
+    type: string
+    description: Comments added by the requester while creating the account deletion request.
+    example: User requested account deletion due to inactivity.
+  accountDetails:
+    allOf:
+      - $ref: './AccountDetails.yaml'
+      - description: Account Details
+        nullable: false
+        example:
+          accountId: 4542bb255921482fb36f6a5550e23a99
+          accountName: machine102
+          accountNativeIdentity: CN=machine 102,OU=megapod-useast1-vivek-e2e,OU=org-data-service,DC=TestAutomationAD,DC=local
+          accountUuid: {bcde4ff4-087a-4af4-b5e4-95c85e386276}
+          accountType: MACHINE
+          accountSubtypeId: d7ae9ea3-507f-4d00-9d4f-b4464b344b88
+          accountSubtype: null
+          description: null
+          sourceId: a03caa629a624cee90f94048252034cf
+          sourceName: Active Directory
+          hasEntitlements: false
+          disabled: false
+          locked: false
+          ownerIdentity:
+           type: IDENTITY
+           id: 28ca01acdd3648b4b0890ab2e0af8839
+           name: walter.white
+  correlatedIdentity:
+    allOf:
+     - $ref: './IdentityReference.yaml'
+     - description: Correlated Identity details
+    example:
+      id: c2353ef10dd54a8e9725beff360c0be2
+      name: machine102
+      email: machine.102@testmail.identitysoon.com
+      status: ACTIVE
+  managerReference:
+    allOf:
+     - $ref: './IdentityReference.yaml'
+    example:
+      id: 117e169acf21f4ae28e8a06198ce7f69
+      name: manager
+      email: manager@testmail.identitysoon.com
+      status: ACTIVE
+  approvalRequestId:
+    type: string
+    description: ID of the approval request associated with the account deletion action.
+    example: 06cc946d58bb4422bbd094cf78667d42
+  accountRequestPhases:
+    type: array
+    items:
+      $ref: './AccountRequestPhase.yaml'
+    description: List of account request phases.
+    example:
+        - name: APPROVAL_PHASE
+          state: APPROVED
+          started: 2026-01-14T08:08:28.644090559Z
+          finished: 2026-01-14T08:38:42.707043142Z
+        - name: PROVISIONING_PHASE
+          state: PASSED
+          started: 2026-01-14T08:38:42.785577841Z
+          finished: 2026-01-14T08:38:45.932606296Z
+  approvalDetails:
+    type: array
+    items:
+      $ref: './ApprovalDetails.yaml'
+    description: List approval details
+    example:
+      - identityID: 85131bd73fdc423599e57f40b29f01fe
+        id: 85131bd73fdc423599e57f40b29f01fe
+        name: SailPoint Support
+        email: support@testmail.identitysoon.com
+        type: IDENTITY
+        ownerOf:
+          email: Alfred.255e71dfc6e@testmail.identitysoon.com
+          type: IDENTITY
+          id: 7ec252acbd4245548bc25df22348cb75
+          name: Alfred
+        actionedAs:
+          email: Alfred.255e71dfc6e@testmail.identitysoon.com
+          type: IDENTITY
+          id: 7ec252acbd4245548bc25df22348cb75
+          name: Alfred
+        members:
+          email: Alfred.255e71dfc6e@testmail.identitysoon.com
+          type: IDENTITY
+          id: 7ec252acbd4245548bc25df22348cb75
+          name: Alfred
+  errorDetails:
+    nullable: true
+    type: string
+    description: Detailed error information.
+    example: "Detailed error message."

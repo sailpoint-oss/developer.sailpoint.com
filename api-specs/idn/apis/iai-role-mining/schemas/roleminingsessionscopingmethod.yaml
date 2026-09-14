@@ -1,0 +1,6 @@
+type: string
+description: The scoping method used in the current role mining session.
+enum:
+  - MANUAL
+  - AUTO_RM
+example: MANUAL

@@ -1,0 +1,17 @@
+type: object
+properties:
+  type:
+    $ref: './ConnectedObjectType.yaml'
+    description: Connection Object type
+  id:
+    type: string
+    description: ID of the object to which this reference applies
+    example: 2c91808568c529c60168cca6f90c1313
+  name:
+    type: string
+    description: Human-readable name of Connected object
+    example: Employee-database-read-write
+  description:
+    type: string
+    description: Description of the Connected object.
+    example: Collection of entitlements to read/write the employee database.

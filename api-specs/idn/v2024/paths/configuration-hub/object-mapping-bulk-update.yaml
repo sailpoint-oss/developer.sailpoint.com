@@ -1,0 +1,95 @@
+post:
+  operationId: updateObjectMappings
+  security:
+    - userAuth: [sp:config-object-mapping:manage]
+  tags:
+    - Configuration Hub
+  summary: Bulk updates object mappings
+  description: >-
+    This updates a set of object mappings, only enabled and targetValue fields can be updated.
+    
+    Source org should be "default" when updating object mappings that are not associated to any particular org.
+    
+    The request will need the following security scope:
+
+    - sp:config-object-mapping:manage
+  parameters:
+    - in: path
+      name: sourceOrg
+      schema:
+        type: string
+      required: true
+      description: The name of the source org.
+      example: source-org
+  requestBody:
+    description: >-
+      The object mapping request body.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/configuration-hub/ObjectMappingBulkPatchRequest.yaml'
+        example:
+          {
+            "patches": {
+              "603b1a61-d03d-4ed1-864f-a508fbd1995d": [
+                {
+                  "op": "replace",
+                  "path": "/enabled",
+                  "value": true
+                }
+              ],
+              "00bece34-f50d-4227-8878-76f620b5a971": [
+                {
+                  "op": "replace",
+                  "path": "/targetValue",
+                  "value": "New Target Value"
+                }
+              ]
+            }
+          }
+  responses:
+    '200':
+      description: >-
+        The updated object mappings.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/configuration-hub/ObjectMappingBulkPatchResponse.yaml'
+          example:
+            {
+              "patchedObjects": [
+                {
+                  "objectMappingId": "603b1a61-d03d-4ed1-864f-a508fbd1995d",
+                  "objectType": "SOURCE",
+                  "jsonPath": "$.name",
+                  "sourceValue": "Original SOURCE Name",
+                  "targetValue": "New SOURCE Name",
+                  "enabled": true,
+                  "created": "2024-03-25T15:50:41.314Z",
+                  "modified": "2024-03-25T15:50:41.299Z"
+                },
+                {
+                  "objectMappingId": "00bece34-f50d-4227-8878-76f620b5a971",
+                  "objectType": "IDENTITY",
+                  "jsonPath": "$.name",
+                  "sourceValue": "Original IDENTITY Name",
+                  "targetValue": "New IDENTITY Name ",
+                  "enabled": true,
+                  "created": "2024-03-25T15:50:41.316Z",
+                  "modified": "2024-03-25T15:50:41.316Z"
+                }
+              ]
+            }
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

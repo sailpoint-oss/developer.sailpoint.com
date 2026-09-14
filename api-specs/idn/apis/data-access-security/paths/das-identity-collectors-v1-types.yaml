@@ -1,0 +1,54 @@
+get:
+  summary: List identity collector types
+  description: >-
+    Returns the public identity collector type display names exposed for metadata and UI discovery. This endpoint
+    lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed here; the identity
+    collector type is derived from `sourceId` when creating an identity collector. Existing identity collectors may
+    still report SaaS variant types in list and update responses.
+
+
+    Pagination is not supported for this endpoint; the full set of public types is always returned.
+  security:
+  - userAuth:
+    - das:identity-collectors:read
+    - das:identity-collectors:manage
+  - applicationAuth:
+    - das:identity-collectors:read
+    - das:identity-collectors:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+  - Data Access Security
+  operationId: getIdentityCollectorTypesV1
+  parameters:
+  - $ref: ../../shared/parameters/limit.yaml
+  - $ref: ../../shared/parameters/offset.yaml
+  responses:
+    '200':
+      description: Supported identity collector type display names.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - Active Directory
+              - AWS
+              - Azure Active Directory
+              - Box
+              - Databricks
+              - Dropbox
+              - Google Drive
+              - Microsoft Entra SaaS
+              - Snowflake
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

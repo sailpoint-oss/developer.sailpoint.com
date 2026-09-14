@@ -1,0 +1,54 @@
+type: object
+title: Entitlement Access Request Config
+properties:
+  approvalSchemes:
+    type: array
+    description: Ordered list of approval steps for the access request. Empty when no approval is required.
+    items:
+      $ref: ./entitlementapprovalscheme.yaml
+  requestCommentRequired:
+    type: boolean
+    description: If the requester must provide a comment during access request.
+    default: false
+    example: true
+  denialCommentRequired:
+    type: boolean
+    description: If the reviewer must provide a comment when denying the access request.
+    default: false
+    example: false
+  reauthorizationRequired:
+    type: boolean
+    description: Is Reauthorization Required
+    default: false
+    example: false
+  requireEndDate:
+    type: boolean
+    default: false
+    description: If true, then remove date or sunset date is required in access request of the entitlement.
+    example: true
+  maxPermittedAccessDuration:
+    nullable: true
+    type: object
+    description: The maximum duration for which the access is permitted.
+    properties:
+      value:
+        type: integer
+        format: int32
+        description: The numeric value of the duration.
+        example: 5
+      timeUnit:
+        type: string
+        description: The time unit for the duration.
+        enum:
+          - HOURS
+          - DAYS
+          - WEEKS
+          - MONTHS
+        example: DAYS
+  formDefinitionId:
+    type: string
+    nullable: true
+    description: >-
+      The ID of the form definition used for the access request. If specified, the form is presented to the requester
+      during the access request process.
+    example: 78258e80-e9e2-4e1a-a11f-ce0b7c62f25d

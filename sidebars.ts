@@ -214,6 +214,10 @@ const sidebars: SidebarsConfig = {
       id: 'api/patch-requests',
     },
     {
+      type: 'doc',
+      id: 'api/using-isc-apis-with-ai-coding-assistants',
+    },
+    {
       type: 'category',
       label: 'API Specifications',
       link: {

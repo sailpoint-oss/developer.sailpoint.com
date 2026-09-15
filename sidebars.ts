@@ -94,9 +94,9 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       link: {
         type: 'generated-index',
-        title: 'API Specifications',
+        title: 'IdentityIQ 9.0 API Specifications',
         description:
-          "These are the SCIM APIs for SailPoint's on-premise service, IdentityIQ. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
+          "These are the REST APIs (version 9.0) for SailPoint's on-premise service, IdentityIQ, covering SCIM, core REST, UI REST, OAuth2, and External REST endpoints. For older versions, see the Legacy IdentityIQ API Specifications page. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.",
         slug: '/api/iiq',
       },
       items: require('./docs/api/iiq/sidebar.ts'),

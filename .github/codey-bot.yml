@@ -153,3 +153,16 @@ reviewer:
 
 stale:
   enabled: false
+
+jiraSync:
+  enabled: true
+  projectKey: DEVREL
+  epicKey: DEVREL-2680
+  issueType: Task
+  syncIssues: true
+  syncPullRequests: false
+  labels:
+    - github-sync
+    - sailpoint-oss
+    - developer-community-site
+    - repo-developer-sailpoint-com

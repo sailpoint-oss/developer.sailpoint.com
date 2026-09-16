@@ -1,114 +1,1306 @@
 ---
 title: UI Plugins
-description: Build, theme, and deploy a custom interface with the SailPoint UI Development Kit.
+description: Build a custom identity search page that runs inside your own Identity Security Cloud tenant.
 wrapperClassName: hack-day-track
 ---
+
+import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs';
 
 [← All Hack Day tracks](/hack-day)
 
 # Track 03 · UI Plugins
 
-Put a human face on identity data. You will use the UI Development Kit to spin up a custom
-interface, drop in prebuilt components, theme it to your organization, and deploy it for real users.
+Put your own page inside the product. You will scaffold a UI plugin, register it in your tenant, and
+then edit it on your laptop while the tenant renders your code live - no hosting to arrange.
+
+A UI plugin is not a separate app that sits beside Identity Security Cloud (ISC). It is a
+micro-frontend that ISC loads into one of its own slots, so your page runs inside the product and
+uses the same user session. Every API call you write is already authenticated as the person looking at the screen.
+
+The page you build is a manager lookup. Pick a manager from a dropdown, and get that manager's details
+plus every person who reports to them.
+
+:::info Experimental feature
+
+UI Plugins are experimental. The `sail ui-plugins` command group is hidden until you enable it, the
+manifest format can still change, and your tenant must have the feature switched on. If it is not,
+every backend command returns a "not enabled for this tenant" error — so confirm this with a developer
+advocate in the room before you start.
+
+:::
+
+## What you are building
+
+```
+  sail ui-plugins init        sail ui-plugins create       sail ui-plugins link
+  scaffold a workspace   ->   register it in the      ->   point the tenant at
+  on your laptop              tenant and get an ID         your local dev server
+                                                                     |
+                                                                     v
+                       +------------------------------------------------------+
+                       | https://<tenant>/ui/plugin/<id>?spPluginDev=<alias>  |
+                       |                                                      |
+                       |  Manager  [ Jean Bartik                        v ]   |
+                       |                                                      |
+                       |  +------------------------------------------------+  |
+                       |  | Jean Bartik                                    |  |
+                       |  | Email        jean.bartik@example.com           |  |
+                       |  | Department   Engineering                       |  |
+                       |  +------------------------------------------------+  |
+                       |                                                      |
+                       |  DIRECT REPORTS (3)                                  |
+                       |  Ada Byron          ada@...     Engineering   ACTIVE |
+                       |  Grace Hopper       grace@...   Engineering   ACTIVE |
+                       |  Margaret Hamilton  mh@...      Engineering   ACTIVE |
+                       +------------------------------------------------------+
+                                  ^                          ^
+                                  |                          |
+                       listIdentitiesV1()           getIdentityV1(managerId)
+                       one call on load — fills      one call per selection —
+                       the dropdown and the table    fills the manager card
+```
+
+Two API calls, and the second one exists for a reason worth knowing before you write it. An identity
+record does not contain its manager — it contains a **reference** to the manager, an id and a display
+name, in the same way a database row holds a foreign key rather than the whole related row. The
+dropdown can be built from those references alone. The manager's email address cannot, because a
+reference does not carry it. Somebody has to go and fetch that second person.
 
 ## How to get started
 
-Work through the steps in order. If a step leaves you stuck, open the hint under it to unblock
+Work through the steps in order. Steps 1 to 4 get your local code rendering inside the tenant. Steps 6 to 9 are where you write the page, one piece at a time, with
+something visible to check after each. If a step leaves you stuck, open the hint under it to unblock
 yourself and keep moving — using them costs you nothing.
 
 ### 1. Install the prerequisites
 
-Placeholder: list the Node version and tooling attendees need before starting.
+:::tip Already did Track 02?
 
-<details>
-<summary>Stuck? Reveal the install commands</summary>
+Then you have Node, the CLI, a PAT, and a `hackday` environment already. Skip to
+[Enable the UI plugin commands](#enable-the-ui-plugin-commands) — that is the only piece this track
+adds.
 
-Placeholder hint: everything you need in one block.
+:::
+
+#### Node
+
+The starter template is an [Angular](https://angular.dev/) application, Angular accepts **20.19 or newer, 22.12 or newer, or 24 and above**,
+and nothing in between. Check the minor version, not just the major one.
 
 ```bash
-# Placeholder
 node --version
 ```
 
-</details>
+If your version falls outside that set, grab a current LTS release from
+[nodejs.org](https://nodejs.org/en/download). The Angular CLI refuses to start on an unsupported
+version, so it is worth fixing now rather than in step 4.
 
-### 2. Clone and run the UI Development Kit
+#### SailPoint CLI
 
-Placeholder: describe cloning the kit, installing dependencies, and starting the dev server.
-
-<details>
-<summary>Stuck? Reveal the setup commands</summary>
-
-Placeholder hint: the commands that get the kit running locally.
+<Tabs>
+  <TabItem value="macos" label="macOS" default>
 
 ```bash
-# Placeholder
-npm install && npm run dev
+brew tap sailpoint-oss/tap && brew install sailpoint-cli
 ```
 
-</details>
+  </TabItem>
+  <TabItem value="windows" label="Windows">
 
-### 3. Connect it to your tenant
+Download `sail_2.4.0_windows_amd64.msi` from the
+[releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases), double click it, and follow
+the installer. 64-bit Windows only.
 
-Placeholder: explain configuring the environment variables and authenticating against ISC.
+  </TabItem>
+  <TabItem value="linux" label="Linux">
 
-<details>
-<summary>Stuck? Reveal a working configuration</summary>
-
-Placeholder hint: a sample environment file.
+Download the `.deb` or `.rpm` from the
+[releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases), then install it:
 
 ```bash
-# Placeholder
-VITE_BASE_URL=https://your-tenant.api.identitynow.com
+sudo apt install ./sail_2.4.0_linux_amd64.deb
 ```
+
+```bash
+sudo yum localinstall ./sail_2.4.0_linux_amd64.rpm
+```
+
+  </TabItem>
+</Tabs>
+
+Confirm it landed and that the version is **2.4.0 or newer**:
+
+```bash
+sail --version
+```
+
+:::warning
+
+The `ui-plugins` command group is new, so install the latest release rather than using whatever you
+already have. If `sail ui-plugins` reports an unknown command even after you enable it below, an old
+binary is the reason — re-run the install command for your platform to upgrade.
+
+:::
+
+#### Personal access token
+
+The CLI acts on your behalf against your tenant's APIs, so it needs credentials. A personal access
+token (PAT) is the simplest way to get authenticated.
+
+- In your tenant, open **Preferences → Personal Access Tokens**, or go straight to
+  `https://[tenant].identitynow.com/ui/d/user-preferences/personal-access-tokens`.
+- Click **New Token** and give it a description, such as `hack-day-cli`.
+- For the vendor integration, choose **Other / No associated vendor integration**.
+- Leave the scopes list empty. An empty list means the token defaults to `sp:scopes:all` and inherits
+  your own access, which is what the plugin commands need — pick narrower scopes and they will fail
+  with a `403`.
+- Click **Create Token**, then copy the **Client ID** and **Client Secret**. The secret is never
+  shown again.
+
+More detail: [personal access tokens](/docs/api/authentication#generate-a-personal-access-token).
+
+#### Point the CLI at your tenant
+
+In your terminal, run these three commands one at a time. The first creates a named environment
+pointing at your tenant, the second stores the PAT you just created, and the third tells the CLI to
+authenticate with that PAT. You will be prompted for your tenant URL
+(`https://[tenant].identitynow.com`) and API URL (`https://[tenant].api.identitynow.com`), then for
+the client ID and secret from above.
+
+```bash
+sail env create hackday
+sail set pat
+sail set auth pat
+```
+
+More detail: [CLI install and configuration](/docs/tools/cli).
+
+#### Enable the UI plugin commands
+
+The `sail ui-plugins` commands are hidden behind an environment variable while the feature is
+experimental. Set it in the terminal you are about to work in:
+
+```bash
+export SAIL_EXPERIMENTAL_UI_PLUGINS=1
+```
+
+Every command in this guide needs it. Without it you get:
+
+```text
+Error: the `sail ui-plugins` command group is experimental and currently disabled. Enable it with `SAIL_EXPERIMENTAL_UI_PLUGINS=1`
+```
+
+:::tip
+
+You will open a second terminal in step 4, and it needs the variable too. Add the `export` line to
+your shell profile — `~/.zshrc` or `~/.bashrc` — so you stop thinking about it.
+
+:::
+
+Now check that the CLI authenticates and that the feature is on. In your terminal, run:
+
+```bash
+sail ui-plugins list
+```
+
+It should return without an error. An empty list is a pass — it just means you have not created a
+plugin yet. A rights error names the `idn:plugins-ui:*` right you are missing. A "not enabled for this
+tenant" error means the feature flag is off, which is not something you can fix from here.
+
+<details>
+<summary>See details: check everything at once</summary>
+
+```bash
+node --version                      # 20.19+, 22.12+, or 24+
+sail --version                      # 2.4.0 or newer
+echo $SAIL_EXPERIMENTAL_UI_PLUGINS  # 1
+sail env                            # your tenant, active
+sail ui-plugins list                # returns without an error
+```
+
+The last line is the only real test, because it is the first command that reaches the backend. The
+rights it needs, one per operation:
+
+| Operation | Required right |
+| --- | --- |
+| Create a plugin instance | `idn:plugins-ui:create` |
+| Read or list plugin instances | `idn:plugins-ui:read` |
+| Link, unlink, or upload assets | `idn:plugins-ui:update` |
+| Delete a plugin instance | `idn:plugins-ui:delete` |
+
+- [Prerequisites](https://d25wvbnzdj80l0.cloudfront.net/docs/ui-plugins/prerequisites)
 
 </details>
 
-### 4. Build your first screen
+### 2. Scaffold the plugin workspace
 
-Placeholder: walk through adding a page that lists data from the API using the prebuilt components.
+In your terminal, paste these commands one at a time. `sail ui-plugins init` downloads the SailPoint
+starter template and personalizes it in a new folder, `cd` moves you into it, and `npm install`
+downloads its dependencies.
 
-<details>
-<summary>Stuck? Reveal a working component</summary>
+```bash
+sail ui-plugins init
+cd manager-lookup
+npm install
+```
 
-Placeholder hint: a reference implementation you can adapt.
+`init` prompts for two things: a display name and a tenant-unique **alias**. Use `manager-lookup` for
+both, and the new folder is named after the alias.
 
-```tsx
-// Placeholder
-export function MyScreen() {
-  return null;
+```text
+Plugin Name: manager-lookup
+Plugin Alias [manager-lookup]:
+
+Created plugin workspace "manager-lookup".
+```
+
+What you just generated is a normal Angular application plus one file that belongs to UI plugins.
+Four files matter:
+
+| File | What it does |
+| --- | --- |
+| `sp-ui-plugin.json` | Describes the plugin to ISC: its alias, its API scopes, and the slots it fills |
+| `src/app/app.ts` | Your component — the state and the API calls |
+| `src/app/app.html` | Your template |
+| `src/app/app.scss` | Your styles (empty in the scaffold) |
+
+Open `sp-ui-plugin.json` first, because it is the only one that is not ordinary Angular:
+
+```json
+{
+    "version": 1,
+    "manifest": {
+        "alias": "manager-lookup",
+        "name": { "en": "manager-lookup" },
+        "description": { "en": "manager-lookup" },
+        "apiScopes": ["sp:scopes:all"],
+        "contentSecurityPolicies": {},
+        "permissionPolicy": {},
+        "iframeAllow": {},
+        "state": "ENABLED",
+        "slots": [{ "slotId": "full-page" }]
+    },
+    "build": {
+        "outDir": "./dist/manager-lookup/browser",
+        "port": 4200
+    }
 }
 ```
 
-</details>
+Two halves, and the split matters:
 
-### 5. Theme and deploy
+- **`manifest`** is the part sent to ISC. It declares the alias, the display name, the API scopes your
+  page may use, and the **slots** the plugin occupies. `full-page` means your plugin gets a whole page
+  of its own rather than a panel inside an existing screen.
+- **`build`** never leaves your laptop. `outDir` tells `upload` where your compiled files land, and
+  `port` is where `link` assumes your dev server listens.
 
-Placeholder: describe applying your theme and deploying the finished UI.
-
-<details>
-<summary>Stuck? Reveal the deploy steps</summary>
-
-Placeholder hint: the build-and-deploy sequence.
+You can check the manifest's structure at any time without touching the backend:
 
 ```bash
-# Placeholder
-npm run build
+sail ui-plugins validate-manifest
 ```
+
+- [CLI command reference](https://d25wvbnzdj80l0.cloudfront.net/docs/ui-plugins/cli-command-reference)
+
+### 3. Register the plugin instance
+
+`create` reads `sp-ui-plugin.json`, validates it locally, and sends the `manifest` section to your
+tenant to register a **plugin instance**. Nothing is deployed and no code is uploaded — you are
+reserving the alias and getting an ID back.
+
+```bash
+sail ui-plugins create
+```
+
+```text
+Created plugin instance 033b32b5-280f-4d78-a856-05c2a34d15d1 (alias: manager-lookup)
+```
+
+Keep that ID. It appears in every URL you open from here on.
+
+
+### 4. Load your local code in the tenant
+
+Your plugin gets its API access from the page that hosts it. On startup it performs a handshake with
+the ISC **App Shell**, and the App Shell hands back the tenant, the signed-in user, and the token that
+API calls travel on. Open `https://localhost:4200` on its own and there is no App Shell to talk to —
+the handshake fails, and every API call fails with it. The page renders, but it has no data.
+
+So you do not develop against `localhost`. You develop against your tenant, and `link` tells the
+tenant to load your page from your dev server instead of from deployed files. The override is bound to
+your own identity, so nobody else in the tenant is affected.
+
+Start the dev server first. Use a **second terminal**, and leave it running:
+
+```bash
+npm run start
+```
+
+Then link it, back in the first terminal:
+
+```bash
+sail ui-plugins link
+```
+
+```text
+Plugin manager-lookup linked to port 4200
+To load your local plugin in ISC navigate to:
+https://<tenant>/ui/plugin/033b32b5-280f-4d78-a856-05c2a34d15d1?spPluginDev=manager-lookup
+```
+
+Open the printed URL. You get the starter page rendered inside your tenant, with a **Local Dev** badge
+on it. Edit a file, refresh the browser, and your change is there — that is your loop for the rest of
+this track.
+
+:::caution "Can't reach your local plugin server"
+
+The dev server runs over HTTPS with a self-signed certificate, and your browser refuses it until you
+say otherwise. This error almost always means one of two things:
+
+- `npm run start` is not running — check the second terminal.
+- You have not accepted the certificate yet. Open `https://localhost:4200` in a new tab, accept the
+  warning, then return to the ISC tab and click **Retry**. The browser will flag the dev server as
+  **Not Secure**, which is expected for local development.
+
+:::
+
+<details>
+<summary>See details: the full loop, and how to get out of it</summary>
+
+```bash
+# Terminal 1
+export SAIL_EXPERIMENTAL_UI_PLUGINS=1
+sail ui-plugins link          # or: sail ui-plugins link --port 4300
+
+# Terminal 2
+npm run start
+```
+
+The port is resolved from `--port`, then `build.port` in the manifest, then the default `4200`.
+
+When you are done, remove the override so the tenant goes back to serving deployed files:
+
+```bash
+sail ui-plugins unlink
+```
+
+Unlinking is idempotent — safe to run whether or not a link exists.
+
+- [Create a plugin instance](https://d25wvbnzdj80l0.cloudfront.net/docs/ui-plugins/create-a-plugin-instance)
 
 </details>
 
-### 6. Stretch goal
+### 5. Read the files you did not write
 
-Placeholder: an optional extension for attendees who finish early.
+The scaffold is a working Angular app, and most of it is boilerplate you can ignore. Two files are
+worth reading before you change anything, because together they explain why your code in the next
+four steps is as short as it is.
+
+**`src/app/core/sailpoint-plugin.service.ts`** owns the App Shell handshake. It creates the plugin SDK
+exactly once, runs the handshake once, and exposes the result as signals you can read from anywhere:
+
+| Signal | What it gives you |
+| --- | --- |
+| `context()` | Tenant, signed-in user, and current page. Null until the handshake finishes. |
+| `status()` | `pending`, then either `ready` or `failed`. |
+| `apiReady()` | True once API calls are safe to make. |
+| `tenant()`, `user()` | Convenience slices of `context()`. |
+
+You will not edit this file. You inject it and read those signals.
+
+**`src/app/app.config.ts`** contains two lines:
+
+```ts
+provideSailPoint(),
+provideAppInitializer(async () => {
+  await inject(SailpointPluginService).whenReady();
+});
+```
+
+`provideSailPoint()` registers an HTTP interceptor that attaches the plugin's token to every SDK
+request — which is why nothing you write from here mentions a token, a base URL, or a tenant name. The
+initializer then awaits the handshake *before* Angular renders anything, so your first API call cannot
+race it. Because of that second line you can call the API from the moment your component exists.
+
+**`src/app/app.ts` and `src/app/app.html`** are a demonstration, not a foundation — the starter
+template says so itself. You replace both of them in the next step.
+
+### 6. List the identities
+
+One API call feeds this whole page: the dropdown, the reports table, and the count. Get it working on
+its own before you build anything on top of it.
+
+The Angular SDK is split by API partition, so the identities service comes from its own entry point,
+and every method on it returns an Observable:
+
+```ts
+import { IdentitiesService, type Identity } from '@sailpoint/angular-sdk/identities';
+```
+
+**Method:** `listIdentitiesV1()`. Two parameters are worth passing — `limit: 250` to get a useful page
+rather than the default handful, and `sorters: 'name'` so the dropdown comes back alphabetical without
+you sorting it. `firstValueFrom()` turns the Observable into a promise, which reads better in a method
+that loads once and stores the result.
+
+Replace the entire contents of `src/app/app.ts` with the shell below. It injects the plugin service
+and the identities service, declares the three signals the page runs on, and starts the load from an
+`effect()` that waits for `apiReady()` — so the data is on its way before the user touches anything.
+That leaves you one line to write inside `loadIdentities()`: await the call, and pass what comes back
+to `this.identities.set()`.
+
+```ts
+import { Component, effect, inject, signal } from '@angular/core';
+import { SailpointPluginService } from '@core';
+import { IdentitiesService, type Identity } from '@sailpoint/angular-sdk/identities';
+import { firstValueFrom } from 'rxjs';
+
+@Component({
+  selector: 'app-root',
+  imports: [],
+  providers: [IdentitiesService],
+  templateUrl: './app.html',
+  styleUrl: './app.scss',
+})
+export class App {
+  protected readonly plugin = inject(SailpointPluginService);
+  private readonly identitiesSvc = inject(IdentitiesService);
+
+  /** Every identity the page has loaded. Everything else is derived from this. */
+  protected readonly identities = signal<Identity[]>([]);
+  protected readonly loading = signal(false);
+  protected readonly error = signal('');
+
+  private requested = false;
+
+  constructor() {
+    // Wait for the App Shell handshake, then load once.
+    effect(() => {
+      if (this.plugin.apiReady() && !this.requested) {
+        this.requested = true;
+        void this.loadIdentities();
+      }
+    });
+  }
+
+  protected async loadIdentities(): Promise<void> {
+    this.loading.set(true);
+    this.error.set('');
+
+    try {
+      // call listIdentitiesV1 with limit and sorters, then pass the
+      // result to this.identities.set()
+    } catch (err) {
+      this.error.set(this.formatApiError(err));
+    } finally {
+      this.loading.set(false);
+    }
+  }
+
+  private formatApiError(err: unknown): string {
+    return err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+  }
+}
+```
+
+Then replace `src/app/app.html` with a template that prints the count and nothing else. It reads
+`context()` for the tenant and user, so you can see the handshake worked, and it reports the states the
+page can be in:
+
+```html
+<main>
+  <header>
+    <h1>Who reports to whom?</h1>
+    @if (plugin.context(); as ctx) {
+      <p class="muted">Tenant {{ ctx.tenant.org }} · signed in as {{ ctx.user.displayName }}</p>
+    }
+  </header>
+
+  <section>
+    @if (plugin.status() === 'failed') {
+      <p class="error">
+        The App Shell handshake did not complete, so this plugin has no API token. Open the
+        <code>?spPluginDev=</code> URL that <code>sail ui-plugins link</code> printed.
+      </p>
+    } @else if (loading()) {
+      <p class="muted">Loading identities…</p>
+    } @else if (error()) {
+      <p class="error">{{ error() }}</p>
+    } @else {
+      <p>Loaded {{ identities().length }} identities.</p>
+    }
+  </section>
+</main>
+```
+
+Save both files. The dev server rebuilds on its own, so refresh the `?spPluginDev=` tab. You should
+get your tenant and user name in the header, and a line like this:
+
+```text
+Loaded 47 identities.
+```
+
+If it says `Loaded 0 identities.`, the call returned but you dropped the result — check that
+`this.identities.set()` actually runs.
+
+<details>
+<summary>See details: step recap and the full code</summary>
+
+You replaced the starter component with one that injects the plugin service and the identities
+service, then loads every identity once the handshake reports ready. The only line that was missing:
+
+```ts
+      const identities = await firstValueFrom(
+        this.identitiesSvc.listIdentitiesV1({ limit: 250, sorters: 'name' }),
+      );
+      this.identities.set(identities);
+```
+
+The `effect()` is doing real work here, so it is worth understanding. It re-runs whenever a signal it
+reads changes, and it reads `apiReady()` — so the moment the handshake flips to ready, the load starts.
+The plain `requested` boolean is deliberately not a signal: the effect must not depend on it, or
+setting it would trigger the effect again.
+
+- [Angular SDK](https://developer.sailpoint.com/docs/tools/sdk/angular)
+- [List identities](https://developer.sailpoint.com/docs/tools/sdk/angular/identities/methods/identities/#list-identities-v1)
+
+</details>
+
+### 7. Build the manager dropdown
+
+Now turn those identities into a list of managers. There is an obvious way to do this that does not
+work, and knowing why is most of the value in this step.
+
+`listIdentitiesV1` cannot filter by manager. Its filterable fields are `id`, `name`, `alias`,
+`firstname`, `lastname`, `email`, `cloudStatus`, `processingState`, `correlated`, and `protected` —
+that is the whole list. So you do not ask the API for managers; you read them out of the identities you
+already have. Every identity carries a `managerRef`, so the distinct set of those references **is** the
+list of managers in your tenant.
+
+There is an `isManager` flag on the identity record too, and deriving from the references instead has
+one practical advantage: every option in your dropdown is guaranteed to return at least one result,
+because it got there by being somebody's manager.
+
+Add the `computed()` below to `app.ts`, above `private requested = false`, then write the one missing
+line in the loop: put each `managerRef` into `byId`, keyed by `ref.id`. A `Map` does the
+de-duplication for you, because one manager appears on every one of their reports.
+
+```ts
+  /**
+   * The dropdown options. Every identity carries a managerRef, so the set of
+   * managers is the set of distinct managerRef values in the loaded list.
+   */
+  protected readonly managers = computed<ManagerOption[]>(() => {
+    const byId = new Map<string, ManagerOption>();
+
+    for (const identity of this.identities()) {
+      const ref = identity.managerRef;
+      if (ref?.id && ref.name) {
+        // add { id: ref.id, name: ref.name } to byId, keyed by ref.id
+      }
+    }
+
+    return [...byId.values()].sort((a, b) => a.name.localeCompare(b.name));
+  });
+```
+
+That needs two things the file does not have yet. Add `computed` to the existing import from
+`@angular/core`, and declare the option shape above the `@Component` block:
+
+```ts
+/** One entry in the manager dropdown. */
+interface ManagerOption {
+  id: string;
+  name: string;
+}
+```
+
+Then swap the count in `app.html` for a real control. The `@for` block needs a `track` expression so
+Angular can tell the options apart, and `option.id` is the natural key:
+
+```html
+    <label for="manager">Manager</label>
+    <select id="manager" [disabled]="loading()">
+      <option value="">{{ loading() ? 'Loading identities…' : 'Select a manager' }}</option>
+      @for (option of managers(); track option.id) {
+        <option [value]="option.id">{{ option.name }}</option>
+      }
+    </select>
+```
+
+Save and refresh. You should get a dropdown listing every manager in the tenant, alphabetically, with
+each name appearing exactly once — if a name repeats, your `Map` is being keyed by something that is
+not the manager's id.
+
+<details>
+<summary>See details: step recap and the full code</summary>
+
+You added a `computed()` that derives the manager list from the `managerRef` on each loaded identity,
+and a `<select>` bound to it. The missing line:
+
+```ts
+        byId.set(ref.id, { id: ref.id, name: ref.name });
+```
+
+The full template so far:
+
+<div style={{maxHeight: '400px', overflowY: 'auto'}}>
+
+```html
+<main>
+  <header>
+    <h1>Who reports to whom?</h1>
+    <p>Pick a manager to see their direct reports.</p>
+    @if (plugin.context(); as ctx) {
+      <p class="muted">Tenant {{ ctx.tenant.org }} · signed in as {{ ctx.user.displayName }}</p>
+    }
+  </header>
+
+  <section>
+    <label for="manager">Manager</label>
+    <select id="manager" [disabled]="loading()">
+      <option value="">{{ loading() ? 'Loading identities…' : 'Select a manager' }}</option>
+      @for (option of managers(); track option.id) {
+        <option [value]="option.id">{{ option.name }}</option>
+      }
+    </select>
+
+    @if (plugin.status() === 'failed') {
+      <p class="error">
+        The App Shell handshake did not complete, so this plugin has no API token. Open the
+        <code>?spPluginDev=</code> URL that <code>sail ui-plugins link</code> printed.
+      </p>
+    } @else if (!loading() && plugin.apiReady() && managers().length === 0 && !error()) {
+      <p class="muted">No identities in this tenant have a manager set.</p>
+    }
+    @if (error()) {
+      <p class="error">{{ error() }}</p>
+    }
+  </section>
+</main>
+```
+
+</div>
+
+A `computed()` costs you no API call and recalculates itself whenever `identities()` changes, which is
+why nothing in this step touches the network.
+
+- [Standard collection parameters](/docs/api/standard-collection-parameters) — the `filters` syntax, and
+  what each endpoint accepts
+
+</details>
+
+### 8. Show the direct reports
+
+Selecting a manager should list their reports, and you already have the data to do it — the same
+`managerRef` that built the dropdown points the other way too. This step needs no API call at all.
+
+Two pieces. First, somewhere to keep the selection, and a handler to fill it. Add the signal above the
+`managers` computed:
+
+```ts
+  /** The manager the user picked in the dropdown. */
+  protected readonly selectedManagerId = signal('');
+```
+
+And the handler at the bottom of the class, above `formatApiError()`. A native `change` event gives you
+an untyped `EventTarget`, so cast it to read the value:
+
+```ts
+  /** Runs when the user picks a manager in the dropdown. */
+  protected onManagerChange(event: Event): void {
+    this.selectedManagerId.set((event.target as HTMLSelectElement).value);
+  }
+```
+
+Second, the reports themselves, as another `computed()` below `managers`. Write the missing return: the
+identities whose `managerRef.id` matches the selected id. The empty-string guard matters, because
+"Select a manager" is a real option and must not match anybody:
+
+```ts
+  /** The direct reports of the selected manager. */
+  protected readonly reports = computed<Identity[]>(() => {
+    const managerId = this.selectedManagerId();
+    if (!managerId) {
+      return [];
+    }
+    // return the identities whose managerRef.id is managerId
+  });
+```
+
+Now wire the dropdown to the handler by binding `(change)` on the existing `<select>`:
+
+```html
+    <select id="manager" (change)="onManagerChange($event)" [disabled]="loading()">
+```
+
+And add the table after the dropdown's closing `</section>`, still inside `<main>`:
+
+```html
+  @if (selectedManagerId()) {
+    <section>
+      <h2>Direct reports ({{ reports().length }})</h2>
+      @if (reports().length === 0) {
+        <p class="muted">This manager has no direct reports in the loaded identities.</p>
+      } @else {
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (person of reports(); track person.id) {
+              <tr>
+                <td>{{ person.name }}</td>
+                <td>{{ person.emailAddress || '—' }}</td>
+                <td>{{ person.identityStatus || '—' }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      }
+    </section>
+  }
+```
+
+Save and refresh, then pick a manager. You get a heading with a count and a row per report. Open your
+browser's network tab and pick a second manager — you should see **no request at all**, because both
+`computed()` values are working from identities that are already in memory.
+
+<details>
+<summary>See details: step recap and the full code</summary>
+
+You added a signal for the selection, a handler to set it, and a second `computed()` that filters the
+loaded identities by `managerRef.id`. The missing line:
+
+```ts
+    return this.identities().filter((identity) => identity.managerRef?.id === managerId);
+```
+
+Note the `?.` — `managerRef` is nullable, because the people at the top of the organization have no
+manager. Without it, the first identity with a null `managerRef` throws.
+
+At this point the page is genuinely useful, and you could stop here. Step 9 is what makes it
+interesting.
+
+</details>
+
+### 9. Fetch the selected manager
+
+The table tells you who reports to the selected manager. It tells you almost nothing about the manager,
+because all you have is a `managerRef` — an id and a display name. No email address, no department, no
+title. Those live on the manager's own identity record, and getting them means a second call.
+
+**Method:** `getIdentityV1()`. It takes one id and returns one full `Identity`.
+
+This is the same two-lookup shape you meet everywhere in identity work: the first call tells you who
+points at whom, and the second tells you about the person being pointed at.
+
+Add two signals next to `selectedManagerId`:
+
+```ts
+  protected readonly manager = signal<Identity | undefined>(undefined);
+  protected readonly managerLoading = signal(false);
+```
+
+Then turn `onManagerChange()` into an async method that does the lookup. Replace the version from step
+8 with the one below, and write the missing line: await `getIdentityV1` with the manager's id, and pass
+the result to `this.manager.set()`. Clearing `manager` up front matters — without it, the previous
+manager's card stays on screen while the new one loads:
+
+```ts
+  /** Runs when the user picks a manager in the dropdown. */
+  protected async onManagerChange(event: Event): Promise<void> {
+    const managerId = (event.target as HTMLSelectElement).value;
+    this.selectedManagerId.set(managerId);
+    this.manager.set(undefined);
+
+    if (!managerId) {
+      return;
+    }
+
+    this.managerLoading.set(true);
+
+    try {
+      // call getIdentityV1 with managerId and pass the result to this.manager.set()
+    } catch (err) {
+      this.error.set(this.formatApiError(err));
+    } finally {
+      this.managerLoading.set(false);
+    }
+  }
+```
+
+The interesting fields are not all top-level. `emailAddress` is, but department and title live in
+`attributes`, which the SDK types as a plain `object` because its contents differ from tenant to
+tenant. So add a small reader for it, above `formatApiError()`:
+
+```ts
+  /** Reads one identity attribute out of the untyped attributes map. */
+  protected attr(identity: Identity, key: string): string {
+    const attributes = identity.attributes as Record<string, unknown> | undefined;
+    const value = attributes?.[key];
+    return typeof value === 'string' && value ? value : '—';
+  }
+```
+
+Then add the card to `app.html`, between the dropdown's closing `</section>` and the reports table:
+
+```html
+  @if (manager(); as managerRecord) {
+    <section class="card">
+      <h2>{{ managerRecord.name }}</h2>
+      <dl>
+        <dt>Email</dt>
+        <dd>{{ managerRecord.emailAddress || '—' }}</dd>
+        <dt>Department</dt>
+        <dd>{{ attr(managerRecord, 'department') }}</dd>
+        <dt>Title</dt>
+        <dd>{{ attr(managerRecord, 'jobTitle') }}</dd>
+      </dl>
+    </section>
+  } @else if (managerLoading()) {
+    <p class="muted">Loading manager…</p>
+  }
+```
+
+While you are there, put the same attribute reader to work in the reports table by adding a
+**Department** column — a `<th>Department</th>` in the header row, and
+`<td>{{ attr(person, 'department') }}</td>` in the body row.
+
+Save and refresh, then pick a manager. The card appears above the table with the manager's real email
+address and department. Watch the network tab as you pick a second one: exactly one request, to a path
+ending in `/identities/v1/<id>`, and the table below it changes with no request at all.
+
+<details>
+<summary>See details: step recap and the full code</summary>
+
+You added a manager signal, made `onManagerChange()` async so it can fetch the selected manager's full
+record, and added a reader for the untyped `attributes` map. The missing line:
+
+```ts
+      const manager = await firstValueFrom(this.identitiesSvc.getIdentityV1({ id: managerId }));
+      this.manager.set(manager);
+```
+
+Both finished files in full.
+
+`src/app/app.ts`:
+
+<div style={{maxHeight: '400px', overflowY: 'auto'}}>
+
+```ts
+import { Component, computed, effect, inject, signal } from '@angular/core';
+import { SailpointPluginService } from '@core';
+import { IdentitiesService, type Identity } from '@sailpoint/angular-sdk/identities';
+import { firstValueFrom } from 'rxjs';
+
+/** One entry in the manager dropdown. */
+interface ManagerOption {
+  id: string;
+  name: string;
+}
+
+@Component({
+  selector: 'app-root',
+  imports: [],
+  providers: [IdentitiesService],
+  templateUrl: './app.html',
+  styleUrl: './app.scss',
+})
+export class App {
+  protected readonly plugin = inject(SailpointPluginService);
+  private readonly identitiesSvc = inject(IdentitiesService);
+
+  /** Every identity the page has loaded. Everything else is derived from this. */
+  protected readonly identities = signal<Identity[]>([]);
+  protected readonly loading = signal(false);
+  protected readonly error = signal('');
+
+  /** The manager the user picked, and that manager's own full record. */
+  protected readonly selectedManagerId = signal('');
+  protected readonly manager = signal<Identity | undefined>(undefined);
+  protected readonly managerLoading = signal(false);
+
+  /**
+   * The dropdown options. Every identity carries a managerRef, so the set of
+   * managers is the set of distinct managerRef values in the loaded list.
+   */
+  protected readonly managers = computed<ManagerOption[]>(() => {
+    const byId = new Map<string, ManagerOption>();
+
+    for (const identity of this.identities()) {
+      const ref = identity.managerRef;
+      if (ref?.id && ref.name) {
+        byId.set(ref.id, { id: ref.id, name: ref.name });
+      }
+    }
+
+    return [...byId.values()].sort((a, b) => a.name.localeCompare(b.name));
+  });
+
+  /** The direct reports of the selected manager. */
+  protected readonly reports = computed<Identity[]>(() => {
+    const managerId = this.selectedManagerId();
+    if (!managerId) {
+      return [];
+    }
+    return this.identities().filter((identity) => identity.managerRef?.id === managerId);
+  });
+
+  private requested = false;
+
+  constructor() {
+    // Wait for the App Shell handshake, then load once.
+    effect(() => {
+      if (this.plugin.apiReady() && !this.requested) {
+        this.requested = true;
+        void this.loadIdentities();
+      }
+    });
+  }
+
+  protected async loadIdentities(): Promise<void> {
+    this.loading.set(true);
+    this.error.set('');
+
+    try {
+      const identities = await firstValueFrom(
+        this.identitiesSvc.listIdentitiesV1({ limit: 250, sorters: 'name' }),
+      );
+      this.identities.set(identities);
+    } catch (err) {
+      this.error.set(this.formatApiError(err));
+    } finally {
+      this.loading.set(false);
+    }
+  }
+
+  /** Runs when the user picks a manager in the dropdown. */
+  protected async onManagerChange(event: Event): Promise<void> {
+    const managerId = (event.target as HTMLSelectElement).value;
+    this.selectedManagerId.set(managerId);
+    this.manager.set(undefined);
+
+    if (!managerId) {
+      return;
+    }
+
+    // Second API call: a managerRef holds only an id and a name, so the
+    // manager's email and attributes need their own lookup.
+    this.managerLoading.set(true);
+
+    try {
+      const manager = await firstValueFrom(this.identitiesSvc.getIdentityV1({ id: managerId }));
+      this.manager.set(manager);
+    } catch (err) {
+      this.error.set(this.formatApiError(err));
+    } finally {
+      this.managerLoading.set(false);
+    }
+  }
+
+  /** Reads one identity attribute out of the untyped attributes map. */
+  protected attr(identity: Identity, key: string): string {
+    const attributes = identity.attributes as Record<string, unknown> | undefined;
+    const value = attributes?.[key];
+    return typeof value === 'string' && value ? value : '—';
+  }
+
+  private formatApiError(err: unknown): string {
+    return err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+  }
+}
+```
+
+</div>
+
+`src/app/app.html`:
+
+<div style={{maxHeight: '400px', overflowY: 'auto'}}>
+
+```html
+<main>
+  <header>
+    <h1>Who reports to whom?</h1>
+    <p>Pick a manager to see their direct reports.</p>
+    @if (plugin.context(); as ctx) {
+      <p class="muted">Tenant {{ ctx.tenant.org }} · signed in as {{ ctx.user.displayName }}</p>
+    }
+  </header>
+
+  <section>
+    <label for="manager">Manager</label>
+    <select id="manager" (change)="onManagerChange($event)" [disabled]="loading()">
+      <option value="">{{ loading() ? 'Loading identities…' : 'Select a manager' }}</option>
+      @for (option of managers(); track option.id) {
+        <option [value]="option.id">{{ option.name }}</option>
+      }
+    </select>
+
+    @if (plugin.status() === 'failed') {
+      <p class="error">
+        The App Shell handshake did not complete, so this plugin has no API token. Open the
+        <code>?spPluginDev=</code> URL that <code>sail ui-plugins link</code> printed.
+      </p>
+    } @else if (!loading() && plugin.apiReady() && managers().length === 0 && !error()) {
+      <p class="muted">No identities in this tenant have a manager set.</p>
+    }
+    @if (error()) {
+      <p class="error">{{ error() }}</p>
+    }
+  </section>
+
+  @if (manager(); as managerRecord) {
+    <section class="card">
+      <h2>{{ managerRecord.name }}</h2>
+      <dl>
+        <dt>Email</dt>
+        <dd>{{ managerRecord.emailAddress || '—' }}</dd>
+        <dt>Department</dt>
+        <dd>{{ attr(managerRecord, 'department') }}</dd>
+        <dt>Title</dt>
+        <dd>{{ attr(managerRecord, 'jobTitle') }}</dd>
+      </dl>
+    </section>
+  } @else if (managerLoading()) {
+    <p class="muted">Loading manager…</p>
+  }
+
+  @if (selectedManagerId()) {
+    <section>
+      <h2>Direct reports ({{ reports().length }})</h2>
+      @if (reports().length === 0) {
+        <p class="muted">This manager has no direct reports in the loaded identities.</p>
+      } @else {
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Department</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (person of reports(); track person.id) {
+              <tr>
+                <td>{{ person.name }}</td>
+                <td>{{ person.emailAddress || '—' }}</td>
+                <td>{{ attr(person, 'department') }}</td>
+                <td>{{ person.identityStatus || '—' }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      }
+    </section>
+  }
+</main>
+```
+
+</div>
+
+The starter keeps its styles inline in the template and leaves `app.scss` empty. If you want the page
+to look deliberate rather than unstyled, paste this in — it is already wired up through `styleUrl`:
+
+<div style={{maxHeight: '400px', overflowY: 'auto'}}>
+
+```scss
+:host {
+  display: block;
+  box-sizing: border-box;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  color: #1a1a2e;
+}
+
+h1 { margin: 0 0 0.25rem; font-size: 1.5rem; }
+h2 { margin: 0 0 0.5rem; font-size: 1.1rem; }
+section { margin-top: 1.5rem; }
+label { display: block; font-weight: 600; margin-bottom: 0.25rem; }
+select { min-width: 18rem; padding: 0.4rem; }
+
+.muted { color: #5a5a72; }
+.error { color: #b00020; }
+
+.card {
+  padding: 1rem;
+  border: 1px solid #e2e2ea;
+  border-radius: 0.5rem;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0;
+}
+dt { font-weight: 600; }
+dd { margin: 0; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid #e2e2ea; }
+th { font-size: 0.85rem; text-transform: uppercase; color: #5a5a72; }
+```
+
+</div>
+
+- [Get identity](https://developer.sailpoint.com/docs/tools/sdk/angular/identities/methods/identities/#get-identity-v1)
+
+</details>
+
+:::note
+
+The starter ships a test in `src/app/app.spec.ts` that asserts the old heading text, so it fails from
+step 6 onward. Nothing in this track runs `npm test` — leave it or delete it.
+
+:::
+
+<details>
+<summary>See details: what to check when the page is empty</summary>
+
+| What you see | What it means |
+| --- | --- |
+| The handshake error from the template | You opened `https://localhost:4200` directly instead of the `?spPluginDev=` URL. |
+| "No identities in this tenant have a manager set." | The call returned, but no identity in the first 250 has a `managerRef`. Open somebody under **Admin → Identities** and check. |
+| A `403` on the error line | The PAT was created with narrower scopes than `sp:scopes:all`. Delete it and create a new one with the scopes list left empty. |
+| A blank page | A TypeScript error, or an unsupported Node version. Look at the terminal running `npm run start`. |
+| The old starter page | A cached copy. Hard refresh. |
+
+</details>
+
+### 10. Deploy to your tenant
+
+:::tip Short on time?
+
+This step is optional. Everything above already works, and you can show a proctor the page running in
+your tenant with the **Local Dev** badge on it.
+
+:::
+
+Everything so far has run on your laptop. These commands put the compiled page in your tenant, so it
+works for other people and keeps working after you close your laptop. In your terminal — the first one,
+not the one running `npm run start` — run them one at a time. The first compiles your app, and the
+second uploads the result.
+
+```bash
+npm run build
+sail ui-plugins upload
+```
+
+```text
+Uploaded 5 asset(s) to plugin "manager-lookup" (bundle 88610c07-b1fe-42d8-98c5-01703efd7cf7)
+The plugin can be viewed at:
+https://<tenant>/ui/plugin/033b32b5-280f-4d78-a856-05c2a34d15d1
+```
+
+`upload` is a deploy step, not a build step — it uploads whatever is already in `build.outDir` and
+never runs your framework's build for you. Skip `npm run build` and it fails immediately:
+
+```text
+Error: output directory ./dist/manager-lookup/browser does not exist
+```
+
+Open the printed URL. It is the same page without the **Local Dev** badge, because the tenant is
+serving the uploaded files rather than your dev server. Run `sail ui-plugins unlink` to drop your
+override and confirm the deployed copy stands on its own.
+
+The alias is the lookup key, and the CLI resolves it against whichever tenant you are authenticated
+to — so the identical `upload` command deploys to staging or to production depending only on
+`sail env`. There are no environment-specific plugin IDs to track.
+
+<details>
+<summary>See details: managing what you deployed</summary>
+
+```bash
+# What is registered in this tenant?
+sail ui-plugins list
+
+# Stop loading local code
+sail ui-plugins unlink
+
+# Remove the plugin instance entirely (prompts to confirm)
+sail ui-plugins delete manager-lookup
+```
+
+Each `upload` becomes the instance's **active asset bundle**, hosted immutably behind a CDN. Uploading
+again changes which bundle is active.
+
+- [CLI command reference](https://d25wvbnzdj80l0.cloudfront.net/docs/ui-plugins/cli-command-reference)
+
+</details>
+
+### 11. Stretch goals
+
+Pick whichever looks most interesting. Each one maps to something real plugins actually have to do.
+
+- **Add a name filter.** Put a text input above the dropdown and narrow the reports table as the user
+  types. Do it as a third `computed()` reading a signal from the input — no API call needed.
+- **Show the whole chain.** The manager has a `managerRef` too. Follow it upward with repeated
+  `getIdentityV1` calls and render the reporting line from the selected person to the top of the
+  organization. Stop when `managerRef` is null, and stop if you see an id twice — real data is not
+  always a tree.
+- **Fix the 250 limit.** The page loads one page of identities, so a large tenant is silently
+  truncated. Either page through with `limit` and `offset` until a short page comes back, or pass
+  `count: true` and read the `X-Total-Count` header first by calling with `observe: 'response'`.
+- **Ask the server instead.** Replace the client-side filter with a real query. The search API can
+  filter on manager, which `listIdentitiesV1` cannot:
+
+  ```ts
+  import { SearchService, Index } from '@sailpoint/angular-sdk/search';
+
+  const results = await firstValueFrom(
+    this.searchSvc.searchPostV1({
+      search: {
+        indices: [Index.Identities],
+        query: { query: `manager.id:${managerId}` },
+        sort: ['name'],
+      },
+      limit: 250,
+    }),
+  );
+  ```
+
+  Be ready for one surprise: `searchPostV1` returns search documents, not `Identity` objects, so the
+  field names differ. Log one result and fix the table columns before you fight the types.
+- **Count them instead of listing them.** Use `searchAggregateV1` to get reports-per-manager for the
+  whole tenant in one call and render it as a list. That is one request for a page that would otherwise
+  take hundreds.
+- **Fill a different slot.** Change `slots` in `sp-ui-plugin.json`, then `create` a second plugin
+  instance and see where it lands in the product. `full-page` is what the starter uses, and it is not
+  the only one.
 
 ## Documentation
 
-- [UI Development Kit overview](/docs/tools/ui-development-kit)
-- [Getting started](/docs/tools/ui-development-kit/getting-started)
-- [Components and features](/docs/tools/ui-development-kit/features)
-- [Theming](/docs/tools/ui-development-kit/theming)
-- [Deploying your UI](/docs/tools/ui-development-kit/deploying)
+The UI Plugins documentation is new. Until it ships to this site, read it on the preview build:
+
+- [UI Plugins overview](https://d25wvbnzdj80l0.cloudfront.net/docs/ui-plugins) — concepts and the
+  development lifecycle
+- [Prerequisites](https://d25wvbnzdj80l0.cloudfront.net/docs/ui-plugins/prerequisites) — software,
+  authentication, and the rights each operation needs
+- [Create a plugin instance](https://d25wvbnzdj80l0.cloudfront.net/docs/ui-plugins/create-a-plugin-instance)
+  — the same walkthrough as steps 2 to 10, in more detail
+- [CLI command reference](https://d25wvbnzdj80l0.cloudfront.net/docs/ui-plugins/cli-command-reference)
+  — every command, every flag, and the full `sp-ui-plugin.json` contract
+
+For the API calls in steps 6 to 9:
+
+- [Angular SDK](https://developer.sailpoint.com/docs/tools/sdk/angular) — installation and the
+  per-partition entry points
+- [List identities](https://developer.sailpoint.com/docs/tools/sdk/angular/identities/methods/identities/#list-identities-v1)
+  — every parameter, and the fields you can filter on
+- [Get identity](https://developer.sailpoint.com/docs/tools/sdk/angular/identities/methods/identities/#get-identity-v1)
+- [Search API](/docs/api/search) — for the stretch goals
+- [Standard collection parameters](/docs/api/standard-collection-parameters) — `filters`, `sorters`,
+  `limit`, `offset`, and paging
 
 ## Still stuck?
 

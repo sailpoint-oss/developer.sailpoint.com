@@ -34,16 +34,16 @@ sail ui-plugins init
 ```
 
 ```text
-Plugin Name: phils-plugin
-Plugin Alias [phils-plugin]:
+Plugin Name: test-plugin
+Plugin Alias [test-plugin]:
 2026/07/23 10:52:23 INFO Fetching template from GitHub owner=sailpoint-oss repo=ui-plugin-templates
-2026/07/23 10:52:25 INFO Extracting subtree subdir=angular/starter dest=phils-plugin
-2026/07/23 10:52:25 INFO Subtree extracted. dest=phils-plugin
+2026/07/23 10:52:25 INFO Extracting subtree subdir=angular/starter dest=test-plugin
+2026/07/23 10:52:25 INFO Subtree extracted. dest=test-plugin
 
-Created plugin workspace "phils-plugin".
+Created plugin workspace "test-plugin".
 
 Next steps:
-  cd phils-plugin
+  cd test-plugin
   npm install
   sail ui-plugins create
 ```
@@ -51,7 +51,7 @@ Next steps:
 You can also run `init` without prompts by passing the name as a positional argument (and, optionally, an explicit alias):
 
 ```bash
-sail ui-plugins init "Phils Plugin" --alias phils-plugin
+sail ui-plugins init "Phils Plugin" --alias test-plugin
 ```
 
 :::tip Alias validation
@@ -68,9 +68,9 @@ The scaffold is a standard Angular workspace personalized with your alias and na
 {
     "version": 1,
     "manifest": {
-        "alias": "phils-plugin",
-        "name": { "en": "phils-plugin" },
-        "description": { "en": "phils-plugin" },
+        "alias": "test-plugin",
+        "name": { "en": "test-plugin" },
+        "description": { "en": "test-plugin" },
         "apiScopes": ["sp:scopes:all"],
         "contentSecurityPolicies": {},
         "permissionPolicy": {},
@@ -78,7 +78,7 @@ The scaffold is a standard Angular workspace personalized with your alias and na
         "slots": [{ "slotId": "full-page" }]
     },
     "build": {
-        "outDir": "./dist/phils-plugin/browser",
+        "outDir": "./dist/test-plugin/browser",
         "port": 4200
     }
 }
@@ -98,7 +98,7 @@ sail ui-plugins validate-manifest
 Move into the new workspace and install its dependencies:
 
 ```bash
-cd phils-plugin
+cd test-plugin
 npm install
 ```
 
@@ -111,7 +111,7 @@ sail ui-plugins create
 ```
 
 ```text
-Created plugin instance 033b32b5-280f-4d78-a856-05c2a34d15d1 (alias: phils-plugin)
+Created plugin instance 033b32b5-280f-4d78-a856-05c2a34d15d1 (alias: test-plugin)
 ```
 
 The plugin instance ID (a UUID) is the permanent identifier for this registration in the tenant. The alias remains your friendly, tenant-unique handle for it.
@@ -153,9 +153,9 @@ sail ui-plugins link
 ```
 
 ```text
-Plugin phils-plugin linked to port 4200
+Plugin test-plugin linked to port 4200
 To load your local plugin in ISC navigate to:
-https://<tenant>/ui/plugin/033b32b5-280f-4d78-a856-05c2a34d15d1?spPluginDev=phils-plugin
+https://<tenant>/ui/plugin/033b32b5-280f-4d78-a856-05c2a34d15d1?spPluginDev=test-plugin
 ```
 
 Open the printed URL in your browser. ISC's plugin renderer verifies the override and, if you are authorized, loads your local code live in the tenant with a **Local Dev** badge. Because your dev server is still running, changes you make locally appear when you refresh.
@@ -189,7 +189,7 @@ sail ui-plugins unlink
 ```
 
 ```text
-Removed the local dev link for plugin "phils-plugin"
+Removed the local dev link for plugin "test-plugin"
 ```
 
 Unlinking is idempotent — it is safe to run whether or not a link currently exists.
@@ -205,7 +205,7 @@ npm run build
 ```
 
 ```text
-Output location: .../phils-plugin/dist/phils-plugin
+Output location: .../test-plugin/dist/test-plugin
 ```
 
 Then upload the compiled assets. The command reads `build.outDir` from the manifest to find them:
@@ -215,7 +215,7 @@ sail ui-plugins upload
 ```
 
 ```text
-Uploaded 5 asset(s) to plugin "phils-plugin" (bundle 88610c07-b1fe-42d8-98c5-01703efd7cf7)
+Uploaded 5 asset(s) to plugin "test-plugin" (bundle 88610c07-b1fe-42d8-98c5-01703efd7cf7)
 The plugin can be viewed at:
 https://<tenant>/ui/plugin/033b32b5-280f-4d78-a856-05c2a34d15d1
 ```
@@ -229,7 +229,7 @@ The uploaded assets become the plugin instance's **active asset bundle**, hosted
 If you run `upload` before building, the CLI fails fast because the output directory does not exist:
 
 ```text
-Error: output directory ./dist/phils-plugin/browser does not exist
+Error: output directory ./dist/test-plugin/browser does not exist
 ```
 
 Run `npm run build` first, then upload.
@@ -253,7 +253,7 @@ sail ui-plugins list
 Delete a plugin instance by alias or plugin ID (you are prompted to confirm):
 
 ```bash
-sail ui-plugins delete phils-plugin
+sail ui-plugins delete test-plugin
 ```
 
 ## Next steps

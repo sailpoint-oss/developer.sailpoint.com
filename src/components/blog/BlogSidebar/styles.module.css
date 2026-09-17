@@ -187,7 +187,7 @@
   top: 0;
   bottom: 0;
   width: 50%;
-  background-color: #cc27b0; /* Default color for "Identity Security Cloud" */
+  background-color: #cc27b0; /* Default color for "SailPoint Human Fabric" */
   border-radius: 25px;
   transition:
     transform 0.25s ease,
@@ -206,7 +206,7 @@
   text-align: center;
   z-index: 1;
   transition: color 0.25s;
-  color: white; /* "Identity Security Cloud" highlighted */
+  color: white; /* "SailPoint Human Fabric" highlighted */
 }
 
 .toggleCheckbox:not(:checked) + .toggleLabel .toggleTextRight {
@@ -230,7 +230,7 @@
   text-align: center;
   z-index: 1;
   transition: color 0.25s;
-  color: #415364; /* "Identity Security Cloud" not highlighted */
+  color: #415364; /* "SailPoint Human Fabric" not highlighted */
 }
 
 @media only screen and (max-width: 550px) {

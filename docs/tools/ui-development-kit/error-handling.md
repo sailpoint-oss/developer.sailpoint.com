@@ -63,6 +63,6 @@ When running the built app locally, you can retrieve details logging from the ap
 
 ## Discuss
 
-The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions.
+The most valuable resource for SHF developers is the SailPoint Developer Community itself, where SHF users and experts all over the world come together to ask questions and provide solutions.
 
-To learn more about the ISC UI Development Kit and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6).
+To learn more about the SHF UI Development Kit and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6).

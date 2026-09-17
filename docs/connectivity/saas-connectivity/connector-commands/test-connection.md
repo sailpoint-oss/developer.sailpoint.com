@@ -27,7 +27,7 @@ The test connection command ensures the connector can communicate with the targe
 
 To use this command, you must specify this value in the `commands` array: `std:test-connection`
 
-Use ‘Test Connection’ in the ISC UI after an admin has finished entering configuration information for a new instance of the connector.
+Use ‘Test Connection’ in the SHF UI after an admin has finished entering configuration information for a new instance of the connector.
 
 ![Test Connection](./img/test_command_idn.png)
 
@@ -35,7 +35,7 @@ Use ‘Test Connection’ in the ISC UI after an admin has finished entering con
 
 ### Validating configuration on startup
 
-Before making any API calls, validate that all required configuration properties are present. Throw an `InvalidConfigurationError` (not a generic `ConnectorError`) so ISC surfaces a clear message to the administrator rather than a generic failure. Do this in your client class constructor:
+Before making any API calls, validate that all required configuration properties are present. Throw an `InvalidConfigurationError` (not a generic `ConnectorError`) so SHF surfaces a clear message to the administrator rather than a generic failure. Do this in your client class constructor:
 
 ```typescript
 import { ConnectorError, createConnectorHttpClient } from '@sailpoint/connector-sdk'

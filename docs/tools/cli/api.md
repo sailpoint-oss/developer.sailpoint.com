@@ -115,7 +115,7 @@ sail api put /v2025/transforms --file-body ./updated-transform.json
 
 ## Delete requests
 
-Use this command to remove resources from Identity Security Cloud.
+Use this command to remove resources from SailPoint Human Fabric.
 
 Run the following command to remove a transform from your tenant:
 

@@ -6,16 +6,16 @@ sidebar_label: CLI
 sidebar_position: 1
 sidebar_class_name: cli
 keywords: ['cli']
-description: Terminal-based tool for interaction with ISC.
+description: Terminal-based tool for interaction with SHF.
 slug: /tools/cli
 tags: ['CLI']
 ---
 
 ## Start using the CLI
 
-The SailPoint CLI is a terminal-based tool you can use to to interact with your Identity Security Cloud (ISC) tenant. The CLI provides a text-based environment you can use to run operations known as "commands" to interact with your tenant however you want.
+The SailPoint CLI is a terminal-based tool you can use to to interact with your SailPoint Human Fabric (SHF) tenant. The CLI provides a text-based environment you can use to run operations known as "commands" to interact with your tenant however you want.
 
-You can use the CLI to perform many functions you would have otherwise used Postman or custom scripts to perform before. For example, you can use the CLI to call the SailPoint APIs to do whatever you want in your ISC tenant, and you can do all this directly on the command line, with minimal setup.
+You can use the CLI to perform many functions you would have otherwise used Postman or custom scripts to perform before. For example, you can use the CLI to call the SailPoint APIs to do whatever you want in your SHF tenant, and you can do all this directly on the command line, with minimal setup.
 
 <div className="text--center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JInlFmABuO8?si=CE8fw3RB1w7qFESv" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
@@ -44,7 +44,6 @@ Learn how to use the SailPoint command line interface (CLI) in this guide.
 - [Contribution](#contribution)
 - [Questions](#questions)
 
-
 ## Get the CLI
 
 To install the SailPoint CLI: use a package manager for the OS of your choice. Prebuilt binaries for OS X, Windows, and Linux are provided in each [release](https://github.com/sailpoint-oss/sailpoint-cli/releases).
@@ -66,7 +65,7 @@ To install the MSI file, double click on it and follow the prompts in the instal
 MacOS users can use [Homebrew](https://brew.sh/) to install the CLI. Run these commands in your terminal:
 
 ```bash
-brew tap sailpoint-oss/tap && brew install sailpoint-cli
+brew install sailpoint-oss/tap/sailpoint-cli
 ```
 
 Then make sure you can run the `sail` command.
@@ -105,9 +104,9 @@ sudo yum localinstall /path/to/rpm/package/sail_x.x.x_linux_amd64.rpm
 
 ## Configuration
 
-To configure the CLI to connect and authenticate to your ISC tenant, you must do the following:
+To configure the CLI to connect and authenticate to your SHF tenant, you must do the following:
 
-- Find your tenant name. To learn how to find it, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The CLI will use this tenant name to connect to your ISC instance.
+- Find your tenant name. To learn how to find it, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The CLI will use this tenant name to connect to your SHF instance.
 - OAuth
 - PAT | Create a personal access token (PAT). Make sure to note the "Client ID" and "Client Secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/docs/api/authentication#generate-a-personal-access-token).
 
@@ -121,12 +120,30 @@ with `{environment}` being the name of the environment you wish to configure.
 
 You will be prompted for the following information:
 
-- The Tenant URL - The web URL used to access your Identity Security Cloud tenant (ex. https://tenant.identitynow.com), this is used during the OAuth process.
-- The API URL - The API URL used to access your Identity Security Cloud tenant (ex. https://tenant.api.identitynow.com), this is used for the api calls made by certain commands.
+- The Tenant URL - The web URL used to access your SailPoint Human Fabric tenant (ex. https://tenant.identitynow.com), this is used during the OAuth process.
+- The API URL - The API URL used to access your SailPoint Human Fabric tenant (ex. https://tenant.api.identitynow.com), this is used for the api calls made by certain commands.
 
 ### OAuth authentication
 
 With the default environment values populated you can immediately begin using the CLI with OAuth authentication. Just make sure OAuth is your selected authentication method, this can be done by running `sail set auth oauth`.
+
+The CLI runs the authorization code flow with PKCE, and it exchanges the code with your tenant directly. These are the steps:
+
+1. The CLI opens your browser and prints a confirmation code, such as `Ab3d-9Kx1`.
+
+2. You sign in to Identity Security Cloud.
+
+3. The page at `https://developer.sailpoint.com/sailapps` shows the same confirmation code and a one-time code that starts with `sp1.`. Make sure that both confirmation codes match.
+
+4. You copy the one-time code and paste it into the CLI prompt.
+
+The CLI refuses the one-time code if it belongs to a different sign-in attempt. Paste the code only into the CLI window that started sign-in.
+
+:::info
+
+OAuth login needs an interactive terminal, because you must paste the code. Use a personal access token in a pipeline or in any other non-interactive session.
+
+:::
 
 ### PAT authentication
 
@@ -173,9 +190,9 @@ Run the `sail` command for an overview of available commands and flags. You can 
 These commands are available:
 
 - `connectors`: This command is a CLI interface for the SaaS Connectivity platform. The CLI is the best way to create and manage SaaS connectors within your tenant. For more information about the `connectors` command, refer to the CLI [Connectors guide](/docs/tools/cli/connectors).
-- `search`: Run this command to access ISC search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](/docs/tools/cli/search).
+- `search`: Run this command to access SHF search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](/docs/tools/cli/search).
 - `set`: Run this command to configure your CLI settings. For more information about the `set` command, refer to the CLI [Set guide](/docs/tools/cli/set).
-- `spconfig`: Run this command to access ISC SP Config functionality. For more information about the `spconfig` command, refer to the CLI [SPConfig guide](/docs/tools/cli/spconfig).
+- `spconfig`: Run this command to access SHF SP Config functionality. For more information about the `spconfig` command, refer to the CLI [SPConfig guide](/docs/tools/cli/spconfig).
 - `transform`: This command is a CLI interface that makes it easy to create, manage, and test transforms. For more information about the `transform` command, refer to the CLI [Transforms guide](/docs/tools/cli/transforms).
 - `va`: Run this command to access VAs connected to your tenant. For more information about the `va` command, refer to the CLI [VA guide](/docs/tools/cli/va).
 - `cluster`: Run this command to access VA clusters connected to your tenant. For more information about the `cluster` command, refer to the CLI [Clusters guide](/docs/tools/cli/cluster).

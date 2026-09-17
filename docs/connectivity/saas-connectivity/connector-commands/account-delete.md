@@ -36,10 +36,10 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-The account delete command sends the account's key from ISC, which your connector uses to permanently remove the account from the source system.
+The account delete command sends the account's key from SHF, which your connector uses to permanently remove the account from the source system.
 
 :::caution Important
-Although SaaS Connectivity supports the `std:account:delete` command, ISC does **not** send it automatically during normal leaver lifecycle events. ISC sends the `std:account:disable` command during standard offboarding. Account delete must be triggered explicitly by a `BeforeProvisioning` rule. For more information, see the [documentation](https://community.sailpoint.com/t5/Identity-Security-Cloud-Articles/Identity-Security-Cloud-Rule-Guide/ta-p/76665) and an [example implementation](https://community.sailpoint.com/t5/Identity-Security-Cloud-Wiki/Identity-Security-Cloud-Rule-Guide-Before-Provisioning-Rule/ta-p/77415). If you want to permanently remove accounts on leaver events, implement that logic in your [Account Disable](./account-disable.md) handler instead.
+Although SaaS Connectivity supports the `std:account:delete` command, SHF does **not** send it automatically during normal leaver lifecycle events. SHF sends the `std:account:disable` command during standard offboarding. Account delete must be triggered explicitly by a `BeforeProvisioning` rule. For more information, see the [documentation](https://community.sailpoint.com/t5/Identity-Security-Cloud-Articles/Identity-Security-Cloud-Rule-Guide/ta-p/76665) and an [example implementation](https://community.sailpoint.com/t5/Identity-Security-Cloud-Wiki/Identity-Security-Cloud-Rule-Guide-Before-Provisioning-Rule/ta-p/77415). If you want to permanently remove accounts on leaver events, implement that logic in your [Account Disable](./account-disable.md) handler instead.
 :::
 
 To use this command, you must specify this value in the `commands` array: `std:account:delete`

@@ -45,7 +45,7 @@ export class AirtableClient {
 
 ## Not Found Error Type
 
-The connector SDK offers a special error type `ConnectorErrorType.NotFound`. This error signals to ISC that a specific account does not exist in the source system. When ISC receives this error during a provisioning event (such as an account update triggered by a role assignment), it will automatically call `std:account:create` to provision the account rather than treating the failure as an error.
+The connector SDK offers a special error type `ConnectorErrorType.NotFound`. This error signals to SHF that a specific account does not exist in the source system. When SHF receives this error during a provisioning event (such as an account update triggered by a role assignment), it will automatically call `std:account:create` to provision the account rather than treating the failure as an error.
 
 ```typescript
 import { ConnectorError, ConnectorErrorType } from '@sailpoint/connector-sdk'
@@ -54,8 +54,8 @@ import { ConnectorError, ConnectorErrorType } from '@sailpoint/connector-sdk'
     const account = await myClient.getAccount(input.identity)
 
     if (!account) {
-        // Signal to ISC that the account does not exist.
-        // ISC will automatically trigger std:account:create for this identity.
+        // Signal to SHF that the account does not exist.
+        // SHF will automatically trigger std:account:create for this identity.
         throw new ConnectorError('Account not found', ConnectorErrorType.NotFound)
     }
 
@@ -100,7 +100,7 @@ export class MyClient {
 
 ## Recommended error types and when to use them
 
-The following custom error classes cover the most common failure scenarios. Each maps to a `ConnectorErrorType` that ISC understands.
+The following custom error classes cover the most common failure scenarios. Each maps to a `ConnectorErrorType` that SHF understands.
 
 ### `InvalidConfigurationError`
 
@@ -116,7 +116,7 @@ constructor(config: any) {
 
 ### `InsufficientPermissionError`
 
-Use when the source API returns a 403 or an equivalent "access denied" error. This tells ISC the connector's credentials do not have the required permissions.
+Use when the source API returns a 403 or an equivalent "access denied" error. This tells SHF the connector's credentials do not have the required permissions.
 
 ```typescript
 async getAccount(id: string): Promise<any> {
@@ -165,7 +165,7 @@ async listAccounts(): Promise<any[]> {
 
 ### `TimeoutError`
 
-Use when the source system returns a timeout error or when an operation takes longer than expected. This is distinct from the ISC-level 3-minute connector timeout.
+Use when the source system returns a timeout error or when an operation takes longer than expected. This is distinct from the SHF-level 3-minute connector timeout.
 
 ```typescript
 async runLongOperation(): Promise<void> {

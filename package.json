@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start --port=4201",
+    "start": "docusaurus start --port=4200",
     "start-minified": "docusaurus start --config docusaurus.config.minified.ts --port=4202",
     "start-extensibility": "docusaurus start --config docusaurus.config.extensibility.ts --port=4203",
     "build": "docusaurus build",
@@ -30,9 +30,9 @@
     "sync-sdk-docs": "bash scripts/sync-sdk-docs-local.sh",
     "sync-sdk-docs:skip-build": "bash scripts/sync-sdk-docs-local.sh --skip-build",
     "setup": "bash scripts/setup.sh",
-    "v1-merge-code-examples": "node src/components/mergeoverlayfiles.js static/code-examples/v1/python_code_examples_overlay.yaml static/code-examples/v1/powershell_code_examples_overlay.yaml static/code-examples/v1/go_code_examples_overlay.yaml static/code-examples/v1/typescript_code_examples_overlay.yaml",
+    "v1-merge-code-examples": "node src/components/mergeoverlayfiles.js static/code-examples/v1/python_code_examples_overlay.yaml static/code-examples/v1/powershell_code_examples_overlay.yaml static/code-examples/v1/go_code_examples_overlay.yaml static/code-examples/v1/typescript_code_examples_overlay.yaml static/code-examples/v1/angular_code_examples_overlay.yaml",
     "overlay-code-examples-v1": "node src/components/overlay.js static/api-specs/idn/sailpoint-api.yaml static/code-examples/v1/merged_code_examples.yaml",
-    "nerm-merge-code-examples": "node src/components/mergeoverlayfiles.js static/code-examples/nerm/python_code_examples_overlay.yaml static/code-examples/nerm/powershell_code_examples_overlay.yaml static/code-examples/nerm/go_code_examples_overlay.yaml static/code-examples/nerm/typescript_code_examples_overlay.yaml",
+    "nerm-merge-code-examples": "node src/components/mergeoverlayfiles.js static/code-examples/nerm/python_code_examples_overlay.yaml static/code-examples/nerm/powershell_code_examples_overlay.yaml static/code-examples/nerm/go_code_examples_overlay.yaml static/code-examples/nerm/typescript_code_examples_overlay.yaml static/code-examples/nerm/angular_code_examples_overlay.yaml",
     "overlay-code-examples-nerm": "node src/components/overlay.js static/api-specs/nerm/openapi.yaml static/code-examples/nerm/merged_code_examples.yaml",
     "merge-all-code-examples": "npm run v1-merge-code-examples && npm run nerm-merge-code-examples",
     "gen-all-api-specs-code-examples": "npm run overlay-code-examples-v1"

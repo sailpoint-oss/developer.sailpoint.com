@@ -13,7 +13,7 @@ tags: ['AccessProfileRequestManagement']
 
 ## Overview
 
-In Identity Security Cloud, [access profiles](https://documentation.sailpoint.com/saas/help/access/access-profiles.html) are groups of [entitlements](https://documentation.sailpoint.com/saas/help/access/entitlements.html), which represent access rights on [sources](https://documentation.sailpoint.com/saas/help/sources/index.html). By default, all access profiles are marked as requestable. This means that an organization's users can submit [access requests](https://documentation.sailpoint.com/saas/help/requests/index.html) for the access profiles in the Identity Security Cloud [Request Center](https://documentation.sailpoint.com/saas/user-help/requests/request_center.html), where all access profiles are listed.
+In SailPoint Human Fabric, [access profiles](https://documentation.sailpoint.com/saas/help/access/access-profiles.html) are groups of [entitlements](https://documentation.sailpoint.com/saas/help/access/entitlements.html), which represent access rights on [sources](https://documentation.sailpoint.com/saas/help/sources/index.html). By default, all access profiles are marked as requestable. This means that an organization's users can submit [access requests](https://documentation.sailpoint.com/saas/help/requests/index.html) for the access profiles in the SailPoint Human Fabric [Request Center](https://documentation.sailpoint.com/saas/user-help/requests/request_center.html), where all access profiles are listed.
 
 You can disable requests for access profiles to prevent users from gaining inappropriate or undesired access. In the UI, you can edit the [individual access profile](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html#configuring-access-profiles-for-requests) to disable requests for the access profile. You can also use the [PATCH Access Profile endpoint](https://developer.sailpoint.com/docs/api/patch-access-profile-v-1) to mark the individual access profile as non-requestable.
 
@@ -21,7 +21,7 @@ You may have many access profiles that you want to disable requests for, and you
 
 ## Disable requests for individual access profiles with the UI
 
-Follow these steps to use the Identity Security Cloud UI to individually disable requests for all access profiles that aren't currently associated with applications:
+Follow these steps to use the SailPoint Human Fabric UI to individually disable requests for all access profiles that aren't currently associated with applications:
 
 1. Identify the access profiles that are associated with applications configured for access requests. Create a list of these associated access profiles.
 

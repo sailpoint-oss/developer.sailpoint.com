@@ -1,8 +1,4 @@
 {
-  "link.title.IdentityNow": {
-    "message": "IdentityNow",
-    "description": "The title of the footer links column with title=IdentityNow in the footer"
-  },
   "link.title.IdentityIQ": {
     "message": "IdentityIQ",
     "description": "The title of the footer links column with title=IdentityIQ in the footer"

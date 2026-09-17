@@ -8,9 +8,9 @@
 # Run this before `npm start` whenever the API specs or SDK templates change.
 #
 # Usage:
-#   ./scripts/sync-sdk-docs-local.sh [--sdk go|python|powershell|typescript] [--dry-run] [--skip-build]
+#   ./scripts/sync-sdk-docs-local.sh [--sdk go|python|powershell|typescript|angular] [--dry-run] [--skip-build]
 #
-# With no arguments, all four SDKs are built and synced.
+# With no arguments, all five SDKs are built and synced.
 # --sdk <name>    Build and sync only the named SDK.
 # --dry-run       Show what rsync would copy without making changes (skips build).
 # --skip-build    Skip the SDK build step and only re-run the rsync/overlay.
@@ -76,7 +76,13 @@ build_sdk() {
     cd "$sdk_dir"
     if [ ! -d node_modules ]; then
       echo "  Installing dependencies..."
-      npm ci --ignore-scripts
+      # npm ci requires a committed package-lock.json. The Angular SDK builder
+      # has none, so fall back to npm install there.
+      if [ -f package-lock.json ]; then
+        npm ci --ignore-scripts
+      else
+        npm install --ignore-scripts --no-audit --no-fund
+      fi
     fi
     node sdk-resources/build-versioned-sdk.js "$APIS_DIR"
   )
@@ -147,7 +153,7 @@ classify_partition() {
 # Shared sync logic
 # ---------------------------------------------------------------------------
 sync_sdk() {
-  local lang="$1"        # go | python | powershell | typescript
+  local lang="$1"        # go | python | powershell | typescript | angular
   local src="$2"         # path to partition root dir
   local ref_dest="$3"    # portal docs/tools/sdk/<lang>/Reference
   local overlay_name="$4" # e.g. go_code_examples_overlay.yaml
@@ -238,6 +244,17 @@ sync_typescript() {
     "nerm" "nerm_v2025"
 }
 
+sync_angular() {
+  build_sdk "Angular" "$SDK_ROOT/angular-sdk"
+  echo ""
+  echo "=== Syncing Angular SDK docs ==="
+  sync_sdk "angular" \
+    "$SDK_ROOT/angular-sdk/sdk-output" \
+    "$PORTAL_ROOT/docs/tools/sdk/angular/Reference" \
+    "angular_code_examples_overlay.yaml" \
+    "nerm" "nermv2025"
+}
+
 # ---------------------------------------------------------------------------
 # Merge & apply code examples overlays
 # ---------------------------------------------------------------------------
@@ -305,6 +322,7 @@ case "$ONLY_SDK" in
   python)     sync_python ;;
   powershell) sync_powershell ;;
   typescript) sync_typescript ;;
+  angular)    sync_angular ;;
   "")
     echo "=== Building and syncing all SDKs in parallel ==="
     pids=()
@@ -312,9 +330,10 @@ case "$ONLY_SDK" in
     sync_python &    pids+=($!)
     sync_powershell & pids+=($!)
     sync_typescript & pids+=($!)
+    sync_angular &   pids+=($!)
     for pid in "${pids[@]}"; do wait "$pid"; done
     ;;
-  *) echo "Unknown SDK: $ONLY_SDK. Choose from: go, python, powershell, typescript"; exit 1 ;;
+  *) echo "Unknown SDK: $ONLY_SDK. Choose from: go, python, powershell, typescript, angular"; exit 1 ;;
 esac
 
 if ! $DRY_RUN; then

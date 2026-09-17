@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import { getTags } from '../../../services/DiscourseService';
-import { forEach } from 'lodash';
+import { canonicalProductTag, SHF_PRODUCT_TAG } from '../../../util/util';
 
 // Define the props interface
 interface MarketplaceSidebarProps {
@@ -24,26 +24,22 @@ const VideoSidebar: React.FC<MarketplaceSidebarProps> = ({ filterCallback }) => 
 
   const handleCheckboxChangeProduct = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = event.target;
-    setCheckedItemsProduct((prevState) => ({
-      ...prevState,
-      [name]: checked,
-    }));
+    const nextChecked = { ...checkedItemsProduct, [name]: checked };
+    setCheckedItemsProduct(nextChecked);
 
-    let product = checked ? name : productTags.replace(name, '').trim();
-    let filters: string[] = checked ? [name] : [];
-
-    forEach(checkedItemsProduct, (value, key) => {
-      if (key !== name && value) {
-        filters.push(key);
-        if (!product.includes(key)) product += ` ${key}`;
-      }
-    });
+    const selectedProducts = Object.keys(nextChecked).filter((key) => nextChecked[key]);
+    const filters = [...selectedProducts];
 
     if (checkedItemsVideo) {
       filters.push(checkedItemsVideo);
     }
 
-    setProductTags(product || 'Filter by Product');
+    // Label from display names — the button previously showed raw tag slugs.
+    setProductTags(
+      selectedProducts.length > 0
+        ? selectedProducts.map(displayText).join(', ')
+        : 'Filter by Product',
+    );
     filterCallback({ tag: filters.length > 0 ? filters : null });
   };
 
@@ -51,13 +47,12 @@ const VideoSidebar: React.FC<MarketplaceSidebarProps> = ({ filterCallback }) => 
     const { name, checked } = event.target;
     const newCheckedItem = checked ? name : null;
     setCheckedItemsVideo(newCheckedItem);
-    setVideoTags(newCheckedItem || 'Filter by Video Type');
+    setVideoTags(newCheckedItem ? displayText(newCheckedItem) : 'Filter by Video Type');
 
-    let filters: string[] = newCheckedItem ? [newCheckedItem] : [];
-
-    forEach(checkedItemsProduct, (value, key) => {
-      if (value) filters.push(key);
-    });
+    const filters: string[] = newCheckedItem ? [newCheckedItem] : [];
+    filters.push(
+      ...Object.keys(checkedItemsProduct).filter((key) => checkedItemsProduct[key]),
+    );
 
     filterCallback({ tag: filters.length > 0 ? filters : null });
   };
@@ -70,7 +65,11 @@ const VideoSidebar: React.FC<MarketplaceSidebarProps> = ({ filterCallback }) => 
     if (data.extras?.tag_groups) {
       for (const tagGroup of data.extras.tag_groups) {
         if (tagGroup.name === 'Products') {
-          tagGroup.tags.forEach((tag: { name: string }) => uniqueProductTags.add(tag.name));
+          // Canonicalise so the legacy and new product tags collapse into one
+          // checkbox instead of two identically-labelled ones.
+          tagGroup.tags.forEach((tag: { name: string }) =>
+            uniqueProductTags.add(canonicalProductTag(tag.name)),
+          );
         }
         if (tagGroup.name === 'Video Library') {
           tagGroup.tags.forEach((tag: { name: string }) => uniqueTags.add(tag.name));
@@ -88,6 +87,11 @@ const VideoSidebar: React.FC<MarketplaceSidebarProps> = ({ filterCallback }) => 
       'community-live-stream': 'Community Live Stream',
       'developer-days': 'Developer Days',
       'product-demo': 'Product Demo',
+      // Product tags carry no label of their own, so they used to render as
+      // raw slugs. Both product slugs share one label.
+      [SHF_PRODUCT_TAG]: 'SailPoint Human Fabric',
+      'identity-security-cloud': 'SailPoint Human Fabric',
+      identityiq: 'IdentityIQ',
     };
 
     return textMap[text] || text;

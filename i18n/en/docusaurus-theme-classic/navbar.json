@@ -1,8 +1,4 @@
 {
-  "item.label.IdentityNow": {
-    "message": "IdentityNow",
-    "description": "Navbar item with label IdentityNow"
-  },
   "item.label.IdentityIQ": {
     "message": "IdentityIQ",
     "description": "Navbar item with label IdentityIQ"
@@ -46,10 +42,6 @@
   "item.label.Training": {
     "message": "Training",
     "description": "Navbar item with label Training"
-  },
-  "item.label.IdentityNow Certifications": {
-    "message": "IdentityNow Certifications",
-    "description": "Navbar item with label IdentityNow Certifications"
   },
   "item.label.IIQ APIs": {
     "message": "IIQ APIs",

@@ -97,7 +97,7 @@ To deny an access request, the subscribing service responds to the event trigger
 ```
 
 :::warning
-The `approver` does not have to be the name of an existing identity in your ISC tenant. It can be anything you want it to be. However, if you have an active subscription to the [Access Request Decision](./access-request-decision.md) trigger, you **MUST** provide the **username** of an existing identity in your tenant in the `approver` field. If you do not provide the **username** of an existing identity, then your Access Request Decision subscriptions will never be triggered.
+The `approver` does not have to be the name of an existing identity in your SHF tenant. It can be anything you want it to be. However, if you have an active subscription to the [Access Request Decision](./access-request-decision.md) trigger, you **MUST** provide the **username** of an existing identity in your tenant in the `approver` field. If you do not provide the **username** of an existing identity, then your Access Request Decision subscriptions will never be triggered.
 :::
 
 :::warning

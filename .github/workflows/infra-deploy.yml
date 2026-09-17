@@ -87,6 +87,14 @@ jobs:
           token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
           ref: main
 
+      - name: Check out angular-sdk
+        uses: actions/checkout@v6
+        with:
+          repository: sailpoint-oss/angular-sdk
+          path: angular-sdk
+          token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
+          ref: main
+
       # API specs are no longer committed to this repo — they are fetched here
       # and copied into static/api-specs by scripts/sync-sdk-docs-local.sh.
       - name: Check out api-specs
@@ -114,6 +122,7 @@ jobs:
             python-sdk/sailpoint/**/docs
             powershell-sdk/PSSailpoint/**/docs
             typescript-sdk/sdk-output
+            angular-sdk/sdk-output
           key: sdk-docs-${{ hashFiles('api-specs/idn/apis/**') }}
           restore-keys: sdk-docs-
 
@@ -140,13 +149,6 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: 1.21
-
-      - name: build backend
-        run: |
-          ls -la
-          cd ./backend/src/mithrandir
-          npm ci
-          npm run build
 
       - name: setup SAM
         uses: aws-actions/setup-sam@v2
@@ -224,6 +226,12 @@ jobs:
           build_dir: build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  purge-cache:
+    needs: publish
+    if: (github.event_name == 'push' || github.event_name == 'repository_dispatch') && github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/purge-cloudflare.cache.yml
+    secrets: inherit
+
   publish-failure:
     runs-on: ubuntu-latest
     if: ${{ always() && (needs.publish.result == 'failure' || needs.publish.result == 'timed_out') }}

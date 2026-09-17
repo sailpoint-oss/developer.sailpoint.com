@@ -1,0 +1,4 @@
+type: string
+description: PreDefinedSelectOption pre-defined select options
+example: IDENTITY
+x-go-package: github.com/sailpoint/sp-forms/domain

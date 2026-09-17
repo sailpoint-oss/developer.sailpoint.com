@@ -1,0 +1,59 @@
+post:
+  operationId: updateAccessProfilesMetadataByIdsV1
+  summary: Bulk-update metadata by ids
+  tags:
+  - Access Profiles
+  description: |-
+    This API initiates a bulk update of Access Model Metadata for one or more access profiles by a list of access profile IDs.
+
+    The update is processed asynchronously. The response returns the ID of the task performing the update.
+
+    The maximum access profile count in a single request is 3000. A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/accessprofilemetadatabulkupdatebyidrequest.yaml
+        example:
+          accessProfiles:
+          - b1db89554cfa431cb8b9921ea38d9367
+          operation: REPLACE
+          replaceScope: ATTRIBUTE
+          values:
+          - attribute: iscFederalClassifications
+            values:
+            - topSecret
+  responses:
+    '202':
+      description: Returned if the bulk update request was created.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/accessprofilemetadatabulkupdateresponse.yaml
+          examples:
+            Update request created successfully:
+              value:
+                id: 2d82ac17-eb0d-4ba6-9918-dcad6ee0294d
+                type: ACCESS_PROFILE
+                status: CREATED
+                created: '2024-09-16T18:59:06.871594Z'
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:access-profile:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - ROLE_ADMIN
+  - ROLE_SUBADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN

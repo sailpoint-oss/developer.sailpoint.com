@@ -1,0 +1,7 @@
+type: object
+title: Forgot Username Request
+properties:
+  email:
+    type: string
+    description: Auth user's email.
+    example: william.smith@example.com

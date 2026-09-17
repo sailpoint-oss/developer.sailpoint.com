@@ -1,0 +1,138 @@
+get:
+  operationId: getObjectMappings
+  security:
+    - userAuth: [sp:config-object-mapping:read, sp:config-object-mapping:manage]
+  tags:
+    - Configuration Hub
+  summary: Gets list of object mappings
+  description: >-
+    This gets a list of existing object mappings between current org and source org.
+    
+    Source org should be "default" when getting object mappings that are not associated to any particular org.
+    
+    The request will need the following security scope:
+
+    - sp:config-object-mapping:read
+  parameters:
+    - in: path
+      name: sourceOrg
+      schema:
+        type: string
+      required: true
+      description: The name of the source org.
+      example: source-org
+  responses:
+    '200':
+      description: >-
+        List of existing object mappings between current org and source org.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/configuration-hub/ObjectMappingResponse.yaml'
+          example:
+            [
+              {
+                "objectMappingId": "3d6e0144-963f-4bd6-8d8d-d77b4e507ce4",
+                "objectType": "GOVERNANCE_GROUP",
+                "jsonPath": "$.description",
+                "sourceValue": "Sample Governance Group",
+                "targetValue": "Sample Governance Group - Updated",
+                "enabled": true,
+                "created": "2024-03-19T23:18:53.732Z",
+                "modified": "2024-03-19T23:18:53.732Z"
+              },
+              {
+                "objectMappingId": "e1d5cb80-65e2-4f92-ae2e-9588f61cc4cd",
+                "objectType": "IDENTITY",
+                "jsonPath": "$.name",
+                "sourceValue": "SailPoint Support",
+                "targetValue": "john.doe",
+                "enabled": false,
+                "created": "2024-03-19T23:18:06.238Z",
+                "modified": "2024-03-19T23:18:06.238Z"
+              }
+            ]
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+post:
+  operationId: createObjectMapping
+  security:
+    - userAuth: [sp:config-object-mapping:manage]
+  tags:
+    - Configuration Hub
+  summary: Creates an object mapping
+  description: >-
+    This creates an object mapping between current org and source org.
+    
+    Source org should be "default" when creating an object mapping that is not to be associated to any particular org.
+    
+    The request will need the following security scope:
+
+    - sp:config-object-mapping:manage
+  parameters:
+    - in: path
+      name: sourceOrg
+      schema:
+        type: string
+      required: true
+      description: The name of the source org.
+      example: source-org
+  requestBody:
+    description: >-
+      The object mapping request body.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/configuration-hub/ObjectMappingRequest.yaml'
+        example:
+          {
+            "objectType": "GOVERNANCE_GROUP",
+            "jsonPath": "$.description",
+            "sourceValue": "Sample Governance Group",
+            "targetValue": "Sample Governance Group - Updated",
+            "enabled": true
+          }
+  responses:
+    '200':
+      description: >-
+        The created object mapping between current org and source org.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/configuration-hub/ObjectMappingResponse.yaml'
+          example:
+            {
+              "objectMappingId": "3d6e0144-963f-4bd6-8d8d-d77b4e507ce4",
+              "objectType": "GOVERNANCE_GROUP",
+              "jsonPath": "$.description",
+              "sourceValue": "Sample Governance Group",
+              "targetValue": "Sample Governance Group - Updated",
+              "enabled": true,
+              "created": "2024-03-19T23:18:53.732Z",
+              "modified": "2024-03-19T23:18:53.732Z"
+            }
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

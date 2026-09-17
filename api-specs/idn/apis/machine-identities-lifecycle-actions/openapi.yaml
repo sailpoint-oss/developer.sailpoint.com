@@ -1,0 +1,50 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Machine Identity Lifecycle Actions
+  description: >-
+    Use these APIs to submit, list, retrieve, and cancel machine identity lifecycle actions (for example
+    agent activate and deactivate). We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Machine Identity Lifecycle Actions
+    description: |
+      Experimental APIs for machine identity lifecycle requests (`ACTIVATE`, `DEACTIVATE`), including
+      approval and provisioning status. Pass the `X-SailPoint-Experimental` header on every request.
+
+      Read and cancel by `requestId` return **403** for authorization denials
+      (`FORBIDDEN.lifecycle-request-access-denied`) and non-`AI_AGENT` rows
+      (`FORBIDDEN.unsupported-type`). Unknown ids and target-type mismatches return **404**
+      (`NOT_FOUND.detailed`).
+paths:
+  /machine-identities/v1/{id}/lifecycle-actions:
+    $ref: ./paths/machine-identities-v1-by-id-lifecycle-actions.yaml
+  /machine-identities/v1/lifecycle-actions:
+    $ref: ./paths/machine-identities-v1-lifecycle-actions.yaml
+  /machine-identities/v1/lifecycle-actions/{requestId}:
+    $ref: ./paths/machine-identities-v1-lifecycle-actions-by-requestid.yaml
+  /machine-identities/v1/lifecycle-actions/{requestId}/cancel:
+    $ref: ./paths/machine-identities-v1-lifecycle-actions-by-requestid-cancel.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

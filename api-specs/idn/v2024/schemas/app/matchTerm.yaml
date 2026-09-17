@@ -1,0 +1,41 @@
+type: object
+properties:
+  name:
+    type: string
+    description: The attribute name
+    example: mail
+  value:
+    type: string
+    description: The attribute value
+    example: 1234 Albany Dr
+  op:
+    type: string
+    description: The operator between name and value
+    example: eq
+  container:
+    type: boolean
+    default: false
+    description: If it is a container or a real match term
+    example: true
+  and:
+    type: boolean
+    description: If it is AND logical operator for the children match terms
+    default: false
+    example: false
+  children:
+    type: array
+    nullable: true
+    items:
+      type: object
+      additionalProperties: true
+    description: The children under this match term
+    example:  [
+      {
+        "name": "businessCategory",
+        "value": "Service",
+        "op": "eq",
+        "container": false,
+        "and": false,
+        "children": null
+      }
+    ]

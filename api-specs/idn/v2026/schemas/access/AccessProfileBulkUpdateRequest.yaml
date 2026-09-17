@@ -1,0 +1,22 @@
+description: List of Access profiles to be updated.
+type: array
+items:
+  type: object
+  description: Access Profile's basic details.
+  properties:
+    id:
+      type: string
+      description: Access Profile ID.
+      example: 464ae7bf-791e-49fd-b746-06a2e4a8
+    requestable:
+      type: boolean
+      description:  Access Profile is requestable or not.
+      example: false
+example:
+  [
+    {
+      "id": "464ae7bf-791e-49fd-b746-06a2e4a8",
+      "requestable": false
+    }
+  ]
+required: [id, requestable]

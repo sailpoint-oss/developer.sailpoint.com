@@ -1,0 +1,34 @@
+type: object
+properties:
+  identityId:
+    type: string
+    nullable: false
+    description: >
+      The identity id the access is requested for.
+      * `HUMAN` (default): the human identity id.
+      * `MACHINE`: the machine identity id (hyphenated RFC-4122 UUID, not the correlated human identity).
+    example: cb89bc2f1ee6445fbea12224c526ba3a
+  identityType:
+    type: string
+    enum:
+      - HUMAN
+      - MACHINE
+    default: HUMAN
+    description: >
+      Type of identity the access is requested for.
+
+      * `HUMAN` (default) - standard human identity access request.
+
+      * `MACHINE` - machine identity access request. When `MACHINE`, all entries in the request must also be
+      `MACHINE` (mixed human and machine identities in one request are not supported), and only
+      `ENTITLEMENT` items are allowed.
+    example: HUMAN
+  requestedItems:
+    description: the details for the access items that are requested for the identity
+    type: array
+    items:
+      $ref: ./requesteditemdtoref.yaml
+    nullable: false
+required:
+  - identityId
+  - requestedItems

@@ -1,0 +1,18 @@
+type: object
+properties:
+  label:
+    description: Label is the main label to display to the user when selecting this option
+    type: string
+    example: 'regression-test-access-request-07c55dd6-3056-430a-86b5-fccc395bb6c5'
+    x-go-name: Label
+  subLabel:
+    description: SubLabel is the sub label to display below the label in diminutive styling to help describe or identify this option
+    type: string
+    example: ''
+    x-go-name: SubLabel
+  value:
+    description: Value is the value to save as an entry when the user selects this option
+    type: string
+    example: 'e96674448eba4ca1ba04eee999a8f3cd'
+    x-go-name: Value
+x-go-package: github.com/sailpoint/sp-forms/domain

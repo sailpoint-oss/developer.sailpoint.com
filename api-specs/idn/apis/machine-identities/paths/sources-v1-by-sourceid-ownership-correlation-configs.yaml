@@ -1,0 +1,64 @@
+get:
+  operationId: listOwnershipCorrelationConfigsV1
+  tags:
+    - Machine Identities
+  summary: List ownership correlation configs
+  description: >-
+    Returns the OWNER_PRIMARY and OWNER_SECONDARY correlation configs for the specified source resource,
+    creating default rows if they are missing. Use the optional type query parameter to return a single matching config.
+  security:
+    - userAuth:
+        - idn:sources:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      schema:
+        type: string
+      x-sailpoint-resource-operation-id: listSourcesV1
+      description: The Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+    - in: path
+      name: resourceId
+      required: true
+      schema:
+        type: string
+      x-sailpoint-resource-operation-id: searchResourceObjectsV1
+      description: The source resource ID (for example, account or aws:iam-role).
+      example: aws:iam-role
+    - in: query
+      name: type
+      required: false
+      schema:
+        type: string
+        enum:
+          - OWNER_PRIMARY
+          - OWNER_SECONDARY
+      description: When set, filters to the given config type.
+      example: OWNER_PRIMARY
+    - $ref: ../../shared/parameters/count.yaml
+    - $ref: ../../shared/parameters/limit.yaml
+    - $ref: ../../shared/parameters/offset.yaml
+  responses:
+    '200':
+      description: List of correlation configs.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/correlationconfig.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

@@ -1,0 +1,24 @@
+type: object
+description: >-
+  An additional filter to constrain the results of the search query.
+required: ["name", "field", "value"]
+properties:
+  name:
+    description: >-
+      The name of the filter aggregate to be included in the result.
+    type: string
+    example: 'Entitlements'
+  type:
+    $ref: 'SearchFilterType.yaml'
+  field:
+    description: |
+      The search field to apply the filter to.
+
+      Prefix the field name with '@' to reference a nested object.
+    type: string
+    example: 'access.type'
+  value:
+    description: >-
+      The value to filter on.
+    type: string
+    example: 'ENTITLEMENT'

@@ -1,0 +1,11 @@
+allOf:
+  - $ref: './BasicProvision.yaml'
+  - type: object
+    description: Provisioning of a service request Service Desk integration
+    required:
+      - catalogItem
+    properties:
+      catalogItem:
+        description: catalog item mapping for the service request Service Desk integration
+        type: object
+        additionalProperties: true

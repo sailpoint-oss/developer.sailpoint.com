@@ -1,0 +1,40 @@
+get:
+  summary: Retrieves profile attribute attachment URL
+  operationId: getProfileUpload
+  description: Retrieves the URL of an attachment attribute value from a profile
+  tags:
+    - profiles
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+    - $ref: "../parameters/path/attribute_id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Url.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Uploads profile attachment attribute
+  operationId: submitProfileUpload
+  description: >
+    Uploads a new attachment attribute value to a profile.
+    The upload must be a FORM data type; this is not a JSON API.
+    The upload must include the binary content of the payload under the 'file' named form element.
+    The upload must not attempt to include the file name or its content type as a other form or JSON as parameters.
+    The upload must not attempt to upload the file body as the POST body payload; it has to arrive as a FORM parameter.
+    Do not use a `File/Binary` payload type for the POST operation in your API client.
+  tags:
+    - profiles
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+    - $ref: "../parameters/path/attribute_id.yaml"
+  requestBody:
+    $ref: "../requestBodies/POST/File.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Url.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

@@ -1,0 +1,40 @@
+type: object
+title: EntitlementConnectionSearchHitEntitlement
+description: Entitlement object embedded in entitlement connection search responses.
+properties:
+  id:
+    type: string
+    description: Entitlement identifier.
+    example: 2c918085804e1a0601806289c30a66de
+  name:
+    type: string
+    description: Entitlement name.
+    example: Launcher
+  displayName:
+    type: string
+    description: Human-readable entitlement label.
+    example: Launcher
+  description:
+    type: string
+    description: Entitlement description.
+    example: description of launcher entitlement
+  attribute:
+    type: string
+    description: Source attribute carrying entitlement values.
+    example: memberOf
+  value:
+    type: string
+    description: Source entitlement value.
+    example: CN=productivity-bryants-org-1,OU=Groups,dc=flatfile,dc=endtoend,dc=com
+  sourceSchemaObjectType:
+    type: string
+    description: Source schema object type for the entitlement.
+    example: ENTITLEMENT
+  privilegeLevel:
+    type: object
+    description: Privilege classification details for the entitlement.
+    properties:
+      effective:
+        type: string
+        description: Effective privilege level.
+        example: HIGH

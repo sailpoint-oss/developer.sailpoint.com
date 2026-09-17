@@ -1,0 +1,10 @@
+type: object
+properties:
+  id:
+    type: string
+    description: ID of the creator
+    example: "2c918090761a5aac0176215c46a62d58"
+  displayName:
+    type: string
+    description: The display name of the creator
+    example: "Ashley.Pierce"

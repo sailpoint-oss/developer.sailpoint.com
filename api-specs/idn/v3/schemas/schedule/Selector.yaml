@@ -1,0 +1,21 @@
+type: object
+properties:
+  type:
+    $ref: 'SelectorType.yaml'
+  values:
+    description: |
+      The selected values.
+    type: array
+    items:
+      type: string
+    example: ['MON', 'WED']
+  interval:
+    nullable: true
+    description: |
+      The selected interval for RANGE selectors.
+    type: integer
+    format: int32
+    example: 3
+required:
+- type
+- values

@@ -1,0 +1,12 @@
+type: object
+required:
+  - items
+description: |
+  Correlated machine accounts embedded on the non-human identity aggregate. Returns the correlated
+  account set on the wire today (account paging via child routes is not yet released).
+properties:
+  items:
+    type: array
+    description: Machine account rows correlated to the non-human identity.
+    items:
+      $ref: ./intelmachineaccountwire.yaml

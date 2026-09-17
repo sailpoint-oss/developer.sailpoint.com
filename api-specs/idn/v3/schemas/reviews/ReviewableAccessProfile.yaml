@@ -1,0 +1,46 @@
+type : object
+properties:
+  id:
+    type: string
+    description: The id of the Access Profile
+    example: 2c91808a7190d06e01719938fcd20792
+  name:
+    type: string
+    description: Name of the Access Profile
+    example: Employee-database-read-write
+  description:
+    type: string
+    description: Information about the Access Profile
+    example: Collection of entitlements to read/write the employee database
+  privileged:
+    type: boolean
+    description: Indicates if the entitlement is a privileged entitlement
+    example: false
+  cloudGoverned:
+    type: boolean
+    description: True if the entitlement is cloud governed
+    example: false
+  endDate:
+    nullable: true
+    type: string
+    format: 'date-time'
+    description: The date at which a user's access expires
+    example: '2021-12-25T00:00:00.000Z'
+  owner:
+    $ref: '../IdentityReferenceWithNameAndEmail.yaml'
+    description: Owner of the Access Profile
+  entitlements:
+    type: array
+    description: A list of entitlements associated with this Access Profile
+    items:
+      $ref: './ReviewableEntitlement.yaml'
+  created:
+    type: string
+    description: Date the Access Profile was created.
+    format: 'date-time'
+    example: '2021-01-01T22:32:58.104Z'
+  modified:
+    type: string
+    description: Date the Access Profile was last modified.
+    format: 'date-time'
+    example: '2021-02-01T22:32:58.104Z'

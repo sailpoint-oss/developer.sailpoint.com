@@ -1,0 +1,7 @@
+type: object
+title: Bulk Update Object Mapping Response
+properties:
+  patchedObjects:
+    type: array
+    items:
+      $ref: '../configuration-hub/ObjectMappingResponse.yaml'

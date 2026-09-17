@@ -1,0 +1,8 @@
+name: expired
+in: query
+description: Filter by expiration status (true for expired, false for not expired)
+required: false
+schema:
+  type: boolean
+  default: false
+  example: true

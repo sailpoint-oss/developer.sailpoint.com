@@ -1,0 +1,26 @@
+type: object
+title: Source Resource Mapping
+description: >-
+  Aggregation metadata for a resource on a source, keyed by resource id. Each value includes the
+  linked dataset id, resource type, and connector object type. Resources without a matching schema
+  are omitted.
+additionalProperties:
+  type: object
+  properties:
+    datasetId:
+      type: string
+      description: Dataset identifier that owns the resource.
+      example: cmdb-servicenow:applications
+    resourceType:
+      type: string
+      description: Resource type from source schema config.
+      example: std:resource
+    objectType:
+      type: string
+      description: Connector object type for the resource.
+      example: account
+example:
+  aws:iam-role:
+    datasetId: cmdb-servicenow:applications
+    resourceType: std:resource
+    objectType: account

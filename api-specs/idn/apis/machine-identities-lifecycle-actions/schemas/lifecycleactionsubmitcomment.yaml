@@ -1,0 +1,10 @@
+type: object
+title: Lifecycle Action Submit Comment
+required:
+  - comment
+properties:
+  comment:
+    type: string
+    description: Free-text comment submitted with the lifecycle action request.
+    maxLength: 1000
+    example: Suspending agent until security review completes

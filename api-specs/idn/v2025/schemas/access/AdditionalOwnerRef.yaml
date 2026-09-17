@@ -1,0 +1,19 @@
+type: object
+description: Reference to an additional owner (identity or governance group).
+properties:
+  type:
+    type: string
+    enum:
+      - IDENTITY
+      - GOVERNANCE_GROUP
+    description: Type of the additional owner; IDENTITY for an identity, GOVERNANCE_GROUP for a governance group.
+    example: IDENTITY
+  id:
+    type: string
+    description: ID of the identity or governance group.
+    example: 2c9180a46faadee4016fb4e018c20639
+  name:
+    type: string
+    nullable: true
+    description: Display name. It may be left null or omitted on input. If set, it must match the current display name of the identity or governance group, otherwise a 400 Bad Request error may result.
+    example: support

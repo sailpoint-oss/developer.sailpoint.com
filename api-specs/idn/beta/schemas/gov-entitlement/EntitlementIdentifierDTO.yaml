@@ -1,0 +1,14 @@
+type: object
+properties:
+  sourceId:
+    type: string
+    description: source id
+    example: 2b86153b97a94abc936c8a11b106aaf8
+  attribute:
+    type: string
+    description: attribute name
+    example: memberOf
+  value:
+    type: string
+    description: attribute value
+    example: CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com

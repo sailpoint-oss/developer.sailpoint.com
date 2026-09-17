@@ -1,0 +1,23 @@
+type: object
+required:
+  - sourceId
+  - entitlementId
+  - displayName
+properties:
+  sourceId:
+    type: string
+    description: Source identifier for the entitlement.
+    example: 60de165099e649cb828553a5e8510fc4
+  entitlementId:
+    type: string
+    description: Entitlement identifier on the source.
+    example: ent-001
+  displayName:
+    type: string
+    description: Display name for the entitlement.
+    example: Example_Entitlement
+  source:
+    nullable: true
+    description: Resolved source metadata when available upstream.
+    allOf:
+      - $ref: ./intelmachinesourcewire.yaml

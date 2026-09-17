@@ -1,0 +1,44 @@
+post:
+  tags:
+  - Suggested Entitlement Description
+  operationId: submitSedAssignmentV1
+  summary: Submit sed assignment request
+  description: >-
+    Submit Assignment Request.
+
+    Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that
+    groups all approval requests together
+  requestBody:
+    description: Sed Assignment Request
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: ../schemas/sedassignment.yaml
+    required: true
+  responses:
+    '202':
+      description: Sed Assignment Response
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/sedassignmentresponse.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:sed:write
+  - applicationAuth:
+    - idn:sed:write
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN

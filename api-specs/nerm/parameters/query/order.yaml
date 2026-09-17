@@ -1,0 +1,7 @@
+name: order
+in: query
+description: The field to order results by.
+required: false
+schema:
+  type: string
+  example: created_at

@@ -1,0 +1,5 @@
+type: string
+enum:
+  - ACCESS_PROFILE
+  - ROLE
+description: The type of access item.

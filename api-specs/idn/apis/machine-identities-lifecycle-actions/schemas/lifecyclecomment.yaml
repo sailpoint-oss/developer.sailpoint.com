@@ -1,0 +1,18 @@
+type: object
+title: Lifecycle Comment
+properties:
+  commentId:
+    type: string
+    description: Server-assigned comment identifier.
+    example: cmt-001
+  author:
+    $ref: ./lifecyclecommentauthorref.yaml
+  comment:
+    type: string
+    description: Free-text comment body.
+    example: Suspending agent until security review completes
+  createdAt:
+    type: string
+    format: date-time
+    description: Time when the comment was created (ISO-8601).
+    example: '2026-05-26T19:00:00Z'

@@ -1,0 +1,19 @@
+type: object
+description: Stream status returned by GET/POST /ssf/streams/status.
+properties:
+  stream_id:
+    type: string
+    description: Stream identifier.
+    example: "550e8400-e29b-41d4-a716-446655440000"
+  status:
+    type: string
+    enum:
+      - enabled
+      - paused
+      - disabled
+    description: Operational status of the stream (enabled, paused, or disabled).
+    example: "enabled"
+  reason:
+    type: string
+    description: Optional reason for the current status (e.g. set when status is updated).
+    example: ""

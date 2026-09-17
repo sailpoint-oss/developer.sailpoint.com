@@ -1,0 +1,45 @@
+properties:
+  description:
+    description: Description is the form definition description
+    example: My form description
+    maxLength: 2000
+    minLength: 0
+    type: string
+    x-go-name: Description
+  formConditions:
+    description: FormConditions is the conditional logic that modify the form dynamically modify the form as the recipient is interacting out the form
+    items:
+      $ref: './FormCondition.yaml'
+    type: array
+    x-go-name: FormConditions
+  formElements:
+    description: FormElements is a list of nested form elements
+    items:
+      $ref: './FormElement.yaml'
+    type: array
+    x-go-name: FormElements
+  formInput:
+    description: FormInput is a list of form inputs that are required when creating a form-instance object
+    items:
+      $ref: './FormDefinitionInput.yaml'
+    type: array
+    x-go-name: FormInput
+  name:
+    description: Name is the form definition name
+    example: My form
+    maxLength: 255
+    type: string
+    x-go-name: Name
+  owner:
+    $ref: './FormOwner.yaml'
+  usedBy:
+    description: UsedBy is a list of objects where when any system uses a particular form it reaches out to the form service to record it is currently being used
+    items:
+      $ref: './FormUsedBy.yaml'
+    type: array
+    x-go-name: UsedBy
+required:
+  - name
+  - owner
+type: object
+x-go-package: github.com/sailpoint/sp-forms/domain

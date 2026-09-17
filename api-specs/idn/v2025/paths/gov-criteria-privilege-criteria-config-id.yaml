@@ -1,0 +1,95 @@
+patch:
+  summary: Update privilege criteria configuration
+  description: >-
+    Use this API to update the privilege criteria configuration.
+  tags:
+  - Privilege Criteria Configuration
+  operationId: patchPrivilegeCriteriaConfig
+  security:
+  - userAuth:
+    - sp:gov-criteria:write
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - name: criteriaConfigId
+      in: path
+      required: true
+      schema:
+        type: "string"
+      description: The Id of the privilege criteria configuration to update.
+      example: "6d123044-5834-4e8d-a49f-9c70089b0de1"
+      x-sailpoint-resource-operation-id: listPrivilegeCriteriaConfig
+  requestBody:
+    description: A list of criteria configuration operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    required: true
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            type: object
+        example:
+          - op: replace
+            path: /config/privilegeClassificationMode
+            value: SINGLE_PRIVILEGE_LEVEL
+          - op: replace
+            path: /config/criteriaPrivilegeLevel/connectorMediumEnabled
+            value: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/gov-criteria/PrivilegeCriteriaConfigDTO.yaml"
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+
+
+get:
+  summary: Get privilege criteria config
+  description: >-
+    Use this API to get the privilege criteria configuration by Id.
+  tags:
+   - Privilege Criteria Configuration
+  operationId: getPrivilegeCriteriaConfig
+  security:
+  - userAuth:
+    - sp:gov-criteria:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - name: criteriaConfigId
+      in: path
+      required: true
+      schema:
+        type: "string"
+      description: The Id of the privilege criteria configuration record to retrieve.
+      example: "6d123044-5834-4e8d-a49f-9c70089b0de1"
+      x-sailpoint-resource-operation-id: listPrivilegeCriteriaConfig
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/gov-criteria/PrivilegeCriteriaConfigDTO.yaml"
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+

@@ -1,0 +1,18 @@
+type: object
+title: Http Config
+properties:
+  url:
+    type: string
+    description: URL of the external/custom integration.
+    example: https://www.example.com
+  httpDispatchMode:
+    $ref: ./httpdispatchmode.yaml
+  httpAuthenticationType:
+    $ref: ./httpauthenticationtype.yaml
+  basicAuthConfig:
+    $ref: ./basicauthconfig.yaml
+  bearerTokenAuthConfig:
+    $ref: ./bearertokenauthconfig.yaml
+required:
+  - url
+  - httpDispatchMode

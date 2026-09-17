@@ -1,0 +1,20 @@
+type: object
+title: EntitlementConnectionBulkUpdateResultItem
+properties:
+  connectionId:
+    type: string
+    description: Connection ID processed in this row.
+    example: d532fa5cb15748e2873c6a01e5923ec4
+  type:
+    type: string
+    description: Requested or resulting connection type for the row.
+    example: JIT
+  status:
+    type: integer
+    format: int32
+    description: Item-level result status code.
+    example: 201
+  description:
+    type: string
+    description: Item-level result message.
+    example: success

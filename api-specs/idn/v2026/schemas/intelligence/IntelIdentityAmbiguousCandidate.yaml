@@ -1,0 +1,12 @@
+type: object
+required:
+  - id
+properties:
+  id:
+    type: string
+    description: Identity identifier for one of the ambiguous matching identities.
+    example: ef38f94347e94562b5bb8424a56397d8
+  displayName:
+    type: string
+    description: Display name for the ambiguous matching identity when available.
+    example: Jane Example

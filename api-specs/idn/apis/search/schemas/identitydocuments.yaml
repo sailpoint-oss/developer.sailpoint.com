@@ -1,0 +1,4 @@
+type: object
+allOf:
+  - $ref: ./identitydocument.yaml
+  - $ref: ./documentfields.yaml

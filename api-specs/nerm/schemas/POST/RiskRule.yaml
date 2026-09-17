@@ -1,0 +1,19 @@
+type: object
+required:
+  - type
+  - value
+  - secondary_value
+properties:
+  type:
+    type: string
+    enum: [RiskRule]
+  comparison_operator:
+    type: string
+    enum: ['==', '>', '<']
+  value:
+    type: string
+    summary: id of the Risk Level being compared against
+    format: uuid
+  secondary_value:
+    type: string
+    enum: [OverallRisk]

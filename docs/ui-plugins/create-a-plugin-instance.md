@@ -5,7 +5,7 @@ pagination_label: Create a Plugin Instance
 sidebar_label: Create a Plugin Instance
 sidebar_position: 2
 sidebar_class_name: uiPluginsCreate
-keywords: ['ui', 'plugins', 'ui-plugins', 'create', 'init', 'link', 'upload']
+keywords: ['ui', 'plugins', 'ui-plugins', 'create', 'init', 'link', 'upload', 'cors', 'chrome', 'troubleshooting']
 description: Scaffold, register, develop, and deploy your first UI plugin with the SailPoint CLI.
 slug: /ui-plugins/create-a-plugin-instance
 tags: ['ui-plugins']
@@ -173,6 +173,28 @@ Make sure `npm run start` is running, then open the dev server address (for exam
 ![Accepting the self-signed certificate warning for the local dev server](./img/link-accept-self-signed-cert.png)
 
 Once the certificate is accepted, return to the ISC tab and select **Retry**.
+
+If ISC still cannot load your plugin, read the next note about the Chrome local network permission.
+
+:::
+
+:::caution Chrome blocked the local network
+
+Chrome can block ISC from reaching `localhost` even when your dev server runs and you already accepted the certificate. The browser console shows an error like this one:
+
+```text
+Access to fetch at 'https://localhost:4200/' from origin 'https://<tenant>.identitynow.com' has been blocked by CORS policy: Permission was denied for this request to access the `loopback` address space.
+```
+
+Chrome asks for permission the first time a page connects to the local network. If you deny that prompt, Chrome blocks every later request to `localhost` and remembers the decision for several weeks. To allow the connection again:
+
+1. Open `chrome://settings/content/all`.
+2. Search for your tenant domain, for example `identitynow.com`, then select it.
+3. Set **Local Network** to **Allow**.
+4. Set **Apps on Device** to **Allow**.
+5. Reload the ISC plugin page.
+
+Other browsers can apply similar restrictions to loopback addresses. If your browser is not Chrome, look for a local network or private network permission for your tenant domain.
 
 :::
 

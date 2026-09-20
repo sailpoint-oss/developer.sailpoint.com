@@ -228,18 +228,14 @@ Contains certification data sourced from **Certs 2.0**.
 | CREATED_DATE | datetime |  | date when the object was created |
 | UPDATED_DATE | datetime |  | date when the object was modified |
 | DELETED_DATE | datetime |  | date when the object was deleted |
-| SOURCE_ID | text |  | **Legacy.** Unique Id of the source or application |
 | SIGNER_ID | text |  | Signer assigned to the certification |
-| MANAGER_ID | text |  | **Legacy.** Manager - reviewing the certification |
 | CAMPAIGN_ID | text |  | Campaign the certification is Spawned from |
 | ORIGINAL_CERTIFICATION_ID | text |  | original certification before reassignment |
 | COMPLETE | boolean |  | Status of the certification |
 | PHASE | text |  | Current Phase like Active, Staged, end etc. |
-| IS_BULK_REASSIGNMENT | boolean |  | **Legacy.** Whether the certification is part of a bulk reassignment |
 | DUE_DATE | datetime |  | when the certification needs to be reviewed |
 | SIGNED_DATE | datetime |  | when the certification was actually signed |
 | FINISHED_DATE | datetime |  | Provision end timestamp for an access request. This may match the CREATED date in the SailPoint UI when both refer to the same provision end event. |
-| EXPIRATION_DATE | datetime |  | **Legacy.** When the certification will expire |
 | SYNC_DATE | datetime |  | When the row is last synced |
 | REVIEWER_ID | text |  | Identity assigned to review the certification |
 
@@ -373,25 +369,16 @@ Contains certification item data sourced from **Certs 2.0**.
 | SOURCE_ID | text |  | source or application related to account/entitlement |
 | REVIEWED_ID | text |  | Who actually reviewed the access item |
 | REVIEWED_TYPE | text |  | What type of access item was reviewed Ex: Account, Role, Entitlement etc. |
-| TYPE | text |  | **Legacy.** Type of certification item Ex: Bundle, Exception, Account Etc. |
-| SUB_TYPE | text |  | **Legacy.** Associated Sub_type for each of the type |
 | COMPLETED_DATE | datetime |  | time the access item certification was completed |
 | DECISION_DATE | datetime |  | time the decision was submitted on ISC |
 | APPROVED | number |  | Whether the item was approved(1) or rejected(0) |
 | STATUS | text |  | Status of the certification item |
 | DECISION | text |  | Decision taken by reviewer on the access item Ex: Approved, Mitigated, remediated etc. |
 | DECISION_COMMENT | text |  | Comment provided by the reviewer along with the decision |
-| BULK | boolean |  | **Legacy.** decision made was part of bulk selection |
 | REMEDIATED | boolean |  | True when the decision was remediated |
 | PRIVILEGED | boolean |  | if any of the access items are privileged |
-| REMEDIATION_ACTION | text |  | **Legacy.** Associated action on remediation |
-| MITIGATION_EXPIRATION | datetime |  | **Legacy.** Time when the decision to mitigate was set to expire |
 | NATIVE_IDENTITY | text |  | Identity from the source |
-| INSTANCE | text |  | **Legacy.** instance |
-| ACCOUNT_ONLY | boolean |  | **Legacy.** if only account is reviewed without any access items |
 | NEW_ACCESS | boolean |  | if the access item is new |
-| POLICY_NAME | text |  | **Legacy.** Policy if any |
-| CONSTRAINT_NAME | text |  | **Legacy.** Constraint if any |
 | SYNC_DATE | datetime |  | When the row is last synced |
 
 

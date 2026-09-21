@@ -13,17 +13,7 @@ tags: ['ui-plugins']
 
 This walkthrough takes you from an empty directory to a UI plugin running in your Identity Security Cloud (ISC) tenant. You will scaffold a workspace, register a plugin instance, load your locally running code inside ISC, and finally deploy compiled assets.
 
-Make sure you have completed the [prerequisites](/docs/ui-plugins/prerequisites), including enabling the experimental command group:
-
-```bash
-export SAIL_EXPERIMENTAL_UI_PLUGINS=1
-```
-
-:::note
-
-Every command below assumes `SAIL_EXPERIMENTAL_UI_PLUGINS=1` is set in your shell. If it is not, the CLI reports that the command group is experimental and currently disabled.
-
-:::
+Make sure you have completed the [prerequisites](/docs/ui-plugins/prerequisites).
 
 ## Step 1: Scaffold a workspace with `init`
 

@@ -15,7 +15,7 @@ All UI plugin workflows run through the `sail ui-plugins` command group in the [
 
 :::info Experimental
 
-The command group is hidden by default. Enable it for your shell session with `export SAIL_EXPERIMENTAL_UI_PLUGINS=1`. Backend commands also require the [UI Plugins feature to be enabled for your tenant](/docs/ui-plugins/prerequisites) and the appropriate `idn:plugins-ui:*` rights.
+Backend commands require the [UI Plugins feature to be enabled for your tenant](/docs/ui-plugins/prerequisites) and the appropriate `idn:plugins-ui:*` rights.
 
 :::
 

@@ -13,13 +13,7 @@ tags: ['ui-plugins']
 
 :::info Experimental feature
 
-UI Plugins are an experimental capability that is under active development. The `sail ui-plugins` command group is hidden by default and must be enabled explicitly:
-
-```bash
-export SAIL_EXPERIMENTAL_UI_PLUGINS=1
-```
-
-Command behavior, the workspace manifest (`sp-ui-plugin.json`), and the backend API may change before general availability.
+UI Plugins are an experimental capability that is under active development. Command behavior, the workspace manifest (`sp-ui-plugin.json`), and the backend API may change before general availability.
 
 :::
 

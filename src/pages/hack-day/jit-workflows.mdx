@@ -8,7 +8,7 @@ wrapperClassName: hack-day-track
 
 # Track 01 · Workflows
 
-Turn a real identity event into a real message. You will finish a partly-built Workflow Studio
+In this mini hack, you will turn an identity event into a message. You will finish a partly-built Workflow Studio
 workflow that wakes up the moment a new identity appears in SHF, looks up who
 that person reports to, and emails a formatted onboarding notice — with the new hire's actual
 department, title, and manager in it. No CLI, no local install, and nothing to deploy.
@@ -52,7 +52,7 @@ show a proctor at the end.
                                                        show a proctor
 ```
 
-You are building one step. That sounds small, and it is the step where two systems that know nothing
+You are building one step. That sounds small, but it is the step where two systems that know nothing
 about each other have to be made to agree — which is most of what integration work actually is.
 
 
@@ -105,15 +105,15 @@ Open the workflow, then **Edit**.
 
 ![Workflow canvas](screenshots/workflow-canvas.png)
 
-Five nodes, top to bottom: the **trigger**, **Wait**, **Get New Hire**, **Get Manager**, and an
-**End** step. Execution runs straight down — no branching here, though branching is possible.
+The five nodes, top to bottom are: the **trigger**, **Wait**, **Get New Hire**, **Get Manager**, and an
+**End** step. Execution runs straight down — no branching here, though branching is possible in a more advanced flow.
 
-Two things about the shape of it. Every step **points at the next one**, and the last step points at
+Two things to note about the shape of it. Every step **points at the next one**, and the last step points at
 an **End**, which is what tells the platform the run finished successfully. That matters the moment
 you add a step of your own, because the end has to move down to sit after it.
 
-And your work goes **between `Get Manager` and the End**. Everything above that is a worked example
-of one pattern, which is what step 1 is about reading.
+And your work goes **between `Get Manager` and the End**. Everything above that is a working example
+of one pattern.
 
 #### The trigger
 
@@ -152,7 +152,7 @@ The wait is a minute; step 1 shows you exactly what the record looks like withou
 ![Get New Hire step](screenshots/workflow-get-new-hire.png)
 
 **`Get New Hire` is not a special kind of step — it is a `Get Identity` action that somebody renamed.**
-Worth understanding, because it explains a lot of what you will see later:
+This is worth understanding, because it explains a lot of what you will see later:
 
 - **`Get Identity` is a built-in action.** Give it one identity id and it calls the platform's identity
   API for you and hands back that identity's full record — every attribute the platform holds, not
@@ -176,7 +176,7 @@ workflow. The event says *who*; this says *everything about them*.
 lists everything available at that point in the flow — the trigger's payload, plus the output of
 every step above the one you are editing. Pick a value and it writes the path for you.
 
-Two consequences worth noticing now. A step can only see steps *above* it, which is why order
+Two consequences are worth noticing now. A step can only see steps *above* it, which is why order
 matters. And the path it writes refers to a step by an internal name that is not always its display
 name — you will meet that in step 3.
 
@@ -203,7 +203,7 @@ else. Step 1 explains why it reads `managerRef.id` and not the similar-looking f
 **Every time a workflow runs, it leaves a record here** — what triggered it, when, whether it
 succeeded, and what every step did. This is where you go when something did not work.
 
-There are already runs in here, and they are not yours. Setup loaded the eight baseline people, which
+There are already runs in here, and they are not yours, yet. Setup loaded the eight baseline people, which
 fired eight real events — five succeeded, three failed. You will borrow a payload from one of the
 green ones in step 2, and you will understand the three red ones by the end of step 1.
 
@@ -354,7 +354,7 @@ and the run fails.
 That is not a defect in the exercise. Executives, founders, and contractors arrive without managers
 constantly, and a joiner workflow that dies on them is a joiner workflow that pages somebody at 2am.
 Handling it properly is the first stretch goal, and those three red runs are sitting in your history
-as a free demonstration of the problem.
+as a demonstration of the problem you can use should you decide to try fixing the flow.
 
 </details>
 

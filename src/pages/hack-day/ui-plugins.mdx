@@ -388,7 +388,7 @@ Unlinking is idempotent and safe to run whether or not a link exists.
 
 </details>
 
-### 5. Read the files you did not write
+### 5. Understanding Generated Files
 
 The scaffold is a working Angular app, and most of it is boilerplate you can ignore. Three files are
 worth reading before you change anything, because between them they explain why your code in the next
@@ -433,8 +433,6 @@ SailPoint-looking select.
 
 **`src/app/core/spds-prime-theme.ts`** is the theme that `providePrimeNG()` is handed. It is six
 thousand lines, it is generated, and the header tells you not to edit it. The only thing that is worth mentioning are the last two lines:
-
-**`src/app/core/spds-prime-theme.ts`**
 
 ```ts
 export const SPDS_DARK_MODE_SELECTOR = '.spds-dark';

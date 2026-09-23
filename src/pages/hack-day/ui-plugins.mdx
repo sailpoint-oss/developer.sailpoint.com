@@ -25,7 +25,7 @@ every person who reports to them.
 
 UI Plugins are experimental. The manifest format can still change, and your tenant must have the
 feature switched on. If it is not, every backend command returns a "not enabled for this tenant"
-error — so confirm this with a developer advocate in the room before you start.
+error, so confirm this with a developer advocate in the room before you start.
 
 :::
 
@@ -58,7 +58,7 @@ error — so confirm this with a developer advocate in the room before you start
 ```
 
 One API call does all of it, and the reason is worth knowing before you write it. Every identity
-record carries a **reference** to its manager — an id and a display name — in the same way a database
+record carries a **reference** to its manager in the same way a database
 row holds a foreign key rather than the whole related row. Read those references one way and you have
 the list of managers for the dropdown. Read them the other way and you have each manager's reports. So
 a single page of identities answers both halves of the question, with no second request.
@@ -67,15 +67,14 @@ a single page of identities answers both halves of the question, with no second 
 
 Work through the steps in order. Steps 1 to 4 get your local code rendering inside the tenant. Steps 6
 to 8 are where you write the page, one piece at a time, with something visible to check after each. If a step leaves you stuck, open the hint under it to unblock
-yourself and keep moving — using them costs you nothing.
+yourself and keep moving.
 
 ### 1. Install the prerequisites
 
 :::tip Already did Track 02?
 
 Then you have Node, the CLI, a PAT, and a `hackday` environment already. Skip to
-[Checking that UI Plugins are enabled](#checking-that-ui-plugins-are-enabled) — that is the only piece this track
-adds.
+[Checking that UI Plugins are enabled](#checking-that-ui-plugins-are-enabled).
 
 :::
 
@@ -83,6 +82,8 @@ adds.
 
 The starter template is an [Angular](https://angular.dev/) application, Angular accepts **20.19 or newer, 22.12 or newer, or 24 and above**,
 and nothing in between. Check the minor version, not just the major one.
+
+**Your terminal**
 
 ```bash
 node --version
@@ -96,6 +97,8 @@ version, so it is worth fixing now rather than in step 4.
 
 <Tabs>
   <TabItem value="macos" label="macOS" default>
+
+**Your terminal**
 
 ```bash
 brew tap sailpoint-oss/tap && brew install sailpoint-cli
@@ -114,9 +117,13 @@ the installer. 64-bit Windows only.
 Download the `.deb` or `.rpm` from the
 [releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases), then install it:
 
+**Your terminal — Debian or Ubuntu**
+
 ```bash
 sudo apt install ./sail_2.4.0_linux_amd64.deb
 ```
+
+**Your terminal — Red Hat or Fedora**
 
 ```bash
 sudo yum localinstall ./sail_2.4.0_linux_amd64.rpm
@@ -127,6 +134,8 @@ sudo yum localinstall ./sail_2.4.0_linux_amd64.rpm
 
 Confirm it landed and that the version is **2.4.0 or newer**:
 
+**Your terminal**
+
 ```bash
 sail --version
 ```
@@ -135,7 +144,7 @@ sail --version
 
 The `ui-plugins` command group is new, so install the latest release rather than using whatever you
 already have. If `sail ui-plugins` reports an unknown command even after you enable it below, an old
-binary is the reason — re-run the install command for your platform to upgrade.
+binary is the reason.
 
 :::
 
@@ -149,8 +158,7 @@ token (PAT) is the simplest way to get authenticated.
 - Click **New Token** and give it a description, such as `hack-day-cli`.
 - For the vendor integration, choose **Other / No associated vendor integration**.
 - Leave the scopes list empty. An empty list means the token defaults to `sp:scopes:all` and inherits
-  your own access, which is what the plugin commands need — pick narrower scopes and they will fail
-  with a `403`.
+  your own access, which is what the plugin commands need.
 - Click **Create Token**, then copy the **Client ID** and **Client Secret**. The secret is never
   shown again.
 
@@ -164,6 +172,8 @@ authenticate with that PAT. You will be prompted for your tenant URL
 (`https://[tenant].identitynow.com`) and API URL (`https://[tenant].api.identitynow.com`), then for
 the client ID and secret from above.
 
+**Your terminal**
+
 ```bash
 sail env create hackday
 sail set pat
@@ -176,16 +186,19 @@ More detail: [CLI install and configuration](/docs/tools/cli).
 
 Now check that the CLI authenticates and that the feature is on. In your terminal, run:
 
+**Your terminal**
+
 ```bash
 sail ui-plugins list
 ```
 
-It should return without an error. An empty list is a pass — it just means you have not created a
-plugin yet. A rights error names the `idn:plugins-ui:*` right you are missing. A "not enabled for this
+It should return without an error. An empty list is expected if you haven't created a ui-plugin yet. A rights error names the `idn:plugins-ui:*` right you are missing. A "not enabled for this
 tenant" error means the feature flag is off, which is not something you can fix from here.
 
 <details>
 <summary>See details: check everything at once</summary>
+
+**Your terminal**
 
 ```bash
 node --version                      # 20.19+, 22.12+, or 24+
@@ -214,6 +227,8 @@ In your terminal, paste these commands one at a time. `sail ui-plugins init` dow
 starter template and personalizes it in a new folder, `cd` moves you into it, and `npm install`
 downloads its dependencies.
 
+**Your terminal**
+
 ```bash
 sail ui-plugins init manager-lookup
 cd manager-lookup
@@ -228,11 +243,13 @@ Six files matter:
 | `sp-ui-plugin.json` | Describes the plugin to ISC: its alias, its API scopes, and the slots it fills |
 | `src/app/app.config.ts` | Wires up the SDK and the themed component library |
 | `src/app/core/spds-prime-theme.ts` | The SailPoint design system, as a PrimeNG theme. Generated, and not yours to edit |
-| `src/app/app.ts` | Your component — the state and the API calls |
+| `src/app/app.ts` | Your component, populated with some default examples |
 | `src/app/app.html` | Your template |
 | `src/app/app.scss` | Your styles (empty in the scaffold) |
 
 Open `sp-ui-plugin.json` first, because it is the only one that is not ordinary Angular:
+
+**`sp-ui-plugin.json`**
 
 ```json
 {
@@ -265,6 +282,8 @@ Two halves, and the split matters:
 
 You can check the manifest's structure at any time without touching the backend:
 
+**Your terminal, in the `manager-lookup` folder**
+
 ```bash
 sail ui-plugins validate-manifest
 ```
@@ -274,12 +293,15 @@ sail ui-plugins validate-manifest
 ### 3. Register the plugin instance
 
 `create` reads `sp-ui-plugin.json`, validates it locally, and sends the `manifest` section to your
-tenant to register a **plugin instance**. Nothing is deployed and no code is uploaded — you are
-reserving the alias and getting an ID back.
+tenant to register a **plugin instance**. Nothing is deployed and no code is uploaded.
+
+**Your terminal**
 
 ```bash
 sail ui-plugins create
 ```
+
+**Terminal output**
 
 ```text
 Created plugin instance 033b32b5-280f-4d78-a856-05c2a34d15d1 (alias: manager-lookup)
@@ -292,8 +314,7 @@ Keep that ID. It appears in every URL you open from here on.
 
 Your plugin gets its API access from the page that hosts it. On startup it performs a handshake with
 the ISC **App Shell**, and the App Shell hands back the tenant, the signed-in user, and the token that
-API calls travel on. Open `https://localhost:4200` on its own and there is no App Shell to talk to —
-the handshake fails, and every API call fails with it. The page renders, but it has no data.
+API calls travel on. Open `https://localhost:4200` on its own and every API call fails with it. The page renders, but it has no data.
 
 So you do not develop against `localhost`. You develop against your tenant, and `link` tells the
 tenant to load your page from your dev server instead of from deployed files. The override is bound to
@@ -301,15 +322,21 @@ your own identity, so nobody else in the tenant is affected.
 
 Start the dev server first. Use a **second terminal**, and leave it running:
 
+**Your second terminal**
+
 ```bash
 npm run start
 ```
 
 Then link it, back in the first terminal:
 
+**Your first terminal**
+
 ```bash
 sail ui-plugins link
 ```
+
+**Terminal output**
 
 ```text
 Plugin manager-lookup linked to port 4200
@@ -318,15 +345,14 @@ https://<tenant>/ui/plugin/033b32b5-280f-4d78-a856-05c2a34d15d1?spPluginDev=mana
 ```
 
 Open the printed URL. You get the starter page rendered inside your tenant, with a **Local Dev** badge
-on it. Edit a file, refresh the browser, and your change is there — that is your loop for the rest of
-this track.
+on it. Edit a file, refresh the browser, and your changes are all there.
 
 :::caution "Can't reach your local plugin server"
 
 The dev server runs over HTTPS with a self-signed certificate, and your browser refuses it until you
 say otherwise. This error almost always means one of two things:
 
-- `npm run start` is not running — check the second terminal.
+- `npm run start` is not running.
 - You have not accepted the certificate yet. Open `https://localhost:4200` in a new tab, accept the
   warning, then return to the ISC tab and click **Retry**. The browser will flag the dev server as
   **Not Secure**, which is expected for local development.
@@ -335,6 +361,8 @@ say otherwise. This error almost always means one of two things:
 
 <details>
 <summary>See details: the full loop, and how to get out of it</summary>
+
+**Your two terminals**
 
 ```bash
 # Terminal 1
@@ -348,11 +376,13 @@ The port is resolved from `--port`, then `build.port` in the manifest, then the 
 
 When you are done, remove the override so the tenant goes back to serving deployed files:
 
+**Your terminal**
+
 ```bash
 sail ui-plugins unlink
 ```
 
-Unlinking is idempotent — safe to run whether or not a link exists.
+Unlinking is idempotent and safe to run whether or not a link exists.
 
 - [Create a plugin instance](https://developer.sailpoint.com/docs/ui-plugins/create-a-plugin-instance)
 
@@ -392,27 +422,27 @@ provideAppInitializer(async () => {
 ```
 
 `provideSailPoint()` registers an HTTP interceptor that attaches the plugin's token to every SDK
-request — which is why nothing you write from here mentions a token, a base URL, or a tenant name.
+request.
 
 `provideAppInitializer()` awaits the handshake *before* Angular renders anything, so your first API
 call cannot race it. Because of that line you can call the API from the moment your component exists.
 
-`providePrimeNG()` is the third one, and it is why this track looks better than it has any right to.
-[PrimeNG](https://primeng.org/) is the component library SailPoint has picked for UI plugins, and the
+`providePrimeNG()` is the third one. [PrimeNG](https://primeng.org/) is the component library SailPoint has picked for UI plugins, and the
 scaffold arrives with it installed, themed, and configured. You write `<p-select>` and you get a
 SailPoint-looking select.
 
 **`src/app/core/spds-prime-theme.ts`** is the theme that `providePrimeNG()` is handed. It is six
-thousand lines, it is generated, and the header tells you not to edit it — so do not read it top to
-bottom. Read the last two lines, because you use both later:
+thousand lines, it is generated, and the header tells you not to edit it. The only thing that is worth mentioning are the last two lines:
+
+**`src/app/core/spds-prime-theme.ts`**
 
 ```ts
 export const SPDS_DARK_MODE_SELECTOR = '.spds-dark';
 export const SPDS_THEME_PREFIX = 'spds';
 ```
 
-That prefix is the part worth carrying with you. PrimeNG publishes every design token in the theme as
-a CSS variable, and the prefix decides their names — so SailPoint's tokens are `--spds-text-color`,
+The prefix is important. PrimeNG publishes every design token in the theme as
+a CSS variable, and the prefix decides their names. SailPoint's tokens are `--spds-text-color`,
 `--spds-text-muted-color`, `--spds-content-border-color`, `--spds-primary-color`, and so on. Read those
 in your own stylesheet instead of picking colours, and your page tracks the theme. It is also why
 copying a PrimeNG example off the web can look wrong here: those examples assume the default `--p-`
@@ -424,10 +454,10 @@ The theme brings two more things you get for free:
   It also ships `.spds-h1` to `.spds-h6` (and a `--semibold` variant of each) for when you want a
   heading's *look* on an element that is not that heading level.
 - **Dark mode.** Everything has a dark variant already, switched by the `.spds-dark` class from that
-  export. Nothing in this track turns it on, and the stretch goals show you how.
+  export. Nothing in this track turns it on, but it's worth knowing about it.
 
 A future `@sailpoint/sds` package will replace this file with a published one, which is what the `TODO`
-comment above `providePrimeNG()` is about. Until then the generated preset is the real thing.
+comment above `providePrimeNG()` is about.
 
 **`src/app/app.ts` and `src/app/app.html`** are a demonstration, not a foundation. Open them and you
 will see the pattern you are about to follow: PrimeNG components in the `imports` array, and a map from
@@ -444,20 +474,26 @@ own before you build anything on top of it.
 The Angular SDK is split by API partition, so the identities service comes from its own entry point,
 and every method on it returns an Observable:
 
+**`src/app/app.ts`**
+
 ```ts
 import { IdentitiesService, type Identity } from '@sailpoint/angular-sdk/identities';
 ```
 
 **Method:** `listIdentitiesV1()`, with one thing wrapped around it. A list endpoint returns at most
-**250 records per request**, so a single call quietly truncates any tenant bigger than that — and a
+**250 records per request**, so a single call quietly truncates any tenant with more identities than that - and a
 manager whose reports fall outside that first page would show up with none. The SDK ships a
 `Paginator` for exactly this, so use it from the start rather than discovering the ceiling later:
+
+**`src/app/app.ts`**
 
 ```ts
 import { Paginator } from '@sailpoint/angular-sdk';
 ```
 
 `Paginator.paginate()` runs the paging loop for you and emits once with every record collected:
+
+**`src/app/app.ts`, inside `loadIdentities()`**
 
 ```ts
 Paginator.paginate(
@@ -466,31 +502,29 @@ Paginator.paginate(
 );
 ```
 
-It takes three arguments and you are using two. The first is a function that calls the list method —
-the paginator supplies `limit` and `offset` to it on each pass, which is why you hand it `params`
-rather than an object of your own. The second is the base parameters, and anything the endpoint
+It takes three arguments. The first is a function that calls the list method. The second is the base parameters, and anything the endpoint
 accepts can go here; `sorters: 'name'` gets the dropdown back alphabetical without you sorting it.
-Leaving `limit` out means no cap, so you get every identity. The third argument is the page size, and
-its default of 250 is already the maximum, so leave it alone.
+The third argument is the page size, which defaults to 250.
 
 `firstValueFrom()` then turns that Observable into a promise, which reads better in a method that
 loads once and stores the result.
 
 Replace the entire contents of `src/app/app.ts` with the shell below. It injects the plugin service
 and the identities service, declares the three signals the page runs on, and starts the load from an
-`effect()` that waits for `apiReady()` — so the data is on its way before the user touches anything.
+`effect()` that waits for `apiReady()`.
 
 The load itself is commented out inside `loadIdentities()`. Uncomment it. It is the only thing you
-have to do in this step, and it is commented rather than missing so that you read it on the way past.
+have to do in this step, and it is commented rather than missing so that you get a better understanding of where key edits take place.
 
 That `effect()` is doing real work, so it is worth a look while you are in there. An effect re-runs
-whenever a signal it reads changes, and it reads `apiReady()` — so the moment the handshake flips to
-ready, the load starts. The plain `requested` boolean is deliberately *not* a signal: the effect must
-not depend on it, or setting it would trigger the effect again.
+whenever a signal it reads changes, and it reads `apiReady()` so the moment the handshake flips to
+ready, the load starts.
 
 The two PrimeNG modules in `imports` follow the same pattern the starter file used. A standalone
 Angular component has to declare every component its template uses, so this array grows in each of the
 next two steps.
+
+**`src/app/app.ts`**
 
 <div style={{maxHeight: '400px', overflowY: 'auto'}}>
 
@@ -566,6 +600,8 @@ header that proves the handshake worked, a `p-message` for each failure state, a
 `p-tag` and `p-message` are both doing real work here rather than decoration. A `p-message` carries a
 severity, so an error looks like an error without you choosing a red, and it brings its own icon.
 
+**`src/app/app.html`**
+
 ```html
 <main class="page">
   <header class="page__header">
@@ -597,17 +633,13 @@ severity, so an error looks like an error without you choosing a red, and it bri
 </main>
 ```
 
-Now the stylesheet, and do not skip this one — the template above is all class names, so without it
-the page has no layout at all. Replace `src/app/app.scss`, which the scaffold ships empty:
+Now the stylesheet. Inside here are all the styles applied to the page to allow it to display properly. Replace `src/app/app.scss`, which the scaffold ships empty:
+
+**`src/app/app.scss`**
 
 <div style={{maxHeight: '400px', overflowY: 'auto'}}>
 
 ```scss
-/* The SailPoint Design System preset already sets the page font and styles
-   h1 to h6, so this file only does layout and colour. Colours come from the
-   theme's design tokens, which PrimeNG publishes as --spds-* CSS variables —
-   read them rather than hard-coding a hex, and this page follows the theme
-   (including dark mode) for free. */
 :host {
   display: block;
   box-sizing: border-box;
@@ -701,14 +733,9 @@ the page has no layout at all. Replace `src/app/app.scss`, which the scaffold sh
 
 </div>
 
-It is shorter than you might expect, and that is the theme doing the work. There are no font sizes and
-no heading rules, because the design system styles `h1` to `h6` already. There are no colours either —
-every one is read from a `--spds-*` design token, so this page follows the SailPoint theme and will
-follow dark mode without a single change. What is left is spacing: one `gap` on the page so every
-block is evenly separated, and one on each row of controls.
+It is shorter than you might expect, and that is the theme doing the work.
 
-This stylesheet covers the finished page, including the table you add in step 8, so you only do it
-once.
+This stylesheet covers the finished page, including the table you add in step 8.
 
 Save both files. The dev server rebuilds on its own, so refresh the `?spPluginDev=` tab. You should
 get your tenant and user name in the header, and a line like this:
@@ -721,13 +748,13 @@ That number is every identity in the tenant, not the first page of them. Watch t
 it loads and you will see the paginator walk the pages: one request per 250 records, each with a
 higher `offset` than the last.
 
-If it says `Loaded 0 identities.`, the call returned but you dropped the result — check that
+If it says `Loaded 0 identities.`, the call returned but you dropped the result. Check that
 `this.identities.set()` actually runs and make sure you updated the code highlighted in the comments to make this work.
 
 <details>
 <summary>See details: the code so far, in full</summary>
 
-`src/app/app.ts`:
+**`src/app/app.ts`**
 
 <div style={{maxHeight: '400px', overflowY: 'auto'}}>
 
@@ -795,7 +822,7 @@ export class App {
 
 </div>
 
-`src/app/app.html`:
+**`src/app/app.html`**
 
 <div style={{maxHeight: '400px', overflowY: 'auto'}}>
 
@@ -840,21 +867,16 @@ export class App {
 
 ### 7. Build the manager dropdown
 
-Now turn those identities into a list of managers. There is an obvious way to do this that does not
-work, and knowing why is most of the value in this step.
+Now turn those identities into a list of managers.
 
-`listIdentitiesV1` cannot filter by manager. Its filterable fields are `id`, `name`, `alias`,
-`firstname`, `lastname`, `email`, `cloudStatus`, `processingState`, `correlated`, and `protected` —
-that is the whole list. So you do not ask the API for managers; you read them out of the identities you
+`listIdentitiesV1` cannot filter by manager. So you do not ask the API for managers; you read them out of the identities you
 already have. Every identity carries a `managerRef`, so the distinct set of those references **is** the
 list of managers in your tenant.
 
-There is an `isManager` flag on the identity record too, and deriving from the references instead has
-one practical advantage: every option in your dropdown is guaranteed to return at least one result,
-because it got there by being somebody's manager.
-
 Add the `computed()` below to `app.ts`, above `private requested = false`, then uncomment the line in
 the loop:
+
+**`src/app/app.ts`, inside the `App` class, above `private requested = false`**
 
 ```ts
   /**
@@ -877,9 +899,11 @@ the loop:
   });
 ```
 
-That needs three things the file does not have yet. Add `computed` to the existing import from
+Also add `computed` to the existing import from
 `@angular/core`, declare the option shape above the `@Component` block, and add a signal for the
 selection next to the other signals:
+
+**`src/app/app.ts`, above the `@Component` block**
 
 ```ts
 /** One entry in the manager dropdown. */
@@ -889,14 +913,17 @@ interface ManagerOption {
 }
 ```
 
+**`src/app/app.ts`, inside the `App` class, next to the other signals**
+
 ```ts
   /** The manager the user picked in the dropdown. */
   protected readonly selectedManagerId = signal('');
 ```
 
 Then a handler, just below `loadIdentities()`. `p-select` hands you the selected option's value
-directly, so there is no DOM event to unpack — and `[showClear]` can hand you `null`, which is why the
-fallback is there:
+directly.
+
+**`src/app/app.ts`, inside the `App` class, below `loadIdentities()`**
 
 ```ts
   /** Runs when the user picks a manager. p-select hands us the option's value. */
@@ -908,15 +935,21 @@ fallback is there:
 Now the component itself. Add `SelectModule`, `SkeletonModule`, and `FormsModule` to the imports, then
 swap the count in `app.html` for the real control:
 
+**`src/app/app.ts`, with the imports at the top**
+
 ```ts
 import { FormsModule } from '@angular/forms';
 import { SelectModule } from 'primeng/select';
 import { SkeletonModule } from 'primeng/skeleton';
 ```
 
+**`src/app/app.ts`, the `imports` array in the `@Component` block**
+
 ```ts
   imports: [FormsModule, MessageModule, SelectModule, SkeletonModule, TagModule],
 ```
+
+**`src/app/app.html`, replacing the `picker` section**
 
 ```html
   <section class="picker">
@@ -943,17 +976,14 @@ import { SkeletonModule } from 'primeng/skeleton';
   </section>
 ```
 
-Four of those attributes are worth knowing, because they are why this beats a plain `<select>`:
+Four of those attributes are worth noting `<select>`:
 
 | Attribute | What it buys you |
 | --- | --- |
-| `[filter]="true"` | A search box inside the dropdown. In a tenant with 200 managers this is the difference between usable and not. |
+| `[filter]="true"` | A search box inside the dropdown to handle tenants with many managers |
 | `[showClear]="true"` | An × to clear the selection, so the user can get back to no filter. |
 | `emptyMessage` | What to show when `managers()` is empty, instead of a blank panel. |
-| `optionLabel` / `optionValue` | Which field to display and which to emit — so the handler gets an id, not an object. |
-
-`p-skeleton` replaces the "Loading identities…" text with a grey block the same size as the control
-that is about to appear, so the layout does not jump when the data lands.
+| `optionLabel` / `optionValue` | Which field to display and which to emit |
 
 One detail in that binding is deliberate: `[ngModel]` is one-way, not the usual `[(ngModel)]`. The
 signal is the single source of truth for what is selected, so the value flows out of the signal into
@@ -967,7 +997,7 @@ keyed by something that is not the manager's id.
 <details>
 <summary>See details: the code so far, in full</summary>
 
-`src/app/app.ts`:
+**`src/app/app.ts`**
 
 <div style={{maxHeight: '400px', overflowY: 'auto'}}>
 
@@ -1069,7 +1099,7 @@ export class App {
 
 </div>
 
-`src/app/app.html`:
+**`src/app/app.html`**
 
 <div style={{maxHeight: '400px', overflowY: 'auto'}}>
 
@@ -1134,15 +1164,13 @@ export class App {
 
 ### 8. Show the direct reports
 
-Selecting a manager should list their reports, and you already have the data to do it — the same
+Selecting a manager should list their reports, and you already have the data to do it. The same
 `managerRef` that built the dropdown points the other way too. This step needs no API call at all.
 
 Add the `computed()` below `managers`, then uncomment the return and delete the empty array under it.
-That placeholder is there only so the file compiles while the real line is commented — TypeScript is
-configured with `noImplicitReturns`, so a `computed()` that can fall out of the bottom is an error.
+That placeholder is there only so the file compiles while the real line is commented.
 
-The empty-string guard above it matters too: nothing is selected until the user picks something, and an
-empty id must not match anybody.
+**`src/app/app.ts`, inside the `App` class, below `managers`**
 
 ```ts
   /** The direct reports of the selected manager. */
@@ -1159,7 +1187,7 @@ empty id must not match anybody.
   });
 ```
 
-Note the `?.` in that line — `managerRef` is nullable, because the people at the top of the
+Note the `?.` in that line. `managerRef` is nullable, because the people at the top of the
 organization have no manager. Without it, the first identity with a null `managerRef` throws.
 
 The table wants three small helpers, so add these below `onManagerChange()`.
@@ -1167,15 +1195,16 @@ The table wants three small helpers, so add these below `onManagerChange()`.
 The first reads a named attribute off an identity. Department is not a top-level field: it lives in
 `attributes`, which the SDK types as a plain `object` because its contents differ from tenant to
 tenant. The second turns a name into initials for an avatar. The third maps an identity status onto a
-PrimeNG severity, which is what makes the status colour mean something instead of being decoration —
-the same trick the starter file used for the handshake state:
+PrimeNG severity, which is what makes the status colour mean something instead of being decoration:
+
+**`src/app/app.ts`, inside the `App` class, below `onManagerChange()`**
 
 ```ts
   /** Reads one identity attribute out of the untyped attributes map. */
   protected attr(identity: Identity, key: string): string {
     const attributes = identity.attributes as Record<string, unknown> | undefined;
     const value = attributes?.[key];
-    return typeof value === 'string' && value ? value : '—';
+    return typeof value === 'string' && value ? value : '-';
   }
 
   /** Initials for the avatar, so "Jean Bartik" becomes "JB". */
@@ -1211,16 +1240,22 @@ the same trick the starter file used for the handshake state:
 
 Add `AvatarModule` and `TableModule` to the imports:
 
+**`src/app/app.ts`, with the imports at the top**
+
 ```ts
 import { AvatarModule } from 'primeng/avatar';
 import { TableModule } from 'primeng/table';
 ```
+
+**`src/app/app.ts`, the `imports` array in the `@Component` block**
 
 ```ts
   imports: [AvatarModule, FormsModule, MessageModule, SelectModule, SkeletonModule, TableModule, TagModule],
 ```
 
 Then add the table to `app.html`, after the `picker` section and still inside `<main>`:
+
+**`src/app/app.html`, after the `picker` section and inside `<main>`**
 
 <div style={{maxHeight: '400px', overflowY: 'auto'}}>
 
@@ -1259,7 +1294,7 @@ Then add the table to `app.html`, after the `picker` section and still inside `<
               <span>{{ person.name }}</span>
             </div>
           </td>
-          <td>{{ person.emailAddress || '—' }}</td>
+          <td>{{ person.emailAddress || '-' }}</td>
           <td>{{ attr(person, 'department') }}</td>
           <td>
             <p-tag
@@ -1284,8 +1319,7 @@ Then add the table to `app.html`, after the `picker` section and still inside `<
 `p-table` is built out of named `ng-template` blocks rather than plain markup, and the four here are
 the ones you almost always want. `#header` and `#body` are the column definitions and the row; `#body`
 receives one item at a time through `let-person`. `#caption` is the strip above the table, and
-`#emptymessage` is what shows instead of rows when there are none — which saves you writing the
-`@if (reports().length === 0)` branch by hand.
+`#emptymessage` is what shows instead of rows when there are none.
 
 Three attributes are carrying their weight. `pSortableColumn` plus `p-sortIcon` makes the Name column
 click-to-sort, `[paginator]` only appears once there are more than ten reports, and `sortField` sets
@@ -1293,14 +1327,14 @@ the initial order. The caption uses `.spds-h5--semibold`, one of the design syst
 to size that label without inventing a font size.
 
 Save and refresh, then pick a manager. You get a caption with a count, a sortable Name column, and a
-row per report with a coloured status tag. Open your browser's network tab and pick a second manager —
-you should see **no request at all**, because both `computed()` values are working from identities that
+row per report with a coloured status tag. Open your browser's network tab and pick a second manager.
+You should see **no request at all**, because both `computed()` values are working from identities that
 are already in memory.
 
 <details>
 <summary>See details: the code so far, in full</summary>
 
-`src/app/app.ts`:
+**`src/app/app.ts`**
 
 <div style={{maxHeight: '400px', overflowY: 'auto'}}>
 
@@ -1409,7 +1443,7 @@ export class App {
   protected attr(identity: Identity, key: string): string {
     const attributes = identity.attributes as Record<string, unknown> | undefined;
     const value = attributes?.[key];
-    return typeof value === 'string' && value ? value : '—';
+    return typeof value === 'string' && value ? value : '-';
   }
 
   /** Initials for the avatar, so "Jean Bartik" becomes "JB". */
@@ -1450,7 +1484,7 @@ export class App {
 
 </div>
 
-`src/app/app.html`:
+**`src/app/app.html`**
 
 <div style={{maxHeight: '400px', overflowY: 'auto'}}>
 
@@ -1536,7 +1570,7 @@ export class App {
               <span>{{ person.name }}</span>
             </div>
           </td>
-          <td>{{ person.emailAddress || '—' }}</td>
+          <td>{{ person.emailAddress || '-' }}</td>
           <td>{{ attr(person, 'department') }}</td>
           <td>
             <p-tag
@@ -1570,42 +1604,28 @@ what you have in the tenant for good.
 :::note
 
 The starter ships a test in `src/app/app.spec.ts` that asserts the old heading text, so it fails from
-step 6 onward. Nothing in this track runs `npm test` — leave it or delete it.
+step 6 onward. Nothing in this track runs `npm test`.
 
 :::
 
-<details>
-<summary>See details: what to check when the page looks wrong</summary>
-
-| What you see | What it means |
-| --- | --- |
-| Everything works, but nothing is spaced — no page margins, controls running together | `src/app/app.scss` is still the empty file the scaffold shipped. The components are themed by the preset, but the layout is all in that stylesheet. See step 6. |
-| The handshake error from the template | You opened `https://localhost:4200` directly instead of the `?spPluginDev=` URL. |
-| "No identities in this tenant have a manager set." | The load returned, but no identity has a `managerRef`. Open somebody under **Admin → Identities** and check. |
-| A `403` on the error line | The PAT was created with narrower scopes than `sp:scopes:all`. Delete it and create a new one with the scopes list left empty. |
-| A blank page | A TypeScript error, or an unsupported Node version. Look at the terminal running `npm run start`. |
-| The old starter page | A cached copy. Hard refresh. |
-
-</details>
 
 ### 9. Deploy to your tenant
 
 :::tip Short on time?
 
-This step is optional. Everything above already works, and you can show a proctor the page running in
+This step is optional. Everything above already works, and you can show a developer advocate the page running in
 your tenant with the **Local Dev** badge on it.
 
 :::
 
-Everything so far has run on your laptop. These commands put the compiled page in your tenant, so it
-works for other people and keeps working after you close your laptop. In your terminal — the first one,
-not the one running `npm run start` — run them one at a time. The first compiles your app, and the
-second uploads the result.
+Everything so far has run on your laptop. These commands put the compiled page in your tenant.
 
 ```bash
 npm run build
 sail ui-plugins upload
 ```
+
+**Terminal output**
 
 ```text
 Uploaded 5 asset(s) to plugin "manager-lookup" (bundle 88610c07-b1fe-42d8-98c5-01703efd7cf7)
@@ -1613,14 +1633,12 @@ The plugin can be viewed at:
 https://<tenant>/ui/plugin/033b32b5-280f-4d78-a856-05c2a34d15d1
 ```
 
-`upload` is a deploy step, not a build step — it uploads whatever is already in `build.outDir` and
-never runs your framework's build for you. Skip `npm run build` and it fails immediately:
-
-```text
-Error: output directory ./dist/manager-lookup/browser does not exist
-```
+`upload` is a deploy step, not a build step. It uploads whatever is already in `build.outDir` and
+never runs your framework's build for you.
 
 The build prints two numbers and one complaint. Expect all three:
+
+**Terminal output**
 
 ```text
 Initial chunk files | Names | Raw size | Estimated transfer size
@@ -1629,24 +1647,24 @@ main-NGW7B3FQ.js    | main  |  1.08 MB |               209.13 kB
 ▲ [WARNING] bundle initial exceeded maximum budget. Budget 500.00 kB was not met by 584.57 kB
 ```
 
-PrimeNG is a large library — `p-table` alone is most of it — so the raw bundle lands around 1 MB and
+The raw bundle lands around 1 MB and
 trips the scaffold's 500 kB budget warning. That is a **warning**, not an error: the build completes
-and `upload` works. The scaffold's error threshold is set to 3 MB precisely so that a plugin using the
-component library it ships with still builds.
+and `upload` works.
 
 The number that matters is the one on the right. What a browser downloads is the compressed figure,
 about 210 kB, which is ordinary for a single-page app.
 
 Open the printed URL. It is the same page without the **Local Dev** badge, because the tenant is
-serving the uploaded files rather than your dev server. Run `sail ui-plugins unlink` to drop your
-override and confirm the deployed copy stands on its own.
+serving the uploaded files rather than your dev server.
 
 The alias is the lookup key, and the CLI resolves it against whichever tenant you are authenticated
-to — so the identical `upload` command deploys to staging or to production depending only on
+to. The identical `upload` command deploys to staging or to production depending only on
 `sail env`. There are no environment-specific plugin IDs to track.
 
 <details>
 <summary>See details: managing what you deployed</summary>
+
+**Your terminal**
 
 ```bash
 # What is registered in this tenant?
@@ -1670,65 +1688,26 @@ again changes which bundle is active.
 
 Pick whichever looks most interesting. Each one maps to something real plugins actually have to do.
 
-- **Show the manager, not just the reports.** Your page knows a `managerRef` — an id and a display
-  name — and nothing else about the person you selected. No email, no department, no title. Those live
-  on the manager's own identity record, so getting them means a second call:
-
-  ```ts
-  const manager = await firstValueFrom(this.identitiesSvc.getIdentityV1({ id: managerId }));
-  ```
-
-  Put the result in a signal, render it in a `p-card` above the table with a `p-avatar` and a few
-  `p-tag`s, and hold its place with a `p-skeleton` while it loads. This is the two-lookup shape you
-  meet everywhere in identity work: the first call tells you who points at whom, and the second tells
-  you about the person being pointed at.
+- **Show the manager, not just the reports.** Your page knows a `managerRef` and nothing else about the person you selected. No email, no department, no title. Those live
+  on the manager's own identity record, so getting them means a second call
 - **Add a name filter.** Put a text input above the dropdown and narrow the reports table as the user
-  types. Do it as a third `computed()` reading a signal from the input — no API call needed.
+  types. Do it as a third `computed()` reading a signal from the input.
 - **Show the whole chain.** Once you have that second lookup working, notice that the manager has a
   `managerRef` too. Follow it upward with repeated `getIdentityV1` calls and render the reporting line
-  from the selected person to the top of the organization. Stop when `managerRef` is null, and stop if
-  you see an id twice — real data is not always a tree.
+  from the selected person to the top of the organization. Stop when `managerRef` is null.
 - **Stream the pages instead of collecting them.** `Paginator.paginate()` holds every record in
   memory and emits once at the end, which is fine for a few thousand identities and wasteful for a
-  hundred thousand. Swap it for `Paginator.paginatePages()`, which emits each page as it arrives, and
-  append to the `identities` signal per page. The table then fills progressively instead of waiting
-  for the last request — and you can drop the `limit` worry entirely.
+  hundred thousand. Swap it for `Paginator.paginatePages()`, which emits each page as it arrives.
 - **Ask the server instead.** Replace the client-side filter with a real query. The search API can
-  filter on manager, which `listIdentitiesV1` cannot:
-
-  ```ts
-  import { SearchService, Index } from '@sailpoint/angular-sdk/search';
-
-  const results = await firstValueFrom(
-    this.searchSvc.searchPostV1({
-      search: {
-        indices: [Index.Identities],
-        query: { query: `manager.id:${managerId}` },
-        sort: ['name'],
-      },
-      limit: 250,
-    }),
-  );
-  ```
-
-  Be ready for one surprise: `searchPostV1` returns search documents, not `Identity` objects, so the
-  field names differ. Log one result and fix the table columns before you fight the types.
+  filter on manager, which `listIdentitiesV1` cannot.
 - **Count them instead of listing them.** Use `searchAggregateV1` to get reports-per-manager for the
   whole tenant in one call and render it as a list. That is one request for a page that would otherwise
   take hundreds.
-- **Fill a different slot.** Change `slots` in `sp-ui-plugin.json`, then `create` a second plugin
-  instance and see where it lands in the product. `full-page` is what the starter uses, and it is not
-  the only one.
 - **Reach for more of PrimeNG.** The library is large and you have used six components of it. Add
   `p-toast` so a failed lookup raises a notification instead of a line of text, swap the manager
   `p-select` for a `p-autocomplete` that searches the API as you type, or put the whole page behind
   `p-tabs` and add a second view. Every component is documented with a live example at
   [primeng.org](https://primeng.org/), and every one arrives themed.
-- **Turn on dark mode.** The theme ships a dark variant of everything, switched by the `.spds-dark`
-  class that `spds-prime-theme.ts` exports as `SPDS_DARK_MODE_SELECTOR`. Add a `p-toggleswitch` that
-  puts that class on `document.documentElement`, and watch the whole page follow — including your own
-  stylesheet, because it reads `--spds-*` tokens instead of hard-coded colours. Then try hard-coding
-  one colour and see it stay wrong in the other mode.
 - **Find the tokens you are not using.** Every design token in `spds-prime-theme.ts` is available to
   your CSS as `--spds-<token-path>`. Open your browser's dev tools, inspect any element the theme
   styled, and read the variables it resolved. It is the fastest way to learn what is available without
@@ -1738,28 +1717,10 @@ Pick whichever looks most interesting. Each one maps to something real plugins a
 
 The UI Plugins documentation is new. Until it ships to this site, read it on the preview build:
 
-- [UI Plugins overview](https://developer.sailpoint.com/docs/ui-plugins) — concepts and the
-  development lifecycle
-- [Prerequisites](https://developer.sailpoint.com/docs/ui-plugins/prerequisites) — software,
-  authentication, and the rights each operation needs
+- [UI Plugins overview](https://developer.sailpoint.com/docs/ui-plugins)
+- [Prerequisites](https://developer.sailpoint.com/docs/ui-plugins/prerequisites)
 - [Create a plugin instance](https://developer.sailpoint.com/docs/ui-plugins/create-a-plugin-instance)
-  — the same walkthrough as steps 2 to 9, in more detail
 - [CLI command reference](https://developer.sailpoint.com/docs/ui-plugins/cli-command-reference)
-  — every command, every flag, and the full `sp-ui-plugin.json` contract
-
-For the API call in step 6, and the stretch goals:
-
-- [Angular SDK](https://developer.sailpoint.com/docs/tools/sdk/angular) — installation and the
-  per-partition entry points
-- [List identities](https://developer.sailpoint.com/docs/tools/sdk/angular/identities/methods/identities/#list-identities-v1)
-  — every parameter, and the fields you can filter on
-- [Paginate results](/docs/tools/sdk/angular/paginate) — `Paginator.paginate()` and
-  `Paginator.paginatePages()`, with the arguments explained
-- [Get identity](https://developer.sailpoint.com/docs/tools/sdk/angular/identities/methods/identities/#get-identity-v1)
-  — for the manager lookup stretch goal
-- [Search API](/docs/api/search) — for the search stretch goals
-- [Standard collection parameters](/docs/api/standard-collection-parameters) — `filters`, `sorters`,
-  `limit`, `offset`, and paging
 
 ## Still stuck?
 

@@ -11,6 +11,7 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SPEC_DIR="$REPO_ROOT/static/api-specs/idn"
+IIQ_SPEC_DIR="$REPO_ROOT/static/api-specs/iiq"
 OUT_DIR="$REPO_ROOT/static/redoc"
 
 mkdir -p "$OUT_DIR"
@@ -37,7 +38,8 @@ DARK_OPTIONS='{
 bundle() {
   local key="$1"
   local title="$2"
-  local spec_file="$SPEC_DIR/sailpoint-api.${key}.yaml"
+  # Optional 3rd arg lets callers point at a spec outside the default ISC dir.
+  local spec_file="${3:-$SPEC_DIR/sailpoint-api.${key}.yaml}"
 
   if [[ ! -f "$spec_file" ]]; then
     echo "WARN: spec file not found, skipping: $spec_file"
@@ -71,6 +73,10 @@ bundle "v3"    "SailPoint ISC API (V3)"
 bundle "v2024" "SailPoint ISC API (V2024)"
 bundle "v2025" "SailPoint ISC API (V2025)"
 bundle "v2026" "SailPoint ISC API (V2026)"
+
+# IdentityIQ legacy specs. The current spec (9.0) is rendered as interactive
+# docs via docusaurus-plugin-openapi-docs, so only older versions belong here.
+bundle "iiq-8.3" "SailPoint IdentityIQ SCIM REST API (8.3)" "$IIQ_SPEC_DIR/sailpoint-api.iiq.yaml"
 
 echo ""
 echo "All legacy API docs generated in $OUT_DIR"

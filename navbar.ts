@@ -57,6 +57,7 @@ const navbarConfig = {
             description: 'API Specifications and authentication details.',
             items: [
               { label: 'IdentityIQ', to: '/docs/api/iiq' },
+              { label: 'Legacy Specifications', to: '/apis/iiq/legacy' },
               { label: 'Authentication', to: 'https://documentation.sailpoint.com/identityiq/help/system_configuration/identityiq_global_settings/api_authentication.html'}
             ],
           },

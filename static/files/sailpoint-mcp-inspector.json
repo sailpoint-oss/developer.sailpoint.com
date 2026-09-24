@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "sailpoint-access-requests": {
+      "type": "streamable-http",
+      "url": "https://mcp.sailpoint.com/latest/access-requests/mcp"
+    }
+  }
+}

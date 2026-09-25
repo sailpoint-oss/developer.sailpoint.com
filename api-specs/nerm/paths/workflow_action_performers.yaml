@@ -1,0 +1,15 @@
+post:
+  summary: Create a workflow action performer
+  operationId: createWorkflowActionPerformer
+  description: Create a workflow action performer for an existing workflow action
+  tags:
+    - workflow action performer
+  requestBody:
+    $ref: "../requestBodies/POST/WorkflowActionPerformers.yaml"
+  responses:
+    '200':
+      $ref: "../responses/WorkflowActionPerformers.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

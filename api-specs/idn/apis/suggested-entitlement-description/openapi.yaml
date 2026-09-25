@@ -1,0 +1,64 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Suggested Entitlement Description
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Suggested Entitlement Description
+    description: >
+      Use this API to implement Suggested Entitlement Description (SED) functionality. 
+
+      SED functionality leverages the power of LLM to generate suggested entitlement descriptions. 
+
+      Refer to [GenAI Entitlement
+      Descriptions](https://documentation.sailpoint.com/saas/help/access/entitlements.html#genai-entitlement-descriptions)
+      to learn more about SED in Identity Security Cloud (ISC). 
+paths:
+  /suggested-entitlement-descriptions/v1/auto-write-settings:
+    $ref: ./paths/suggested-entitlement-descriptions-v1-auto-write-settings.yaml
+  /entitlement-recommendations/v1/pending-approvals:
+    $ref: ./paths/entitlement-recommendations-v1-pending-approvals.yaml
+  /privileged-recommendations/v1:
+    $ref: ./paths/privileged-recommendations-v1.yaml
+  /entitlement-recommendations/v1/bulk-approve:
+    $ref: ./paths/entitlement-recommendations-v1-bulk-approve.yaml
+  /entitlement-recommendations/v1/assign:
+    $ref: ./paths/entitlement-recommendations-v1-assign.yaml
+  /entitlement-recommendations/v1/{id}:
+    $ref: ./paths/entitlement-recommendations-v1-by-id.yaml
+  /suggested-entitlement-description-batches/v1/{batchId}/stats:
+    $ref: ./paths/suggested-entitlement-description-batches-v1-by-batchid-stats.yaml
+  /suggested-entitlement-description-batches/v1:
+    $ref: ./paths/suggested-entitlement-description-batches-v1.yaml
+  /suggested-entitlement-description-approvals/v1:
+    $ref: ./paths/suggested-entitlement-description-approvals-v1.yaml
+  /suggested-entitlement-description-assignments/v1:
+    $ref: ./paths/suggested-entitlement-description-assignments-v1.yaml
+  /suggested-entitlement-descriptions/v1:
+    $ref: ./paths/suggested-entitlement-descriptions-v1.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

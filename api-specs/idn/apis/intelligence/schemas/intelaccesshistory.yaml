@@ -1,0 +1,18 @@
+type: object
+required:
+  - accessItems
+  - certifications
+description: |
+  Access-history split into two independently paged categories. accessItems carries
+  grant, remove, and account-status events. certifications carries identity-certified events.
+properties:
+  accessItems:
+    type: object
+    description: First page of access-item history events for the identity.
+    allOf:
+      - $ref: ./intelaccesshistoryaccessitemsslice.yaml
+  certifications:
+    type: object
+    description: First page of certification history events for the identity.
+    allOf:
+      - $ref: ./intelaccesshistorycertificationsslice.yaml

@@ -1,0 +1,17 @@
+patch:
+  summary: Reassign data record
+  operationId: patchDataRecord
+  description: Consolidation is a deprecated feature, this endpoint provides a mechanism to reassign a data record to a new master record to assist customers.
+  tags:
+    - consolidation
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  requestBody:
+    $ref: "../requestBodies/PATCH/Consolidation.yaml"
+  responses:
+    '200':
+      description: The data record has been reassigned.
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

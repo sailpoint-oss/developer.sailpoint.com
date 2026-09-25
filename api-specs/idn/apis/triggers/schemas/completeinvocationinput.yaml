@@ -1,0 +1,11 @@
+type: object
+title: Complete Invocation Input
+properties:
+  localizedError:
+    $ref: ../../shared/schemas/localizedmessage.yaml
+  output:
+    type: object
+    nullable: true
+    example:
+      approved: false
+    description: Trigger output that completed the invocation. Its schema is defined in the trigger definition.

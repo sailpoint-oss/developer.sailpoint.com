@@ -1,0 +1,21 @@
+type: object
+required:
+  - items
+description: Machine accounts embedded on the non-human identity aggregate (first page).
+properties:
+  items:
+    type: array
+    description: Machine accounts correlated to the non-human identity.
+    items:
+      $ref: ./intelmachineaccountwire.yaml
+  totalCount:
+    type: integer
+    format: int32
+    minimum: 1
+    description: Correlated machine account count from aggregation; omitted when items is empty.
+    example: 11
+  next:
+    type: string
+    format: uri
+    description: Next page URL when totalCount exceeds items returned. Includes isNHI=true.
+    example: https://tenant.example.api.cloud.sailpoint.com/intelligence/v1/identities/2c91808874ff91550175097daaec161e/accounts?limit=10&offset=10&count=true&isNHI=true

@@ -1,0 +1,9 @@
+description: Response body returned when entitlement recommendations are successfully queued for assignment.
+type: object
+title: Entitlement Recommendation Assign Result
+properties:
+  batchId:
+    description: The unique identifier of the assignment batch created by this request.
+    type: string
+    format: uuid
+    example: "770e8400-e29b-41d4-a716-446655440099"

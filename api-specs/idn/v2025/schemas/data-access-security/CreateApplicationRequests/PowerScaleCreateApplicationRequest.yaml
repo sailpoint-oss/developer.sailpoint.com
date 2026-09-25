@@ -1,0 +1,52 @@
+allOf:
+  - $ref: './BaseCreateApplicationRequest.yaml'
+  - required:
+      - domain
+      - host
+      - password
+      - userName
+    type: object
+    properties:
+      host:
+        type: string
+        description: The hostname or IP address of the PowerScale cluster.
+        example: "powerscale-cluster.company.com"
+      domain:
+        type: string
+        description: The domain for PowerScale authentication.
+        example: "CORP"
+      userName:
+        type: string
+        description: The username for PowerScale authentication.
+        example: "powerscaleuser"
+      password:
+        type: string
+        description: The password for PowerScale authentication.
+        example: "powerscalepassword"
+      storageClusterName:
+        type: string
+        nullable: true
+        description: The name of the storage cluster.
+        example: "ClusterA"
+      accessZone:
+        type: string
+        nullable: true
+        description: The access zone within the PowerScale cluster.
+        example: "zone1"
+      aliases:
+        type: array
+        items:
+          type: string
+        nullable: true
+        description: List of aliases for the PowerScale cluster.
+        example: ["alias1", "alias2"]
+      useApi:
+        type: boolean
+        description: Indicates whether to use the PowerScale API for operations.
+        example: true
+        default: false
+      managementIp:
+        type: string
+        nullable: true
+        description: The management IP address for the PowerScale cluster.
+        example: "10.0.0.2"

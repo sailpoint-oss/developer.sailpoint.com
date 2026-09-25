@@ -1,0 +1,14 @@
+type: object
+properties:
+    accessProfileIds:
+        description: List of IDs of Access Profiles to be deleted.
+        type: array
+        items:
+          type: string
+        example: ["2c9180847812e0b1017817051919ecca","2c9180887812e0b201781e129f151816"]
+    bestEffortOnly:
+        description: >-
+          If **true**, silently skip over any of the specified Access Profiles if they cannot be deleted because they
+          are in use. If **false**, no deletions will be attempted if any of the Access Profiles are in use.
+        type: boolean
+        example: true

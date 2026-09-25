@@ -1,0 +1,22 @@
+type: object
+properties:
+  approved:
+    type: integer
+    description: The number of approved non-employee requests on all sources that *requested-for* user manages.
+    example: 2
+    format: int32
+  rejected:
+    type: integer
+    description: The number of rejected non-employee requests on all sources that *requested-for* user manages.
+    example: 2
+    format: int32
+  pending:
+    type: integer
+    description: The number of pending non-employee requests on all sources that *requested-for* user manages.
+    example: 2
+    format: int32
+  nonEmployeeCount:
+    type: integer
+    description: The number of non-employee records on all sources that *requested-for* user manages.
+    example: 2
+    format: int32

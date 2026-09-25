@@ -1,0 +1,19 @@
+type: object
+properties:
+  accountUuid:
+    type: string
+    nullable: true
+    description: >-
+      The uuid for the account on the source, available under the 'objectguid' attribute
+      * Corresponds to the account's unique identifier as returned by accounts-selection or the accounts APIs.
+      * For machine identity GRANT_ACCESS / MODIFY_ACCESS, provide `accountUuid` and/or `nativeIdentity`. Submitted
+      values must match a real machine account for the requested machine identity on the selected source.
+    example: '{fab7119e-004f-4822-9c33-b8d570d6c6a6}'
+  nativeIdentity:
+    type: string
+    nullable: false
+    description: >-
+      The 'distinguishedName' attribute for the account.
+      * For machine identity GRANT_ACCESS / MODIFY_ACCESS, provide `accountUuid` and/or `nativeIdentity`. Submitted
+      values must match a real machine account for the requested machine identity on the selected source.
+    example: CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local

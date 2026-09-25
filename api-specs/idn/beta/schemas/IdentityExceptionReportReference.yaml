@@ -1,0 +1,13 @@
+type: object
+title: Identity Exception Report Reference
+nullable: true
+properties:
+  taskResultId:
+    type: string
+    format: uuid
+    description: Task result ID.
+    example: 2c918086795cd09201795d5f7d7533df
+  reportName:
+    type: string
+    example: My annual report
+    description: Report name.

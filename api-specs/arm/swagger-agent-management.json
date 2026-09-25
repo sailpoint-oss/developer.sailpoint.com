@@ -1,0 +1,639 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "v1",
+    "title": "Access Risk Management Agent Management Service"
+  },
+  "tags": [
+    {
+      "name": "Agent"
+    },
+    {
+      "name": "AgentInstruction"
+    }
+  ],
+  "paths": {
+    "/api/agent": {
+      "post": {
+        "tags": [
+          "Agent"
+        ],
+        "summary": "Registers new agent using following agent data.",
+        "operationId": "RegisterAgent",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ErpMaestro.AgentManagementService.WebApi.Models.AgentModel"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Agent"
+        ],
+        "summary": "Updates existing agent using following agent data.",
+        "operationId": "UpdateAgent",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ErpMaestro.AgentManagementService.WebApi.Models.AgentModel"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/agent/instruction": {
+      "post": {
+        "tags": [
+          "Agent"
+        ],
+        "summary": "Gets instruction for specified agent. Also it updates appropriate agent metadata in the database.",
+        "operationId": "CheckForInstruction",
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.WebApi.Models.AgentModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.WebApi.Models.AgentModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.WebApi.Models.AgentModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.WebApi.Models.AgentModel"
+              }
+            }
+          },
+          "description": "Agent metadata."
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.Common.Models.AgentInstructionDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.Common.Models.AgentInstructionDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.Common.Models.AgentInstructionDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/agent/emergencymessage": {
+      "post": {
+        "tags": [
+          "Agent"
+        ],
+        "summary": "Sends the emergency email to fix team with detailed information.",
+        "operationId": "SendEmergencyMessage",
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.WebApi.Models.EmergencyMessageModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.WebApi.Models.EmergencyMessageModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.WebApi.Models.EmergencyMessageModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.WebApi.Models.EmergencyMessageModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.Common.Models.AgentInstructionDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.Common.Models.AgentInstructionDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.Common.Models.AgentInstructionDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/instruction/restart/{agentId}": {
+      "post": {
+        "tags": [
+          "AgentInstruction"
+        ],
+        "summary": "Creates instruction to restart specified agent.",
+        "operationId": "RestartAgent",
+        "parameters": [
+          {
+            "name": "agentId",
+            "in": "path",
+            "description": "Identifier of the agent.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/instruction/reversion/{agentId}/{version}": {
+      "post": {
+        "tags": [
+          "AgentInstruction"
+        ],
+        "summary": "Creates instruction to reversion specified agent.",
+        "operationId": "ReversionAgent",
+        "parameters": [
+          {
+            "name": "agentId",
+            "in": "path",
+            "description": "Identifier of the agent.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "description": "Version to use.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/instruction/resetReversion/{agentId}": {
+      "post": {
+        "tags": [
+          "AgentInstruction"
+        ],
+        "summary": "Creates instruction to reset reversion of specified agent.",
+        "operationId": "ResetReversion",
+        "parameters": [
+          {
+            "name": "agentId",
+            "in": "path",
+            "description": "Identifier of the agent.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "requestBodies": {
+      "ErpMaestro.AgentManagementService.WebApi.Models.AgentModel": {
+        "content": {
+          "application/json-patch+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.WebApi.Models.AgentModel"
+            }
+          },
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.WebApi.Models.AgentModel"
+            }
+          },
+          "text/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.WebApi.Models.AgentModel"
+            }
+          },
+          "application/*+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.WebApi.Models.AgentModel"
+            }
+          }
+        },
+        "description": "Agent data."
+      }
+    },
+    "schemas": {
+      "ErpMaestro.AgentManagementService.WebApi.Models.AgentModel": {
+        "required": [
+          "hostName",
+          "platform",
+          "agentVersion",
+          "wrapperVersion"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "format": "uuid",
+            "description": "Identifier of the agent entity.",
+            "type": "string"
+          },
+          "customerId": {
+            "format": "uuid",
+            "description": "Identifier of the customer.",
+            "type": "string"
+          },
+          "hostName": {
+            "description": "Name of the machine where agent is installed.",
+            "type": "string"
+          },
+          "platform": {
+            "description": "Platform information, like win7-x64 or so.",
+            "type": "string"
+          },
+          "agentVersion": {
+            "description": "Version of the agent.",
+            "type": "string"
+          },
+          "wrapperVersion": {
+            "description": "Version of the wrapper.",
+            "type": "string"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Mvc.ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": {
+          "type": "object"
+        }
+      },
+      "ErpMaestro.AgentManagementService.Common.Models.AgentInstructionDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "format": "uuid",
+            "description": "Identifier of the instruction.",
+            "type": "string"
+          },
+          "agentId": {
+            "format": "uuid",
+            "description": "Identifier of related agent.",
+            "type": "string"
+          },
+          "instruction": {
+            "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.Common.Constants.Instructions"
+          },
+          "payload": {
+            "description": "Instruction payload.",
+            "type": "string"
+          },
+          "processedDate": {
+            "format": "date-time",
+            "description": "Date when instruction was processed by the agent.",
+            "type": "string"
+          }
+        }
+      },
+      "ErpMaestro.AgentManagementService.Common.Constants.Instructions": {
+        "enum": [
+          "noAction",
+          "restart",
+          "reversion",
+          "resetReversion"
+        ],
+        "type": "string"
+      },
+      "ErpMaestro.AgentManagementService.WebApi.Models.EmergencyMessageModel": {
+        "description": "Model used in sending emergency message from the agent.",
+        "required": [
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "agent": {
+            "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.WebApi.Models.AgentModel"
+          },
+          "message": {
+            "description": "Contains description and additional information which would be useful to solve the problem.",
+            "type": "string"
+          },
+          "heartbeats": {
+            "description": "List of heartbeats from the agent",
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErpMaestro.AgentManagementService.WebApi.Models.HeartbeatModel"
+            }
+          }
+        }
+      },
+      "ErpMaestro.AgentManagementService.WebApi.Models.HeartbeatModel": {
+        "description": "Represents latest heartbeat of agent's component",
+        "required": [
+          "componentName",
+          "timestampUtc"
+        ],
+        "type": "object",
+        "properties": {
+          "componentName": {
+            "description": "Component name",
+            "type": "string"
+          },
+          "timestampUtc": {
+            "format": "date-time",
+            "description": "Latest I'm alive timestamp of that component",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

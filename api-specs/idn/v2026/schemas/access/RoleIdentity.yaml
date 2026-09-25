@@ -1,0 +1,26 @@
+type: object
+description: A subset of the fields of an Identity which is a member of a Role.
+properties:
+    id:
+      type: string
+      description: >-
+          The ID of the Identity
+      example: 2c9180a46faadee4016fb4e018c20639
+    aliasName:
+      type: string
+      description: >-
+          The alias / username of the Identity
+      example: 't.edison'
+    name:
+      type: string
+      description: >-
+          The human-readable display name of the Identity
+      example: 'Thomas Edison'
+    email:
+      type: string
+      description: >-
+          Email address of the Identity
+      example: 't.edison@identitynow.com'
+    roleAssignmentSource:
+        $ref: './RoleAssignmentSourceType.yaml'
+

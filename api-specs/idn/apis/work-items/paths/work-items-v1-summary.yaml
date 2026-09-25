@@ -1,0 +1,31 @@
+get:
+  operationId: getWorkItemsSummaryV1
+  tags:
+  - Work Items
+  summary: Work items summary
+  description: This gets a summary of work items belonging to either the specified user(admin required), or the current user.
+  parameters:
+  - in: query
+    name: ownerId
+    schema:
+      type: string
+    description: ID of the work item owner.
+    required: false
+    example: 1211bcaa32112bcef6122adb21cef1ac
+  responses:
+    '200':
+      description: List of work items
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/workitemssummary.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

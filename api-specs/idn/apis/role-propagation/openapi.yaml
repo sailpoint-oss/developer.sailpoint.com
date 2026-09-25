@@ -1,0 +1,49 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Role Propagation
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Role Propagation
+    description: |
+      Role Change Propagation ensures that any changes to the composition of a role’s access objects 
+      (entitlements, access profiles, or dimensions) are applied to all member identities. 
+      For example: If an entitlement is removed from a role, all identities assigned to that role 
+      should lose access to that entitlement as part of this process.
+paths:
+  /role-propagation/v1:
+    $ref: ./paths/role-propagation-v1.yaml
+  /role-propagation/v1/{rolePropagationId}/status:
+    $ref: ./paths/role-propagation-v1-by-rolepropagationid-status.yaml
+  /role-propagation/v1/is-running:
+    $ref: ./paths/role-propagation-v1-is-running.yaml
+  /role-propagation/v1/terminate:
+    $ref: ./paths/role-propagation-v1-terminate.yaml
+  /role-propagation-config/v1:
+    $ref: ./paths/role-propagation-config-v1.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

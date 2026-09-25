@@ -1,0 +1,9 @@
+type: string
+title: Business Application Origin
+description: >-
+  How the Business Application entered the tenant catalog. Read-only; assigned by the service on
+  creation and immutable thereafter.
+enum:
+  - OOTB
+  - CUSTOM
+example: CUSTOM

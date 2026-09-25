@@ -1,0 +1,20 @@
+type: object
+properties:
+  type:
+    $ref: '../../../../v3/schemas/DtoType.yaml'
+    description: DTO type
+  id:
+    type: string
+    description: ID of the object to which this reference applies
+    example: 2c91808568c529c60168cca6f90c1313
+  name:
+    type: string
+    description: Human-readable display name of the object to which this reference applies
+    example: CN=HelpDesk,OU=test,OU=test-service,DC=TestAD,DC=local
+  existing:
+    type: boolean
+    description: Whether the subject identity already had that access or not
+    example: true
+description: >-
+  Access reference with addition of boolean existing flag to indicate whether the access was extant
+

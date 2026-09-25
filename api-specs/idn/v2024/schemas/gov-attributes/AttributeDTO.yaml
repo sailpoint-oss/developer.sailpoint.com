@@ -1,0 +1,55 @@
+type: "object"
+properties:
+  key:
+    type: "string"
+    pattern: '^[a-zA-Z0-9]([a-zA-Z0-9_-]*[a-zA-Z0-9])?$'
+    maxLength: 255
+    description: >- 
+      Technical name of the Attribute. This is unique and cannot be changed after creation.
+      Allowed characters are letters, numbers, dashes (-), and underscores (_); the value cannot
+      start or end with a dash or underscore.
+    example: "iscPrivacy"
+  name:
+    type: "string"
+    maxLength: 100
+    description: >-
+      The display name of the key. Allowed characters are letters, numbers, whitespace, and the
+      following special characters: . / | , ( ) & _ -
+    example: "Privacy"
+  multiselect:
+    type: "boolean"
+    default: false
+    description: >-
+      Indicates whether the attribute can have multiple values.
+    example: false
+  status:
+    type: "string"
+    description: >-
+      The status of the Attribute.
+    example: "active"
+  type:
+    type: "string"
+    description: >-
+      The type of the Attribute. This can be either "custom" or "governance".
+    example: "governance"
+  objectTypes:
+    type: "array"
+    items:
+      type: "string"
+    nullable: true
+    description: >- 
+      An array of object types this attributes values can be applied to. Possible values are "all" or "entitlement".
+      Value "all" means this attribute can be used with all object types that are supported.
+    example: ["entitlement"]
+  description:
+    type: "string"
+    maxLength: 500
+    description: >-
+      The description of the Attribute. Allowed characters are letters, numbers, whitespace, and
+      the following special characters: . / | , ( ) & _ : -
+    example: "Specifies the level of privacy associated with an access item."
+  values:
+    type: "array"
+    nullable: true
+    items:
+      $ref: "./AttributeValueDTO.yaml"

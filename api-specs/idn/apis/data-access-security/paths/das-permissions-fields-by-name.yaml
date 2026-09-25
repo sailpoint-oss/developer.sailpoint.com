@@ -1,0 +1,96 @@
+put:
+  summary: Replace data dictionary field
+  description: >-
+    Fully replaces a custom data dictionary field. This is a PUT operation, not a partial update: the request body must
+    contain the complete resource representation. Omitted properties are rejected. For custom fields, `fieldType`,
+    `dataDictionaryType`, and `required` must match the current values; only `name` may change. Built-in fields where
+    `required` is true cannot be updated.
+
+
+    List the field first with [List Data Dictionary Fields](https://developer.sailpoint.com/docs/api/list-data-dictionary-fields-v-1) to obtain the current representation before replacing it.
+  security:
+  - userAuth:
+    - das:permissions:manage
+  - applicationAuth:
+    - das:permissions:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+  - Data Access Security
+  operationId: putDataDictionaryFieldV1
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema:
+      type: string
+    description: The current field name.
+    example: Department
+    x-sailpoint-resource-operation-id: listDataDictionaryFieldsV1
+  requestBody:
+    description: Complete data dictionary field representation used to fully replace the existing field.
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/updatedatadictionaryfieldrequest.yaml
+    required: true
+  responses:
+    '200':
+      description: The data dictionary field was fully replaced.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/datadictionaryfieldlistitem.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '409':
+      $ref: ../responses/409.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+delete:
+  summary: Delete data dictionary field
+  description: Deletes a custom data dictionary field. Built-in fields where required is true cannot be deleted.
+  security:
+  - userAuth:
+    - das:permissions:manage
+  - applicationAuth:
+    - das:permissions:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+  - Data Access Security
+  operationId: deleteDataDictionaryFieldV1
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema:
+      type: string
+    description: The field name to delete.
+    example: Department
+    x-sailpoint-resource-operation-id: listDataDictionaryFieldsV1
+  responses:
+    '204':
+      description: No Content
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '409':
+      $ref: ../responses/409.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

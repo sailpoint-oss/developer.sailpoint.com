@@ -1,0 +1,10 @@
+type: object
+properties:
+  id:
+    type: string
+    example: b009b6e3-b56d-41d9-8735-cb532ea0b017
+    description: Segment's unique ID. 
+  name:
+    type: string
+    example: Test Segment
+    description: Segment's display name. 

@@ -1,0 +1,8 @@
+name: name
+in: query
+description: object name for filtering
+required: false
+schema:
+  type: string
+  example: name
+  

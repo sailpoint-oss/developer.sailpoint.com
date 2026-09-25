@@ -1,0 +1,22 @@
+properties:
+  type:
+    description: |-
+      FormOwnerType value.
+      IDENTITY FormOwnerTypeIdentity
+    enum:
+      - IDENTITY
+    example: IDENTITY
+    type: string
+    x-go-enum-desc: IDENTITY FormOwnerTypeIdentity
+    x-go-name: Type
+  id:
+    description: Unique identifier of the form's owner.
+    example: 2c9180867624cbd7017642d8c8c81f67
+    type: string
+    x-go-name: ID
+  name:
+    description: Name of the form's owner.
+    example: Grant Smith
+    type: string
+type: object
+x-go-package: github.com/sailpoint/sp-forms/domain

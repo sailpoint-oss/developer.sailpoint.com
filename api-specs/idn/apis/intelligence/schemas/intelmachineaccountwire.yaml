@@ -1,0 +1,115 @@
+type: object
+description: >-
+  Machine account row on the non-human identity aggregate accounts.items list. Every property in
+  required is always present on the wire. Nullable object refs (source, machineIdentity,
+  ownerIdentity) may be null. String fields may be empty when upstream has no value; booleans,
+  timestamps, attributes, and connectorAttributes are always emitted (empty object when absent).
+required:
+  - id
+  - name
+  - nativeIdentity
+  - source
+  - enabled
+  - locked
+  - machineIdentity
+  - ownerIdentity
+  - description
+  - subtype
+  - accessType
+  - environment
+  - classificationMethod
+  - manuallyEdited
+  - manuallyCorrelated
+  - hasEntitlements
+  - created
+  - modified
+  - attributes
+  - connectorAttributes
+properties:
+  id:
+    type: string
+    description: Unique account identifier in Identity Security Cloud.
+    example: 2c91808874ff91550175097daaec161c
+  name:
+    type: string
+    description: Account name on the correlated source.
+    example: account-name
+  nativeIdentity:
+    type: string
+    description: Native identifier on the source system.
+    example: arn:aws:bedrock:us-east-1:336721:agent/ABCDEFGHI
+  source:
+    nullable: true
+    description: Source metadata for the machine account when present upstream.
+    allOf:
+      - $ref: ./intelmachinesourcewire.yaml
+  enabled:
+    type: boolean
+    description: True when the account is enabled for use on the source.
+    example: true
+  locked:
+    type: boolean
+    description: True when the account is locked on the source.
+    example: false
+  machineIdentity:
+    nullable: true
+    description: Reference to the parent machine identity when populated upstream.
+    allOf:
+      - $ref: ./intelmachineentityref.yaml
+  ownerIdentity:
+    nullable: true
+    description: Reference to the owning human identity when populated upstream.
+    allOf:
+      - $ref: ./intelmachineentityref.yaml
+  description:
+    type: string
+    description: Free-text account description from the source.
+    example: Service account for automation
+  subtype:
+    type: string
+    description: Account subtype label from upstream classification.
+    example: Service Account
+  accessType:
+    type: string
+    description: Access type label for the account (for example account or entitlement).
+    example: account
+  environment:
+    type: string
+    description: Environment label associated with the account.
+    example: production
+  classificationMethod:
+    type: string
+    description: Method used to classify the account as a machine account.
+    example: DISCOVERED
+  manuallyEdited:
+    type: boolean
+    description: True when an administrator manually edited account attributes.
+    example: false
+  manuallyCorrelated:
+    type: boolean
+    description: True when an administrator manually correlated the account.
+    example: false
+  hasEntitlements:
+    type: boolean
+    description: True when the account holds one or more entitlements.
+    example: true
+  created:
+    type: string
+    format: date-time
+    description: Timestamp when the account record was created.
+    example: '2026-01-01T00:00:00Z'
+  modified:
+    type: string
+    format: date-time
+    description: Timestamp when the account record was last modified.
+    example: '2026-05-01T00:00:00Z'
+  attributes:
+    type: object
+    additionalProperties: true
+    description: Extended account attributes from the source connector.
+    example: {}
+  connectorAttributes:
+    type: object
+    additionalProperties: true
+    description: Connector-specific attribute bag from upstream.
+    example: {}

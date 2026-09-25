@@ -1,0 +1,94 @@
+description: A unified entitlement recommendation record representing either a SED (Suggested Entitlement Description) or a privilege recommendation.
+type: object
+title: Entitlement Recommendation Record
+properties:
+  recordType:
+    description: The type of recommendation. "SED" indicates a suggested description recommendation; "privilege" indicates a privilege-level recommendation.
+    type: string
+    enum:
+      - SED
+      - privilege
+    example: SED
+  id:
+    description: The unique identifier for this recommendation record.
+    type: string
+    format: uuid
+    example: "79db50d4-723c-4aa0-a824-83c2205d82d1"
+  attribute:
+    description: The entitlement attribute name (e.g. "groups").
+    type: string
+    nullable: true
+    example: groups
+  displayName:
+    description: The human-readable display name of the entitlement.
+    type: string
+    nullable: true
+    example: "Schema Admins"
+  name:
+    description: The internal name of the entitlement.
+    type: string
+    nullable: true
+    example: "Schema Admins"
+  sourceId:
+    description: The ID of the source that owns this entitlement.
+    type: string
+    example: "2c9180877a7c8e88017a7d1234567890"
+  sourceName:
+    description: The display name of the source that owns this entitlement.
+    type: string
+    example: "Active Directory"
+  status:
+    description: The current review status of the recommendation.
+    type: string
+    example: suggested
+  type:
+    description: The entitlement type (e.g. "group").
+    type: string
+    nullable: true
+    example: group
+  value:
+    description: The entitlement value or identifier.
+    type: string
+    example: "CN=Schema Admins,DC=example,DC=com"
+  description:
+    description: The current description of the entitlement, if one exists.
+    type: string
+    nullable: true
+    example: "Grants full control over the Active Directory schema."
+  suggestedDescription:
+    description: The AI-generated suggested description for the entitlement (SED records only).
+    type: string
+    nullable: true
+    example: "Grants full administrative access to the domain."
+  privilege:
+    description: The current privilege level assigned to the entitlement.
+    type: string
+    nullable: true
+    example: high
+  suggestedPrivilege:
+    description: The AI-suggested privilege level for the entitlement (privilege records only).
+    type: string
+    nullable: true
+    example: high
+  approvedBy:
+    description: The ID of the identity who approved this recommendation.
+    type: string
+    nullable: true
+    example: "2c91808a7f3b2e8a017f3c3e5f6d0099"
+  approvedType:
+    description: How the recommendation was approved (e.g. "direct").
+    type: string
+    nullable: true
+    example: direct
+  approvedWhen:
+    description: The timestamp when the recommendation was approved.
+    type: string
+    format: date-time
+    nullable: true
+    example: "2026-03-15T14:22:00Z"
+  llmBatchCreatedAt:
+    description: The timestamp when the LLM batch that generated this recommendation was created.
+    type: string
+    format: date-time
+    nullable: true
+    example: "2026-03-01T00:00:00Z"

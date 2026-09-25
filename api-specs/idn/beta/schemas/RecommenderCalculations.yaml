@@ -1,0 +1,35 @@
+properties:
+  identityId:
+    type: string
+    description: The ID of the identity
+    example: '2c91808457d8f3ab0157e3e62cb4213c'
+  entitlementId:
+    type: string
+    description: The entitlement ID
+    example: '2c91809050db617d0150e0bf3215385e'
+  recommendation:
+    type: string
+    description: The actual recommendation
+    example: 'YES'
+  overallWeightedScore:
+    type: number
+    description: The overall weighted score
+  featureWeightedScores:
+    type: object
+    description: The weighted score of each individual feature
+    additionalProperties:
+      type: number
+  threshold:
+    type: number
+    description: The configured value against which the overallWeightedScore is compared
+  identityAttributes:
+    type: object
+    description: The values for your configured features
+    additionalProperties:
+      type: object
+      properties:
+        value:
+          type: string
+  featureValues:
+    $ref: './FeatureValueDto.yaml'
+    description: The feature details

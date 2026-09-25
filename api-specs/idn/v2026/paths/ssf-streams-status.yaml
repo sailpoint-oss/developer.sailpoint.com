@@ -1,0 +1,88 @@
+# /ssf/streams/status - Read and update stream status
+get:
+  operationId: getStreamStatus
+  security:
+    - userAuth:
+        - sp:ssf-transmitter-streams:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Shared Signals Framework (SSF)
+  summary: Get stream status
+  description: Returns the status (enabled, paused, disabled) and optional reason for the stream associated with the client ID of the request's OAuth 2.0 access token. The stream_id query parameter is required.
+  parameters:
+    - in: query
+      name: stream_id
+      required: true
+      schema:
+        type: string
+      description: ID of the stream whose status to retrieve.
+      example: "550e8400-e29b-41d4-a716-446655440000"
+  responses:
+    '200':
+      description: Stream status (enabled, paused, or disabled; reason may be set when status was updated).
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ssf/StreamStatusResponse.yaml'
+          example:
+            stream_id: "550e8400-e29b-41d4-a716-446655440000"
+            status: "enabled"
+            reason: ""
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+
+post:
+  operationId: updateStreamStatus
+  security:
+    - userAuth:
+        - sp:ssf-transmitter-streams:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Shared Signals Framework (SSF)
+  summary: Update stream status
+  description: Updates the operational status (enabled, paused, disabled) with an optional reason for the stream associated with the client ID of the request's OAuth 2.0 access token.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ssf/UpdateStreamStatusRequest.yaml'
+        example:
+          stream_id: "550e8400-e29b-41d4-a716-446655440000"
+          status: "paused"
+          reason: "manually paused"
+  responses:
+    '200':
+      description: Updated stream status (same JSON shape as GET /ssf/streams/status).
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ssf/StreamStatusResponse.yaml'
+          example:
+            stream_id: "550e8400-e29b-41d4-a716-446655440000"
+            status: "paused"
+            reason: "manually paused"
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

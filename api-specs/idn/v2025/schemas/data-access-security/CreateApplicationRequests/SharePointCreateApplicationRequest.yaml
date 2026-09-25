@@ -1,0 +1,91 @@
+allOf:
+  - $ref: './BaseCreateApplicationRequest.yaml'
+  - required:
+      - domain
+      - kerberosConfiguration
+      - password
+      - server
+      - userName
+    type: object
+    properties:
+      server:
+        type: string
+        description: The SharePoint server address.
+        example: "sharepoint.company.com"
+      domain:
+        type: string
+        description: The domain for SharePoint authentication.
+        example: "CORP"
+      userName:
+        type: string
+        description: The username for SharePoint authentication.
+        example: "spuser"
+      password:
+        type: string
+        description: The password for SharePoint authentication.
+        example: "sppassword"
+      kerberosConfiguration:
+        type: string
+        description: The Kerberos configuration string.
+        example: "kerberos-config"
+      isOverrideConfigDatabase:
+        type: boolean
+        description: Indicates whether to override the configuration database.
+        example: false
+        default: false
+      specificConfigDatabaseName:
+        type: string
+        nullable: true
+        description: The name of the specific configuration database.
+        example: "ConfigDB"
+      isSpecifyContentDatabasePort:
+        type: boolean
+        description: Indicates whether to specify the content database port.
+        example: false
+        default: false
+      defaultOverrideContentDbPort:
+        type: integer
+        format: int32
+        nullable: true
+        description: The default override port for the content database.
+        example: 1433
+      isIndividualDbPorts:
+        type: boolean
+        description: Indicates whether individual database ports are specified.
+        example: false
+        default: false
+      individualContentDbOverrideHostsAndPorts:
+        type: array
+        items:
+          type: string
+        nullable: true
+        description: List of host and port overrides for individual content databases.
+        example: ["host1:1433", "host2:1434"]
+      iisLogConfiguration:
+        $ref: './IISLogConfigurationType.yaml'
+        description: IIS log configuration type.
+        example: 1
+      excludeServers:
+        type: array
+        items:
+          type: string
+        nullable: true
+        description: List of servers to exclude from SharePoint operations.
+        example: ["server1", "server2"]
+      iisLogFolderPaths:
+        type: array
+        items:
+          type: string
+        nullable: true
+        description: List of folder paths for IIS logs.
+        example: ["/logs/iis1", "/logs/iis2"]
+      purgeEvents:
+        type: boolean
+        description: Indicates whether to purge events after processing.
+        example: true
+        default: false
+      daysToKeepEvents:
+        type: integer
+        format: int32
+        description: Number of days to keep events before purging.
+        example: 30

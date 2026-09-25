@@ -1,0 +1,60 @@
+get:
+  operationId: listWorkflowLibraryTriggersV1
+  tags:
+  - Workflows
+  summary: List workflow library triggers
+  description: This lists the workflow triggers available to you
+  externalDocs:
+    description: Additional documentation for each trigger
+    url: https://documentation.sailpoint.com/saas/help/workflows/index.html#triggers
+  parameters:
+  - $ref: ../../shared/parameters/limit.yaml
+  - $ref: ../../shared/parameters/offset.yaml
+  - in: query
+    name: filters
+    required: false
+    schema:
+      type: string
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection
+      Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **id**: *eq*
+
+
+      **name**: *eq*
+
+
+      **type**: *eq*
+    example: id eq "idn:identity-attributes-changed"
+  security:
+  - userAuth:
+    - sp:workflow:read
+    - sp:workflow:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  responses:
+    '200':
+      description: List of workflow triggers
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/workflowlibrarytrigger.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

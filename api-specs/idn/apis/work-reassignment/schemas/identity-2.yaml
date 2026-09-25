@@ -1,0 +1,11 @@
+type: object
+description: The definition of an Identity according to the Reassignment Configuration service
+properties:
+  id:
+    type: string
+    description: The ID of the object
+    example: 2c91808380aa05580180aaaaf1940410
+  name:
+    type: string
+    description: Human-readable display name of the object
+    example: William Wilson

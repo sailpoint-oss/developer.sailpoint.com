@@ -1,0 +1,53 @@
+type: object
+description: |
+  A single replace operation applied to JIT activation configuration.
+  Only **replace** is supported. **path** must be one of the allowed JSON Pointer-style paths.
+required:
+  - path
+  - value
+properties:
+  op:
+    type: string
+    description: Operation type. Defaults to `replace` if omitted.
+    default: replace
+    example: replace
+    enum:
+      - replace
+  path:
+    type: string
+    description: |
+      Path to replace. Only the following JSON Pointer-style paths are supported.
+    enum:
+      - /entitlementIds
+      - /maxActivationPeriodMins
+      - /maxActivationPeriodExtensionMins
+      - /defaultMaxActivationPeriodMins
+      - /defaultMaxActivationPeriodExtensionMins
+      - /notificationRecipients
+      - /notificationTemplate
+      - /applyToFutureAssignments
+    example: /maxActivationPeriodMins
+  value:
+    description: |
+      New value. Type depends on **path**: arrays of strings for `/entitlementIds` and `/notificationRecipients`,
+      integer for `*Mins` paths, string for `/notificationTemplate`, boolean for `/applyToFutureAssignments`.
+      Use `null` when clearing nullable fields (for example `/notificationTemplate` or `*Mins` paths).
+    nullable: true
+    oneOf:
+      - type: array
+        items:
+          type: string
+        description: Value for `/entitlementIds` or `/notificationRecipients`.
+        example:
+          - 2c9180837dfe6949017e208e25967b22
+      - type: integer
+        format: int32
+        description: Value for `*Mins` paths (minutes).
+        example: 60
+      - type: string
+        description: Value for `/notificationTemplate`.
+        example: jit-activation-default
+      - type: boolean
+        description: Value for `/applyToFutureAssignments`.
+        example: true
+    example: 60

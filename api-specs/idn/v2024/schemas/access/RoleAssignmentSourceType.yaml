@@ -1,0 +1,8 @@
+type: string
+enum:
+  - ACCESS_REQUEST
+  - ROLE_MEMBERSHIP
+description: >-
+    Type which indicates how a particular Identity obtained a particular Role
+example: ACCESS_REQUEST
+

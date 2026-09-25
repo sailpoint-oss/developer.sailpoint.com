@@ -1,0 +1,27 @@
+type: object
+required:
+  - items
+description: |
+  One paged ownership role bucket (`primaryOwned` or `secondaryOwned`) embedded on the human
+  aggregate. Embeds the first page of owned non-human identities; totalCount when items is
+  non-empty. Continuation next carries limit and offset.
+properties:
+  items:
+    type: array
+    description: First page of owned non-human identities for this role.
+    items:
+      $ref: ./intel-non-human-identity-ownership-item.yaml
+  totalCount:
+    type: integer
+    format: int32
+    minimum: 1
+    description: Total number of owned non-human identities in this role; omitted when items is empty.
+    example: 11
+  next:
+    type: string
+    format: uri
+    description: |
+      Absolute URL to the next page for this category and ownership role; present when totalCount
+      exceeds the items returned on this page. Includes `ownershipRole`, `limit`, `offset`, and
+      `count=true`.
+    example: https://tenant.example.api.cloud.sailpoint.com/intelligence/v1/identities/ef38f94347e94562b5bb8424a56397d8/non-human-identity-ownership/agents?ownershipRole=primary&limit=10&offset=10&count=true

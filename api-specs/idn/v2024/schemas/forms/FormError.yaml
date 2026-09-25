@@ -1,0 +1,18 @@
+properties:
+  key:
+    description: Key is the technical key
+    example: department
+    type: string
+    x-go-name: Key
+  messages:
+    description: Messages is a list of web.ErrorMessage items
+    items:
+      $ref: './ErrorMessage.yaml'
+    type: array
+    x-go-name: Messages
+  value:
+    description: Value is the value associated with a Key
+    example: Engineering
+    x-go-name: Value
+type: object
+x-go-package: github.com/sailpoint/sp-forms/domain

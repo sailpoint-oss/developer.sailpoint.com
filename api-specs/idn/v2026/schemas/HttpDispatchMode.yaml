@@ -1,0 +1,7 @@
+type: string
+description: HTTP response modes, i.e. SYNC, ASYNC, or DYNAMIC.
+enum:
+  - SYNC
+  - ASYNC
+  - DYNAMIC
+example: SYNC

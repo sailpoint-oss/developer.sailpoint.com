@@ -1,0 +1,8 @@
+type: string
+title: Template Medium
+description: The notification delivery medium.
+enum:
+  - EMAIL
+  - SLACK
+  - TEAMS
+example: EMAIL

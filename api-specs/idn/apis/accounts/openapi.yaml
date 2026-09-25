@@ -1,0 +1,114 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Accounts
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Accounts
+    description: >
+      Use this API to implement and customize account functionality.
+
+      With this functionality in place, administrators can manage users' access across sources in Identity Security
+      Cloud. 
+
+
+      In Identity Security Cloud, an account refers to a user's account on a supported source.
+
+      This typically includes a unique identifier for the user, a unique password, a set of permissions associated with
+      the source and a set of attributes. Identity Security Cloud loads accounts through the creation of sources in
+      Identity Security Cloud.
+
+
+      Administrators can correlate users' identities with the users' accounts on the different sources they use. 
+
+      This allows Identity Security Cloud to govern the access of identities and all their correlated accounts securely
+      and cohesively. 
+
+
+      To view the accounts on a source and their correlated identities, administrators can use the Connections drop-down
+      menu, select Sources, select the relevant source, and select its Account tab. 
+
+
+      To view and edit source account statuses for an identity in Identity Security Cloud, administrators can use the
+      Identities drop-down menu, select Identity List, select the relevant identity, and select its Accounts tab. 
+
+      Administrators can toggle an account's Actions to aggregate the account, enable/disable it, unlock it, or remove
+      it from the identity. 
+
+
+      Accounts can have the following statuses: 
+
+
+      - Enabled: The account is enabled. The user can access it.
+
+
+      - Disabled: The account is disabled, and the user cannot access it, but the identity is not disabled in Identity
+      Security Cloud. This can occur when an administrator disables the account or when the user's lifecycle state
+      changes. 
+
+
+      - Locked: The account is locked. This may occur when someone has entered an incorrect password for the account too
+      many times.
+
+
+      - Pending: The account is currently updating. This status typically lasts seconds. 
+
+
+      Administrators can select the source account to view its attributes, entitlements, and the last time the account's
+      password was changed.
+
+
+      Refer to [Managing User
+      Accounts](https://documentation.sailpoint.com/saas/help/accounts/identities.html?h=disabling+identities#managing-access)
+      for more information about accounts.
+paths:
+  /accounts/v1:
+    $ref: ./paths/accounts-v1.yaml
+  /accounts/v1/{id}:
+    $ref: ./paths/accounts-v1-by-id.yaml
+  /accounts/v1/{id}/entitlements:
+    $ref: ./paths/accounts-v1-by-id-entitlements.yaml
+  /accounts/v1/{id}/reload:
+    $ref: ./paths/accounts-v1-by-id-reload.yaml
+  /accounts/v1/{id}/enable:
+    $ref: ./paths/accounts-v1-by-id-enable.yaml
+  /accounts/v1/{id}/disable:
+    $ref: ./paths/accounts-v1-by-id-disable.yaml
+  /accounts/v1/{id}/unlock:
+    $ref: ./paths/accounts-v1-by-id-unlock.yaml
+  /accounts/v1/{id}/remove:
+    $ref: ./paths/accounts-v1-by-id-remove.yaml
+  /identities-accounts/v1/{id}/enable:
+    $ref: ./paths/identities-accounts-v1-by-id-enable.yaml
+  /identities-accounts/v1/{id}/disable:
+    $ref: ./paths/identities-accounts-v1-by-id-disable.yaml
+  /identities-accounts/v1/enable:
+    $ref: ./paths/identities-accounts-v1-enable.yaml
+  /identities-accounts/v1/disable:
+    $ref: ./paths/identities-accounts-v1-disable.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

@@ -1,0 +1,37 @@
+type: object
+title: Source Dataset
+description: >-
+  Dataset instance for a source. Fields are read from source-persisted dataset rows in Diana
+  (name/description reflect the source's stored snapshot); aggregationEnabled is stored per source instance.
+properties:
+  id:
+    type: string
+    description: Dataset identifier.
+    example: cmdb-servicenow:applications
+  name:
+    type: string
+    description: Display name of the dataset.
+    example: Applications
+  description:
+    type: string
+    description: Description of the dataset.
+    example: CMDB application records for this source.
+  aggregationEnabled:
+    type: boolean
+    default: false
+    description: Whether aggregation is enabled for this dataset on the source.
+    example: true
+  resources:
+    type: array
+    description: Simplified resource references associated with this dataset.
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Resource identifier.
+          example: aws:iam-role
+        name:
+          type: string
+          description: Display name of the resource.
+          example: Role

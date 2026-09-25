@@ -1,0 +1,146 @@
+type: integer
+format: int32
+description: |
+  Specifies the type of business service or resource. Possible values include:
+    0    - Folder
+    1    - Computer
+    2    - Container
+    3    - Domain
+    4    - Group / GPO
+    5    - OrganizationalUnit
+    6    - User
+    7    - Document
+    8    - List / WindowsFileServer / SharepointOnline
+    9    - ListItem
+    10   - Site
+    11   - Unknown / DropboxUser
+    12   - WSSFolder
+    13   - Web
+    14   - ExchangeFolder
+    15   - Mailbox
+    16   - PublicFolder
+    18   - UserSAMAccountName
+    24   - (reserved)
+    25   - GroupPolicyContainer
+    30   - File
+    801  - WindowsClusterServerName
+    908  - GoogleFolder
+    909  - GoogleUser
+    910  - DropboxFolder
+    912  - BoxFolder
+    913  - BoxUser
+    914  - BoxFile
+    950  - WSSFile
+    951  - HiddenList
+    952  - HiddenWSSFolder
+    953  - HiddenWSSFile
+    1000 - BuiltinDomain
+    1100 - DfsNamespace
+    1101 - DfsLink
+    1200 - SqlServerInstance
+    1201 - SqlServerDatabase
+    1202 - SqlServerSchema
+    1203 - SqlServerTable
+    1204 - SqlServerView
+    1205 - SqlServerStoredProcedure
+    1206 - SqlServerFunction
+    1207 - SqlServerAssemblie
+    1208 - SqlServerType
+    1209 - SqlServerDatabaseRole
+    1210 - SqlServerDatabaseUser
+    1211 - SqlServerApplicationRole
+    1212 - SqlServerLogin
+    1213 - SqlServerServerRole
+    1214 - SqlServerVirtualContainer
+    1215 - SqlServerSynonym
+    1216 - SqlServerExtendedStoredProcedure
+    1300 - AwsS3Root
+    1301 - AwsS3OU
+    1302 - AwsS3Account
+    1303 - AwsS3Bucket
+    1304 - AwsS3Folder
+    1305 - AwsS3File
+    1400 - SnowflakeDatabase
+    1401 - SnowflakeSchema
+    1402 - SnowflakeTable
+    1403 - SnowflakeView
+    1404 - SnowflakeFunction
+    1405 - SnowflakeProcedure
+    1406 - SnowflakeVirtualContainer
+    1407 - SnowflakeDatabaseApplication
+    1408 - SnowflakeDatabaseApplicationPackage
+    1409 - SnowflakeDatabasePersonal
+    1410 - SnowflakeDatabaseImported
+    1411 - SnowflakeViewMaterialized
+enum:
+  - 0    # Folder
+  - 1    # Computer
+  - 2    # Container
+  - 3    # Domain
+  - 4    # Group / GPO
+  - 5    # OrganizationalUnit
+  - 6    # User
+  - 7    # Document
+  - 8    # List / WindowsFileServer / SharepointOnline
+  - 9    # ListItem
+  - 10   # Site
+  - 11   # Unknown / DropboxUser
+  - 12   # WSSFolder
+  - 13   # Web
+  - 14   # ExchangeFolder
+  - 15   # Mailbox
+  - 16   # PublicFolder
+  - 18   # UserSAMAccountName
+  - 24   # (reserved)
+  - 25   # GroupPolicyContainer
+  - 30   # File
+  - 801  # WindowsClusterServerName
+  - 908  # GoogleFolder
+  - 909  # GoogleUser
+  - 910  # DropboxFolder
+  - 912  # BoxFolder
+  - 913  # BoxUser
+  - 914  # BoxFile
+  - 950  # WSSFile
+  - 951  # HiddenList
+  - 952  # HiddenWSSFolder
+  - 953  # HiddenWSSFile
+  - 1000 # BuiltinDomain
+  - 1100 # DfsNamespace
+  - 1101 # DfsLink
+  - 1200 # SqlServerInstance
+  - 1201 # SqlServerDatabase
+  - 1202 # SqlServerSchema
+  - 1203 # SqlServerTable
+  - 1204 # SqlServerView
+  - 1205 # SqlServerStoredProcedure
+  - 1206 # SqlServerFunction
+  - 1207 # SqlServerAssemblie
+  - 1208 # SqlServerType
+  - 1209 # SqlServerDatabaseRole
+  - 1210 # SqlServerDatabaseUser
+  - 1211 # SqlServerApplicationRole
+  - 1212 # SqlServerLogin
+  - 1213 # SqlServerServerRole
+  - 1214 # SqlServerVirtualContainer
+  - 1215 # SqlServerSynonym
+  - 1216 # SqlServerExtendedStoredProcedure
+  - 1300 # AwsS3Root
+  - 1301 # AwsS3OU
+  - 1302 # AwsS3Account
+  - 1303 # AwsS3Bucket
+  - 1304 # AwsS3Folder
+  - 1305 # AwsS3File
+  - 1400 # SnowflakeDatabase
+  - 1401 # SnowflakeSchema
+  - 1402 # SnowflakeTable
+  - 1403 # SnowflakeView
+  - 1404 # SnowflakeFunction
+  - 1405 # SnowflakeProcedure
+  - 1406 # SnowflakeVirtualContainer
+  - 1407 # SnowflakeDatabaseApplication
+  - 1408 # SnowflakeDatabaseApplicationPackage
+  - 1409 # SnowflakeDatabasePersonal
+  - 1410 # SnowflakeDatabaseImported
+  - 1411 # SnowflakeViewMaterialized
+example: 6

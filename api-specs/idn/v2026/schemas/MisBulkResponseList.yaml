@@ -1,0 +1,9 @@
+type: array
+title: Machine Identity Security Bulk Response List
+description: Per-ID results returned with HTTP 207 Multi-Status for bulk machine identity or machine account operations.
+items:
+  $ref: './MisBulkResponse.yaml'
+example:
+  - id: ef38f94347e94562b5bb8424a56397d8
+    status: 200
+    message: Updated successfully.

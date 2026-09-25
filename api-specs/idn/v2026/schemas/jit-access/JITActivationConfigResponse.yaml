@@ -1,0 +1,63 @@
+type: object
+required:
+  - id
+  - applyToFutureAssignments
+properties:
+  id:
+    type: string
+    format: uuid
+    description: |
+      Unique identifier of this JIT activation configuration instance (persisted config id).
+    example: 6d38a587-302a-41d1-a3b1-ffae2c25c960
+  entitlementIds:
+    type: array
+    items:
+      type: string
+      format: uuid
+    description: |
+      Entitlement IDs governed by JIT activation policy. May be a single-element array when only one entitlement is in scope.
+    example:
+      - ae735f40-4de9-4163-801d-4a1444e59d35
+      - 38439bbc-264b-447b-acac-a182a466b0e9
+  maxActivationPeriodMins:
+    type: integer
+    format: int32
+    nullable: true
+    description: Maximum allowed JIT activation duration for a single grant, in minutes; null if unset.
+    example: 120
+  maxActivationPeriodExtensionMins:
+    type: integer
+    format: int32
+    nullable: true
+    description: Maximum allowed extension of an active JIT activation, in minutes; null if unset.
+    example: 30
+  defaultMaxActivationPeriodMins:
+    type: integer
+    format: int32
+    nullable: true
+    description: Default activation duration offered when a user requests JIT access, in minutes; null if unset.
+    example: 60
+  defaultMaxActivationPeriodExtensionMins:
+    type: integer
+    format: int32
+    nullable: true
+    description: Default extension duration offered for an active JIT activation, in minutes; null if unset.
+    example: 15
+  notificationRecipients:
+    type: array
+    items:
+      type: string
+      format: email
+    description: |
+      Email addresses notified for JIT activation events (for example policy owners or a shared mailbox).
+    example:
+      - owner@example.com
+  notificationTemplate:
+    type: string
+    nullable: true
+    description: Name or key of the email template used for JIT activation notifications; null if unset.
+    example: jit-activation-default
+  applyToFutureAssignments:
+    type: boolean
+    description: Whether the policy applies to future entitlement assignments.
+    example: true

@@ -1,0 +1,19 @@
+type: object
+properties:
+  id:
+    type: string
+    format: UUID
+    description: Non-Employee source id.
+    example: a0303682-5e4a-44f7-bdc2-6ce6112549c1
+  sourceId:
+    type: string
+    description: Source Id associated with this non-employee source.
+    example: 2c91808568c529c60168cca6f90c1313
+  name:
+    type: string
+    description: Source name associated with this non-employee source.
+    example: Retail
+  description:
+    type: string
+    description: Source description associated with this non-employee source.
+    example: Source description

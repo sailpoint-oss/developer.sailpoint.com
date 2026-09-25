@@ -1,0 +1,10 @@
+type: string
+description: The processing status of a compensating control that has been applied to a policy violation.
+enum:
+  - Pending
+  - Active
+  - Completed
+  - Canceled
+  - Failed
+example: Pending
+readOnly: true

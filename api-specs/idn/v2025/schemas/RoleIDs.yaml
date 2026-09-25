@@ -1,0 +1,9 @@
+type : object
+title: Role I Ds
+properties:
+  roleIds:
+    type: array
+    items:
+      type: string
+    description: List of role IDs
+    example: ["3267e61ef284439cba2dc6cc11cf0941", "9967e61ef284439cba2dc6cc11cf0914", "2567e61ef284439cba2dc6cc11cf0922"]

@@ -1,0 +1,54 @@
+get:
+  tags:
+  - Search
+  description: Fetches a single document from the specified index, using the specified document ID.
+  operationId: searchGetV1
+  security:
+  - userAuth:
+    - sp:search:read
+  - applicationAuth:
+    - sp:search:read
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - CERT_ADMIN
+  - REPORT_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  - ROLE_ADMIN
+  - ROLE_SUBADMIN
+  summary: Get a document by id
+  parameters:
+  - $ref: ../parameters/index.yaml
+  - $ref: ../../shared/parameters/id.yaml
+  responses:
+    '200':
+      description: The requested document.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/searchdocument.yaml
+          examples:
+            accessProfile:
+              $ref: ../examples/accessprofile.yaml
+            accountActivity:
+              $ref: ../examples/accountactivity.yaml
+            entitlement:
+              $ref: ../examples/entitlement.yaml
+            event:
+              $ref: ../examples/event.yaml
+            identity:
+              $ref: ../examples/identity.yaml
+            role:
+              $ref: ../examples/role.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

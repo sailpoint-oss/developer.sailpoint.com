@@ -1,0 +1,38 @@
+post:
+  operationId: cancelRolePropagation
+  summary: Terminate Role Propagation process
+  tags:
+    - Role Propagation
+  description: >-
+    This endpoint terminates the ongoing role change propagation process for a tenant.
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  responses:
+    '204':
+      description: Role Propagation has been successfully terminated.
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+  security:
+    - userAuth: [ idn:role-propagation:write ]
+    - applicationAuth: [ idn:role-propagation:write ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - API
+    - HELPDESK

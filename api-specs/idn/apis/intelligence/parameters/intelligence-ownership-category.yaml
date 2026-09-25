@@ -1,0 +1,12 @@
+name: category
+in: path
+required: true
+description: |
+  Non-human identity ownership category. Use `agents` for AI Agent subtypes and
+  `applications` for Application subtypes.
+schema:
+  type: string
+  enum:
+    - agents
+    - applications
+example: agents

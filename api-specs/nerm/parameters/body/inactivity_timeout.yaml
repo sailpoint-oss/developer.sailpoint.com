@@ -1,0 +1,8 @@
+name: inactivity_timeout
+in: body
+description: Sets the inactivity timeout in seconds for invalidating the user session
+required: false
+schema:
+  type: integer
+  format: int32
+  example: 30

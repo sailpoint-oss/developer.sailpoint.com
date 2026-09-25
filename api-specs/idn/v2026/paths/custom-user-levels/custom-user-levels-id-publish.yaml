@@ -1,0 +1,46 @@
+post:
+  tags:
+    - Custom User Levels
+  summary: Publish a custom user level
+  description: Publishes a custom user level for the tenant, making it active and available.
+  operationId: publishCustomUserLevel
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  security:
+    - userAuth: [ idn:user-level:manage ]
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+    - name: id
+      in: path
+      required: true
+      description: The unique identifier of the user level to publish.
+      x-sailpoint-resource-operation-id: listUserLevels
+      schema:
+        type: string
+      example: 6e110911-5984-491b-be74-2707980a46a7
+  responses:
+    '200':
+      description: The publish status summary for current user level.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/ams/UserLevelPublishSummary.yaml'
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

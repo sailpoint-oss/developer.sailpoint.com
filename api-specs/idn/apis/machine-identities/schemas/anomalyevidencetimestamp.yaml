@@ -1,0 +1,17 @@
+type: object
+title: Anomaly Evidence Timestamp
+description: Timestamp block for an anomaly's evidence.
+properties:
+  at:
+    type: string
+    format: date-time
+    description: Point-in-time the evidence was captured.
+    example: '2026-07-13T10:14:00Z'
+  from:
+    type: string
+    format: date-time
+    nullable: true
+    description: >-
+      Start of the aggregation window for time-window detections (SIEM); null for
+      point-in-time detections (SENTINEL).
+    example: '2026-07-13T09:00:00Z'

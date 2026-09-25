@@ -11,12 +11,25 @@ type Param = {
   value?: string | string[];
 } & ParameterObject;
 
+// The upstream guard `!param.value` doesn't catch empty arrays — `[]` and `[""]`
+// are truthy, so they slip through and produce `?param=` in the request URL
+// When reswizzling, check if the upstream has fixed this; if not, re-apply.
+function isEmptyParamValue(value: string | string[] | undefined): boolean {
+  if (value === undefined || value === null || value === "") return true;
+  if (Array.isArray(value)) {
+    return (
+      value.length === 0 || value.every((v) => v === undefined || v === null || v === "")
+    );
+  }
+  return false;
+}
+
 function setQueryParams(postman: sdk.Request, queryParams: Param[]) {
   postman.url.query.clear();
 
   const qp = queryParams
     .map((param) => {
-      if (!param.value) {
+      if (isEmptyParamValue(param.value)) {
         return undefined;
       }
 

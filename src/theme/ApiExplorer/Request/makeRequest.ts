@@ -247,11 +247,28 @@ async function makeRequest(
     body: myBody,
   };
 
-  let finalUrl = request.url.toString();
+  // The postman-collection SDK's url.toString() does not URL-encode query param
+  // values, so special characters like spaces and quotes are sent as literals,
+  // causing servers to reject filter strings like: id eq "abc123"
+  // Re-encode the query string using URLSearchParams before sending.
+  const urlJSON = request.url.toJSON();
+  const queryList: Array<{ key?: string; value?: string }> = urlJSON.query || [];
+  const searchParams = new URLSearchParams();
+  queryList.forEach(({ key, value }) => {
+    if (key && value !== undefined && value !== null && value !== "") {
+      searchParams.append(key, value);
+    }
+  });
+  const rawUrl = request.url.toString();
+  const baseUrl = rawUrl.includes("?") ? rawUrl.split("?")[0] : rawUrl;
+  const encodedQuery = searchParams.toString();
+  const encodedUrl = encodedQuery ? `${baseUrl}?${encodedQuery}` : baseUrl;
+
+  let finalUrl = encodedUrl;
   if (proxy) {
     // Ensure the proxy ends with a slash.
     let normalizedProxy = proxy.replace(/\/$/, "") + "/";
-    finalUrl = normalizedProxy + request.url.toString();
+    finalUrl = normalizedProxy + encodedUrl;
   }
 
   try {

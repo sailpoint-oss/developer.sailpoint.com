@@ -983,21 +983,13 @@ so this step does not make an API call either.
       .join('');
   }
 
-  /** Maps an identity status onto a p-tag severity, so the colour carries meaning. */
-  protected statusSeverity(status: string | undefined): 'success' | 'warn' | 'danger' | 'secondary' {
-    switch (status) {
-      case 'ACTIVE':
-      case 'REGISTERED':
+  /** Maps an identity type onto a p-tag severity: employees are green, contractors are yellow. */
+  protected typeSeverity(type: string): 'success' | 'warn' | 'secondary' {
+    switch (type.toUpperCase()) {
+      case 'EMPLOYEE':
         return 'success';
-      case 'PENDING':
-      case 'WARNING':
-      case 'LOCKED':
+      case 'CONTRACTOR':
         return 'warn';
-      case 'DISABLED':
-      case 'TERMINATED':
-      case 'DEACTIVATED':
-      case 'ERROR':
-        return 'danger';
       default:
         return 'secondary';
     }
@@ -1033,7 +1025,7 @@ so this step does not make an API call either.
           <th pSortableColumn="name">Name <p-sortIcon field="name" /></th>
           <th>Email</th>
           <th>Department</th>
-          <th>Status</th>
+          <th>Type</th>
         </tr>
       </ng-template>
 
@@ -1049,8 +1041,8 @@ so this step does not make an API call either.
           <td>{{ attr(person, 'department') }}</td>
           <td>
             <p-tag
-              [severity]="statusSeverity(person.identityStatus)"
-              [value]="person.identityStatus || 'UNKNOWN'"
+              [severity]="typeSeverity(attr(person, 'type'))"
+              [value]="attr(person, 'type')"
             />
           </td>
         </tr>
@@ -1092,11 +1084,11 @@ reports are the identities whose `managerRef` points at that manager. The `?.` i
 
 **The helpers.**
 
-- `attr()` reads the department. Department is not a top-level field. It is in `attributes`, which
-  the SDK types as a plain `object` because its contents are different in each tenant.
+- `attr()` reads a value from `attributes`. Department and type are not top-level fields — they live in
+  `attributes`, which the SDK types as a plain `object` because its contents differ in each tenant.
 - `initials()` turns a name into initials for the avatar.
-- `statusSeverity()` maps an identity status to a PrimeNG severity, so the colour of the status tag
-  has a meaning.
+- `typeSeverity()` maps an identity type to a PrimeNG severity: `EMPLOYEE` is green (`success`) and
+  `CONTRACTOR` is yellow (`warn`), so the colour of the type tag carries meaning at a glance.
 
 **The table templates.** `p-table` is built from named `ng-template` blocks, not plain markup. You
 almost always want these four:
@@ -1244,21 +1236,13 @@ export class App {
       .join('');
   }
 
-  /** Maps an identity status onto a p-tag severity, so the colour carries meaning. */
-  protected statusSeverity(status: string | undefined): 'success' | 'warn' | 'danger' | 'secondary' {
-    switch (status) {
-      case 'ACTIVE':
-      case 'REGISTERED':
+  /** Maps an identity type onto a p-tag severity: employees are green, contractors are yellow. */
+  protected typeSeverity(type: string): 'success' | 'warn' | 'secondary' {
+    switch (type.toUpperCase()) {
+      case 'EMPLOYEE':
         return 'success';
-      case 'PENDING':
-      case 'WARNING':
-      case 'LOCKED':
+      case 'CONTRACTOR':
         return 'warn';
-      case 'DISABLED':
-      case 'TERMINATED':
-      case 'DEACTIVATED':
-      case 'ERROR':
-        return 'danger';
       default:
         return 'secondary';
     }
@@ -1346,7 +1330,7 @@ export class App {
           <th pSortableColumn="name">Name <p-sortIcon field="name" /></th>
           <th>Email</th>
           <th>Department</th>
-          <th>Status</th>
+          <th>Type</th>
         </tr>
       </ng-template>
 
@@ -1362,8 +1346,8 @@ export class App {
           <td>{{ attr(person, 'department') }}</td>
           <td>
             <p-tag
-              [severity]="statusSeverity(person.identityStatus)"
-              [value]="person.identityStatus || 'UNKNOWN'"
+              [severity]="typeSeverity(attr(person, 'type'))"
+              [value]="attr(person, 'type')"
             />
           </td>
         </tr>

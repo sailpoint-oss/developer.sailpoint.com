@@ -11,6 +11,14 @@ import Tabs from '@theme/Tabs';
 
 # Track 03 · UI Plugins
 
+:::tip Here for the main hack?
+
+Start with this track. It teaches you how UI plugins work, and it takes about one hour. When you
+finish, go to [Take it to the main hack](#take-it-to-the-main-hack) and use what you learned to
+build your own plugin.
+
+:::
+
 A UI plugin is a page that Identity Security Cloud (ISC) loads inside the product. It uses the
 signed-in user's session, so every API call you make is already authenticated.
 
@@ -23,6 +31,7 @@ The finished page will look similar to this:
 
 The whole page runs on one API call. The page loads every identity once, and both the dropdown and
 the table are built from that data.
+
 
 ## How to get started
 
@@ -319,7 +328,7 @@ it again. Replace the contents of `src/app/app.scss` with the code below.
 
 The stylesheet is short because the theme does most of the work. It uses the theme's
 `--spds-*` CSS variables for its colours, so the page matches ISC. See
-[Under the hood](#under-the-hood) for more about the theme.
+[UI Plugins: an in-depth look](#ui-plugins-an-in-depth-look) for more about the theme.
 
 </details>
 
@@ -644,7 +653,7 @@ the next two steps.
 an error and has an icon, without you choosing a colour.
 
 **`SailpointPluginService`.** This comes from the scaffold, and it gives you `plugin.context()`,
-`plugin.status()`, and `plugin.apiReady()`. See [Under the hood](#under-the-hood).
+`plugin.status()`, and `plugin.apiReady()`. See [UI Plugins: an in-depth look](#ui-plugins-an-in-depth-look).
 
 - [Angular SDK](https://developer.sailpoint.com/docs/tools/sdk/angular)
 - [List identities](https://developer.sailpoint.com/docs/tools/sdk/angular/identities/methods/identities/#list-identities-v1)
@@ -1489,7 +1498,7 @@ Pick whichever looks most interesting. Each one is something real plugins need t
   every manager in the tenant in one call, and show it as a list. One request replaces what would
   otherwise take hundreds.
 
-## Under the hood
+## UI Plugins: an in-depth look
 
 You do not need this section to finish the track. It explains the scaffold files you did not write,
 which is why your code is so short and why the page looks like ISC without extra styling.
@@ -1582,6 +1591,27 @@ followed: PrimeNG components in the `imports` array, and a map from a state to a
 
 - [PrimeNG components](https://primeng.org/select)
 - [PrimeNG theming](https://primeng.org/theming)
+
+## Take it to the main hack
+
+You now know what a UI plugin can do. It runs inside ISC, it uses the signed-in user's session, and it
+can call SailPoint APIs with no extra authentication. **Now, what do you want to build?**
+
+You can submit a UI plugin as your main hack. The judges score it with the same
+[judging criteria](/hack-day/judging-criteria) as the MCP Server hack, and it can win the same
+prizes.
+
+Start with a real problem. Think of a task that takes too many clicks in ISC today, or a question
+that a manager, an auditor, or a help desk agent cannot answer easily. Then build the page that
+solves it.
+
+:::note Before you submit
+
+Your plugin must meet the qualifying requirements in the
+[judging criteria](/hack-day/judging-criteria#qualifying-requirement-passfail--not-scored). It must
+use at least one SailPoint API, and you must be able to show it live in your tenant.
+
+:::
 
 ## Documentation
 

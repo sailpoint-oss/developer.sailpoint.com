@@ -267,8 +267,21 @@
   text-underline-offset: 3px;
 }
 
-/* Primary CTA and the judging link, on one row */
+/* Main hack cards, side by side */
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.featureGrid .featureCard {
+  margin-top: 0;
+}
+
+/* Keeps the CTA at the bottom when the cards have different text lengths */
 .featureActions {
+  margin-top: auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -280,7 +293,7 @@
   font-size: 17px;
 }
 
-/* Makes the whole card clickable while the judging link stays on top */
+/* Makes the whole card clickable */
 .stretchedLink::after {
   content: '';
   position: absolute;
@@ -288,9 +301,9 @@
   z-index: 1;
 }
 
-.featureActions > * {
-  position: relative;
-  z-index: 2;
+.judgingLink {
+  display: inline-block;
+  margin-top: 24px;
 }
 
 /* ── Steps (track sub-pages) ───────────────────────────────────────────────── */
@@ -486,7 +499,8 @@
   }
 
   .trackGrid,
-  .trackGridThree {
+  .trackGridThree,
+  .featureGrid {
     grid-template-columns: 1fr;
   }
 

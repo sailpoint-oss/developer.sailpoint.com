@@ -166,7 +166,11 @@ const config: Config = {
     }
   },
 
-  themes: ['docusaurus-theme-openapi-docs', '@docusaurus/theme-mermaid'],
+  themes: [
+    'docusaurus-theme-openapi-docs',
+    '@docusaurus/theme-mermaid',
+    '@writechoice/docusaurus-theme-llms-txt',
+  ],
 
   customFields: {
     AUTH_USERNAME: process.env.AUTH_USERNAME || '',

@@ -66,17 +66,15 @@ about each other have to be made to agree — which is most of what integration 
 | Workflow | `Workflows Mini Hack Template` | **Admin → Workflows**, then open it and click **Edit** | Trigger configured, three steps built, **disabled**. This is what you edit. |
 | Destination | Your own inbox | Your mail client — nothing to visit in SHF | Nothing to configure. SHF sends the mail; you supply the address. |
 
-There is no destination to set up and no token to paste. You are the recipient, so the only thing
-this exercise needs that is not already in your tenant is **your own email address**.
+The only thing this exercise needs that is not already in your tenant is **your own email address**.
 
-Two of those are worth opening before you start, because they are the two the workflow depends on and
-neither is obvious from the canvas:
+Two items are worth opening before you start, because the workflow depends on them and it's important to understand how they are used prior to moving forward
 
 - **Open `Margaret Hamilton`** under Admin → Identities. Her **Manager** field shows *Jean Bartik* as
   a link, not as the text `jean.bartik`. That link is what makes the manager lookup in your workflow
   possible — it exists because the identity profile resolved a `uid` from the CSV into a pointer at a
   real person.
-- **Open the source's `Accounts`** list, under Account Management. Same eight people, but here
+- **Open the source's `Accounts`** list, under Account Management. Click on the `margaret.hamilton` account to see the details and notice that
   `managerUid` is just a string reading `jean.bartik`. Accounts hold text; identities hold references.
   That difference comes up again in step 1.
 
@@ -96,12 +94,11 @@ whole model, and the workflow you are about to open is one trigger and four step
 One workflow, `Workflows Mini Hack Template`, status **Disabled**.
 
 **Disabled** means the workflow is not subscribed to anything — real events pass it by and it never
-runs on its own. That is correct and deliberate: it is how you get to build and test in private,
-without half-finished emails going out on every aggregation. It stays disabled until step 4.
+runs on its own. It stays disabled until step 4.
 
 #### The canvas
 
-Open the workflow, then **Edit**.
+Open the workflow, then click the **Edit in Builder** button on the top right header.
 
 ![Workflow canvas](screenshots/workflow-canvas.png)
 
@@ -109,18 +106,16 @@ The five nodes, top to bottom are: the **trigger**, **Wait**, **Get New Hire**, 
 **End** step. Execution runs straight down — no branching here, though branching is possible in a more advanced flow.
 
 Two things to note about the shape of it. Every step **points at the next one**, and the last step points at
-an **End**, which is what tells the platform the run finished successfully. That matters the moment
-you add a step of your own, because the end has to move down to sit after it.
+an **End**, which is what tells the platform the run finished successfully.
 
-And your work goes **between `Get Manager` and the End**. Everything above that is a working example
+Your work goes **between `Get Manager` and the End**. Everything above that is a working example
 of one pattern.
 
 #### The trigger
 
 ![Trigger configuration panel](screenshots/workflow-trigger.png)
 
-**A trigger is the answer to "when should this run?"** Every workflow has exactly one, it sits at the
-top of the canvas, and without it a workflow is just a list of steps nothing ever executes. There are
+**A trigger is the answer to "when should this run?"** Every workflow has exactly one, and without it a workflow is just a list of steps. There are
 three kinds: **scheduled** (every night at 2am), **external** (something POSTs to a URL to start it),
 and **event** — the platform itself tells you something happened.
 
@@ -142,31 +137,30 @@ stretch goal.
 **A Wait step pauses the run.** That is all it does — the run holds at this point for the duration
 you set, then continues.
 
-It exists because the event arrives *faster than the data behind it*. Identity Created fires the
+We wait 1 minute because the event arrives *faster than the data behind it*. Identity Created fires the
 moment the identity is created, which is before the identity profile has finished populating its
 attributes and resolving its manager. Look the person up immediately and you get a half-built record.
-The wait is a minute; step 1 shows you exactly what the record looks like without it.
 
 #### `Get New Hire`
 
 ![Get New Hire step](screenshots/workflow-get-new-hire.png)
 
-**`Get New Hire` is not a special kind of step — it is a `Get Identity` action that somebody renamed.**
+**`Get New Hire` is not a special kind of step — it is a `Get Identity` action that was renamed.**
 This is worth understanding, because it explains a lot of what you will see later:
 
 - **`Get Identity` is a built-in action.** Give it one identity id and it calls the platform's identity
   API for you and hands back that identity's full record — every attribute the platform holds, not
-  just the few the event carried. No credentials, no endpoint, no code.
+  just the few the event carried.
 - **The name is yours to choose.** `Get New Hire` describes the *role* this lookup plays in this
   workflow. Two steps in this workflow are the same action doing different jobs, and naming them for
-  their job is the only thing that keeps them apart on the canvas.
+  their job is what keeps your workflow readable.
 - **Its input is a variable, not a fixed value.** The identity-id field reads
   `$.trigger.identity.id` — "the id of the identity this event was about." Every run resolves it to a
   different person.
 
 **How it applies here:** five of the six things your email needs — display name, department, job
 title, and the two manager fields — are not in the event at all. This step is how they get into the
-workflow. The event says *who*; this says *everything about them*.
+workflow. The event says *who*; this looks up *everything about them*.
 
 #### The variable picker
 
@@ -176,7 +170,7 @@ workflow. The event says *who*; this says *everything about them*.
 lists everything available at that point in the flow — the trigger's payload, plus the output of
 every step above the one you are editing. Pick a value and it writes the path for you.
 
-Two consequences are worth noticing now. A step can only see steps *above* it, which is why order
+It's worth noting that a step can only see steps *above* it, which is why order
 matters. And the path it writes refers to a step by an internal name that is not always its display
 name — you will meet that in step 3.
 
@@ -213,8 +207,7 @@ green ones in step 2, and you will understand the three red ones by the end of s
 
 Click a run, then any step inside it, to see exactly what that step received and what it returned.
 This panel is the most useful debugging tool in Workflow Studio and you will spend most of step 3 in
-it — it shows you what your workflow *actually sent*, which is reliably more informative than what
-you thought you wrote.
+it — it shows you what your workflow *actually sent*.
 
 ## How to get started
 
@@ -225,7 +218,7 @@ moving.
 ### 1. Read what is already there
 
 Go to **Admin → Workflows**. You will see `Workflows Mini Hack Template` with a status of
-**Disabled**. Open it, then click **Edit** to open it in the builder.
+**Disabled**. Open it, then click **Edit in Builder** to open it in the builder.
 
 **Why it is disabled.** A disabled workflow is not subscribed to its trigger. Real
 `idn:identity-created` events will fire in this tenant while you work, and they will pass this
@@ -236,11 +229,9 @@ demand regardless of the status**, so you can execute this thing as often as you
 disabled, reading real output the whole time, and nothing you half-finish ever reaches an inbox. You
 flip it to Enabled in step 4, once it works — and only then does a real joiner set it off.
 
-It is also how you should work in a real tenant. Building enabled means every aggregation becomes a
-live test of an unfinished workflow.
+#### What the event actually hands you  
 
-#### What the event actually hands you
-
+Click on **Workflow Details** -> Executions, then for one of the completed executions, click on Actions -> View Execution. 
 Click the trigger, then look at what the event gives you. This is a real payload, captured from a real
 identity creation in a tenant just like yours:
 

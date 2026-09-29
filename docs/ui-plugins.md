@@ -11,18 +11,6 @@ slug: /ui-plugins
 tags: ['ui-plugins']
 ---
 
-:::info Experimental feature
-
-UI Plugins are an experimental capability that is under active development. The `sail ui-plugins` command group is hidden by default and must be enabled explicitly:
-
-```bash
-export SAIL_EXPERIMENTAL_UI_PLUGINS=1
-```
-
-Command behavior, the workspace manifest (`sp-ui-plugin.json`), and the backend API may change before general availability.
-
-:::
-
 ## Overview
 
 UI Plugins let you extend the Identity Security Cloud (ISC) user interface with your own custom web applications. Rather than building a separate app that lives outside the platform, a UI plugin is a micro-frontend that ISC loads directly into designated **slots** in its UI — so your custom experience runs inside ISC, using the tenant's session and honoring its security model.
@@ -49,15 +37,15 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 At a high level, building and deploying a UI plugin follows this lifecycle:
 
-```mermaid
-flowchart TD
-  A["sail ui-plugins init<br/>scaffold workspace"] --> B["npm install"]
-  B --> C["sail ui-plugins create<br/>register plugin instance"]
-  C --> D["npm run start<br/>local dev server on :4200"]
-  D --> E["sail ui-plugins link<br/>load local code in ISC"]
-  E --> F["Develop & iterate"]
-  F --> G["npm run build<br/>compile assets"]
-  G --> H["sail ui-plugins upload<br/>deploy asset bundle"]
+```bash
+sail ui-plugins init      # Scaffold the plugin workspace
+npm install               # Install the project dependencies
+sail ui-plugins create    # Register the plugin instance in your tenant
+npm run start             # Start the local dev server on port 4200
+sail ui-plugins link      # Tell ISC to load your local code
+# Develop and iterate on your plugin here
+npm run build             # Compile the assets
+sail ui-plugins upload    # Deploy the asset bundle to your tenant
 ```
 
 The [Create a plugin instance](/docs/ui-plugins/create-a-plugin-instance) walkthrough steps through this workflow end to end.

@@ -52,26 +52,6 @@ UI Plugins are an experimental, gated capability. To work with them, your tenant
 
 If the feature is not enabled for your tenant, backend calls return a "not enabled for this tenant" error. If you are missing a right, the CLI reports which right the operation requires.
 
-## Enable the experimental command group
-
-While UI Plugins are experimental, the `sail ui-plugins` command group is hidden from the CLI's default command discovery. Enable it for your shell session by setting an environment variable:
-
-```bash
-export SAIL_EXPERIMENTAL_UI_PLUGINS=1
-```
-
-Without it, any `sail ui-plugins` command fails with:
-
-```text
-Error: the `sail ui-plugins` command group is experimental and currently disabled. Enable it with `SAIL_EXPERIMENTAL_UI_PLUGINS=1`
-```
-
-:::tip
-
-Add the `export` to your shell profile (for example, `~/.zshrc` or `~/.bashrc`) so you do not have to set it in every new terminal.
-
-:::
-
 ## Recommended knowledge
 
 The starter template is an Angular project, so familiarity with Angular, TypeScript, HTML, and CSS is helpful. You can also attach the SailPoint UI plugin SDK to an existing web application — see `sail ui-plugins init --path` in the [CLI command reference](/docs/ui-plugins/cli-command-reference).

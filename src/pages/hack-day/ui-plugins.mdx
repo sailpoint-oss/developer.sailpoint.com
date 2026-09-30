@@ -22,14 +22,14 @@ build your own plugin.
 A UI plugin is a page that Identity Security Cloud (ISC) loads inside the product. It uses the
 signed-in user's session, so every API call you make is already authenticated.
 
-You will build a **manager lookup**: pick a manager from a searchable dropdown and get a table of
-everyone who reports to them. You write the code on your laptop, and your tenant renders it live.
+You will building a **manager lookup**: pick a manager from a searchable dropdown and get a table of
+everyone who reports to them. while you write the code, your tenant renders it live.
 You do not need to host anything.
 
 The finished page will look similar to this:
 ![The finished manager lookup page](screenshots/ui-plugins-finished.png)
 
-The whole page runs on one API call. The page loads every identity once, and both the dropdown and
+The data to create the page comes from one API call. The page loads every identity once, and both the dropdown and
 the table are built from that data.
 
 
@@ -43,7 +43,7 @@ Work through the steps in order:
 - **Step 8** deploys the page. It is optional.
 
 Each step has collapsed sections. **Why it works** explains the code, and **The code so far** shows
-the full files, so you can catch up if you get stuck.
+the full files, so you can catch up in case you get stuck.
 
 ### 1. Install the prerequisites
 
@@ -60,7 +60,7 @@ If you think you are already set up, run these first. If all four pass, skip to 
 
 ```bash
 node --version                      # 20.19+, 22.12+, or 24+
-sail --version                      # 2.4.1 or newer
+sail --version                      # 2.6.0 or newer
 sail env show                       # your tenant, active
 sail ui-plugins list                # returns without an error
 ```
@@ -95,7 +95,7 @@ brew tap sailpoint-oss/tap && brew install sailpoint-cli
   </TabItem>
   <TabItem value="windows" label="Windows">
 
-Download `sail_2.4.1_windows_amd64.msi` from the
+Download `sail_2.6.0_windows_amd64.msi` from the
 [releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases), double click it, and follow
 the installer. 64-bit Windows only.
 
@@ -108,19 +108,19 @@ Download the `.deb` or `.rpm` from the
 **Your terminal — Debian or Ubuntu**
 
 ```bash
-sudo apt install ./sail_2.4.1_linux_amd64.deb
+sudo apt install ./sail_2.6.0_linux_amd64.deb
 ```
 
 **Your terminal — Red Hat or Fedora**
 
 ```bash
-sudo yum localinstall ./sail_2.4.1_linux_amd64.rpm
+sudo yum localinstall ./sail_2.6.0_linux_amd64.rpm
 ```
 
   </TabItem>
 </Tabs>
 
-Confirm that the version is **2.4.1 or newer**:
+Confirm that the version is **2.6.0 or newer**:
 
 **Your terminal**
 
@@ -131,7 +131,7 @@ sail --version
 :::warning
 
 The `ui-plugins` command group is new, so install the latest release instead of using the version
-you already have. If `sail ui-plugins` reports an unknown command, your binary is too old.
+you already have. If `sail ui-plugins` reports an unknown command, your binary is likely too old.
 
 :::
 
@@ -210,8 +210,7 @@ cd manager-lookup
 npm install
 ```
 
-You now have a normal Angular application with a few files that are specific to UI plugins. These are
-the files that matter:
+You now have a normal Angular application with a few files that are specific to UI plugins. Below are some important files to take note of:
 
 | File | What it does |
 | --- | --- |
@@ -222,8 +221,8 @@ the files that matter:
 | `src/app/app.html` | Your template |
 | `src/app/app.scss` | Your styles. Empty in the scaffold |
 
-**Add the stylesheet now.** It covers the whole finished page, so you paste it once and do not touch
-it again. Replace the contents of `src/app/app.scss` with the code below.
+**Add the stylesheet now.** It covers the whole finished page, so you only need to modify it once.
+ Replace the contents of `src/app/app.scss` with the code below.
 
 <details>
 <summary>Copy this: `src/app/app.scss`</summary>
@@ -327,7 +326,7 @@ it again. Replace the contents of `src/app/app.scss` with the code below.
 </div>
 
 The stylesheet is short because the theme does most of the work. It uses the theme's
-`--spds-*` CSS variables for its colours, so the page matches ISC. See
+`--spds-*` CSS variables for its colours, so the page matches SHF. See
 [UI Plugins: an in-depth look](#ui-plugins-an-in-depth-look) for more about the theme.
 
 </details>
@@ -335,7 +334,7 @@ The stylesheet is short because the theme does most of the work. It uses the the
 <details>
 <summary>Why it works: what is in `sp-ui-plugin.json`</summary>
 
-This is the only file that is not ordinary Angular:
+This is the only file that is not an ordinary Angular file:
 
 **`sp-ui-plugin.json`**
 
@@ -362,7 +361,7 @@ This is the only file that is not ordinary Angular:
 
 The file has two parts:
 
-- **`manifest`** is sent to ISC. It declares the alias, the display name, the API scopes your page can
+- **`manifest`** is sent to SHF. It declares the alias, the display name, the API scopes your page can
   use, and the **slots** the plugin fills. `full-page` gives your plugin a whole page of its own,
   not a panel inside an existing screen.
 - **`build`** stays on your laptop. `outDir` tells `upload` where your compiled files are, and `port`

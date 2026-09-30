@@ -17,7 +17,7 @@ Before you scaffold and deploy your first UI plugin, make sure you have the foll
 
 ### Node.js and npm
 
-The SailPoint starter template is an [Angular](https://angular.dev/) application, so you need a current LTS release of [Node.js](https://nodejs.org/en/download) (which includes npm). Node 20 or later is recommended.
+The SailPoint starter template is an [Angular](https://angular.dev/) application, so you need a current LTS release of [Node.js](https://nodejs.org/en/download) (which includes npm). Node 24 or later is recommended.
 
 ### SailPoint CLI
 

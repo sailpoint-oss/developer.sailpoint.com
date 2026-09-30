@@ -480,8 +480,8 @@ So the manager has to come from a record you fetch, after a wait. There is no sh
 lookups are not redundant: the first tells you who the manager *is*, the second tells you anything
 *about* them.
 
-- [Event triggers](/docs/extensibility/event-triggers/)
-- [`idn:identity-created` payload reference](/docs/extensibility/event-triggers/available-event-triggers/identity-created)
+- [Event triggers](/docs/extensibility/event-triggers)
+- [`idn:identity-created` payload reference](/docs/extensibility/event-triggers/triggers/identity-created)
 
 </details>
 
@@ -707,8 +707,10 @@ to type: **whatever the picker generates is correct.**
 **8. Check your inbox.** One email, six values in it, nothing reading `[object Object]`. If the run
 went green and nothing arrived, check spam before anything else.
 
-- [Workflow actions](/docs/extensibility/workflows/actions/)
-- [Workflow operators and variables](/docs/extensibility/workflows/operators)
+- [Workflow action library](/docs/api/list-workflow-library-actions-v-1) — every action, with the
+  inputs it takes
+- [Workflow operator library](/docs/api/list-workflow-library-operators-v-1) — the expression syntax
+  behind the variable picker
 
 </details>
 
@@ -847,21 +849,41 @@ actually has to deal with.
 
 ## Documentation
 
-- [Workflows overview](/docs/extensibility/workflows/)
-- [Building workflows](/docs/extensibility/workflows/building-workflows) — the builder, step by step
-- [Workflow triggers](/docs/extensibility/workflows/triggers) — what starts a workflow, and how
-- [Event triggers](/docs/extensibility/event-triggers/) — every trigger type and its payload
-- [`idn:identity-created` payload reference](/docs/extensibility/event-triggers/available-event-triggers/identity-created)
-- [Workflow actions](/docs/extensibility/workflows/actions/) — what Get Identity, Send Email, Manage
-  Access, and Create Form each take and return
-- [Workflow operators and variables](/docs/extensibility/workflows/operators) — the expression syntax
+#### The feed — sources, schemas, and identity profiles
+
+- [Transforms](/docs/extensibility/transforms) — the identity profile Mappings tab in depth, including
+  how to *compute* an attribute rather than copy one straight across. Start here if you want a
+  `displayName` built from other columns instead of read from `fullName`.
+- [Create Source](/docs/api/create-source-v-1) — step 1 as an API call, and the full list of fields a
+  source actually has
+- [Upload Source Accounts Schema Template](/docs/api/import-accounts-schema-v-1) — step 2, and the shape
+  of the schema SHF builds from your header row
+- [Account Aggregation](/docs/api/import-accounts-v-1) — the aggregation upload from steps 3 and 10
+- [Create Identity Profile](/docs/api/create-identity-profile-v-1) — step 4, including how mappings are
+  represented underneath the UI
+- [Account Aggregation Completed](/docs/extensibility/event-triggers/triggers/account-aggregation-completed) —
+  the other event in this story. Your workflow fires per identity; this one fires once per aggregation.
+
+#### The workflow — triggers, testing, and actions
+
+- [Event triggers](/docs/extensibility/event-triggers) — what an event trigger is and how to use one
+- [Trigger types](/docs/extensibility/event-triggers/trigger-types) — scheduled, external, and event
+- [`idn:identity-created` payload reference](/docs/extensibility/event-triggers/triggers/identity-created) —
+  every field the event carries, and every field it does not
+- [Filtering events](/docs/extensibility/event-triggers/filtering-events) — the expression syntax behind
+  the filtering stretch goal
+- [Testing triggers](/docs/extensibility/event-triggers/testing-triggers) — testing an event-driven
+  integration without waiting for a real event
+- [Workflow action library](/docs/api/list-workflow-library-actions-v-1) — what Get Identity, Send
+  Email, Manage Access, and Create Form each take and return
+- [Workflow operator library](/docs/api/list-workflow-library-operators-v-1) — the expression syntax
   behind the variable picker
-- [Workflow examples library](/docs/extensibility/workflows/examples/)
-- [Workflows API](/docs/api/beta/workflows) — read, create, and version workflows as JSON
+- [Workflows API](/docs/api/list-workflows-v-1) — read, create, and version workflows as JSON
+- [Workflows CLI](/docs/tools/cli/workflow) — list, export, and manage workflows from a terminal
 
 ## Still stuck?
 
-Grab a SailPoint developer advocate in the room, or reach for the community and tooling.
+Grab a SailPoint employee in the room, or reach for the community and tooling.
 
 - [Developer Forum](https://developer.sailpoint.com/discuss/)
 - [SDKs](/docs/tools/sdk)

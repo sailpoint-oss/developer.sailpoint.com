@@ -40,7 +40,7 @@ Work through the steps in order:
 - **Steps 1 to 4** get your local code rendering inside the tenant.
 - **Steps 5 to 7** build the page, one piece at a time. Each one ends with a **Checkpoint** so you
   can confirm it works before you move on.
-- **Step 8** deploys the page. It is optional.
+- **Step 8** deploys the page, and **step 9** adds it to the ISC nav bar. Both are optional.
 
 Each step has collapsed sections. **Why it works** explains the code, and **The code so far** shows
 the full files, so you can catch up in case you get stuck.
@@ -662,8 +662,7 @@ an error and has an icon, without you choosing a colour.
 
 ### 6. Build the manager dropdown
 
-Turn the identities you loaded into a searchable list of managers. This step does not make a new API
-call.
+Turn the identities you retrieved into a searchable list of managers by using a dropdown component.
 
 1. Inside the class, next to the other signals, add a signal for the selected manager:
 
@@ -743,7 +742,7 @@ call.
 You see a dropdown with every manager in the tenant, in alphabetical order, and each name appears only
 once. When you type in it, the list gets shorter.
 
-If a name appears more than once, the `Map` is not keyed by the manager's id.
+If a name appears more than once, the `Map` is not likely not keyed by the manager's id.
 
 ![Checkpoint 2 page](screenshots/ui-plugins-checkpoint-2.png)
 
@@ -1071,7 +1070,7 @@ so this step does not make an API call either.
 
 :::tip Checkpoint
 
-You see a table with a caption and a count, a Name column you can sort, and one row per report with a
+You should see a table with a caption and a count, a Name column you can sort, and one row per report with a
 coloured status tag.
 
 
@@ -1375,7 +1374,8 @@ export class App {
 
 </details>
 
-That is the complete page. Step 8 deploys it to your tenant, and step 9 has ideas for going further.
+This concludes the development of the page. Step 8 deploys it to your tenant, step 9 adds it to the nav bar, and
+step 10 has ideas for going further.
 
 :::note
 
@@ -1461,7 +1461,46 @@ changes. When you upload again, the new bundle becomes the active one.
 
 </details>
 
-### 9. Stretch goals
+### 9. Add to the nav bar
+
+A plugin URL works, but right now the only way to navigate to it is through the URL. A nav bar item gives your page a permanent home in
+ISC, next to the standard menus. This way it looks like it's really part of the product.
+
+:::tip Deploy first
+
+This step needs the uploaded files from step 8. The plugin dropdown lists plugin instances, and the
+menu item loads the deployed bundle, not your dev server.
+
+:::
+
+1. In your tenant, go to **Admin → Global → System Settings → Customize Navbar**.
+2. Open **Custom Item**, and select the **Enabled** checkbox.
+3. For **Language**, keep **English**. For **Label**, enter `Manager Lookup`. This is the name of the
+   top menu.
+4. Click **Add sub menu item**.
+
+![The Custom Nav Item page, with a label and the Add sub menu item button](screenshots/ui-plugins-nav-1.png)
+
+5. In the dialog, enter `Manager Lookup Page` as the **Label**. This is the name of the item inside
+   the menu.
+6. For **Destination**, select **Plugin**. Then select `manager-lookup` in the **Plugin** list.
+7. Leave **Required Capabilities** empty, so every user sees the item. To limit the item to one
+   audience, select a capability here.
+8. Click **Done**.
+
+![The Add sub menu item dialog, with the plugin destination selected](screenshots/ui-plugins-nav-2.png)
+
+9. Click **Save**.
+
+:::tip Checkpoint
+
+Refresh your tenant. The nav bar shows a **Manager Lookup** menu, and the menu contains
+**Manager Lookup Page**. Click it, and your page opens inside ISC.
+
+:::
+
+
+### 10. Stretch goals
 
 Pick whichever looks most interesting. Each one is something real plugins need to do.
 

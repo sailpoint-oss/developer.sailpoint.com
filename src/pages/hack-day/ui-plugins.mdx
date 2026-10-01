@@ -60,16 +60,15 @@ If you think you are already set up, run these first. If all four pass, skip to 
 
 ```bash
 node --version                      # 24+
-sail --version                      # 2.6.0 or newer
+sail --version                      # 2.7.0 or newer
 sail env show                       # your tenant, active
 sail ui-plugins list                # returns without an error
 ```
 
 #### Node
 
-The starter template is an [Angular](https://angular.dev/) application. Angular accepts only
-**20.19 or newer, 22.12 or newer, or 24 and above**, so check the minor version as well as the major
-one.
+The starter template is an [Angular](https://angular.dev/) application. Angular works best with
+**24 and above**.
 
 **Your terminal**
 
@@ -95,7 +94,7 @@ brew tap sailpoint-oss/tap && brew install sailpoint-cli
   </TabItem>
   <TabItem value="windows" label="Windows">
 
-Download `sail_2.6.0_windows_amd64.msi` from the
+Download `sail_2.7.0_windows_amd64.msi` from the
 [releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases), double click it, and follow
 the installer. 64-bit Windows only.
 
@@ -108,19 +107,19 @@ Download the `.deb` or `.rpm` from the
 **Your terminal — Debian or Ubuntu**
 
 ```bash
-sudo apt install ./sail_2.6.0_linux_amd64.deb
+sudo apt install ./sail_2.7.0_linux_amd64.deb
 ```
 
 **Your terminal — Red Hat or Fedora**
 
 ```bash
-sudo yum localinstall ./sail_2.6.0_linux_amd64.rpm
+sudo yum localinstall ./sail_2.7.0_linux_amd64.rpm
 ```
 
   </TabItem>
 </Tabs>
 
-Confirm that the version is **2.6.0 or newer**:
+Confirm that the version is **2.7.0 or newer**:
 
 **Your terminal**
 
@@ -199,14 +198,15 @@ sail ui-plugins list
 
 ### 2. Scaffold the plugin workspace
 
-Run these commands one at a time. `sail ui-plugins init` downloads the SailPoint starter template into
+Run these commands one at a time. Replace the {name} with your name to make sure the plugin instance is unique as someone else might be sharing the instance with you. 
+`sail ui-plugins init` downloads the SailPoint starter template into
 a new folder, `cd` moves you into it, and `npm install` downloads its dependencies.
 
 **Your terminal**
 
 ```bash
-sail ui-plugins init manager-lookup
-cd manager-lookup
+sail ui-plugins init manager-lookup-{name}
+cd manager-lookup-{name}
 npm install
 ```
 
@@ -342,9 +342,9 @@ This is the only file that is not an ordinary Angular file:
 {
     "version": 1,
     "manifest": {
-        "alias": "manager-lookup",
-        "name": { "en": "manager-lookup" },
-        "description": { "en": "manager-lookup" },
+        "alias": "manager-lookup-{name}",
+        "name": { "en": "manager-lookup-{name}" },
+        "description": { "en": "manager-lookup-{name}" },
         "apiScopes": ["sp:scopes:all"],
         "contentSecurityPolicies": {},
         "permissionPolicy": {},
@@ -353,7 +353,7 @@ This is the only file that is not an ordinary Angular file:
         "slots": [{ "slotId": "full-page" }]
     },
     "build": {
-        "outDir": "./dist/manager-lookup/browser",
+        "outDir": "./dist/manager-lookup-{name}/browser",
         "port": 4200
     }
 }
@@ -367,7 +367,7 @@ The file has two parts:
 - **`build`** stays on your laptop. `outDir` tells `upload` where your compiled files are, and `port`
   tells `link` where your dev server listens.
 
-To check the manifest's structure without calling the backend, run this in the `manager-lookup`
+To check the manifest's structure without calling the backend, run this in the `manager-lookup-{name}`
 folder:
 
 ```bash
@@ -392,7 +392,7 @@ sail ui-plugins create
 **Terminal output**
 
 ```text
-Created plugin instance 033b32b5-280f-4d78-a856-05c2a34d15d1 (alias: manager-lookup)
+Created plugin instance 033b32b5-280f-4d78-a856-05c2a34d15d1 (alias: manager-lookup-{name})
 ```
 
 ### 4. Load your local code in the tenant
@@ -419,9 +419,9 @@ change applies only to you, so nobody else in the tenant is affected.
    **Terminal output**
 
    ```text
-   Plugin manager-lookup linked to port 4200
+   Plugin manager-lookup-{name} linked to port 4200
    To load your local plugin in ISC navigate to:
-   https://<tenant>/ui/plugin/033b32b5-280f-4d78-a856-05c2a34d15d1?spPluginDev=manager-lookup
+   https://<tenant>/ui/plugin/033b32b5-280f-4d78-a856-05c2a34d15d1?spPluginDev=manager-lookup-{name}
    ```
 
 3. Open the printed URL.
@@ -1406,7 +1406,7 @@ sail ui-plugins upload
 **Terminal output**
 
 ```text
-Uploaded 5 asset(s) to plugin "manager-lookup" (bundle 88610c07-b1fe-42d8-98c5-01703efd7cf7)
+Uploaded 5 asset(s) to plugin "manager-lookup-{name}" (bundle 88610c07-b1fe-42d8-98c5-01703efd7cf7)
 The plugin can be viewed at:
 https://<tenant>/ui/plugin/033b32b5-280f-4d78-a856-05c2a34d15d1
 ```
@@ -1451,7 +1451,7 @@ sail ui-plugins list
 sail ui-plugins unlink
 
 # Remove the plugin instance entirely (prompts to confirm)
-sail ui-plugins delete manager-lookup
+sail ui-plugins delete manager-lookup-{name}
 ```
 
 Each `upload` becomes the instance's **active asset bundle**, which is stored behind a CDN and never
@@ -1483,7 +1483,7 @@ menu item loads the deployed bundle, not your dev server.
 
 5. In the dialog, enter `Manager Lookup Page` as the **Label**. This is the name of the item inside
    the menu.
-6. For **Destination**, select **Plugin**. Then select `manager-lookup` in the **Plugin** list.
+6. For **Destination**, select **Plugin**. Then select `manager-lookup-{name}` in the **Plugin** list.
 7. Leave **Required Capabilities** empty, so every user sees the item. To limit the item to one
    audience, select a capability here.
 8. Click **Done**.

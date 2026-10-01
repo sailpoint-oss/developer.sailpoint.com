@@ -18,7 +18,7 @@ This rule manipulates raw input data provided by the rows and columns in a file 
 
 :::info 
 
-This rule runs in the cloud, but it's really a connector rule because it executes against the DelimitedFileConnector. 
+This rule runs in the cloud, but it's really a connector rule because it executes against the DelimitedFileConnector. This rule type needs to be deployed via [Connector Rule APIs](https://developer.sailpoint.com/docs/extensibility/rules/connector-rules)
 
 :::
 

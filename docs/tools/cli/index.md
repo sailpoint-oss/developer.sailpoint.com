@@ -38,6 +38,7 @@ Learn how to use the SailPoint command line interface (CLI) in this guide.
 - [Configuration](#configuration)
   - [OAuth Authentication](#oauth-authentication)
   - [PAT Authentication](#pat-authentication)
+  - [Troubleshooting configuration](#troubleshooting-configuration)
 - [Environment variable configuration](#environment-variable-configuration)
 - [Usage](#usage)
 - [Support](#support)
@@ -106,22 +107,43 @@ sudo yum localinstall /path/to/rpm/package/sail_x.x.x_linux_amd64.rpm
 
 To configure the CLI to connect and authenticate to your SHF tenant, you must do the following:
 
-- Find your tenant name. To learn how to find it, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The CLI will use this tenant name to connect to your SHF instance.
-- OAuth
-- PAT | Create a personal access token (PAT). Make sure to note the "Client ID" and "Client Secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/docs/api/authentication#generate-a-personal-access-token).
+- Find your tenant name or tenant URL. To learn how to find it, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The CLI will use this value to connect to your SHF instance.
+- Choose an authentication method:
+  - OAuth | Sign in through your browser. You do not need to create credentials first.
+  - PAT | Create a personal access token (PAT). Make sure to note the "Client ID" and "Client Secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/docs/api/authentication#generate-a-personal-access-token).
 
-To configure your first environment for OAuth run the following command:
+To configure your first environment, run the following command:
 
 ```bash
 sail env create {environment}
 ```
 
-with `{environment}` being the name of the environment you wish to configure.
+with `{environment}` being the name of the environment you wish to configure. If you do not provide a name, the CLI uses your tenant name as the environment name.
 
-You will be prompted for the following information:
+The CLI asks for your tenant name or URL. You can enter either of these:
+
+- Your tenant name, such as `acme`. The CLI uses the default `identitynow.com` domain.
+- Your tenant URL, such as `https://acme.identitynow-demo.com`. Use this option for tenants that are not on the default `identitynow.com` domain. You can also paste the API URL or a URL copied from your browser, such as `https://acme.identitynow-demo.com/ui/d/dashboard`. The URL must use HTTPS.
+
+From this value, the CLI creates two URLs:
 
 - The Tenant URL - The web URL used to access your SailPoint Human Fabric tenant (ex. https://tenant.identitynow.com), this is used during the OAuth process.
 - The API URL - The API URL used to access your SailPoint Human Fabric tenant (ex. https://tenant.api.identitynow.com), this is used for the api calls made by certain commands.
+
+The CLI then checks the API URL with your tenant. If the check passes, the CLI skips the URL confirmation prompts:
+
+```bash
+sail env create
+Tenant name or URL (ie: acme, or https://acme.identitynow-demo.com): () https://acme.identitynow-demo.com/
+
+✔ Found tenant at https://acme.identitynow-demo.com (API: https://acme.api.identitynow-demo.com)
+```
+
+If the check fails, the CLI shows a warning and asks you to correct the Tenant URL and the API URL. Make sure that the URLs match your tenant and try again. If the CLI shows the `Could not confirm the tenant API URL` warning again, the URLs are likely incorrect. Run `sail env update {environment}` to fix them before you use the environment.
+
+To change the URLs of an existing environment, run `sail env update {environment}`. Press enter at the tenant prompt to keep the URLs that are already stored.
+
+Then choose the authentication type for the environment: `oauth` or `pat`.
 
 ### OAuth authentication
 
@@ -147,15 +169,31 @@ OAuth login needs an interactive terminal, because you must paste the code. Use 
 
 ### PAT authentication
 
-After you have configured your environment, if you want to use PAT authentication, run the `sail set pat` command. You can then provide your PAT client ID and client secret.
+After you have configured your environment, if you want to use PAT authentication, run the `sail set pat` command. You can then provide your PAT client ID and client secret. The CLI shows a `*` for each character you type or paste, so you can see that your input was received.
 
 ![Configure PAT](https://github.com/sailpoint-oss/sailpoint-cli/blob/main/assets/img/vhs/configure/configure-environment.gif?raw=true)
 
 Once you have provided your client ID and client secret, you can swap your auth method to PAT using `sail set auth pat`.
 
+If the tenant rejects your PAT client ID or client secret, the CLI tells you which environment failed. The PAT may be wrong, deleted, or created in a different tenant. Run `sail set pat` to update the credentials. If you use environment variables, check the values of `SAIL_CLIENT_ID` and `SAIL_CLIENT_SECRET`.
+
+### Troubleshooting configuration
+
+If the CLI cannot find a usable environment, it stops and tells you how to fix the problem:
+
+| Error | Fix |
+| --- | --- |
+| `no environment is configured` | Run `sail env create` to set up an environment, or set the `SAIL_BASE_URL`, `SAIL_CLIENT_ID`, and `SAIL_CLIENT_SECRET` [environment variables](#environment-variable-configuration). |
+| `no active environment is selected` or `the active environment "{name}" does not exist` | The CLI lists your configured environments. Run `sail env use {name}` to select one, or `sail env create` to add a new one. |
+| `configured environment is missing BaseURL` or `missing TenantURL` | Run `sail env update {environment}` to set the URLs. |
+| `no PAT client ID is stored for environment "{name}"` or `no PAT client secret is stored ...` | Run `sail set pat` to store your PAT credentials, or set `SAIL_CLIENT_ID` and `SAIL_CLIENT_SECRET`. |
+| `invalid authtype configured` | Run `sail set auth` to choose `oauth` or `pat`. |
+
 ## Environment variable configuration
 
 You can also store your configuration in environment variables. This can be useful when you are using the CLI in an automated environment like a continuous integration and continuous deployment (CI/CD) pipeline. In these types of scenarios, consuming the configuration from environment variables would be easier than creating the configuration file.
+
+When `SAIL_BASE_URL` is set, the CLI does not need a configured environment, so you do not have to run `sail env create`.
 
 To export the environment variables on **Linux/Mac**, open your terminal app and run these commands:
 

@@ -128,13 +128,14 @@ pip install -e ".[dev]"
 
 **Add your credentials**
 
-Copy the example file, then fill in the three values:
+Copy the example file, fill in the three values, and make the file readable only by you:
 
 <Tabs groupId="os">
   <TabItem value="mac-linux" label="macOS / Linux" default>
 
 ```bash
 cp .env.example .env
+chmod 600 .env
 ```
 
   </TabItem>
@@ -143,6 +144,9 @@ cp .env.example .env
 ```powershell
 Copy-Item .env.example .env
 ```
+
+Keep the project inside your user folder (for example, `C:\Users\<you>\`). Files there
+are readable only by your account by default.
 
   </TabItem>
 </Tabs>
@@ -153,8 +157,8 @@ SAIL_CLIENT_ID=...
 SAIL_CLIENT_SECRET=...
 ```
 
-These are the variable names the SailPoint SDK reads natively, so the same `.env` works for any
-other SDK script you write.
+The server loads `.env` from its own project folder, so it works from whatever directory your MCP
+client starts it in. The file is gitignored. Do not commit it or paste it into a client config.
 
 **Verify the credentials before touching an MCP client**
 
@@ -222,29 +226,37 @@ npm run build
 
 **Add your credentials**
 
-Export the three values in the shell you will launch the inspector from. These are the variable
-names the SailPoint SDK reads natively, and the inspector passes them down to the server it starts.
+Copy the example file, fill in the three values, and make the file readable only by you:
 
 <Tabs groupId="os">
   <TabItem value="mac-linux" label="macOS / Linux" default>
 
 ```bash
-export SAIL_BASE_URL=https://your-tenant.api.identitynow.com
-export SAIL_CLIENT_ID=...
-export SAIL_CLIENT_SECRET=...
+cp .env.example .env
+chmod 600 .env
 ```
 
   </TabItem>
   <TabItem value="windows" label="Windows (PowerShell)">
 
 ```powershell
-$env:SAIL_BASE_URL = "https://your-tenant.api.identitynow.com"
-$env:SAIL_CLIENT_ID = "..."
-$env:SAIL_CLIENT_SECRET = "..."
+Copy-Item .env.example .env
 ```
+
+Keep the project inside your user folder (for example, `C:\Users\<you>\`). Files there
+are readable only by your account by default.
 
   </TabItem>
 </Tabs>
+
+```bash
+SAIL_BASE_URL=https://your-tenant.api.identitynow.com
+SAIL_CLIENT_ID=...
+SAIL_CLIENT_SECRET=...
+```
+
+The server loads `.env` from its own project folder, so it works from whatever directory your MCP
+client starts it in. The file is gitignored. Do not commit it or paste it into a client config.
 
 **Verify the credentials before touching an MCP client**
 
@@ -312,29 +324,37 @@ make build          # -> bin/sailpoint-mcp-server
 
 **Add your credentials**
 
-Export the three values in the shell you will launch the inspector from. These are the variable
-names the SailPoint SDK reads natively, and the inspector passes them down to the server it starts.
+Copy the example file, fill in the three values, and make the file readable only by you:
 
 <Tabs groupId="os">
   <TabItem value="mac-linux" label="macOS / Linux" default>
 
 ```bash
-export SAIL_BASE_URL=https://your-tenant.api.identitynow.com
-export SAIL_CLIENT_ID=...
-export SAIL_CLIENT_SECRET=...
+cp .env.example .env
+chmod 600 .env
 ```
 
   </TabItem>
   <TabItem value="windows" label="Windows (PowerShell)">
 
 ```powershell
-$env:SAIL_BASE_URL = "https://your-tenant.api.identitynow.com"
-$env:SAIL_CLIENT_ID = "..."
-$env:SAIL_CLIENT_SECRET = "..."
+Copy-Item .env.example .env
 ```
+
+Keep the project inside your user folder (for example, `C:\Users\<you>\`). Files there
+are readable only by your account by default.
 
   </TabItem>
 </Tabs>
+
+```bash
+SAIL_BASE_URL=https://your-tenant.api.identitynow.com
+SAIL_CLIENT_ID=...
+SAIL_CLIENT_SECRET=...
+```
+
+The server loads `.env` from its own project folder, so it works from whatever directory your MCP
+client starts it in. The file is gitignored. Do not commit it or paste it into a client config.
 
 The server validates the resolved base URL, client ID, client secret and token URL at startup and
 exits with a descriptive message if any are missing, rather than failing on the first tool call.
@@ -396,7 +416,7 @@ From here the steps are the same whichever language you chose.
 Run the following command in your terminal, passing in your configuration and your preferred server name:
 
 ```bash
-npx @modelcontextprotocol/inspector --config mcp-inspector.json --server sailpoint
+npx @modelcontextprotocol/inspector@latest --config mcp-inspector.json --server sailpoint
 ```
 
 This opens an MCP inspector instance in your browser. Use the toggle on the servers card to connect.
@@ -446,8 +466,9 @@ desktop app or Codex CLI for the local server you just built.
 
 :::
 
-Whichever you pick, use absolute paths — the agent does not run from your project directory — and
-remember that `SAIL_BASE_URL`, `SAIL_CLIENT_ID`, and `SAIL_CLIENT_SECRET` must reach the server
-process, either exported in the environment that launches it or set in that platform's `env` block.
+Whichever you pick, use absolute paths — the agent does not run from your project directory. You
+do not need an `env` block: the server reads `SAIL_BASE_URL`, `SAIL_CLIENT_ID`, and
+`SAIL_CLIENT_SECRET` from the `.env` in its project folder. If a platform does set those variables,
+its values take precedence over `.env`.
 
 - [Back to all tracks](/hack-day)

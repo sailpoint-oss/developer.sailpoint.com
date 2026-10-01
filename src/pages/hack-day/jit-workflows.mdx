@@ -8,12 +8,12 @@ wrapperClassName: hack-day-track
 
 # Track 01 · Workflows
 
-In this mini hack, you will turn an identity event into a message. You will stand up an authoritative source and finish a partly-built Workflow Studio
+In this mini hack, you will turn an identity event into a message. You will stand up an authoritative source and finish a partly built Workflow Studio
 workflow that wakes up the moment a new identity appears in SHF, looks up who
 that person reports to, and emails a formatted onboarding notice — with the new hire's actual
 department, title, and manager in it. No CLI, no local install, and nothing to deploy.
 
-Nothing here is simulated. The source is created by you, the trigger is a genuine SHF event, the identity is one you create
+Nothing here is simulated. You create the source, the trigger is a genuine SHF event, the identity is one you create
 yourself by loading a row into an HR feed, and the email lands in your own inbox, which is what you
 show a proctor at the end.
 
@@ -76,6 +76,8 @@ objects. A schema upload replaces a schema; an aggregation replaces every accoun
 edit is immediate. One person editing shared objects breaks the exercise for everybody else, which is
 exactly why you are building your own copies.
 
+:::
+
 Everything else, you build:
 
 | You will create | Name it | Built in |
@@ -84,12 +86,12 @@ Everything else, you build:
 | An identity profile | `<your name> HR Feed` | Step 4 |
 | A workflow | `<your name> JIT Onboarding` | Step 6 |
 
-**Please add your name to all three.** You will be working in a shared tenant and this will make the checking process easier for everyone!
+**Please add your name to all three.** You will be working in a shared tenant, and this will make the checking process easier for everyone!
 
 The only thing this exercise needs that is not in the tenant is **your own email address**.
 
 
-Two items are worth opening before you start, because the workflow depends on them and it's important to understand how they are used prior to moving forward
+Two items are worth opening before you start, because the workflow depends on them and it's important to understand how they are used before moving forward:
 
 - **Open `Margaret Hamilton`** under Admin → Identities. Her **Manager** field shows *Jean Bartik* as
   a link, not as the text `jean.bartik`. That link is what makes the manager lookup in your workflow
@@ -112,7 +114,7 @@ move on until each check passes, because everything downstream depends on it.
 
 #### 1. Create your own delimited-file source
 
-Go to **Admin → Connections → Sources** and click **Create New** in the upper right hand corner. Search the 
+Go to **Admin → Connections → Sources** and click **Create New** in the upper right-hand corner. Search the 
 connector list for **Delimited File** and click **Configure**. Inside the creation window, you will add the 
 following information:
 
@@ -128,11 +130,11 @@ The rest of the optional values can be left blank.
 Click **Continue**. You now have an empty source where you will add your employees.
 
 **Why a delimited file?** Because it is the shortest path to a *real* authoritative source. There is no
-system on the far end, no credentials, and no network call — you upload a CSV and SHF treats it as the
+system on the far end, no credentials, and no network call — you upload a CSV, and SHF treats it as the
 complete, current truth about a population of people. Every identity in this exercise arrives because
-you put a line in a text file, just like how a number of HR feeds work.
+you put a line in a text file, just like how many HR feeds work.
 
-**Why `hack.day` as the owner?** A source owner is the person accountable for the source, required by
+**Why `hack.day` as the owner?** A source owner is the person accountable for the source, as required by
 SHF. Using the shared account in this tenant keeps every source attributable to the event rather than 
 to whoever clicked Create.
 
@@ -145,8 +147,8 @@ it, and opening it shows an account count of zero.
 
 #### 2. Upload the account schema
 
-Open your source and go to **Account Management → Account Schema** in the left hand column. Click 
-**Upload Schema** in the top right hand corner and upload **[`workflows-hack-day-schema.csv`](./workflows-hack-day-schema.csv)**.
+Open your source and go to **Account Management → Account Schema** in the left-hand column. Click 
+**Upload Schema** in the top-right corner and upload **[`workflows-hack-day-schema.csv`](./workflows-hack-day-schema.csv)**.
 
 After uploading, a pop-up will ask for attributes to represent the Account ID and the Account name. Set them both to **uid**.
 
@@ -157,17 +159,17 @@ employeeId,uid,firstname,lastname,fullName,email,department,jobTitle,managerUid,
 A **schema file** for a delimited source is nothing but the header row — the names of
 the columns your CSV will have.
 
-Why upload a schema at all, separately from the data? Because a CSV on its own has no structure that
+**Why upload a schema at all, separately from the data?** Because a CSV on its own has no structure that
 SHF can rely on. The schema is the contract: these twelve attributes exist, they are called exactly
 this, and one of them identifies an account.
 
 #### 3. Set up manager correlation
 
 The schema now tells SHF that a column called `managerUid` exists. It does not tell SHF that the column
-*means* anything — as far as the platform is concerned it is one more string, no different from
-`location`. Teaching it otherwise is a separate setting, and it lives on the source.
+*means* anything — as far as the platform is concerned, it is one more string, no different from
+`location`. We need to let SHF know the values associated with the columns.
 
-In your source on the left hand column, go to **Account Management → Account Correlation** and scroll down
+In your source on the left-hand column, go to **Account Management → Account Correlation** and scroll down
 to **Manager Correlation**. Set:
 
 | Field | Value |
@@ -179,8 +181,8 @@ Click **Save**.
 
 :::caution
 
-**Identity Attribute is `Name`, not `Manager` and not `uid`.** You are choosing the attribute to match
-*against* — the thing on the manager's side of the relationship that will equal `jean.bartik`, for example.
+**Identity Attribute is `Name`, not `Manager` and not `uid`.** You are choosing the attribute to match on the manager's side of the 
+relationship that will equal `jean.bartik`, for example.
 
 :::
 
@@ -189,7 +191,7 @@ Click **Save**.
 Download **[`hr-feed.csv`](./hr-feed.csv)** and **do not edit it yet.** The file should contain eight rows,
 one per baseline employee.
 
-In your source, go to **Account Management → Account Aggregation** on the left hand column and drag and drop the file into the 
+In your source, go to **Account Management → Account Aggregation** on the left-hand column and drag and drop the file into the 
 **Import Accounts** section. The aggregation will start automatically, and you can watch the progress of the aggregation in 
 **Latest Account Aggregation** on the same page.
 
@@ -205,10 +207,9 @@ information in the pop-up window:
 | --- | ---|
 | Name  | `<your name> HR Feed` |
 | Authoritative Source | your source from step 1 |
-| Owner | `hack.day`  |
 
 Click **Create**, then open the **Mappings** tab. For each identity attribute, you choose which account 
-attribute it reads from. These are the mappings you need to update, every other one can be left alone. Be sure
+attribute it reads from. Update only these mappings; you can leave the rest alone. Be sure
 to choose your source with your name from the **Source** column in every row you update:
 
 | Identity attribute | Account attribute |
@@ -222,15 +223,15 @@ to choose your source with your name from the **Source** column in every row you
 | Job Title | `jobTitle` |                                                                                         
 | Manager Name | `managerUid`  |
 
-Scroll down to the bottom of the page and click **Save**, then click **Apply Changes** in the top right corner.
+Scroll to the bottom of the page and click **Save**, then click **Apply Changes** in the top-right corner.
 
 #### 6. Verify the reference resolved
 
 This is the checkpoint for all of Part 1, where you confirm your aggregation and mappings are correct.
 
 Go to **Admin → Sources → Your Source → Account Management → Accounts** and look at `Margaret Hamilton`. There
-should be two hyperlinks with her username, click on the hyperlink under the **Identity** column. Look at her **Manager**
-field. It should read **Jean Bartik**, as a clickable link to Jean's identity. Without the manager correlation, your workflow
+should be two hyperlinks with her username; click on the hyperlink under the **Identity** column. Look at her **Manager**
+field. It should read `jean.bartik`, as a clickable link to Jean's identity. Without the manager correlation, your workflow
 has a name it can print but cannot fetch.
 
 
@@ -240,8 +241,7 @@ has a name it can print but cannot fetch.
 1. **Have identities finished processing?** The resolution runs during identity refresh, not on save.
    Give it a minute and reload.
 2. **Is Manager Correlation configured on your source?** **Account Correlation → Manager Correlation**,
-   set to `Name` ← `managerUid`, and saved. This is the most commonly missed setting in Part 1, and
-   missing it produces exactly this symptom.
+   set to `Name` ← `managerUid`, and save. 
 3. **Is Manager mapped to `managerUid`** in your identity profile? Open the Mappings tab and confirm.
    Mapping it to `manager`, `employeeId`, or leaving it unmapped all produce a blank field.
 4. **Is `uid` mapped to `uid`** in your identity profile? Manager Correlation matches against the
@@ -265,8 +265,7 @@ message. Before you build anything, spend a few minutes understanding what this 
 
 **A workflow, in this platform, is two things:** a *trigger* that decides when it runs, and an
 ordered chain of *steps* that run when it does. There is no code. Each step is a pre-built action you
-configure by filling in fields, and each one can read the output of any step before it. That is the
-whole model, and the workflow you are about to open is one trigger and four steps.
+configure by filling in fields, and each one can read the output of any step before it.
 
 #### Finding the workflow
 
@@ -278,50 +277,48 @@ be the template you will create a copy of later.
 `idn:identity-created` events will fire in this tenant while you work, and they will pass this
 workflow by without running it.
 
-**Test Workflow runs ondemand regardless of the status**, so you can execute this thing as often
+**Test Workflow runs on demand regardless of the status**, so you can execute this as often
 as you like while it is disabled, reading real output the whole time. You flip it to Enabled in step 4,
 once it works — and only then does a real joiner set it off.
 
 #### The canvas
 
-Open the workflow, then click the **Edit in Builder** button on the top right header.
+Open the workflow, then click the **Edit in Builder** button in the top-right header.
 
 ![Workflow canvas](screenshots/workflow-canvas.png)
 
-The five nodes, top to bottom are: the **trigger**, **Wait**, **Get New Hire**, **Get Manager**, and an
-**End** step. Execution runs straight down — no branching here, though branching is possible in a more advanced flow.
+The five nodes, top to bottom, are: the **trigger**, **Wait**, **Get New Hire**, **Get Manager**, and an
+**End** step.
 
-Two things to note about the shape of it. Every step **points at the next one**, and the last step points at
-an **End**, which is what tells the platform the run finished successfully.
+Two things to note about the shape of this workflow. Every step **points at the next one**, and the last step points at
+an **End Step**, which is what tells the platform the run finished successfully.
 
-Your work goes **between `Get Manager` and the End**. Everything above that is a working example
+Your work goes **between `Get Manager` and the End Step**. Everything above that is a working example
 of one pattern.
 
 #### The trigger
 
 ![Trigger configuration panel](screenshots/workflow-trigger.png)
 
-**A trigger is the answer to "when should this run?"** Every workflow has exactly one, and without it a workflow is just a list of steps. There are
-three kinds: **scheduled** (every night at 2am), **external** (something POSTs to a URL to start it),
-and **event** — the platform itself tells you something happened.
+**A trigger answers "when should this run?"** Every workflow has exactly one trigger, and without it a workflow is just a list of steps. There are
+three kinds: **scheduled** (i.e. every night at 2 am), **external** (something POSTs to a URL to start it),
+and **event** (the platform itself tells you something happened).
 
 This one is an **event trigger** on **Identity Created**, which is the event the platform publishes
-the instant identity refresh materializes a new identity. That choice is what makes this a *joiner*
+the instant a new identity is created. That choice is what makes this a *joiner*
 workflow rather than a report: nobody schedules it, nobody calls it, and it cannot run unless a real
 person genuinely arrived.
 
 The **filter** field is empty. A filter is an expression the platform evaluates on the event *before*
-your workflow is invoked — events that fail it never reach you at all. Empty means every identity
-creation in this tenant reaches your workflow, and SHF may warn you about exactly that. It is fine
-here, because the only identities ever created in your tenant come from the HR feed. Filtering is a
-stretch goal.
+your workflow is invoked — events that fail it never reach you at all. Empty filters mean every identity
+creation in this tenant reaches your workflow, and SHF may warn you about that. It is fine
+here, because the only identities ever created in your tenant come from the HR feed.
 
 #### The Wait step
 
 ![Wait step configuration](screenshots/workflow-wait.png)
 
-**A Wait step pauses the run.** That is all it does — the run holds at this point for the duration
-you set, then continues.
+**A Wait step pauses the run.** The run holds at this point for the duration you set, then continues.
 
 We wait 1 minute because the event arrives *faster than the data behind it*. Identity Created fires the
 moment the identity is created, which is before the identity profile has finished populating its
@@ -331,22 +328,18 @@ attributes and resolving its manager. Look the person up immediately and you get
 
 ![Get New Hire step](screenshots/workflow-get-new-hire.png)
 
-**`Get New Hire` is not a special kind of step — it is a `Get Identity` action that was renamed.**
-This is worth understanding, because it explains a lot of what you will see later:
+**`Get New Hire` is a `Get Identity` action that was renamed.**
 
-- **`Get Identity` is a built-in action.** Give it one identity id and it calls the platform's identity
-  API for you and hands back that identity's full record — every attribute the platform holds, not
+- **`Get Identity` is a built-in action.** Give it one identity id, it calls the platform's identity
+  API, and it hands back that identity's full record — every attribute the platform holds, not
   just the few the event carried.
 - **The name is yours to choose.** `Get New Hire` describes the *role* this lookup plays in this
   workflow. Two steps in this workflow are the same action doing different jobs, and naming them for
   their job is what keeps your workflow readable.
 - **Its input is a variable, not a fixed value.** The identity-id field reads
-  `$.trigger.identity.id` — "the id of the identity this event was about." Every run resolves it to a
-  different person.
+  `$.trigger.identity.id` — "the id of the identity this event was about." Every run applies to a different person.
 
-**How it applies here:** five of the six things your email needs — display name, department, job
-title, and the two manager fields — are not in the event at all. This step is how they get into the
-workflow. The event says *who*; this looks up *everything about them*.
+**How it applies here:** This step is how they get into the workflow. The event says *who*; this looks up *everything about them*.
 
 #### The variable picker
 
@@ -358,29 +351,27 @@ every step above the one you are editing. Pick a value and it writes the path fo
 
 It's worth noting that a step can only see steps *above* it, which is why order
 matters. And the path it writes refers to a step by an internal name that is not always its display
-name — you will meet that in step 3.
+name.
 
 #### `Get Manager`
 
 ![Get Manager step](screenshots/workflow-get-manager.png)
 
 
-**The same `Get Identity` action a second time**, renamed for its job, with one difference that is
-the whole point of the exercise: its input comes from **`Get New Hire`'s output** rather than from the
+**The same `Get Identity` action a second time**, renamed for its job, with one difference: its input comes from **`Get New Hire`'s output** rather than the
 trigger. Specifically `managerRef.id` — the manager's identity id, taken off the record the previous
 step fetched.
 
 **Why a second lookup at all?** Because the new hire's record does not contain their manager. It
 contains a *reference* to their manager — an id and a name — in the same way a row in a database
 holds a foreign key rather than the whole related row. To put the manager's real name and email
-address in your email, somebody has to go and fetch that second person. That is this step.
+address in your email, this step fetches that second person.
 
-**How it applies here:** two of your six required values come from here and can come from nowhere
-else. Step 1 explains why it reads `managerRef.id` and not the similar-looking field beside it.
+**How it applies here:** two of your six required values come from here. Step 1 explains why it reads `managerRef.id` and not the similar-looking field beside it.
 
 #### Execution history
 
-Click **Back** in the top left hand corner and then **Executions** in the left hand column. **Every time a workflow
+Click **Back** in the top-left corner and then **Executions** in the left hand column. **Every time a workflow
 runs, it leaves a record here** — what triggered it, when, whether it succeeded, and what every step did.
 This is where you go when something did not work.
 
@@ -391,8 +382,7 @@ There is already one example run in here. You will borrow a payload from this ru
 ![A single run expanded](screenshots/workflow-run-detail.png)
 
 Click **Actions → View Execution**, then any step inside it, to see exactly what that step received and what it returned.
-This panel is the most useful debugging tool in Workflow Studio and you will spend most of step 3 in
-it — it shows you what your workflow *actually sent*.
+This panel is the most useful debugging tool in Workflow Studio — it shows you what your workflow *actually sent*.
 
 #### What the event actually hands you  
 
@@ -431,25 +421,18 @@ The event fires the *instant* the identity is materialized, before the identity 
 and the manager resolution have populated it. So the honest summary of an `idn:identity-created`
 payload is: **it tells you who joined, and nothing else.**
 
-Five of the six things your message needs are not in there. That is not a limitation to work around —
-it is the thing to understand, and the next three steps are the answer to it.
-
 #### Why the nulls, and why the Wait
 
-Those nulls are a timing artifact, not a bug. The event fires the instant the identity is
+The nulls in the payload are a timing artifact, not a bug. The event fires the instant the identity is
 materialized — *before* the identity profile has finished populating its attributes and resolving its
-manager. The record settles a moment after the notification about it.
-
-That is what the Wait step is for, and it is the reason it cannot be removed. It is also what
-eventual consistency looks like in a real event-driven system: the notification is fast, the data
-behind it lands slightly later, and anything that assumes otherwise works when you test it by hand
-and fails in production.
+manager. The record settles a moment after the notification about it. That is what the Wait step is for, and it is the reason it cannot be removed.
 
 #### Why you fetch the details after the trigger
 
 Inside the workflow playback, cick **`Get New Hire`**, and read its output panel next to the payload above.
 
-Same person. One has `department`, `jobTitle`, a real `displayName`, and a manager reference. **That gap is the lesson.** 
+Same person. One has `department`, `jobTitle`, a real `displayName`, and a manager reference.
+
 The event is a notification, not a data feed —it tells you something happened and hands you an id. When you
 need the data, you go and fetch it.
 
@@ -469,16 +452,10 @@ versus a string that names them — is the same one that runs through this whole
 <details>
 <summary>See details: why not read the manager from the trigger payload?</summary>
 
-Because it is not there. `"manager": null`, every time.
+Because it is not pulled at this point. It will be`"manager": null`, every time.
 
 Even setting the timing aside, the payload's attribute list is fixed and short, and a manager
-reference on a freshly created identity has not been resolved yet — the correlation that turns
-`managerUid: jean.bartik` into a pointer at Jean's identity runs as part of identity refresh, which
-is the process still finishing while your event is in flight.
-
-So the manager has to come from a record you fetch, after a wait. There is no shortcut, and the two
-lookups are not redundant: the first tells you who the manager *is*, the second tells you anything
-*about* them.
+reference on a freshly created identity has not been resolved yet. The manager has to come from a record you fetch, after a wait.
 
 - [Event triggers](/docs/extensibility/event-triggers)
 - [`idn:identity-created` payload reference](/docs/extensibility/event-triggers/triggers/identity-created)
@@ -489,7 +466,7 @@ lookups are not redundant: the first tells you who the manager *is*, the second 
 
 Now that you have explored the workflow template, it's time to create your own!
 
-Click the X in the top right hand corner of the workflow playback until you get to the main workflows page.
+Click the X in the top-right corner of the workflow playback until you get to the main workflows page.
 Find the `Workflows Mini Hack Template` in the list. Use the actions menu on it and choose **Duplicate**.
 Be sure to insert your name into the name of the workflow.
 
@@ -509,7 +486,7 @@ stop, close it, and reopen yours — check the name in the header before you typ
 #### Copy the payload out of the template
 
 Your copy has never run, so it has no execution history of its own to test with. The template does —
-that is the one example run you saw a moment ago, and you are about to borrow its envelope.
+that is the one example run you saw a moment ago, and you are about to use its payload to test.
 
 1. Open **`Workflows Mini Hack Template` → Executions**.
 2. On the completed run, click **Actions → View Execution**.
@@ -533,10 +510,6 @@ immediately with `404 Not Found`, because those identity ids do not exist in you
 
 :::
 
-
-Only `identity.id` has to be real — that is the only field the workflow reads from the trigger — but
-copying a whole real payload is easier than editing one.
-
 Run it. You are looking for **three green steps**, and two output panels worth reading:
 
 - **`Get New Hire`** — a full identity record. Note the exact paths to `department`, `jobTitle`, and
@@ -546,28 +519,26 @@ Run it. You are looking for **three green steps**, and two output panels worth r
 
 :::tip
 
-Use the variable picker, do not memorize paths. Anywhere a Workflow Studio field takes a variable
+Use the variable picker. Anywhere a Workflow Studio field takes a variable
 there is an insert-variable control listing every value available at that point in the flow,
 including every preserved field of every earlier step. It writes the correct path for you. Guessing
 paths is the fastest way to get stuck here.
 
 :::
 
-Two things about testing. Every test pauses on the Wait step, which is real and runs during tests
-too. **Test Workflow runs regardless of whether the workflow is enabled** — so the entire 
+**Test Workflow runs regardless of whether the workflow is enabled** — so the entire 
 build-and-iterate loop happens while the workflow is disabled and silent. You enable it once, at the end, when it works.
 
 <details>
 <summary>See details: what to check if the test fails</summary>
 
-- **`404 Not Found` on `Get New Hire`** — you used the default sample payload, or a payload from
-  somebody else's tenant. Identity ids are tenant-local. Get one from your own execution history.
+- **`404 Not Found` on `Get New Hire`** — you used the default sample payload. Be sure to get one from your own
+execution history or the template.
 - **`expected top-level JSON object in string, got array without attribute wrapper`** — a
   `Get Identity` step received an *empty* id. It does not error on that; it lists every identity in
-  the tenant and then chokes on the array. Nothing in the message mentions the null id. Find the
-  lookup whose id expression resolved to nothing.
+  the tenant and then errors on the array.Find the lookup whose id expression resolved to an empty id.
 - **`Get Manager` fails, or returns nobody** — the identity in your payload has no manager. Use a
-  payload from one of the *green* setup runs, not one of the three red ones.
+  payload from one of the *green* setup runs.
 - **Test Workflow grayed out** — unsaved changes. Save, then test.
 
 </details>
@@ -609,7 +580,7 @@ The subject matters because it is the first thing a proctor sees, and a subject 
 `New joiner: Robin Vance` proves the workflow reached into a fetched record before it composed
 anything.
 
-A body shape to start from — the wording is yours, the six values are not:
+A body shape to start from — word it however you want, but be sure to add these values:
 
 ```
 A new identity has been created in SHF.
@@ -618,15 +589,14 @@ A new identity has been created in SHF.
   Department:  TODO
   Job title:   TODO
 
-  Reports to:  TODO (TODO)
+  Reports to:  TODO
 ```
 
 **Seven TODOs in this step**: the recipient, the subject, and the five values in the body. One is
 your own email address, typed literally. The other six are variables, and every one of them comes out
 of a lookup rather than out of the trigger — which is the whole point of the three steps above yours.
 
-Save. Test. Then check your inbox — a test run sends a *real* email, because there is nothing fake
-about this step. That is your iteration loop: edit, save, test, refresh your mail, repeat.
+Save. Test. Then check your inbox — a test run will send a *real* email. That is your iteration loop: edit, save, test, refresh your mail, repeat.
 
 
 <details>
@@ -636,18 +606,16 @@ about this step. That is your iteration loop: edit, save, test, refresh your mai
 in as plain text instead of as a variable reference. Delete it and re-insert with the picker.
 
 **A value arrives as `[object Object]`, or as `{"id":"...","name":"jean.bartik"}`.** You pointed at a
-reference object instead of a scalar inside it. Go one level deeper.
+reference object. Go one level deeper.
 
-**A value is blank.** That field is genuinely empty on the record, or the path is subtly wrong. Open
-the run history, click the step, and read what it actually sent — that tells you which of the two it
-is immediately.
+**A value is blank.** That field is genuinely empty on the record, or the path is incorrect. Open
+the run history, click the step, and read what it actually sent.
 
 **The manager's name is `jean.bartik` rather than `Jean Bartik`.** You used `attributes.manager` or a
 `uid` field. The manager's real name is on `Get Manager`'s output, not on the new hire's record.
 
 **The step is green but no email arrives.** Green means SHF accepted and sent it. Check your spam or
-junk folder first — mail from a sandbox tenant is exactly the kind of thing a filter dislikes. Then
-check the recipient address for a typo, by reading it out of the run history rather than out of the
+junk folder first. Then check the recipient address for a typo, by reading it out of the run history rather than out of the
 step config, so you see what was actually sent.
 
 </details>
@@ -698,11 +666,9 @@ A new identity has been created in SHF.
 
 **Insert every one with the picker.** Note that `getIdentity` is `Get New Hire` and `getIdentity1` is
 `Get Manager` — steps carry internal names that differ from their display names, which is why the
-paths above look nothing like the labels on your canvas. If your steps were built in a different
-order those internal names differ, so treat the paths above as a sanity check rather than something
-to type: **whatever the picker generates is correct.**
+paths above don't look like the labels on your canvas.
 
-**7. Save**, then **Test Workflow** with a payload from a green run in your execution history.
+**7. Save**, then **Test Workflow** with a payload from a green run in your execution history or the template.
 
 **8. Check your inbox.** One email, six values in it, nothing reading `[object Object]`. If the run
 went green and nothing arrived, check spam before anything else.
@@ -755,7 +721,7 @@ a deletion. Upload a one-row file and you are telling SHF that eight people left
 
 :::
 
-Then wait, and know what you are waiting for. There are three stages, not one:
+Then wait, and check that each stage was ran:
 
 | Stage | What happens |
 | --- | --- |
@@ -769,13 +735,11 @@ history** for a new run. Then check your inbox.
 <details>
 <summary>See details: nothing happened</summary>
 
-Work down this list in order — roughly most to least likely.
-
 1. **Is the workflow enabled?** Step 4. Easy to skip.
-2. **Did the aggregation actually succeed?** Check Aggregation History. If it was **canceled**, you
-   uploaded a partial file — see the warning above. Re-upload all nine rows.
+2. **Did the aggregation actually succeed?** Check Aggregation History. If it was **canceled**, you may have
+   uploaded a partial file. Re-upload all nine rows.
 3. **Does the identity exist?** Search Admin → Identities. If the account aggregated but no identity
-   appeared, your row did not satisfy the identity profile — usually a missing `uid` or `email`.
+   appeared, your row did not satisfy the identity profile — usually this means a missing `uid` or `email`.
 4. **Did you reuse a `uid`?** A `uid` that already exists correlates to the existing identity and
    *updates* it. Updates are not creations, and `idn:identity-created` does not fire for them. Change
    the `uid` and upload again.
@@ -805,9 +769,6 @@ And in your tenant:
       `idn:identity-created` event rather than by Test Workflow
 
 ### 7. Stretch goals
-
-Pick whichever looks most interesting. Each one maps to something a production joiner workflow
-actually has to deal with.
 
 - **Survive a missing manager.** Add a condition before `Get Manager` that checks whether
   `managerRef.id` is populated, and route the no-manager case to a different message — "no manager on

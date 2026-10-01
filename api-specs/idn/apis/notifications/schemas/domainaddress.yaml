@@ -1,0 +1,7 @@
+type: object
+title: Domain Address
+properties:
+  domain:
+    type: string
+    example: sailpoint.com
+    description: A domain address

@@ -1,0 +1,13 @@
+type: object
+properties:
+  name:
+    description: |
+      The name of the saved search.
+    type: string
+    example: 'Disabled accounts'
+  description:
+    description: |
+      The description of the saved search.
+    type: string
+    nullable: true
+    example: 'Disabled accounts'

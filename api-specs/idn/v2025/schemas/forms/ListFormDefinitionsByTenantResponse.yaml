@@ -1,0 +1,12 @@
+properties:
+  count:
+    description: Count number of results.
+    example: 1
+    format: int64
+    type: integer
+  results:
+    description: List of FormDefinitionResponse items.
+    items:
+      $ref: './FormDefinitionResponse.yaml'
+    type: array
+type: object

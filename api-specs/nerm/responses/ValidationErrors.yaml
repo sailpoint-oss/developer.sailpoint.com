@@ -1,0 +1,7 @@
+type: object
+properties:
+  error:
+    example: "The <object> failed to create/update"
+  errors:
+    example:
+      attribute: "can't be blank"

@@ -1,0 +1,240 @@
+type: object
+description: A single JIT activation history record.
+properties:
+  id:
+    type: string
+    description: Unique identifier of the activation record.
+    example: "2c9180867e20630b017e20be7c222499"
+  tenantId:
+    type: string
+    description: Tenant (pod/org) identifier.
+    example: "2c9180867e20630b017e20be7c222491"
+  identityId:
+    type: string
+    description: Identifier of the identity that requested activation.
+    example: "2c9180867e20630b017e20be7c222492"
+  accountId:
+    type: string
+    description: Identifier of the account on which the entitlement was provisioned.
+    example: "2c9180867e20630b017e20be7c222493"
+  entitlementId:
+    type: string
+    description: Identifier of the entitlement that was activated.
+    example: "ae735f40-4de9-4163-801d-4a1444e59d35"
+  sourceId:
+    type: string
+    description: Identifier of the source that owns the entitlement.
+    example: "2c9180867e20630b017e20be7c222494"
+  connectionId:
+    type: string
+    description: Identifier of the entitlement connection used for this activation.
+    example: "667fb802-0025-4865-a519-91a56e4c5b7e"
+  identityName:
+    type: string
+    description: Display name of the identity.
+    example: "Jane Doe"
+  entitlementName:
+    type: string
+    description: Display name of the entitlement.
+    example: "Azure AD - Global Admin"
+  sourceDisplayName:
+    type: string
+    description: Display name of the source.
+    example: "Azure Active Directory"
+  policyDisplayNames:
+    type: array
+    description: Display names of the JIT policies that matched this activation.
+    items:
+      type: string
+    example: ["Privileged Access Policy"]
+  status:
+    type: string
+    description: >-
+      Current or final status of the activation workflow.
+      Possible values: ACTIVATING, AWAITING_FRICTIONS, PROVISIONING, PROVISIONED,
+      DEPROVISIONING, COMPLETE, CANCELLED, ERROR, TIMED_OUT, REVOKED.
+    example: "PROVISIONED"
+  error:
+    type: string
+    nullable: true
+    description: Error message if the activation ended in an ERROR state.
+    example: "Upstream provisioning failed after 3 retries (503)"
+  policyFrictionOutcome:
+    type: string
+    nullable: true
+    description: Outcome of policy friction evaluation (e.g. SUCCESS_ENFORCED, BYPASSED).
+    example: "SUCCESS_ENFORCED"
+  policyMatchDetails:
+    type: array
+    nullable: true
+    description: UUIDs of the policy records that matched this activation.
+    items:
+      type: string
+    example: ["4d79eca9-8a77-4d06-8297-9be9868906f1"]
+  activationInitiated:
+    type: string
+    format: date-time
+    nullable: true
+    description: Timestamp when the activation was initiated.
+    example: "2026-04-01T10:00:00Z"
+  provisionStart:
+    type: string
+    format: date-time
+    nullable: true
+    description: Timestamp when provisioning started.
+    example: "2026-04-01T10:00:05Z"
+  provisionCompleted:
+    type: string
+    format: date-time
+    nullable: true
+    description: Timestamp when provisioning completed.
+    example: "2026-04-01T10:00:30Z"
+  deprovisionStart:
+    type: string
+    format: date-time
+    nullable: true
+    description: Timestamp when deprovisioning started.
+    example: "2026-04-01T11:00:00Z"
+  deprovisionComplete:
+    type: string
+    format: date-time
+    nullable: true
+    description: Timestamp when deprovisioning completed.
+    example: "2026-04-01T11:00:20Z"
+  provisionDurationMins:
+    type: number
+    format: float
+    nullable: true
+    description: Duration of the provisioning phase in minutes.
+    example: 0.42
+  deprovisionDurationMins:
+    type: number
+    format: float
+    nullable: true
+    description: Duration of the deprovisioning phase in minutes.
+    example: 0.33
+  summary:
+    type: object
+    nullable: true
+    description: >-
+      High-level friction summary for the activation, including policy matches, reauthentication,
+      justification, and ticket details. Null when no policy was matched or frictions were not evaluated.
+    properties:
+      policyMatches:
+        type: array
+        description: List of policies that matched during activation evaluation.
+        items:
+          type: object
+          properties:
+            policyId:
+              type: string
+              description: UUID of the matched policy.
+              example: "4d79eca9-8a77-4d06-8297-9be9868906f1"
+            policyName:
+              type: string
+              description: Display name of the matched policy.
+              example: "Austin Engineering Policy"
+      reauthentication:
+        type: object
+        nullable: true
+        description: Reauthentication friction details.
+        properties:
+          required:
+            type: boolean
+            default: false
+            description: Whether reauthentication was required for this activation.
+            example: true
+          bypassed:
+            type: boolean
+            default: false
+            description: Whether the reauthentication requirement was bypassed.
+            example: false
+      justification:
+        type: object
+        nullable: true
+        description: Justification friction details.
+        properties:
+          required:
+            type: boolean
+            default: false
+            description: Whether a justification was required for this activation.
+            example: true
+          bypassed:
+            type: boolean
+            default: false
+            description: Whether the justification requirement was bypassed.
+            example: false
+      serviceNowTicket:
+        type: object
+        nullable: true
+        description: ServiceNow ticket friction details.
+        properties:
+          required:
+            type: boolean
+            default: false
+            description: Whether a ServiceNow ticket was required for this activation.
+            example: true
+          bypassed:
+            type: boolean
+            default: false
+            description: Whether the ServiceNow ticket requirement was bypassed.
+            example: false
+          ticketReference:
+            type: string
+            nullable: true
+            description: ServiceNow ticket reference submitted by the user.
+            example: "INC0012345"
+  frictions:
+    type: array
+    nullable: true
+    description: >-
+      Individual friction items presented to the user during activation (e.g. TICKET, JUSTIFICATION, REAUTH).
+      Null when no friction was evaluated.
+    items:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Type of friction control.
+          example: "TICKET"
+        bypassAllowed:
+          type: boolean
+          default: false
+          description: Whether the user had permission to bypass this friction.
+          example: false
+        submittedData:
+          type: string
+          nullable: true
+          description: Data submitted by the user to satisfy this friction (e.g. ticket ID, justification text).
+          example: "INC0012345"
+        status:
+          type: string
+          description: Completion status of this friction item.
+          example: "COMPLETE"
+    example:
+      - type: "TICKET"
+        bypassAllowed: false
+        submittedData: "INC0012345"
+        status: "COMPLETE"
+      - type: "JUSTIFICATION"
+        bypassAllowed: false
+        submittedData: "Need access to deploy to production."
+        status: "COMPLETE"
+  activationDetails:
+    type: object
+    nullable: true
+    description: Additional structured metadata about the activation. Shape is subject to change.
+    additionalProperties: true
+    example: null
+  activationDuration:
+    type: object
+    nullable: true
+    description: Duration breakdown of the full activation lifecycle. Shape is subject to change.
+    additionalProperties: true
+    example: null
+  provisioningDetails:
+    type: object
+    nullable: true
+    description: Low-level provisioning operation detail. Shape is subject to change.
+    additionalProperties: true
+    example: null

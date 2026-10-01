@@ -1,0 +1,7 @@
+type: string
+enum:
+    - EQUALS
+    - AND
+    - OR
+description: An operation
+example: EQUALS

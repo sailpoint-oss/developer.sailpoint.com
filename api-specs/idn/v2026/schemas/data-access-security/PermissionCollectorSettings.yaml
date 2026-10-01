@@ -1,0 +1,28 @@
+allOf:
+  - $ref: ./BaseSettings.yaml
+    description: Inherits base settings for permission collector configuration.
+  - type: object
+    properties:
+      analyzeUniquePermissions:
+        type: boolean
+        nullable: true
+        description: Indicates whether unique permissions should be analyzed for resources.
+        example: true
+        default: false
+      calculateEffectivePermissions:
+        type: boolean
+        nullable: true
+        description: Indicates whether effective permissions should be calculated.
+        example: true
+        default: false
+      calculateRiskiestPermissions:
+        type: boolean
+        nullable: true
+        description: Indicates whether riskiest permissions should be calculated.
+        example: false
+        default: false
+      effectivePermissionsSource:
+        type: string
+        nullable: true
+        description: Source for effective permissions calculation.
+        example: "S3"

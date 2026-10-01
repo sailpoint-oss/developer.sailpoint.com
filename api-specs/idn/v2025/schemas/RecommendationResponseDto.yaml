@@ -1,0 +1,7 @@
+type: object
+title: Recommendation Response Dto
+properties:
+  response:
+    type: array
+    items:
+      $ref: './RecommendationResponse.yaml'

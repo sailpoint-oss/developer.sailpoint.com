@@ -1,0 +1,9 @@
+required: true
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        user:
+          type: object
+          $ref: "../../schemas/POST/User.yaml"

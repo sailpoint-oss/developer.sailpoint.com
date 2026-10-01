@@ -1,0 +1,30 @@
+description: Represent a form conditional.
+properties:
+  ruleOperator:
+    description: |-
+      ConditionRuleLogicalOperatorType value.
+      AND ConditionRuleLogicalOperatorTypeAnd
+      OR ConditionRuleLogicalOperatorTypeOr
+    enum:
+      - AND
+      - OR
+    example: AND
+    type: string
+    x-go-enum-desc: |-
+      AND ConditionRuleLogicalOperatorTypeAnd
+      OR ConditionRuleLogicalOperatorTypeOr
+    x-go-name: RuleOperator
+  rules:
+    description: List of rules.
+    items:
+      $ref: './ConditionRule.yaml'
+    type: array
+    x-go-name: Rules
+  effects:
+    description: List of effects.
+    items:
+      $ref: './ConditionEffect.yaml'
+    type: array
+    x-go-name: Effects
+type: object
+x-go-package: github.com/sailpoint/sp-forms/domain

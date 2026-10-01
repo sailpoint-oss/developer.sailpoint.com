@@ -1,0 +1,54 @@
+get:
+  summary: List built-in identity collector properties
+  description: >-
+    Returns the built-in source attribute names for users and groups collections. When no filter is provided, built-in
+    properties for all public identity collector types are returned (the same base types listed by
+    [List Identity Collector Types](https://developer.sailpoint.com/docs/api/get-identity-collector-types-v-1)). When filtered by `type`, only the matching type is returned; the filter accepts
+    any supported type display name, including SaaS variants such as `Box SaaS` or `AWS SaaS`.
+
+
+    These attributes are always available for field mapping without being listed in `properties`.
+  security:
+  - userAuth:
+    - das:identity-collectors:read
+    - das:identity-collectors:manage
+  - applicationAuth:
+    - das:identity-collectors:read
+    - das:identity-collectors:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+  - Data Access Security
+  operationId: getIdentityCollectorBuiltinPropertiesV1
+  parameters:
+  - name: filters
+    in: query
+    schema:
+      type: string
+    required: false
+    example: type eq "Azure Active Directory"
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **type**: *eq*
+  responses:
+    '200':
+      description: Built-in source attribute names for users and groups collections.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/identitycollectorbuiltinpropertiesresponse.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

@@ -1,0 +1,7 @@
+name: search
+in: query
+description: Filter by string
+required: false
+schema:
+  type: string
+  example: search

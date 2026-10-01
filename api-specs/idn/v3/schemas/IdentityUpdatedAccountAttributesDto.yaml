@@ -1,0 +1,18 @@
+type: object
+title: Identity Updated Account Attributes Dto
+description: The identity whose account attributes were updated. 
+properties:
+  type:
+    type: string 
+    description: DTO type of the identity whose account attributes were updated. 
+    enum: 
+      - IDENTITY
+    example: IDENTITY
+  id:
+    type: string
+    description: ID of the identity whose account attributes were updated. 
+    example: 2c7180a46faadee4016fb4e018c20642
+  name:
+    type: string
+    description: Display name of the identity whose account attributes were updated.
+    example: Michael Michaels

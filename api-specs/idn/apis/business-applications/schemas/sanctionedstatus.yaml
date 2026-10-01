@@ -1,0 +1,11 @@
+type: string
+title: Sanctioned Status
+description: >-
+  Indicates whether a Business Application is sanctioned for use within the organization. Machine
+  identities linked to a Business Application inherit this value. Defaults to `UNKNOWN` when not
+  explicitly set.
+enum:
+  - SANCTIONED
+  - UNSANCTIONED
+  - UNKNOWN
+example: SANCTIONED

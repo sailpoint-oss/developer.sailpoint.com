@@ -1,0 +1,119 @@
+put:
+  summary: Update application by identifier.
+  description: >-
+    This endpoint updates an existing application in Data Access Security with the specified configuration.
+  security:
+    - userAuth: [ das:applications:manage ]
+    - applicationAuth: [ das:applications:manage ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+    - Data Access Security
+  operationId: putApplication
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: The unique identifier of the application to update.
+      example: 12345
+  requestBody:
+    description: Request body containing the updated details for the application.
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/data-access-security/CreateApplicationRequests/BaseCreateApplicationRequest.yaml'
+    required: true
+  responses:
+    '204':
+      description: No Content
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+delete:
+  summary: Delete an application by identifier.
+  description: >-
+    This endpoint deletes an application from Data Access Security by its unique identifier.
+  security:
+    - userAuth: [ das:applications:manage ]
+    - applicationAuth: [ das:applications:manage ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+    - Data Access Security
+  operationId: deleteApplication
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: The unique identifier of the application to delete.
+      example: 12345
+  responses:
+    '204':
+      description: No Content
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+get:
+  summary: Retrieve application details by identifier.
+  description: >-
+    This endpoint retrieves the details of a specific application in Data Access Security by its unique identifier.
+  security:
+    - userAuth: [ das:applications:read, das:applications:manage ]
+    - applicationAuth: [ das:applications:read, das:applications:manage ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+    - Data Access Security
+  operationId: getApplication
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: The unique identifier of the application to retrieve.
+      example: 12345
+  responses:
+    '200':
+      description: The application details were retrieved successfully.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/data-access-security/ApplicationItem.yaml'
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

@@ -1,0 +1,171 @@
+title: Provisioning Completed
+type: object
+required:
+- trackingNumber
+- sources
+- recipient
+- accountRequests
+properties:
+  trackingNumber:
+    type: string
+    description: Provisioning request's reference number. Useful for tracking status in the 'Account Activity' search interface.
+    example: 4b4d982dddff4267ab12f0f1e72b5a6d
+  sources:
+    type: string
+    description: Sources the provisioning transactions were performed on. Sources are comma separated.
+    example: Corp AD, Corp LDAP, Corp Salesforce
+  action:
+    nullable: true
+    type: string
+    description: Origin of the provisioning request.
+    example: IdentityRefresh
+  errors:
+    nullable: true
+    description: List of any accumulated error messages that occurred during provisioning.
+    type: array
+    items:
+      type: string
+      example: Connector AD Failed
+  warnings:
+    nullable: true
+    description: List of any accumulated warning messages that occurred during provisioning.
+    type: array
+    items:
+      type: string
+      example: Notification Skipped due to invalid email
+  recipient:
+    required:
+    - id
+    - type
+    - name
+    type: object
+    description: Provisioning recpient. 
+    properties:
+      type:
+        type: string 
+        description: Provisioning recipient DTO type. 
+        enum: 
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: Provisioning recipient's identity ID. 
+        example: 2c7180a46faadee4016fb4e018c20642
+      name:
+        type: string
+        description: Provisioning recipient's name. 
+        example: Michael Michaels
+  requester:
+    nullable: true
+    required:
+    - id
+    - type
+    - name
+    type: object
+    description: Provisioning requester's identity. 
+    properties:
+      type:
+        type: string 
+        description: Provisioning requester's DTO type. 
+        enum: 
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: Provisioning requester's identity ID. 
+        example: 2c7180a46faadee4016fb4e018c20648
+      name:
+        type: string
+        description: Provisioning requester's name. 
+        example: William Wilson
+  accountRequests:
+    type: array
+    description: List of provisioning instructions to perform on an account-by-account basis.  
+    items:
+      type: object
+      required:
+      - source
+      - accountOperation
+      - provisioningResult
+      - provisioningTarget
+      properties:
+        source:
+          required:
+          - id
+          - type
+          - name
+          type: object
+          description: Source that ISC is provisioning access on.
+          properties:
+            id:
+              description: Source ID.
+              type: string
+              example: 4e4d982dddff4267ab12f0f1e72b5a6d
+            type:
+              type: string
+              enum:
+              - SOURCE
+              example: SOURCE
+              description: Source DTO type.
+            name:
+              type: string
+              description: Source name.
+              example: Corporate Active Directory
+        accountId:
+          type: string
+          description: Unique idenfier of the account being provisioned.
+          example: CN=Rob.Robertson,ou=csm,ou=sales,dc=helpco,dc=com
+        accountOperation:
+          type: string
+          description: Provisioning operation.
+          enum: 
+          - Create
+          - Modify 
+          - Enable
+          - Disable 
+          - Unlock
+          - Delete
+          example: Modify
+        provisioningResult:
+          description: Overall result of the provisioning transaction.
+          enum:
+          - SUCCESS
+          - PENDING
+          - FAILED
+          example: SUCCESS
+        provisioningTarget:
+          type: string
+          description: Nme of the selected provisioning channel selected. This could be the same as the source, or it could be a Service Desk Integration Module (SDIM).
+          example: Corp AD
+        ticketId:
+          nullable: true
+          type: string
+          description: Reference to a tracking number for if this is sent to a SDIM.
+          example: '72619262'
+        attributeRequests:
+          nullable: true
+          description: List of attributes to include in the provisioning transaction.
+          type: array
+          items:
+            type: object
+            required:
+            - attributeName
+            - operation
+            properties:
+              attributeName:
+                type: string
+                description: Name of the attribute being provisioned.
+                example: memberOf
+              attributeValue:
+                nullable: true
+                type: string
+                description: Value of the attribute being provisioned.
+                example: CN=sales,DC=helpco,DC=com
+              operation:
+                type: string
+                enum:
+                - Add
+                - Set
+                - Remove
+                description: The operation to handle the attribute.
+                example: Add

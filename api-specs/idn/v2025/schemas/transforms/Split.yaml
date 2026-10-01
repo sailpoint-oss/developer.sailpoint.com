@@ -1,0 +1,33 @@
+title: split
+type: object
+required:
+- delimiter
+- index
+properties:
+  delimiter:
+    type: string
+    description: This can be either a single character or a regex expression, and is used by the transform to identify the break point between two substrings in the incoming data
+    example: ','
+  index: 
+    type: string
+    description: An integer value for the desired array element after the incoming data has been split into a list; the array is a 0-based object, so the first array element would be index 0, the second element would be index 1, etc.
+    example: "5"
+  throws:
+    type: boolean
+    description: |
+      A boolean (true/false) value which indicates whether an exception should be thrown and returned as an output when an index is out of bounds with the resultant array (i.e., the provided index value is larger than the size of the array)
+      
+
+      `true` - The transform should return "IndexOutOfBoundsException"
+
+      
+      `false` - The transform should return null
+      
+      
+      If not provided, the transform will default to false and return a null
+    example: true
+    default: false
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml'
+  input:
+    $ref: './input.yaml'

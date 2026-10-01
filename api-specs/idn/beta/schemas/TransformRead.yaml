@@ -1,0 +1,18 @@
+allOf:
+  - $ref: "./Transform.yaml"
+  - type: object
+    required:
+      - id
+      - internal
+    properties:
+      id:
+        type: string
+        description: >-
+          Unique ID of this transform
+        example: 2cd78adghjkja34jh2b1hkjhasuecd
+      internal:
+        type: boolean
+        description: >-
+          Indicates whether this is an internal SailPoint-created transform or a customer-created transform
+        example: false
+        default: false

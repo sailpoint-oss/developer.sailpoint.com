@@ -1,0 +1,11 @@
+type: object
+title: Managed Cluster Encryption Configuration
+description: Defines the encryption settings for a managed cluster, including the format used for storing and processing encrypted data.
+properties:
+  format:
+    type: string
+    description: Specifies the format used for encrypted data, such as secrets. The format determines how the encrypted data is structured and processed.
+    example: 'V3'
+    enum:
+      - V2
+      - V3

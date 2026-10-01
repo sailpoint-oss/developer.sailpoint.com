@@ -1,0 +1,39 @@
+# SSF well-known configuration (GET /.well-known/ssf-configuration)
+type: object
+description: SSF transmitter discovery metadata per the SSF specification.
+properties:
+  spec_version:
+    type: string
+    description: Version of the SSF specification supported.
+    example: "1_0"
+  issuer:
+    type: string
+    description: Base URL of the transmitter (issuer).
+    example: "https://tenant.api.identitynow.com"
+  jwks_uri:
+    type: string
+    description: URL of the transmitter's JSON Web Key Set.
+    example: "https://tenant.api.identitynow.com/ssf/jwks"
+  delivery_methods_supported:
+    type: array
+    items:
+      type: string
+    description: Supported delivery methods (e.g. push URN).
+    example: ["urn:ietf:rfc:8935"]
+  configuration_endpoint:
+    type: string
+    description: Endpoint for stream configuration (create, read, update, replace, delete).
+    example: "https://tenant.api.identitynow.com/latest/ssf/streams"
+  status_endpoint:
+    type: string
+    description: Endpoint for reading and updating stream status.
+    example: "https://tenant.api.identitynow.com/latest/ssf/streams/status"
+  verification_endpoint:
+    type: string
+    description: Endpoint for receiver verification.
+    example: "https://tenant.api.identitynow.com/latest/ssf/streams/verify"
+  authorization_schemes:
+    type: array
+    items:
+      $ref: ./AuthorizationScheme.yaml
+    description: Supported authorization schemes (e.g. OAuth2, Bearer).

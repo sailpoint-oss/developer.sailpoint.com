@@ -1,0 +1,133 @@
+description: Entitlement
+allOf:
+  - $ref: "../base/BaseDocument.yaml"
+  - type: object
+    properties:
+      modified:
+        type: string
+        description: ISO-8601 date-time referring to the time when the object was last modified. 
+        nullable: true
+        format: 'date-time'
+        example: '2018-06-25T20:22:28.104Z'
+      synced:
+        type: string
+        description: >-
+          ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.  
+
+          This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database. 
+
+          There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
+      displayName:
+        type: string
+        description: Entitlement's display name. 
+        example: Admin
+      source:
+        type: object
+        description: Entitlement's source. 
+        properties: 
+          id: 
+            type: string
+            description: ID of entitlement's source. 
+            example: 2c91808b6e9e6fb8016eec1a2b6f7b5f
+          name: 
+            type: string
+            description: Display name of entitlement's source.
+            example: ODS-HR-Employees
+          type:
+            type: string
+            example: SOURCE
+            description: Type of object.
+      segments:
+        type: array
+        description: Segments with the entitlement. 
+        items:
+          $ref: '../base/BaseSegment.yaml'
+      segmentCount:
+        type: integer
+        description: Number of segments with the role.
+        format: int32
+        example: 1
+      requestable: 
+        type: boolean
+        description: Indicates whether the entitlement is requestable. 
+        default: false
+        example: false
+      cloudGoverned: 
+        type: boolean
+        description: Indicates whether the entitlement is cloud governed. 
+        default: false
+        example: false
+      created:
+        type: string
+        description: ISO-8601 date-time referring to the time when the object was created. 
+        nullable: true
+        format: 'date-time'
+        example: '2018-06-25T20:22:28.104Z'
+      privileged:
+        type: boolean
+        description: Indicates whether the entitlement is privileged. 
+        default: false
+        example: false
+      tags:
+        $ref: "../base/Tags.yaml"
+      attribute:
+        type: string
+        description: Attribute information for the entitlement. 
+        example: groups
+      value:
+        type: string
+        description: Value of the entitlement.
+        example: 1733ff75-441e-4327-9bfc-3ac445fd8cd1
+      sourceSchemaObjectType:
+        type: string
+        description: Source schema object type of the entitlement.
+        example: group
+      schema:
+        type: string
+        description: Schema type of the entitlement.
+        example: group
+      hash:
+        type: string
+        description: Read-only calculated hash value of an entitlement.
+        example: c6fab95235584cca98a454a2f51e5683bc77d6a0
+      attributes:
+        type: object
+        additionalProperties: true
+        description: Attributes of the entitlement.
+      truncatedAttributes:
+        type: array
+        description: Truncated attributes of the entitlement.
+        items:
+          type: string
+      containsDataAccess:
+        type: boolean
+        description: Indicates whether the entitlement contains data access. 
+        default: false
+      manuallyUpdatedFields:
+        type: object
+        description: Indicates whether the entitlement's display name and/or description have been manually updated.
+        nullable: true
+        properties:
+          DESCRIPTION:
+            type: boolean
+            default: false
+            example: false
+          DISPLAY_NAME:
+            type: boolean
+            default: false
+            example: false
+      permissions:
+        type: array
+        items:
+          type: object
+          properties:
+            target:
+              type: string
+              description: The target the permission would grants rights on.
+              example: SYS.GV_$TRANSACTION
+            rights:
+              type: array
+              description: All the rights (e.g. actions) that this permission allows on the target
+              items:
+                type: string
+                example: SELECT

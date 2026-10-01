@@ -1,0 +1,14 @@
+description: GRANT_ACCESS for a machine identity using requestedForWithRequestedItems.
+value:
+  requestType: GRANT_ACCESS
+  requestedForWithRequestedItems:
+    - identityId: a1111111-bc6d-4ff3-8365-c2d44f2c68d6
+      identityType: MACHINE
+      requestedItems:
+        - id: 2c9180835d2e5168015d32f890ca1581
+          type: ENTITLEMENT
+          accountSelection:
+            - sourceId: cb89bc2f1ee6445fbea12224c526ba3a
+              accounts:
+                - accountUuid: '{fab7119e-004f-4822-9c33-b8d570d6c6a6}'
+                  nativeIdentity: CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local

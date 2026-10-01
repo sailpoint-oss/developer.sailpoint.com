@@ -1,0 +1,42 @@
+type: object
+title: Bulk Update Personal Access Tokens Request
+description: >-
+  Request body for bulk updating personal access tokens. A single JSON Patch document is applied to every personal
+  access token referenced in `ids`.
+required:
+  - ids
+  - patch
+properties:
+  ids:
+    type: array
+    description: >-
+      The IDs of the personal access tokens to update. All IDs must reference personal access tokens that exist in the
+      current tenant. Duplicate and blank values are not allowed.
+    minItems: 1
+    maxItems: 25
+    uniqueItems: true
+    items:
+      type: string
+    example:
+      - "695dab70d33d466b81d958dc9fb392db"
+      - "abc123def456abc123def456abc12345"
+  patch:
+    type: array
+    description: >-
+      A single [JSON Patch](https://tools.ietf.org/html/rfc6902) document that is applied identically to every personal
+      access token referenced in `ids`.
+
+      Only the following paths are allowed for bulk updates:
+
+      * `/expirationDate` - Set (`replace`) or clear (`remove`) the token's expiration.
+
+      * `/userAwareTokenNeverExpires` - Explicit acknowledgment required when clearing `expirationDate`.
+
+      Any other path (for example `/name` or `/scope`) results in a `400` response.
+    minItems: 1
+    items:
+      $ref: ../../shared/schemas/jsonpatchoperation.yaml
+    example:
+      - op: "replace"
+        path: "/expirationDate"
+        value: "2026-08-01T00:00:00.000Z"

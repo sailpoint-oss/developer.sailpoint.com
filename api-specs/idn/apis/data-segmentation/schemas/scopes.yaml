@@ -1,0 +1,12 @@
+type: array
+items:
+  $ref: ./scope.yaml
+nullable: false
+description: List of Scopes that are assigned to the segment
+example:
+  - scope: ENTITLEMENT
+    visibility: SELECTION
+    scopeFilter: null
+    scopeSelection:
+      - type: ENTITLEMENT
+        id: 34d73f611449463ea4fdcf02cda0c397

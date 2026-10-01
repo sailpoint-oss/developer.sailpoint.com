@@ -1,0 +1,70 @@
+properties:
+  createdBy:
+    $ref: './FormInstanceCreatedBy.yaml'
+  expire:
+    description: Expire is required
+    example: "2023-08-12T20:14:57.74486Z"
+    type: string
+    x-go-name: Expire
+  formDefinitionId:
+    description: FormDefinitionID is the id of the form definition that created this form
+    example: 00000000-0000-0000-0000-000000000000
+    type: string
+    x-go-name: FormDefinitionID
+  formInput:
+    additionalProperties: true
+    description: FormInput is an object of form input labels to value
+    example:
+      input1: Sales
+    type: object
+    x-go-name: FormInput
+  recipients:
+    description: Recipients is required
+    items:
+      $ref: './FormInstanceRecipient.yaml'
+    type: array
+    x-go-name: Recipients
+  standAloneForm:
+    default: false
+    description: StandAloneForm is a boolean flag to indicate if this form should be available for users to complete via the standalone form UI or should this only be available to be completed by as an embedded form
+    example: false
+    type: boolean
+    x-go-name: StandAloneForm
+  state:
+    description: |-
+      State is required, if not present initial state is FormInstanceStateAssigned
+      ASSIGNED FormInstanceStateAssigned
+      IN_PROGRESS FormInstanceStateInProgress
+      SUBMITTED FormInstanceStateSubmitted
+      COMPLETED FormInstanceStateCompleted
+      CANCELLED FormInstanceStateCancelled
+    enum:
+      - ASSIGNED
+      - IN_PROGRESS
+      - SUBMITTED
+      - COMPLETED
+      - CANCELLED
+    example: ASSIGNED
+    type: string
+    x-go-enum-desc: |-
+      ASSIGNED FormInstanceStateAssigned
+      IN_PROGRESS FormInstanceStateInProgress
+      SUBMITTED FormInstanceStateSubmitted
+      COMPLETED FormInstanceStateCompleted
+      CANCELLED FormInstanceStateCancelled
+    x-go-name: State
+  ttl:
+    description: |-
+      TTL an epoch timestamp in seconds, it most be in seconds or dynamodb will ignore it
+      SEE: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/time-to-live-ttl-before-you-start.html
+    example: 1571827560
+    format: int64
+    type: integer
+    x-go-name: TTL
+required:
+  - expire
+  - recipients
+  - createdBy
+  - formDefinitionId
+type: object
+x-go-package: github.com/sailpoint/sp-forms/domain

@@ -1,0 +1,47 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Access Request Identity Metrics
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Access Request Identity Metrics
+    description: >
+      Use this API to implement access request identity metrics functionality.
+
+      With this functionality in place, access request reviewers can see relevant details about the requested access
+      item and associated source activity. 
+
+      This allows reviewers to see how many of the identities who share a manager with the access requester have this
+      same type of access and how many of them have had activity in the related source. 
+
+      This additional context about whether the access has been granted before and how often it has been used can help
+      those approving access requests make more informed decisions.
+paths:
+  /access-request-identity-metrics/v1/{identityId}/requested-objects/{requestedObjectId}/type/{type}:
+    $ref: ./paths/access-request-identity-metrics-v1-by-identityid-requested-objects-by-requestedobjectid-type-by-type.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

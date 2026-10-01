@@ -1,0 +1,15 @@
+      in: query
+      name: limit
+      description: >-
+        Note that for this API the maximum value for limit is 50.
+
+        See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)
+        for more information.
+      required: false
+      example: 50
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 50
+        default: 50

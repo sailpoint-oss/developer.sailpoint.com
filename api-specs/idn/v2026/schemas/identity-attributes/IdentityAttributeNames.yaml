@@ -1,0 +1,11 @@
+type: object
+description: >-
+  Identity attribute IDs.
+properties:
+  ids:
+    description: List of identity attributes' technical names.
+    type: array
+    items:
+      type: string
+      example: "name"
+    example: ["name","displayName"]

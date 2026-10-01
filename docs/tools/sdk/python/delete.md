@@ -1,0 +1,45 @@
+# Deleting resources with The Python SDK
+
+You can use the SDK to delete resources.
+
+For example, you can run a script that searches by name for a created work group, also known as a [governance group](https://documentation.sailpoint.com/saas/help/common/users/governance_groups.html), and calls the delete method to remove it from your environment. 
+
+This script searches by name for the work group created in the example in [Creating resources](./creating-resources.md) and calls the delete method to remove it from your environment. Copy the script into your Python project to try it out: 
+
+```python
+from sailpoint import ApiClient, GovernanceGroupsApi
+from sailpoint.configuration import Configuration
+
+configuration = Configuration()
+
+api_client = ApiClient(configuration)
+
+workgroups_api_instance = GovernanceGroupsApi(api_client)
+
+workgroup = workgroups_api_instance.list_workgroups_v1(filters='name eq "DB Access Governance Group"')[0]
+
+
+try:
+    workgroupResponse = workgroups_api_instance.delete_workgroup_v1_with_http_info(workgroup.id)
+    print("The response of GovernanceGroupsApi->delete_workgroup_v1:\n")
+    print(workgroupResponse)
+except Exception as e:
+    print("Exception when calling GovernanceGroupsApi->delete_workgroup_v1: %s\n" % e)
+```
+
+Run this command to run the code:
+
+```bash
+python sdk.py
+```
+
+The SDK returns the `deletionStatus` with a value of 204.
+
+```python
+The response of GovernanceGroupsApi->delete_workgroup_v1:
+
+status_code=204 
+headers={'Date': 'Wed, 31 Jan 2024 18:37:33 GMT', 'Connection': 'keep-alive', 'Server': 'nginx', 'Vary': 'Access-Control-Request-Headers', 'Cache-Control': 'no-cache, no-store, must-revalidate', 'SLPT-Request-ID': 'acdbe637fc044befbfe0ce16ad2224ad', 'Access-Control-Expose-Headers': 'Retry-After,Connection,SLPT-Request-ID,Date,X-Zuul-ServiceId', 'X-Robots-Tag': 'noindex'} 
+data=None 
+raw_data=b''s
+```

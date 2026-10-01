@@ -1,0 +1,8 @@
+allOf:
+- $ref: 'SearchIdentityReference.yaml'
+- type: object
+  properties:
+    email:
+      type: string
+      example: john.doe@sailpoint.com
+      description: The email of the identity

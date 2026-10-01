@@ -1,0 +1,146 @@
+servers:
+  - url: https://{tenant}.api.{domain}.com
+    description: Use so Postman gets https://{{tenant}}.api.{{domain}}.com/oauth/introspect (not baseUrl).
+    variables:
+      tenant:
+        default: sailpoint
+        description: Tenant name
+      domain:
+        default: identitynow
+        description: Domain (e.g. identitynow for identitynow.com)
+tags:
+  - OAuth
+summary: Introspect OAuth token
+post:
+  operationId: showOauthTokenIntrospection
+  security:
+    - clientSecretBasic: []
+  x-sailpoint-userLevels:
+    - Any
+  tags:
+    - OAuth
+  summary: Introspect OAuth token
+  description: >-
+    Standard OAuth 2.0 token introspection (RFC 7662). Validates an access or refresh token and
+    returns its claims and metadata. Send the token in the request body as the `token` parameter.
+
+    The client must authenticate using one of the two supported methods. Note that this is *client*
+    authentication and is separate from the token being introspected; a `Bearer` token in the
+    `Authorization` header is not accepted and results in a 401 `invalid_client`.
+
+    - **client-secret-basic** (recommended): Set the Authorization header to HTTP Basic auth using
+      `client_id` as the username and `client_secret` as the password. The SDK and most HTTP clients
+      base64-encode `client_id:client_secret` for you. In Postman, go to the **Authorization** tab,
+      select **Basic Auth**, and set username to `{{clientId}}` and password to `{{clientSecret}}`.
+
+    - **client-secret-post**: Send `client_id` and `client_secret` as form-data parameters in the
+      request body alongside `token` (fill the body fields below). In Postman these default to
+      `{{clientId}}` and `{{clientSecret}}` — set those collection variables and both auth methods
+      will work without editing individual requests. For public clients, `client_secret` can be
+      omitted.
+  requestBody:
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          required:
+            - token
+          properties:
+            token:
+              type: string
+              description: >-
+                The access_token or refresh_token to introspect (e.g. from the token endpoint response).
+                In Postman, use {{accessToken}} or {{refreshToken}} if set from a previous token request.
+            token_type_hint:
+              type: string
+              enum: [access_token, refresh_token]
+              description: Optional hint indicating the type of token being passed (RFC 7662).
+            client_id:
+              type: string
+              default: '{{clientId}}'
+              description: >-
+                OAuth client ID. Required when using client-secret-post authentication (instead of
+                client-secret-basic). In Postman, set the {{clientId}} collection variable.
+            client_secret:
+              type: string
+              default: '{{clientSecret}}'
+              description: >-
+                OAuth client secret. Required when using client-secret-post authentication (instead of
+                client-secret-basic). In Postman, set the {{clientSecret}} collection variable.
+  responses:
+    '200':
+      description: >-
+        Token introspection result; when active is true, response includes tenant, identity, and authorization details.
+        A token is active if it has not expired, has not been revoked, and passes cryptographic signature validation.
+      content:
+        application/json:
+          schema:
+            type: object
+            description: Token introspection result (RFC 7662); active plus claims when token is valid.
+            properties:
+              active:
+                type: boolean
+                description: Whether the token is active/valid (RFC 7662).
+              tenant_id:
+                type: string
+                format: uuid
+                description: Tenant UUID (when active).
+              sub:
+                type: string
+                description: Subject identifier (e.g. user or client id).
+              pod:
+                type: string
+                description: Pod identifier (e.g. stg03-useast1).
+              org:
+                type: string
+                description: Organization/tenant name.
+              identity_id:
+                type: string
+                description: Identity UUID in Identity Security Cloud.
+              user_name:
+                type: string
+                description: Username of the authenticated user.
+              iss:
+                type: string
+                format: uri
+                description: Token issuer (e.g. https://www.sailpoint.com).
+              strong_auth:
+                type: boolean
+                description: Whether strong authentication was used.
+              authorities:
+                type: array
+                items:
+                  type: string
+                description: Granted authorities and scope-based rights.
+              client_id:
+                type: string
+                description: OAuth client ID used to obtain the token.
+              encoded_scope:
+                type: array
+                items:
+                  type: string
+                description: Encoded scope representation.
+              strong_auth_supported:
+                type: boolean
+                description: Whether strong auth is supported for this context.
+              scope:
+                type: array
+                items:
+                  type: string
+                description: List of granted scopes.
+              exp:
+                type: integer
+                description: Token expiration time (Unix timestamp).
+              jti:
+                type: string
+                format: uuid
+                description: JWT ID (unique token identifier).
+    '400':
+      $ref: '../../apis/shared/responses/400.yaml'
+    '401':
+      $ref: '../../apis/shared/responses/401.yaml'
+    '429':
+      $ref: '../../apis/shared/responses/429.yaml'
+    '500':
+      $ref: '../../apis/shared/responses/500.yaml'

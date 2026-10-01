@@ -1,0 +1,37 @@
+operationId: authSupportTransferStatusGet
+tags:
+  - Auth Support Login
+summary: Get auth support transfer status record by tenant
+description: >-
+  Fetches an auth support transfer status record by tenant. 
+
+  This request requires the following security scope:
+  **sp:auth-support-login-transfer:read**
+parameters:
+  - in: path
+    name: tenant
+    description: >-
+      The name of org granting access to Support and Services
+    required: true
+    schema:
+      type: string
+responses:
+  "200":
+    description:
+      Response containing the name of the tenant associated with an auth support
+      login access grant and an indication whether that tenant has been
+      transferred yet.
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/AuthSupportTransferStatusResponse.yaml"
+  "400":
+    $ref: "../../../v3/responses/400.yaml"
+  "401":
+    $ref: "../../../v3/responses/401.yaml"
+  "403":
+    $ref: "../../../v3/responses/403.yaml"
+  "404":
+    $ref: "../../../v3/responses/404.yaml"
+  "500":
+    $ref: "../../../v3/responses/500.yaml"

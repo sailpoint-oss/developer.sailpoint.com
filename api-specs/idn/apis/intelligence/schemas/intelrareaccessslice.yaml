@@ -1,0 +1,21 @@
+type: object
+required:
+  - items
+description: Rare access slice embedded in the aggregate identity response.
+properties:
+  items:
+    type: array
+    description: First page of rare access items for the identity.
+    items:
+      $ref: ./inteloutlieraccessitem.yaml
+  totalCount:
+    type: integer
+    format: int32
+    minimum: 1
+    description: Total number of rare-access items for the resolved outlier; omitted when `items` is empty.
+    example: 15
+  next:
+    type: string
+    format: uri
+    description: Absolute URL to the next rareAccess page; present when totalCount exceeds the items returned on this page.
+    example: https://tenant.example.api.cloud.sailpoint.com/intelligence/identities/v1/ef38f94347e94562b5bb8424a56397d8/outliers/rare-access?limit=10&offset=10&count=true

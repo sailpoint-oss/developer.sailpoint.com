@@ -1,0 +1,18 @@
+type: object
+properties:
+  pod:
+    type: string
+    example: pod01-useast1
+    description: Name of the pod.
+  org:
+    type: string
+    example: org-name
+    description: Name of the tenant.
+  _type:
+    $ref: "DocumentType.yaml"
+  type:
+    $ref: "DocumentType.yaml"
+  _index:
+    type: string
+    example: "44"
+    description: Internal metadata field. This field is for SailPoint internal use only and is subject to change without notice. Do not rely on it in your integrations.

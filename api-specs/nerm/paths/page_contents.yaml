@@ -1,0 +1,29 @@
+---
+get:
+  summary: Get page contents data
+  operationId: getPageContents
+  description: This endpoint can retrieve page content data.
+  tags:
+    - page contents
+  responses:
+    '200':
+      $ref: "../responses/PageContent.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Create a page content entry
+  operationId: createPageContent
+  description: This endpoint can create page content
+  tags:
+    - page contents
+  requestBody:
+    $ref: "../requestBodies/POST/PageContent.yaml"
+  responses:
+    '201':
+      $ref: "../responses/PageContent.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

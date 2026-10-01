@@ -1,0 +1,42 @@
+type: object
+required: 
+  - name
+properties:
+  name:
+    type: string
+    description: Identity attribute's technical name.
+    example: 'costCenter'
+  displayName:
+    type: string
+    description: Identity attribute's business-friendly name.
+    example: 'Cost Center'
+  standard:
+    type: boolean
+    description: Indicates whether the attribute is 'standard' or 'default'.
+    default: false
+    example: false
+  type:
+    type: string
+    description: Identity attribute's type. 
+    nullable: true
+    example: 'string'
+  multi:
+    type: boolean
+    description: Indicates whether the identity attribute is multi-valued.
+    default: false
+    example: false
+  searchable:
+    type: boolean
+    description: Indicates whether the identity attribute is searchable.
+    default: false
+    example: false
+  system:
+    type: boolean
+    description: Indicates whether the identity attribute is 'system', meaning that it doesn't have a source and isn't configurable.
+    default: false
+    example: false
+  sources:
+    description: Identity attribute's list of sources - this specifies how the rule's value is derived. 
+    type: array
+    items:
+      $ref: "../identity-attributes/Source.yaml"

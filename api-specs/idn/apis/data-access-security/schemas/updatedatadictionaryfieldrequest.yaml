@@ -1,0 +1,32 @@
+type: object
+description: >-
+  Complete data dictionary field representation for [Replace Data Dictionary Field](https://developer.sailpoint.com/docs/api/put-data-dictionary-field-v-1). The server fully replaces the
+  field using this body. For custom fields, `fieldType`, `dataDictionaryType`, and `required` must match the current
+  values; only `name` may change. Built-in fields where `required` is true cannot be updated.
+properties:
+  name:
+    type: string
+    description: The field name.
+    example: Cost Center
+  fieldType:
+    type: string
+    description: The field data type. Must match the current value.
+    example: String
+  dataDictionaryType:
+    type: string
+    description: The data dictionary that owns this field. Must match the current value.
+    enum:
+      - Users
+      - Roles
+      - Permission Types
+      - Business Resources
+    example: Users
+  required:
+    type: boolean
+    description: Must match the current value. Custom fields must be false.
+    example: false
+required:
+  - name
+  - fieldType
+  - dataDictionaryType
+  - required

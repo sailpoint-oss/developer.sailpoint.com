@@ -1,0 +1,7 @@
+type: object
+title: Connector Customizer Create Request
+properties:
+  name:
+    type: string
+    description: Connector customizer name.
+    example: My Custom Connector

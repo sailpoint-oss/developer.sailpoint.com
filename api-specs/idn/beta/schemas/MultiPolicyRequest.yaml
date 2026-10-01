@@ -1,0 +1,8 @@
+type: object
+title: Multi Policy Request
+properties:
+  filteredPolicyList:
+    type: array
+    description: Multi-policy report will be run for this list of ids
+    items:
+      type: string

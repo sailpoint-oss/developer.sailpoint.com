@@ -1,0 +1,25 @@
+type: object
+description: Reference to a user entitlement.
+required:
+  - entitlementId
+  - displayName
+  - source
+properties:
+  entitlementId:
+    type: string
+    description: Entitlement identifier.
+    example: 2509f650c20a3ab5956be70f6f136fbc
+  displayName:
+    type: string
+    description: Display name of the entitlement.
+    example: CN=Engineering-test-org3,OU=megapod-useast1-test-org3,OU=org-data-service,DC=TestAutomationAD,DC=local
+  source:
+    $ref: './MachineIdentitySourceReference.yaml'
+additionalProperties: true
+example:
+  entitlementId: 2509f650c20a3ab5956be70f6f136fbc
+  displayName: CN=Engineering-test-org3,OU=megapod-useast1-test-org3,OU=org-data-service,DC=TestAutomationAD,DC=local
+  source:
+    type: SOURCE
+    id: 7443d0ffb1304bbcbdf4c07b5c09d4f2
+    name: ODS-AD-Source

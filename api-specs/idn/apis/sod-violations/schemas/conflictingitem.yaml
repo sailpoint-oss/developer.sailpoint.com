@@ -1,0 +1,28 @@
+type: object
+description: A single access item that contributes to a separation-of-duties conflict.
+required:
+  - id
+  - type
+properties:
+  id:
+    type: string
+    description: The unique identifier of the conflicting access item.
+    example: 3e07886555ed43cfb83c85c58d2016e6
+  name:
+    type: string
+    description: The display name of the conflicting access item.
+    example: Administrator
+  type:
+    type: string
+    description: The type of access object represented by the conflicting item.
+    enum:
+      - ENTITLEMENT
+      - ACCESS_PROFILE
+      - ROLE
+    example: ENTITLEMENT
+  sourceRef:
+    $ref: ./conflictingitemsourceref.yaml
+  description:
+    type: string
+    description: Optional human-readable description of the conflicting item.
+    example: Grants administrative access to the payroll application.

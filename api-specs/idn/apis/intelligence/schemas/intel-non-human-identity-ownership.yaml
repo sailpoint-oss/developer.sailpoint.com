@@ -1,0 +1,18 @@
+type: object
+required:
+  - agents
+  - applications
+description: |
+  Non-human identities the human owns, grouped by subtype category. Present only when the tenant
+  has `idn:machine-identity-security`. When present, both `agents` and `applications` always render.
+  Each category is a flat object with optional primaryOwned/secondaryOwned buckets and optional
+  message/reason when upstream ownership fetch fails for that category.
+properties:
+  agents:
+    description: Ownership for non-human identities with subtype AI Agent.
+    allOf:
+      - $ref: ./intel-non-human-identity-ownership-category.yaml
+  applications:
+    description: Ownership for non-human identities with subtype Application.
+    allOf:
+      - $ref: ./intel-non-human-identity-ownership-category.yaml

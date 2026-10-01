@@ -1,0 +1,24 @@
+post:
+  operationId: cleanupAccessProfiles
+  summary: Cleanup invalid access profiles.
+  description: >-
+    Used by internal services to cleanup invalid access profiles in the system. An access profile is considered invalid,
+    if it contains no valid entitlements. The references to the deleted entitlements should be cleaned up from the
+    invalid access profiles. Then the access profiles are disabled. According to the current implementation, this API is
+    scheduled to be called by a periodic task once a day at 12:00 AM.
+  tags:
+    - Internal Use Only
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+

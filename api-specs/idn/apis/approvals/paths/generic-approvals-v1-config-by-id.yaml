@@ -1,0 +1,54 @@
+get:
+  security:
+  - userAuth:
+    - sp:approvals:read
+  x-sailpoint-userLevels:
+  - APPROVAL_OWNER
+  operationId: getApprovalsConfigV1
+  tags:
+  - Approvals
+  summary: Get Approval Config
+  description: Retrieves a singular approval configuration that matches the given ID
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+    description: |
+      The ID defined by the scope field, where id/scope is the following:
+
+      * `{accountID}`/`ACCOUNT`
+      * `{roleID}`/`ROLE`
+      * `{entitlementID}`/`ENTITLEMENT`
+      * `{accessProfileID}`/`ACCESS_PROFILE`
+      * `{domainObjectID}`/`DOMAIN_OBJECT`
+      * `ENTITLEMENT_DESCRIPTIONS`/`APPROVAL_TYPE`
+      * `ACCESS_REQUEST_APPROVAL`/`APPROVAL_TYPE`
+      * `ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE`
+      * `MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST`/`APPROVAL_TYPE`
+      * `MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST`/`APPROVAL_TYPE`
+      * `AGENT_ACTIVATE_APPROVAL`/`APPROVAL_TYPE`
+      * `AGENT_DEACTIVATE_APPROVAL`/`APPROVAL_TYPE`
+      * `{tenantID}`/`TENANT`
+
+      Replace placeholders such as `{roleID}` with the actual resource ID.
+    example: ACCESS_REQUEST_APPROVAL
+    x-sailpoint-resource-operation-id: getApprovalsV1
+  responses:
+    '200':
+      description: Approval object
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/approvalconfig.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

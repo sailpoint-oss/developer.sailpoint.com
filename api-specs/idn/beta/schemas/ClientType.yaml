@@ -1,0 +1,6 @@
+type: string
+enum:
+  - CONFIDENTIAL
+  - PUBLIC
+description: Type of an API Client indicating public or confidentials use
+example: "CONFIDENTIAL"

@@ -1,0 +1,12 @@
+type: object
+properties:
+  comment:
+    type: string
+    description: The comment text
+    example: This request was autoapproved by our automated ETS subscriber.
+  commenter:
+    type: string
+    description: The name of the commenter
+    example: Automated AR Approval
+  date:
+    $ref: "../../base/DateTime.yaml"

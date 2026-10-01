@@ -1,0 +1,12 @@
+summary: Bucketaggregation with subaggregation using dsl
+value:
+  indices:  [ 'identities' ]
+  aggregationType: 'DSL'
+  aggregationsDsl:
+    Identity Department:
+      terms:
+        field: 'attributes.department.exact'
+      aggs:
+        Identity Locations:
+          terms:
+            field: 'attributes.city.exact'

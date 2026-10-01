@@ -1,0 +1,33 @@
+get:
+  operationId: getBulkUpdateStatusV1
+  summary: Get bulk-update statuses
+  description: This API returns a list of all unfinished bulk update process status of the tenant.
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - ROLE_ADMIN
+  - ROLE_SUBADMIN
+  security:
+  - userAuth:
+    - idn:role:update
+    - idn:role-checked:update
+  tags:
+  - Roles
+  responses:
+    '200':
+      description: successfully get the status of all unfinished bulk updates request.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/rolegetallbulkupdateresponse.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

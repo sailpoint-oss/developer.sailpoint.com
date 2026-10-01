@@ -1,0 +1,31 @@
+post:
+  summary: Machine Identity Created
+  operationId: machineIdentityCreatedEvent
+  description: >-
+    This event trigger fires when a new machine identity is created in Identity Security Cloud.
+
+    Machine identities can be created via the UI, endpoint, or aggregated. Machine identities can also be created via machine account to machine account mappings.
+
+    You could use this event trigger to fire a Workflow that discovers machine identity owners when a machine identity is created.
+    
+    See [Managing Application Identities](https://documentation.sailpoint.com/saas/help/machine/identity.html), 
+    [Managing AI Agents](https://documentation.sailpoint.com/saas/help/agent/agent_mgmt.html#updating-ai-agents), 
+    [Aggregating AI Agents](https://documentation.sailpoint.com/saas/help/agent/agent_aggregations.html) or 
+    [Mapping Machine Account Attributes](https://documentation.sailpoint.com/saas/help/machine/account_configuration.html#mapping-machine-account-attributes) 
+    for more information about the scenarios that lead to machine identity creation. 
+    
+    Customers that have licensed Machine Identity Security or Agent Identity Security will receive this event trigger.
+    
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [Machine Identity Created](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/machine-identity-created).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/MachineIdentityCreated.yaml'

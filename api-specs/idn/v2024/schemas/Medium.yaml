@@ -1,0 +1,8 @@
+type: string
+description: The notification medium (EMAIL, SLACK, or TEAMS)
+example: EMAIL
+enum:
+  - EMAIL
+  - SLACK
+  - TEAMS
+

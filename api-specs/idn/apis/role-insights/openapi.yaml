@@ -1,0 +1,52 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Role Insights
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Role Insights
+paths:
+  /role-insights/v1/requests:
+    $ref: ./paths/role-insights-v1-requests.yaml
+  /role-insights/v1/requests/{id}:
+    $ref: ./paths/role-insights-v1-requests-by-id.yaml
+  /role-insights/v1/summary:
+    $ref: ./paths/role-insights-v1-summary.yaml
+  /role-insights/v1:
+    $ref: ./paths/role-insights-v1.yaml
+  /role-insights/v1/{insightId}:
+    $ref: ./paths/role-insights-v1-by-insightid.yaml
+  /role-insights/v1/{insightId}/entitlement-changes:
+    $ref: ./paths/role-insights-v1-by-insightid-entitlement-changes.yaml
+  /role-insights/v1/{insightId}/entitlement-changes/download:
+    $ref: ./paths/role-insights-v1-by-insightid-entitlement-changes-download.yaml
+  /role-insights/v1/{insightId}/current-entitlements:
+    $ref: ./paths/role-insights-v1-by-insightid-current-entitlements.yaml
+  /role-insights/v1/{insightId}/entitlement-changes/{entitlementId}/identities:
+    $ref: ./paths/role-insights-v1-by-insightid-entitlement-changes-by-entitlementid-identities.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

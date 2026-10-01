@@ -1,0 +1,20 @@
+type: object
+description: Request body for POST /ssf/streams (create stream).
+required:
+  - delivery
+properties:
+  delivery:
+    $ref: ./CreateStreamDeliveryRequest.yaml
+  events_requested:
+    type: array
+    items:
+      type: string
+      format: uri
+    description: |
+      Optional list of event types the receiver wants. Use CAEP event-type URIs in the form:
+      `https://schemas.openid.net/secevent/caep/event-type/{event-type}` (e.g. session revoke).
+    example: ["https://schemas.openid.net/secevent/caep/event-type/session-revoked"]
+  description:
+    type: string
+    description: Optional human-readable description of the stream.
+    example: "Production event stream"

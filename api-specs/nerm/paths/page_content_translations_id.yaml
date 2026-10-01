@@ -1,0 +1,50 @@
+---
+get:
+  summary: Find page content translation
+  operationId: getPageContentTranslationById
+  description: Info for a specific page content translation record by Id
+  tags:
+    - page content translations
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/PageContentTranslation.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update page content translation
+  operationId: updatePageContentTranslationById
+  description: Update info for a specific page content translation record by id
+  tags:
+    - page content translations
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  requestBody:
+    $ref: "../requestBodies/PATCH/PageConentTranslation.yaml"
+  responses:
+    '200':
+      $ref: "../responses/PageContentTranslation.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '404':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+delete:
+  summary: Delete page content translation
+  operationId: deletePageContentTranslationById
+  description: Delete page content translation by id
+  tags:
+    - page content translations
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/PageContentTranslation.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

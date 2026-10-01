@@ -1,0 +1,36 @@
+# Getting Started with SaaS Connectors in CoLab
+
+Use this guide to view and download SailPoint Human Fabric (SHF) SaaS Connectors built by the community.
+
+## Download the connector
+
+To download and prepare a connector from CoLab:
+
+1. Download the connector you want from the CoLab **SaaS Connectors** category.
+2. Use the SailPoint CLI to create a new connector:
+
+```shell
+sail conn create "my-connector-name"
+```
+
+3. Use the SailPoint CLI to upload the connector to your tenant:
+
+```shell
+sail conn upload -c "my-connector-name" -f path/to/your/download.zip
+```
+
+Once the connector is uploaded, you can start using it in SailPoint Human Fabric.
+
+## Use the connector
+
+To use the connector you uploaded:
+
+1. Navigate to the `admin` page in your tenant.
+2. Select **Connections** and choose **Sources**.
+3. Select **Create New** and choose the connector.
+
+:::note
+The connector name in SHF is **not** the name from `sail conn create`; it is the name set by the connector author.
+:::
+
+4. Select **Configure** and follow the instructions provided by the connector author.

@@ -1,0 +1,34 @@
+# Error handling with the PowerShell SDK
+
+The SDK uses the Invoke-WebRequest cmdlet to handle HTTP requests. Invoke-WebRequest will throw a terminating error for any response that falls out of the range of 2xx. A non-2xx response will immediately halt the program and produce a stack trace.
+
+You can use a `try/catch` function to intercept any non success response and take actions on the results, such as logging the message or performing additional actions before exiting the program:
+
+```powershell
+# Catch any non 2xx response and log the status code and error message
+try {
+    Get-TransformsV1 -Filters "id eq"
+}
+catch {
+    Write-Host $_.Exception.Response.StatusCode.value__
+    Write-Host $_.ErrorDetails
+}
+```
+
+The `catch` block will handle the error, and the script execution will continue. If you want to stop the scripts execution, include an `Exit` in the `catch` block:
+
+This code ensures that the `Get-AccessProfilesV1` cmdlet will never be called:
+
+```powershell
+# Catch any non 2xx response and log the status code and error message. Stop the script with the Exit keyword.
+try {
+    Get-TransformsV1 -Filters "id eq"
+}
+catch {
+    Write-Host $_.Exception.Response.StatusCode.value__
+    Write-Host $_.ErrorDetails
+    Exit
+}
+
+Get-AccessProfilesV1
+```

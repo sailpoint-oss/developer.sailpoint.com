@@ -1,0 +1,34 @@
+allOf:
+  - $ref: './BaseCreateApplicationRequest.yaml'
+  - required:
+      - appId
+      - domain
+      - serviceCertFile
+    type: object
+    properties:
+      appId:
+        type: string
+        description: The application ID for OneDrive.
+        example: "onedrive-app-id-123"
+      domain:
+        type: string
+        description: The domain associated with the OneDrive application.
+        example: "contoso.com"
+      domainOverride:
+        type: string
+        nullable: true
+        description: The override domain for OneDrive, if applicable.
+        example: "override.contoso.com"
+      office365Plan:
+        $ref: './Office365Plan.yaml'
+        description: The Office 365 plan associated with the OneDrive application.
+        example: 1
+      serviceCertFile:
+        type: string
+        description: The path to the service certificate file.
+        example: "/path/to/service-cert.pfx"
+      certificatePassword:
+        type: string
+        nullable: true
+        description: The password for the service certificate file.
+        example: "cert-password"

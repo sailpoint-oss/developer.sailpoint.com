@@ -1,0 +1,180 @@
+# Account Update
+
+| Input/Output |       Data Type        |
+| :----------- | :--------------------: |
+| Input        | StdAccountUpdateInput  |
+| Output       | StdAccountUpdateOutput |
+
+### Example StdAccountUpdateInput
+
+```javascript
+{
+    "identity": "john.doe",
+    "key": {
+        "simple": {
+            "id": "john.doe"
+        }
+    },
+    "changes": [
+        {
+            "op": <Set|Add|Remove>,
+            "attribute": <account attribute to modify>,
+            "value": <the value to use for the operation>
+        }
+    ]
+}
+```
+
+### Example StdAccountUpdateOutput
+
+```javascript
+{
+    "key": {
+        "simple": {
+            "id": "john.doe"
+        }
+    },
+    "disabled": false,
+    "locked": false,
+    "attributes": {
+        "id": "john.doe",
+        "displayName": "John Doe",
+        "email": "example@sailpoint.com",
+        "entitlements": [
+            "administrator",
+            "sailpoint"
+        ]
+    }
+}
+```
+
+## Description
+
+The account update command triggers whenever SHF is told to modify an identity's attributes or entitlements on the target source. For example, granting an identity a new entitlement through a role, changing an identity’s lifecycle state, or modifying an identity attribute tied to an account attribute all trigger the account update command.
+
+To use this command, you must specify this value in the `commands` array: `std:account:update`
+
+## Input Schema
+
+The payload from SHF contains the ID of the identity to modify, the configuration items the connector needs to call the source API, and one or more change operations to apply to the identity. Each operation has the following special considerations:
+
+- **Set:** Set tells the connector to overwrite the current value of the attribute or entitlement with the new value provided in the payload. The entire entitlement array resets if there are multi-valued entitlements.
+
+- **Add:** Add only works for multi-valued entitlements. Add tells the connector to add one or more values to the entitlement. Add is often useful for group entitlements when new groups are added to the identity. If only one entitlement is added, it is represented as a `string`. If more than one entitlement is added, it represented as an `array of strings`.
+
+- **Remove:** Remove is similar to add, but it also works for attributes or single-valued entitlements. If you apply remove to multi-valued entitlements, doing so tells the connector to remove the value(s) from the entitlement. If only one entitlement is removed, it is represented as a `string`. If more than one entitlement is removed, it is represented as an `array of strings`. If you apply remove to a single-valued entitlement or account attribute, doing so tells the connector to set the value to `null` or `empty`.
+
+The following example payload tells the connector to perform the following update actions:
+
+- Set the title of the account to “Developer Advocate.”
+
+- Add the account to two groups on the source: “Engineering” and “Support.”
+
+- Remove the account from the “Moderator” group.
+
+```javascript
+{
+  "type": "std:account:update",
+  "input": {
+      "identity": "95",
+      "changes": [
+          {"op": "Set", "attribute": "title", "value": "Developer Advocate"},
+          {"op": "Add", "attribute": "groups", "value": ["Engineering", "Support"]},
+          {"op": "Remove", "attribute": "groups", "value": "Moderator"}
+      ]
+  }
+}
+```
+
+## Response Schema
+
+After the connector applies the operations defined in the input payload, the connector must respond to SHF with the changes to the account so SHF can update the identity accordingly. If an account update operation results in no changes to the account, the connector responds with an empty object `{}`. If the update operation results in one or more changes to the account, the connector responds with the complete account as it exists in the source, just like an account read response. SHF can parse the response and apply the differences accordingly.
+
+## Implementation
+
+The following example shows how to implement the account update handler. The core logic is iterating through each change operation and applying it to the account on the source system. Always read the current account state first so that `Add` and `Remove` operations have the existing values to work with.
+
+```typescript
+import {
+    AttributeChangeOp,
+    ConnectorError,
+    ConnectorErrorType,
+    Context,
+    Response,
+    SimpleKey,
+    StdAccountUpdateInput,
+    StdAccountUpdateOutput,
+} from '@sailpoint/connector-sdk'
+
+.stdAccountUpdate(async (context: Context, input: StdAccountUpdateInput, res: Response<StdAccountUpdateOutput>) => {
+    // Fetch current state so Add/Remove operations have existing values to work with
+    const current = await myClient.getAccount(input.identity)
+    if (!current) {
+        throw new ConnectorError('Account not found', ConnectorErrorType.NotFound)
+    }
+
+    // Build the update payload from each change operation
+    const updates: Record<string, any> = {}
+
+    for (const change of input.changes) {
+        if (change.op === AttributeChangeOp.Set) {
+            // Overwrite the attribute entirely with the new value
+            updates[change.attribute] = change.value
+
+        } else if (change.op === AttributeChangeOp.Add) {
+            // Add one or more values to a multi-valued attribute.
+            // SHF sends a single string when one value is added, or an array when multiple are added.
+            const valuesToAdd = Array.isArray(change.value) ? change.value : [change.value]
+            const existing: string[] = Array.isArray(current[change.attribute])
+                ? current[change.attribute]
+                : []
+            // Use Set to avoid duplicates
+            updates[change.attribute] = [...new Set([...existing, ...valuesToAdd])]
+
+        } else if (change.op === AttributeChangeOp.Remove) {
+            // Remove one or more values from a multi-valued attribute.
+            // For a single-valued attribute, set the value to null.
+            const valuesToRemove = Array.isArray(change.value) ? change.value : [change.value]
+            if (Array.isArray(current[change.attribute])) {
+                updates[change.attribute] = current[change.attribute].filter(
+                    (v: string) => !valuesToRemove.includes(v)
+                )
+            } else {
+                updates[change.attribute] = null
+            }
+        }
+    }
+
+    // Send the changes to the source system
+    const updated = await myClient.updateAccount(input.identity, updates)
+
+    // Return the updated account so SHF reflects the new state
+    res.send({
+        key: SimpleKey(updated.id),
+        disabled: !updated.active,
+        locked: updated.locked,
+        attributes: {
+            id: updated.id,
+            displayName: updated.displayName,
+            email: updated.email,
+            groups: updated.groups,
+        },
+    })
+})
+```
+
+:::info
+Check whether your source API accepts a partial update (PATCH with only changed fields) or requires the full object (PUT). If the API uses PUT, you must merge the `updates` payload into the full current account object before sending, otherwise unchanged fields will be overwritten with empty values.
+:::
+
+<a id="testing-in-identity-security-cloud" class="legacy-anchor"></a>
+
+## Testing in SailPoint Human Fabric
+
+You can test the account update command the way you test the [Account Create](./account-create.md) command. Follow the steps in “Testing in SailPoint Human Fabric” from “Account Create” to set up an access profile and role. Be sure to run the aggregation so the account(s) are created in the target source. Once the account(s) are created in the target source, modify the access profile to grant an additional entitlement. Return to the role and click the ‘Update’ button in the upper right corner. Doing so triggers the account update command because the accounts are already created in the target source. Once the update is complete, ensure the account(s) have the additional entitlement.
+
+Note: Testing the account update command for removing entitlements using this method does not work. You can remove the entitlement from the access profile and run an update, but SHF will not send an update command to the connector to remove the entitlement. We are looking for suggestions on how to test the removal of entitlements.
+
+## Handling an account that is not found
+
+If an account can't be found in the source system, SHF can recreate the account by using the `ConnectorErrorType.NotFound` error type. For details and implementation, refer to [Error Handling](../in-depth/error-handling.md#not-found-error-type).

@@ -1,0 +1,100 @@
+post:
+  summary: Create custom privilege criteria
+  description: >-
+    Use this API to create a custom privilege criteria
+  tags:
+  - Privilege Criteria
+  operationId: createCustomPrivilegeCriteria
+  security:
+  - userAuth:
+    - sp:gov-criteria:write
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  requestBody:
+    description: Create custom privilege criteria request body.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/gov-criteria/CreatePrivilegeCriteriaRequest.yaml'
+  responses:
+    '201':
+      description: Custom privilege criteria created
+      content:
+        application/json:
+          schema:
+            type: object
+            $ref: "../schemas/gov-criteria/PrivilegeCriteriaDTO.yaml"
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+
+get:
+  summary: List privilege criteria
+  description: >-
+    Use this API to list all privilege criteria matching a filter
+  tags:
+  - Privilege Criteria
+  operationId: listPrivilegeCriteria
+  security:
+  - userAuth:
+    - sp:gov-criteria:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+        
+        Filtering is supported for the following fields and operators:
+
+
+        **type**: *eq*
+
+
+        **sourceId**: *eq*
+
+
+        **privilegeLevel**: *eq*
+
+
+        **Supported composite operators**: *and*
+
+
+        All filter values are case-sensitive for this API.
+
+
+        For example, the following is valid: `?filters=type eq "CUSTOM" and sourceId eq "2c91809175e6c63f0175fb5570220569"`
+
+      required: true
+      example: 'type eq "CUSTOM" and sourceId eq "c42c45d8d7c04d2da64d215cd8c32f21"'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/gov-criteria/PrivilegeCriteriaDTO.yaml"
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

@@ -1,0 +1,11 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  role_id:
+    type: string
+    format: uuid
+  profile_id:
+    type: string
+    format: uuid

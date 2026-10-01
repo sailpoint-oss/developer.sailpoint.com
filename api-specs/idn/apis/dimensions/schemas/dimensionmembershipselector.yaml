@@ -1,0 +1,9 @@
+type: object
+nullable: true
+description: When present, specifies that the Dimension is to be granted to Identities which either satisfy specific criteria.
+properties:
+  type:
+    $ref: ./dimensionmembershipselectortype.yaml
+  criteria:
+    $ref: ./dimensioncriterialevel1.yaml
+    nullable: true

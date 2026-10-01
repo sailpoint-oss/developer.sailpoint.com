@@ -1,0 +1,185 @@
+get:
+  operationId: getNonEmployeeRecord
+  security:
+    - userAuth:
+        - idn:nelm:read
+    - applicationAuth:
+        - idn:nelm:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Get a non-employee record
+  description: This gets a non-employee record.
+  deprecated: true
+  parameters:
+    - in: path
+      name: id
+      description: Non-Employee record id (UUID)
+      required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeRecords
+      example: 2c91808b6ef1d43e016efba0ce470904
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Non-Employee record object
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/NonEmployeeRecord.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+put:
+  operationId: putNonEmployeeRecord
+  security:
+    - userAuth:
+        - idn:nelm:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Update non-employee record
+  description: This request will update a non-employee record.
+  deprecated: true
+  parameters:
+    - in: path
+      name: id
+      description: Non-employee record id (UUID)
+      required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeRecords
+      example: 2c91808b6ef1d43e016efba0ce470904
+      schema:
+        type: string
+  requestBody:
+    description: Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/NonEmployeeRequestBody.yaml
+  responses:
+    '200':
+      description: An updated non-employee record.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/NonEmployeeRecord.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+patch:
+  operationId: patchNonEmployeeRecord
+  security:
+    - userAuth:
+        - idn:nelm:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Patch non-employee record
+  description: This request will patch a non-employee record.
+  deprecated: true
+  parameters:
+    - in: path
+      name: id
+      description: Non-employee record id (UUID)
+      required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeRecords
+      example: 2c91808b6ef1d43e016efba0ce470904
+      schema:
+        type: string
+  requestBody:
+    description: A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+    required: true
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../schemas/JsonPatchOperation.yaml
+        example:
+          - op: replace
+            path: /endDate
+            value:
+              '2019-08-23T18:40:35.772Z': null
+  responses:
+    '200':
+      description: A patched non-employee record.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/NonEmployeeRecord.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '404':
+      $ref: ../../v3/responses/404.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+delete:
+  operationId: deleteNonEmployeeRecord
+  security:
+    - userAuth:
+        - idn:nelm:manage
+    - applicationAuth:
+        - idn:nelm:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Delete non-employee record
+  description: This request will delete a non-employee record.
+  deprecated: true
+  parameters:
+    - in: path
+      name: id
+      description: Non-Employee record id (UUID)
+      required: true
+      x-sailpoint-resource-operation-id: listNonEmployeeRecords
+      example: 2c91808b6ef1d43e016efba0ce470904
+      schema:
+        type: string
+  responses:
+    '204':
+      $ref: ../../v3/responses/204.yaml
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml

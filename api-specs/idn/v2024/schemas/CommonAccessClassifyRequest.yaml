@@ -1,0 +1,9 @@
+type: object
+title: Common Access Classify Request
+properties:
+  commonAccessItemDTOs:
+    type: array
+    items:
+      $ref: 'CommonAccessItemRequest.yaml'
+  discover:
+    type: boolean

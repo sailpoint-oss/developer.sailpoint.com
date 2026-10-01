@@ -1,0 +1,4 @@
+type: string
+nullable: true
+description: Workaround to support null
+example: "Dummy"

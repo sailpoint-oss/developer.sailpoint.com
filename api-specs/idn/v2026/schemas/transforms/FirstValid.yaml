@@ -1,0 +1,37 @@
+title: firstValid
+type: object
+required:
+- values
+properties:
+  values:
+    type: array
+    items:
+      type: object
+    description: An array of attributes to evaluate for existence.
+    example:
+      [
+        {
+          "attributes":
+            {
+              "sourceName": "Active Directory",
+              "attributeName": "sAMAccountName",
+            },
+          "type": "accountAttribute",
+        },
+        {
+          "attributes": { "sourceName": "Okta", "attributeName": "login" },
+          "type": "accountAttribute",
+        },
+        {
+          "attributes":
+            { "sourceName": "HR Source", "attributeName": "employeeID" },
+          "type": "accountAttribute",
+        },
+      ]
+  ignoreErrors:
+    type: boolean
+    description: a true or false value representing to move on to the next option if an error (like an Null Pointer Exception) were to occur.
+    example: false
+    default: false
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml'

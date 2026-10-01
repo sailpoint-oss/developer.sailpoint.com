@@ -1,0 +1,131 @@
+- path: /delegations
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python//methods/delegations#delegations-get
+      source: |
+        from sailpoint.nerm.v2025.api.delegations_api import DelegationsApi
+        from sailpoint.nerm.v2025.api_client import ApiClient
+        from sailpoint.nerm.v2025.models.delegations_get200_response import DelegationsGet200Response
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          delegate_id = 'false' # str | Filter by delegate ID (optional) (default to 'false') # str | Filter by delegate ID (optional) (default to 'false')
+          delegator_id = 'false' # str | Filter by delegator ID (optional) (default to 'false') # str | Filter by delegator ID (optional) (default to 'false')
+          expired = False # bool | Filter by expiration status (true for expired, false for not expired) (optional) (default to False) # bool | Filter by expiration status (true for expired, false for not expired) (optional) (default to False)
+          limit = 5 # int | The maximum number of items to return. (optional) # int | The maximum number of items to return. (optional)
+          offset = 5 # int | The number of items to skip before starting to collect the result set. (optional) # int | The number of items to skip before starting to collect the result set. (optional)
+          include = '' # str | Include related resources body. For example, 'include=delegator,delegate'. (optional) (default to '') # str | Include related resources body. For example, 'include=delegator,delegate'. (optional) (default to '')
+          try:
+              # List delegations
+              
+              results = DelegationsApi(api_client).delegations_get()
+              # Below is a request that includes all optional parameters
+              # results = DelegationsApi(api_client).delegations_get(delegate_id, delegator_id, expired, limit, offset, include)
+              print("The response of DelegationsApi->delegations_get:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling DelegationsApi->delegations_get: %s\n" % e)
+- path: /delegations/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python//methods/delegations#delegations-id-delete
+      source: |
+        from sailpoint.nerm.v2025.api.delegations_api import DelegationsApi
+        from sailpoint.nerm.v2025.api_client import ApiClient
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = '1246d8b3-ac29-4015-8154-dea4434a73fa' # str | ID of the object to retrieve, update, or delete # str | ID of the object to retrieve, update, or delete
+          try:
+              # Delete a delegation
+              
+              DelegationsApi(api_client).delegations_id_delete(id=id)
+              # Below is a request that includes all optional parameters
+              # DelegationsApi(api_client).delegations_id_delete(id)
+          except Exception as e:
+              print("Exception when calling DelegationsApi->delegations_id_delete: %s\n" % e)
+- path: /delegations/{id}
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python//methods/delegations#delegations-id-get
+      source: |
+        from sailpoint.nerm.v2025.api.delegations_api import DelegationsApi
+        from sailpoint.nerm.v2025.api_client import ApiClient
+        from sailpoint.nerm.v2025.models.delegations_post201_response import DelegationsPost201Response
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = '1246d8b3-ac29-4015-8154-dea4434a73fa' # str | ID of the object to retrieve, update, or delete # str | ID of the object to retrieve, update, or delete
+          try:
+              # Get a single delegation
+              
+              results = DelegationsApi(api_client).delegations_id_get(id=id)
+              # Below is a request that includes all optional parameters
+              # results = DelegationsApi(api_client).delegations_id_get(id)
+              print("The response of DelegationsApi->delegations_id_get:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling DelegationsApi->delegations_id_get: %s\n" % e)
+- path: /delegations/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python//methods/delegations#delegations-id-patch
+      source: |
+        from sailpoint.nerm.v2025.api.delegations_api import DelegationsApi
+        from sailpoint.nerm.v2025.api_client import ApiClient
+        from sailpoint.nerm.v2025.models.delegations_post201_response import DelegationsPost201Response
+        from sailpoint.nerm.v2025.models.delegations_post_request import DelegationsPostRequest
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = '1246d8b3-ac29-4015-8154-dea4434a73fa' # str | ID of the object to retrieve, update, or delete # str | ID of the object to retrieve, update, or delete
+          delegations_post_request = '''sailpoint.nerm.v2025.DelegationsPostRequest()''' # DelegationsPostRequest | 
+          try:
+              # Update a delegation
+              new_delegations_post_request = DelegationsPostRequest.from_json(delegations_post_request)
+              results = DelegationsApi(api_client).delegations_id_patch(id=id, delegations_post_request=new_delegations_post_request)
+              # Below is a request that includes all optional parameters
+              # results = DelegationsApi(api_client).delegations_id_patch(id, new_delegations_post_request)
+              print("The response of DelegationsApi->delegations_id_patch:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling DelegationsApi->delegations_id_patch: %s\n" % e)
+- path: /delegations
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python//methods/delegations#delegations-post
+      source: |
+        from sailpoint.nerm.v2025.api.delegations_api import DelegationsApi
+        from sailpoint.nerm.v2025.api_client import ApiClient
+        from sailpoint.nerm.v2025.models.delegations_post201_response import DelegationsPost201Response
+        from sailpoint.nerm.v2025.models.delegations_post_request import DelegationsPostRequest
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          delegations_post_request = '''sailpoint.nerm.v2025.DelegationsPostRequest()''' # DelegationsPostRequest | 
+          try:
+              # Create a delegation
+              new_delegations_post_request = DelegationsPostRequest.from_json(delegations_post_request)
+              results = DelegationsApi(api_client).delegations_post(delegations_post_request=new_delegations_post_request)
+              # Below is a request that includes all optional parameters
+              # results = DelegationsApi(api_client).delegations_post(new_delegations_post_request)
+              print("The response of DelegationsApi->delegations_post:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling DelegationsApi->delegations_post: %s\n" % e)
+

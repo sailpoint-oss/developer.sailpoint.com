@@ -1,0 +1,62 @@
+type: object
+description: A RightSetDTO represents a collection of rights that assigned to capability or scope, enabling them to possess specific rights to access corresponding APIs.
+properties:
+  id:
+    type: string
+    description: The unique identifier of the RightSet.
+    example: idn:ui-right-set-example
+  name:
+    type: string
+    description: The human-readable name of the RightSet.
+    example: Right Set Name
+  description:
+    type: string
+    description: A human-readable description of the RightSet.
+    example: This is a description of the RightSet.
+  category:
+    type: string
+    description: The category of the RightSet.
+    example: identity
+  rights:
+    type: array
+    items:
+      type: string
+    description: Right is the most granular unit that determines specific API permissions, this is a list of rights associated with the RightSet.
+    example:
+      - idn:ui-right-set-example:read
+      - idn:ui-right-set-example:write
+  rightSetIds:
+    type: array
+    items:
+      type: string
+    description: List of unique identifiers for related RightSets, current RightSet contains rights from these RightSets.
+    example:
+      - idn:ui-right-set-example-update
+      - idn:ui-right-set-example-delete
+  uiAssignableChildRightSetIds:
+    type: array
+    items:
+      type: string
+    description: List of unique identifiers for UI-assignable child RightSets, used to build UI components.
+    example:
+      - idn:ui-right-set-example-detail
+      - idn:ui-right-set-example-management
+  uiAssignable:
+    type: boolean
+    description: Indicates whether the RightSet is UI-assignable.
+    default: false
+    example: true
+  translatedName:
+    type: string
+    description: The translated name of the RightSet.
+    example: Translated Right Set Name
+  translatedDescription:
+    type: string
+    nullable: true
+    description: The translated description of the RightSet.
+    example: This is a translated description of the RightSet.
+  parentId:
+    type: string
+    description: The unique identifier of the parent RightSet for UI Assignable RightSet.
+    example: idn:ui-parent-example
+    nullable: true

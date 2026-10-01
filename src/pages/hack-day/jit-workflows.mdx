@@ -15,7 +15,7 @@ department, title, and manager in it. No CLI, no local install, and nothing to d
 
 Nothing here is simulated. You create the source, the trigger is a genuine SHF event, the identity is one you create
 yourself by loading a row into an HR feed, and the email lands in your own inbox, which is what you
-show a proctor at the end.
+show a developer advocate at the end.
 
 **You will need:** a browser, the mini hack tenant's admin credentials, and access to your email.
 #### Files you need
@@ -54,7 +54,7 @@ show a proctor at the end.
                                                                |
                                                                v
                                                        an email you can
-                                                       show a proctor
+                                                       show a developer advocate
 ```
 
 You are building one step in the workflow and creating an authoritative source. That sounds small, but it is the step where two systems that know nothing
@@ -87,9 +87,6 @@ Everything else, you build:
 | A workflow | `<your name> JIT Onboarding` | Step 6 |
 
 **Please add your name to all three.** You will be working in a shared tenant, and this will make the checking process easier for everyone!
-
-The only thing this exercise needs that is not in the tenant is **your own email address**.
-
 
 Two items are worth opening before you start, because the workflow depends on them and it's important to understand how they are used before moving forward:
 
@@ -429,7 +426,7 @@ manager. The record settles a moment after the notification about it. That is wh
 
 #### Why you fetch the details after the trigger
 
-Inside the workflow playback, cick **`Get New Hire`**, and read its output panel next to the payload above.
+Inside the workflow playback, click **`Get New Hire`**, and read its output panel next to the payload above.
 
 Same person. One has `department`, `jobTitle`, a real `displayName`, and a manager reference.
 
@@ -469,6 +466,25 @@ Now that you have explored the workflow template, it's time to create your own!
 Click the X in the top-right corner of the workflow playback until you get to the main workflows page.
 Find the `Workflows Mini Hack Template` in the list. Use the actions menu on it and choose **Duplicate**.
 Be sure to insert your name into the name of the workflow.
+
+<details>
+<summary>See details: the template workflow is not in your tenant or invalid</summary>
+
+If `Workflows Mini Hack Template` is missing or invalid, build the workflow yourself from the file below.
+
+<strong><a href="/files/workflows-hack-day-template.json" download><code>workflows-hack-day-template.json</code></a></strong> — the template workflow, with the trigger and all three steps in it. Download it first.
+
+1. Go to **Admin → Workflows** and click **New Workflow**.
+2. Click **Upload File** and upload the file you downloaded above.
+3. Name it `<your name> JIT Onboarding`.
+4. Click **Continue to Builder**. The canvas must show the trigger, **Wait**, **Get New Hire**, **Get Manager**,
+   and an End step.
+
+A workflow you build this way has no execution history, so you have no captured payload to test with. Step 3
+tells you to copy a payload from the template run. Instead, take the id of one of the eight baseline identities
+from **Admin → Identities** and put it in a payload of your own, in the shape of the example payload above.
+
+</details>
 
 Open your copy and confirm three things:
 
@@ -545,8 +561,8 @@ execution history or the template.
 
 ### 3. Add the step that sends the message
 
-Navigate to the canvas of your workflow and add a **Send Email** action **after `Get Manager`**. It takes three things: who it goes to, a
-subject, and a body. No connector, no credentials, no endpoint — SHF sends the mail itself.
+Navigate to the canvas of your workflow and add a **Send Email** action **after `Get Manager`**. It only requires
+three inputs to work: a recipient, a subject, and a body.
 
 :::caution
 
@@ -561,11 +577,20 @@ Configure it:
 
 | Field | Value |
 | --- | --- |
-| To | **TODO** — your own email address |
-| Subject | **TODO** — must contain the new hire's display name |
-| Body | **TODO** — see below |
+| Recipient Email Addresses | add your own email address |
+| Subject | A new identity \<displayName\> has been created in SHF |
+| Body | see below |
 
-**Six things have to be in the message,** and a proctor will check every one:
+**The subject and the body read variables the same way.** Write your text, and wrap the path in double braces
+where you want the value:
+
+```
+A new identity {{ $.getIdentity.attributes.displayName }} has been created in SHF
+```
+
+Without the braces the path arrives in the email as literal text, so every value you insert needs its own pair.
+
+**Six things have to be in the message,** and a developer advocate will check every one:
 
 | # | Thing | Comes from |
 | --- | --- | --- |
@@ -576,7 +601,7 @@ Configure it:
 | 5 | Their manager's **display name** | `Get Manager` |
 | 6 | Their manager's **email address** | `Get Manager` |
 
-The subject matters because it is the first thing a proctor sees, and a subject that reads
+The subject matters because it is the first thing a developer advocate sees, and a subject that reads
 `New joiner: Robin Vance` proves the workflow reached into a fetched record before it composed
 anything.
 
@@ -585,14 +610,14 @@ A body shape to start from — word it however you want, but be sure to add thes
 ```
 A new identity has been created in SHF.
 
-  Name:        TODO
-  Department:  TODO
-  Job title:   TODO
+  Name:        <displayName>
+  Department:  <Department>
+  Job title:   <Job Title>
 
-  Reports to:  TODO
+  Reports to:  <Manager Display Name> (<Manager Email>)
 ```
 
-**Seven TODOs in this step**: the recipient, the subject, and the five values in the body. One is
+**Seven different things to add in this step**: the recipient, the subject, and the five values in the body. One is
 your own email address, typed literally. The other six are variables, and every one of them comes out
 of a lookup rather than out of the trigger — which is the whole point of the three steps above yours.
 
@@ -602,11 +627,9 @@ Save. Test. Then check your inbox — a test run will send a *real* email. That 
 <details>
 <summary>See details: the five failures worth recognizing on sight</summary>
 
-**The email arrives with `$.getIdentity.attributes.department` printed literally.** Your variable went
-in as plain text instead of as a variable reference. Delete it and re-insert with the picker.
-
-**A value arrives as `[object Object]`, or as `{"id":"...","name":"jean.bartik"}`.** You pointed at a
-reference object. Go one level deeper.
+**The email arrives reading `$.getIdentity.attributes.department`.** The path has no braces around it, so it
+was sent as text. Wrap it: `{{ $.getIdentity.attributes.department }}`. This applies to the subject and the body
+alike.
 
 **A value is blank.** That field is genuinely empty on the record, or the path is incorrect. Open
 the run history, click the step, and read what it actually sent.
@@ -633,38 +656,40 @@ leaves it dangling.
 **2. Add an End step below it.** Your email step is now the last real step, and it needs somewhere to
 point. Skip this and you get `Err: next is not defined` naming your email step.
 
-**3. TODO 1 — the recipient.** Your own email address, typed literally. This is the only value in the
+**3. The recipient.** Your own email address, typed literally. This is the only value in the
 step that is not a variable.
 
-**4. TODO 2 — the subject.** Literal text plus one variable:
+**4. The subject.** Literal text, with the path in double braces:
 
 ```
-New joiner: $.getIdentity.attributes.displayName
+A new identity {{ $.getIdentity.attributes.displayName }} has been created in SHF
 ```
 
-**5. TODOs 3 to 7 — the body.** Completed, it looks like this. Every value is an inserted variable:
+**5. The body.** Every value is a path in double braces, exactly like the subject:
 
 ```
 A new identity has been created in SHF.
 
-  Name:        $.getIdentity.attributes.displayName
-  Department:  $.getIdentity.attributes.department
-  Job title:   $.getIdentity.attributes.jobTitle
+Name:        {{ $.getIdentity.attributes.displayName }}
 
-  Reports to:  $.getIdentity1.displayName ($.getIdentity1.emailAddress)
+Department:  {{ $.getIdentity.attributes.department }}
+
+Job title:   {{ $.getIdentity.attributes.jobTitle }}
+
+Reports to:  {{ $.getIdentity1.attributes.displayName }} ({{ $.getIdentity1.emailAddress }})
 ```
 
-**6. Where each value comes from**, if those paths do not match what your picker offers:
+**6. Where each path comes from**, if the paths above do not match what your picker offers:
 
 | Value | Step | Field to insert |
 | --- | --- | --- |
 | New hire's name | `Get New Hire` | `attributes.displayName` |
 | Department | `Get New Hire` | `attributes.department` |
 | Job title | `Get New Hire` | `attributes.jobTitle` |
-| Manager's name | `Get Manager` | `displayName` |
+| Manager's name | `Get Manager` | `attributes.displayName` |
 | Manager's email | `Get Manager` | `emailAddress` |
 
-**Insert every one with the picker.** Note that `getIdentity` is `Get New Hire` and `getIdentity1` is
+**Build every path with the picker.** Note that `getIdentity` is `Get New Hire` and `getIdentity1` is
 `Get Manager` — steps carry internal names that differ from their display names, which is why the
 paths above don't look like the labels on your canvas.
 

@@ -22,8 +22,8 @@ build your own plugin.
 A UI plugin is a page that Identity Security Cloud (ISC) loads inside the product. It uses the
 signed-in user's session, so every API call you make is already authenticated.
 
-You will building a **manager lookup**: pick a manager from a searchable dropdown and get a table of
-everyone who reports to them. while you write the code, your tenant renders it live.
+You will build a **manager lookup**: pick a manager from a searchable dropdown and get a table of
+everyone who reports to them. While you write the code, your tenant renders it live.
 You do not need to host anything.
 
 The finished page will look similar to this:
@@ -49,7 +49,7 @@ the full files, so you can catch up in case you get stuck.
 
 :::tip Already did Track 02?
 
-Then you have Node, the CLI, a PAT, and a `hackday` environment already. Skip to
+You have Node, the CLI, a PAT, and a `hackday` environment already. Skip to
 [Checking that UI Plugins are enabled](#checking-that-ui-plugins-are-enabled).
 
 :::
@@ -130,7 +130,7 @@ sail --version
 
 :::warning
 
-The `ui-plugins` command group is new, so install the latest release instead of using the version
+The `ui-plugins` command group is new, so install the latest release instead of using a version
 you already have. If `sail ui-plugins` reports an unknown command, your binary is likely too old.
 
 :::
@@ -751,7 +751,7 @@ If a name appears more than once, the `Map` is not likely not keyed by the manag
 <details>
 <summary>Why it works: managerRef, the select attributes, and one-way binding</summary>
 
-**Where the managers come from.** `listIdentitiesV1` cannot filter by manager, so you do not ask the
+**Where the managers come from:** `listIdentitiesV1` cannot filter by manager, so you do not ask the
 API for managers. Instead, you read them from the identities you already have. Every identity has a
 `managerRef`, which is a **reference** to its manager, like a foreign key in a database row. The
 distinct set of those references is the list of managers in your tenant. In step 7 you read the same
@@ -1632,7 +1632,7 @@ followed: PrimeNG components in the `imports` array, and a map from a state to a
 
 ## Take it to the main hack
 
-You now know what a UI plugin can do. It runs inside ISC, it uses the signed-in user's session, and it
+You now know what a UI plugin does! It runs inside ISC, it uses the signed-in user's session, and it
 can call SailPoint APIs with no extra authentication. **Now, what do you want to build?**
 
 You can submit a UI plugin as your main hack. The judges score it with the same
@@ -1653,7 +1653,7 @@ use at least one SailPoint API, and you must be able to show it live in your ten
 
 ## Documentation
 
-The UI Plugins documentation is new. Until it ships to this site, read it on the preview build:
+The UI Plugins documentation is new. Until it ships to the docs site, read it on the preview build:
 
 - [UI Plugins overview](https://developer.sailpoint.com/docs/ui-plugins)
 - [Prerequisites](https://developer.sailpoint.com/docs/ui-plugins/prerequisites)
@@ -1662,7 +1662,7 @@ The UI Plugins documentation is new. Until it ships to this site, read it on the
 
 ## Still stuck?
 
-Grab a SailPoint developer advocate in the room, or reach for the community and tooling.
+Grab a SailPoint employee in the room, or reach for the community and tooling.
 
 - [Developer Forum](https://developer.sailpoint.com/discuss/)
 - [SDKs](/docs/tools/sdk)

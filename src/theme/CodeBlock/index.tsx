@@ -1,6 +1,9 @@
 import React from 'react';
 import OriginalCodeBlock from '@theme-original/CodeBlock';
-import { applyApiKey, useApiKey } from '@site/src/components/apiKeyStore';
+import {
+  applyCodeValues,
+  useCodeValues,
+} from '@site/src/components/codeValuesStore';
 
 type Props = {
   children?: React.ReactNode;
@@ -8,15 +11,15 @@ type Props = {
 };
 
 /**
- * Wraps the theme's code block so the Demo API key placeholder is replaced in
- * the code itself, before it renders. The copy button copies the code string
- * Docusaurus was given and not the text in the DOM, so a replacement made in
- * the DOM afterwards shows in the code window but never gets copied.
+ * Wraps the theme's code block so placeholders are replaced in the code
+ * itself, before it renders. The copy button copies the code string Docusaurus
+ * was given and not the text in the DOM, so a replacement made in the DOM
+ * afterwards shows in the code window but never gets copied.
  *
- * <ApiKeyInput /> holds the key. With no key set, this is a pass-through.
+ * <CodeValuesInput /> holds the values. With none set, this is a pass-through.
  */
 export default function CodeBlock({ children, ...props }: Props): JSX.Element {
-  const apiKey = useApiKey();
+  const values = useCodeValues();
 
   // A fenced code block gives one string child, but MDX can also pass several.
   // Anything else is React elements, which are left alone.
@@ -27,9 +30,13 @@ export default function CodeBlock({ children, ...props }: Props): JSX.Element {
         ? children.join('')
         : undefined;
 
-  if (!apiKey || code === undefined) {
+  if (code === undefined || Object.keys(values).length === 0) {
     return <OriginalCodeBlock {...props}>{children}</OriginalCodeBlock>;
   }
 
-  return <OriginalCodeBlock {...props}>{applyApiKey(code, apiKey)}</OriginalCodeBlock>;
+  return (
+    <OriginalCodeBlock {...props}>
+      {applyCodeValues(code, values)}
+    </OriginalCodeBlock>
+  );
 }

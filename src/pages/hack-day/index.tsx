@@ -8,6 +8,7 @@ const miniHacks = [
     label: 'Track 01',
     title: 'JIT Workflows',
     href: '/hack-day/jit-workflows',
+    badge: 'About 1 hour',
     description:
       'Grant access at the exact time a user needs it. You subscribe to an event trigger and act on the payload when an identity changes.',
   },
@@ -15,6 +16,7 @@ const miniHacks = [
     label: 'Track 02',
     title: 'SaaS Connectivity',
     href: '/hack-day/saas-connectivity',
+    badge: 'About 1 hour',
     description:
       'Connect a new system to the platform with a cloud-hosted connector. The connector aggregates accounts and entitlements, and it needs no virtual appliance.',
   },
@@ -22,8 +24,17 @@ const miniHacks = [
     label: 'Track 03',
     title: 'UI Plugins',
     href: '/hack-day/ui-plugins',
+    badge: 'About 1 hour',
     description:
       'A UI plugin adds your own interface to Identity Security Cloud. You build the interface, then you deploy the plugin to your tenant with the SailPoint CLI.',
+  },
+  {
+    label: 'Track 04',
+    title: 'Just-In-Time Access',
+    href: '/hack-day/jit-access',
+    badge: 'Track 02 first · 75 min',
+    description:
+      'Access that grants itself when a user activates it, and takes itself away when the clock runs out. You teach the Track 02 connector to provision, then watch a real activation expire.',
   },
 ];
 
@@ -75,11 +86,12 @@ const HackDay: React.FC = () => (
         <div className={styles.sectionInner}>
           <h2 className={styles.sectionHeading}>Mini hacks</h2>
           <p className={styles.sectionBody}>
-            Each track takes about one hour and ends with something that works.
-            The step-by-step instructions cover every task. You can do one
-            track, or you can do all three.
+            Each track ends with something that works, and the step-by-step
+            instructions cover every task. Tracks 01 to 03 take about an hour
+            each and start from nothing. Track 04 builds on the connector you
+            deploy in Track 02, so do that one first.
           </p>
-          <div className={`${styles.trackGrid} ${styles.trackGridThree}`}>
+          <div className={styles.trackGrid}>
             {miniHacks.map((track) => (
               <Link
                 key={track.href}
@@ -87,7 +99,7 @@ const HackDay: React.FC = () => (
                 className={styles.trackCard}>
                 <div className={styles.trackLabel}>{track.label}</div>
                 <div className={styles.trackTitle}>{track.title}</div>
-                <div className={styles.trackBadge}>About 1 hour</div>
+                <div className={styles.trackBadge}>{track.badge}</div>
                 <div className={styles.trackDescription}>
                   {track.description}
                 </div>

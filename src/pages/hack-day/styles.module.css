@@ -47,6 +47,61 @@
   max-width: 820px;
 }
 
+/* Registration link under the hero heading */
+.registerButton {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 12px 22px;
+  border-radius: 0.5rem;
+  background-color: #00addc;
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.registerButton:hover {
+  background-color: #0096c0;
+  transform: translateY(-2px);
+  text-decoration: none !important;
+}
+
+/* Room Wi-Fi details */
+.wifiBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  margin-bottom: 24px;
+  padding: 14px 18px;
+  max-width: 820px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-left: 4px solid #93d500;
+  border-radius: 0.375rem;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.wifiItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wifiLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.wifiValue {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--ifm-font-family-monospace);
+  color: var(--dev-text-color-normal);
+}
+
 .eyebrow {
   font-size: 13px;
   font-weight: 700;

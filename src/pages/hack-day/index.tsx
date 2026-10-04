@@ -3,6 +3,15 @@ import Layout from '@theme/Layout';
 import React from 'react';
 import styles from './styles.module.css';
 
+const registrationUrl =
+  'https://airtable.com/app0Z4uChR7i2Qck6/shrTditpSCckiT6Zp';
+
+// Fill these in with the room's Wi-Fi details before the event
+const wifi = {
+  network: 'TBD',
+  password: 'TBD',
+};
+
 const miniHacks = [
   {
     label: 'Track 01',
@@ -61,6 +70,19 @@ const HackDay: React.FC = () => (
           <h1 className={styles.heroHeading}>
             Pick a hack and <em>start building</em>
           </h1>
+          <Link to={registrationUrl} className={styles.registerButton}>
+            Register for both hacks here →
+          </Link>
+          <div className={styles.wifiBox}>
+            <div className={styles.wifiItem}>
+              <span className={styles.wifiLabel}>Room Wi-Fi</span>
+              <span className={styles.wifiValue}>{wifi.network}</span>
+            </div>
+            <div className={styles.wifiItem}>
+              <span className={styles.wifiLabel}>Password</span>
+              <span className={styles.wifiValue}>{wifi.password}</span>
+            </div>
+          </div>
           <p className={styles.heroBody}>
             You have two ways to build on Identity Security Cloud today. A mini
             hack is a small project with step-by-step instructions that you can

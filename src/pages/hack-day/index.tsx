@@ -6,10 +6,9 @@ import styles from './styles.module.css';
 const registrationUrl =
   'https://airtable.com/app0Z4uChR7i2Qck6/shrTditpSCckiT6Zp';
 
-// Fill these in with the room's Wi-Fi details before the event
 const wifi = {
-  network: 'TBD',
-  password: 'TBD',
+  network: 'Navigate26',
+  password: 'SailPoint2005',
 };
 
 const miniHacks = [

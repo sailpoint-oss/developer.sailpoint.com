@@ -15,13 +15,10 @@ Standing access is access somebody holds whether they are using it or not. **Jus
 or JIT, replaces it with access that is approved in advance but not provisioned until the person
 activates it, then removed automatically when the activation expires.
 
-In this hack you will build that end to end. You create a privileged group in the demo system, teach
-your connector to grant and revoke it, put it under your tenant's JIT policy, activate it, and watch
-the membership appear in the demo system and then be taken away again without anybody asking.
-
-Nothing here is simulated. The provisioning call is your code, the activation is a real activation
-workflow in your tenant, and the deprovisioning is the platform calling your connector again when
-the clock runs out. You can see both calls in your connector's log.
+In this hack you will build one. You create a privileged group in the demo system, teach your
+connector to grant and revoke it, put it under your tenant's JIT policy, and request it — ending with
+an entitlement you are approved for, that is deliberately not provisioned, sitting on your Launchpad
+waiting to be switched on.
 
 **You will need:** a finished [Track 02](/hack-day/saas-connectivity) connector, a terminal, and a
 browser.
@@ -32,23 +29,16 @@ This track builds on the connector from
 [Track 02 · SaaS Connectivity](/hack-day/saas-connectivity). You need its source deployed in your
 tenant, with accounts and entitlements aggregated, before step 1 makes sense.
 
-The reason is not convenience. JIT entitlements must come from a **direct-connect source**, meaning
-one whose connector the platform can call on demand with no virtual appliance in between. Your
-Track 02 connector is exactly that.
-
 :::
-
-## The one idea to hold on to
 
 JIT splits one familiar thing into two separate things:
 
 | | What it means | What it is called |
 | --- | --- | --- |
 | **The assignment** | You are approved for this access. It is yours to turn on. | An **entitlement connection** of type `JIT` |
-| **The activation** | The access is switched on right now, and really on the account in the source | A **JIT activation** on that connection |
+| **The activation** | The access is switched on now by activating the access in the source | A **JIT activation** on that connection |
 
-Standing access collapses both into one. JIT keeps them apart, and every API here acts on one or the
-other. When something does not work, first ask which of the two you are looking at.
+Standing access collapses both into one. JIT keeps them apart and is demonstrated in this hack.
 
 ## What you are building
 
@@ -57,92 +47,23 @@ other. When something does not work, first ask which of the two you are looking 
   in the demo system             to your connector            (step 6)
   (step 1)                       (step 3)
                                                                       |
-         request it (step 7) ---> you hold the access, but nothing is provisioned
+         request it (step 7) ---> approved, but nothing provisioned
                                                                       |
-         activate it (step 9) ---> your connector adds the group
-                                                                      |
-         hand it back, or wait (step 10) ---> your connector removes it again
+         see it on Launchpad (step 8) ---> waiting to be activated
+                                       |
+                                       |
+         activate  ---> your connector adds the group
+         expire    ---> your connector removes it, with nobody asking
 ```
-
-The interesting moment is the last line, in the case where you wait. Nobody files a ticket, runs a
-job, or clicks anything. The activation expires and the platform calls your connector to take the
-access back. That is the point of JIT, and it is what you show a developer advocate at the end.
-
-## Objects you will create
-
-Everyone works in a shared tenant, so **put your own name on everything you create.** You will make
-a demo-system group called `<your name>-prod-db-admin`, a demo-system account on your source, an
-account correlation rule, and an `std:account:update` handler.
-
-## Everyone shares one identity
-
-You log in as `hack.day`, and so does everybody else on this track. That single identity ends up
-holding one account per participant, each on a different source, and the access you activate belongs
-to it rather than to you personally.
-
-This works, because an entitlement connection is a record of one identity, one account and one
-entitlement together. Yours is distinct from everybody else's by its account and its entitlement,
-even though the identity is the same. Three things do get crowded, though, and the steps below handle
-each one:
-
-| What is shared | What you will see | How the steps handle it |
-| --- | --- | --- |
-| The identity's JIT connections | Everybody's connections in one list | Step 8 filters the list down to your entitlement |
-| The approvals queue | Everybody's requests in **My Work → Approvals** | Step 7 tells you to approve only your own |
-| The JIT policy | One governed-entitlement list for the tenant | Step 6 reads it and adds to it |
-
-Your demo system is the one thing that stays private. Each demo API key gets its own data partition,
-so the `/members` checks throughout this track only ever show your own work. That makes them the most
-trustworthy signal on the page.
 
 ## Before you start
 
-Three things need to be true. Each is quicker to fix now than to debug in step 9.
-
-**1. Your Track 02 source works.** Open **Admin → Connections → Sources**, open your SaaS
-Connectivity Demo source, and confirm it has accounts and entitlements.
-
-**2. Your demo API key is live.** Demo keys and their data are deleted seven days after creation.
-
-Paste your key and your name below. Every command on this page then arrives filled in, so you can
-copy it straight out. The name is there because everyone works in a shared tenant, and it goes on the
-objects you create so you can find them again.
+Find the API key you generated to complete the SaaS Connectivity hack and paste it as well as your name below. Every command on this page then arrives filled in, so you can
+copy it straight out.
 
 <HackDayInputs />
 
-```bash
-curl -s "https://dugfer5z7k.execute-api.us-east-1.amazonaws.com/v1/health" \
-  -H "Authorization: Bearer sck_your_key_here"
-```
-
-A `401` means the key is gone. Create a new one in the
-[demo app](https://di3u013yjgxuh.cloudfront.net/welcome), seed data again, and update your source
-configuration with the new key.
-
-**3. JIT is turned on in your tenant.** Check it:
-
-```bash
-sail api get /jit-activation-config/v1/policy -H "X-SailPoint-Experimental:true" --pretty
-```
-
-A `200` with a JSON body means you can carry on. A `404` means no policy exists yet, and a developer
-advocate must create one before step 6. A `403` means your token lacks the policy administrator
-level that reading the configuration needs.
-
-:::info The JIT activation APIs are experimental
-
-Every `/jit-activations` and `/jit-activation-config` call needs the
-`X-SailPoint-Experimental: true` header, and the commands here all pass it. An experimental API can
-change in ways that break callers, so read
-[the API versioning strategy](/docs/api/api-versioning-strategy) before you build production code
-against these paths.
-
-:::
-
 ---
-
-Work through the steps in order. Each one is checkable on its own, so do not move on until its check
-passes.
 
 ### 1. Create a privileged group in the demo system
 
@@ -168,31 +89,18 @@ curl -sX POST "https://dugfer5z7k.execute-api.us-east-1.amazonaws.com/v1/groups"
   }'
 ```
 
-The response contains a `grp_...` id, which seven later commands need.
+The response contains a `grp_...` id, paste it here so you don't have to replace placeholders in commands.
 
 <HackDayInputs fields="groupId" compact />
-
-`permissions` is what makes the access concrete. Your connector already sends that detail to the
-platform through `std:entitlement:list`, and it is what an approver sees when deciding whether you
-should hold this access.
-
-:::tip
-
-**Check:** the group appears in the demo app's **Entitlements** table.
-
-:::
 
 ### 2. Give yourself an account on the source
 
 The 50 accounts from Track 02 belong to fictional people. JIT access is activated by whoever holds
-it, so you need an account on this source that belongs to the identity you are signed in as. That is
-two jobs: create the account, then correlate it.
+it, so you need an account on this source that belongs to the identity you are signed in as.
 
 #### Create the account
 
-The `email` below is **the shared identity's address, not yours.** Correlation matches on it, and an
-account carrying your personal address correlates to a different identity, or to no identity at all.
-Either way nothing after step 7 will work. Leave that line exactly as it is.
+The `email` below is **the shared identity's address, not yours.** We will be setting up correlation to match on it.
 
 `userName` and `displayName` are what keep your account apart from everyone else's, so your name goes
 on those:
@@ -220,10 +128,7 @@ The response contains a `usr_...` id, which the local test in step 3 needs.
 #### Correlate it to the shared identity
 
 An account is a row in the demo system. An identity is the person your tenant governs. **Account
-correlation** is the rule connecting the two, and without it your account arrives attached to nobody.
-
-One identity holding many accounts across many sources is ordinary, which is why every participant
-correlating to `hack.day` is fine. What is not fine is an account that correlates to nothing.
+correlation** is the rule connecting the two. Setup the correlation as shown:
 
 In your source, go to **Account Management → Account Correlation** and add a rule:
 
@@ -234,7 +139,7 @@ In your source, go to **Account Management → Account Correlation** and add a r
 
 This matches the `developer-relations@sailpoint.com` on your new account against the Email on the
 `hack.day` identity. The 50 accounts from Track 02 belong to fictional people, so they match no
-identity and stay uncorrelated, which is what you want.
+identity and stay uncorrelated, but the one you just added will correlate and you will have a real identity correlation.
 
 Save it, then run **Account Management → Account Aggregation → Start Aggregation**.
 
@@ -243,22 +148,16 @@ Save it, then run **Account Management → Account Aggregation → Start Aggrega
 **Check:** open the `hack.day` identity under **Admin → Identities**. Its accounts list includes
 your account on your SaaS Connectivity Demo source, under the `userName` you chose.
 
-If it does not, aggregation ran but the match failed. The usual cause is an edited `email` line. Put
-`developer-relations@sailpoint.com` back with `PATCH /v1/users/{id}` and aggregate again. Do not
-carry on, because every remaining step acts on that link.
+If it does not, aggregation ran but the match failed. Check the email of the user and make sure they match.
 
 :::
 
-### 3. Teach your connector to provision
-
-This step makes JIT possible, and it is the one people skip when they think of JIT as a feature you
-switch on.
+### 3. Enable provisioning on your connector
 
 JIT does not store access. It calls your connector. Activation sends `std:account:update` with an
-`Add` operation, and expiry sends the same command with a `Remove`. A connector that cannot do those
-two things holds a JIT assignment forever and never grants anything.
+`Add` operation, and expiry sends the same command with a `Remove`. Without those commands JIT is not possible.
 
-Your Track 02 connector only reads. Now make it write.
+Your Track 02 connector added reads. Now we will add the writes.
 
 #### Declare the command
 
@@ -318,11 +217,10 @@ needs different treatment from an ordinary attribute:
 | `Remove` | `DELETE` each value from the membership endpoint | `PATCH` the attribute to `null` |
 | `Set` | `PATCH` `groups` to exactly the values sent, replacing the list | `PATCH` the attribute to the value sent |
 
-One detail catches people out. A single value arrives as a bare string and several arrive as an
+One detail to note here. A single value arrives as a bare string and several arrive as an
 array, so normalize before you loop.
 
-Paste the handler and fill in the two `TODO` lines — one call to `myClient.addEntitlement()` and one
-to `myClient.removeEntitlement()`, each taking the account id and the single group value:
+Paste the handler below and you should be done writing the code.
 
 ```typescript
         .stdAccountUpdate(
@@ -336,10 +234,10 @@ to `myClient.removeEntitlement()`, each taking the account id and the single gro
                     if (change.attribute === 'groups' && change.op !== AttributeChangeOp.Set) {
                         for (const value of values) {
                             if (change.op === AttributeChangeOp.Add) {
-                                // TODO: add the account to this group
+                                await myClient.addEntitlement(id, value)
                                 logger.info(`Granted ${value} to ${id}`)
                             } else {
-                                // TODO: remove the account from this group
+                                await myClient.removeEntitlement(id, value)
                                 logger.info(`Revoked ${value} from ${id}`)
                             }
                         }
@@ -382,14 +280,10 @@ Add `AttributeChangeOp`, `StdAccountUpdateInput`, and `StdAccountUpdateOutput` t
 `@sailpoint/connector-sdk`. `AttributeChangeOp` is the enum holding `Add`, `Remove`, and `Set`, so
 you compare against it rather than against strings.
 
-Reading the account back matters more than it looks. The platform uses your response to update its
-own record of the account, which is what keeps the tenant and the source from drifting apart. One
-exception the handler above does not bother with: an update that changed nothing must return `{}`.
-
 #### Test it locally, before you deploy
 
 Leave `npm run dev` running and send the command from a second terminal. Your account id, group id
-and key are already in it, so this is a straight copy:
+and key are already in it, so this is a straight copy and run:
 
 ```bash
 curl -sX POST localhost:3000 -H "Content-Type: application/json" -d '{
@@ -414,34 +308,6 @@ curl -s "https://dugfer5z7k.execute-api.us-east-1.amazonaws.com/v1/groups/grp_yo
   -H "Authorization: Bearer sck_your_key_here"
 ```
 
-:::tip
-
-**Check:** `Add` puts your account in the group's member list, and `Remove` takes it out, both
-verified against `/members`.
-
-Get this working here. Debugging it after deployment means waiting on aggregations and reading
-connector logs instead of reading a response in your terminal.
-
-:::
-
-<details>
-<summary>See details: the two filled-in TODO lines</summary>
-
-```typescript
-                            if (change.op === AttributeChangeOp.Add) {
-                                await myClient.addEntitlement(id, value)
-                                logger.info(`Granted ${value} to ${id}`)
-                            } else {
-                                await myClient.removeEntitlement(id, value)
-                                logger.info(`Revoked ${value} from ${id}`)
-                            }
-```
-
-- [Account update](/docs/connectivity/saas-connectivity/commands/account-update)
-- [Error handling](/docs/connectivity/saas-connectivity/in-depth/error-handling)
-
-</details>
-
 ### 4. Deploy and aggregate
 
 ```bash
@@ -455,20 +321,26 @@ name does not match, run `ls dist`.
 Then open your source and run **Entitlement Management → Entitlement Aggregation → Start
 Aggregation**.
 
-:::tip
+#### Turn provisioning on for the source
 
-**Check:** **Admin → Access Model → Entitlements**, searched for your group's name, returns your new
-entitlement, and its permissions came through.
+Uploading the connector is not enough. Before you can use it for provisioning, you need to turn that on.
 
-:::
+A source carries its own list of `features`, separate from the connector's. Your connector now
+advertises `PROVISIONING`, because the spec declares `std:account:update`. Your source does not, and
+a brand new source will not either. Sources are **read only** until somebody says otherwise.
+
+Open your source, go to its **Configuration**, tick the option that **enables provisioning**, and
+save.
+
+That sets `enableProvisioningFeature` on the source and now you are ready to enable JIT.
 
 ### 5. Make the entitlement requestable
 
 JIT governs assignments that arrive through the request process, so mark yours requestable.
 
 Go to **Admin → Access Model → Entitlements**, find your entitlement, and choose **Actions → Edit**.
-In the access request section, set yourself or `hack.day` as the **owner**, mark the entitlement
-**requestable**, and save. An entitlement with no owner has nobody to approve requests for it.
+In the access request section, mark the entitlement
+**requestable**, and save. Leave its approval settings empty.
 
 Now get the entitlement's id in the tenant. This differs from the demo system's `grp_...`: the
 `grp_...` is the value your source holds, and the tenant's id is what the JIT policy needs.
@@ -481,11 +353,6 @@ sail api get /entitlements/v1 \
 
 <HackDayInputs fields="entitlementId" compact />
 
-:::tip
-
-**Check:** you have two ids, and you know which is which.
-
-:::
 
 ### 6. Put the entitlement under JIT policy
 
@@ -528,60 +395,83 @@ sail api patch /jit-activation-config/v1/policy \
   ]'
 ```
 
-:::danger Why the box exists
+:::danger Make sure not to overwrite the list!
 
 `replace` overwrites the whole array, so every id already in `entitlementIds` has to appear in the
 list you send. Dropping somebody else's id takes their entitlement out of JIT policy without warning
-them, and their activation in step 9 then fails for a reason they cannot see from their own terminal.
-
-So this is a read, modify, write on an object the whole room shares, and the box does the modify
-step from the list you actually read rather than from an example on a page. If you would rather do it
-by hand, that works too: send the ids you read plus yours. Never send a list containing only your
-own.
+them, and their entitlement stops being activatable. Since there might be more than yourself using this 
+tenant dropping that array could cause issues on someones hack.
 
 :::
 
-The durations belong to the same shared policy and are in **minutes**. Bringing them down to the
-floor shortens the wait in step 10, so set them if nobody has already:
-
-```bash
-sail api patch /jit-activation-config/v1/policy \
-  -H "X-SailPoint-Experimental:true" \
-  --body '[
-    {"op": "replace", "path": "/maxActivationPeriodMins", "value": 30},
-    {"op": "replace", "path": "/defaultMaxActivationPeriodMins", "value": 30},
-    {"op": "replace", "path": "/maxActivationPeriodExtensionMins", "value": 30},
-    {"op": "replace", "path": "/defaultMaxActivationPeriodExtensionMins", "value": 30}
-  ]'
-```
-
-:::caution 30 minutes is the floor
-
-**None of these four values can be below 30.** A smaller number is rejected, and the API description
-does not mention the limit, so the error is your first sign of it. Thirty is as short as a JIT window
-gets, which is why step 10 gives you a way to see the access removed without waiting it out.
-
-:::
-
-These are tenant-wide too, so agree them with the room once rather than patching over each other.
-They are two pairs: `max...` is a ceiling the platform enforces, and `defaultMax...` is what a user
-is offered if they express no preference. Each pair covers the first activation and any extension.
-
-:::tip
-
-**Check:** the policy shows your entitlement id in `entitlementIds`, and every id that was there
-before is still there.
-
-:::
 
 ### 7. Get the assignment, without getting the access
 
-Request the entitlement for yourself in the **Request Center**, then approve it. The owner you set in
-step 5 is `hack.day`, so the approval waits under **My Work → Approvals**.
+#### First, check that requests do not need approval
 
-That queue holds everybody's requests, because everybody is `hack.day`. **Approve only the one naming
-your entitlement.** Approving somebody else's does not break it, but it does hand them a step they
-wanted to do themselves.
+Read the tenant's access request configuration:
+
+```bash
+sail api get /access-request-config/v1 --pretty
+```
+
+Look at `entitlementRequestConfig.grantRequestApprovalSchemes`. If it is already `null` or empty,
+somebody has done this and you can go straight to requesting.
+
+If it reads `sourceOwner`, it needs clearing. Out of the box, your request goes
+to the source owner for approval, the source owner is you, and the platform will not let you approve
+your own request. It reassigns the approval to a tenant administrator and we don't want to do that for this hack.
+
+```bash
+sail api put /access-request-config/v1 --body '{
+  "approvalsMustBeExternal": false,
+  "autoApprovalEnabled": false,
+  "reauthorizationEnabled": false,
+  "govGroupVisibilityEnabled": false,
+  "fallbackAccessDurationInDays": null,
+  "entitlementRequestConfig": {
+    "allowEntitlementRequest": true,
+    "requestCommentsRequired": false,
+    "deniedCommentsRequired": false,
+    "grantRequestApprovalSchemes": "",
+    "revokeRequestApprovalSchemes": null
+  },
+  "requestOnBehalfOfConfig": {
+    "allowRequestOnBehalfOfAnyoneByAnyone": true,
+    "allowRequestOnBehalfOfEmployeeByManager": true,
+    "allowRequestOnBehalfOfForMachineIdentity": true,
+    "allowRequestForMachineByOwner": false
+  },
+  "approvalReminderAndEscalationConfig": {
+    "daysUntilEscalation": null,
+    "daysBetweenReminders": null,
+    "maxReminders": null,
+    "fallbackApproverRef": null
+  }
+}'
+```
+
+Read it back and `grantRequestApprovalSchemes` will be `null`. An empty string and `null` mean the
+same thing here: no approval.
+
+#### Then check you have an account on this source
+
+JIT grants access by adding an entitlement to an account that already exists. If the identity has no
+account on the source the entitlement came from, the platform tries to **create** one first, but our connector is not setup to handle that.
+
+```bash
+sail api get /accounts/v1 \
+  -q filters='identityId eq "your-identity-id" and sourceId eq "your-source-id"' \
+  --jsonpath '$.*.nativeIdentity'
+```
+
+You want your `usr_...` from step 2. An empty result means step 2's correlation did not land on this
+source, so go back and fix it before requesting anything.
+
+#### Request it
+
+Request the entitlement for yourself in the **Request Center**. With the approval scheme cleared it
+completes on its own, with nothing to approve.
 
 Here is the part worth slowing down for. When the request completes, **you do not have the access.**
 
@@ -605,10 +495,18 @@ really is in `entitlementIds`.
 
 :::
 
-### 8. Find your entitlement connection
+### 8. See it on Launchpad
 
-Activating needs the `connectionId` of that connection. The filter matters here: without it you get
-every participant's JIT connections, because the identity is shared:
+Go to **MySailPoint → Launchpad → Just-In-Time Access**. Your entitlement is listed, with no access
+granted and an option to activate it.
+
+That is the finish line, and it is worth being clear about what it proves. A standing entitlement
+would never appear on that page, because there would be nothing to activate — you would simply hold
+it. Yours is sitting there waiting, which means the platform has accepted it as access you are
+approved for but do not currently have. The split between the assignment and the activation, from
+the top of this page, is now a real object in your tenant.
+
+Confirm the same thing from the developer side:
 
 ```bash
 sail api get /entitlement-connections/v1/current-identity \
@@ -629,27 +527,46 @@ sail api get /entitlement-connections/v1/current-identity \
 }
 ```
 
-You should get exactly one result, and its `id` is what step 9 activates.
+`type` is `JIT` rather than `STANDING`. `state` reads `Available`, meaning ready to activate rather
+than active. And `jit` is empty, because no activation has happened yet. Those three fields together
+are the whole idea in one object.
 
 <HackDayInputs fields="connectionId" compact />
 
-Note two things: `state` reads `Available`,
-meaning ready to activate rather than active, and `jit` is empty because no lifecycle event has
-happened. Both change next.
-
-Getting more than one result means the filter did not match your group. Getting none means step 7 did
-not finish, or the entitlement was granted as standing access.
-
 :::tip
 
-**Check:** you have a `connectionId`, and the connection it came from names your `userName` and your
-group.
+**You are done.** Show a developer advocate four things:
+
+1. Your group in the demo system, with `memberCount: 0`. Nobody holds this access.
+2. The entitlement in your tenant, carrying the permissions your connector reported.
+3. The entitlement on **Launchpad → Just-In-Time Access**, awaiting activation.
+4. `type: JIT` and `state: Available` on the connection.
+
+Together those say: the access exists, it is approved for you, and it is not provisioned. That is
+Just-In-Time access, built on a source you wrote the connector for.
 
 :::
 
-### 9. Activate it, and watch your own code run
+## What happens when you activate
 
-One call, and a thirty-minute window opens:
+You have built the hard half. The activation half runs entirely on the connector you wrote in step 3,
+and it is worth understanding even if you do not run it today.
+
+| Operation | What the platform does | What your connector is sent |
+| --- | --- | --- |
+| **Activate** | Opens a window, up to 30 minutes | `std:account:update`, `Add` on `groups` |
+| **Extend** | Moves the expiry later | nothing — the access is already provisioned |
+| **Deactivate** | Closes the window early | `std:account:update`, `Remove` on `groups` |
+| **Expiry** | Closes the window on its own | `std:account:update`, `Remove` on `groups` |
+
+The last row is the one that makes JIT worth having. Nobody files a ticket, nobody runs a job on
+their laptop, and nobody clicks anything. The window ends and the platform calls your connector to
+take the access back. Your `Revoked grp_... from usr_...` line appears in a log nobody was watching.
+
+### If you have a few minutes spare
+
+Activating costs about a minute, and it is the moment your own code provisions real access. Leave
+`sail conn logs tail` running in a second terminal and send:
 
 ```bash
 sail api post /jit-activations/v1/activate \
@@ -660,69 +577,16 @@ sail api post /jit-activations/v1/activate \
   }'
 ```
 
-You get `202 Accepted`, not `200`. The activation runs as a workflow, so the response says it
-started rather than that it finished:
-
-```json
-{
-  "id": "jit-activation-abc123",
-  "activationId": "8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d",
-  "connectionId": "6c692d9972f8400ca4560a68f62c4c5f",
-  "activationPeriodMins": 30,
-  "status": "ACTIVATING",
-  "startTime": "2026-10-02T14:05:00.000Z"
-}
-```
-
-The `status` you get back depends on how far the workflow got before it answered, so do not read too
-much into the first value. The sequence it moves through describes what is happening to your
-connector:
-
-| Status | What it means |
-| --- | --- |
-| `CREATING` | The activation record is being written |
-| `ACTIVATING` | The platform is about to call your connector |
-| `PROVISIONED` | Your handler returned successfully. **The access is live.** |
-| `DEPROVISIONING` | The window closed and your connector is being called to remove the access |
-| `COMPLETED` | The access is gone and the activation is finished |
-| `INVALID` / `ERROR` | Validation failed, or your connector threw |
-| `REVOKED` | An administrator took the access away before it expired |
-
-Watch your connector being called, in a second terminal:
+You get `202 Accepted`, not `200`, because the activation runs as a workflow and the response only
+says it started. Within a few seconds your log prints `Granted grp_... to usr_...`, and the group in
+the demo system has a member for the first time:
 
 ```bash
-sail conn logs tail
+curl -s "https://dugfer5z7k.execute-api.us-east-1.amazonaws.com/v1/groups/grp_your_group_id/members" \
+  -H "Authorization: Bearer sck_your_key_here"
 ```
 
-Within a few seconds you see your `Granted grp_... to usr_...` line from step 3. That is the platform
-provisioning JIT access through code you wrote.
-
-Then confirm the access reached the source, and find out when it ends:
-
-```bash
-sail api get /entitlement-connections/v1/current-identity \
-  -q filters='type eq "JIT" and entitlement.value eq "grp_your_group_id"' \
-  --pretty
-```
-
-`jit.activation` and `jit.provisioned` are filled in now, and `jit.expiration` tells you when your
-access disappears.
-
-:::tip
-
-**Check:** your connector log shows the grant, and `jit.expiration` is about thirty minutes away.
-**Note that time.**
-
-:::
-
-### 10. Watch it go away
-
-Thirty minutes is the shortest JIT window the platform allows, so you have a choice. You can hand the
-access back now and see the revoke immediately, or you can leave it alone and let the clock do it.
-Both run exactly the same code in your connector, so do the first one now and start the second in the
-background.
-
-#### Hand it back now
+Then hand it straight back, and watch the same handler revoke it:
 
 ```bash
 sail api post /jit-activations/v1/deactivate \
@@ -730,72 +594,21 @@ sail api post /jit-activations/v1/deactivate \
   --body '{"connectionId": "your-connection-id-from-step-8"}'
 ```
 
-Another `202`. Keep `sail conn logs tail` running, and within a few seconds your log prints
-`Revoked grp_... from usr_...`. That is the platform calling your connector to take the access back.
+Read the connection once more and `jit.activation`, `jit.provisioned`, `jit.deactivation` and
+`jit.deprovision` all carry times, while `type` is still `JIT` and `state` is back to `Available`.
+You are still approved for the access. You simply do not hold it. The assignment outlived the
+activation, which is the point.
 
-Confirm it in the demo system:
+Activation moves through a sequence of states, and the names describe what is happening to your
+connector: `CREATING`, `ACTIVATING`, `PROVISIONED` (your handler returned, the access is live),
+`DEPROVISIONING`, `COMPLETED`. `INVALID` and `ERROR` mean validation failed or your connector threw,
+and `REVOKED` means an administrator took the access away early.
 
-```bash
-curl -s "https://dugfer5z7k.execute-api.us-east-1.amazonaws.com/v1/groups/grp_your_group_id/members" \
-  -H "Authorization: Bearer sck_your_key_here"
-```
+## Stretch goals
 
-Your account is gone from `members`. Your assignment is not gone, though:
-
-```bash
-sail api get /entitlement-connections/v1/current-identity \
-  -q filters='type eq "JIT" and entitlement.value eq "grp_your_group_id"' \
-  --pretty
-```
-
-`type` is still `JIT`, `state` is back to `Available`, and `jit.deactivation` and `jit.deprovision`
-have times on them. You are still approved for this access. You simply do not hold it. That is the
-two-part idea from the top of this page, visible in one JSON object: the assignment outlived the
-activation.
-
-Read the history of it with
-`sail api get /jit-activation-history/v1/current-identity -H "X-SailPoint-Experimental:true"`. A
-`403` there means the activation history feature is not enabled in your tenant, and the rest of the
-track is unaffected.
-
-#### Then let the clock do it instead
-
-What you just saw was you asking for the access back. Expiry is the same thing with nobody asking,
-and it is the part of JIT that matters. So run step 9 again, note the new `jit.expiration`, and leave
-it:
-
-```bash
-sail api post /jit-activations/v1/activate \
-  -H "X-SailPoint-Experimental:true" \
-  --body '{
-    "connectionId": "your-connection-id-from-step-8",
-    "activationPeriodMins": 30
-  }'
-```
-
-Now go and do step 11 for half an hour, or go and find a developer advocate. Leave
-`sail conn logs tail` running in its terminal while you do.
-
-When the clock passes, nobody will have touched anything. No ticket, no job on your laptop, no click.
-Your log prints `Revoked grp_... from usr_...` on its own, and `/members` is empty again.
-
-:::tip
-
-**You are done.** Show a developer advocate three things: the demo system's member list before and
-after an activation, your connector's own log lines granting and revoking, and the `jit` timestamps
-on the connection. That is a full JIT lifecycle running on a source you built.
-
-The deactivation proves your revoke path works. The expiry, when it lands, proves nobody had to ask.
-
-:::
-
-### 11. Stretch goals
-
-- **Extend a live activation.** Add time with `POST /jit-activations/v1/extend`, which takes the same
-  `connectionId` plus `activationPeriodExtensionMins`. The same 30-minute floor applies, so the
-  shortest extension you can ask for is another half hour. Watch what reaches your connector: an
-  extension moves the expiry, so there is no `std:account:update` at all. The access was already
-  provisioned, and nothing about it changed.
+- **Watch an activation expire properly.** Activate, note `jit.expiration`, and come back in half an
+  hour. This is the only way to see the thing JIT is actually for: your connector revoking access
+  with nobody having asked it to. Start it before you break for lunch.
 - **Email somebody when privileged access turns on.** Build a workflow on the **Provisioning
   Completed** trigger, filter it to your source, and send mail when the payload's
   `attributeRequests` contains an `Add` on `groups`. The same workflow fires on expiry with a

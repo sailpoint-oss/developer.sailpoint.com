@@ -1,12 +1,12 @@
 ---
-title: JIT Workflows
+title: Identity Workflows
 description: Finish an event-triggered workflow that emails an onboarding notice the moment a new identity is created.
 wrapperClassName: hack-day-track
 ---
 
 [← All Hack Day tracks](/hack-day)
 
-# Track 01 · Workflows
+# Track 01 · Identity Workflows
 
 In this mini hack, you will turn an identity event into a message. You will stand up an authoritative source and finish a partly built Workflow Studio
 workflow that wakes up the moment a new identity appears in SHF, looks up who
@@ -84,7 +84,7 @@ Everything else, you build:
 | --- | --- | --- |
 | A delimited-file source | `<your name> HR Feed` | Step 1 |
 | An identity profile | `<your name> HR Feed` | Step 4 |
-| A workflow | `<your name> JIT Onboarding` | Step 6 |
+| A workflow | `<your name> Identity Onboarding` | Step 6 |
 
 **Please add your name to all three.** You will be working in a shared tenant, and this will make the checking process easier for everyone!
 
@@ -317,9 +317,10 @@ here, because the only identities ever created in your tenant come from the HR f
 
 **A Wait step pauses the run.** The run holds at this point for the duration you set, then continues.
 
-We wait 1 minute because the event arrives *faster than the data behind it*. Identity Created fires the
-moment the identity is created, which is before the identity profile has finished populating its
-attributes and resolving its manager. Look the person up immediately and you get a half-built record.
+We wait 1 minute to give the identity time to fully process. The identity profile populates attributes and
+correlates the manager during the same refresh that creates the identity, so a lookup that runs the
+instant the event arrives can return less than the finished record. One minute is comfortably enough,
+and it costs you nothing here.
 
 #### `Get New Hire`
 
@@ -414,15 +415,7 @@ identity creation in a tenant just like yours:
 }
 ```
 
-The event fires the *instant* the identity is materialized, before the identity profile's mappings
-and the manager resolution have populated it. So the honest summary of an `idn:identity-created`
-payload is: **it tells you who joined, and nothing else.**
 
-#### Why the nulls, and why the Wait
-
-The nulls in the payload are a timing artifact, not a bug. The event fires the instant the identity is
-materialized — *before* the identity profile has finished populating its attributes and resolving its
-manager. The record settles a moment after the notification about it. That is what the Wait step is for, and it is the reason it cannot be removed.
 
 #### Why you fetch the details after the trigger
 
@@ -430,8 +423,9 @@ Inside the workflow playback, click **`Get New Hire`**, and read its output pane
 
 Same person. One has `department`, `jobTitle`, a real `displayName`, and a manager reference.
 
-The event is a notification, not a data feed —it tells you something happened and hands you an id. When you
-need the data, you go and fetch it.
+Treat the event as a notification rather than as a data feed. It tells you that something happened and it
+hands you an id, and the full record is one lookup away. The
+fetched record is complete and it carries the manager reference the payload doesn't have.
 
 #### The two manager fields
 
@@ -445,19 +439,6 @@ output, where you will find two different manager fields:
 
 `Get Identity` needs an id, so only `managerRef.id` works. That distinction — a reference to a person
 versus a string that names them — is the same one that runs through this whole exercise.
-
-<details>
-<summary>See details: why not read the manager from the trigger payload?</summary>
-
-Because it is not pulled at this point. It will be`"manager": null`, every time.
-
-Even setting the timing aside, the payload's attribute list is fixed and short, and a manager
-reference on a freshly created identity has not been resolved yet. The manager has to come from a record you fetch, after a wait.
-
-- [Event triggers](/docs/extensibility/event-triggers)
-- [`idn:identity-created` payload reference](/docs/extensibility/event-triggers/triggers/identity-created)
-
-</details>
 
 #### 2. Copy the template into your own workflow
 
@@ -476,7 +457,7 @@ If `Workflows Mini Hack Template` is missing or invalid, build the workflow your
 
 1. Go to **Admin → Workflows** and click **New Workflow**.
 2. Click **Upload File** and upload the file you downloaded above.
-3. Name it `<your name> JIT Onboarding`.
+3. Name it `<your name> Identity Onboarding`.
 4. Click **Continue to Builder**. The canvas must show the trigger, **Wait**, **Get New Hire**, **Get Manager**,
    and an End step.
 

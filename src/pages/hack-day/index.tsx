@@ -14,10 +14,10 @@ const wifi = {
 const miniHacks = [
   {
     label: 'Track 01',
-    title: 'JIT Workflows',
-    href: '/hack-day/jit-workflows',
+    title: 'Identity Workflows',
+    href: '/hack-day/identity-workflows',
     description:
-      'Grant access at the exact time a user needs it. You subscribe to an event trigger and act on the payload when an identity changes.',
+      'Turn an identity event into a message. You finish a workflow that fires when a new identity is created, then it emails an onboarding notice.',
   },
   {
     label: 'Track 02',

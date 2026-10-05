@@ -356,8 +356,10 @@
   z-index: 1;
 }
 
-.judgingLink {
-  display: inline-block;
+.mainHackLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
   margin-top: 24px;
 }
 

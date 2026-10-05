@@ -6,6 +6,9 @@ import styles from './styles.module.css';
 const registrationUrl =
   'https://airtable.com/app0Z4uChR7i2Qck6/shrTditpSCckiT6Zp';
 
+const submissionUrl =
+  'https://airtable.com/app0Z4uChR7i2Qck6/shrrXFoA1ypaN8cVg';
+
 const wifi = {
   network: 'Navigate26',
   password: 'SailPoint2005',
@@ -151,11 +154,18 @@ const HackDay: React.FC = () => (
               </div>
             ))}
           </div>
-          <Link
-            to="/hack-day/judging-criteria"
-            className={`${styles.trackCta} ${styles.featureCta} ${styles.judgingLink}`}>
-            See how the judges score the main hack →
-          </Link>
+          <div className={styles.mainHackLinks}>
+            <Link
+              to={submissionUrl}
+              className={`${styles.trackCta} ${styles.featureCta}`}>
+              Submit your project →
+            </Link>
+            <Link
+              to="/hack-day/judging-criteria"
+              className={`${styles.trackCta} ${styles.featureCta}`}>
+              See how the judges score the main hack →
+            </Link>
+          </div>
         </div>
       </div>
     </main>

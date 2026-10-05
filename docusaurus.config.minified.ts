@@ -92,6 +92,8 @@ const config: Config = {
             'reporting.md',
             'tools/**',
             'tools.md',
+            'ui-plugins/**',
+            'ui-plugins.md',
             'index.md',
             'api/iiq/**',
             'api/nerm/**',

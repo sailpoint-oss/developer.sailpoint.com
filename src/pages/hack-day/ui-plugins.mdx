@@ -204,15 +204,15 @@ sail ui-plugins list
 
 ### 2. Scaffold the plugin workspace
 
-Run these commands one at a time. Replace the {name} with your name to make sure the plugin instance is unique as someone else might be sharing the instance with you. 
+Run these commands one at a time. Replace the [name] with your name to make sure the plugin instance is unique as someone else might be sharing the instance with you. 
 `sail ui-plugins init` downloads the SailPoint starter template into
 a new folder, `cd` moves you into it, and `npm install` downloads its dependencies.
 
 **Your terminal**
 
 ```bash
-sail ui-plugins init manager-lookup-{name}
-cd manager-lookup-{name}
+sail ui-plugins init manager-lookup-[name]
+cd manager-lookup-[name]
 npm install
 ```
 
@@ -348,9 +348,9 @@ This is the only file that is not an ordinary Angular file:
 {
     "version": 1,
     "manifest": {
-        "alias": "manager-lookup-{name}",
-        "name": { "en": "manager-lookup-{name}" },
-        "description": { "en": "manager-lookup-{name}" },
+        "alias": "manager-lookup-[name]",
+        "name": { "en": "manager-lookup-[name]" },
+        "description": { "en": "manager-lookup-[name]" },
         "apiScopes": ["sp:scopes:all"],
         "contentSecurityPolicies": {},
         "permissionPolicy": {},
@@ -359,7 +359,7 @@ This is the only file that is not an ordinary Angular file:
         "slots": [{ "slotId": "full-page" }]
     },
     "build": {
-        "outDir": "./dist/manager-lookup-{name}/browser",
+        "outDir": "./dist/manager-lookup-[name]/browser",
         "port": 4200
     }
 }
@@ -373,7 +373,7 @@ The file has two parts:
 - **`build`** stays on your laptop. `outDir` tells `upload` where your compiled files are, and `port`
   tells `link` where your dev server listens.
 
-To check the manifest's structure without calling the backend, run this in the `manager-lookup-{name}`
+To check the manifest's structure without calling the backend, run this in the `manager-lookup-[name]`
 folder:
 
 ```bash
@@ -398,7 +398,7 @@ sail ui-plugins create
 **Terminal output**
 
 ```text
-Created plugin instance 033b32b5-280f-4d78-a856-05c2a34d15d1 (alias: manager-lookup-{name})
+Created plugin instance 033b32b5-280f-4d78-a856-05c2a34d15d1 (alias: manager-lookup-[name])
 ```
 
 ### 4. Load your local code in the tenant
@@ -425,9 +425,9 @@ change applies only to you, so nobody else in the tenant is affected.
    **Terminal output**
 
    ```text
-   Plugin manager-lookup-{name} linked to port 4200
+   Plugin manager-lookup-[name] linked to port 4200
    To load your local plugin in ISC navigate to:
-   https://<tenant>/ui/plugin/033b32b5-280f-4d78-a856-05c2a34d15d1?spPluginDev=manager-lookup-{name}
+   https://<tenant>/ui/plugin/033b32b5-280f-4d78-a856-05c2a34d15d1?spPluginDev=manager-lookup-[name]
    ```
 
 3. Open the printed URL.
@@ -1412,7 +1412,7 @@ sail ui-plugins upload
 **Terminal output**
 
 ```text
-Uploaded 5 asset(s) to plugin "manager-lookup-{name}" (bundle 88610c07-b1fe-42d8-98c5-01703efd7cf7)
+Uploaded 5 asset(s) to plugin "manager-lookup-[name]" (bundle 88610c07-b1fe-42d8-98c5-01703efd7cf7)
 The plugin can be viewed at:
 https://<tenant>/ui/plugin/033b32b5-280f-4d78-a856-05c2a34d15d1
 ```
@@ -1457,7 +1457,7 @@ sail ui-plugins list
 sail ui-plugins unlink
 
 # Remove the plugin instance entirely (prompts to confirm)
-sail ui-plugins delete manager-lookup-{name}
+sail ui-plugins delete manager-lookup-[name]
 ```
 
 Each `upload` becomes the instance's **active asset bundle**, which is stored behind a CDN and never
@@ -1489,7 +1489,7 @@ menu item loads the deployed bundle, not your dev server.
 
 5. In the dialog, enter `Manager Lookup Page` as the **Label**. This is the name of the item inside
    the menu.
-6. For **Destination**, select **Plugin**. Then select `manager-lookup-{name}` in the **Plugin** list.
+6. For **Destination**, select **Plugin**. Then select `manager-lookup-[name]` in the **Plugin** list.
 7. Leave **Required Capabilities** empty, so every user sees the item. To limit the item to one
    audience, select a capability here.
 8. Click **Done**.

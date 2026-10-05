@@ -1054,8 +1054,8 @@ so this step does not make an API call either.
           <td>{{ attr(person, 'department') }}</td>
           <td>
             <p-tag
-              [severity]="typeSeverity(attr(person, 'type'))"
-              [value]="attr(person, 'type')"
+              [severity]="typeSeverity(attr(person, 'types'))"
+              [value]="attr(person, 'types')"
             />
           </td>
         </tr>
@@ -1359,8 +1359,8 @@ export class App {
           <td>{{ attr(person, 'department') }}</td>
           <td>
             <p-tag
-              [severity]="typeSeverity(attr(person, 'type'))"
-              [value]="attr(person, 'type')"
+              [severity]="typeSeverity(attr(person, 'types'))"
+              [value]="attr(person, 'types')"
             />
           </td>
         </tr>

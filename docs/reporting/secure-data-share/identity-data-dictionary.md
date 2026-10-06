@@ -446,6 +446,7 @@ Contains certification item data sourced from **Certs 2.0**.
 | DESCRIPTION | text |  | Description of the account |
 | ACCOUNT_STATUS | text |  | State of the Account. can be one of disabled, enabled and locked |
 | ACCOUNT_OBJECT_GUID | text |  | Object GUID of the account |
+| ATTRIBUTES | variant |  | Source account attributes, shared as a JSON object. The shape is defined by the source and is not flattened. |
 | SYNC_DATE | datetime |  | When the row is last synced |
 
 

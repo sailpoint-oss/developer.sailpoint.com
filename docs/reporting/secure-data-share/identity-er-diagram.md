@@ -307,6 +307,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         text DESCRIPTION "Description of the account"
         text ACCOUNT_STATUS "State of the Account. can be one of disabled, enabled and locked"
         text ACCOUNT_OBJECT_GUID "Object GUID of the account"
+        variant ATTRIBUTES "Source account attributes, shared as a JSON object."
         datetime SYNC_DATE "When the row is last synced"
     }
     ACCOUNT_ENTITLEMENTS {

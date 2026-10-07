@@ -1,0 +1,29 @@
+type: object
+title: Lifecycle Resource Summary
+description: Cached resource context for the lifecycle target.
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Internal machine identity UUID for the lifecycle target.
+    example: 1c9c8e1f-2f5f-4f77-9f7e-5d37e4fb3ef0
+  resourceId:
+    type: string
+    description: Connector resource id for the lifecycle target.
+    example: aws:bedrock:agent-42
+  name:
+    type: string
+    description: Display name of the lifecycle target.
+    example: Support Agent
+  sourceId:
+    type: string
+    description: Source identifier for the lifecycle target.
+    example: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa
+  sourceName:
+    type: string
+    description: Source name for the lifecycle target.
+    example: AWS Bedrock
+  subtype:
+    type: string
+    description: Machine identity subtype for the lifecycle target.
+    example: AI_AGENT

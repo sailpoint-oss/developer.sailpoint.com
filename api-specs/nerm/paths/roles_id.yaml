@@ -1,0 +1,32 @@
+get:
+  summary: Find role by id
+  operationId: getRole
+  description: Info for a specific user role
+  tags:
+    - roles
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Role.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update an existing role
+  operationId: patchRole
+  description: Update an existing role
+  tags:
+    - roles
+  requestBody:
+    $ref: "../requestBodies/PATCH/Role.yaml"
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Role.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

@@ -1,0 +1,137 @@
+post:
+  tags:
+    - Custom Forms
+  summary: Create a form definition by template.
+  operationId: createFormDefinitionByTemplate
+  requestBody:
+    description: Body is the request payload to create form definition request
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/forms/CreateFormDefinitionRequest.yaml'
+        example: {
+          "name": "my form",
+          "description": "my form description",
+          "owner": {
+            "type": "IDENTITY",
+            "id": "00000000-0000-0000-0000-000000000000"
+          },
+          "formElements": [
+            {
+              "id": "000000000000",
+              "elementType": "SECTION",
+              "config": {
+                "alignment": "LEFT",
+                "description": "elementType must be 'SECTION' for the root formElements,  child formElements must be within the 'config' attribute",
+                "label": "Section",
+                "labelStyle": "h2",
+                "showLabel": true,
+                "formElements": [
+                  {
+                    "id": "0000000000000",
+                    "key": "textField",
+                    "elementType": "TEXT",
+                    "config": {
+                      "default": "",
+                      "description": "",
+                      "helpText": "form element type text",
+                      "label": "Text Field",
+                      "placeholder": "",
+                      "required": false
+                    },
+                    "validations": [ ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+    required: false
+  responses:
+    "201":
+      description: Returns a new form definition
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/forms/FormDefinitionResponse.yaml'
+    "400":
+      description: An error with the request occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+              statusCode:
+                type: integer
+                format: int64
+              trackingId:
+                type: string
+    "401":
+      description: An error with the authorization occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+              statusCode:
+                type: integer
+                format: int64
+              trackingId:
+                type: string
+    "403":
+      description: An error with the user permissions occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+              statusCode:
+                type: integer
+                format: int64
+              trackingId:
+                type: string
+    "429":
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/forms/Error.yaml'
+    "500":
+      description: An internal server error occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+              statusCode:
+                type: integer
+                format: int64
+              trackingId:
+                type: string
+  security:
+    - userAuth:
+        - sp:forms:manage

@@ -1,0 +1,43 @@
+post:
+  security:
+    - userAuth: [ das:owners:manage ]
+    - applicationAuth: [ das:owners:manage ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  summary: Re-elect resource owner.
+  tags:
+    - Data Access Security
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/data-access-security/ReelectRequest.yaml'
+    required: true
+    description: >-
+      The request body must contain details for re-electing a resource owner.
+      Date/time fields should use epoch format in seconds.
+  responses:
+    '200':
+      description: >-
+        The number of elections CREATED. In case of failure, some elections may not be STARTED.
+      content:
+        application/json:
+          schema:
+            type: integer
+            format: int32
+          examples:
+            example1:
+              summary: Example number of elections created
+              value: 1
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

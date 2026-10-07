@@ -1,0 +1,38 @@
+post:
+  summary: Metadata Attribute update by filter
+  description: Bulk update Access Model Metadata Attribute Values using a filter
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to entitlements, roles and access-profile documentations for latest API.
+  tags:
+  - Access Model Metadata
+  operationId: updateAccessModelMetadataByFilterV1
+  security:
+  - userAuth:
+    - idn:entitlement:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  requestBody:
+    description: Attribute metadata bulk update request body.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/entitlementattributebulkupdatefilterrequest.yaml
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/accessmodelmetadatabulkupdateresponse.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

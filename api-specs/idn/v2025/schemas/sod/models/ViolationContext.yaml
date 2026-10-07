@@ -1,0 +1,25 @@
+type: object
+properties:
+  policy:
+    allOf:
+    - $ref: './SodPolicyDto.yaml'
+    - type: object
+      properties:
+        type:
+          type: string
+          example: 'SOD_POLICY'
+        name:
+          type: string
+          example: 'A very cool policy name'
+    description: The types of objects supported for SOD violations
+    properties:
+      type:
+        enum:
+        - "ENTITLEMENT"
+        example: "ENTITLEMENT"
+        description: The type of object that is referenced
+
+  conflictingAccessCriteria:
+    $ref: './ExceptionAccessCriteria.yaml'
+    nullable: false
+    description: The object which contains the left and right hand side of the entitlements that got violated according to the policy.

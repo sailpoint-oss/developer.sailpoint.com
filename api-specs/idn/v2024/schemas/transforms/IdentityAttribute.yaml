@@ -1,0 +1,13 @@
+title: identityAttribute
+type: object
+required:
+- name
+properties:
+  name:
+    type: string
+    description: The system (camel-cased) name of the identity attribute to bring in
+    example: 'email'
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml'
+  input:
+    $ref: './input.yaml'

@@ -1,0 +1,59 @@
+post:
+  security:
+  - userAuth:
+    - idn:sod-violation:manage
+  x-sailpoint-userLevels:
+  - Any
+  operationId: moveViolationV1
+  tags:
+  - SOD Violations
+  summary: Reassign policy violation
+  description: >-
+    Reassigns the specified policy violation to a new owner. Callers without the `idn:sod-violation:manage` scope
+    may only reassign violations they own (directly, or via a governance group they belong to).
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  - in: path
+    name: id
+    required: true
+    x-sailpoint-resource-operation-id: listViolationsV1
+    description: The ID of the policy violation to fetch
+    schema:
+      type: string
+      format: uuid
+      example: 3e078865-55ed-43cf-b83c-85c58d2016e6
+  requestBody:
+    required: true
+    description: Data needed to reassign a Policy Violation
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/violationreassigninput.yaml
+  responses:
+    '200':
+      description: The violation was reassigned to the new owner; returns the updated violation.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/policyviolationresponse.yaml
+    '204':
+      description: The requested assignee was already the owner of the violation, so no change was made.
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

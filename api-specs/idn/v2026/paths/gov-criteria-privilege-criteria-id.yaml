@@ -1,0 +1,120 @@
+put:
+  summary: Update privilege criteria
+  description: >-
+    Use this API to update a specific custom privilege criteria by overwriting the information with new information.
+  tags:
+  - Privilege Criteria
+  operationId: putCustomPrivilegeCriteriaValue
+  security:
+  - userAuth:
+    - sp:gov-criteria:write
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - name: criteriaId
+      in: path
+      required: true
+      schema:
+        type: "string"
+      description: The Id of the privilege criteria record to return.
+      example: "6d123044-5834-4e8d-a49f-9c70089b0de1"
+      x-sailpoint-resource-operation-id: listPrivilegeCriteria
+  requestBody:
+    description: The new version of the custom privilege criteria. This overwrites the existing privilege criteria.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/gov-criteria/PrivilegeCriteriaDTO.yaml"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            $ref: "../schemas/gov-criteria/PrivilegeCriteriaDTO.yaml"
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+
+get:
+  summary: Get privilege criteria
+  description: >-
+    Use this API to get a specific privilege criteria.
+  tags:
+  - Privilege Criteria
+  operationId: getPrivilegeCriteria
+  security:
+  - userAuth:
+    - sp:gov-criteria:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - name: criteriaId
+      in: path
+      required: true
+      schema:
+        type: "string"
+      description: The Id of the privilege criteria record to return.
+      example: "6d123044-5834-4e8d-a49f-9c70089b0de1"
+      x-sailpoint-resource-operation-id: listPrivilegeCriteria
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/gov-criteria/PrivilegeCriteriaDTO.yaml"
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+
+delete:
+  summary: Delete privilege criteria
+  description: >-
+    Use this API to delete a specific custom privilege criteria.
+  tags:
+  - Privilege Criteria
+  operationId: deleteCustomPrivilegeCriteria
+  security:
+  - userAuth:
+    - sp:gov-criteria:write
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - name: criteriaId
+      in: path
+      required: true
+      schema:
+        type: "string"
+      description: The Id of the custom privilege criteria to delete.
+      example: "6d123044-5834-4e8d-a49f-9c70089b0de1"
+      x-sailpoint-resource-operation-id: listPrivilegeCriteria
+  responses:
+    '204':
+      description: Success
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

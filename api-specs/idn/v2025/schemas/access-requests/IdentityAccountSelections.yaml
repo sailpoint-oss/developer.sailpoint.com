@@ -1,0 +1,24 @@
+type: object
+properties:
+  requestedItems:
+    description: Available account selections for the identity, per requested item
+    type: array
+    items:
+      $ref: 'RequestedItemAccountSelections.yaml'
+  accountsSelectionRequired:
+    description: A boolean indicating whether any account selections will be required for the user to raise an access request
+    type: boolean
+    example: false
+    default: false
+  type:
+    $ref: './../DtoType.yaml'
+    description: DTO type
+    example: IDENTITY
+  id:
+    description: The identity id for the user
+    type: string
+    example: '70016590f2df4b879bdb1313a9e4e19e'
+  name:
+    description: The name of the identity
+    type: string
+    example: 'User name'

@@ -1,0 +1,9 @@
+description: Precondition Failed - Returned in response if API/Feature not enabled for an organization.
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        message:
+          description: A message describing the error
+          example: " API/Feature not enabled for your organization."

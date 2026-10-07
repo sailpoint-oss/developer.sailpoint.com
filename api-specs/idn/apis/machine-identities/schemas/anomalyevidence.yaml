@@ -1,0 +1,28 @@
+type: object
+title: Anomaly Evidence
+description: >-
+  Detection evidence associated with an anomaly. SENTINEL detections populate the agent
+  attribute fields; SIEM detections instead include a baseline with windowed time-series data.
+properties:
+  source:
+    type: string
+    description: Evidence source system.
+    example: SENTINEL
+  timestamp:
+    description: Timestamp details for when the evidence was captured.
+    $ref: ./anomalyevidencetimestamp.yaml
+  agentAttributeType:
+    type: string
+    nullable: true
+    description: Attribute type captured for SENTINEL detections; null for SIEM detections.
+    example: shell_exec
+  agentAttributeValue:
+    type: string
+    nullable: true
+    description: Attribute value captured for SENTINEL detections; null for SIEM detections.
+    example: curl external.example.com
+  baseline:
+    allOf:
+    - $ref: ./anomalybaseline.yaml
+    nullable: true
+    description: Peer-group baseline for SIEM detections; null for SENTINEL detections.

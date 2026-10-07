@@ -1,0 +1,58 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Connector Rule Management
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Connector Rule Management
+    description: >
+      Use this API to implement connector rule management functionality. 
+
+      With this functionality in place, administrators can implement connector-executed rules in a programmatic,
+      scalable way. 
+
+
+      In Identity Security Cloud (ISC), [rules](https://developer.sailpoint.com/docs/extensibility/rules) serve as a
+      flexible configuration framework you can leverage to perform complex or advanced configurations. 
+
+      [Connector-executed rules](https://developer.sailpoint.com/docs/extensibility/rules/connector-rules) are rules
+      that are executed in the ISC virtual appliance (VA), usually extensions of the
+      [connector](https://documentation.sailpoint.com/connectors/isc/landingpages/help/landingpages/isc_landing.html)
+      itself, the bridge between the data source and ISC. 
+
+
+      This API allows administrators to view existing connector-executed rules, make changes to them, delete them, and
+      create new ones from the available types.
+paths:
+  /connector-rules/v1:
+    $ref: ./paths/connector-rules-v1.yaml
+  /connector-rules/v1/{id}:
+    $ref: ./paths/connector-rules-v1-by-id.yaml
+  /connector-rules/v1/validate:
+    $ref: ./paths/connector-rules-v1-validate.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

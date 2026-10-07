@@ -1,0 +1,13 @@
+# Configuration Hub
+
+## Overview
+
+The SailPoint Configuration Hub supports management of configuration objects in your SailPoint Human Fabric (SHF) tenant through backup and deploy operations from the SHF UI. For example, you can back up configurations like sources and identity profiles defined for your business, restore them in the event of configuration errors or loss, or migrate and deploy them to your other tenants.
+
+To learn more about Configuration Hub, refer to the [Configuration Hub documentation](https://documentation.sailpoint.com/saas/help/confighub/config_hub.html).
+
+## Discuss
+
+The most valuable resource for SHF developers is the SailPoint Developer Community itself, where SHF users and experts all over the world come together to ask questions and provide solutions.
+
+To learn more about the SaiLPoint Configuration Hub and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/isc/6).

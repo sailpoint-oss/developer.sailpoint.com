@@ -1,0 +1,21 @@
+summary: Entitlement
+value:
+  id: 2c9180867dde18d1017de8ea1f5c130f
+  name: Vendor Creation
+  displayName: Vendor Creation
+  created: 2021-12-23T20:09:57.340Z
+  modified: 2023-05-02T06:31:19.357Z
+  attribute: groups
+  value: VC
+  sourceSchemaObjectType: group
+  schema: group
+  privileged: false
+  cloudGoverned: false
+  hash: 22ac1f7a13c8a462c67ee74f5fcbf06a277cce50
+  description: Set up new AP vendors
+  requestable: false
+  source:
+    id: 2c9180887de347a7017de8e75fa5570a
+    type: SOURCE
+    name: Finance
+  containsDataAccess: "false"

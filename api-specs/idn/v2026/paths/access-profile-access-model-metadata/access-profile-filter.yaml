@@ -1,0 +1,120 @@
+post:
+  operationId: searchAccessProfilesByFilter
+  summary: Filter access profiles by metadata
+  description: >-
+    This API returns a list of access profiles filtered by Access Model Metadata and by filter expression.
+    It supports filtering by both filter expression and attribute key and values.
+
+    A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, HELPDESK, CERT_ADMIN,
+    REPORT_ADMIN or SOURCE_ADMIN authority is required to call this API.
+  tags:
+    - Access Profiles
+  security:
+    - userAuth:
+        - idn:access-profile:read
+        - idn:access-profile-checked:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - name: for-subadmin
+      in: query
+      schema:
+        type: string
+      description: If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
+      example: 5168015d32f890ca15812c9180835d2e
+      required: false
+    - name: limit
+      in: query
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 250
+        default: 50
+      description: Max number of results to return See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+      example: 50
+      required: false
+    - name: offset
+      in: query
+      description: |-
+        Offset into the full result set. Usually specified with *limit* to paginate through the results.
+        See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        default: 0
+      required: false
+      example: 0
+    - name: count
+      in: query
+      description: |-
+        Boolean indicating whether a total count is returned, factoring in any filter parameters, in the X-Total-Count response header. The value is the total size of the collection that would be returned if limit and offset were ignored.
+        See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+      schema:
+        type: boolean
+        default: false
+      required: false
+      example: true
+    - name: sorters
+      in: query
+      schema:
+        type: string
+      description: |-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+        Sorting is supported for the following fields: **name, created, modified**
+      example: name,-modified
+      required: false
+    - name: for-segment-ids
+      in: query
+      schema:
+        type: string
+      description: >-
+        If present, filters the returned list to those access profiles assigned to the specified Segment IDs.
+        Accepts a comma-separated list of Segment IDs.
+      example: 0b5c9f2d-1e1b-4b2f-9b1a-0e7f4a6c2d3e
+      required: false
+    - name: include-unsegmented
+      in: query
+      schema:
+        type: boolean
+        default: true
+      description: Whether or not the response list should contain unsegmented access profiles.
+      example: true
+      required: false
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/access-profile-metadata/AccessProfileListFilterDTO.yaml"
+        example:
+          filters: requestable eq false
+          ammKeyValues:
+            - attribute: iscFederalClassifications
+              values:
+                - secret
+  responses:
+    '200':
+      description: Responds with a list of access profiles.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../../schemas/access/AccessProfile.yaml"
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

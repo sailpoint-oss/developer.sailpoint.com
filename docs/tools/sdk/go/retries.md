@@ -1,0 +1,37 @@
+# Retries with the Go SDK
+
+The SDK uses the [go-retryablehttp](https://github.com/hashicorp/go-retryablehttp) module to support retry logic.
+
+On line 17-18 of the following example, the SDK is set to retry if there is an unexpected error up to 10 times and wait 2 seconds between each retry:
+
+```go showLineNumbers
+package main
+
+import (
+ "context"
+ "fmt"
+ "os"
+ "time"
+
+ sailpoint "github.com/sailpoint-oss/golang-sdk/v3"
+)
+
+func main() {
+
+ ctx := context.TODO()
+ configuration := sailpoint.NewDefaultConfiguration()
+ apiClient := sailpoint.NewAPIClient(configuration)
+
+ configuration.HTTPClient.RetryMax = 10
+ configuration.HTTPClient.RetryWaitMax = time.Second * 2
+
+ resp, r, err := apiClient.TransformsAPI.ListTransformsV1(ctx).Filters("This is an incorrect string").Execute()
+ if err != nil {
+  fmt.Fprintf(os.Stderr, "Error when calling `TransformsAPI.ListTransformsV1``: %v\n", err)
+  fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+ }
+ // response from `ListTransformsV1`: []Transformread
+ fmt.Fprintf(os.Stdout, "First response from `TransformsAPI.ListTransformsV1`: %v\n", resp)
+
+}
+```

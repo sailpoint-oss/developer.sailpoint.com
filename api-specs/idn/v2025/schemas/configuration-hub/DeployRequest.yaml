@@ -1,0 +1,9 @@
+type: object
+title: Deploy Request
+required:
+  - draftId
+properties:
+  draftId:
+    type: string
+    description: The id of the draft to be used by this deploy.
+    example: 3d0fe04b-57df-4a46-a83b-8f04b0f9d10b

@@ -1,0 +1,29 @@
+type: object
+title: Public Machine Identity
+description: Reduced machine identity details for public catalog and request workflows.
+properties:
+  id:
+    type: string
+    description: Machine identity id.
+    example: 2c9180857182305e0171993735622948
+  name:
+    type: string
+    description: Human-readable display name of the machine identity.
+    example: Production API Agent
+  description:
+    nullable: true
+    type: string
+    description: Description of the machine identity.
+    example: Agent used for nightly reconciliation jobs.
+  subtype:
+    nullable: true
+    type: string
+    description: >-
+      Machine identity subtype. Present when your tenant returns enriched public machine identity data; otherwise
+      omitted or null.
+    example: AI Agent
+  owner:
+    $ref: ./publicmachineidentityowner.yaml
+    description: >-
+      Primary owner of the machine identity. Present when your tenant returns enriched public machine identity data
+      and a primary owner is configured; otherwise omitted or null.

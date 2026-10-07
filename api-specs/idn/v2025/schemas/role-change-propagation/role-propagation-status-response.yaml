@@ -1,0 +1,80 @@
+description: Role Propagation Status Response
+type: object
+properties:
+  id:
+    description: Id of the Role Propagation process triggered.
+    type: string
+    example: "47b9fb02-e12e-42ba-8bfe-1860d78c88eb"
+  status:
+    description: Status of the Role Propagation process.
+    type: string
+    enum:
+      - RUNNING
+      - COMPLETED
+    example: "RUNNING"
+  executionStage:
+    description: Current execution stage of the Role Propagation process.
+    type: string
+    enum:
+      - PENDING
+      - DATA_AGGREGATION_RUNNING
+      - LAUNCH_PROVISIONING
+      - SUCCEEDED
+      - FAILED
+      - TERMINATED
+    example: "PENDING"
+  launched:
+    description: Time when the Role Propagation process was launched.
+    type: string
+    format: date-time
+    example: "2023-10-01T12:00:00Z"
+  launchedBy:
+    description: Identity who launched the Role Propagation process.
+    type: object
+    properties:
+      type:
+        type: string
+        description: DTO type of the identity who launched the Role Propagation process.
+        enum:
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: ID of the identity who launched the Role Propagation process.
+        example: 2c7180a46faadee4016fb4e018c20648
+      name:
+        type: string
+        description: Name of the identity who launched the Role Propagation process.
+        example: William Wilson
+  terminatedBy:
+    description: Identity who terminated the Role Propagation process.
+    type: object
+    properties:
+      type:
+        type: string
+        description: DTO type of the Identity who terminated the Role Propagation process.
+        enum:
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: ID of the Identity who terminated the Role Propagation process.
+        example: 2c7180a46faadee4016fb4e018c20648
+      name:
+        type: string
+        description: Name of the Identity who terminated the Role Propagation process.
+        example: William Wilson
+  completed:
+    description: Time when the Role Propagation process was completed.
+    type: string
+    format: date-time
+    example: "2023-10-01T12:30:00Z"
+  failureReason:
+    description: Reason for failure if the Role Propagation process failed.
+    type: string
+    example: "Network error"
+  skipRoleRefresh:
+    description: Indicates if the role refresh was skipped during the Role Propagation process.
+    type: boolean
+    example: false
+    default: false

@@ -1,0 +1,16 @@
+type: object
+title: Source Dataset Resource Reference
+description: Simplified resource reference associated with a source dataset.
+properties:
+  id:
+    type: string
+    description: Resource identifier.
+    example: aws:iam-role
+  name:
+    type: string
+    description: Display name of the resource.
+    example: Role
+  type:
+    type: string
+    description: Resource type from source schema config.
+    example: std:resource

@@ -1,0 +1,16 @@
+type: object
+title: Prompt Insights Metrics
+description: Aggregate prompt insights metrics for the requested time window.
+properties:
+  promptsScanned:
+    type: integer
+    format: int64
+    minimum: 0
+    description: Count of prompts scanned in the interval.
+    example: 125000
+  promptsRedacted:
+    type: integer
+    format: int64
+    minimum: 0
+    description: Count of prompts redacted in the interval.
+    example: 89

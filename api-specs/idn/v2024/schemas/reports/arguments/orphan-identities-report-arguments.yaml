@@ -1,0 +1,17 @@
+title: ORPHAN_IDENTITIES
+type: object
+description: >-
+  Arguments for Orphan Identities report (ORPHAN_IDENTITIES)
+properties:
+  selectedFormats:
+    type: array
+    items:
+      type: string
+      enum:
+        - CSV
+        - PDF
+    description: >-
+      Output report file formats. These are formats for calling GET endpoint as query parameter 'fileFormat'. 
+      In case report won't have this argument there will be ['CSV', 'PDF'] as default.
+    example:
+      - CSV

@@ -1,0 +1,162 @@
+title: Workflow Action
+type: object
+properties:
+  id:
+    type: string
+    description: Action ID. This is a static namespaced ID for the action
+    example: "sp:create-campaign"
+  name:
+    type: string
+    description: Action Name
+    example: "Create Certification Campaign"
+  type:
+    type: string
+    description: Action type
+    example: "ACTION"
+  description:
+    type: string
+    description: Action Description
+    example: "Generates a certification campaign."
+  formFields:
+    nullable: true
+    type: array
+    description: One or more inputs that the action accepts
+    items:
+      $ref: './WorkflowLibraryFormFields.yaml'
+  exampleOutput:
+    oneOf:
+      - type: object
+        description: Example output
+      - type: array
+        items:
+          type: object  
+  deprecated:
+    type: boolean
+  deprecatedBy:
+    type: string
+    format: date-time
+  versionNumber:
+    type: integer
+    description: Version number
+  isSimulationEnabled:
+    type: boolean
+  isDynamicSchema:
+      type: boolean
+      description: Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
+      example: false
+  outputSchema:
+    type: object
+    description: Defines the output schema, if any, that this action produces.
+    example:
+      {
+        "definitions": {},
+        "properties": {
+            "autoRevokeAllowed": {
+                "$id": "#sp:create-campaign/autoRevokeAllowed",
+                "default": true,
+                "examples": [
+                    false
+                ],
+                "title": "autoRevokeAllowed",
+                "type": "boolean"
+            },
+            "deadline": {
+                "$id": "#sp:create-campaign/deadline",
+                "default": "",
+                "examples": [
+                    "2020-12-25T06:00:00.468Z"
+                ],
+                "format": "date-time",
+                "pattern": "^.*$",
+                "title": "deadline",
+                "type": "string"
+            },
+            "description": {
+                "$id": "#sp:create-campaign/description",
+                "default": "",
+                "examples": [
+                    "A review of everyone's access by their manager."
+                ],
+                "pattern": "^.*$",
+                "title": "description",
+                "type": "string"
+            },
+            "emailNotificationEnabled": {
+                "$id": "#sp:create-campaign/emailNotificationEnabled",
+                "default": true,
+                "examples": [
+                    false
+                ],
+                "title": "emailNotificationEnabled",
+                "type": "boolean"
+            },
+            "filter": {
+                "$id": "#sp:create-campaign/filter",
+                "properties": {
+                    "id": {
+                        "$id": "#sp:create-campaign/filter/id",
+                        "default": "",
+                        "examples": [
+                            "e0adaae69852e8fe8b8a3d48e5ce757c"
+                        ],
+                        "pattern": "^.*$",
+                        "title": "id",
+                        "type": "string"
+                    },
+                    "type": {
+                        "$id": "#sp:create-campaign/filter/type",
+                        "default": "",
+                        "examples": [
+                            "CAMPAIGN_FILTER"
+                        ],
+                        "pattern": "^.*$",
+                        "title": "type",
+                        "type": "string"
+                    }
+                },
+                "title": "filter",
+                "type": "object"
+            },
+            "id": {
+                "$id": "#sp:create-campaign/id",
+                "default": "",
+                "examples": [
+                    "2c918086719eec070171a7e3355a360a"
+                ],
+                "pattern": "^.*$",
+                "title": "id",
+                "type": "string"
+            },
+            "name": {
+                "$id": "#sp:create-campaign/name",
+                "default": "",
+                "examples": [
+                    "Manager Review"
+                ],
+                "pattern": "^.*$",
+                "title": "name",
+                "type": "string"
+            },
+            "recommendationsEnabled": {
+                "$id": "#sp:create-campaign/recommendationsEnabled",
+                "default": true,
+                "examples": [
+                    false
+                ],
+                "title": "recommendationEnabled",
+                "type": "boolean"
+            },
+            "type": {
+                "$id": "#sp:create-campaign/type",
+                "default": "",
+                "examples": [
+                    "MANAGER"
+                ],
+                "pattern": "^.*$",
+                "title": "type",
+                "type": "string"
+            }
+        },
+        "title": "sp:create-campaign",
+        "type": "object"
+      }

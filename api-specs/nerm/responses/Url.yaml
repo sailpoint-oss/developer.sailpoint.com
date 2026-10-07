@@ -1,0 +1,5 @@
+description: Expected response to a valid request
+content:
+  application/json:
+    schema:
+      $ref: "../schemas/Url.yaml"

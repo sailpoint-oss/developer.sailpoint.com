@@ -1,0 +1,28 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+    description: The id of the system role permission
+    example: 2e06b876-f456-473d-bd65-b6435e0b6b2d
+  system_role_id:
+    type: string
+    format: uuid
+    description: The id of the system role
+    example: ef5d413f-ba18-49e6-9a72-bb115aa133ff
+  value:
+    type: integer
+    format: int32
+    example: 1
+    description: The permissions level of access
+  subject:
+    type: integer
+    format: int32
+    example: 1
+    description: The type of permission
+  subject_id:
+    type: string
+    format: uuid
+    example: db3d85ef-c324-458b-b206-58debaa96419
+    description: The ID of the object that the permission is giving access to

@@ -1,0 +1,37 @@
+value:
+  id: 3b2e2e5821e84127b6d693d41c40623b
+  name: Role Composition Campaign
+  description: A review done by a role owner.
+  deadline: 2020-12-25T06:00:00.468Z
+  type: ROLE_COMPOSITION
+  status: PENDING
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  created: 2022-08-02T20:30:46.083Z
+  modified: null
+  filter:
+    type: CAMPAIGN_FILTER
+    id: 0fbe863c063c4c88a35fd7f17e8a3df5
+    name: Test Role Composition Filter
+  sunsetCommentsRequired: true
+  sourceOwnerCampaignInfo: null
+  searchCampaignInfo: null
+  roleCompositionCampaignInfo:
+    remediatorRef:
+      type: IDENTITY
+      id: 7ec252acbd4245548bc25df22348cb75
+      name: SailPoint Support
+    reviewerId: null
+    reviewer: null
+    roleIds:
+      - b15d609fc5c8434b865fe552315fda8f
+    query: null
+    description: null
+  alerts: null
+  totalCertifications: 0
+  completedCertifications: 0
+  sourcesWithOrphanEntitlements: null
+  machineAccountCampaignInfo: null
+  mandatoryCommentRequirement: NO_DECISIONS
+  

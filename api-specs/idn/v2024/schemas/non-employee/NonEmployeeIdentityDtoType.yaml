@@ -1,0 +1,6 @@
+type: string
+enum:
+  - GOVERNANCE_GROUP
+  - IDENTITY
+example: IDENTITY
+description: Identifies if the identity is a normal identity or a governance group

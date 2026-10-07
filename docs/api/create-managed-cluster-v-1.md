@@ -1,0 +1,704 @@
+## OpenAPI
+
+```yaml POST /managed-clusters/v1
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API
+  description: Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+paths:
+  /managed-clusters/v1:
+    post:
+      description: |-
+        Create a new Managed Cluster.
+        The API returns a result that includes the managed cluster ID.
+      operationId: createManagedClusterV1
+      security:
+        - userAuth:
+            - idn:remote-client:manage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              description: Request to create Managed Cluster
+              type: object
+              title: Managed Cluster Request
+              required:
+                - name
+              properties:
+                name:
+                  description: ManagedCluster name
+                  type: string
+                  nullable: false
+                  example: Managed Cluster Name
+                type:
+                  description: The Type of Cluster
+                  example: idn
+                  type: string
+                  enum:
+                    - idn
+                    - iai
+                    - spConnectCluster
+                    - sqsCluster
+                    - das-rc
+                    - das-pc
+                    - das-dc
+                    - pag
+                    - das-am
+                    - standard
+                  title: managedclustertypes
+                configuration:
+                  description: ManagedProcess configuration map
+                  type: object
+                  additionalProperties:
+                    type: string
+                  example:
+                    clusterExternalId: externalId
+                    ccgVersion: 77.0.0
+                description:
+                  description: ManagedCluster description
+                  type: string
+                  nullable: true
+                  example: A short description of the managed cluster.
+      responses:
+        '200':
+          description: Created managed cluster.
+          content:
+            application/json:
+              schema:
+                description: Managed Cluster
+                type: object
+                title: Managed Cluster
+                required:
+                  - id
+                  - clientType
+                  - ccgVersion
+                properties:
+                  id:
+                    description: ManagedCluster ID
+                    type: string
+                    example: e1ff7bb24c934240bbf55e1aa39e41c5
+                  name:
+                    description: ManagedCluster name
+                    type: string
+                    example: Managed Cluster Name
+                  pod:
+                    description: ManagedCluster pod
+                    type: string
+                    example: megapod-useast1
+                  org:
+                    description: ManagedCluster org
+                    type: string
+                    example: denali
+                  type:
+                    description: The Type of Cluster
+                    example: idn
+                    nullable: false
+                    default: idn
+                    type: string
+                    enum:
+                      - idn
+                      - iai
+                      - spConnectCluster
+                      - sqsCluster
+                      - das-rc
+                      - das-pc
+                      - das-dc
+                      - pag
+                      - das-am
+                      - standard
+                    title: managedclustertypes
+                  configuration:
+                    description: ManagedProcess configuration map
+                    type: object
+                    additionalProperties:
+                      type: string
+                      nullable: true
+                    example:
+                      clusterExternalId: e1ff7bb24c934240bbf55e1aa39e41c5
+                      clusterType: sqsCluster
+                      gmtOffset: '-5'
+                  keyPair:
+                    description: key pair for the ManagedCluster
+                    type: object
+                    title: Managed Cluster Key Pair
+                    properties:
+                      publicKey:
+                        nullable: true
+                        description: ManagedCluster publicKey
+                        type: string
+                        example: '-----BEGIN PUBLIC KEY-----******-----END PUBLIC KEY-----'
+                      publicKeyThumbprint:
+                        nullable: true
+                        description: ManagedCluster publicKeyThumbprint
+                        type: string
+                        example: 6CMlaJIV44-xJxcB3CJBjDUUn54
+                      publicKeyCertificate:
+                        nullable: true
+                        description: ManagedCluster publicKeyCertificate
+                        type: string
+                        example: '-----BEGIN CERTIFICATE-----****-----END CERTIFICATE-----'
+                  attributes:
+                    description: Specific Attributes for Configuring a ManagedCluster by Type
+                    type: object
+                    title: Managed Cluster Attributes
+                    properties:
+                      queue:
+                        description: ManagedCluster keystore for sqsCluster type
+                        type: object
+                        title: Managed Cluster Queue
+                        properties:
+                          name:
+                            description: ManagedCluster queue name
+                            type: string
+                            example: megapod-useast1-denali-lwt-cluster-1533
+                          region:
+                            description: ManagedCluster queue aws region
+                            type: string
+                            example: us-east-1
+                      keystore:
+                        nullable: true
+                        description: ManagedCluster keystore for spConnectCluster type
+                        type: string
+                        example: /u3+7QAAAAIAAAABAAAAAQAvL3Byb3h5LWNsdXN0ZXIvMmM5MTgwODc3Yjg3MW
+                  description:
+                    description: ManagedCluster description
+                    type: string
+                    default: q
+                    example: A short description of the managed cluster.
+                  redis:
+                    description: Redis configuration for the ManagedCluster
+                    type: object
+                    title: Managed Cluster Redis
+                    properties:
+                      redisHost:
+                        description: ManagedCluster redisHost
+                        type: string
+                        example: megapod-useast1-shared-redis.cloud.sailpoint.com
+                      redisPort:
+                        description: ManagedCluster redisPort
+                        type: integer
+                        format: int32
+                        example: 6379
+                  clientType:
+                    description: type of client for the ManagedCluster
+                    type: string
+                    example: CCG
+                    nullable: true
+                    enum:
+                      - CCG
+                      - VA
+                      - INTERNAL
+                      - IIQ_HARVESTER
+                      - null
+                    title: managedclienttype
+                  ccgVersion:
+                    description: CCG version used by the ManagedCluster
+                    type: string
+                    example: v01
+                  pinnedConfig:
+                    description: boolean flag indicating whether or not the cluster configuration is pinned
+                    type: boolean
+                    default: false
+                    example: false
+                  logConfiguration:
+                    description: client log configuration for the cluster
+                    example:
+                      rootLevel: WARN
+                      logLevels:
+                        foobar: WARN
+                    nullable: true
+                    type: object
+                    title: Client Log Configuration
+                    required:
+                      - rootLevel
+                    properties:
+                      clientId:
+                        description: Log configuration's client ID
+                        type: string
+                        example: 3a38a51992e8445ab51a549c0a70ee66
+                      durationMinutes:
+                        description: Duration in minutes for log configuration to remain in effect before resetting to defaults.
+                        type: integer
+                        format: int32
+                        example: 120
+                        default: 240
+                        minimum: 5
+                        maximum: 1440
+                      expiration:
+                        description: Expiration date-time of the log configuration request.  Can be no greater than 24 hours from current date-time.
+                        example: '2024-11-06T01:31:08.013164Z'
+                        type: string
+                        format: date-time
+                      rootLevel:
+                        description: Root log level to apply, the default level for all logs. For more information about logging levels, refer to the "Logging Levels" table in [Enabling Connector Logging in IdentityNow](https://community.sailpoint.com/t5/IdentityNow-Articles/Enabling-Connector-Logging-in-IdentityNow/ta-p/188107).
+                        default: INFO
+                        example: INFO
+                        type: string
+                        enum:
+                          - 'OFF'
+                          - FATAL
+                          - ERROR
+                          - WARN
+                          - INFO
+                          - DEBUG
+                          - TRACE
+                        title: standardlevel
+                      logLevels:
+                        description: Map of log level by key. The keys are logging classes, and the values are logging levels. To see the available connectors and their logging classes, refer to the "Logging Classes" table in [Enabling Connector Logging in IdentityNow](https://community.sailpoint.com/t5/IdentityNow-Articles/Enabling-Connector-Logging-in-IdentityNow/ta-p/188107).
+                        example:
+                          sailpoint.connector.ADLDAPConnector: TRACE
+                          sailpoint.connector.JDBCConnector: DEBUG
+                        type: object
+                        title: Log Level Spec
+                        additionalProperties:
+                          default: INFO
+                          example: TRACE
+                          description: Standard Log4j log level
+                          type: string
+                          enum:
+                            - 'OFF'
+                            - FATAL
+                            - ERROR
+                            - WARN
+                            - INFO
+                            - DEBUG
+                            - TRACE
+                          title: standardlevel
+                  operational:
+                    description: Whether or not the cluster is operational or not
+                    type: boolean
+                    default: false
+                    example: false
+                  status:
+                    description: Cluster status
+                    type: string
+                    enum:
+                      - CONFIGURING
+                      - FAILED
+                      - NO_CLIENTS
+                      - NORMAL
+                      - WARNING
+                    example: NORMAL
+                  publicKeyCertificate:
+                    nullable: true
+                    description: Public key certificate
+                    type: string
+                    example: '-----BEGIN CERTIFICATE-----TCCAb2gAwIBAgIBADANBgkqhkiG9w0BAQsFADAuMQ0wCwYDVQQD-----END CERTIFICATE-----'
+                  publicKeyThumbprint:
+                    nullable: true
+                    description: Public key thumbprint
+                    type: string
+                    example: obc6pLiulGbtZ
+                  publicKey:
+                    nullable: true
+                    description: Public key
+                    type: string
+                    example: '-----BEGIN PUBLIC KEY-----jANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3WgnsxP52MDgBTfHR+5n4-----END PUBLIC KEY-----'
+                  encryptionConfiguration:
+                    type: object
+                    title: Managed Cluster Encryption Configuration
+                    description: Defines the encryption settings for a managed cluster, including the format used for storing and processing encrypted data.
+                    properties:
+                      format:
+                        type: string
+                        description: Specifies the format used for encrypted data, such as secrets. The format determines how the encrypted data is structured and processed.
+                        example: V3
+                        enum:
+                          - V2
+                          - V3
+                  alertKey:
+                    description: Key describing any immediate cluster alerts
+                    type: string
+                    example: LIMITED_RESOURCES
+                  clientIds:
+                    type: array
+                    description: List of clients in a cluster
+                    items:
+                      type: string
+                    example:
+                      - '1244'
+                      - '1245'
+                  serviceCount:
+                    description: Number of services bound to a cluster
+                    type: integer
+                    format: int32
+                    default: 0
+                    example: 6
+                  ccId:
+                    description: CC ID only used in calling CC, will be removed without notice when Migration to CEGS is finished
+                    type: string
+                    default: '0'
+                    example: '1533'
+                  createdAt:
+                    description: The date/time this cluster was created
+                    example: '2023-08-04T20:48:01.865Z'
+                    nullable: true
+                    type: string
+                    format: date-time
+                  updatedAt:
+                    description: The date/time this cluster was last updated
+                    example: '2023-08-04T20:48:01.865Z'
+                    nullable: true
+                    type: string
+                    format: date-time
+                  lastReleaseNotifiedAt:
+                    description: The date/time this cluster was notified for the last release
+                    type: string
+                    format: date-time
+                    nullable: true
+                    example: '2025-03-11T07:00:13.729721Z'
+                  updatePreferences:
+                    description: The preference for applying updates for the cluster
+                    type: object
+                    properties:
+                      processGroups:
+                        description: The processGroups for updatePreferences
+                        type: string
+                        nullable: true
+                        example: processGroup1
+                      updateState:
+                        description: The current updateState for the cluster
+                        type: string
+                        nullable: true
+                        enum:
+                          - null
+                          - AUTO
+                          - DISABLED
+                        example: DISABLED
+                      notificationEmail:
+                        description: The mail id to which new releases will be notified
+                        type: string
+                        format: email
+                        nullable: true
+                        example: test@mail.com
+                  currentInstalledReleaseVersion:
+                    description: The current installed release on the Managed cluster
+                    type: string
+                    nullable: true
+                    example: '123.1'
+                  updatePackage:
+                    description: New available updates for the Managed cluster
+                    type: string
+                    nullable: true
+                    example: 123.1.2
+                  isOutOfDateNotifiedAt:
+                    description: The time at which out of date notification was sent for the Managed cluster
+                    type: string
+                    format: date-time
+                    nullable: true
+                    example: '2025-03-11T07:00:13.734393Z'
+                  consolidatedHealthIndicatorsStatus:
+                    description: The consolidated Health Status for the Managed cluster
+                    type: string
+                    nullable: true
+                    enum:
+                      - null
+                      - NORMAL
+                      - WARNING
+                      - ERROR
+                    example: ERROR
+        '400':
+          description: Client Error - Returned if the request body is invalid.
+          content:
+            application/json:
+              schema:
+                type: object
+                title: Error Response Dto
+                properties:
+                  detailCode:
+                    type: string
+                    description: Fine-grained error code providing more detail of the error.
+                    example: 400.1 Bad Request Content
+                  trackingId:
+                    type: string
+                    description: Unique tracking id for the error.
+                    example: e7eab60924f64aa284175b9fa3309599
+                  messages:
+                    type: array
+                    description: Generic localized reason for error
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+                  causes:
+                    type: array
+                    description: Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+        '401':
+          description: Unauthorized - Returned if there is no authorization header, or if the JWT token is expired.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: A message describing the error
+                    example: 'JWT validation failed: JWT is expired'
+        '403':
+          description: Forbidden - Returned if the user you are running as, doesn't have access to this end-point.
+          content:
+            application/json:
+              schema:
+                type: object
+                title: Error Response Dto
+                properties:
+                  detailCode:
+                    type: string
+                    description: Fine-grained error code providing more detail of the error.
+                    example: 400.1 Bad Request Content
+                  trackingId:
+                    type: string
+                    description: Unique tracking id for the error.
+                    example: e7eab60924f64aa284175b9fa3309599
+                  messages:
+                    type: array
+                    description: Generic localized reason for error
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+                  causes:
+                    type: array
+                    description: Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+              examples:
+                '403':
+                  summary: An example of a 403 response object
+                  value:
+                    detailCode: 403 Forbidden
+                    trackingId: b21b1f7ce4da4d639f2c62a57171b427
+                    messages:
+                      - locale: en-US
+                        localeOrigin: DEFAULT
+                        text: The server understood the request but refuses to authorize it.
+        '429':
+          description: Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    description: A message describing the error
+                    example: ' Rate Limit Exceeded '
+        '500':
+          description: Internal Server Error - Returned if there is an unexpected error.
+          content:
+            application/json:
+              schema:
+                type: object
+                title: Error Response Dto
+                properties:
+                  detailCode:
+                    type: string
+                    description: Fine-grained error code providing more detail of the error.
+                    example: 400.1 Bad Request Content
+                  trackingId:
+                    type: string
+                    description: Unique tracking id for the error.
+                    example: e7eab60924f64aa284175b9fa3309599
+                  messages:
+                    type: array
+                    description: Generic localized reason for error
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+                  causes:
+                    type: array
+                    description: Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+              examples:
+                '500':
+                  summary: An example of a 500 response object
+                  value:
+                    detailCode: 500.0 Internal Fault
+                    trackingId: b21b1f7ce4da4d639f2c62a57171b427
+                    messages:
+                      - locale: en-US
+                        localeOrigin: DEFAULT
+                        text: An internal fault occurred.
+components:
+  securitySchemes:
+    userAuth:
+      type: oauth2
+      x-displayName: Personal Access Token
+      description: |
+        OAuth2 Bearer token (JWT) generated using either a [personal access token (PAT)](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or through the [authorization code flow](https://developer.sailpoint.com/docs/api/authentication/#request-access-token-with-authorization-code-grant-flow).
+
+        Personal access tokens are associated with a user in Identity Security Cloud and relies on the user's [user level](https://documentation.sailpoint.com/saas/help/common/users/index.html) (ex. Admin, Helpdesk, etc.) to determine a base level of access.
+
+        See [Identity Security Cloud REST API Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information.
+      flows:
+        clientCredentials:
+          tokenUrl: https://example-tenant.api.identitynow.com/oauth/token
+          scopes:
+            sp:scopes:default: default scope
+            sp:scopes:all: access to all scopes
+        authorizationCode:
+          authorizationUrl: https://example-tenant.login.sailpoint.com/oauth/authorize
+          tokenUrl: https://example-tenant.api.identitynow.com/oauth/token
+          scopes:
+            sp:scopes:default: default scope
+            sp:scopes:all: access to all scopes
+    applicationAuth:
+      type: oauth2
+      x-displayName: Client Credentials
+      description: |
+        OAuth2 Bearer token (JWT) generated using [client credentials flow](https://developer.sailpoint.com/docs/api/authentication/#request-access-token-with-client-credentials-grant-flow).
+
+        Client credentials refers to tokens that are not associated with a user in Identity Security Cloud.
+
+        See [Identity Security Cloud REST API Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information.
+      flows:
+        clientCredentials:
+          tokenUrl: https://example-tenant.api.identitynow.com/oauth/token
+          scopes:
+            sp:scopes:default: default scope
+            sp:scopes:all: access to all scopes
+```

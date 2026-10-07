@@ -1,0 +1,50 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Branding
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Branding
+    description: >
+      Use this API to implement and customize branding functionality. 
+
+      With this functionality in place, administrators can get and manage existing branding items, and they can also
+      create new branding items and configure them for use throughout Identity Security Cloud. 
+
+      The Branding APIs provide administrators with a way to customize branding items. 
+
+      This customization includes details like their colors, logos, and other information. 
+
+      Refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certs/reviewing/index.html) for more
+      information about certifications.
+paths:
+  /brandings/v1:
+    $ref: ./paths/brandings-v1.yaml
+  /brandings/v1/{name}:
+    $ref: ./paths/brandings-v1-by-name.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

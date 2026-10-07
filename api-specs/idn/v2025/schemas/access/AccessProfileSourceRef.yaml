@@ -1,0 +1,16 @@
+type: object
+properties:
+    id:
+      type: string
+      description: ID of the source the access profile is associated with.
+      example: 2c91809773dee3610173fdb0b6061ef4
+    type:
+      type: string
+      enum:
+        - SOURCE
+      description: Source's DTO type.
+      example: SOURCE
+    name:
+      type: string
+      description: Source name.
+      example: "ODS-AD-SOURCE"

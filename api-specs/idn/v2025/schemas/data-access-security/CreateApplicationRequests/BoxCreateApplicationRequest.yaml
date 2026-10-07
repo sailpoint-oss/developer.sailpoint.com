@@ -1,0 +1,45 @@
+allOf:
+  - $ref: './BaseCreateApplicationRequest.yaml'
+  - required:
+      - clientId
+      - clientSecret
+      - privateKey
+      - privateKeyPassword
+      - publicKeyId
+      - subjectId
+    type: object
+    properties:
+      subjectId:
+        type: string
+        description: The Box subject ID for the application.
+        example: "123456789"
+      clientId:
+        type: string
+        description: The client ID for the Box application.
+        example: "abc123clientid"
+      clientSecret:
+        type: string
+        description: The client secret for the Box application.
+        example: "supersecretkey"
+      publicKeyId:
+        type: string
+        description: The public key ID used for JWT authentication.
+        example: "publickeyid123"
+      privateKey:
+        type: string
+        description: The private key used for JWT authentication.
+        example: "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASC..."
+      privateKeyPassword:
+        type: string
+        description: The password for the private key.
+        example: "privatekeypassword"
+      analyzeSharedLinkPermissions:
+        type: boolean
+        default: false
+        description: Indicates whether shared link permissions should be analyzed.
+        example: true
+      analyzeCollaboratorsPermissions:
+        type: boolean
+        default: false
+        description: Indicates whether collaborator permissions should be analyzed.
+        example: false

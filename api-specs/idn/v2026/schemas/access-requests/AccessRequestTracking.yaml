@@ -1,0 +1,24 @@
+type: object
+properties:
+  requestedFor:
+    type: string
+    description: The identity id in which the access request is for.
+    example: 2c918084660f45d6016617daa9210584
+  requestedItemsDetails:
+    type: array
+    description: The details of the item requested.
+    example: "{\n\"type\": \"ENTITLEMENT\", \n\"id\": \"779c6fd7171540bba1184e5946112c28\" \n }"
+    items:
+      $ref: 'RequestedItemDetails.yaml'
+  attributesHash:
+    type: integer
+    format: int32
+    description: a hash representation of the access requested, useful for longer term tracking client side.
+    example: -1928438224
+  accessRequestIds:
+    type: array
+    items:
+      type: string
+    description: >-
+      a list of access request identifiers, generally only one will be populated, but high volume requested may result in multiple ids.
+    example: [ "5d3118c518a44ec7805450d53479ccdb" ]

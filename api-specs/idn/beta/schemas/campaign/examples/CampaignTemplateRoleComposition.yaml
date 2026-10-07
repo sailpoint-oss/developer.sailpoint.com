@@ -1,0 +1,47 @@
+value:
+  id: b9f41bc69e7a4291b9de0630396d030d
+  name: Campaign With Admin Role
+  created: 2022-08-02T13:40:36.857Z
+  modified: null
+  description: Campaign With Admin Role
+  deadlineDuration: null
+  ownerRef: 
+    email: support@testmail.identitysoon.com
+    type: IDENTITY
+    id: 7ec252acbd4245548bc25df22348cb75
+    name: SailPoint Support
+  scheduled: false
+  campaign: 
+    created: null
+    modified: null
+    filter: null
+    sunsetCommentsRequired: true
+    sourceOwnerCampaignInfo: null
+    searchCampaignInfo: null
+    roleCompositionCampaignInfo: 
+      remediatorRef: 
+        type: IDENTITY
+        id: 7ec252acbd4245548bc25df22348cb75
+        name: SailPoint Support
+      reviewerId: null
+      reviewer: null
+      roleIds:
+        - b15d609fc5c8434b865fe552315fda8f
+      query: null
+      description: null
+    alerts: null
+    totalCertifications: null
+    completedCertifications: null
+    sourcesWithOrphanEntitlements: null
+    id: null
+    name: Campaign With Admin Role
+    description: Campaign With Admin Role
+    deadline: null
+    type: ROLE_COMPOSITION
+    status: null
+    emailNotificationEnabled: false
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    correlatedStatus: CORRELATED
+    mandatoryCommentRequirement: NO_DECISIONS
+  

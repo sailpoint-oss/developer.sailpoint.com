@@ -1,0 +1,31 @@
+required: true
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        audit_events:
+          type: object
+          properties:
+            offset:
+              description: How many records to skip before pulling records to return.
+              type: integer
+              format: int32
+              example: 100
+            sort_by:
+              description: A column that we are sorting these records from.
+              type: string
+              example: created_at
+            limit:
+              description: The limiting count for the amount of records returned.
+              type: integer
+              example: 10
+              format: int32
+              maximum: 100
+            order:
+              description: Which direction the list should be sorted by
+              type: string
+              enum: [asc, desc]
+              example: "asc"
+            filters:
+              $ref: "../../schemas/POST/AuditEvent.yaml"

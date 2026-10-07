@@ -1,0 +1,9 @@
+name: isNHI
+in: query
+required: false
+description: >
+  NHI accounts when `true` (bare array). Human accounts when omitted or `false` (slice object).
+schema:
+  type: boolean
+  default: false
+example: false

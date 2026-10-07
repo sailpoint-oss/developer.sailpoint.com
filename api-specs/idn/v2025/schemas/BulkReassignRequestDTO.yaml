@@ -1,0 +1,24 @@
+type: object
+title: BulkReassignRequestDTO
+description: BulkReassignRequestDTO is the input struct that represents the request body required to facilitate a bulk reassignment action for a set of generic approval requests.
+properties:
+  approvalIds:
+    type: array
+    items:
+      type: string
+    description: Array of Approval IDs to be bulk reassigned
+    example:
+    - "38453251-6be2-5f8f-df93-5ce19e295837"
+    - "38453251-6be2-5f8f-df93-5ce19e295838"
+  comment:
+    type: string
+    description: Optional comment to include with the bulk reassignment request
+    example: "Bulk reassignment by admin"
+  reassignFrom:
+    type: string
+    description: Identity ID from which the approval requests are being reassigned
+    example: "12353251-6be2-5f8f-df93-5ce19b6e5837"
+  reassignTo:
+    type: string
+    description: ReassignTo signifies the Identity ID that the approval request is being reassigned to
+    example: "32454251-6ce2-5d8f-df93-5ce19e295238"

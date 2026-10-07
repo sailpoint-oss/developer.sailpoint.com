@@ -1,0 +1,43 @@
+type: object
+title: Approver Dto
+description: Contains detailed information about the approver, including their identity, contact details, type, and references to related identities such as owners, actioned identities, and members.
+properties:
+  identityID:
+   type: string
+   nullable: false
+   example: 22efd140d88a4ceeab32c8829973244c
+   description: Identity ID and it cannot be null.
+  id:
+    nullable: true
+    type: string
+    description: Optional id
+  name:
+   type: string
+   example: SailPoint Support
+   description: Identity display name
+  email:
+    type: string
+    example: support@testmail.identitysoon.com
+    description: Email address of identity
+  type:
+    type: string
+    example: IDENTITY
+    description: Used to mention type of data transfer object in this case it is used to transfer IDENTITY data.
+  ownerOf:
+    nullable: true
+    type: array
+    items:
+      $ref: './ApproverReference.yaml'
+    description: List of reference of identity type dto for account owner identities
+  actionedAs:
+    nullable: true
+    type: array
+    items:
+      $ref: './ApproverReference.yaml'
+    description: List of reference of identity type dto who acted on behalf of other identities.
+  members:
+    nullable: true
+    type: array
+    items:
+      $ref: './ApproverReference.yaml'
+    description: List of reference of identity type dto for member identities.

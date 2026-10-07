@@ -1,0 +1,18 @@
+type: object
+title: Lifecycle Owner Reference
+properties:
+  type:
+    type: string
+    description: Owner reference type.
+    enum:
+      - IDENTITY
+      - WORKGROUP
+    example: IDENTITY
+  id:
+    type: string
+    description: Identifier of the owner.
+    example: 2c9180858082150f0180893dbaf44201
+  name:
+    type: string
+    description: Display name of the owner.
+    example: Pat Manager

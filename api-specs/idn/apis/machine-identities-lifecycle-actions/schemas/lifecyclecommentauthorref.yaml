@@ -1,0 +1,20 @@
+type: object
+title: Lifecycle Comment Author Reference
+properties:
+  type:
+    type: string
+    description: Author category for the comment.
+    enum:
+      - IDENTITY
+      - WORKGROUP
+      - API_TOKEN
+      - SYSTEM
+    example: IDENTITY
+  id:
+    type: string
+    description: Identifier of the comment author.
+    example: 2c9180858082150f0180893dbaf44201
+  name:
+    type: string
+    description: Display name of the comment author.
+    example: Pat Manager

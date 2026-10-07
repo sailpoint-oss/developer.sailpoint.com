@@ -1,0 +1,20 @@
+type: object
+properties:
+  additionalAttributes:
+    type: object
+    additionalProperties:
+      type: string
+    description: Additional attributes as key-value pairs that are not part of the standard schema but can be included for custom data.
+    example:
+      additionalProp1: "string"
+      additionalProp2: "string"
+      additionalProp3: "string"
+  comment:
+    type: string
+    description: Comment associated with the request.
+    example: "comment"
+  overrideApproverID:
+    type: string
+    description: Optional field for ServiceNow Administrators to specify which member of a governance group to override/approve on behalf of.
+    example: "12345678901234567890123456789012"
+description: Approval Approve Request

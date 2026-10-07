@@ -1,0 +1,116 @@
+servers:
+  - url: https://{tenant}.login.identitynow.com
+    description: OAuth Authorization Server metadata (login host)
+    variables:
+      tenant:
+        default: sailpoint
+        description: Tenant name (org name, e.g. acme for acme.login.identitynow.com)
+tags:
+  - OAuth
+summary: Show OAuth server metadata
+get:
+  operationId: showOauthServerMetadata
+  security:
+    - { }
+  x-sailpoint-userLevels:
+    - Any
+  tags:
+    - OAuth
+  summary: Show OAuth server metadata
+  description: >-
+    Returns OAuth 2.0 Authorization Server metadata as defined by RFC 8414. This is the standard
+    discovery endpoint for the SailPoint OAuth Authorization Server, providing clients with the
+    supported endpoints, grant types, response types, and other server capabilities without
+    requiring prior configuration.
+
+    Useful for dynamically discovering the `authorization_endpoint`, `token_endpoint`,
+    `introspection_endpoint`, and `revocation_endpoint` for the tenant.
+  responses:
+    '200':
+      description: OAuth 2.0 Authorization Server metadata.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              issuer:
+                type: string
+                format: uri
+                example: https://www.sailpoint.com
+                description: The authorization server's issuer identifier.
+              authorization_endpoint:
+                type: string
+                format: uri
+                example: https://example.login.identitynow.com/oauth/authorize
+                description: URL of the authorization endpoint.
+              token_endpoint:
+                type: string
+                format: uri
+                example: https://example.api.identitynow.com/oauth/token
+                description: URL of the token endpoint.
+              token_endpoint_auth_methods_supported:
+                type: array
+                items:
+                  type: string
+                example: ["none", "client_secret_basic", "client_secret_post"]
+                description: >-
+                  Client authentication methods supported at the token endpoint.
+                  "none" applies to public clients (authorization_code and refresh_token grant types).
+              jwks_uri:
+                type: string
+                format: uri
+                example: https://example.api.identitynow.com/oauth/jwks
+                description: URL of the JSON Web Key Set (JWKS) for validating token signatures.
+              response_types_supported:
+                type: array
+                items:
+                  type: string
+                example: ["code"]
+                description: OAuth 2.0 response_type values supported.
+              grant_types_supported:
+                type: array
+                items:
+                  type: string
+                example: ["authorization_code", "client_credentials", "refresh_token"]
+                description: OAuth 2.0 grant type values supported.
+              revocation_endpoint:
+                type: string
+                format: uri
+                example: https://example.api.identitynow.com/oauth/revoke
+                description: URL of the token revocation endpoint.
+              revocation_endpoint_auth_methods_supported:
+                type: array
+                items:
+                  type: string
+                example: ["client_secret_basic", "client_secret_post"]
+                description: Client authentication methods supported at the revocation endpoint.
+              introspection_endpoint:
+                type: string
+                format: uri
+                example: https://example.api.identitynow.com/oauth/introspect
+                description: URL of the token introspection endpoint.
+              introspection_endpoint_auth_methods_supported:
+                type: array
+                items:
+                  type: string
+                example: ["none"]
+                description: Client authentication methods supported at the introspection endpoint.
+              code_challenge_methods_supported:
+                type: array
+                items:
+                  type: string
+                example: ["S256"]
+                description: PKCE code challenge methods supported.
+              tls_client_certificate_bound_access_tokens:
+                type: boolean
+                example: false
+                description: Whether the server supports certificate-bound access tokens (RFC 8705).
+              client_id_metadata_document_supported:
+                type: boolean
+                example: false
+                description: >-
+                  Whether the server supports the client ID metadata document feature.
+    '429':
+      $ref: '../../apis/shared/responses/429.yaml'
+    '500':
+      $ref: '../../apis/shared/responses/500.yaml'

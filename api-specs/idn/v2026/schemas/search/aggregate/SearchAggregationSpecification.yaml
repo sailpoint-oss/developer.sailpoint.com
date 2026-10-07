@@ -1,0 +1,8 @@
+allOf:
+- $ref: 'Aggregations.yaml'
+- type: object
+  properties:
+    subAggregation:
+      description: >-
+          Aggregation to be performed on the result of the parent bucket aggregation.
+      $ref: 'SubSearchAggregationSpecification.yaml'

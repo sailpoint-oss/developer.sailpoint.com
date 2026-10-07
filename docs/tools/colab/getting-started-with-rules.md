@@ -1,0 +1,32 @@
+# Getting Started with Rules in CoLab
+
+Use this category to view and download SailPoint Human Fabric (SHF) rules built by the community.
+
+:::warning
+Update all rule inputs to match your SailPoint Human Fabric environment **before** uploading.
+:::
+
+There are two types of rules in SHF: cloud rules and connector rules. The setup steps are slightly different.
+
+## Cloud rules
+
+Follow these steps to download and use a cloud rule:
+
+1. Choose the cloud rule you want from CoLab and open the GitHub link.
+2. Download the cloud rule from GitHub.
+3. Open the rule in your preferred code editor.
+4. Review the rule documentation and replace required inputs to match your environment.
+5. Test your rule logic with the Rule Development Kit.
+6. Run the Rule Validator to validate syntax and usage.
+7. Submit the cloud rule for upload to SailPoint Human Fabric.
+
+## Connector rules
+
+Follow these steps to download and use a connector rule:
+
+1. Download the connector rule you want from the CoLab **Rules** category.
+2. Open the connector rule in your preferred code editor.
+3. Replace required inputs to match your environment and save the file.
+4. Test your logic with the Rule Development Kit.
+5. Format your connector rule with a Java escaping tool.
+6. Upload the connector rule through the API.

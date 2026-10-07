@@ -1,0 +1,96 @@
+get:
+  tags:
+  - Managed Cluster Types
+  summary: List managed cluster types
+  description: Get a list of Managed Cluster Types.
+  operationId: getManagedClusterTypesV1
+  parameters:
+  - name: type
+    in: query
+    required: false
+    description: Type descriptor
+    schema:
+      type: string
+      example: IDN
+  - name: pod
+    in: query
+    required: false
+    description: Pinned pod (or default)
+    schema:
+      type: string
+      example: megapod-useast1
+  - name: org
+    in: query
+    required: false
+    description: Pinned org (or default)
+    schema:
+      type: string
+      example: denali-xyz
+  - $ref: ../../shared/parameters/offset.yaml
+  - $ref: ../../shared/parameters/limit.yaml
+  responses:
+    '200':
+      description: Responds with a list of ManagedClusterType based on the query params provided
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/managedclustertype.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:managed-cluster-types:read
+    - idn:managed-cluster-types:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+post:
+  tags:
+  - Managed Cluster Types
+  summary: Create new managed cluster type
+  description: |-
+    Create a new Managed Cluster Type.
+
+    The API returns a result that includes the Managed Cluster Type ID
+  operationId: createManagedClusterTypeV1
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/managedclustertype.yaml
+  responses:
+    '200':
+      description: The created ManagedClusterType
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/managedclustertype.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:managed-cluster-types:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN

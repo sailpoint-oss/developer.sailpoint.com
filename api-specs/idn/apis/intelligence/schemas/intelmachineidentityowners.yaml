@@ -1,0 +1,18 @@
+type: object
+required:
+  - primaryIdentity
+  - secondaryIdentities
+description: |
+  Owner references. primaryIdentity is null when no primary owner is set. Primary and
+  secondary owner ids are both considered for derived.isOrphaned evaluation.
+properties:
+  primaryIdentity:
+    nullable: true
+    description: Primary human owner of the machine identity when assigned.
+    allOf:
+      - $ref: ./intelmachineentityref.yaml
+  secondaryIdentities:
+    type: array
+    description: Secondary human owners associated with the machine identity.
+    items:
+      $ref: ./intelmachineentityref.yaml

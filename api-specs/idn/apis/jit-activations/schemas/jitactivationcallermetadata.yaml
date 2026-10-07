@@ -1,0 +1,34 @@
+type: object
+title: JIT Activation Caller Metadata
+description: |
+  Caller-specific context for the request. Field names depend on the request origin.
+  The properties below apply when the request origin is Slack.
+properties:
+  type:
+    type: string
+    description: Request origin type. Matches `requestOrigin` when both are sent.
+    example: slack
+  slackUserId:
+    type: string
+    description: Slack user identifier of the caller.
+    example: U123
+  commandText:
+    type: string
+    description: Slack command text that produced this request.
+    example: /jit activate
+  channelId:
+    type: string
+    description: Slack channel identifier.
+    example: C456
+  threadId:
+    type: string
+    description: Slack thread identifier of the message that produced this request.
+    example: '1699887766.123456'
+  messageId:
+    type: string
+    description: Slack message identifier of the message that produced this request.
+    example: '1699887770.654321'
+  workspaceId:
+    type: string
+    description: Slack workspace identifier.
+    example: T789

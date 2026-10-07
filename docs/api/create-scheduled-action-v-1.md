@@ -1,0 +1,537 @@
+## OpenAPI
+
+```yaml POST /configuration-hub/v1/scheduled-actions
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API
+  description: Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+paths:
+  /configuration-hub/v1/scheduled-actions:
+    post:
+      description: This API creates a new scheduled action for the current tenant.
+      operationId: createScheduledActionV1
+      security:
+        - userAuth:
+            - sp:config-scheduled-action:manage
+      requestBody:
+        description: The scheduled action creation request body.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jobType
+                - content
+              properties:
+                jobType:
+                  type: string
+                  description: Type of the scheduled job.
+                  enum:
+                    - BACKUP
+                    - CREATE_DRAFT
+                    - CONFIG_DEPLOY_DRAFT
+                  example: BACKUP
+                startTime:
+                  type: string
+                  format: date-time
+                  description: The time when this scheduled action should start. Optional.
+                  example: '2024-08-16T14:16:58.389Z'
+                cronString:
+                  type: string
+                  description: Cron expression defining the schedule for this action. Optional for repeated events.
+                  example: 0 0 * * * *
+                timeZoneId:
+                  type: string
+                  description: Time zone ID for interpreting the cron expression. Optional, will default to current time zone.
+                  example: America/Chicago
+                content:
+                  type: object
+                  required:
+                    - name
+                  properties:
+                    name:
+                      type: string
+                      description: Name of the scheduled action (maximum 50 characters).
+                      maxLength: 50
+                      example: Daily Backup
+                    backupOptions:
+                      type: object
+                      description: Options for BACKUP type jobs. Required for BACKUP jobs.
+                      properties:
+                        includeTypes:
+                          type: array
+                          description: Object types that are to be included in the backup.
+                          items:
+                            type: string
+                          example:
+                            - ROLE
+                            - IDENTITY_PROFILE
+                        objectOptions:
+                          type: object
+                          description: Map of objectType string to the options to be passed to the target service for that objectType.
+                          additionalProperties:
+                            type: object
+                            properties:
+                              includedNames:
+                                type: array
+                                description: Set of names to be included.
+                                items:
+                                  type: string
+                                example:
+                                  - Admin Role
+                                  - User Role
+                          example:
+                            SOURCE:
+                              includedNames:
+                                - Source1
+                                - Source2
+                            ROLE:
+                              includedNames:
+                                - Admin Role
+                                - User Role
+                    sourceBackupId:
+                      type: string
+                      description: ID of the source backup. Required for CREATE_DRAFT jobs.
+                      example: 5678b87d-48ca-439a-868f-2160001da8c2
+                    sourceTenant:
+                      type: string
+                      description: Source tenant identifier. Required for CREATE_DRAFT jobs.
+                      example: tenant-name
+                    draftId:
+                      type: string
+                      description: ID of the draft to be deployed. Required for CONFIG_DEPLOY_DRAFT jobs.
+                      example: 9012b87d-48ca-439a-868f-2160001da8c3
+              title: scheduledactionpayload
+            example:
+              jobType: BACKUP
+              startTime: '2024-08-16T14:16:58.389Z'
+              cronString: 0 0 * * * *
+              timeZoneId: America/Chicago
+              content:
+                name: Daily Backup
+                backupOptions:
+                  includeTypes:
+                    - SOURCE
+                    - IDENTITY
+                  objectOptions:
+                    SOURCE:
+                      includedNames:
+                        - Source1
+                        - Source2
+      responses:
+        '200':
+          description: The created scheduled action.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: Unique identifier for this scheduled action.
+                    example: 3469b87d-48ca-439a-868f-2160001da8c1
+                  created:
+                    type: string
+                    format: date-time
+                    description: The time when this scheduled action was created.
+                    example: '2021-05-11T22:23:16Z'
+                  jobType:
+                    type: string
+                    description: Type of the scheduled job.
+                    enum:
+                      - BACKUP
+                      - CREATE_DRAFT
+                      - CONFIG_DEPLOY_DRAFT
+                    example: BACKUP
+                  content:
+                    type: object
+                    description: Content details for the scheduled action.
+                    properties:
+                      name:
+                        type: string
+                        description: Name of the scheduled action (maximum 50 characters).
+                        maxLength: 50
+                        example: Daily Backup
+                      backupOptions:
+                        type: object
+                        description: Options for BACKUP type jobs. Optional, applicable for BACKUP jobs only.
+                        properties:
+                          includeTypes:
+                            type: array
+                            description: Object types that are to be included in the backup.
+                            items:
+                              type: string
+                            example:
+                              - ROLE
+                              - IDENTITY_PROFILE
+                          objectOptions:
+                            type: object
+                            description: Map of objectType string to the options to be passed to the target service for that objectType.
+                            additionalProperties:
+                              type: object
+                              properties:
+                                includedNames:
+                                  type: array
+                                  description: Set of names to be included.
+                                  items:
+                                    type: string
+                                  example:
+                                    - Admin Role
+                                    - User Role
+                            example:
+                              SOURCE:
+                                includedNames:
+                                  - Source1
+                                  - Source2
+                              ROLE:
+                                includedNames:
+                                  - Admin Role
+                                  - User Role
+                      sourceBackupId:
+                        type: string
+                        description: ID of the source backup. Required for CREATE_DRAFT jobs only.
+                        example: 5678b87d-48ca-439a-868f-2160001da8c2
+                      sourceTenant:
+                        type: string
+                        description: Source tenant identifier. Required for CREATE_DRAFT jobs only.
+                        example: tenant-name
+                      draftId:
+                        type: string
+                        description: ID of the draft to be deployed. Required for CONFIG_DEPLOY_DRAFT jobs only.
+                        example: 9012b87d-48ca-439a-868f-2160001da8c3
+                  startTime:
+                    type: string
+                    format: date-time
+                    description: The time when this scheduled action should start.
+                    example: '2021-05-12T10:00:00Z'
+                  cronString:
+                    type: string
+                    description: Cron expression defining the schedule for this action.
+                    example: 0 0 * * * *
+                  timeZoneId:
+                    type: string
+                    description: Time zone ID for interpreting the cron expression.
+                    example: America/Chicago
+                title: scheduledactionresponse
+              example:
+                id: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
+                created: '2024-08-16T14:16:58.389Z'
+                jobType: BACKUP
+                content:
+                  name: Daily Backup
+                  backupOptions:
+                    includeTypes:
+                      - SOURCE
+                      - IDENTITY
+                    objectOptions:
+                      SOURCE:
+                        includedNames:
+                          - Source1
+                          - Source2
+                startTime: '2024-08-16T14:16:58.389Z'
+                cronString: 0 0 * * * *
+        '400':
+          description: Client Error - Returned if the request body is invalid.
+          content:
+            application/json:
+              schema:
+                type: object
+                title: Error Response Dto
+                properties:
+                  detailCode:
+                    type: string
+                    description: Fine-grained error code providing more detail of the error.
+                    example: 400.1 Bad Request Content
+                  trackingId:
+                    type: string
+                    description: Unique tracking id for the error.
+                    example: e7eab60924f64aa284175b9fa3309599
+                  messages:
+                    type: array
+                    description: Generic localized reason for error
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+                  causes:
+                    type: array
+                    description: Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+        '401':
+          description: Unauthorized - Returned if there is no authorization header, or if the JWT token is expired.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: A message describing the error
+                    example: 'JWT validation failed: JWT is expired'
+        '403':
+          description: Forbidden - Returned if the user you are running as, doesn't have access to this end-point.
+          content:
+            application/json:
+              schema:
+                type: object
+                title: Error Response Dto
+                properties:
+                  detailCode:
+                    type: string
+                    description: Fine-grained error code providing more detail of the error.
+                    example: 400.1 Bad Request Content
+                  trackingId:
+                    type: string
+                    description: Unique tracking id for the error.
+                    example: e7eab60924f64aa284175b9fa3309599
+                  messages:
+                    type: array
+                    description: Generic localized reason for error
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+                  causes:
+                    type: array
+                    description: Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+              examples:
+                '403':
+                  summary: An example of a 403 response object
+                  value:
+                    detailCode: 403 Forbidden
+                    trackingId: b21b1f7ce4da4d639f2c62a57171b427
+                    messages:
+                      - locale: en-US
+                        localeOrigin: DEFAULT
+                        text: The server understood the request but refuses to authorize it.
+        '429':
+          description: Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    description: A message describing the error
+                    example: ' Rate Limit Exceeded '
+        '500':
+          description: Internal Server Error - Returned if there is an unexpected error.
+          content:
+            application/json:
+              schema:
+                type: object
+                title: Error Response Dto
+                properties:
+                  detailCode:
+                    type: string
+                    description: Fine-grained error code providing more detail of the error.
+                    example: 400.1 Bad Request Content
+                  trackingId:
+                    type: string
+                    description: Unique tracking id for the error.
+                    example: e7eab60924f64aa284175b9fa3309599
+                  messages:
+                    type: array
+                    description: Generic localized reason for error
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+                  causes:
+                    type: array
+                    description: Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+              examples:
+                '500':
+                  summary: An example of a 500 response object
+                  value:
+                    detailCode: 500.0 Internal Fault
+                    trackingId: b21b1f7ce4da4d639f2c62a57171b427
+                    messages:
+                      - locale: en-US
+                        localeOrigin: DEFAULT
+                        text: An internal fault occurred.
+components:
+  securitySchemes:
+    userAuth:
+      type: oauth2
+      x-displayName: Personal Access Token
+      description: |
+        OAuth2 Bearer token (JWT) generated using either a [personal access token (PAT)](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or through the [authorization code flow](https://developer.sailpoint.com/docs/api/authentication/#request-access-token-with-authorization-code-grant-flow).
+
+        Personal access tokens are associated with a user in Identity Security Cloud and relies on the user's [user level](https://documentation.sailpoint.com/saas/help/common/users/index.html) (ex. Admin, Helpdesk, etc.) to determine a base level of access.
+
+        See [Identity Security Cloud REST API Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information.
+      flows:
+        clientCredentials:
+          tokenUrl: https://example-tenant.api.identitynow.com/oauth/token
+          scopes:
+            sp:scopes:default: default scope
+            sp:scopes:all: access to all scopes
+        authorizationCode:
+          authorizationUrl: https://example-tenant.login.sailpoint.com/oauth/authorize
+          tokenUrl: https://example-tenant.api.identitynow.com/oauth/token
+          scopes:
+            sp:scopes:default: default scope
+            sp:scopes:all: access to all scopes
+    applicationAuth:
+      type: oauth2
+      x-displayName: Client Credentials
+      description: |
+        OAuth2 Bearer token (JWT) generated using [client credentials flow](https://developer.sailpoint.com/docs/api/authentication/#request-access-token-with-client-credentials-grant-flow).
+
+        Client credentials refers to tokens that are not associated with a user in Identity Security Cloud.
+
+        See [Identity Security Cloud REST API Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information.
+      flows:
+        clientCredentials:
+          tokenUrl: https://example-tenant.api.identitynow.com/oauth/token
+          scopes:
+            sp:scopes:default: default scope
+            sp:scopes:all: access to all scopes
+```

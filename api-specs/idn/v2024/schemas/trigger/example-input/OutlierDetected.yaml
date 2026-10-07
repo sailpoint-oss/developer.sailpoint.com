@@ -1,0 +1,40 @@
+title: Outlier Detected
+type: object
+required:
+- identity
+- outlierType
+- score
+properties:
+  identity:
+    required:
+    - id
+    - type
+    - name
+    type: object
+    description: Identity with unusual access, relative to its peers.
+    properties:
+      type:
+        type: string 
+        description: Identity's DTO type. 
+        enum: 
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: Identity's unique ID.
+        example: 2c7180a46faadee4016fb4e018c20642
+      name:
+        type: string
+        description: Identity's name. 
+        example: Michael Michaels
+  outlierType: 
+    type: string
+    description: Identity's outlier type. 
+    enum: 
+      - LOW_SIMILARITY
+    example: LOW_SIMILARITY
+  score:
+    type: number
+    description: Dissimilarity score that determines whether the identity is an outlier, ranging from `0.0` to `1.0`. The higher the score, the more likely the identity is an outlier.
+    format: decimal
+    example: 0.82

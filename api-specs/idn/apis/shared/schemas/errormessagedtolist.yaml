@@ -1,0 +1,8 @@
+type: array
+description: List of error messages
+items:
+  $ref: ./errormessagedto.yaml
+example:
+  locale: en-US
+  localeOrigin: DEFAULT
+  text: Error Message

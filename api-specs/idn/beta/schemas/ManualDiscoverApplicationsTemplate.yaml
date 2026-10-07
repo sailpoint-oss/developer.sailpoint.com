@@ -1,0 +1,11 @@
+type: object
+title: Manual Discover Applications Template
+properties:
+  application_name:
+    type: string
+    description: Name of the example application.
+    example: "Example Application"
+  description:
+    type: string
+    description: Description of the example application.
+    example: "Example Description"

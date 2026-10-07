@@ -1,0 +1,10 @@
+required: true
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        portals:
+          type: array
+          items:
+            $ref: "../../schemas/POST/Portal.yaml"

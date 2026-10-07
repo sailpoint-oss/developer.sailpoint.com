@@ -1,0 +1,41 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - SOD Controls
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: SOD Controls
+    description: >
+      Use this API to create, list, retrieve, update, and delete compensating controls associated with
+      separation-of-duties policies. Requires policy violation management license.
+paths:
+  /controls/v1:
+    $ref: ./paths/controls-v1.yaml
+  /controls/v1/{id}:
+    $ref: ./paths/controls-v1-by-id.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

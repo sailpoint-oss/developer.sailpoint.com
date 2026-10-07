@@ -1,0 +1,31 @@
+get:
+  summary: Get Profiles
+  operationId: getSchemaMappedProfilesCollection
+  description: Retrieve schema-mapped profiles collection. It returns a collection of stored profiles, optionally using schema-mapped field names if requested.
+  tags:
+    - isc accounts
+  parameters:
+    - $ref: "../parameters/query/limit.yaml"
+    - $ref: "../parameters/query/offset.yaml"
+    - $ref: "../parameters/query/use_schema.yaml"
+    - $ref: "../parameters/query/override_sync_toggle.yaml"
+    - $ref: "../parameters/query/category.yaml"
+    - name: status
+      in: query
+      description: The status of the profile. It can be multiple values with comma separated.
+      required: false
+      schema:
+        type: string
+        enum:
+          - active
+          - inactive
+          - on leave
+          - terminated
+        example: active,on leave
+  responses:
+    '200':
+      $ref: "../responses/IscAccounts.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

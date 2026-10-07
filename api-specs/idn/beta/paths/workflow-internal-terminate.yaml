@@ -1,0 +1,69 @@
+post:
+  operationId: disableWorkflowExecutions
+  tags:
+    - Workflows
+  summary: Terminate Workflow via Internal API
+  description: >-
+      This endpoint allows a service inside of IdentityNow to initiate a terminate call to temporal using workflowDefinitionID. The internal service will invoke this endpoint with the input data, consisting of terminationReason and time boundaries, in the body.
+  security:
+    - userAuth: [sp:workflow:create]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - name: id
+      in: path
+      description: Definition Id of the workflow
+      required: true
+      x-sailpoint-resource-operation-id: listWorkflows
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: c17bea3a-574d-453c-9e04-4365fbf5af0b
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            input:
+              type: object
+              description: The input for the termination workflows
+              example:
+                boundaries:
+                  - startTime: "2025-12-09T06:12:03.03Z"
+                    endTime: "2025-12-09T06:12:03.03Z"
+                terminationReason: "IDNSUPPORT-123: Confirmed runaway detected, terminate workflow executions for workflow: <workflowDefinitionID>"
+
+  responses:
+    '200':
+      description: The Workflow object
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              namespace:
+                type: string
+                description: The temporal namespace workflow executions will be terminated in
+                example: temporal-cloud-prd-us-east-1.c2iw8
+              jobIDs:
+                type: array
+                description: array of batch jobIDs created for workflow terminations
+                items:
+                  type: string
+                example:
+                - "3f6c9c2e-8c4b-4f7a-9e2d-5c8a1d4b2f91"
+                - "c4b1e9d7-2a6f-4e3b-8f5a-91d0c7a2e684"
+                - "b1c7a3f9-8d2e-4a64-9f5b-0e6c4d2a7813"
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

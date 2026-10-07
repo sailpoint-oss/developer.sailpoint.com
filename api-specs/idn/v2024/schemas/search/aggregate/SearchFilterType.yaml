@@ -1,0 +1,9 @@
+description: >-
+  Enum representing the currently supported filter aggregation types.
+
+  Additional values may be added in the future without notice.
+type: string
+enum:
+- TERM
+default: TERM
+example: TERM

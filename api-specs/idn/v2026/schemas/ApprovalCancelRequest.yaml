@@ -1,0 +1,7 @@
+type: object
+properties:
+  comment:
+    type: string
+    description: Optional comment associated with the cancel request.
+    example: "Cancelled by administrator"
+description: Request body for cancelling a single approval request.

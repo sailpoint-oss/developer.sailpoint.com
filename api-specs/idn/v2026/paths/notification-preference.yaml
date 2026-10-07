@@ -1,0 +1,114 @@
+get:
+  operationId: getNotificationPreference
+  tags:
+  - Notifications
+  summary: Get notification preferences by key
+  description: >-
+    Returns the notification preferences for a specific notification key, including preferred
+    mediums and optional CC/BCC email recipients. If no custom preferences exist, returns the
+    default settings from the interest definition. If the key does not exist, a 404 is returned.
+  security:
+  - userAuth:
+    - idn:notification-preferences:read
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  parameters:
+  - in: path
+    name: key
+    required: true
+    x-sailpoint-resource-operation-id: listNotificationPreferences
+    schema:
+      type: string
+    description: The notification key.
+    example: access_request_reviewer
+  - in: query
+    name: filterUnavailableMediums
+    required: false
+    schema:
+      type: boolean
+      default: false
+    description: >-
+      When `true`, excludes SLACK and TEAMS from the returned mediums if they are not configured for
+      the tenant. EMAIL and INBOX are always retained.
+    example: true
+  responses:
+    '200':
+      description: Notification preferences for the given key.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/PreferencesDto.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+put:
+  operationId: putNotificationPreference
+  tags:
+  - Notifications
+  summary: Set notification preferences by key
+  description: >-
+    Overwrites the notification preferences for a specific notification key. Controls which mediums
+    are enabled and optional CC/BCC email recipients. The `key` property in the request body is
+    optional; if provided, it must match the key in the path or a 400 is returned. Each of `ccList`
+    and `bccList` supports a maximum of five entries, and the same recipient cannot appear in both
+    lists. CC/BCC configuration requires EMAIL to be enabled in `mediums` and is only allowed for
+    templates that support it.
+  security:
+  - userAuth:
+    - idn:notification-preferences:create
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  parameters:
+  - in: path
+    name: key
+    required: true
+    x-sailpoint-resource-operation-id: listNotificationPreferences
+    schema:
+      type: string
+    description: The notification key.
+    example: access_request_reviewer
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/PreferencesDto.yaml
+        example:
+          key: access_request_reviewer
+          mediums:
+          - EMAIL
+          ccList:
+          - type: IDENTITY
+            id: 6b0b8e47cc1f4c3fa961a38fc718e989
+          - type: STATIC_EMAIL
+            email: cc-recipient@example.com
+          bccList:
+          - type: MANAGER_OF
+  responses:
+    '200':
+      description: Preferences updated successfully. An echo of the saved preferences is returned.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/PreferencesDto.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

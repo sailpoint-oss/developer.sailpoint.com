@@ -1,0 +1,21 @@
+title: replace
+type: object
+required:
+- regex
+- replacement
+properties:
+  regex:
+    type: string
+    description: This can be a string or a regex pattern in which you want to replace.
+    example: "[^a-zA-Z]"
+    externalDocs:
+      description: Regex Builder
+      url: https://regex101.com/
+  replacement:
+    type: string
+    description: This is the replacement string that should be substituded wherever the string or pattern is found.
+    example: " "
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml'
+  input:
+    $ref: './input.yaml'

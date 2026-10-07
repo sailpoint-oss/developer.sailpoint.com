@@ -1,0 +1,39 @@
+post:
+  operationId: countAssignedIdentities
+  summary: Count number of assigned identities by roles.
+  tags:
+    - Roles
+  description: >-
+    This endpoint returns the number of assigned identities for each role in a given list of roles.
+
+
+    A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to
+    call this API.
+  requestBody:
+    description: List of role IDs.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/RoleIDs.yaml"
+  responses:
+    '200':
+      description: List of objects where each object contains the role ID and the assigned identity count for that role.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/AssignedIdentityCountByRole.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

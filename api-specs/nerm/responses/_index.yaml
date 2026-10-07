@@ -1,0 +1,63 @@
+# 200
+User:
+  $ref: './User.yaml'
+Users:
+  $ref: './Users.yaml'
+UserManager:
+  $ref: './UserManager.yaml'
+UserManagers:
+  $ref: './UserManagers.yaml'
+UserRole:
+  $ref: './UserRole.yaml'
+UserRoles:
+  $ref: './UserRoles.yaml'
+Attribute:
+  $ref: './Attribute.yaml'
+Attributes:
+  $ref: './Attributes.yaml'
+AttributeOption:
+  $ref: './AttributeOption.yaml'
+AttributeOptions:
+  $ref: './AttributeOptions.yaml'
+ProfileType:
+  $ref: './ProfileType.yaml'
+ProfileTypes:
+  $ref: './ProfileTypes.yaml'
+Profile:
+  $ref: './Profile.yaml'
+Profiles:
+  $ref: './Profiles.yaml'
+RiskScore:
+  $ref: './RiskScore.yaml'
+RiskScores:
+  $ref: './RiskScores.yaml'
+RiskLevel:
+  $ref: './RiskLevel.yaml'
+RiskLevels:
+  $ref: './RiskLevels.yaml'
+UserProfile:
+  $ref: './UserProfile.yaml'
+UserProfiles:
+  $ref: './UserProfiles.yaml'
+RoleProfile:
+  $ref: './RoleProfile.yaml'
+RoleProfiles:
+  $ref: './RoleProfiles.yaml'
+WorkflowSession:
+  $ref: './WorkflowSession.yaml'
+WorkflowSessions:
+  $ref: './WorkflowSessions.yaml'
+IdentityProofingResults:
+  $ref: './IdentityProofingResults.yaml'
+AdvancedSearch:
+  $ref: './AdvancedSearch.yaml'
+AdvancedSearches:
+  $ref: './AdvancedSearches.yaml'
+# Special
+Url:
+  $ref: './Url.yaml'
+DeleteConfirmation:
+  $ref: './DeleteConfirmation.yaml'
+# 405
+InvalidInput:
+  $ref: './InvalidInput.yaml'

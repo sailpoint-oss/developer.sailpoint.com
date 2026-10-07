@@ -1,0 +1,9 @@
+description: Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again.
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        message:
+          description: A message describing the error
+          example: " Rate Limit Exceeded "

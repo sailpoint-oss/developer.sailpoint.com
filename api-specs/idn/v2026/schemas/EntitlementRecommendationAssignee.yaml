@@ -1,0 +1,32 @@
+description: Describes the target assignee for entitlement recommendations.
+title: Entitlement Recommendation Assignee
+oneOf:
+  - description: Assign to a specific identity or governance group. The value field is required and must be the ID of the identity or governance group.
+    type: object
+    required:
+      - type
+      - value
+    properties:
+      type:
+        description: The type of assignee.
+        type: string
+        enum:
+          - IDENTITY
+          - GOVERNANCE_GROUP
+        example: IDENTITY
+      value:
+        description: The ID of the identity or governance group to assign to.
+        type: string
+        example: "2c91808a7f3b2e8a017f3c3e5f6d0099"
+  - description: Assign to the source owner or entitlement owner role. No value field is required.
+    type: object
+    required:
+      - type
+    properties:
+      type:
+        description: The type of assignee.
+        type: string
+        enum:
+          - SOURCE_OWNER
+          - ENTITLEMENT_OWNER
+        example: SOURCE_OWNER

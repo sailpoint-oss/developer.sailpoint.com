@@ -1,0 +1,47 @@
+allOf:
+  - type: object
+    properties:
+      status:
+        description: Status of Classification Process
+        type: string
+        enum:
+          - STARTED
+          - COLLECTED
+          - COMPLETED
+          - CANCELLED
+          - TERMINATED
+        example: COMPLETED
+      started:
+        type: string
+        format: 'date-time'
+        example: '2017-07-11T18:45:37.098Z'
+        description: Time when the process was started
+      updated:
+        type: string
+        format: 'date-time'
+        example: '2018-06-25T20:22:28.104Z'
+        description: Time when the process status was last updated
+        nullable: true
+      counts:
+        description: A map containing numbers relevant to the source classification process
+        type: object
+        properties:
+          EXPECTED:
+            type: integer
+            format: int64
+            description: total number of source accounts
+            example: 1000
+          RECEIVED:
+            type: integer
+            format: int64
+            description: number of accounts that have been sent for processing (should be the same as expected when all accounts are collected)
+            example: 800
+          COMPLETED:
+            type: integer
+            format: int64
+            description: number of accounts that have been classified
+            example: 500
+        required:
+          - EXPECTED
+          - RECEIVED
+          - COMPLETED

@@ -1,0 +1,16 @@
+type: object
+title: JIT Activation Deactivate Request
+required:
+  - connectionId
+properties:
+  connectionId:
+    type: string
+    format: uuid
+    description: Entitlement connection identifier for the activation to deactivate.
+    example: 757fb803-9024-5861-e510-83a56e4c5bd3
+  requestOrigin:
+    type: string
+    description: Origin of the request.
+    example: slack
+  metaData:
+    $ref: ./JitActivationCallerMetadata.yaml

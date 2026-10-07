@@ -1,0 +1,60 @@
+type: object
+title: Lifecycle Action Request Details
+description: Nested lifecycle execution context stored on the lifecycle request.
+properties:
+  status:
+    $ref: ./lifecyclestatus.yaml
+  action:
+    $ref: ./lifecycleaction.yaml
+  approver:
+    $ref: ./lifecycleapproverref.yaml
+  approvedAt:
+    type: string
+    format: date-time
+    description: Time when the request was approved (ISO-8601).
+    example: '2026-05-26T19:02:00Z'
+  canceller:
+    $ref: ./lifecyclerequesterref.yaml
+  canceledAt:
+    type: string
+    format: date-time
+    description: Time when the request was canceled (ISO-8601).
+    example: '2026-05-26T19:03:00Z'
+  cancelComment:
+    type: string
+    description: Comment provided when the request was canceled.
+    example: Cancelling - will resubmit after maintenance window
+  comments:
+    type: array
+    description: Append-only comment thread for the lifecycle request.
+    items:
+      $ref: ./lifecyclecomment.yaml
+  failurePhase:
+    type: string
+    description: Workflow phase where the request failed, when applicable.
+    example: WORKFLOW_START
+  failureReason:
+    type: string
+    description: Failure reason for the lifecycle request, when applicable.
+    example: Operation can't be performed on AgentAlias when Agent is in Not Prepared state.
+  resource:
+    $ref: ./lifecycleresourcesummary.yaml
+  resourceOwners:
+    type: array
+    description: Cached resource owners for the lifecycle target.
+    items:
+      $ref: ./lifecycleownerref.yaml
+  sourceOwner:
+    $ref: ./lifecycleownerref.yaml
+  requester:
+    $ref: ./lifecyclerequesterref.yaml
+  approvalRequestId:
+    type: string
+    description: Approvals identifier when the request was submitted.
+    example: a0220198-4b01-444b-8ac3-7a8a147a3791
+  approvalSettingsId:
+    type: string
+    description: Approval settings identifier used for the request.
+    example: approval-settings-001
+  provisioning:
+    $ref: ./lifecycleprovisioning.yaml

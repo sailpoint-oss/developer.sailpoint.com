@@ -1,0 +1,239 @@
+# TypeScript SDK
+
+## Overview
+
+Learn how to install and configure the TypeScript SDK in this guide.
+
+## Requirements
+
+You need the following to use the TypeScript SDK:
+
+- **Node**. To learn how to download it and set it up, go [here](https://nodejs.org/en/download).
+
+- **TypeScript**. You can use `npm` to install TypeScript globally. This means that you can use the `tsc` command anywhere in your terminal. To do so, run this command:
+
+```bash
+npm install -g typescript
+```
+
+- Your tenant name in SHF. To learn how to find it, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The SDK will use this tenant name to connect to your SHF instance.
+
+- A PAT with a client secret and ID. To learn how to create one in SHF, refer to [Personal Access Tokens](https://documentation.sailpoint.com/saas/help/common/api_keys.html#generating-a-personal-access-token). The SDK will use this PAT to authenticate with the SailPoint APIs.
+
+## Setup
+
+<details>
+<summary>CLI assisted <em>(recommended)</em></summary>
+
+The SailPoint CLI offers a few commands that will allow you to quickly get started with the Typescript SDK. To learn how to install and use the SailPoint CLI, refer to [SailPoint CLI](https://developer.sailpoint.com/idn/tools/cli#get-the-cli).
+
+Once the CLI is installed and configured, run this command to create a new Typescript project with the Typescript SDK:
+
+```bash
+sail sdk init typescript typescript-example
+```
+
+Running the command creates the structure for your project:
+
+```text
+|-- typescript-example
+|   |-- package.json
+|   |-- src
+|   |   |-- index.ts
+|   |-- tsconfig.json
+```
+
+Navigate into your project folder and run this command to install the required dependencies:
+
+```bash
+npm install
+```
+
+The SDK is now installed. To learn how to configure the SDK, refer to the [Configure section](#configure).
+
+</details>
+
+<details>
+<summary>Manual installation</summary>
+
+To begin your typescript project, you will need to create a directory for your project. Run this command to create your project directory:
+
+```bash
+mkdir typescript-example
+```
+
+Then run this command to change into your project directory:
+
+```bash
+cd typescript-example
+```
+
+To initialize your project directory and create the "package.json" file, run this command in your project directory. 
+
+```bash
+npm init
+```
+
+You will update this file with the dependencies necessary to use the SDK.
+
+Create a source folder named "src". The SDK will include the "src/**/*" folder path when it compiles, so your SDK file must be there. Run this command to create the "src" folder:
+
+```bash
+mkdir src
+```
+
+Go to the `src` folder and create a file named "index.ts". This is the file you will run to use the SDK. You can leave this "index.ts" file empty for now.
+
+Go to the project directory and create a file named "tsconfig.json". This file will contain your compiler configuration. Copy this information into your "tsconfig.json" file:
+
+```typescript
+{
+    "compilerOptions": {
+      "target": "ES2020",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+      "module": "commonjs",                                /* Specify what module code is generated. */
+      "moduleResolution": "node",                       /* Specify how TypeScript looks up a file from a given module specifier. */
+      "esModuleInterop": true,                             /* Omit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+      "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
+      "strict": true,                                      /* Enable all strict type-checking options. */
+      "skipLibCheck": true,
+      "outDir": "./build",
+      "rootDir": "src",
+      "sourceMap": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
+  }
+```
+
+Run this command to add the SailPoint SDK to your project's dependencies:
+
+```bash
+npm install sailpoint-api-client
+```
+
+Or run this command to do the same:
+
+```bash
+yarn add sailpoint-api-client
+```
+
+The SDK is now installed. To learn how to configure the SDK, refer to the [Configure section](#configure).
+
+</details>
+
+## Configure
+
+You must provide configuration to the SDK so that it can authenticate to your SailPoint tenant and make API calls. To do so, you can use a configuration file, "config.json", or environment variables.
+
+### Configuration file
+
+The SDK requires a configuration file to be named "config.json". Within the file, provide these key/value pairs: `ClientId`, `ClientSecret`, `BaseURL`.
+
+<details>
+<summary>CLI assisted <em>(recommended)</em></summary>
+The SailPoint CLI offers a command to generate the config.json file with your currently configured CLI credentials.
+
+```bash
+sail sdk init config
+```
+
+If you have multiple environments configured with the CLI, you can pass an additional parameter to state the environment you wish to create a "config.json" for. 
+
+To pass an additional parameter that states the environment you want to configure, run this command: 
+
+```bash
+sail sdk init config --env devrel
+```
+
+#### Example "config.json"
+
+```json
+{
+  "ClientId": "g0567b766b413b22c05c66e75d532f1b",
+  "ClientSecret": "cabd0e950a7230b63c1ff45be33fb22065b382b6251a73c61177a8bb5482fcc7",
+  "BaseURL": "https://[tenant].api.identitynow.com"
+}
+```
+
+</details>
+
+<details>
+<summary>Manual configuration</summary>
+
+Create a file named "config.json", and provide these key/value pairs: `ClientId`, `ClientSecret`, `BaseURL`.
+
+#### Example "config.json"
+
+```json
+{
+  "ClientId": "g0567b766b413b22c05c66e75d532f1b",
+  "ClientSecret": "cabd0e950a7230b63c1ff45be33fb22065b382b6251a73c61177a8bb5482fcc7",
+  "BaseURL": "https://[tenant].api.identitynow.com"
+}
+```
+
+</details>
+
+:::warning
+Please ensure this file is ignored in your version control system (ex. .gitignore for git)
+:::
+
+### Environment variable configuration
+
+You can also store your configuration in environment variables.
+
+To get your environment variables to persist across terminal sessions, add these exports to your shell profile, something like `~/.bash_profile`.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="linux_mac" label="Linux/Mac" default>
+
+```bash
+export SAIL_BASE_URL=https://[tenant].api.identitynow.com
+export SAIL_CLIENT_ID=[clientID]
+export SAIL_CLIENT_SECRET=[clientSecret]
+```
+
+</TabItem>
+<TabItem value="windows" label="Windows PowerShell">
+
+```bash
+$env:SAIL_BASE_URL=https://[tenant].api.identitynow.com
+$env:SAIL_CLIENT_ID=[clientID]
+$env:SAIL_CLIENT_SECRET=[clientSecret]
+```
+
+To get your environment variables to persist across PowerShell sessions, run these commands instead:
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('SAIL_BASE_URL','https://[tenant].api.identitynow.com')
+[System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_ID','[clientID]')
+[System.Environment]::SetEnvironmentVariable('SAIL_CLIENT_SECRET','[clientSecret]')
+```
+
+</TabItem>
+</Tabs>
+
+## Getting support
+
+To get support for the TypeScript SDK, please see our GitHub page, https://github.com/sailpoint-oss/typescript-sdk.
+
+To submit a bug report, please [click here](https://github.com/sailpoint-oss/typescript-sdk/issues/new?assignees=&labels=bug&template=bug-report.md).
+
+To submit a feature request, please [click here](https://github.com/sailpoint-oss/typescript-sdk/issues/new?assignees=&labels=enhancement&template=feature-request.md)
+
+## Contribute
+
+Do you have an idea to help improve the TypeScript SDK? You can contribute directly!
+
+Before you contribute, you must sign our [CLA](https://cla-assistant.io/sailpoint-oss/typescript-sdk) and read the [Contribution Guidelines](https://github.com/sailpoint-oss/developer.sailpoint.com/blob/main/CONTRIBUTING.md).
+
+## Discuss
+
+You can use this SDK to build new tools that extend your SHF platform and improve experiences across your organization. Use this guide to get started, and if you have questions, don't hesitate to reach out on the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss! 
+
+## Getting started
+
+To get started using the SDK, refer to the [Getting Started Guide](./getting-started.md).

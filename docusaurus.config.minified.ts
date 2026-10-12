@@ -77,7 +77,7 @@ const config: Config = {
           docItemComponent: '@theme/ApiItem',
           // Exclude all non-API doc directories so the plugin skips them entirely.
           // This is what makes the minified build faster — we avoid indexing
-          // connectivity, extensibility, guides, iiq, reporting, and tools content.
+          // connectivity, extensibility, guides, iiq, reporting, tools, and ui-plugins content.
           exclude: [
             'connectivity/**',
             'connectivity.md',
@@ -92,6 +92,8 @@ const config: Config = {
             'reporting.md',
             'tools/**',
             'tools.md',
+            'ui-plugins/**',
+            'ui-plugins.md',
             'index.md',
             'api/iiq/**',
             'api/nerm/**',

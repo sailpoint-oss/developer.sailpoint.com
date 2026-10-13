@@ -130,6 +130,10 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'doc',
+      id: 'api/nerm/v2025/authorization',
+    },
+    {
+      type: 'doc',
       id: 'api/nerm/v2025/pagination-filtering',
     },
     {
@@ -164,6 +168,10 @@ const sidebars: SidebarsConfig = {
     {
       type: 'doc',
       id: 'api/nerm/v1/authentication',
+    },
+    {
+      type: 'doc',
+      id: 'api/nerm/v1/authorization',
     },
     {
       type: 'doc',

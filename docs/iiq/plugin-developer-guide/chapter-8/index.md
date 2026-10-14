@@ -103,7 +103,7 @@ The Service Definition must specify a `pluginName` attribute. This tells Identit
 <ServiceDefinition name="MyService" executor="com.acme.MyPluginService" interval="60" hostes="global">
     <Attributes>
         <Map>
-            <entry key="pluginName value="MyPlugin"/>
+            <entry key="pluginName" value="MyPlugin"/>
         </Map>
     </Attributes>
 </ServiceDefinition>

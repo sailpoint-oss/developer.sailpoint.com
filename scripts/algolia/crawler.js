@@ -1,6 +1,6 @@
 new Crawler({
-  appId: "TB01H1DFAM",
-  apiKey: "c5a4e515371fda155930cd859c6154fc",
+  appId: "",
+  apiKey: "",
   indexPrefix: "crawler_",
   rateLimit: 8,
   maxDepth: 10,
@@ -16,6 +16,8 @@ new Crawler({
     "https://developer.sailpoint.com/*/tags/**",
     "https://developer.sailpoint.com/idn",
     "https://developer.sailpoint.com/idn/**",
+    "https://developer.sailpoint.com/apis/legacy",
+    "https://developer.sailpoint.com/apis/legacy/**",
     "https://developer.sailpoint.com/docs/api/v2026",
     "https://developer.sailpoint.com/docs/api/v2026/**",
     "https://developer.sailpoint.com/docs/api/v2025",

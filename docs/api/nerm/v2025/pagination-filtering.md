@@ -3,7 +3,7 @@ id: pagination-filtering
 title: Pagination and Filtering
 pagination_label: Pagination and Filtering
 sidebar_label: Pagination and Filtering
-sidebar_position: 3
+sidebar_position: 4
 sidebar_class_name: paginationFiltering
 keywords: ['pagination filtering']
 description: NERM API pagination and filtering.

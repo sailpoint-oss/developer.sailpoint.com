@@ -3,7 +3,7 @@ id: pagination-metadata-filtering
 title: Pagination, Metadata and Filtering
 pagination_label: Pagination, Metadata and Filtering
 sidebar_label: Pagination, Metadata and Filtering
-sidebar_position: 3
+sidebar_position: 4
 sidebar_class_name: paginationMetadataFiltering
 keywords: ['pagination metadata filtering']
 description: NERM API pagination, metadata, and filtering.

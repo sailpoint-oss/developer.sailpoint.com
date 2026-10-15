@@ -21,6 +21,12 @@ NERM supports two authentication methods:
 
 ### 1. NERM API Key (Legacy)
 
+:::caution Deprecated
+
+Legacy NERM API keys are deprecated and do not support scopes. Use SailPoint Human Fabric (SHF) API tokens instead, as described below. For details on the scopes available with SHF API tokens, refer to [Authorization](./authorization.md).
+
+:::
+
 To authenticate with a NERM-specific API key, you will need to generate a token by following the instructions here: [Generating a New API Key](https://documentation.sailpoint.com/ne-admin/help/setup/api.html). Once you have your token, you are ready to start making calls!
 
 <a id="2-identity-security-cloud-isc-api-token-recommended" class="legacy-anchor"></a>

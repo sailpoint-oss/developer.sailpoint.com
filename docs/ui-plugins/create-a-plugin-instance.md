@@ -5,13 +5,13 @@ pagination_label: Create a Plugin Instance
 sidebar_label: Create a Plugin Instance
 sidebar_position: 2
 sidebar_class_name: uiPluginsCreate
-keywords: ['ui', 'plugins', 'ui-plugins', 'create', 'init', 'link', 'upload', 'cors', 'chrome', 'troubleshooting']
-description: Scaffold, register, develop, and deploy your first UI plugin with the SailPoint CLI.
+keywords: ['ui', 'plugins', 'ui-plugins', 'create', 'init', 'link', 'upload', 'cors', 'chrome', 'troubleshooting', 'navbar', 'nav bar']
+description: Scaffold, register, develop, deploy, and add your first UI plugin to the nav bar with the SailPoint CLI.
 slug: /ui-plugins/create-a-plugin-instance
 tags: ['ui-plugins']
 ---
 
-This walkthrough takes you from an empty directory to a UI plugin running in your Identity Security Cloud (ISC) tenant. You will scaffold a workspace, register a plugin instance, load your locally running code inside ISC, and finally deploy compiled assets.
+This walkthrough takes you from an empty directory to a UI plugin running in your Identity Security Cloud (ISC) tenant. You will scaffold a workspace, register a plugin instance, load your locally running code inside ISC, deploy compiled assets, and add the plugin to the ISC nav bar.
 
 ## Step 1: Scaffold a workspace with `init`
 
@@ -251,6 +251,28 @@ Run `npm run build` first, then upload.
 The workspace `alias` is the deterministic lookup key for the plugin instance, so `upload` deploys to whichever tenant your CLI is currently authenticated against. Run it while authenticated to staging to update the staging instance, then switch your CLI environment to production and run the identical command to update production — no environment-specific plugin IDs to track.
 
 :::
+
+## Step 7: Add the plugin to the nav bar
+
+After you upload the plugin, users can open it only from its URL. A nav bar item gives the plugin a permanent place in ISC, next to the standard menus.
+
+1. In your tenant, go to **Admin → Global → System Settings → Customize Navbar**.
+2. Open **Custom Item**, and select the **Enabled** checkbox.
+3. For **Language**, keep **English**. You can enter additional languages if desired. For **Label**, enter the name of the top menu, for example `Test Plugin`.
+4. Click **Add sub menu item**.
+
+   ![The Custom Nav Item page, with a label and the Add sub menu item button](./img/navbar-add-sub-menu-item.png)
+
+5. In the dialog, enter the name of the item inside the menu as the **Label**, for example `Test Plugin Page`.
+6. For **Destination**, select **Plugin**. Then select `test-plugin` in the **Plugin** list.
+7. Leave **Required Capabilities** empty to show the item to every user. To show the item to only one audience, select a capability.
+8. Click **Done**.
+
+   ![The Add sub menu item dialog, with the plugin destination selected](./img/navbar-plugin-destination.png)
+
+9. Click **Save**.
+
+Refresh your tenant. The nav bar shows the **Test Plugin** menu, and the menu contains **Test Plugin Page**. Click the item to open your plugin inside ISC.
 
 ## Manage your plugins
 

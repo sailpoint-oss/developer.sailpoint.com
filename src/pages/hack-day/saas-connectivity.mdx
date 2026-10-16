@@ -41,7 +41,9 @@ If that prints anything below 18, grab a current release from [nodejs.org](https
   <TabItem value="macos" label="macOS" default>
 
 ```bash
-brew tap sailpoint-oss/tap && brew install sailpoint-cli
+brew tap sailpoint-oss/tap
+brew trust --formula sailpoint-oss/tap/sailpoint-cli
+brew install sailpoint-cli
 ```
 
   </TabItem>

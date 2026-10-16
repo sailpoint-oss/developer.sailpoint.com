@@ -66,10 +66,24 @@ To install the MSI file, double click on it and follow the prompts in the instal
 MacOS users can use [Homebrew](https://brew.sh/) to install the CLI. Run these commands in your terminal:
 
 ```bash
-brew install sailpoint-oss/tap/sailpoint-cli
+brew tap sailpoint-oss/tap
+brew trust --formula sailpoint-oss/tap/sailpoint-cli
+brew install sailpoint-cli
 ```
 
-Then make sure you can run the `sail` command.
+Homebrew does not load formulas from unofficial taps until you trust them. If you skip the `brew trust` command, the install fails with this error:
+
+```text
+Error: Refusing to load formula sailpoint-oss/tap/sailpoint-cli from untrusted tap sailpoint-oss/tap.
+```
+
+You only need to trust the formula once. To trust every formula in the tap instead, run `brew trust sailpoint-oss/tap`.
+
+Then make sure you can run the `sail` command:
+
+```bash
+sail --version
+```
 
 ### Linux
 

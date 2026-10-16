@@ -1,0 +1,9 @@
+type: object
+title: Export Payload
+allOf:
+  - $ref: "./ExportOptions.yaml"
+properties:
+  description:
+    type: string
+    description: Optional user defined description/name for export job.
+    example: "Export Job 1 Test"

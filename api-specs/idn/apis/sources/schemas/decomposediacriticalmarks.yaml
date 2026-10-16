@@ -1,0 +1,7 @@
+title: decomposeDiacriticalMarks
+type: object
+properties:
+  requiresPeriodicRefresh:
+    $ref: ./requiresperiodicrefresh.yaml
+  input:
+    $ref: ./input.yaml

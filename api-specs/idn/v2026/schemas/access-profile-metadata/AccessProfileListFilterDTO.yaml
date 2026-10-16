@@ -1,0 +1,61 @@
+description: Filter criteria and Access Model Metadata key/values used to select access profiles.
+type: object
+properties:
+  filters:
+    type: string
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+      Filtering is supported for the following fields and operators:
+
+
+      **id**: *eq, in*
+
+
+      **name**: *eq, sw*
+
+
+      **created**: *gt, ge, le*
+
+
+      **modified**: *gt, lt, ge, le*
+
+
+      **owner.id**: *eq, in*
+
+
+      **requestable**: *eq*
+
+
+      **source.id**: *eq, in*
+    example: "requestable eq false"
+    nullable: true
+  ammKeyValues:
+    nullable: true
+    type: array
+    items:
+      type: object
+      properties:
+        attribute:
+          description: >-
+            Attribute key of a metadata. A blank or missing value is rejected with a 400 error.
+          type: string
+          example: "iscFederalClassifications"
+        values:
+          description: >-
+            A list of attribute values used to filter access profiles.
+            If the list is empty, filtering is done by attribute key only.
+          type: array
+          items:
+            type: string
+            example: "secret"
+          example: ["secret"]
+    example:
+      [
+        {
+          "attribute": "iscFederalClassifications",
+          "values": [
+            "secret"
+          ]
+        }
+      ]

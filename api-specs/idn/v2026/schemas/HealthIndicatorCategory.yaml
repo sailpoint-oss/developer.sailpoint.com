@@ -1,0 +1,13 @@
+description: Health indicator category data with errors and warnings
+type: object
+properties:
+  errors:
+    description: List of error events for this category
+    type: array
+    items:
+      $ref: './HealthEvent.yaml'
+  warnings:
+    description: List of warning events for this category
+    type: array
+    items:
+      $ref: './HealthEvent.yaml'

@@ -1,0 +1,99 @@
+servers:
+  - url: https://{tenant}.login.sailpoint.com
+    description: OAuth authorize (login) server
+    variables:
+      tenant:
+        default: sailpoint
+        description: Tenant name
+tags:
+  - OAuth
+summary: Get OAuth authorization URL
+get:
+  operationId: getOauthAuthorize
+  security:
+    - { }
+  x-sailpoint-userLevels:
+    - Any
+  tags:
+    - OAuth
+  summary: Get OAuth authorization URL
+  description: >-
+    Initiates the OAuth 2.0 authorization code flow. The client redirects the user to this endpoint
+    to authenticate with Identity Security Cloud; after successful login, ISC redirects back to
+    the application with an authorization code that can be exchanged for an access token at the
+    token endpoint.
+    PKCE (Proof Key for Code Exchange) is optionally supported: if code_challenge and code_challenge_method
+    are present, SailPoint's OAuth Authorization Server will use them. PKCE is required for public API OAuth clients
+    with authorization_code grant.
+    See [SailPoint Authentication - Authorization Code Flow](https://developer.sailpoint.com/docs/api/v2025/authentication/#request-access-token-with-authorization-code-grant-flow).
+  parameters:
+    - in: query
+      name: client_id
+      required: true
+      schema:
+        type: string
+        example: b61429f5-203d-494c-94c3-04f54e17bc5c
+      description: The OAuth client ID (e.g. from an API client configured for authorization code flow). PAT client IDs are not used here; PATs are only for the client_credentials grant at the token endpoint.
+    - in: query
+      name: response_type
+      required: true
+      schema:
+        type: string
+        enum: [code]
+        default: code
+        example: code
+      description: Must be "code" for authorization code flow.
+    - in: query
+      name: redirect_uri
+      required: true
+      schema:
+        type: string
+        format: uri
+        example: https://myapp.example.com/oauth/redirect
+      description: The application URL to redirect to after authorization (must match client redirectUris).
+    - in: query
+      name: scope
+      required: false
+      schema:
+        type: string
+        example: "sp:scopes:all"
+      description: >-
+        Space-separated list of scopes the client requests (e.g. sp:scopes:all). Optional; when omitted,
+        the server will supply all scopes assigned to the API OAuth client when it was created or last updated.
+    - in: query
+      name: state
+      required: false
+      schema:
+        type: string
+        example: xcoVv98y
+      description: >-
+        Opaque value used for CSRF protection (RECOMMENDED by RFC 6749). The client sends a unique value;
+        the authorization server echoes it back in the redirect to redirect_uri. The client should verify
+        that the returned state matches the one sent to prevent cross-site request forgery.
+    - in: query
+      name: code_challenge
+      required: false
+      schema:
+        type: string
+        example: E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM
+      description: PKCE code challenge (base64url-encoded). When present, SailPoint's OAuth Authorization Server will validate the code_verifier at the token endpoint.
+    - in: query
+      name: code_challenge_method
+      required: false
+      schema:
+        type: string
+        enum: [S256]
+        default: S256
+        example: S256
+      description: PKCE code challenge method. S256 is the only method supported by SailPoint's OAuth Authorization Server. Required when code_challenge is present.
+  responses:
+    '302':
+      description: Redirect (to login when user is not yet authenticated, or to redirect_uri with authorization code when user is authenticated).
+    '400':
+      $ref: '../../apis/shared/responses/400.yaml'
+    '401':
+      $ref: '../../apis/shared/responses/401.yaml'
+    '429':
+      $ref: '../../apis/shared/responses/429.yaml'
+    '500':
+      $ref: '../../apis/shared/responses/500.yaml'

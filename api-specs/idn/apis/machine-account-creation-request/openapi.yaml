@@ -1,0 +1,42 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Machine Account Creation Request
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Machine Account Creation Request
+    description: |
+      Use this API to submit and retrieve machine account creation requests.
+paths:
+  /account-requests/v1/machine-account-create:
+    $ref: ./paths/account-requests-v1-machine-account-create.yaml
+  /account-requests/v1/machine-account-create/{accountRequestId}:
+    $ref: ./paths/account-requests-v1-machine-account-create-by-accountrequestid.yaml
+  /source-subtypes/v1/machine-account-create-access:
+    $ref: ./paths/source-subtypes-v1-machine-account-create-access.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

@@ -1,0 +1,31 @@
+# App
+
+# App
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **String** | The unique ID of the referenced object. | [optional] 
+**Name** | **String** | The human readable name of the referenced object. | [optional] 
+**Source** | [**Reference**](reference) |  | [optional] 
+**Account** | [**AppAllOfAccount**](app-all-of-account) |  | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$App = Initialize-App  -Id 2c91808568c529c60168cca6f90c1313 `
+ -Name John Doe `
+ -Source null `
+ -Account null
+```
+
+- Convert the resource to JSON
+```powershell
+$App | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

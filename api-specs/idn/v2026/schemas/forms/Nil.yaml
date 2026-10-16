@@ -1,0 +1,3 @@
+title: Nil represents the predeclared value nil.
+type: object
+x-go-package: go/types

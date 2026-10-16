@@ -1,0 +1,52 @@
+type: object
+description: >-
+  Complete identity collector representation for [Replace Identity Collector](https://developer.sailpoint.com/docs/api/put-identity-collector-v-1). The server fully replaces the
+  existing resource with this payload. Partial updates are not supported; `users` and `groups`
+  must always be supplied and replace the current collection settings in their entirety.
+required:
+- name
+- sourceId
+- type
+- users
+- groups
+properties:
+  name:
+    type: string
+    description: The display name of the identity collector. Must be unique within the tenant.
+    example: Active Directory Identity Collector
+  sourceId:
+    type: string
+    description: >-
+      The identifier of the associated source, represented as a UUID. Both hyphenated and non-hyphenated formats are
+      accepted. This value cannot be modified for an existing identity collector and must match the current value.
+    example: 2c9180835d2e5168015d32f890ca1581
+  type:
+    type: string
+    description: >-
+      The identity collector type. This value cannot be modified for an existing identity collector and must match the
+      current value.
+    x-extensible-enum:
+      - "Active Directory"
+      - "Azure Active Directory"
+      - "Google Drive"
+      - "Dropbox"
+      - "Dropbox SaaS"
+      - "Box"
+      - "Box SaaS"
+      - "Microsoft Entra SaaS"
+      - "Snowflake"
+      - "Snowflake SaaS"
+      - "Databricks"
+      - "AWS"
+      - "AWS SaaS"
+    example: Active Directory
+  users:
+    $ref: './identitycollectorcollectionsettings.yaml'
+    description: >-
+      Full users collection settings for the identity collector. Replaces the existing properties and
+      fieldMappings for the users collection.
+  groups:
+    $ref: './identitycollectorcollectionsettings.yaml'
+    description: >-
+      Full groups collection settings for the identity collector. Replaces the existing properties and
+      fieldMappings for the groups collection.

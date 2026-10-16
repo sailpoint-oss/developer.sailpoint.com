@@ -1,0 +1,39 @@
+type: object
+title: Identity Entitlement Details Account Target
+properties:
+  accountId:
+    type: string
+    description: The id of account
+    example: "c5ef070e-92c6-4276-a006-98490f132dec"
+  accountName:
+    type: string
+    description: The name of account
+    example: "Adalberto.XYZ"
+  accountUUID:
+    nullable: true
+    type: string
+    description: The UUID representation of the account if available
+    example: "2236c29e-68a6-494d-a469-d072172f46cf"
+  sourceId:
+    type: string
+    description: The id of Source
+    example: "9269d764-8358-4ab9-9748-d4b7418548ca"
+  sourceName:
+    type: string
+    description: The name of Source
+    example: "JDBC XYZ Source"
+  removeDate:
+    nullable: true
+    type: string
+    description: The removal date scheduled for the entitlement on the Identity
+    example: "2035-01-01T12:00:00.000Z"
+  assignmentId:
+    nullable: true
+    type: string
+    description: The assignmentId of the entitlement on the Identity
+    example: "77a5b7b4-262f-4b6a-a2aa-87f84f45f96f"
+  revocable:
+    type: boolean
+    default: false
+    description: If the entitlement can be revoked
+    example: true

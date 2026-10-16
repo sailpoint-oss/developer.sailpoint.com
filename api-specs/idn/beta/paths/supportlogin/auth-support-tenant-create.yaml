@@ -1,0 +1,40 @@
+operationId: authSupportTenantCreate
+tags:
+  - Auth Support Login
+summary: Create auth support tenant record
+description: >-
+  This request will create an auth support tenant record for the tenant making
+  the call, making that tenant the auth tenant in the new record. This new
+  record will function as a prerequisite metadata reference for when a target
+  tenant attempts to create an auth support login record that grants access to a
+  particular auth tenant. Thus, a target tenant must name an auth tenant that
+  exists within an auth support tenant record in order to successfully create an
+  auth support login record.
+
+  Request will require the following security scope:
+  **sp:auth-support-login:create**
+
+requestBody:
+  description: Auth support tenant creation request body.
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "../../schemas/AuthSupportTenantRequest.yaml"
+responses:
+  "200":
+    description: Created auth support tenant record.
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/AuthSupportTenantResponse.yaml"
+  "400":
+    $ref: "../../../v3/responses/400.yaml"
+  "401":
+    $ref: "../../../v3/responses/401.yaml"
+  "403":
+    $ref: "../../../v3/responses/403.yaml"
+  "429":
+    $ref: "../../../v3/responses/429.yaml"
+  "500":
+    $ref: "../../../v3/responses/500.yaml"

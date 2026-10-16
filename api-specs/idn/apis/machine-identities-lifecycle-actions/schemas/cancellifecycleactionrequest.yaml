@@ -1,0 +1,10 @@
+type: object
+title: Cancel Lifecycle Action Request
+description: >-
+  Optional cancel metadata. The path `requestId`.
+properties:
+  comment:
+    type: string
+    description: Optional cancel comment appended to the lifecycle request comment thread.
+    maxLength: 1000
+    example: Cancelling - will resubmit after maintenance window

@@ -1,0 +1,18 @@
+type: object
+title: Application Reference
+properties:
+  id:
+    type: string
+    format: UUID
+    description: ID of application.
+    example: 2c9180835d2e5168015d32f890ca1581
+  name:
+    type: string
+    description: Display name of the application.
+    example: Applied Research Application
+  description:
+    type: string
+    description: Description of the application.
+    example: Access to research information, lab results, and schematics
+  owner:
+    $ref: './AccessItemOwnerDto.yaml'

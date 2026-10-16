@@ -1,0 +1,20 @@
+allOf:
+  - $ref: './BaseCreateApplicationRequest.yaml'
+  - required:
+      - clientId
+      - clientSecret
+      - refreshToken
+    type: object
+    properties:
+      clientId:
+        type: string
+        description: The client ID for the Dropbox application.
+        example: "dropbox-client-id-123"
+      refreshToken:
+        type: string
+        description: The refresh token used for Dropbox API authentication.
+        example: "refresh-token-xyz"
+      clientSecret:
+        type: string
+        description: The client secret for the Dropbox application.
+        example: "dropbox-client-secret-456"

@@ -1,0 +1,219 @@
+# Date Math
+
+## Overview
+
+Use the date math transform to add, subtract, and round components of a timestamp's incoming value. It also allows you to work with a referential value of "now" to run operations against the current date and time instead of a fixed value.
+
+The output format for the DateMath transform is "yyyy-MM-dd'T'HH:mm". When you use this transform inside another transform (e.g., [dateCompare](./date-compare.md)), make sure to convert to [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) first.
+
+:::note Other Considerations
+
+- The input datetime value must always be in [ISO8601 format](https://en.wikipedia.org/wiki/ISO_8601), in UTC time zone:
+
+- Use this format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ", i.e., "2020-10-28T12:00:00.000Z".
+- The dateFormat transform can help get data into this format.
+
+- The industry standard for rounding is actually date/time truncation. When the transform is rounding down, it truncates the the fractional value from the incoming data. When the transform is rounding up, it truncates the fractional value and adds the next unit of time. For examples, refer to the [Transform Structure](#transform-structure).
+  - The "week" unit of time is not supported as a metric when you are rounding. Rounding up or down a week will result in an error.
+  - If you are using the "now" keyword and you have also applied an input date as the implicitly or explicitly definted input parameter, the transform prefers using "now" and ignores the data in the `input` attribute.
+
+:::
+
+## Transform structure
+
+The date math transform takes the input value and executes addition, subtraction and/or rounding operations to that value based on an `expression` configuration value. As indicated earlier, the input datetime must be in [ISO8601 format](https://en.wikipedia.org/wiki/ISO_8601). The `expression` value leverages the following abbreviations to indicate which date or time component to evaluate:
+
+> - "y" - year
+> - "M" - month
+> - "w" - week
+> - "d" - day
+> - "h" - hour
+> - "m" - minute
+> - "s" - second
+> - "now" - the current instant in time
+
+Also, the operational logic is defined by usage of one of the following symbols:
+
+> - "+" - add; This must be followed by a valid time unit.
+> - "-" - subtract; This must be followed by a valid time unit.
+> - "/" - round; This must be followed by a valid time unit.
+
+Some examples of expressions are:
+
+> - `"expression": "now"` returns the current date and time.
+> - `"expression": "now/h"` returns the current date and time, rounded to the hour.
+> - `"expression": "now+1w"` returns one week from the current date and time.
+> - `"expression": "now+1y+1M+2d-4h+1m-3s/s"` returns the current date and time plus one year, one month, two days, minus four hours, plus one minute and minus three seconds, rounded to the second.
+> - `"expression": "+3M"` returns the date and time that would be three months more than the value provided as an input to the transform.
+
+```json
+{
+  "attributes": {
+    "expression": "+3M/h",
+    "roundUp": true,
+    "input": {
+      "attributes": {
+        "sourceName": "HR Source",
+        "attributeName": "startDate"
+      },
+      "type": "accountAttribute"
+    }
+  },
+  "type": "dateMath",
+  "name": "Test Date Math Transform"
+}
+```
+
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `dateMath`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
+## Attributes
+
+The date math transform uses the following structure:
+
+```json
+{
+  "type": "dateMath",
+  "name": "Transform Name",
+  "attributes": {
+    "expression": "now-5d/d",
+    "roundUp": false
+  }
+}
+```
+
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the date math configuration.
+
+#### Required
+
+- **expression** `string` _(required)_  
+  A string value of the date and time components to operate on, along with the math operations to execute. Multiple operations on multiple components are supported.
+  
+  **Abbreviations:**
+  - `y` - year
+  - `M` - month
+  - `w` - week
+  - `d` - day
+  - `h` - hour
+  - `m` - minute
+  - `s` - second
+  - `now` - current instant in time
+  
+  **Operators:**
+  - `+` - add (must be followed by a valid time unit)
+  - `-` - subtract (must be followed by a valid time unit)
+  - `/` - round (must be followed by a valid time unit)
+
+#### Optional
+
+- **roundUp** `boolean` _(optional)_  
+  Whether the transform rounds up or down when the expression defines a rounding (`/`) operation.
+  - `true` - Round up (truncate and add one unit)
+  - `false` - Round down (truncate only)
+  
+  Default is `false`.
+
+- **input** `object` _(optional)_  
+  Explicitly defines the input data passed into the transform. If not provided, the transform uses input from the source and attribute combination configured in the UI.
+
+## Examples
+
+This transform takes the current date, subtracts five days from it, and rounds down to the lowest day.
+
+**Transform request body**:
+
+```json
+{
+  "attributes": {
+    "expression": "now-5d/d",
+    "roundUp": false
+  },
+  "type": "dateMath",
+  "name": "Date Math Transform"
+}
+```
+
+---
+
+<p>&nbsp;</p>
+
+This transform takes the `startDate` attribute from a user's record in the "HR Source," converts it from its native format to an [ISO8601-formatted](https://en.wikipedia.org/wiki/ISO_8601) string, and then adds twelve hours to it. The final value is then rounded up to the next second.
+
+**Transform request body**:
+
+```json
+{
+  "attributes": {
+    "expression": "+12h/s",
+    "roundUp": true,
+    "input": {
+      "attributes": {
+        "input": {
+          "attributes": {
+            "sourceName": "HR Source",
+            "attributeName": "startDate"
+          },
+          "type": "accountAttribute"
+        },
+        "inputFormat": "MMM dd yyyy, HH:mm:ss.SSS",
+        "outputFormat": "ISO8601"
+      },
+      "type": "dateFormat"
+    }
+  },
+  "type": "dateMath",
+  "name": "Date Math Transform"
+}
+```
+
+---
+
+<p>&nbsp;</p>
+
+This transform take the `HIREDATE` from Workday and converts it to [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) to be used in the Date Math transform. The Date Math transform then creates a new Date of `HIREDATE + 1`. Since that is then outputted in the format "yyyy-MM-dd'T'HH:mm", you can then use it in a [dateFormat](/docs/extensibility/transforms/operations/date-format) transform to give a WIN32 formatted date.
+
+**Transform request body**:
+
+```json
+{
+  "type": "dateFormat",
+  "name": "WD - HireDate",
+  "attributes": {
+    "input": {
+      "attributes": {
+        "expression": "+1d",
+        "input": {
+          "attributes": {
+            "input": {
+              "attributes": {
+                "attributeName": "HIREDATE",
+                "sourceName": "Workday"
+              },
+              "type": "accountAttribute"
+            },
+            "inputFormat": "MM/dd/yyyy",
+            "outputFormat": "ISO8601"
+          },
+          "type": "dateFormat"
+        },
+        "roundUp": true
+      },
+      "type": "dateMath"
+    },
+    "inputFormat": "yyyy-MM-dd'T'HH:mm",
+    "outputFormat": "EPOCH_TIME_WIN32"
+  }
+}
+```

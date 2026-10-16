@@ -1,0 +1,29 @@
+type: object
+title: Access Item App Response
+required:
+  - appRoleId
+properties:
+  id:
+    type: string
+    example: 2c918087763e69d901763e72e97f006f
+    description: the access item id
+  accessType:
+    type: string
+    example: app
+    description: the access item type. entitlement in this case
+  displayName:
+    type: string
+    example: Display Name
+    description: the access item display name
+  sourceName:
+    type: string
+    example: appName
+    description:  the associated source name if it exists
+    nullable: true
+  appRoleId:
+    type: string
+    example: 2c918087763e69d901763e72e97f006f
+    description:  the app role id
+    nullable: true
+  
+  

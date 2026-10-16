@@ -1,0 +1,13 @@
+type: object
+properties:
+  id:
+    type: string
+    format: UUID
+    description: Non-Employee request id.
+    example: "ac110005-7156-1150-8171-5b292e3e0084"
+  requester:
+    $ref: './NonEmployeeIdentityReferenceWithId.yaml'
+    example:
+      type: "IDENTITY"
+      id: "2c9180866166b5b0016167c32ef31a66"
+      name: "William Smith"

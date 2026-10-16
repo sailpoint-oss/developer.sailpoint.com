@@ -1,0 +1,61 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Governance Groups
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Governance Groups
+    description: >
+      Use this API to implement and customize Governance Group functionality. With this functionality in place,
+      administrators can create Governance Groups and configure them for use throughout Identity Security Cloud.
+
+
+      A governance group is a group of users that can make governance decisions about access. If your organization has
+      the Access Request or Certifications service, you can configure governance groups to review access requests or
+      certifications. A governance group can determine whether specific access is appropriate for a user.
+
+
+      Refer to [Creating and Managing Governance
+      Groups](https://documentation.sailpoint.com/saas/help/common/users/governance_groups.html) for more information
+      about how to build Governance Groups in the visual builder in the Identity Security Cloud UI.
+paths:
+  /workgroups/v1:
+    $ref: ./paths/workgroups-v1.yaml
+  /workgroups/v1/{id}:
+    $ref: ./paths/workgroups-v1-by-id.yaml
+  /workgroups/v1/bulk-delete:
+    $ref: ./paths/workgroups-v1-bulk-delete.yaml
+  /workgroups/v1/{workgroupId}/connections:
+    $ref: ./paths/workgroups-v1-by-workgroupid-connections.yaml
+  /workgroups/v1/{workgroupId}/members:
+    $ref: ./paths/workgroups-v1-by-workgroupid-members.yaml
+  /workgroups/v1/{workgroupId}/members/bulk-add:
+    $ref: ./paths/workgroups-v1-by-workgroupid-members-bulk-add.yaml
+  /workgroups/v1/{workgroupId}/members/bulk-delete:
+    $ref: ./paths/workgroups-v1-by-workgroupid-members-bulk-delete.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

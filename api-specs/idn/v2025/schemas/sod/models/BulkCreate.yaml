@@ -1,0 +1,6 @@
+type: object
+properties:
+  exceptionCount:
+    type: string
+    nullable: false
+    example: "5"

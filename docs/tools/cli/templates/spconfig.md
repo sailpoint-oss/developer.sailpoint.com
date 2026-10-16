@@ -1,0 +1,78 @@
+# SPConfig Template
+
+Use SPConfig templates to perform complex import and export operations with SailPoint Human Fabric (SHF) configurations.
+
+This is an example of a template file with one SPConfig template populated:
+
+```json
+[
+  {
+    "name": "all-objects",
+    "description": "Export all available objects",
+    "variables": [],
+    "exportBody": {
+      "description": "Export all available objects",
+      "excludeTypes": [],
+      "includeTypes": [
+        "SOURCE",
+        "RULE",
+        "TRIGGER_SUBSCRIPTION",
+        "TRANSFORM",
+        "IDENTITY_PROFILE"
+      ],
+      "objectOptions": {}
+    }
+  }
+]
+```
+
+This is the SPConfig template anatomy:
+
+```json
+
+    {
+        "name": "all-objects",
+```
+
+This is the SPConfig template's name.
+
+The SPConfig template name displays in the template list when you run `sail spconfig template`.
+
+You can also provide this name as an argument: `sail spconfig template all-objects`
+
+```json
+        "description": "Export all available objects",
+```
+
+This is the SPConfig template's description.
+
+in the `sail spconfig template` list
+
+```json
+        "variables": [],
+```
+
+Use variables to dynamically populate values in the following content during command run time.
+
+```json
+        "exportBody": {
+```
+
+The following object matches that detailed in the [API docs](https://developer.sailpoint.com/docs/api/export-sp-config-v-1)
+
+```json
+        "description": "Export all available objects",
+        "excludeTypes": [],
+        "includeTypes": [
+            "SOURCE",
+            "RULE",
+            "TRIGGER_SUBSCRIPTION",
+            "TRANSFORM",
+            "IDENTITY_PROFILE"
+        ],
+        "objectOptions": {}
+        }
+
+    }
+
+```

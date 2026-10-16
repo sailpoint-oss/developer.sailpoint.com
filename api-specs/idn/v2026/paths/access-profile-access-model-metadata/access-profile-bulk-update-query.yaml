@@ -1,0 +1,71 @@
+post:
+  operationId: updateAccessProfilesMetadataByQuery
+  summary: Bulk-update access-profile metadata by query
+  description: >-
+    This API initiates a bulk update of Access Model Metadata for every access profile matching a search query.
+
+    A token with ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN or SOURCE_SUBADMIN authority is required to call this API.
+
+    The update is processed asynchronously. The response returns the ID of the task performing the update.
+
+    The maximum metadata value count for a single access profile is 25.
+    Adding or replacing custom metadata requires a suite license.
+
+    For more information about the query object, refer to [V3 API Perform Search](https://developer.sailpoint.com/docs/api/v3/search-post).
+  tags:
+    - Access Profiles
+  security:
+    - userAuth: [ idn:access-profile:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/access-profile-metadata/AccessProfileMetadataBulkUpdateByQueryRequest.yaml"
+        example:
+          query:
+            indices:
+              - accessprofiles
+            queryType: TEXT
+            textQuery:
+              terms:
+                - test123
+              fields:
+                - id
+              matchAny: false
+              contains: true
+            includeNested: false
+          operation: REPLACE
+          replaceScope: ATTRIBUTE
+          values:
+            - attribute: iscFederalClassifications
+              values:
+                - topSecret
+  responses:
+    "202":
+      description: Returned if the bulk update request was created.
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/access-profile-metadata/AccessProfileMetadataBulkUpdateResponse.yaml"
+          example:
+            id: 2d82ac17-eb0d-4ba6-9918-dcad6ee0294d
+            type: ACCESS_PROFILE
+            status: CREATED
+            created: '2024-09-16T18:59:06.871594Z'
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

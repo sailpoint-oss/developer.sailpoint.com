@@ -1,0 +1,21 @@
+post:
+  summary: Accounts collected for aggregation
+  operationId: accountsCollectedForAggregationEvent
+  description: >-
+    This event trigger fires when Identity Security Cloud has gathered the accounts on a source and is prepared to aggregate them.
+    
+    This trigger occurs after the accounts have been collected from the source but before the aggregation processing begins.
+    
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/AccountsCollectedForAggregation.yaml'

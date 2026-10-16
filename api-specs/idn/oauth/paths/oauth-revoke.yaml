@@ -1,0 +1,84 @@
+servers:
+  - url: https://{tenant}.api.{domain}.com
+    description: Use so Postman gets https://{{tenant}}.api.{{domain}}.com/oauth/revoke (not baseUrl).
+    variables:
+      tenant:
+        default: sailpoint
+        description: Tenant name
+      domain:
+        default: identitynow
+        description: Domain (e.g. identitynow for identitynow.com)
+tags:
+  - OAuth
+summary: Revoke OAuth token
+post:
+  operationId: updateOauthTokenRevoke
+  security:
+    - clientSecretBasic: []
+  x-sailpoint-userLevels:
+    - Any
+  tags:
+    - OAuth
+  summary: Revoke OAuth token
+  description: >-
+    Revokes an OAuth 2.0 access token or refresh token (RFC 7009). The client must authenticate
+    using one of the two supported methods:
+
+    - **client-secret-basic** (recommended): Set the Authorization header to HTTP Basic auth using
+      `client_id` as the username and `client_secret` as the password. The SDK and most HTTP clients
+      base64-encode `client_id:client_secret` for you. In Postman, go to the **Authorization** tab,
+      select **Basic Auth**, and set username to `{{clientId}}` and password to `{{clientSecret}}`.
+
+    - **client-secret-post**: Send `client_id` and `client_secret` as form-data parameters in the
+      request body alongside `token` (fill the body fields below). In Postman these default to
+      `{{clientId}}` and `{{clientSecret}}` — set those collection variables and both auth methods
+      will work without editing individual requests. For public clients, `client_secret` can be
+      omitted.
+
+    The `client_id` used for authentication MUST match the `client_id` in the claims of the
+    token being presented for revocation. Revocation only occurs when there is a match; if the
+    client_id does not match, the server still returns a 200 response.
+
+    On success, the token's JWT ID (jti) is placed in a revocation cache so the API Gateway
+    will no longer accept that access token or refresh token for further use.
+
+  requestBody:
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          required:
+            - token
+          properties:
+            token:
+              type: string
+              description: The access_token or refresh_token to revoke.
+            token_type_hint:
+              type: string
+              enum: [access_token, refresh_token]
+              description: Optional hint indicating the type of token being revoked (RFC 7009).
+            client_id:
+              type: string
+              default: '{{clientId}}'
+              description: >-
+                OAuth client ID. Required when using client-secret-post authentication (instead of
+                client-secret-basic). Must match the client_id in the token's claims. In Postman,
+                set the {{clientId}} collection variable.
+            client_secret:
+              type: string
+              default: '{{clientSecret}}'
+              description: >-
+                OAuth client secret. Required when using client-secret-post authentication (instead of
+                client-secret-basic). In Postman, set the {{clientSecret}} collection variable.
+  responses:
+    '200':
+      description: Token revoked successfully.
+    '400':
+      $ref: '../../apis/shared/responses/400.yaml'
+    '401':
+      $ref: '../../apis/shared/responses/401.yaml'
+    '429':
+      $ref: '../../apis/shared/responses/429.yaml'
+    '500':
+      $ref: '../../apis/shared/responses/500.yaml'

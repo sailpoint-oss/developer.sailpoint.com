@@ -1,0 +1,8 @@
+type: object
+properties:
+  includedNames:
+    description: Object names to be included in a backup.
+    type: array
+    items:
+      type: string
+      example: "Test Object name"

@@ -1,0 +1,781 @@
+## OpenAPI
+
+```yaml PATCH /jit-activations/v1/{activationId}/frictions
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API
+  description: Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+paths:
+  /jit-activations/v1/{activationId}/frictions:
+    patch:
+      description: |
+        Submits the current friction step for a JIT Privileged (JIT P) activation.
+
+        Requires OAuth scope **idn:jit-activation-workflow:activate** or
+        **idn:jit-activation-workflow:manage**. The JWT identity id must match the
+        activation identity.
+
+        Returns HTTP 403 when **PSPM_JIT_ACCESS_ACTIVATION** or
+        **PSPM_JIT_ACCESS_ACTIVATION_15** is disabled.
+
+        Request bodies larger than 16 KB return HTTP 413.
+      operationId: patchJitActivationFrictionsV1
+      security:
+        - userAuth:
+            - idn:jit-activation-workflow:activate
+            - idn:jit-activation-workflow:manage
+      parameters:
+        - in: path
+          name: activationId
+          required: true
+          x-sailpoint-resource-operation-id: startActivateWorkflowV1
+          schema:
+            type: string
+            format: uuid
+          description: Identifier of the activation.
+          example: 857fb802-1034-786a-151e-d3a56e4c5bd9
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: true
+      requestBody:
+        required: true
+        description: Submission for the current friction step.
+        content:
+          application/json:
+            schema:
+              type: object
+              title: JIT Activation Friction Patch Request
+              description: Submission for the current friction step.
+              required:
+                - type
+              properties:
+                type:
+                  allOf:
+                    - type: string
+                      title: JIT Activation Friction Type
+                      description: Kind of friction step.
+                      enum:
+                        - TICKET
+                        - JUSTIFICATION
+                        - REAUTHENTICATION
+                      example: JUSTIFICATION
+                  description: Kind of friction step being submitted.
+                submittedData:
+                  allOf:
+                    - type: object
+                      title: Friction Submitted Data
+                      description: Data submitted for a friction step.
+                      properties:
+                        justification:
+                          type: string
+                          maxLength: 2000
+                          description: Justification text.
+                          example: Current P1 requires activation to mitigate
+                        bypass:
+                          type: boolean
+                          default: false
+                          description: Whether this step was bypassed.
+                          example: false
+                        ticketId:
+                          type: string
+                          maxLength: 128
+                          description: Ticketing system identifier.
+                          example: SN-123
+                        isValidTicket:
+                          type: boolean
+                          readOnly: true
+                          default: false
+                          description: Whether the ticket is valid. Set by the server.
+                          example: true
+                        attempts:
+                          type: integer
+                          format: int32
+                          readOnly: true
+                          description: Count of failed submissions for this step. The server sets this value and ignores it on PATCH.
+                          example: 1
+                        reauthSuccessful:
+                          type: boolean
+                          default: false
+                          description: Whether reauthentication succeeded.
+                          example: true
+                        reauthDate:
+                          type: string
+                          description: Time of reauthentication.
+                          pattern: ^$|^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2})?(\.\d+)?(Z|[+-]\d{2}(:?\d{2})?)?)?$
+                          example: '2026-05-08T18:40:00.000Z'
+                        integrationDisabled:
+                          type: boolean
+                          readOnly: true
+                          default: false
+                          description: Whether the ticketing integration is disabled. Set by the server.
+                          example: false
+                  description: Data submitted for this friction step. Omit when bypassing a step that allows bypass.
+                bypass:
+                  type: boolean
+                  nullable: true
+                  default: false
+                  description: Whether to bypass this friction step.
+                  example: false
+            examples:
+              submitJustification:
+                summary: Submit the active justification step
+                value:
+                  type: JUSTIFICATION
+                  submittedData:
+                    justification: Current P1 requires activation to mitigate
+                  bypass: false
+              submitTicket:
+                summary: Submit the active ticket step
+                value:
+                  type: TICKET
+                  submittedData:
+                    ticketId: SN-123
+              submitReauthentication:
+                summary: Submit the active reauthentication step
+                value:
+                  type: REAUTHENTICATION
+                  submittedData:
+                    reauthSuccessful: true
+                    reauthDate: '2026-05-08T18:40:00.000Z'
+              bypassActiveStep:
+                summary: Bypass the active step
+                value:
+                  type: TICKET
+                  bypass: true
+      responses:
+        '200':
+          description: Updated friction state for the activation.
+          content:
+            application/json:
+              schema:
+                type: object
+                title: JIT Activation Frictions Response
+                description: Friction state for an activation.
+                required:
+                  - activationId
+                  - frictionState
+                  - connectionId
+                  - activationInitTime
+                  - expiryMins
+                  - frictions
+                properties:
+                  activationId:
+                    type: string
+                    format: uuid
+                    nullable: true
+                    description: Identifier of the activation.
+                    example: 857fb802-1034-786a-151e-d3a56e4c5bd9
+                  frictionState:
+                    allOf:
+                      - type: string
+                        title: JIT Activation Friction State
+                        description: Aggregate friction state of an activation.
+                        enum:
+                          - PENDING
+                          - IN_PROGRESS
+                          - TIMED_OUT
+                          - COMPLETE
+                          - NOT_APPLICABLE
+                        example: IN_PROGRESS
+                    nullable: true
+                    description: Aggregate friction state of the activation.
+                  connectionId:
+                    type: string
+                    nullable: true
+                    description: Identifier of the entitlement connection.
+                    example: 757fb803-9024-5861-e510-83a56e4c5bd3
+                  activationInitTime:
+                    type: string
+                    format: date-time
+                    nullable: true
+                    description: Time the activation started.
+                    example: '2026-05-08T18:33:52.029Z'
+                  expiryMins:
+                    type: string
+                    description: Minutes allowed to complete all frictions.
+                    example: '5'
+                  frictions:
+                    type: array
+                    description: Friction steps for the activation.
+                    items:
+                      type: object
+                      title: JIT Activation Friction Response
+                      description: One friction step on an activation.
+                      required:
+                        - type
+                        - status
+                        - submittedData
+                        - bypassAllowed
+                      properties:
+                        type:
+                          allOf:
+                            - type: string
+                              title: JIT Activation Friction Type
+                              description: Kind of friction step.
+                              enum:
+                                - TICKET
+                                - JUSTIFICATION
+                                - REAUTHENTICATION
+                              example: JUSTIFICATION
+                          nullable: true
+                          description: Kind of friction step.
+                        status:
+                          allOf:
+                            - type: string
+                              title: JIT Activation Friction Status
+                              description: Lifecycle of one friction step.
+                              enum:
+                                - PENDING
+                                - ACTIVE
+                                - TIMED_OUT
+                                - COMPLETE
+                                - NOT_APPLICABLE
+                                - CANCELLED
+                                - FAILED
+                              example: ACTIVE
+                          nullable: true
+                          description: Lifecycle of this friction step.
+                        submittedData:
+                          allOf:
+                            - type: object
+                              title: Friction Submitted Data
+                              description: Data submitted for a friction step.
+                              properties:
+                                justification:
+                                  type: string
+                                  maxLength: 2000
+                                  description: Justification text.
+                                  example: Current P1 requires activation to mitigate
+                                bypass:
+                                  type: boolean
+                                  default: false
+                                  description: Whether this step was bypassed.
+                                  example: false
+                                ticketId:
+                                  type: string
+                                  maxLength: 128
+                                  description: Ticketing system identifier.
+                                  example: SN-123
+                                isValidTicket:
+                                  type: boolean
+                                  readOnly: true
+                                  default: false
+                                  description: Whether the ticket is valid. Set by the server.
+                                  example: true
+                                attempts:
+                                  type: integer
+                                  format: int32
+                                  readOnly: true
+                                  description: Count of failed submissions for this step. The server sets this value and ignores it on PATCH.
+                                  example: 1
+                                reauthSuccessful:
+                                  type: boolean
+                                  default: false
+                                  description: Whether reauthentication succeeded.
+                                  example: true
+                                reauthDate:
+                                  type: string
+                                  description: Time of reauthentication.
+                                  pattern: ^$|^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2})?(\.\d+)?(Z|[+-]\d{2}(:?\d{2})?)?)?$
+                                  example: '2026-05-08T18:40:00.000Z'
+                                integrationDisabled:
+                                  type: boolean
+                                  readOnly: true
+                                  default: false
+                                  description: Whether the ticketing integration is disabled. Set by the server.
+                                  example: false
+                          nullable: true
+                          description: Data submitted for this friction step.
+                        bypassAllowed:
+                          type: boolean
+                          description: Whether this step may be bypassed.
+                          example: false
+                        minWords:
+                          type: integer
+                          format: int32
+                          description: Minimum word count for a justification step.
+                          example: 5
+              examples:
+                ticketSubmitted:
+                  summary: Ticket submitted
+                  value:
+                    activationId: 857fb802-1034-786a-151e-d3a56e4c5bd9
+                    frictionState: IN_PROGRESS
+                    connectionId: 757fb803-9024-5861-e510-83a56e4c5bd3
+                    activationInitTime: '2026-05-08T18:33:52.029Z'
+                    expiryMins: '5'
+                    frictions:
+                      - type: TICKET
+                        status: COMPLETE
+                        bypassAllowed: false
+                        submittedData:
+                          ticketId: SN-123
+                          isValidTicket: true
+                          bypass: false
+                      - type: JUSTIFICATION
+                        status: ACTIVE
+                        bypassAllowed: false
+                        minWords: 5
+                        submittedData: null
+                      - type: REAUTHENTICATION
+                        status: PENDING
+                        bypassAllowed: false
+                        submittedData: null
+        '400':
+          description: |
+            Invalid friction submission, or the activation is not awaiting frictions. This includes
+            frictions that are not loaded yet, a type that is not the active step, and ticket or
+            justification validation failures.
+          content:
+            application/json:
+              schema:
+                type: object
+                title: Error Response Dto
+                properties:
+                  detailCode:
+                    type: string
+                    description: Fine-grained error code providing more detail of the error.
+                    example: 400.1 Bad Request Content
+                  trackingId:
+                    type: string
+                    description: Unique tracking id for the error.
+                    example: e7eab60924f64aa284175b9fa3309599
+                  messages:
+                    type: array
+                    description: Generic localized reason for error
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+                  causes:
+                    type: array
+                    description: Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+        '401':
+          description: Unauthorized - Returned if there is no authorization header, or if the JWT token is expired.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    description: A message describing the error
+                    example: 'JWT validation failed: JWT is expired'
+        '403':
+          description: Forbidden - Returned if the user you are running as, doesn't have access to this end-point.
+          content:
+            application/json:
+              schema:
+                type: object
+                title: Error Response Dto
+                properties:
+                  detailCode:
+                    type: string
+                    description: Fine-grained error code providing more detail of the error.
+                    example: 400.1 Bad Request Content
+                  trackingId:
+                    type: string
+                    description: Unique tracking id for the error.
+                    example: e7eab60924f64aa284175b9fa3309599
+                  messages:
+                    type: array
+                    description: Generic localized reason for error
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+                  causes:
+                    type: array
+                    description: Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+              examples:
+                '403':
+                  summary: An example of a 403 response object
+                  value:
+                    detailCode: 403 Forbidden
+                    trackingId: b21b1f7ce4da4d639f2c62a57171b427
+                    messages:
+                      - locale: en-US
+                        localeOrigin: DEFAULT
+                        text: The server understood the request but refuses to authorize it.
+        '404':
+          description: Not Found - returned if the request URL refers to a resource or object that does not exist
+          content:
+            application/json:
+              schema:
+                type: object
+                title: Error Response Dto
+                properties:
+                  detailCode:
+                    type: string
+                    description: Fine-grained error code providing more detail of the error.
+                    example: 400.1 Bad Request Content
+                  trackingId:
+                    type: string
+                    description: Unique tracking id for the error.
+                    example: e7eab60924f64aa284175b9fa3309599
+                  messages:
+                    type: array
+                    description: Generic localized reason for error
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+                  causes:
+                    type: array
+                    description: Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+              examples:
+                '404':
+                  summary: An example of a 404 response object
+                  value:
+                    detailCode: 404 Not found
+                    trackingId: b21b1f7ce4da4d639f2c62a57171b427
+                    messages:
+                      - locale: en-US
+                        localeOrigin: DEFAULT
+                        text: The server did not find a current representation for the target resource.
+        '413':
+          description: Request body exceeds the 16 KB limit.
+          content:
+            application/json:
+              schema:
+                type: object
+                title: Error Response Dto
+                properties:
+                  detailCode:
+                    type: string
+                    description: Fine-grained error code providing more detail of the error.
+                    example: 400.1 Bad Request Content
+                  trackingId:
+                    type: string
+                    description: Unique tracking id for the error.
+                    example: e7eab60924f64aa284175b9fa3309599
+                  messages:
+                    type: array
+                    description: Generic localized reason for error
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+                  causes:
+                    type: array
+                    description: Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+        '429':
+          description: Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    description: A message describing the error
+                    example: ' Rate Limit Exceeded '
+        '500':
+          description: Internal Server Error - Returned if there is an unexpected error.
+          content:
+            application/json:
+              schema:
+                type: object
+                title: Error Response Dto
+                properties:
+                  detailCode:
+                    type: string
+                    description: Fine-grained error code providing more detail of the error.
+                    example: 400.1 Bad Request Content
+                  trackingId:
+                    type: string
+                    description: Unique tracking id for the error.
+                    example: e7eab60924f64aa284175b9fa3309599
+                  messages:
+                    type: array
+                    description: Generic localized reason for error
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+                  causes:
+                    type: array
+                    description: Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
+                    items:
+                      type: object
+                      title: Error Message Dto
+                      properties:
+                        locale:
+                          type: string
+                          description: The locale for the message text, a BCP 47 language tag.
+                          example: en-US
+                          nullable: true
+                        localeOrigin:
+                          type: string
+                          enum:
+                            - DEFAULT
+                            - REQUEST
+                            - null
+                          description: An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
+                          example: DEFAULT
+                          nullable: true
+                          title: localeorigin
+                        text:
+                          type: string
+                          description: Actual text of the error message in the indicated locale.
+                          example: The request was syntactically correct but its content is semantically invalid.
+              examples:
+                '500':
+                  summary: An example of a 500 response object
+                  value:
+                    detailCode: 500.0 Internal Fault
+                    trackingId: b21b1f7ce4da4d639f2c62a57171b427
+                    messages:
+                      - locale: en-US
+                        localeOrigin: DEFAULT
+                        text: An internal fault occurred.
+components:
+  securitySchemes:
+    userAuth:
+      type: oauth2
+      x-displayName: Personal Access Token
+      description: |
+        OAuth2 Bearer token (JWT) generated using either a [personal access token (PAT)](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or through the [authorization code flow](https://developer.sailpoint.com/docs/api/authentication/#request-access-token-with-authorization-code-grant-flow).
+
+        Personal access tokens are associated with a user in Identity Security Cloud and relies on the user's [user level](https://documentation.sailpoint.com/saas/help/common/users/index.html) (ex. Admin, Helpdesk, etc.) to determine a base level of access.
+
+        See [Identity Security Cloud REST API Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information.
+      flows:
+        clientCredentials:
+          tokenUrl: https://example-tenant.api.identitynow.com/oauth/token
+          scopes:
+            sp:scopes:default: default scope
+            sp:scopes:all: access to all scopes
+        authorizationCode:
+          authorizationUrl: https://example-tenant.login.sailpoint.com/oauth/authorize
+          tokenUrl: https://example-tenant.api.identitynow.com/oauth/token
+          scopes:
+            sp:scopes:default: default scope
+            sp:scopes:all: access to all scopes
+    applicationAuth:
+      type: oauth2
+      x-displayName: Client Credentials
+      description: |
+        OAuth2 Bearer token (JWT) generated using [client credentials flow](https://developer.sailpoint.com/docs/api/authentication/#request-access-token-with-client-credentials-grant-flow).
+
+        Client credentials refers to tokens that are not associated with a user in Identity Security Cloud.
+
+        See [Identity Security Cloud REST API Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information.
+      flows:
+        clientCredentials:
+          tokenUrl: https://example-tenant.api.identitynow.com/oauth/token
+          scopes:
+            sp:scopes:default: default scope
+            sp:scopes:all: access to all scopes
+```

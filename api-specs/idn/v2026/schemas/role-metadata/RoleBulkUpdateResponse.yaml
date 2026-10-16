@@ -1,0 +1,29 @@
+type: object
+properties:
+  id:
+    type: string
+    description: ID of the task which is executing the bulk update. This also used
+      in to the bulk-update/** API to track status.
+    example: 2c9180867817ac4d017817c491119a20
+  type:
+    type: string
+    description: Type of the bulk update object.
+    example: Role
+  status:
+    type: string
+    description: The status of the bulk update request, could also checked by
+      getBulkUpdateStatus API
+    enum:
+      - CREATED
+      - PRE_PROCESS
+      - PRE_PROCESS_COMPLETED
+      - POST_PROCESS
+      - COMPLETED
+      - CHUNK_PENDING
+      - CHUNK_PROCESSING
+    example: CREATED
+  created:
+    type: string
+    description: Time when the bulk update request was created
+    format: date-time
+    example: 2020-10-08T18:33:52.029Z

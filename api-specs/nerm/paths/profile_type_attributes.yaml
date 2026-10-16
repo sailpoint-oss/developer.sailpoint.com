@@ -1,0 +1,20 @@
+get:
+  summary: profile_types/ne_attributes synced status
+  operationId: getProfileTypeAttributes
+  description: Get ne attributes and synced attribute relationship to profile type.
+  tags:
+    - synced attributes
+  parameters:
+    - $ref: "../parameters/path/profile_type_id.yaml"
+    - $ref: "../parameters/query/synced_attribute_active_filter.yaml"
+    - $ref: "../parameters/query/search.yaml"
+    - $ref: "../parameters/query/page.yaml"
+    - $ref: "../parameters/query/per_page.yaml"
+    - $ref: "../parameters/query/sort.yaml"
+  responses:
+    '200':
+      $ref: "../responses/ProfileTypeAttributes_Meta.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

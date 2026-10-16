@@ -1,0 +1,35 @@
+operationId: authSupportLoginCreation
+tags:
+  - Auth Support Login
+summary: Create auth support login record
+description: >-
+  This request will create an auth support login record allowing the authTenant
+  to be able to login as a support user into the tenant requesting support. 
+
+  Request will require the following security scope:
+  **sp:auth-support-login:create**
+
+requestBody:
+  description: Auth support login creation request body.
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "../../schemas/AuthSupportLoginRequest.yaml"
+responses:
+  "200":
+    description: Created auth support login record.
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/AuthSupportLoginResponse.yaml"
+  "400":
+    $ref: "../../../v3/responses/400.yaml"
+  "401":
+    $ref: "../../../v3/responses/401.yaml"
+  "403":
+    $ref: "../../../v3/responses/403.yaml"
+  "429":
+    $ref: "../../../v3/responses/429.yaml"
+  "500":
+    $ref: "../../../v3/responses/500.yaml"

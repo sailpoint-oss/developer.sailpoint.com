@@ -1,0 +1,10 @@
+# ListTriggersV1401Response
+
+# ListTriggersV1401Response
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**error** | **(optional)** `any` | A message describing the error | [default to undefined]
+

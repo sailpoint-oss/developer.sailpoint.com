@@ -1,0 +1,13 @@
+# EntitlementAttributeBulkUpdateQueryRequest
+
+# EntitlementAttributeBulkUpdateQueryRequest
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**query** | **(optional)** `Search` |  | [default to undefined]
+**operation** | **(optional)** `string` | Operation to perform on the attributes in the bulk update request. | [default to undefined]
+**replaceScope** | **(optional)** `string` | The choice of update scope. | [default to undefined]
+**values** | **(optional)** `Array<BulkUpdateAMMKeyValueInner>` | The metadata to be updated, including attribute and values. | [default to undefined]
+

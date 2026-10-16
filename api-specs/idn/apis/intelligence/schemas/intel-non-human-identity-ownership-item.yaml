@@ -1,0 +1,19 @@
+type: object
+required:
+  - id
+  - displayName
+description: Owned non-human identity summary row (aggregate slices and child route).
+properties:
+  id:
+    type: string
+    description: Identity Security Cloud identifier for the owned non-human identity.
+    example: 2c91808874ff91550175097daaec161e
+  displayName:
+    type: string
+    description: Preferred display name for the owned non-human identity.
+    example: Example AI Agent
+  source:
+    type: object
+    description: Source of the owned non-human identity.
+    allOf:
+      - $ref: ./intelmachinesourcewire.yaml

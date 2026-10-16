@@ -1,0 +1,5 @@
+summary : "a cat example"
+value : 
+  id : 0
+  name: "nina"
+  _type : "cat"

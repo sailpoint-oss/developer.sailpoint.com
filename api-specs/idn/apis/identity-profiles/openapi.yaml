@@ -1,0 +1,72 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Identity Profiles
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Identity Profiles
+    description: >
+      Use this API to implement identity profile functionality. 
+
+      With this functionality in place, administrators can view identity profiles and their configurations. 
+
+
+      Identity profiles represent the configurations that can be applied to identities as a way of granting them a set
+      of security and access, as well as defining the mappings between their identity attributes and their source
+      attributes.  
+
+
+      In Identity Security Cloud, administrators can use the Identities drop-down menu and select Identity Profiles to
+      view the list of identity profiles. 
+
+      This list shows some details about each identity profile, along with its status. 
+
+      They can select an identity profile to view its settings, its mappings between identity attributes and correlating
+      source account attributes, and its provisioning settings. 
+
+
+      Refer to [Creating Identity Profiles](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html)
+      for more information about identity profiles.
+paths:
+  /identity-profiles/v1:
+    $ref: ./paths/identity-profiles-v1.yaml
+  /identity-profiles/v1/bulk-delete:
+    $ref: ./paths/identity-profiles-v1-bulk-delete.yaml
+  /identity-profiles/v1/export:
+    $ref: ./paths/identity-profiles-v1-export.yaml
+  /identity-profiles/v1/import:
+    $ref: ./paths/identity-profiles-v1-import.yaml
+  /identity-profiles/v1/{identity-profile-id}:
+    $ref: ./paths/identity-profiles-v1-by-identity-profile-id.yaml
+  /identity-profiles/v1/{identity-profile-id}/default-identity-attribute-config:
+    $ref: ./paths/identity-profiles-v1-by-identity-profile-id-default-identity-attribute-config.yaml
+  /identity-profiles/v1/{identity-profile-id}/process-identities:
+    $ref: ./paths/identity-profiles-v1-by-identity-profile-id-process-identities.yaml
+  /identity-profiles/v1/identity-preview:
+    $ref: ./paths/identity-profiles-v1-identity-preview.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

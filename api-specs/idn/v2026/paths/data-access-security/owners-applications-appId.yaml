@@ -1,0 +1,64 @@
+get:
+  operationId: getOwners
+  security:
+    - userAuth: [ das:owners:read, das:owners:manage ]
+    - applicationAuth: [ das:owners:read, das:owners:manage ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  summary: Retrieve owners per application.
+  tags:
+    - Data Access Security
+  parameters:
+    - name: appId
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: The unique identifier of the application for which to retrieve owners.
+      example: 2001
+    - in: query
+      name: limit
+      description: >-
+        Not applicable for this endpoint. Do not use.
+      required: false
+      example: 250
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 250
+        default: 250
+    - in: query
+      name: offset
+      description: >-
+        Not applicable for this endpoint. Do not use.
+      required: false
+      example: 0
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        default: 0
+  responses:
+    '200':
+      description: >-
+        OK. Returns a list of DataOwnerModel objects.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/data-access-security/DataOwnerModel.yaml'
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

@@ -1,0 +1,9 @@
+type: string
+enum:
+  - IDENTITY
+  - ACCOUNT
+  - ENTITLEMENT
+description: >-
+    Indicates whether the associated criteria represents an expression on identity attributes, account attributes, or
+    entitlements, respectively.
+example: ACCOUNT

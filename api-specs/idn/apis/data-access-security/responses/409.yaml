@@ -1,0 +1,32 @@
+description: Conflict - Returned if an identity collector with the same name already exists.
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        detailCode:
+          type: string
+          description: Fine-grained error code providing more detail of the error.
+          example: 409.1 Conflict
+        trackingId:
+          type: string
+          description: Unique tracking id for the error.
+          example: e7eab60924f64aa284175b9fa3309599
+        messages:
+          type: array
+          description: Generic localized reason for error.
+          items:
+            type: object
+            properties:
+              locale:
+                type: string
+                description: The locale for the message text, a BCP 47 language tag.
+                example: en-US
+              localeOrigin:
+                type: string
+                description: An indicator of how the locale was selected.
+                example: DEFAULT
+              text:
+                type: string
+                description: Actual text of the error message in the indicated locale.
+                example: An identity collector with the same name already exists.

@@ -1,0 +1,12 @@
+type: object
+description: >-
+  This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+additionalProperties: true
+example: {
+  "type": accountAttribute,
+  "attributes": {
+    "attributeName": "first_name",
+    "sourceName": "Source"
+  } 
+}
+

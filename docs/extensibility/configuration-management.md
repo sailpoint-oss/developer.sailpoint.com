@@ -1,0 +1,19 @@
+# Configuration Management
+
+## Overview
+Configuration Management provides you with a form of version control for your tenant configurations. 
+With Configuration Management, you can export (backup in Configuration Hub) and import (deploy in Configuration Hub) snapshots of your current tenant configurations, downloading them in a JSON. 
+These configurations can serve as different versions of your tenant configuration. 
+You can then import those configurations into tenants to update, restore, or migrate tenant configurations. 
+
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
+<DocCardList items={useCurrentSidebarCategory().items}/>
+```
+
+## Discuss
+The most valuable resource for SHF developers is the SailPoint Developer Community itself, where SHF users and experts all over the world come together to ask questions and provide solutions. 
+
+To learn more about SHF configuration management and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/isc/6). 

@@ -1,0 +1,58 @@
+type: object
+required:
+  - owner
+  - justificationRequired
+properties:
+  id:
+    type: string
+    description: The system-generated unique identifier of the compensating control.
+    example: "3e078865-55ed-43cf-b83c-85c58d2016e6"
+    readOnly: true
+  name:
+    type: string
+    description: The display name of the compensating control.
+    example: "Example Name"
+    readOnly: true
+  description:
+    type: string
+    description: A human-readable description of the compensating control.
+    example: "a description"
+    readOnly: true
+  owner:
+    $ref: ./reference.yaml
+  secondaryOwners:
+    type: array
+    description: References to additional identities or governance groups that share ownership of the compensating control.
+    example:
+      - id: 943a7c57da334d07ba2454bf7fcf144f
+        type: IDENTITY
+        name: John Doe
+    items:
+      $ref: ./reference.yaml
+    readOnly: true
+  type:
+    type: string
+    description: The type of compensating control that determines how a violation is addressed.
+    example: "MITIGATION"
+    readOnly: true
+  action:
+    type: string
+    description: The action performed when the compensating control is applied.
+    example: "action"
+    readOnly: true
+  expiration:
+    type: string
+    description: "The duration after which the applied control expires, expressed as a duration string."
+    example: "720h"
+    readOnly: true
+  justificationRequired:
+    type: boolean
+    description: Indicates whether a justification is required when applying this control.
+    example: true
+    readOnly: true
+  workflowID:
+    type: string
+    description: >
+      Opaque workflow definition identifier in the exact form required by the owning service.
+    example: "3e07886555ed43cfb83c85c58d2016e6"
+    readOnly: true

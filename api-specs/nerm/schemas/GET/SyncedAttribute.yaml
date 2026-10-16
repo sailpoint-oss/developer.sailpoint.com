@@ -1,0 +1,20 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+    example: 1246d8b3-ac29-4015-8154-dea4434a73fa
+    description: synced attribute's ID
+  profile_type_id:
+    type: string
+    format: uuid
+    readOnly: true
+    example: 1246d8b3-ac29-4015-8154-dea4434a73fa
+    description: Profile type ID of synced attribute
+  ne_attribute_id:
+    type: string
+    format: uuid
+    readOnly: true
+    example: 1246d8b3-ac29-4015-8154-dea4434a73fa
+    description: Ne attribute ID of synced attribute

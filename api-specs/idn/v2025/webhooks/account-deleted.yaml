@@ -1,0 +1,25 @@
+post:
+  summary: Account deleted
+  operationId: accountDeletedEvent
+  description: >-
+    This event trigger fires when an account is deleted in Identity Security Cloud.
+
+    Accounts can be deleted via aggregations or provisioning.
+
+    You could use this event trigger to fire a Workflow that takes additional actions after a privileged account has been deleted.
+
+    See [Aggregating Accounts](https://documentation.sailpoint.com/saas/help/accounts/index.html#aggregating-accounts) and [Configuring Source Account Provisioning](https://documentation.sailpoint.com/saas/help/provisioning/create_profile.html) for more information about the scenarios that lead to account deletion.
+
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [Account Deleted](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/account-deleted).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/trigger/example-input/AccountDeleted.yaml'

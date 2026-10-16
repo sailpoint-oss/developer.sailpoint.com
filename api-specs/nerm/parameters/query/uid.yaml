@@ -1,0 +1,7 @@
+name: uid
+in: query
+description: Workflow session user-specified identifier (UID) for filtering
+required: false
+schema:
+  type: string
+  example: some_workflow_session_123

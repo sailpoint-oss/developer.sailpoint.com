@@ -258,7 +258,7 @@ After you upload the plugin, users can open it only from its URL. A nav bar item
 
 1. In your tenant, go to **Admin → Global → System Settings → Customize Navbar**.
 2. Open **Custom Item**, and select the **Enabled** checkbox.
-3. For **Language**, keep **English**. For **Label**, enter the name of the top menu, for example `Test Plugin`.
+3. For **Language**, keep **English**. You can enter additional languages if desired. For **Label**, enter the name of the top menu, for example `Test Plugin`.
 4. Click **Add sub menu item**.
 
    ![The Custom Nav Item page, with a label and the Add sub menu item button](./img/navbar-add-sub-menu-item.png)

@@ -16,7 +16,7 @@ Use the join transform to join two or more string values with a specified separa
 
 ## Transform structure
 
-The join transform requires an array list of `values` that need to be joined. These values can be static strings or the return values of other nested transforms.
+The join transform requires an array list of `values` that need to be joined. These values can be static strings or the return values of other nested transforms. Note that this primitive *cannot* take in and join the values of a single multi-valued account attribute.
 
 ```json
 {

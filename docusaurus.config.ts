@@ -32,6 +32,7 @@ const config: Config = {
 
   clientModules: [
     require.resolve('./src/clientModules/gtmDataLayer.ts'),
+    require.resolve('./src/clientModules/pendo.ts'),
   ],
 
   scripts: [
@@ -91,7 +92,7 @@ const config: Config = {
       { name: 'twitter:image', content: 'https://developer.sailpoint.com/img/SailPoint-Logo-OG.png' },
 
       // Content Security Policy
-      { 'http-equiv': 'Content-Security-Policy', content: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://code.jquery.com https://www.googletagmanager.com https://cdn.jsdelivr.net https://cdn.cookielaw.org https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://p.typekit.net https://use.typekit.net https://fonts.googleapis.com; img-src 'self' data: https: http:; font-src 'self' data: https://cdn.jsdelivr.net https://use.typekit.net https://cdnjs.cloudflare.com https://fonts.gstatic.com; connect-src 'self' http://localhost:3000 https://nug87yusrg.execute-api.us-east-1.amazonaws.com https://*.algolia.net https://*.algolianet.com https://www.googletagmanager.com https://www.google.com https://analytics.google.com https://developer.sailpoint.com https://cdn.cookielaw.org https://stats.g.doubleclick.net https://googleads.g.doubleclick.net https://*.api.identitynow.com https://*.api.identitynow-demo.com; frame-src 'self' https://www.googletagmanager.com https://www.youtube.com https://play.vidyard.com; worker-src 'self' blob:;" },
+      { 'http-equiv': 'Content-Security-Policy', content: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://code.jquery.com https://www.googletagmanager.com https://cdn.jsdelivr.net https://cdn.cookielaw.org https://googleads.g.doubleclick.net https://cdn.pendo.io https://content-5683840649003008.static.pendo.io https://app.pendo.io data:; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://p.typekit.net https://use.typekit.net https://fonts.googleapis.com https://cdn.pendo.io https://content-5683840649003008.static.pendo.io https://app.pendo.io; img-src 'self' data: https: http:; font-src 'self' data: https://cdn.jsdelivr.net https://use.typekit.net https://cdnjs.cloudflare.com https://fonts.gstatic.com https://cdn.pendo.io; connect-src 'self' http://localhost:3000 https://nug87yusrg.execute-api.us-east-1.amazonaws.com https://*.algolia.net https://*.algolianet.com https://www.googletagmanager.com https://www.google.com https://analytics.google.com https://developer.sailpoint.com https://cdn.cookielaw.org https://stats.g.doubleclick.net https://googleads.g.doubleclick.net https://*.api.identitynow.com https://*.api.identitynow-demo.com https://app.pendo.io https://data.pendo.io https://content-5683840649003008.static.pendo.io; frame-src 'self' https://www.googletagmanager.com https://www.youtube.com https://play.vidyard.com https://app.pendo.io https://portal.pendo.io; worker-src 'self' blob:;" },
     ],
     algolia: {
       appId: 'TB01H1DFAM',
@@ -173,6 +174,7 @@ const config: Config = {
   ],
 
   customFields: {
+    PENDO_API_KEY: process.env.PENDO_API_KEY || '',
     AUTH_USERNAME: process.env.AUTH_USERNAME || '',
     AUTH_PASSWORD: process.env.AUTH_PASSWORD || '',
     ENDPOINT_OVERRIDE: process.env.ENDPOINT_OVERRIDE || '',

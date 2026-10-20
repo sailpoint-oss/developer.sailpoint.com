@@ -97,8 +97,20 @@ Each `Setting` tag describes one element on the settings/configuration page for 
 | value          | Value for the setting                          |
 | label          | Display label for the setting                  |
 | helpText       | Associated help text for the setting           |
-| allowedValues  | List of allowed values for dropdown population |
 | defaultValue   | The default value for the setting              |
+
+It is also possible to force a list of allowed values that will be presented in the form of a dropdown component.
+
+`AllowedValues` is a subtag of the `Setting` tag with each possible value specified in a tag describing its type. 
+
+For example : 
+
+```xml
+<AllowedValues>
+  <String>value1</String>
+  <String>value2</String>
+</AllowedValues>
+```
 
 ## Snippets
 

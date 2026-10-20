@@ -28,6 +28,13 @@ const pluginConfig = [
     {},
   ],
   [
+    '@writechoice/docusaurus-plugin-llms-txt',
+    {
+      description:
+        'Documentation, API references, SDKs, and guides for building on SailPoint Identity Security Cloud, IdentityIQ, and Non-Employee Risk Management.',
+    },
+  ],
+  [
     '@docusaurus/plugin-google-tag-manager',
     {
       containerId: 'GTM-KB3S9VMT',

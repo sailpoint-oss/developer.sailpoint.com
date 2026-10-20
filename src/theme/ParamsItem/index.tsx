@@ -4,7 +4,6 @@ import { translate } from "@docusaurus/Translate";
 import { Example } from "@theme/Example";
 import Markdown from "@theme/Markdown";
 /* eslint-disable import/no-extraneous-dependencies*/
-import { OPENAPI_SCHEMA_ITEM } from "@theme/translationIds";
 import clsx from "clsx";
 
 import { getQualifierMessage, getSchemaName } from "docusaurus-theme-openapi-docs/lib/markdown/schema";
@@ -34,11 +33,11 @@ export interface Props {
 const getEnumDescriptionMarkdown = (enumDescriptions?: [string, string][]) => {
   if (enumDescriptions?.length) {
     const enumValue = translate({
-      id: OPENAPI_SCHEMA_ITEM.ENUM_VALUE,
+      id: "theme.openapi.schemaItem.enumValue",
       message: "Enum Value",
     });
     const description = translate({
-      id: OPENAPI_SCHEMA_ITEM.ENUM_DESCRIPTION,
+      id: "theme.openapi.schemaItem.enumDescription",
       message: "Description",
     });
     return `| ${enumValue} | ${description} |
@@ -139,13 +138,13 @@ function ParamsItem({ param, ...rest }: Props) {
 
   const renderSchemaRequired = guard(required, () => (
     <span className="openapi-schema__required">
-      {translate({ id: OPENAPI_SCHEMA_ITEM.REQUIRED, message: "required" })}
+      {translate({ id: "theme.openapi.schemaItem.required", message: "required" })}
     </span>
   ));
 
   const renderDeprecated = guard(deprecated, () => (
     <span className="openapi-schema__deprecated">
-      {translate({ id: OPENAPI_SCHEMA_ITEM.DEPRECATED, message: "deprecated" })}
+      {translate({ id: "theme.openapi.schemaItem.deprecated", message: "deprecated" })}
     </span>
   ));
 
@@ -175,7 +174,7 @@ function ParamsItem({ param, ...rest }: Props) {
           <div>
             <strong>
               {translate({
-                id: OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
+                id: "theme.openapi.schemaItem.defaultValue",
                 message: "Default value:",
               })}{" "}
             </strong>
@@ -189,7 +188,7 @@ function ParamsItem({ param, ...rest }: Props) {
         <div>
           <strong>
             {translate({
-              id: OPENAPI_SCHEMA_ITEM.DEFAULT_VALUE,
+              id: "theme.openapi.schemaItem.defaultValue",
               message: "Default value:",
             })}{" "}
           </strong>

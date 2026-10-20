@@ -10,7 +10,7 @@ slug: /tools/colab/getting-started-with-saas-connectors
 tags: ['CoLab']
 ---
 
-Use this guide to view and download Identity Security Cloud (ISC) SaaS Connectors built by the community.
+Use this guide to view and download SailPoint Human Fabric (SHF) SaaS Connectors built by the community.
 
 ## Download the connector
 
@@ -29,7 +29,7 @@ sail conn create "my-connector-name"
 sail conn upload -c "my-connector-name" -f path/to/your/download.zip
 ```
 
-Once the connector is uploaded, you can start using it in Identity Security Cloud.
+Once the connector is uploaded, you can start using it in SailPoint Human Fabric.
 
 ## Use the connector
 
@@ -40,7 +40,7 @@ To use the connector you uploaded:
 3. Select **Create New** and choose the connector.
 
 :::note
-The connector name in ISC is **not** the name from `sail conn create`; it is the name set by the connector author.
+The connector name in SHF is **not** the name from `sail conn create`; it is the name set by the connector author.
 :::
 
 4. Select **Configure** and follow the instructions provided by the connector author.

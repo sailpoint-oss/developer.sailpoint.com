@@ -17,9 +17,9 @@ The new UI Development Kit is ALSO the Community Toolbox! You can download the T
 
 ## Overview 
 
-The SailPoint UI Development Kit is a project you can use to develop custom user interfaces that interact with Identity Security Cloud (ISC).
+The SailPoint UI Development Kit is a project you can use to develop custom user interfaces that interact with SailPoint Human Fabric (SHF).
 
-The UI Development Kit provides you with a framework you can use to build your own applications or processes on the ISC platform.
+The UI Development Kit provides you with a framework you can use to build your own applications or processes on the SHF platform.
 
 This document provides an overview of the main components in the UI Development Kit. 
 

@@ -57,7 +57,7 @@ When posting content that was generated or significantly assisted by AI tools, y
 Include a disclosure statement such as:
 
 - "This response was generated with assistance from [AI tool name] and validated against SailPoint documentation."
-- "AI-assisted response - verified against my personal experience with ISC."
+- "AI-assisted response - verified against my personal experience with SHF."
 - "Generated using [AI tool name] and tested in my sandbox environment."
 
 Place the disclosure at the beginning or end of your post in a clear, visible manner.
@@ -119,7 +119,7 @@ When AI provides information, you must:
 
 - Request sources from the AI tool
 - Verify those sources exist and are accurate
-- Include citations in your post (e.g., "According to the ISC API documentation page X…")
+- Include citations in your post (e.g., "According to the SHF API documentation page X…")
 - Link to official documentation when available
 
 **Do not:**
@@ -173,7 +173,7 @@ When AI provides information, you must:
 **Example 1: Code Solution with Context**
 
 ```text
-AI-assisted response - validated in my ISC sandbox
+AI-assisted response - validated in my SHF sandbox
 
 Based on the requirement to transform account data, here's an approach
 using a transform. I used AI to help structure the JSON, then tested
@@ -185,7 +185,7 @@ Note: This worked in my tenant but you may need to adjust the
 attribute mappings based on your source schema. The key is ensuring
 the input attribute exists before the transform runs.
 
-Reference: ISC Transform Documentation - [link]
+Reference: SHF Transform Documentation - [link]
 ```
 
 **Example 2: Research Assistance**
@@ -233,7 +233,7 @@ all generic, just to accumulate points]
 **Best practices when using external AI tools:**
 
 1. **Be specific in your prompts**
-   - Include SailPoint product names (ISC, IIQ, File Access Manager, etc.)
+   - Include SailPoint product names (SHF, IIQ, File Access Manager, etc.)
    - Mention version numbers when relevant
    - Provide context about your use case
 

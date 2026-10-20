@@ -15,7 +15,7 @@ tags: ['tools']
 
 The **XPath Evaluator** is a SailPoint-maintained tool that lets you test [XPath](https://en.wikipedia.org/wiki/XPath) expressions against an XML document and see the extracted values instantly — right in your browser.
 
-It's built to mirror how Identity Security Cloud (ISC) parses XML responses. Connectors such as the **Web Services**, **Workday**, and **SOAP** (for example, Salesforce) connectors return account and identity data as XML, and you map each attribute to an XPath expression that targets a value in that response. Getting those expressions right — especially with namespaced documents and filtering predicates — is otherwise a trial-and-error process against a live connector.
+It's built to mirror how SailPoint Human Fabric (SHF) parses XML responses. Connectors such as the **Web Services**, **Workday**, and **SOAP** (for example, Salesforce) connectors return account and identity data as XML, and you map each attribute to an XPath expression that targets a value in that response. Getting those expressions right — especially with namespaced documents and filtering predicates — is otherwise a trial-and-error process against a live connector.
 
 The evaluator uses the same XML-parsing logic as the Web Services connector, so you can validate your attribute targeting before you configure the connector. Everything runs **locally in your browser**: the XML you paste in is never sent to a server, which keeps sensitive response data private and results fast.
 

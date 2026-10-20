@@ -15,7 +15,7 @@ tags: ['CLI']
 
 Learn how to use the CLI to import and export configurations.
 
-You can use the [SP Config APIs](/docs/api/list-sp-config-objects-v-1) to import configurations into ISC and export them out.
+You can use the [SP Config APIs](/docs/api/list-sp-config-objects-v-1) to import configurations into SHF and export them out.
 
 With the `spconfig` command, you can access the same functionality.
 
@@ -38,9 +38,9 @@ To perform SPConfig operations, you can run these commands:
 
 ### Download
 
-You can use the `download` command to download import and export job results from ISC. The `download` command is specified differently for **Linux/Mac** and **Windows**, respectively.
+You can use the `download` command to download import and export job results from SHF. The `download` command is specified differently for **Linux/Mac** and **Windows**, respectively.
 
-To download import and export job results from ISC on **Linux/Mac**, run this command:
+To download import and export job results from SHF on **Linux/Mac**, run this command:
 
 ```shell
 sail spconfig download \
@@ -48,7 +48,7 @@ sail spconfig download \
   --export {export job ID}
 ```
 
-To download import and export job results from ISC on **Windows**, run this command:
+To download import and export job results from SHF on **Windows**, run this command:
 
 ```shell
 sail spconfig download \
@@ -66,7 +66,7 @@ You can add these flags to the `download` command:
 
 ### Import
 
-To begin an import task in ISC, run this command:
+To begin an import task in SHF, run this command:
 
 ```shell
 sail spconfig import \
@@ -83,7 +83,7 @@ You can add these flags to the `import` command:
 
 ### Export
 
-To begin an export task in ISC, run this command:
+To begin an export task in SHF, run this command:
 
 ```shell
 sail spconfig export \
@@ -104,7 +104,7 @@ You can add these flags to the `export` command:
 
 ### Status
 
-To check the status of import and export jobs in ISC, run this command:
+To check the status of import and export jobs in SHF, run this command:
 
 ```shell
 sail spconfig status --import {import job ID to check} --export {export job ID to check}
@@ -119,7 +119,7 @@ You can add these flags to the `status` command:
 
 ### Template
 
-To begin exporting a template from ISC, run this command:
+To begin exporting a template from SHF, run this command:
 
 ```shell
 sail spconfig template

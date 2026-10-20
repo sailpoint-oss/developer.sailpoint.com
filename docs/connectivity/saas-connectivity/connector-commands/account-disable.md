@@ -54,17 +54,17 @@ You typically invoke the `account disable` command during the joiner, mover, lea
 
 Disabling accounts is generally preferred if the source supports account disabling so the account data remains for later reactivation or inspection. If the source does not support account disabling, or deleting accounts is preferred when an identity leaves the organization, the connector can perform the necessary steps to delete an account with the account disable function.
 
-> 🚧 It is important to note that although SaaS Connectivity supports the account delete command, ISC never sends the account delete command, only the account disable command. The connector’s developer determines the appropriate action for account disable on the source.
+> 🚧 It is important to note that although SaaS Connectivity supports the account delete command, SHF never sends the account delete command, only the account disable command. The connector’s developer determines the appropriate action for account disable on the source.
 
 To use this command, you must specify this value in the `commands` array: `std:account:disable`
 
 :::caution Important
-Although SaaS Connectivity supports a separate `std:account:delete` command, ISC **never** sends it automatically. The `std:account:disable` command is the only command ISC sends during normal leaver lifecycle events. If your organization's policy is to delete accounts on offboarding rather than disable them, implement the delete logic inside your `account disable` handler.
+Although SaaS Connectivity supports a separate `std:account:delete` command, SHF **never** sends it automatically. The `std:account:disable` command is the only command SHF sends during normal leaver lifecycle events. If your organization's policy is to delete accounts on offboarding rather than disable them, implement the delete logic inside your `account disable` handler.
 :::
 
 ## Implementation
 
-Account disable is similar to the account update command. After disabling the account, return the updated account with `disabled: true` so ISC reflects the new state.
+Account disable is similar to the account update command. After disabling the account, return the updated account with `disabled: true` so SHF reflects the new state.
 
 ```typescript
 import {

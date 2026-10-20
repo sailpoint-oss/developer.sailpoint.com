@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # setup.sh
 #
-# One-shot setup: clones (or updates) the four SDK repos, builds their docs
+# One-shot setup: clones (or updates) the five SDK repos, builds their docs
 # from the portal's API specs, syncs reference docs into the portal, and
 # regenerates all API documentation.
 #
@@ -16,6 +16,7 @@
 #   --branch-python <branch>      Branch for python-sdk
 #   --branch-powershell <branch>  Branch for powershell-sdk
 #   --branch-typescript <branch>  Branch for typescript-sdk
+#   --branch-angular <branch>     Branch for angular-sdk
 #   --branch-api-specs <branch>   Branch for api-specs
 #
 # After this completes, run: npm start
@@ -38,6 +39,7 @@ BRANCH_GO=""
 BRANCH_PYTHON=""
 BRANCH_POWERSHELL=""
 BRANCH_TYPESCRIPT=""
+BRANCH_ANGULAR=""
 BRANCH_API_SPECS=""
 EXTRA_ARGS=()
 
@@ -47,21 +49,23 @@ while [[ $# -gt 0 ]]; do
     --branch-python)     BRANCH_PYTHON="$2";     shift 2 ;;
     --branch-powershell) BRANCH_POWERSHELL="$2"; shift 2 ;;
     --branch-typescript) BRANCH_TYPESCRIPT="$2"; shift 2 ;;
+    --branch-angular)    BRANCH_ANGULAR="$2";    shift 2 ;;
     --branch-api-specs)  BRANCH_API_SPECS="$2";  shift 2 ;;
     *)                   EXTRA_ARGS+=("$1");      shift ;;
   esac
 done
 
 # ---------------------------------------------------------------------------
-# Repos to clone / pull — the four SDKs plus api-specs (source of the API
+# Repos to clone / pull — the five SDKs plus api-specs (source of the API
 # specs copied into static/api-specs at build time).
 # ---------------------------------------------------------------------------
-SDK_NAMES=(golang-sdk python-sdk powershell-sdk typescript-sdk api-specs)
+SDK_NAMES=(golang-sdk python-sdk powershell-sdk typescript-sdk angular-sdk api-specs)
 SDK_URLS=(
   "https://github.com/sailpoint-oss/golang-sdk.git"
   "https://github.com/sailpoint-oss/python-sdk.git"
   "https://github.com/sailpoint-oss/powershell-sdk.git"
   "https://github.com/sailpoint-oss/typescript-sdk.git"
+  "https://github.com/sailpoint-oss/angular-sdk.git"
   "https://github.com/sailpoint-oss/api-specs.git"
 )
 SDK_BRANCHES=(
@@ -69,6 +73,7 @@ SDK_BRANCHES=(
   "$BRANCH_PYTHON"
   "$BRANCH_POWERSHELL"
   "$BRANCH_TYPESCRIPT"
+  "$BRANCH_ANGULAR"
   "$BRANCH_API_SPECS"
 )
 

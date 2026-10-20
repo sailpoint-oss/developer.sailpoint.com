@@ -18,7 +18,7 @@ You can use the `select` type to create a dropdown for users to select from a pr
 | Property | Type | Required | Description |
 |---|---|---|---|
 | `key` | string | Yes | The config key used to access the selected value in connector code. |
-| `label` | string | Yes | The label displayed for the dropdown in the ISC UI. |
+| `label` | string | Yes | The label displayed for the dropdown in the SHF UI. |
 | `type` | string | Yes | Must be `"select"`. |
 | `required` | boolean | No | Whether the user must make a selection before saving. Defaults to `false`. |
 | `options` | object[] | Yes | The list of dropdown options. Each option has a `label` (displayed text) and a `value` (the string stored in config). |

@@ -19,22 +19,22 @@ const API_VERSIONS: ApiVersion[] = [
   {
     key: 'v3',
     label: 'V3',
-    description: 'V3 API — stable, versioned ISC API collection.',
+    description: 'V3 API — stable, versioned SHF API collection.',
   },
   {
     key: 'v2024',
     label: 'V2024',
-    description: '2024 release of the ISC API collection.',
+    description: '2024 release of the SHF API collection.',
   },
   {
     key: 'v2025',
     label: 'V2025',
-    description: '2025 release of the ISC API collection.',
+    description: '2025 release of the SHF API collection.',
   },
   {
     key: 'v2026',
     label: 'V2026',
-    description: '2026 release of the ISC API collection.',
+    description: '2026 release of the SHF API collection.',
   },
 ];
 
@@ -52,7 +52,7 @@ function LegacyViewer({ activeKey }: { activeKey: string }) {
         <iframe
           key={`${version.key}-${colorMode}`}
           src={specUrl(version.key, colorMode)}
-          title={`SailPoint ISC API — ${version.label}`}
+          title={`SailPoint SHF API — ${version.label}`}
           className={`${styles.frame} ${activeKey === version.key ? styles.frameVisible : styles.frameHidden}`}
           sandbox="allow-scripts allow-same-origin"
         />
@@ -67,13 +67,13 @@ const LegacyApiDocs: React.FC = () => {
   return (
     <Layout
       title="Legacy API Specifications"
-      description="Legacy versioned API specifications for SailPoint Identity Security Cloud, rendered via Redocly."
+      description="Legacy versioned API specifications for SailPoint Human Fabric, rendered via Redocly."
     >
       <div className={styles.container}>
         <div className={styles.header}>
           <h1 className={styles.title}>Legacy API Specifications</h1>
           <p className={styles.subtitle}>
-            These are the legacy versioned API collections for SailPoint Identity Security Cloud.
+            These are the legacy versioned API collections for SailPoint Human Fabric.
             For the latest API documentation, visit the{' '}
             <a href="/docs/api">API Specifications</a> page.
           </p>

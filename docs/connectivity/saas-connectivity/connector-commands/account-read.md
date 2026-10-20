@@ -4,7 +4,7 @@ title: Account Read
 pagination_label: Account Read
 sidebar_label: Account Read
 keywords: ['connectivity', 'connectors', 'account read']
-description: Aggregate a single account from the source into Identity Security Cloud.
+description: Aggregate a single account from the source into SailPoint Human Fabric.
 slug: /connectivity/saas-connectivity/commands/account-read
 tags: ['Connectivity', 'Connector Command']
 ---
@@ -50,7 +50,7 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-The account read command aggregates a single account from the target source into Identity Security Cloud. ISC can call this command during a “one-off” account refresh, which you can trigger by aggregating an individual account in ISC.
+The account read command aggregates a single account from the target source into SailPoint Human Fabric. SHF can call this command during a “one-off” account refresh, which you can trigger by aggregating an individual account in SHF.
 
 To use this command, you must specify this value in the `commands` array: `std:account:read`
 
@@ -60,7 +60,7 @@ To use this command, you must specify this value in the `commands` array: `std:a
 
 ### Extracting the account ID from the input
 
-ISC passes the account's key in `input.key`. For connectors using `keyType: "simple"`, extract the native ID like this:
+SHF passes the account's key in `input.key`. For connectors using `keyType: "simple"`, extract the native ID like this:
 
 ```typescript
 const id = input.key.simple?.id ?? input.identity
@@ -91,7 +91,7 @@ import {
 
     const account = await myClient.getAccount(id)
 
-    // If the account is not found, throw NotFound — ISC will then trigger account create
+    // If the account is not found, throw NotFound — SHF will then trigger account create
     if (!account) {
         throw new ConnectorError('Account not found', ConnectorErrorType.NotFound)
     }
@@ -112,7 +112,7 @@ import {
 
 ### The NotFound error type
 
-If an account cannot be found in the source, throw a `ConnectorError` with type `ConnectorErrorType.NotFound`. This is a special signal to ISC that the account does not exist on the source. When ISC receives this error during an account read triggered by a provisioning event, it will automatically call the `std:account:create` command to provision the account. Without this specific error type, ISC treats the failure as a generic error and does not attempt to create the account.
+If an account cannot be found in the source, throw a `ConnectorError` with type `ConnectorErrorType.NotFound`. This is a special signal to SHF that the account does not exist on the source. When SHF receives this error during an account read triggered by a provisioning event, it will automatically call the `std:account:create` command to provision the account. Without this specific error type, SHF treats the failure as a generic error and does not attempt to create the account.
 
 The following snippet from the Airtable example connector shows this pattern:
 

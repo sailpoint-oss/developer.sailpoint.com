@@ -18,7 +18,7 @@ You can use the `list` type to allow users to enter multiple items in a single e
 | Property | Type | Required | Description |
 |---|---|---|---|
 | `key` | string | Yes | The config key used to access the value in connector code. |
-| `label` | string | Yes | The label displayed for the field in the ISC UI. |
+| `label` | string | Yes | The label displayed for the field in the SHF UI. |
 | `type` | string | Yes | Must be `"list"`. |
 | `required` | boolean | No | Whether the field must be populated before saving configuration. Defaults to `false`. |
 | `helpKey` | string | No | Help text shown alongside the field to guide the administrator. |

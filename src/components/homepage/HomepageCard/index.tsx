@@ -9,11 +9,11 @@ export interface HomepageCardProps {
   link: string;
   title: string;
   image?: string;
-  product: 'isc' | 'iiq';
+  product: 'shf' | 'iiq';
 }
 
 const HomepageCard: React.FC<HomepageCardProps> = ({ link, title, image, product }) => {
-  const productStyles = product === 'isc' ? styles.idn : styles.iiq;
+  const productStyles = product === 'shf' ? styles.shf : styles.iiq;
 
   return (
     <Link to={link}>

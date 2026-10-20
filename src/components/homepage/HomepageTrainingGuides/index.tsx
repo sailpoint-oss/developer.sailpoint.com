@@ -15,19 +15,19 @@ interface TrainingGuide {
 
 const trainingGuides: TrainingGuide[] = [
   {
-    product: 'isc',
+    product: 'shf',
     link: '/docs/api/getting-started',
     title: 'Make your first API call',
     image: '/homepage/cloud-data.svg',
   },
   {
-    product: 'isc',
+    product: 'shf',
     link: '/docs/extensibility/transforms/guides/your-first-transform',
     title: 'Build a Transform',
     image: '/homepage/process.svg',
   },
   {
-    product: 'isc',
+    product: 'shf',
     link: '/docs/connectivity/saas-connectivity',
     title: 'Build a SaaS Connector',
     image: '/homepage/connectivity.svg',

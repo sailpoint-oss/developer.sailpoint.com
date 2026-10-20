@@ -11,7 +11,7 @@ slug: /tools/sdk/go/search
 tags: ['SDK', 'Software Development Kit']
 ---
 
-To try using the ISC [search functionality](/docs/api/search-post-v-1) along with pagination, create a file in your project called `sdk.go` with the following content:
+To try using the SHF [search functionality](/docs/api/search-post-v-1) along with pagination, create a file in your project called `sdk.go` with the following content:
 
 ```go
 package main

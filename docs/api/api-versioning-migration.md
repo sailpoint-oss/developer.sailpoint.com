@@ -1,12 +1,12 @@
 ---
 id: api-versioning-migration
-title: Migration guide for ISC APIs to new versioning model.
+title: Migration guide for SHF APIs to new versioning model.
 pagination_label: API Versioning Migration
 sidebar_label: API Versioning Migration
 sidebar_position: 8
 sidebar_class_name: apiVersioning
 keywords: ['api', 'versioning', 'announcement']
-description: Migration guide for ISC APIs to new versioning model.
+description: Migration guide for SHF APIs to new versioning model.
 slug: /api/api-versioning-migration
 tags: ['API Versioning Strategy']
 ---
@@ -14,7 +14,7 @@ tags: ['API Versioning Strategy']
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-We have made a significant update to how SailPoint's Identity Security Cloud APIs are versioned. This document outlines what changed, why we made these changes, how to migrate to the new API versioning system, and what they mean for you as an API consumer or integration developer.
+We have made a significant update to how SailPoint Human Fabric APIs are versioned. This document outlines what changed, why we made these changes, how to migrate to the new API versioning system, and what they mean for you as an API consumer or integration developer.
 
 ## What Has Changed
 

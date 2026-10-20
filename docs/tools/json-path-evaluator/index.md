@@ -6,7 +6,7 @@ sidebar_label: JSON Path Evaluator
 sidebar_position: 5
 sidebar_class_name: tools
 keywords: ['tools', 'json', 'jsonpath', 'evaluator', 'workflows', 'event triggers']
-description: Test and validate JSONPath expressions for ISC workflows and event triggers.
+description: Test and validate JSONPath expressions for SHF workflows and event triggers.
 slug: /tools/json-path-evaluator
 tags: ['tools']
 ---
@@ -15,12 +15,12 @@ tags: ['tools']
 
 The **JSON Path Evaluator** is a SailPoint-maintained tool that lets you test [JSONPath](https://goessner.net/articles/JsonPath/) expressions against a JSON document and see the matching results instantly. It gives you a seamless way to validate your expressions without relying on a third-party website.
 
-JSONPath is used throughout Identity Security Cloud (ISC) to pull values out of JSON data. Two of the most common places you'll write JSONPath are:
+JSONPath is used throughout SailPoint Human Fabric (SHF) to pull values out of JSON data. Two of the most common places you'll write JSONPath are:
 
 - **Workflows** — to reference data from a trigger or from earlier steps.
 - **[Event trigger filters](/docs/extensibility/event-triggers/filtering-events)** — to decide whether a trigger event should be delivered to your subscription.
 
-Because these two features use different underlying JSONPath engines, an expression that works in one won't always behave the same in the other. The evaluator lets you choose which implementation to test against so you can validate your expression in the same way ISC will evaluate it.
+Because these two features use different underlying JSONPath engines, an expression that works in one won't always behave the same in the other. The evaluator lets you choose which implementation to test against so you can validate your expression in the same way SHF will evaluate it.
 
 [**Launch the JSON Path Evaluator →**](/tools/json-path-evaluator)
 

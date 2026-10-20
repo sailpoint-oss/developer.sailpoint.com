@@ -11,7 +11,7 @@ slug: /tools/sdk/python/search
 tags: ['SDK']
 ---
 
-One of the most useful functionalities you can access with the Python SDK is Identity Security Cloud's [search functionality](/docs/api/search-post-v-1). 
+One of the most useful functionalities you can access with the Python SDK is SailPoint Human Fabric's [search functionality](/docs/api/search-post-v-1). 
 
 Here is an example of how you can implement Search, along with pagination. Copy this code into your "sdk.py" file to try it out: 
 

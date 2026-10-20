@@ -14,7 +14,7 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 ![Flow](./img/machine-identity-updated-path.png)
 
-This event trigger fires when a machine identity is updated in Identity Security Cloud.
+This event trigger fires when a machine identity is updated in SailPoint Human Fabric.
 
 Machine identities can be updated via the UI, endpoint, or aggregations.
 

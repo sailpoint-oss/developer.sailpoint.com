@@ -12,7 +12,7 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 ## Event Context
 
-This event trigger fires when an account is deleted in Identity Security Cloud.
+This event trigger fires when an account is deleted in SailPoint Human Fabric.
 
 Accounts can be deleted via aggregations or provisioning.
 

@@ -6,7 +6,7 @@ sidebar_label: Secure Data Share
 sidebar_position: 6
 sidebar_class_name: secureDataShare
 keywords: ['data listing', 'data share', 'secure data sharing']
-description: Share ISC data with Snowflake.
+description: Share SHF data with Snowflake.
 slug: /reporting/secure-data-share
 tags: ['SecureDataShare']
 hide_table_of_contents: true
@@ -25,7 +25,7 @@ Secure Data Share (SDS) makes your SailPoint identity data available directly in
 
 ## Requirements
 
-Secure Data Share is an add-on for Identity Security Cloud. Please contact your sales representative to discuss your SDS options. You must also have an AWS, Azure, or GCP Snowflake account so that SailPoint can synchronize your tenant data with your Snowflake instance.
+Secure Data Share is an add-on for SailPoint Human Fabric. Please contact your sales representative to discuss your SDS options. You must also have an AWS, Azure, or GCP Snowflake account so that SailPoint can synchronize your tenant data with your Snowflake instance.
 
 ## Data synchronization SLA
 
@@ -44,6 +44,6 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 ## Discuss
 
-The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions.
+The most valuable resource for SHF developers is the SailPoint Developer Community itself, where SHF users and experts all over the world come together to ask questions and provide solutions.
 
 To learn more about SDS and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6).

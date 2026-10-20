@@ -6,14 +6,14 @@ sidebar_label: Searching Audit Events
 sidebar_position: 3
 sidebar_class_name: searchingAuditEvents
 keywords: ['audit', 'events', 'search', 'search api', 'security', 'compliance']
-description: Use the Search API to query audit events in Identity Security Cloud.
+description: Use the Search API to query audit events in SailPoint Human Fabric.
 slug: /guides/searching-audit-events
 tags: ['Search', 'Audit', 'Events', 'Security', 'Compliance']
 ---
 
 ## Overview
 
-Identity Security Cloud (ISC) records a wide range of audit events whenever actions are taken in the platform — user logins, role changes, access requests, workflow executions, and much more. These events are indexed in real time and can be queried through the [Search API](https://developer.sailpoint.com/docs/api/search-post-v-1).
+SailPoint Human Fabric (SHF) records a wide range of audit events whenever actions are taken in the platform — user logins, role changes, access requests, workflow executions, and much more. These events are indexed in real time and can be queried through the [Search API](https://developer.sailpoint.com/docs/api/search-post-v-1).
 
 This guide explains how to build useful search queries and what the key fields in an event response mean. For a complete listing of every supported event name and its type, see the [Audit Events Reference](./audit-events-reference).
 
@@ -21,7 +21,7 @@ This guide explains how to build useful search queries and what the key fields i
 
 Use `POST /search/v1` with `"indices": ["events"]` to query audit events. For full details on request and response formats, authentication, and rate limits, see the [Search API reference](https://developer.sailpoint.com/docs/api/search-post-v-1).
 
-To try requests interactively, use the [SailPoint Postman workspace](https://www.postman.com/sailpoint/workspace/identitynow) — the **Identity Security Cloud APIs** collection includes the Search endpoint with pre-configured authentication. See [Postman Collections](https://developer.sailpoint.com/docs/api/postman-collections) for setup instructions.
+To try requests interactively, use the [SailPoint Postman workspace](https://www.postman.com/sailpoint/workspace/identitynow) — the **SailPoint Human Fabric APIs** collection includes the Search endpoint with pre-configured authentication. See [Postman Collections](https://developer.sailpoint.com/docs/api/postman-collections) for setup instructions.
 
 ### Key response fields
 

@@ -14,7 +14,7 @@ tags: ['Event Triggers', 'Available Event Triggers','Fire and Forget']
 
 ![Flow](img/machine-identity-deleted-path.png)
 
-This event trigger fires when a machine identity is deleted in Identity Security Cloud.
+This event trigger fires when a machine identity is deleted in SailPoint Human Fabric.
 
 Machine identities can be deleted via the UI, endpoint, or aggregations. Machine identities can also be auto-deleted when all account correlations to the machine identity are removed.
 

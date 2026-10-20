@@ -64,6 +64,9 @@ const MarketplaceSidebar: React.FC<MarketplaceSidebarProps> = ({ filterCallback,
 
   const uppercaseText = (text: string): string => {
     switch (text) {
+      case 'sailpoint-human-fabric':
+      case 'identity-security-cloud':
+        return 'SailPoint Human Fabric';
       case 'identitynow':
         return 'IdentityNow';
       case 'identityiq':

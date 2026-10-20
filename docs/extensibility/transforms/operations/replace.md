@@ -22,7 +22,7 @@ The replace transform takes a `regex` attribute as an argument to identify which
 {
   "attributes": {
     "regex": "IIQ",
-    "replacement": "Identity Security Cloud"
+    "replacement": "SailPoint Human Fabric"
   },
   "type": "replace",
   "name": "Replace Transform"
@@ -76,11 +76,11 @@ The `attributes` object contains the replacement configuration.
 
 ## Examples
 
-This transform makes a simple word replacement, exchanging "IIQ" for "Identity Security Cloud".
+This transform makes a simple word replacement, exchanging "IIQ" for "SailPoint Human Fabric".
 
 ```bash
 Input: "Working with IIQ is fun"
-Output: "Working with Identity Security Cloud is fun"
+Output: "Working with SailPoint Human Fabric is fun"
 ```
 
 **Transform request body**:
@@ -89,7 +89,7 @@ Output: "Working with Identity Security Cloud is fun"
 {
   "attributes": {
     "regex": "IIQ",
-    "replacement": "Identity Security Cloud"
+    "replacement": "SailPoint Human Fabric"
   },
   "type": "replace",
   "name": "Replace Transform"

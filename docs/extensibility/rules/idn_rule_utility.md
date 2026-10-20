@@ -1,8 +1,8 @@
 ---
 id: rule-utility
 title: Using IdnRuleUtil as a wrapper for common Rule operations
-pagination_label: Identity Security Cloud Rule Utility
-sidebar_label: Identity Security Cloud Rule Utility
+pagination_label: SailPoint Human Fabric Rule Utility
+sidebar_label: SailPoint Human Fabric Rule Utility
 sidebar_position: 4
 sidebar_class_name: ruleUtility
 keywords: ['rule', 'utility']
@@ -13,19 +13,21 @@ tags: ['Rules']
 
 ## Overview
 
-Use this guide to learn how to configure searchable account attributes within Identity Security Cloud and then leverage them within the IdnRuleUtil wrapper class when searching accounts for attributes such as uniqueness checks. There are also methods in the IdnRuleUtil wrapper class you can use without the additional searchable attributes.
+Use this guide to learn how to configure searchable account attributes within SailPoint Human Fabric and then leverage them within the IdnRuleUtil wrapper class when searching accounts for attributes such as uniqueness checks. There are also methods in the IdnRuleUtil wrapper class you can use without the additional searchable attributes.
 
-Search attributes allow you to search across accounts and sources to determine whether a specific attribute value is being used in your Identity Security Cloud environment.
+Search attributes allow you to search across accounts and sources to determine whether a specific attribute value is being used in your SailPoint Human Fabric environment.
 
 There are three critical components involves with working with searchable attributes:
 
-- [Configuration of search attributes within Identity Security Cloud](#configuration-of-search-attributes-within-identity-security-cloud)
+- [Configuration of search attributes within SailPoint Human Fabric](#configuration-of-search-attributes-within-sailpoint-human-fabric)
   - Seed data for accounts already aggregated into the system.
   - Ensure attribute promotion happens for new/changed accounts that are aggregated.
 - [Create rules that can be used to query the newly created attribute values](#create-rules-that-can-be-used-to-query-the-newly-created-attribute-values)
 - [Implement rules within the Create Profile section of each source an account is being provisioned for](#implement-rules-within-the-create-profile-section-of-each-source-for-an-acount-is-being-provisioned-for)
 
-## Configuration of search attributes within Identity Security Cloud
+<a id="configuration-of-search-attributes-within-identity-security-cloud" class="legacy-anchor"></a>
+
+## Configuration of search attributes within SailPoint Human Fabric
 
 When you are planning to implement search attributes, it is important that you consider the way new accounts' values will be generated and which attributes should be used as references.
 
@@ -41,7 +43,7 @@ You need the following information to create search attributes:
 
 The following example shows how to create a new attribute with the [Search Attributes API](/docs/api/create-search-attribute-config-v-1):
 
-Your company has two sources. The first is Active Directory, and the second is Workday. When the system aggregates new accounts, the company wants to query Identity Security Cloud to see whether an email address already exists. If the email address is not in use, you can assign it to the new account. If it is in use, you can iterate on the email address value (add a 1 for example). You can then query Identity Security Cloud once more to see whether your incremented email address is in use. You can repeat this procedure until you have determined that an email address is unique.
+Your company has two sources. The first is Active Directory, and the second is Workday. When the system aggregates new accounts, the company wants to query SailPoint Human Fabric to see whether an email address already exists. If the email address is not in use, you can assign it to the new account. If it is in use, you can iterate on the email address value (add a 1 for example). You can then query SailPoint Human Fabric once more to see whether your incremented email address is in use. You can repeat this procedure until you have determined that an email address is unique.
 
 The following information is necessary to create your search attribute:
 
@@ -62,7 +64,9 @@ The following information is necessary to create your search attribute:
 - Display name for the new attribute configuration:
   - `Promoted Email Address`
 
-### Create the new search attribute in Identity Security Cloud
+<a id="create-the-new-search-attribute-in-identity-security-cloud" class="legacy-anchor"></a>
+
+### Create the new search attribute in SailPoint Human Fabric
 
 To call the APIs for search attributes, you need a personal access token and the name of your tenant to provide with the request. To retrieve a personal access token, see [Personal Access Tokens](../../api/authentication.md#generate-a-personal-access-token). To get the name of your tenant, see [Finding Your Organization Tenant Name](../../api/getting-started.md#find-your-tenant-name)
 
@@ -91,7 +95,7 @@ Aggregation only processes new and/or changed accounts for many sources. If an a
 
 If this source has already been aggregated before the account search configuration was created, a non-optimized aggregation must now be performed to seed the new attribute data for all existing accounts.
 
-At this point, the configuration exists to promote attributes on any new/changed account that comes into Identity Security Cloud. These attributes and their associated values are stored for use in custom rules. Each account that exists on either of these sources will now have a new attribute called “promotedEmailAddress”. _The value of this attribute will be the value of `mail` if it is the Active Directory Source or `emailAddress` if it is the Workday source._
+At this point, the configuration exists to promote attributes on any new/changed account that comes into SailPoint Human Fabric. These attributes and their associated values are stored for use in custom rules. Each account that exists on either of these sources will now have a new attribute called “promotedEmailAddress”. _The value of this attribute will be the value of `mail` if it is the Active Directory Source or `emailAddress` if it is the Workday source._
 
 ## Create Rules that can be used to query the newly created attribute values
 
@@ -565,7 +569,7 @@ String lastName = acctAttrs.get("Last Name");
 
 ### Check if an LDAP attribute value is unique
 
-The `isUniqueLDAPValue` method calls an LDAP-type connector directly to determine whether a given attribute value is already in use. Unlike the promoted-attribute approach, this method queries the connector itself rather than relying on aggregated account data in Identity Security Cloud.
+The `isUniqueLDAPValue` method calls an LDAP-type connector directly to determine whether a given attribute value is already in use. Unlike the promoted-attribute approach, this method queries the connector itself rather than relying on aggregated account data in SailPoint Human Fabric.
 
 This is commonly used in field-level rules on a Create Profile to validate uniqueness (for example, `sAMAccountName`) before provisioning a new account.
 

@@ -6,12 +6,12 @@ sidebar_label: API Versioning Strategy
 sidebar_position: 7
 sidebar_class_name: apiVersioning
 keywords: ['api', 'versioning']
-description: Identity Security Cloud API Versioning Strategy.
+description: SailPoint Human Fabric API Versioning Strategy.
 slug: /api/api-versioning-strategy
 tags: ['API Versioning Strategy']
 ---
 
-SailPoint's Identity Security Cloud (ISC) REST APIs follow true semantic versioning, where each service is versioned independently. A service's major version only increments when its core usage contract changes. This gives you a stable, predictable integration target: as long as a version's contract is unchanged, your integrations continue to work without modification.
+SailPoint Human Fabric (SHF) REST APIs follow true semantic versioning, where each service is versioned independently. A service's major version only increments when its core usage contract changes. This gives you a stable, predictable integration target: as long as a version's contract is unchanged, your integrations continue to work without modification.
 
 When breaking changes are required, a new major version is released in parallel and the previous version enters a clearly defined deprecation schedule on its own timeline. Services are documented once and maintained in place, rather than duplicated across yearly releases.
 
@@ -23,7 +23,7 @@ SailPoint's API versioning process is subject to change at any time. SailPoint w
 
 ## How versioning works
 
-Each ISC service is versioned independently using a URL structure that follows this pattern:
+Each SHF service is versioned independently using a URL structure that follows this pattern:
 
 ```
 /service/v1/action
@@ -115,7 +115,7 @@ Individual API versions may be deprecated at any time. The term "deprecation" me
 
 ### Announcements
 
-Communications will be sent out to notify impacted users of any deprecations. These communications may appear in the Admin page of the Identity Security Cloud UI, in the [Announcements](https://developer.sailpoint.com/discuss/c/announcements/14) category, in Compass, or in newsletters or emails.
+Communications will be sent out to notify impacted users of any deprecations. These communications may appear in the Admin page of the SailPoint Human Fabric UI, in the [Announcements](https://developer.sailpoint.com/discuss/c/announcements/14) category, in Compass, or in newsletters or emails.
 
 ### API specification
 

@@ -57,7 +57,7 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-The entitlement list command triggers during a manual or scheduled entitlement aggregation operation within ISC. This operation gathers a list of all entitlements available on the target source, usually multi-valued entitlements like groups or roles. This operation provides ISC administrators with a list of entitlements available on the source so they can create access profiles and roles accordingly, and it provides ISC with more details about the entitlements. The entitlement schema’s minimum requirements are name and ID, but you can add other values, such as created date, updated date, status, etc.
+The entitlement list command triggers during a manual or scheduled entitlement aggregation operation within SHF. This operation gathers a list of all entitlements available on the target source, usually multi-valued entitlements like groups or roles. This operation provides SHF administrators with a list of entitlements available on the source so they can create access profiles and roles accordingly, and it provides SHF with more details about the entitlements. The entitlement schema’s minimum requirements are name and ID, but you can add other values, such as created date, updated date, status, etc.
 
 To use this command, you must specify this value in the `commands` array: `std:entitlement:list`
 
@@ -124,13 +124,13 @@ private buildStandardObject(): StdEntitlementReadOutput | StdEntitlementListOutp
 
 :::caution Important
 
-ISC will throw a connection timeout error if your connector doesn't respond within 3 minutes, and there are memory limitations involved with aggregating data. To prevent large memory utilization or timeout errors, you should set up your connectors to send data to ISC as it's retrieved from your source system. For more details and an example, refer to [Connector Timeouts](../in-depth/connector-timeouts.md).
+SHF will throw a connection timeout error if your connector doesn't respond within 3 minutes, and there are memory limitations involved with aggregating data. To prevent large memory utilization or timeout errors, you should set up your connectors to send data to SHF as it's retrieved from your source system. For more details and an example, refer to [Connector Timeouts](../in-depth/connector-timeouts.md).
 
 :::
 
 :::caution Important
 
-ISC supports [delta aggregation](#delta-aggregation-state). If your source has a large number of entitlements that will be syncronized with ISC, then it is highly recommended to utilize [delta aggregation](#delta-aggregation-state) for the source.
+SHF supports [delta aggregation](#delta-aggregation-state). If your source has a large number of entitlements that will be syncronized with SHF, then it is highly recommended to utilize [delta aggregation](#delta-aggregation-state) for the source.
 
 :::
 
@@ -151,7 +151,7 @@ If your source can keep track of changes to the data in some way, then delta agg
 }
 ```
 
-2. In the `stdEntitlementList` command, when you are done sending entitlments, you need to also send the state to ISC so it knows where to start the next time it sends a list request:
+2. In the `stdEntitlementList` command, when you are done sending entitlments, you need to also send the state to SHF so it knows where to start the next time it sends a list request:
 
 ```javascript
 const state = {"data": Date.now().toString()}
@@ -193,7 +193,7 @@ The state that you send using the `saveState` command MUST be a json object, and
 
 ## Permissions
 
-Entitlements can include a `permissions` array in their output. Each permission object describes a specific access right that the entitlement grants on a particular target resource. ISC uses this information to give administrators more visibility into what an entitlement actually allows.
+Entitlements can include a `permissions` array in their output. Each permission object describes a specific access right that the entitlement grants on a particular target resource. SHF uses this information to give administrators more visibility into what an entitlement actually allows.
 
 ### Permission Object Structure
 
@@ -207,7 +207,7 @@ Each entry in the `permissions` array has the following fields:
 
 ### Enabling Permissions in the Schema
 
-To tell ISC that your connector supports permissions, set `includePermissions: true` in the entitlement schema in [connector-spec.json](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/connector-spec.json):
+To tell SHF that your connector supports permissions, set `includePermissions: true` in the entitlement schema in [connector-spec.json](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/connector-spec.json):
 
 ```javascript
 "entitlementSchemas": [
@@ -232,7 +232,7 @@ To tell ISC that your connector supports permissions, set `includePermissions: t
 ]
 ```
 
-When `includePermissions` is `true` in the schema, ISC passes `input.schema.includePermissions = true` in the `StdEntitlementListInput`. Your connector should check this flag before fetching and returning permissions, since retrieving permissions may require additional API calls.
+When `includePermissions` is `true` in the schema, SHF passes `input.schema.includePermissions = true` in the `StdEntitlementListInput`. Your connector should check this flag before fetching and returning permissions, since retrieving permissions may require additional API calls.
 
 ### Implementation
 
@@ -250,7 +250,7 @@ When `includePermissions` is `true` in the schema, ISC passes `input.schema.incl
             }
         }
 
-        // Only fetch and include permissions if ISC requested them
+        // Only fetch and include permissions if SHF requested them
         if (input.schema?.includePermissions) {
             const perms = await mySource.getPermissionsForGroup(group.id)
             entitlement.permissions = perms.map(p => ({
@@ -362,7 +362,7 @@ curl -X PATCH \
 
 </details>  
 
-2. In the `.stdEntitlementList` command, before sending the Resource Object (groups), you need to filter the groups. Groups which match the filter string will be filtered. Groups which do not match, will be sent to ISC as normal.
+2. In the `.stdEntitlementList` command, before sending the Resource Object (groups), you need to filter the groups. Groups which match the filter string will be filtered. Groups which do not match, will be sent to SHF as normal.
 
 ```javascript
 export class GitHubConnector {
@@ -394,7 +394,7 @@ In the above example, we are setting the constructor with filter string value fe
 
 
     const filterEvaluator = new Filter(ro.attributes);
-    // process the RO if the filterString is not provided by the user or matcher returns false else skip the RO from sending it to ISC
+    // process the RO if the filterString is not provided by the user or matcher returns false else skip the RO from sending it to SHF
     if (this.filterString === undefined || !filterEvaluator.matcher(this.filterString)) {
         res.send(ro);
         accountCount++;

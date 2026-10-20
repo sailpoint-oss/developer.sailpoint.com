@@ -11,7 +11,7 @@ slug: /tools/sdk/typescript/search
 tags: ['SDK']
 ---
 
-To try using the ISC [search functionality](/docs/api/search-post-v-1) along with pagination, copy this code into your "index.ts" file:
+To try using the SHF [search functionality](/docs/api/search-post-v-1) along with pagination, copy this code into your "index.ts" file:
 
 ```typescript
 import {Configuration, SearchApi, Paginator} from 'sailpoint-api-client';

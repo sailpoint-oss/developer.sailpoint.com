@@ -2,7 +2,7 @@ const footerConfig = {
     style: 'light',
     links: [
       {
-        title: 'Identity Security Cloud',
+        title: 'SailPoint Human Fabric',
         items: [
           { label: 'Your first API call', to: 'docs/api/getting-started' },
           { label: 'Build a transform', to: 'docs/extensibility/transforms/guides/your-first-transform' },

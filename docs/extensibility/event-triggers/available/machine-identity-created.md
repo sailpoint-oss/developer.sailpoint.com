@@ -14,7 +14,7 @@ tags: ['Event Triggers', 'Available Event Triggers', 'Fire and Forget']
 
 ![Flow](./img/machine-identity-created-path.png)
 
-This event trigger fires when a new machine identity is created in Identity Security Cloud.
+This event trigger fires when a new machine identity is created in SailPoint Human Fabric.
 
 Machine identities can be created via the UI, endpoint, or aggregated. Machine identities can also be created via machine account to machine account mappings.
 

@@ -4,6 +4,7 @@ import styles from './filter.module.css';
 import BlogSidebar from '../../components/blog/BlogSidebar';
 import MarketplaceCards from '../../components/marketplace/MarketplaceCards';
 import MarketplaceBanner from '../../components/marketplace/MarketplaceBanner';
+import { SHF_PRODUCT_TAG } from '../../util/util';
 
 // Define the type for the filter state
 interface FilterState {
@@ -14,7 +15,7 @@ interface FilterState {
 const Transforms: React.FC = () => {
   const [filteredProduct, setFilteredProduct] = useState<FilterState>({
     category: 'colab-transforms',
-    tags: ['identity-security-cloud'],
+    tags: [SHF_PRODUCT_TAG],
   });
 
   const handleClick = (data: string) => {

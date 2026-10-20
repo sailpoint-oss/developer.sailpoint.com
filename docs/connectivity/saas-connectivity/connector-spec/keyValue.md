@@ -18,7 +18,7 @@ You can use the `keyValue` type to allow users to enter multiple key-value pairs
 | Property | Type | Required | Description |
 |---|---|---|---|
 | `key` | string | Yes | The config key used to access the key-value map in connector code. |
-| `label` | string | Yes | The label displayed for the field in the ISC UI. |
+| `label` | string | Yes | The label displayed for the field in the SHF UI. |
 | `type` | string | Yes | Must be `"keyValue"`. |
 | `required` | boolean | No | Whether at least one entry is required before saving. Defaults to `false`. |
 | `keyValueKey` | object | Yes | Defines the input field for the key side of each pair. Supports `key`, `label`, `type`, `required`, and `maxlength`. |

@@ -1,5 +1,8 @@
 // https://github.com/github-linguist/linguist/blob/master/lib/linguist/popular.yml
 export type CodeSampleLanguage =
+  // Not a linguist language. The Angular SDK emits `lang: Angular` so that its
+  // samples get their own tab instead of sharing the TypeScript one.
+  | "Angular"
   | "C"
   | "C#"
   | "C++"

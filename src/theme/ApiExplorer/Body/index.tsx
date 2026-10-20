@@ -9,7 +9,6 @@ import { useTypedDispatch, useTypedSelector } from "@theme/ApiItem/hooks";
 import Markdown from "@theme/Markdown";
 import SchemaTabs from "@theme/SchemaTabs";
 import TabItem from "@theme/TabItem";
-import { OPENAPI_BODY, OPENAPI_REQUEST } from "@theme/translationIds";
 import { sampleFromSchema } from "docusaurus-plugin-openapi-docs/lib/openapi/createSchemaExample";
 import type { RequestBodyObject } from "docusaurus-plugin-openapi-docs/src/openapi/types";
 import format from "xml-formatter";
@@ -283,7 +282,7 @@ function Body({
         <FormFileUpload
           placeholder={
             schema.description ||
-            translate({ id: OPENAPI_REQUEST.BODY_TITLE, message: "Body" })
+            translate({ id: "theme.openapi.request.body.title", message: "Body" })
           }
           onChange={(file: any) => {
             if (file === undefined) {
@@ -337,7 +336,7 @@ function Body({
           {/* @ts-ignore */}
           <TabItem
             label={translate({
-              id: OPENAPI_BODY.EXAMPLE_FROM_SCHEMA,
+              id: "theme.openapi.body.exampleFromSchema",
               message: "Example (from schema)",
             })}
             value="Example (from schema)"
@@ -378,7 +377,7 @@ function Body({
           {/* @ts-ignore */}
           <TabItem
             label={translate({
-              id: OPENAPI_BODY.EXAMPLE_FROM_SCHEMA,
+              id: "theme.openapi.body.exampleFromSchema",
               message: "Example (from schema)",
             })}
             value="Example (from schema)"

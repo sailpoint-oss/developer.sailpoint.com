@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import { getTags } from '../../../services/DiscourseService';
-import { SHF_PRODUCT_TAG } from '../../../util/util';
+import { PRODUCT_TAG } from '../../../util/util';
 
 // Define props interface
 interface BlogSidebarProps {
@@ -16,7 +16,7 @@ const BlogSidebar: React.FC<BlogSidebarProps> = ({ filterCallback, defaultValue 
 
   const handleChange = () => {
     setIsChecked(!isChecked);
-    const value = isChecked ? SHF_PRODUCT_TAG : 'Identityiq';
+    const value = isChecked ? PRODUCT_TAG : 'Identityiq';
     filterCallback(value);
   };
 
@@ -51,7 +51,7 @@ const BlogSidebar: React.FC<BlogSidebarProps> = ({ filterCallback, defaultValue 
         />
         <label htmlFor="product-toggle" className={styles.toggleLabel}>
           <div className={styles.toggleBackground}></div>
-          <span className={styles.toggleTextLeft}>SailPoint Human Fabric</span>
+          <span className={styles.toggleTextLeft}>SailPoint Identity Security</span>
           <span className={styles.toggleTextRight}>IdentityIQ</span>
         </label>
       </div>

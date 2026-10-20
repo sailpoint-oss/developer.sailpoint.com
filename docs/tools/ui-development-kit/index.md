@@ -13,9 +13,9 @@ tags: ['UI']
 
 ## Overview
 
-The SailPoint UI Development Kit is a project you can use to develop custom user interfaces that interact with SailPoint Human Fabric (SHF).
+The SailPoint UI Development Kit is a project you can use to develop custom user interfaces that interact with SailPoint Identity Security.
 
-The UI Development Kit provides you with a framework you can use to build your own applications or processes on the SHF platform.
+The UI Development Kit provides you with a framework you can use to build your own applications or processes on the SailPoint Identity Security platform.
 
 Read this guide to learn how to use the SailPoint UI Development Kit.
 
@@ -37,7 +37,7 @@ These are the requirements to use the UI Development Kit:
 npm install -g typescript
 ```
 
-- **Your SHF tenant name**. To find your SHF tenant name, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The UI Development Kit uses your tenant name to connect to your SHF instance.
+- **Your SailPoint Identity Security tenant name**. To find your SailPoint Identity Security tenant name, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The UI Development Kit uses your tenant name to connect to your SailPoint Identity Security instance.
 
 ## Clone the project
 
@@ -115,6 +115,6 @@ Before contributing, you must sign our [CLA](https://cla-assistant.io/sailpoint-
 
 ## Discuss
 
-The most valuable resource for SHF developers is the SailPoint Developer Community itself, where SHF users and experts all over the world come together to ask questions and provide solutions.
+The most valuable resource for SailPoint Identity Security developers is the SailPoint Developer Community itself, where users and experts all over the world come together to ask questions and provide solutions.
 
-To learn more about the SHF UI Development Kit and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6).
+To learn more about the SailPoint Identity Security UI Development Kit and discuss it with SailPoint Developer Community members, go to the [SailPoint Developer Community Forum](https://developer.sailpoint.com/discuss/c/identity-security-cloud/6).

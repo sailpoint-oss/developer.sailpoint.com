@@ -45,7 +45,7 @@ export class AirtableClient {
 
 ## Not Found Error Type
 
-The connector SDK offers a special error type `ConnectorErrorType.NotFound`. This error signals to SHF that a specific account does not exist in the source system. When SHF receives this error during a provisioning event (such as an account update triggered by a role assignment), it will automatically call `std:account:create` to provision the account rather than treating the failure as an error.
+The connector SDK offers a special error type `ConnectorErrorType.NotFound`. This error signals to SailPoint Identity Security that a specific account does not exist in the source system. When SailPoint Identity Security receives this error during a provisioning event (such as an account update triggered by a role assignment), it will automatically call `std:account:create` to provision the account rather than treating the failure as an error.
 
 ```typescript
 import { ConnectorError, ConnectorErrorType } from '@sailpoint/connector-sdk'
@@ -54,8 +54,8 @@ import { ConnectorError, ConnectorErrorType } from '@sailpoint/connector-sdk'
     const account = await myClient.getAccount(input.identity)
 
     if (!account) {
-        // Signal to SHF that the account does not exist.
-        // SHF will automatically trigger std:account:create for this identity.
+        // Signal to SailPoint Identity Security that the account does not exist.
+        // SailPoint Identity Security will automatically trigger std:account:create for this identity.
         throw new ConnectorError('Account not found', ConnectorErrorType.NotFound)
     }
 
@@ -100,7 +100,7 @@ export class MyClient {
 
 ## Recommended error types and when to use them
 
-The following custom error classes cover the most common failure scenarios. Each maps to a `ConnectorErrorType` that SHF understands.
+The following custom error classes cover the most common failure scenarios. Each maps to a `ConnectorErrorType` that SailPoint Identity Security understands.
 
 ### `InvalidConfigurationError`
 
@@ -116,7 +116,7 @@ constructor(config: any) {
 
 ### `InsufficientPermissionError`
 
-Use when the source API returns a 403 or an equivalent "access denied" error. This tells SHF the connector's credentials do not have the required permissions.
+Use when the source API returns a 403 or an equivalent "access denied" error. This tells SailPoint Identity Security the connector's credentials do not have the required permissions.
 
 ```typescript
 async getAccount(id: string): Promise<any> {
@@ -165,7 +165,7 @@ async listAccounts(): Promise<any[]> {
 
 ### `TimeoutError`
 
-Use when the source system returns a timeout error or when an operation takes longer than expected. This is distinct from the SHF-level 3-minute connector timeout.
+Use when the source system returns a timeout error or when an operation takes longer than expected. This is distinct from the SailPoint Identity Security-level 3-minute connector timeout.
 
 ```typescript
 async runLongOperation(): Promise<void> {

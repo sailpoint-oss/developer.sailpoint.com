@@ -19,13 +19,13 @@ SaaS Connectivity is a cloud based connector runtime that makes developing and d
 
 ## What are connectors
 
-Connectors are the bridges between the SailPoint Human Fabric (SHF) SaaS platform and the source systems that SHF needs to communicate with and aggregate data from. An example of a source system SHF may need to communicate with would be an Oracle HR system or GitHub. In these cases, SHF synchronizes data between systems to ensure account entitlements and state are correct through the organization.
+Connectors are the bridges between the SailPoint Identity Security SaaS platform and the source systems that it needs to communicate with and aggregate data from. An example of a source system SailPoint Identity Security may need to communicate with would be an Oracle HR system or GitHub. In these cases, the platform synchronizes data between systems to ensure account entitlements and state are correct through the organization.
 
 ## Why we are introducing SaaS Connectivity
 
 The primary driver for introducing the SaaS Connectivity framework is to allow a way to connect to other cloud based sources in a truly SaaS architecture, without the need to rely on a VA. There are also other benefits that come with the SaaS Connectivity framework:
 
-- Ability to develop, debug and test custom connectors locally without any dependencies on SailPoint Human Fabric
+- Ability to develop, debug and test custom connectors locally without any dependencies on SailPoint Identity Security
 - Features to customize the user interface when configuring the connector that are specific to the source
 - Support for more modern languages and frameworks
 
@@ -35,7 +35,7 @@ VA connectors always communicate with external sources through the Virtual Appli
 
 ![Old Connectivity](./img/old_connectivity_diagram.png)
 
-The new Cloud connectors work differently - they run on the SHF platform instead:
+The new Cloud connectors work differently - they run on the SailPoint Identity Security platform instead:
 
 ![New Connectivity](./img/new_connectivity_diagram.png)
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import { getTags } from '../../../services/DiscourseService';
-import { canonicalProductTag, SHF_PRODUCT_TAG } from '../../../util/util';
+import { canonicalProductTag, PRODUCT_TAG } from '../../../util/util';
 
 // Define the props interface
 interface MarketplaceSidebarProps {
@@ -88,9 +88,10 @@ const VideoSidebar: React.FC<MarketplaceSidebarProps> = ({ filterCallback }) => 
       'developer-days': 'Developer Days',
       'product-demo': 'Product Demo',
       // Product tags carry no label of their own, so they used to render as
-      // raw slugs. Both product slugs share one label.
-      [SHF_PRODUCT_TAG]: 'SailPoint Human Fabric',
-      'identity-security-cloud': 'SailPoint Human Fabric',
+      // raw slugs. Every product slug shares one label.
+      [PRODUCT_TAG]: 'SailPoint Identity Security',
+      'sailpoint-human-fabric': 'SailPoint Identity Security',
+      'identity-security-cloud': 'SailPoint Identity Security',
       identityiq: 'IdentityIQ',
     };
 

@@ -9,11 +9,11 @@ wrapperClassName: hack-day-track
 # Track 01 · Identity Workflows
 
 In this mini hack, you will turn an identity event into a message. You will stand up an authoritative source and finish a partly built Workflow Studio
-workflow that wakes up the moment a new identity appears in SHF, looks up who
+workflow that wakes up the moment a new identity appears in SailPoint Identity Security, looks up who
 that person reports to, and emails a formatted onboarding notice — with the new hire's actual
 department, title, and manager in it. No CLI, no local install, and nothing to deploy.
 
-Nothing here is simulated. You create the source, the trigger is a genuine SHF event, the identity is one you create
+Nothing here is simulated. You create the source, the trigger is a genuine SailPoint Identity Security event, the identity is one you create
 yourself by loading a row into an HR feed, and the email lands in your own inbox, which is what you
 show a developer advocate at the end.
 
@@ -27,7 +27,7 @@ show a developer advocate at the end.
 ## What you are building
 
 ```
-  You append a row          SHF creates the         Your workflow fires
+  You append a row          SailPoint Identity Security creates the         Your workflow fires
   to the HR feed CSV  --->  identity during   --->  on idn:identity-created
   and aggregate             identity refresh
                                                                |
@@ -127,12 +127,12 @@ The rest of the optional values can be left blank.
 Click **Continue**. You now have an empty source where you will add your employees.
 
 **Why a delimited file?** Because it is the shortest path to a *real* authoritative source. There is no
-system on the far end, no credentials, and no network call — you upload a CSV, and SHF treats it as the
+system on the far end, no credentials, and no network call — you upload a CSV, and SailPoint Identity Security treats it as the
 complete, current truth about a population of people. Every identity in this exercise arrives because
 you put a line in a text file, just like how many HR feeds work.
 
 **Why `hack.day` as the owner?** A source owner is the person accountable for the source, as required by
-SHF. Using the shared account in this tenant keeps every source attributable to the event rather than 
+SailPoint Identity Security. Using the shared account in this tenant keeps every source attributable to the event rather than 
 to whoever clicked Create.
 
 :::tip
@@ -157,14 +157,14 @@ A **schema file** for a delimited source is nothing but the header row — the n
 the columns your CSV will have.
 
 **Why upload a schema at all, separately from the data?** Because a CSV on its own has no structure that
-SHF can rely on. The schema is the contract: these twelve attributes exist, they are called exactly
+SailPoint Identity Security can rely on. The schema is the contract: these twelve attributes exist, they are called exactly
 this, and one of them identifies an account.
 
 #### 3. Set up manager correlation
 
-The schema now tells SHF that a column called `managerUid` exists. It does not tell SHF that the column
+The schema now tells SailPoint Identity Security that a column called `managerUid` exists. It does not tell SailPoint Identity Security that the column
 *means* anything — as far as the platform is concerned, it is one more string, no different from
-`location`. We need to let SHF know the values associated with the columns.
+`location`. We need to let SailPoint Identity Security know the values associated with the columns.
 
 In your source on the left-hand column, go to **Account Management → Account Correlation** and scroll down
 to **Manager Correlation**. Set:
@@ -194,7 +194,7 @@ In your source, go to **Account Management → Account Aggregation** on the left
 
 #### 5. Create your identity profile and map the attributes
 
-Accounts are not identities. An account is a row on a source; an identity is the person SHF governs, and
+Accounts are not identities. An account is a row on a source; an identity is the person SailPoint Identity Security governs, and
 an **identity profile** is the thing that turns the former into the latter. You now need to produce identities.
 
 Go to **Admin → Identity Management → Identity Profiles** and click **Create New**. You will add the following
@@ -308,7 +308,7 @@ person genuinely arrived.
 
 The **filter** field is empty. A filter is an expression the platform evaluates on the event *before*
 your workflow is invoked — events that fail it never reach you at all. Empty filters mean every identity
-creation in this tenant reaches your workflow, and SHF may warn you about that. It is fine
+creation in this tenant reaches your workflow, and SailPoint Identity Security may warn you about that. It is fine
 here, because the only identities ever created in your tenant come from the HR feed.
 
 #### The Wait step
@@ -559,14 +559,14 @@ Configure it:
 | Field | Value |
 | --- | --- |
 | Recipient Email Addresses | add your own email address |
-| Subject | A new identity \<displayName\> has been created in SHF |
+| Subject | A new identity \<displayName\> has been created in SailPoint Identity Security |
 | Body | see below |
 
 **The subject and the body read variables the same way.** Write your text, and wrap the path in double braces
 where you want the value:
 
 ```
-A new identity {{ $.getIdentity.attributes.displayName }} has been created in SHF
+A new identity {{ $.getIdentity.attributes.displayName }} has been created in SailPoint Identity Security
 ```
 
 Without the braces the path arrives in the email as literal text, so every value you insert needs its own pair.
@@ -589,7 +589,7 @@ anything.
 A body shape to start from — word it however you want, but be sure to add these values:
 
 ```
-A new identity has been created in SHF.
+A new identity has been created in SailPoint Identity Security.
 
   Name:        <displayName>
   Department:  <Department>
@@ -618,7 +618,7 @@ the run history, click the step, and read what it actually sent.
 **The manager's name is `jean.bartik` rather than `Jean Bartik`.** You used `attributes.manager` or a
 `uid` field. The manager's real name is on `Get Manager`'s output, not on the new hire's record.
 
-**The step is green but no email arrives.** Green means SHF accepted and sent it. Check your spam or
+**The step is green but no email arrives.** Green means SailPoint Identity Security accepted and sent it. Check your spam or
 junk folder first. Then check the recipient address for a typo, by reading it out of the run history rather than out of the
 step config, so you see what was actually sent.
 
@@ -643,13 +643,13 @@ step that is not a variable.
 **4. The subject.** Literal text, with the path in double braces:
 
 ```
-A new identity {{ $.getIdentity.attributes.displayName }} has been created in SHF
+A new identity {{ $.getIdentity.attributes.displayName }} has been created in SailPoint Identity Security
 ```
 
 **5. The body.** Every value is a path in double braces, exactly like the subject:
 
 ```
-A new identity has been created in SHF.
+A new identity has been created in SailPoint Identity Security.
 
 Name:        {{ $.getIdentity.attributes.displayName }}
 
@@ -696,7 +696,7 @@ one. Enabling it is what subscribes it.
 
 :::caution
 
-SHF tracks consecutive failures per workflow and will **disable a workflow that keeps failing**, so
+SailPoint Identity Security tracks consecutive failures per workflow and will **disable a workflow that keeps failing**, so
 one broken flow cannot generate errors forever. Enabled-and-broken is a state with consequences, and
 it gets turned off at a moment of its own choosing rather than yours.
 
@@ -721,9 +721,9 @@ Time to add a person to this company!
 
 :::caution
 
-**Upload all nine rows, not just yours.** A delimited-file aggregation is not an append — SHF treats
+**Upload all nine rows, not just yours.** A delimited-file aggregation is not an append — SailPoint Identity Security treats
 the file as the complete current state of the source, so anyone present last time and missing now is
-a deletion. Upload a one-row file and you are telling SHF that eight people left the company.
+a deletion. Upload a one-row file and you are telling SailPoint Identity Security that eight people left the company.
 
 :::
 
@@ -781,7 +781,7 @@ And in your tenant:
   record, routing to HR" — instead of failing. Test it by loading a row with an empty `managerUid`.
   Then look at the three red runs sitting in your history from setup: Ada, Katherine, and Mary. You
   will have just fixed a bug that was there before you arrived.
-- **Filter at the trigger.** A filter is a JSONPath expression SHF evaluates on the event *before*
+- **Filter at the trigger.** A filter is a JSONPath expression SailPoint Identity Security evaluates on the event *before*
   invoking your workflow. Events that fail it never reach you: no execution consumed, nothing in your
   history, nothing to fail. Add one so only one department's joiners reach the workflow, then load two
   rows in two departments and confirm only one email arrives — and only one run appears. Compare that
@@ -811,7 +811,7 @@ And in your tenant:
   nothing.
 - **Make it fail on purpose.** Break the step deliberately — a malformed recipient, or an HTTP Request
   at a URL that returns 500 — and read what the run history shows you. Then find where
-  consecutive-failure handling lives and read what SHF will do to your workflow if you leave it that
+  consecutive-failure handling lives and read what SailPoint Identity Security will do to your workflow if you leave it that
   way.
 
 ## Documentation
@@ -824,7 +824,7 @@ And in your tenant:
 - [Create Source](/docs/api/create-source-v-1) — step 1 as an API call, and the full list of fields a
   source actually has
 - [Upload Source Accounts Schema Template](/docs/api/import-accounts-schema-v-1) — step 2, and the shape
-  of the schema SHF builds from your header row
+  of the schema SailPoint Identity Security builds from your header row
 - [Account Aggregation](/docs/api/import-accounts-v-1) — the aggregation upload from steps 3 and 10
 - [Create Identity Profile](/docs/api/create-identity-profile-v-1) — step 4, including how mappings are
   represented underneath the UI

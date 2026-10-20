@@ -4,11 +4,11 @@ import BlogBanner from '../components/blog/BlogBanner';
 import styles from './blog.module.css';
 import BlogCards from '../components/blog/BlogCards';
 import BlogSidebar from '../components/blog/BlogSidebar';
-import { SHF_PRODUCT_TAG } from '../util/util';
+import { PRODUCT_TAG } from '../util/util';
 
 const Blog: React.FC = () => {
   const [filteredProduct, setFilteredProduct] = useState<string[]>([
-    SHF_PRODUCT_TAG,
+    PRODUCT_TAG,
   ]);
 
   const handleClick = (data: string) => {

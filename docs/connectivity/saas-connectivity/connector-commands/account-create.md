@@ -57,15 +57,15 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-The account create command triggers whenever SHF is told to provision entitlements for an identity on the target source, but no account for the identity on the target source exists yet. For example, if you create an access profile that grants a group on the target source and then add that access profile to a role, any identity matching that role’s membership criteria will be granted to the group. SHF determines which identities do not have accounts on the target source and triggers the account create command for each identity. If an identity already has an account, then it invokes the account update command.
+The account create command triggers whenever SailPoint Identity Security is told to provision entitlements for an identity on the target source, but no account for the identity on the target source exists yet. For example, if you create an access profile that grants a group on the target source and then add that access profile to a role, any identity matching that role’s membership criteria will be granted to the group. SailPoint Identity Security determines which identities do not have accounts on the target source and triggers the account create command for each identity. If an identity already has an account, then it invokes the account update command.
 
 To use this command, you must specify this value in the `commands` array: `std:account:create`
 
 ## The Provisioning Plan
 
-The account create command accepts a provisioning plan from SHF and creates the corresponding account(s) in the target source. When you configure your source in SHF, you must set up ‘Create Profile’ to tell SHF how to provision new accounts for your source.
+The account create command accepts a provisioning plan from SailPoint Identity Security and creates the corresponding account(s) in the target source. When you configure your source in SailPoint Identity Security, you must set up ‘Create Profile’ to tell the platform how to provision new accounts for your source.
 
-You can create the provisioning plan through the `accountCreateTemplate` in the `connector-spec.json` file, and you can also modify its behavior in SHF using the create profile screen:
+You can create the provisioning plan through the `accountCreateTemplate` in the `connector-spec.json` file, and you can also modify its behavior in SailPoint Identity Security using the create profile screen:
 
 ![Account Create](./img/account_create_idn.png)
 
@@ -179,7 +179,7 @@ public static createWithStdAccountCreateInput(record: StdAccountCreateInput): Ai
 
 ## The return object
 
-When the account is returned to SHF, any values you set are updated in SHF. So if an account ID is auto-generated on the source system, you must send the account ID back to SHF so SHF is aware of it for future account update activities. This is useful for the compound key type.
+When the account is returned to SailPoint Identity Security, any values you set are updated in your tenant. So if an account ID is auto-generated on the source system, you must send the account ID back to SailPoint Identity Security so the platform is aware of it for future account update activities. This is useful for the compound key type.
 
 ## Password Handling
 
@@ -228,9 +228,11 @@ async createAccount(input: StdAccountCreateInput): Promise<AirtableAccount> {
 
 <a id="testing-in-identity-security-cloud" class="legacy-anchor"></a>
 
-## Testing in SailPoint Human Fabric
+<a id="testing-in-sailpoint-human-fabric" class="legacy-anchor"></a>
 
-One way to test whether the account create code works in SHF is to set up an access profile and role that grants members an entitlement from the connector’s target source. Start by creating an access profile that grants one or more entitlements from the target source.
+## Testing in SailPoint Identity Security
+
+One way to test whether the account create code works in SailPoint Identity Security is to set up an access profile and role that grants members an entitlement from the connector’s target source. Start by creating an access profile that grants one or more entitlements from the target source.
 
 ![Testing 1](./img/testing1.png)
 

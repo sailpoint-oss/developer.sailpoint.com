@@ -35,7 +35,7 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-The change password command is triggered in SHF when a user changes their password through SHF. When this occurs, if your source has change password enabled, then you can change the user password on the source system through SHF.
+The change password command is triggered in SailPoint Identity Security when a user changes their password through the platform. When this occurs, if your source has change password enabled, then you can change the user password on the source system through SailPoint Identity Security.
 
 To use this command, you must specify this value in the `commands` array: `std:change-password`
 
@@ -45,7 +45,7 @@ The `input` object contains three relevant fields:
 
 | Field | Description |
 |---|---|
-| `input.key` | The account's key as stored in SHF. Use `input.key.simple?.id` to extract the native account ID. |
+| `input.key` | The account's key as stored in SailPoint Identity Security. Use `input.key.simple?.id` to extract the native account ID. |
 | `input.identity` | The account's identity string (usually the same as the key ID). |
 | `input.password` | The new plaintext password to set on the source system. |
 
@@ -79,11 +79,13 @@ import {
 ```
 
 :::caution
-The password in `input.password` is the new plaintext password that has already been validated against the source's password policy by SHF. Do not perform additional policy validation in your connector — pass it directly to the source API.
+The password in `input.password` is the new plaintext password that has already been validated against the source's password policy by SailPoint Identity Security. Do not perform additional policy validation in your connector — pass it directly to the source API.
 :::
 
 <a id="testing-in-identity-security-cloud" class="legacy-anchor"></a>
 
-## Testing in SailPoint Human Fabric
+<a id="testing-in-sailpoint-human-fabric" class="legacy-anchor"></a>
 
-In order to test in SailPoint Human Fabric, the source application must be configured so that it is able to accept password change requests through the Password Manager. Once this setup is complete, you can log in as a user whose identity exists in the configured application and change their password in the Password Manager.
+## Testing in SailPoint Identity Security
+
+In order to test in SailPoint Identity Security, the source application must be configured so that it is able to accept password change requests through the Password Manager. Once this setup is complete, you can log in as a user whose identity exists in the configured application and change their password in the Password Manager.

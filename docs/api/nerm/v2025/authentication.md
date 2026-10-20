@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 NERM supports two authentication methods to allow customers to authenticate to NERM API endpoints:
 
 1. **NERM API Key (Legacy)** - NERM-specific bearer tokens
-2. **SailPoint Human Fabric (SHF) API Token (Recommended)** - OAuth 2.0 JWT access tokens from SHF
+2. **SailPoint Identity Security API Token (Recommended)** - OAuth 2.0 JWT access tokens from your tenant
 
 Both authentication methods use bearer tokens in the request header.
 
@@ -32,7 +32,7 @@ Both authentication methods use bearer tokens in the request header.
 
 :::caution Deprecated
 
-Legacy NERM API keys are deprecated and do not support scopes. Use SailPoint Human Fabric (SHF) API tokens instead. For details on the scopes available with SHF API tokens, refer to [Authorization](./authorization.md).
+Legacy NERM API keys are deprecated and do not support scopes. Use SailPoint Identity Security API tokens instead. For details on the scopes available with SailPoint Identity Security API tokens, refer to [Authorization](./authorization.md).
 
 :::
 
@@ -48,19 +48,21 @@ curl --location 'https://mycompany.nonemployee.com/api/v2025/non-employee-source
 ```
 
   </TabItem>
-  <TabItem value="isc" label="SHF API Token">
+  <TabItem value="isc" label="SailPoint Identity Security API Token">
 
 <a id="isc-api-token-authentication" class="legacy-anchor"></a>
 
-### SHF API Token Authentication
+<a id="shf-api-token-authentication" class="legacy-anchor"></a>
 
-NERM now supports authentication using SailPoint Human Fabric (SHF) personal access tokens. This allows you to use the same authentication method across both SHF and NERM APIs.
+### SailPoint Identity Security API Token Authentication
+
+NERM now supports authentication using SailPoint Identity Security personal access tokens. This allows you to use the same authentication method across both SailPoint Identity Security and NERM APIs.
 
 #### Generate a Personal Access Token
 
-A personal access token (PAT) is a method of authenticating to an API as a user without providing a username and password. Any SHF user can generate a PAT by following these steps:
+A personal access token (PAT) is a method of authenticating to an API as a user without providing a username and password. Any SailPoint Identity Security user can generate a PAT by following these steps:
 
-1. Select **Preferences** from the drop-down menu under your username, then **Personal Access Tokens** on the left. You can also go directly to the page by using this URL (replace `[tenant]` with your SailPoint Human Fabric tenant): `https://[tenant].identitynow.com/ui/d/user-preferences/personal-access-tokens`
+1. Select **Preferences** from the drop-down menu under your username, then **Personal Access Tokens** on the left. You can also go directly to the page by using this URL (replace `[tenant]` with your SailPoint Identity Security tenant): `https://[tenant].identitynow.com/ui/d/user-preferences/personal-access-tokens`
 
 2. Click **New Token** and enter a meaningful description to help differentiate the token from others.
 
@@ -123,8 +125,8 @@ The `expires_in` value in the token response describes the lifetime, in seconds,
 
 ## More Information
 
-For detailed information about SHF authentication methods, grant flows, and troubleshooting, refer to the [SHF Authentication Guide](/docs/api/authentication).
+For detailed information about SailPoint Identity Security authentication methods, grant flows, and troubleshooting, refer to the [Authentication Guide](/docs/api/authentication).
 
 For information about Non-Employee Risk Management authorization and scopes, refer to [Authorization](./authorization.md).
 
-For information about how scopes work across SHF APIs, refer to the [SHF Authorization Guide](/docs/api/authorization).
+For information about how scopes work across SailPoint Identity Security APIs, refer to the [Authorization Guide](/docs/api/authorization).

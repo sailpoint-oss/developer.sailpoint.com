@@ -5,7 +5,7 @@ import styles from './filter.module.css';
 import BlogSidebar from '../../components/blog/BlogSidebar';
 import MarketplaceCards from '../../components/marketplace/MarketplaceCards';
 import MarketplaceBanner from '../../components/marketplace/MarketplaceBanner';
-import { SHF_PRODUCT_TAG } from '../../util/util';
+import { PRODUCT_TAG } from '../../util/util';
 
 interface FilterState {
   category: string;
@@ -19,7 +19,7 @@ interface ColabCategory {
   tags?: string[];
 }
 
-const PRODUCT_TAGS = [SHF_PRODUCT_TAG, 'Identityiq'];
+const PRODUCT_TAGS = [PRODUCT_TAG, 'Identityiq'];
 
 const COLAB_CATEGORIES: ColabCategory[] = [
   { id: 'all', label: 'All CoLab Solutions', category: 'colab' },

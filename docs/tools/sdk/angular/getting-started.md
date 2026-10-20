@@ -11,7 +11,7 @@ slug: /tools/sdk/angular/getting-started
 tags: ['SDK']
 ---
 
-Once your SDK is installed and configured, you can start calling the ISC APIs. To learn how to install and configure the Angular SDK, refer to [Installation and Configuration](./index.mdx).
+Once your SDK is installed and configured, you can start calling the SailPoint Identity Security APIs. To learn how to install and configure the Angular SDK, refer to [Installation and Configuration](./index.mdx).
 
 This guide walks through some examples.
 

@@ -23,7 +23,7 @@ When an access request is submitted, the Access Request Dynamic Approval trigger
 - If the ID of the additional approver is wrong, then a random org admin is assigned.
 - You can choose to **NOT** add an additional approver by providing an empty object as the response to the triggered REST request.
 
-You can use this trigger to develop logic outside of SailPoint Human Fabric’s out-of-the-box offerings to route an approval step to users such as the following:
+You can use this trigger to develop logic outside of Human Fabric’s out-of-the-box offerings to route an approval step to users such as the following:
 
 - The recipient’s department head
 - The recipient’s cost center

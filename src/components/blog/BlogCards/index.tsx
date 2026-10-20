@@ -5,7 +5,7 @@ import NewtonsCradle from '../../newtonsCradle';
 import {
   discourseBaseURL,
   developerWebsiteDomain,
-  SHF_PRODUCT_TAG,
+  PRODUCT_TAG,
 } from '../../../util/util';
 import { getBlogPosts, getUserTitle } from '../../../services/DiscourseService';
 
@@ -38,7 +38,7 @@ const BlogCards: React.FC<BlogCardsProps> = ({ filterCallback, limit, featured }
   const [loadingCards, setLoadingCards] = useState<boolean>(true);
 
   const getPosts = async () => {
-    let filters = filterCallback ?? [SHF_PRODUCT_TAG];
+    let filters = filterCallback ?? [PRODUCT_TAG];
     if (featured) filters = ['featured'];
     
     const data = await getBlogPosts(filters);

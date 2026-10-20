@@ -101,10 +101,10 @@ new Crawler({
             ],
           ],
           ["Nerm APIs", [/^\/docs\/api\/nerm(\/|$)/]],
-          ["SHF APIs", [/^\/docs\/api(\/|$)/]],
+          ["SailPoint Identity Security APIs", [/^\/docs\/api(\/|$)/]],
           // Generated SDK reference (methods and models), e.g.
           // /docs/tools/sdk/go/accessprofiles/methods/access-profiles.
-          ["SHF SDK Docs", [/^\/docs\/tools\/sdk\/[^/]+\/[^/]+\/.+/]],
+          ["SailPoint Identity Security SDK Docs", [/^\/docs\/tools\/sdk\/[^/]+\/[^/]+\/.+/]],
           ["Tools", [/^\/docs\/tools(\/|$)/, /^\/tools(\/|$)/]],
         ];
 

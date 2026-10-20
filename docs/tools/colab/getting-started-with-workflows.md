@@ -4,13 +4,13 @@ title: Getting Started with Workflows in CoLab
 pagination_label: Getting Started with Workflows
 sidebar_label: Workflows Guide
 sidebar_position: 10
-keywords: ['CoLab', 'Workflows', 'SHF']
-description: Learn how to download and import CoLab workflows into SailPoint Human Fabric.
+keywords: ['CoLab', 'Workflows', 'SailPoint Identity Security']
+description: Learn how to download and import CoLab workflows into SailPoint Identity Security.
 slug: /tools/colab/getting-started-with-workflows
 tags: ['CoLab']
 ---
 
-Use this category to view and download SailPoint Human Fabric (SHF) workflows built by the community.
+Use this category to view and download SailPoint Identity Security workflows built by the community.
 
 Follow these steps to download a workflow from CoLab and start using it:
 

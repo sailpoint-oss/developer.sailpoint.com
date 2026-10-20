@@ -26,7 +26,9 @@ With Reader permission, users can view any public sheets available and make sele
 
 <a id="identity-security-cloud-documentation" class="legacy-anchor"></a>
 
-## SailPoint Human Fabric Documentation
+<a id="sailpoint-human-fabric-documentation" class="legacy-anchor"></a>
+
+## SailPoint Identity Security Documentation
 
 For information on how to use AIC in your environment, see the documentation [here](https://documentation.sailpoint.com/saas/help/ai/access_insights/access_intelligence.html)
 

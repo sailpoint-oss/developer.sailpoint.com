@@ -3,10 +3,8 @@ import clsx from 'clsx';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 import HomepageCard from '../HomepageCard';
-import { HomepageCardProps } from '../HomepageCard';
 
 interface TrainingGuide {
-  product: HomepageCardProps['product'];
   link: string;
   title: string;
   image: string;
@@ -15,27 +13,23 @@ interface TrainingGuide {
 
 const trainingGuides: TrainingGuide[] = [
   {
-    product: 'shf',
     link: '/docs/api/getting-started',
     title: 'Make your first API call',
     image: '/homepage/cloud-data.svg',
   },
   {
-    product: 'shf',
     link: '/docs/extensibility/transforms/guides/your-first-transform',
     title: 'Build a Transform',
     image: '/homepage/process.svg',
   },
   {
-    product: 'shf',
     link: '/docs/connectivity/saas-connectivity',
     title: 'Build a SaaS Connector',
     image: '/homepage/connectivity.svg',
   },
   {
-    product: 'iiq',
     link: 'https://documentation.sailpoint.com/identityiq/help/plugins/develop_plugins/index.html',
-    title: 'Build an IIQ Plugin',
+    title: 'Build an IdentityIQ Plugin',
     image: '/homepage/puzzle.svg',
     isThemedImage: true,
   },
@@ -48,7 +42,6 @@ const HomepageTrainingGuides: React.FC = () => {
         {trainingGuides.map((guide, index) => (
           <HomepageCard
             key={index}
-            product={guide.product}
             link={guide.link}
             title={guide.title}
             image={guide.image}

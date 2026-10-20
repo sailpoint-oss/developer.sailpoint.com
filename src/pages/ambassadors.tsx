@@ -9,7 +9,7 @@ const benefits = [
   {
     title: 'Tenant access',
     description:
-      'Ambassadors receive an unconfigured SailPoint Human Fabric test tenant. Expert Ambassadors receive a preconfigured tenant.',
+      'Ambassadors receive an unconfigured SailPoint Identity Security test tenant. Expert Ambassadors receive a preconfigured tenant.',
   },
   {
     title: 'Forum badge & recognition',

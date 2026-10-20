@@ -51,7 +51,7 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-The account discover schema command tells SHF to dynamically create the account schema for the source rather than use the account schema provided by the connector in connector-spec.json. It is often ideal to statically define the account schema because it is generally more performant and easier to develop and reason about the code. However, some sources have schemas that can be different for each customer deployment. It can also be difficult to determine which account attributes to statically expose, which requires the schema to be dynamically generated. SalesForce is an example of a source that can have thousands of account attributes, which makes it impractical to statically define a set of attributes that satisfies all connector users. Although the SalesForce connector defines a standard set of account attributes out of the box, it also allows schema discovery for users looking for more attributes.
+The account discover schema command tells SailPoint Identity Security to dynamically create the account schema for the source rather than use the account schema provided by the connector in connector-spec.json. It is often ideal to statically define the account schema because it is generally more performant and easier to develop and reason about the code. However, some sources have schemas that can be different for each customer deployment. It can also be difficult to determine which account attributes to statically expose, which requires the schema to be dynamically generated. SalesForce is an example of a source that can have thousands of account attributes, which makes it impractical to statically define a set of attributes that satisfies all connector users. Although the SalesForce connector defines a standard set of account attributes out of the box, it also allows schema discovery for users looking for more attributes.
 
 To use this command, you must specify this value in the `commands` array: `std:account:discover-schema`
 
@@ -231,7 +231,7 @@ export const connector = async () => {
 }
 ```
 
-Next, implement the `discoverSchema()` function in your client code. The following function calls the necessary endpoints to get the full schema of the user account you want to represent in SHF. After you receive a response from your call, you must build your account schema object that will return to SHF. The response has a structure like the accountSchema property in the connector-spec.json file. The following is an example from [airtable.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/airtable.ts).
+Next, implement the `discoverSchema()` function in your client code. The following function calls the necessary endpoints to get the full schema of the user account you want to represent in SailPoint Identity Security. After you receive a response from your call, you must build your account schema object that will return to SailPoint Identity Security. The response has a structure like the accountSchema property in the connector-spec.json file. The following is an example from [airtable.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/airtable.ts).
 
 ```javascript
 async getAccountSchema(): Promise<StdAccountDiscoverSchemaOutput> {
@@ -278,7 +278,7 @@ async getAccountSchema(): Promise<StdAccountDiscoverSchemaOutput> {
 }
 ```
 
-This code produces the following payload that will be sent back to SHF.
+This code produces the following payload that will be sent back to SailPoint Identity Security.
 
 ```javascript
 {
@@ -347,9 +347,11 @@ There are many properties in this payload, so you may want to remove some, but i
 
 <a id="test-in-identity-security-cloud" class="legacy-anchor"></a>
 
-## Test in SailPoint Human Fabric
+<a id="test-in-sailpoint-human-fabric" class="legacy-anchor"></a>
 
-To test the account discover schema command in SHF, ensure that you upload your latest connector code and create a new source in SHF. After you configure and test your source connection, go to the ‘Account Schema’ page. You will see an empty schema.
+## Test in SailPoint Identity Security
+
+To test the account discover schema command in SailPoint Identity Security, ensure that you upload your latest connector code and create a new source in your tenant. After you configure and test your source connection, go to the ‘Account Schema’ page. You will see an empty schema.
 
 ![Discover Schema 1](./img/discover_schema_idn1.png)
 
@@ -357,7 +359,7 @@ To discover the schema for this source, click the ‘Options’ dropdown in the 
 
 ![Discover Schema 2](./img/discover_schema_idn2.png)
 
-SHF then asks you to assign attributes to ‘Account ID’ and 'Account Name.'
+SailPoint Identity Security then asks you to assign attributes to ‘Account ID’ and 'Account Name.'
 
 ![Discover Schema 3](./img/discover_schema_idn3.png)
 

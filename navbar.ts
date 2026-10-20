@@ -13,7 +13,7 @@ const navbarConfig = {
         groups: [
           {
             label: 'SailPoint Identity Security',
-            description: 'Guides and references for building on SailPoint Identity Security.',
+            description: 'Guides and references for building on the platform.',
             items: [
               { label: 'Overview', to: '/docs' },
               { label: 'Extensibility', to: '/docs/extensibility' },

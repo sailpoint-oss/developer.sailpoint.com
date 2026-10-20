@@ -63,6 +63,10 @@
   color: var(--ifm-color-emphasis-600);
   font-size: 0.78rem;
   line-height: 1.45;
+  /* The navbar sets `white-space: nowrap`, which keeps long blurbs on one line
+   * and lets them spill into the next column. */
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .megaColumnList {

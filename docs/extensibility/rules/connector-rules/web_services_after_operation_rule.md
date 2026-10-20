@@ -27,7 +27,7 @@ This rule calculates attributes after a web-service operation call.
 | --- | --- | --- |
 | application | sailpoint.object.Application | Application whose data file is being processed. |
 | processedResponseObject | List\<Map\<String, Object\>\> | List of map (account/group). The map contains a key, the identityAttribute of the application schema, and a value, all the account/group attributes (schema) passed by the connector after parsing the respective API response. |
-| requestEndPoint | sailpoint.connector.webservices.EndPoint | Current request information. It contains the header, body, context url, method type, response attribute map, successful response code. |
+| requestEndPoint | sailpoint.connector.webservices.Endpoint | Current request information. It contains the header, body, context url, method type, response attribute map, successful response code. |
 | restClient | sailpoint.connector.webservices.WebServicesClient | WebServicesClient (HttpClient) object that enables the user to call the Web Services API target system. |
 | rawResponseObject | String | String object that holds the raw response returned from the target system, which can be in JSON or XML form. |
 
@@ -52,106 +52,149 @@ This rule calculates attributes after a web-service operation call.
 </Rule>
 ```
 
+```json
+{
+  "signature": {
+    "input": [
+      {
+        "name": "application",
+        "description": "The application whose data file is being processed.",
+        "type": null
+      },
+      {
+        "name": "requestEndPoint",
+        "description": "The current request information contain header, body ,response object",
+        "type": null
+      },
+      {
+        "name": "processedResponseObject",
+        "description": "Response Object processed by the Web services connector",
+        "type": null
+      },
+      {
+        "name": "rawResponseObject",
+        "description": "Response Object returned from the end system",
+        "type": null
+      },
+      {
+        "name": "restClient",
+        "description": "REST Client Object",
+        "type": null
+      }
+    ],
+    "output": {
+      "name": "Update Account/Group List",
+      "description": "Update information Map contains parsed list of accounts",
+      "type": null
+    }
+  },
+  "sourceCode": {
+    "version": "1.0",
+    "script": "/** Your Code Here */"
+  },
+  "description": "Describe your rule here.",
+  "type": "WebServiceAfterOperationRule",
+  "name": "Example Rule",
+  "attributes": {
+    "sourceVersion": "1.0"
+  }
+}
+```
+
 ## Example
 
 ```java
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <Rule name="Example Rule" type="WebServiceAfterOperationRule">
-  <Description>This rule is used by the  Web Services connector after performing any operation like testconnection, aggregation etc.</Description>
-  <Source><![CDATA[
-import connector.common.JsonUtil;
-    import java.util.HashMap;
-    import java.util.Map.Entry;
-    import java.util.Map;
-    import java.util.List;
-    import java.util.ArrayList;
-    import javax.net.ssl.HttpsURLConnection;
-    import java.io.BufferedReader;
-    import java.io.PrintStream;
-    import java.io.StringWriter;
-    import java.text.SimpleDateFormat;
-    import sailpoint.tools.GeneralException;
+    <Description>This rule is used by the  Web Services connector after performing any operation like test connection, aggregation etc.</Description>
+    <Source><![CDATA[
+        import connector.common.JsonUtil;
 
-Map updatedMapInfo = new HashMap();
-List list = new ArrayList();
-ArrayList<String> Roles = new ArrayList<String>();
-Map response = (Map) JsonUtil.toMap(rawResponseObject);
-int RoleSize = 0;
-String newName;
-List Finallist = new ArrayList();
-List workspace = new ArrayList();
+        import java.util.HashMap;
+        import java.util.Map;
+        import java.util.List;
+        import java.util.ArrayList;
 
-log.error("RULES response at start" + response);
-if (response.get("data") != null) {
+            Map updatedMapInfo = new HashMap();
+            List list = new ArrayList();
+            ArrayList < String > Roles = new ArrayList<String>();
+            Map response = (Map) JsonUtil.toMap(rawResponseObject);
+            int roleSize = 0;
+            String newName;
+            List finallist = new ArrayList();
+            List workspace = new ArrayList();
 
-     list = (ArrayList) response.get("data");
+            log.error("RULES response at start" + response);
+            if (response.get("data") != null) {
 
-     for(int d = 0; d < list.size(); d++ ){
+                list = (ArrayList) response.get("data");
 
-         Map responseMap = (Map) list.get(d);
+                for (int d = 0; d < list.size(); d++) {
 
-         if (responseMap.get("attributes") != null) {
-            Map newmap = new HashMap();
-             Map data = (Map) responseMap.get("attributes");
-             newmap.put("firstName", data.get("firstName"));
-             newmap.put("lastName",data.get("lastName"));
-             newmap.put("displayName",data.get("displayName"));
-             newmap.put("userName",data.get("userName"));
-             newmap.put("email",data.get("email"));
+                    Map responseMap = (Map) list.get(d);
 
-             if (data.get("workspaceMemberships") != null) {
+                    if (responseMap.get("attributes") != null) {
+                        Map newmap = new HashMap();
+                        Map data = (Map) responseMap.get("attributes");
+                        newmap.put("firstName", data.get("firstName"));
+                        newmap.put("lastName", data.get("lastName"));
+                        newmap.put("displayName", data.get("displayName"));
+                        newmap.put("userName", data.get("userName"));
+                        newmap.put("email", data.get("email"));
 
-                 ArrayList Workspacedetail = (ArrayList) data.get("workspaceMemberships");
+                        if (data.get("workspaceMemberships") != null) {
 
-                 for (int i = 0; i < Workspacedetail.size(); i++) {
+                            ArrayList Workspacedetail = (ArrayList) data.get("workspaceMemberships");
 
-                     Map work = (Map) Workspacedetail.get(i);
+                            for (int i = 0; i < Workspacedetail.size(); i++) {
 
-                     for (int w = 0; w < work.size(); w++) {
+                                Map work = (Map) Workspacedetail.get(i);
 
-                         if (work.get("workspaceName") != null) {
+                                for (int w = 0; w < work.size(); w++) {
 
-                            workspace.add(work.get("workspaceName"));
+                                    if (work.get("workspaceName") != null) {
 
-                             Roles = (ArrayList) work.get("workspaceRoles");
+                                        workspace.add(work.get("workspaceName"));
 
-                             for (int r = 0; r < Roles.size(); r++) {
+                                        Roles = (ArrayList) work.get("workspaceRoles");
 
-                                 if (Roles.get(r) != null) {
-                                     newName = Roles.get(r).toString() + " - " + work.get("workspaceName");
+                                        for (int r = 0; r < Roles.size(); r++) {
 
-                                     if(newName != null) {
-                                         Roles.set(r, newName);
-                                         newmap.put("workspaceRoles", Roles);
+                                            if (Roles.get(r) != null) {
+                                                newName = Roles.get(r).toString() + " - " + work.get("workspaceName");
 
-                                     }
+                                                if (newName != null) {
+                                                    Roles.set(r, newName);
+                                                    newmap.put("workspaceRoles", Roles);
 
-                                 }
-                             }
-                         }
-                         break;
-                     }
-                 }
-             }
+                                                }
 
-             Finallist.add(newmap);
+                                            }
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                        }
 
-         }
-    }
+                        finallist.add(newmap);
 
-}
-log.error("RULES newmap at end" + newmap);
-log.error("RULES Finallist at end" + Finallist);
+                    }
+                }
 
-log.error("RULES processedResponseObject Before is " + processedResponseObject);
+            }
+            log.error("RULES newmap at end" + newmap);
+            log.error("RULES Finallist at end" + finallist);
 
-updatedMapInfo.put("data", Finallist);
-log.error("RULES updatedMapInfo is " + updatedMapInfo);
+            log.error("RULES processedResponseObject Before is " + processedResponseObject);
 
-return updatedMapInfo;
-log.error("RULES processedResponseObject after is " + processedResponseObject);​
-  ]]></Source>
+            updatedMapInfo.put("data", finallist);
+            log.error("RULES updatedMapInfo is " + updatedMapInfo);
+
+            log.error("RULES processedResponseObject after is " + processedResponseObject);
+            return updatedMapInfo;
+        ]]></Source>
 </Rule>
 ```
 

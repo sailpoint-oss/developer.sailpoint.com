@@ -13,122 +13,226 @@ tags: ['MCP']
 
 ## Overview
 
-The SailPoint MCP (Model Context Protocol) Server enables AI applications to interact with SailPoint's identity governance platform through a standardized interface. This guide walks you through setting up your first connection and testing the available tools.
+The SailPoint MCP (Model Context Protocol) Server enables AI applications to interact with SailPoint's identity governance platform through a standardized interface. This guide shows you how to connect to the SailPoint MCP servers with the MCP Inspector and test the available tools.
+
+SailPoint provides more than one MCP server. Each server has its own URL and its own set of tools:
+
+| Server | Global URL | Purpose |
+|---|---|---|
+| Access Requests | `https://mcp.sailpoint.com/latest/access-requests/mcp` | Search for requestable items, and create, view, and cancel access requests. |
+| Identity Intelligence | `https://mcp.sailpoint.com/latest/intelligence/mcp` | Investigate human identities: profile, access, risk, access history, and certifications. Read-only. |
+
+The global URLs work for all tenants without any tenant-specific configuration. They are the recommended entry point for AI client integration.
 
 **What you'll accomplish:**
-- [Connect to the SailPoint MCP server using the MCP Inspector](#step-2-configure-the-connection)
-- [Authenticate with your SailPoint tenant](#step-3-set-up-authentication)
-- [List and explore available tools](#list-available-tools)
+- [Create an API client in ISC](#step-1-create-an-api-client-in-isc)
+- [Prepare the SailPoint config file](#step-2-prepare-the-sailpoint-config-file)
+- [Launch the MCP Inspector with the SailPoint servers](#step-3-launch-the-mcp-inspector)
+- [Connect and authenticate with your SailPoint tenant](#step-4-connect-to-a-server)
+- [List and explore available tools](#step-5-list-available-tools)
 
 ## Prerequisites
 
-Before you begin, ensure you have:
+Before you begin, make sure that you have:
 
-- **Access to a SailPoint tenant** with API access enabled
-- **Valid authentication credentials** - refer to our [Authentication documentation](../../api/authentication.md) for details
-- **Internet connection** for accessing the web-based MCP Inspector
+- **Access to a SailPoint tenant** with API access enabled, and permission to create API clients
+- **Node.js** installed, so that you can run `npx`
 - **Modern web browser** (Chrome, Firefox, Safari, or Edge)
 
-## Step 1: Launch the MCP Inspector
+## Step 1: Create an API Client in ISC
 
-The MCP Inspector is a web-based tool that makes it easy to connect to and test MCP servers without writing code.
+The MCP Inspector uses OAuth to sign you in to your tenant. SailPoint's authorization server does not support Dynamic Client Registration, so you must create an API client in ISC and give its Client ID to the Inspector.
 
-Run the following command in your terminal:
+In ISC, go to **Admin > Security Settings > API Management** and create a new API client:
 
-```bash
-npx @modelcontextprotocol/inspector@latest
-```
+1. Set the client type to **Public**.
+2. Enable the **Authorization Code** and **Refresh Token** grant types.
+3. Set the **Redirect URL** to `http://localhost:6274/oauth/callback` (the MCP Inspector's OAuth callback).
+4. Set the **Scope** to the scopes of the servers that you want to use. If you use both servers with one Client ID, add both scopes.
 
-**What happens next:**
-- If this is your first time running the command, npm will ask to install the package - enter `y` to confirm
-- Your default web browser will automatically open the MCP Inspector interface
+Save the client and copy the **Client ID**.
 
-![MCP Inspector](./img/mcp-inspector.png)
+Each server requires a different scope:
 
-## Step 2: Configure the Connection
+| Server | Scope |
+|---|---|
+| Access Requests | `sp:scopes:all` |
+| Identity Intelligence | `sp:identity-sec-intel:read` |
 
-### Set the Transport Type
+## Step 2: Prepare the SailPoint Config File
 
-In the MCP Inspector sidebar, locate the **Transport Type** dropdown menu and select `Streamable HTTP`.
+1. Download the ready-made Inspector config: [sailpoint-mcp-inspector.json](pathname:///files/sailpoint-mcp-inspector.json). It contains:
 
-### Enter Your Server URL
+    ```json
+    {
+      "mcpServers": {
+        "sailpoint-access-requests": {
+          "type": "streamable-http",
+          "url": "https://mcp.sailpoint.com/latest/access-requests/mcp",
+          "oauth": {
+            "clientId": "YOUR_CLIENT_ID",
+            "scopes": "sp:scopes:all"
+          }
+        },
+        "sailpoint-identity-intelligence": {
+          "type": "streamable-http",
+          "url": "https://mcp.sailpoint.com/latest/intelligence/mcp",
+          "oauth": {
+            "clientId": "YOUR_CLIENT_ID",
+            "scopes": "sp:identity-sec-intel:read"
+          }
+        }
+      }
+    }
+    ```
 
-SailPoint provides two MCP URL options:
+2. Open the file and replace each `YOUR_CLIENT_ID` with the Client ID from [Step 1](#step-1-create-an-api-client-in-isc). You can use the same Client ID for every server.
 
-**Global URL (recommended):**
+The `oauth` block fills in the OAuth settings for each server, so you do not need to enter them in the Inspector:
 
-```
-https://mcp.sailpoint.com/latest/access-requests/mcp
-```
+- `clientId`: the Client ID of your ISC API client.
+- `scopes`: the OAuth scopes to request for that server. The file already contains the scope of each server, as listed in [Step 1](#step-1-create-an-api-client-in-isc). Enter scopes as one string, separated by spaces, not as an array. If a field has the wrong type, the Inspector ignores the whole `oauth` block.
 
-This URL works for all tenants without any tenant-specific configuration. It is the recommended entry point for AI client integration.
+Do not add a `clientSecret`. The ISC API client is a public client that uses PKCE.
 
-**Tenant-specific URL:**
-
-```
-https://[tenant].api.identitynow.com/latest/access-requests/mcp
-```
-
-Replace `[tenant]` with your actual tenant name. For example, if your SailPoint URL is `https://acme.identitynow.com`, the full URL would be `https://acme.api.identitynow.com/latest/access-requests/mcp`.
-
-:::note FedRAMP and data sovereignty
-Customers with FedRAMP or data sovereignty requirements should continue using the tenant-specific URL instead of the global URL.
+:::tip Only need one server?
+Delete the servers you don't need from `sailpoint-mcp-inspector.json`.
 :::
 
-## Step 3: Set Up Authentication
+## Step 3: Launch the MCP Inspector
 
-### Using the Global URL (OAuth Discovery)
+The MCP Inspector is a web-based tool that you can use to connect to and test MCP servers without writing code.
 
-AI clients that support OAuth discovery via `.well-known` endpoints will **automatically discover** the authorization and token endpoints from the global MCP URL — no manual endpoint configuration is needed.
+In the folder that contains `sailpoint-mcp-inspector.json`, run this command:
 
-If your AI client cannot determine the tenant from your client ID, you will be prompted to enter your tenant name during the OAuth flow.
+```bash
+npx @modelcontextprotocol/inspector@latest --catalog sailpoint-mcp-inspector.json
+```
 
-If you need to configure OAuth endpoints manually, use these global URLs:
+If this is your first time running the command, npm asks to install the package. Enter `y` to confirm. Your default web browser then opens the MCP Inspector.
+
+The Inspector opens on the **Servers** page. The page shows a card for each server in the file: `sailpoint-access-requests` and `sailpoint-identity-intelligence`. Each card shows the transport (**Streamable HTTP**), the server URL, and these actions:
+
+- **Clone**, **Edit**, and **Remove**: copy, change, or delete the server.
+- **Settings**: change the OAuth settings, headers, and other connection options.
+- **Connection Info**: show details about the connection. This action shows only while the server is connected.
+
+The `--catalog` flag lets the Inspector save the changes you make in the UI back to the file. To load the file without changing it, use `--config` instead of `--catalog`.
+
+:::note Import the file into a running Inspector
+If the Inspector is already open, you can import the file instead. Select **Add Servers ▾** in the top-right corner of the **Servers** page, then choose **client config**, and select `sailpoint-mcp-inspector.json`.
+:::
+
+## Step 4: Connect to a Server
+
+1. On a SailPoint server card, select the toggle next to **Disconnected**.
+2. When you connect to a server for the first time, the Inspector opens a browser window. Log in with your ISC credentials and approve the consent screen. If the tenant cannot be determined from your Client ID, you are prompted to enter your tenant name.
+
+**When the connection succeeds:**
+
+- The server card has a green border, and its status changes from **Disconnected** to **Connected**.
+- The card shows the MCP protocol version of the server, for example `MCP 2025-11-25`.
+- The top bar shows the name of the server and **Connected**, with the connection time.
+- The **Messages** panel on the right shows the `initialize`, `notifications/initialized`, and `tools/list` messages, each marked **OK**.
+
+While one server is connected, the other server cards are dimmed. To use another server, turn off the toggle on the connected card, then turn on the toggle on the other card.
+
+Tokens refresh automatically after you sign in.
+
+## Step 5: List Available Tools
+
+1. Connect to a server, as described in [Step 4](#step-4-connect-to-a-server).
+2. Select **Tools** at the top of the page.
+
+The **Tools** page shows the tools of the connected server, with their descriptions and parameters. Each server returns only its own tools. To see the tools of the other server, connect to that server and open **Tools** again.
+
+The Access Requests server provides four tools, and the Identity Intelligence server provides two. For details, refer to [Available Tools](./available-tools.mdx).
+
+## Manual Setup
+
+Use these steps only if you cannot use the config file from [Step 2](#step-2-prepare-the-sailpoint-config-file).
+
+<details>
+<summary>Add a server manually</summary>
+
+1. Launch the Inspector without a config file:
+
+    ```bash
+    npx @modelcontextprotocol/inspector@latest
+    ```
+
+2. On the **Servers** page, select **Add Servers ▾** in the top-right corner, then choose **Add manually**.
+3. Set the **Transport Type** to `Streamable HTTP`.
+4. Enter the server **URL**:
+
+    | Server | Global URL |
+    |---|---|
+    | Access Requests | `https://mcp.sailpoint.com/latest/access-requests/mcp` |
+    | Identity Intelligence | `https://mcp.sailpoint.com/latest/intelligence/mcp` |
+
+5. Save the server.
+6. On the server card, select **Settings** and expand **OAuth Settings**. Then set:
+    - **Client ID**: the Client ID from [Step 1](#step-1-create-an-api-client-in-isc)
+    - **Client Secret**: leave blank (the ISC client is a public client that uses PKCE)
+    - **Scopes**: the scope of the server, as listed in [Step 1](#step-1-create-an-api-client-in-isc) (space-separated, no commas)
+7. Leave **Enterprise-managed authorization** unchecked.
+8. To add another server, repeat steps 2 to 7 with that server's URL.
+
+Then continue to [Step 4](#step-4-connect-to-a-server).
+
+The Inspector finds SailPoint's authorization and token endpoints from the server's `.well-known` metadata. If you must enter the endpoints by hand, use these URLs:
 
 | Endpoint | URL |
 |---|---|
 | Authorization | `https://login.sailpoint.com/oauth/authorize` |
 | Token | `https://api.identitynow.com/oauth/token` |
 
-### Using the Tenant-Specific URL (Bearer Token)
+</details>
 
-If you are using the tenant-specific URL, you can authenticate with a bearer token directly:
+<details>
+<summary>Use the tenant-specific URL with a bearer token</summary>
 
-1. Follow our [Authentication documentation](../../api/authentication.md) to generate an access token
-2. Ensure your token has the necessary permissions for MCP operations
+Customers with FedRAMP or data sovereignty requirements must use the tenant-specific URL instead of the global URL:
 
-In the MCP Inspector:
+| Server | Tenant-specific URL |
+|---|---|
+| Access Requests | `https://[tenant].api.identitynow.com/latest/access-requests/mcp` |
+| Identity Intelligence | `https://[tenant].api.identitynow.com/latest/intelligence/mcp` |
 
-1. Select the **Authentication** tab
-2. Set the following values:
-   - **Header Name**: `Authorization`
-   - **Bearer Token**: Paste your access token (include the "Bearer " prefix)
+Replace `[tenant]` with your tenant name. For example, if your SailPoint URL is `https://acme.identitynow.com`, the Access Requests URL is `https://acme.api.identitynow.com/latest/access-requests/mcp`.
 
-### Connect to the Server
+With the tenant-specific URL, you authenticate with a bearer token:
 
-Select **Connect** to establish the connection.
+1. Generate an access token. For instructions, refer to the [Authentication documentation](../../api/authentication.md).
+2. Make sure that the token has the necessary permissions for the tools that you want to use.
+3. In `sailpoint-mcp-inspector.json`, change each URL to the tenant-specific URL. Replace each `oauth` block with a `headers` block that contains your token:
 
-**Success indicators:**
-- The connection status should show as "Connected"
-- You'll see the main MCP Inspector interface
-- No error messages appear in the console
+    ```json
+    {
+      "mcpServers": {
+        "sailpoint-access-requests": {
+          "type": "streamable-http",
+          "url": "https://[tenant].api.identitynow.com/latest/access-requests/mcp",
+          "headers": {
+            "Authorization": "Bearer YOUR_ACCESS_TOKEN"
+          }
+        },
+        "sailpoint-identity-intelligence": {
+          "type": "streamable-http",
+          "url": "https://[tenant].api.identitynow.com/latest/intelligence/mcp",
+          "headers": {
+            "Authorization": "Bearer YOUR_ACCESS_TOKEN"
+          }
+        }
+      }
+    }
+    ```
 
-![MCP Connected](./img/mcp-connected.png)
+4. Launch the Inspector with the file, as described in [Step 3](#step-3-launch-the-mcp-inspector).
 
-## Step 4: Test Your Connection
+If you added the servers manually, select **Settings** on each server card instead, and add an `Authorization` header with the value `Bearer YOUR_ACCESS_TOKEN`.
 
-### List Available Tools
-
-Select **List Tools** to retrieve available MCP tools from the SailPoint server.
-
-**If successful, you will see:**
-- A list of available tools with descriptions
-- Tool names, parameters, and usage information
-- No error messages or timeouts
-
-The SailPoint MCP server currently provides four core tools.
-
-![Available Tools](./img/mcp-tools.png)
+</details>
 
 ## Next Steps
 

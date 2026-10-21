@@ -6,24 +6,29 @@ sidebar_label: Available Tools
 sidebar_position: 3
 sidebar_class_name: mcp
 keywords: ['mcp']
-description: SailPoint's MCP Server Tools
+description: Tools provided by SailPoint's MCP servers
 slug: /extensibility/mcp-available-tools
 tags: ['MCP']
 ---
 
-The SailPoint MCP Server provides integration with SailPoint's Request Center, enabling automated access management through four core tools.
+SailPoint provides more than one MCP server. Each server has its own URL and its own set of tools. To connect to a server, refer to [Getting Started](./getting-started.mdx).
 
-## Overview
+| Server | Global URL | Tools |
+|---|---|---|
+| [Access Requests](#access-requests-server) | `https://mcp.sailpoint.com/latest/access-requests/mcp` | [list-requestable](#list-requestable)<br />[create-access-request](#create-access-request)<br />[view-access-requests](#view-access-requests)<br />[cancel-access-request](#cancel-access-request) |
+| [Identity Intelligence](#identity-intelligence-server) | `https://mcp.sailpoint.com/latest/intelligence/mcp` | [get-identity-intelligence](#get-identity-intelligence)<br />[get-identity-resource](#get-identity-resource) |
+
+---
+
+## Access Requests Server
+
+The Access Requests server provides integration with SailPoint's Request Center, enabling automated access management through four core tools.
 
 This server supports the following operations:
 - Search for requestable access items
 - Create access requests
 - View access request status
 - Cancel pending access requests
-
----
-
-## Tools
 
 ### list-requestable
 
@@ -195,9 +200,9 @@ The system automatically adds "Canceled by AI on behalf of the user adam.archer"
 
 ---
 
-## Error Handling
+### Error Handling
 
-All tools return a consistent error structure when operations fail:
+All Access Requests tools return a consistent error structure when operations fail:
 
 ```json
 {
@@ -211,3 +216,60 @@ Common error scenarios include:
 - Access denied to requested resources
 - Network connectivity issues
 - Misconfigured requestable objects
+
+---
+
+## Identity Intelligence Server
+
+The Identity Intelligence server provides two read-only tools that AI clients can use to investigate human identities in Identity Security Cloud (ISC). The tools do not change data in your tenant.
+
+This server supports the following operations:
+- Get the full intelligence package for one identity: profile, access, risk, and access history
+- Get one paginated sub-resource for an identity: accounts, rare access, access items, or certifications
+
+:::note Human identities only
+The Identity Intelligence server currently supports only human identities.
+:::
+
+:::info Required access
+The token or OAuth session that you use must have the `sp:identity-sec-intel:read` scope. This is the least permissive scope for this server. `sp:scopes:all` also works. It must also carry a user identity, so use an OAuth session or a personal access token (PAT). Your tenant must also have the MCP Server and Response and Remediation licenses.
+:::
+
+### get-identity-intelligence
+
+Retrieve the full intelligence package for one human identity. The package includes the identity's profile, access, risk, and access history.
+
+#### Parameters
+
+Pass exactly one of `id` or `email`.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `id` | string | Conditional | ID of the human identity |
+| `email` | string | Conditional | Email address of the human identity |
+
+:::warning Plain values only
+Pass `id` and `email` as plain strings, for example `2c9180835d2e5168015d32f890ca1581` or `adam.archer@example.com`. Do not use list-filter syntax such as `id eq "<id>"` or `email eq "<email>"`.
+:::
+
+---
+
+### get-identity-resource
+
+Retrieve one paginated sub-resource for a human identity. Use this tool when you need more detail than [get-identity-intelligence](#get-identity-intelligence) returns, or when you need to page through a long list.
+
+#### Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `resource` | string | Yes | Sub-resource to retrieve: `accounts`, `rare-access`, `access-items`, or `certifications` |
+| `identityId` | string | Conditional | ID of the human identity. Use on the first page only. |
+| `email` | string | Conditional | Email address of the human identity. Use on the first page only. |
+| `nextUrl` | string | Conditional | HAL continuation link from the previous page's response. Use to get the next page. |
+| `limit` | integer | No | Page size, from 1 to 100 |
+
+#### Pagination
+
+1. For the first page, pass `resource` and either `identityId` or `email`.
+2. If the response contains a continuation link, pass that link as `nextUrl` to get the next page.
+3. Repeat step 2 until the response does not contain a continuation link.

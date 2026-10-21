@@ -13,44 +13,76 @@ tags: ['MCP', 'Cursor']
 
 This guide will walk you through configuring Cursor to connect with the SailPoint Model Context Protocol (MCP) Server using the `mcp.json` configuration file.
 
+Cursor connects to the SailPoint MCP Server natively using OAuth 2.1 with PKCE, so you no longer need to generate or paste in an authentication token. Instead, you supply a Client ID and Cursor handles the entire login and consent flow for you.
+
 :::warning
 Before configuring this integration, please confirm with your organization's administrator whether the integration is allowed with this AI provider. SailPoint does not bear any responsibility in this regard.
 :::
 
 ## Prerequisites
 
-- [Cursor](https://cursor.com/downloads) installed
-- Node.js and npm installed
-- Access to a valid SailPoint MCP Server endpoint and an authentication token
+- [Cursor](https://cursor.com/downloads) (v0.44+) installed
+- An ISC tenant with the MCP Access Requests feature enabled
+- Permission to create an API client in ISC, or a Client ID provided by your administrator
 
-## Step 1: Create `mcp.json`
+:::note
+The global MCP URL is not available for FedRAMP tenants or tenants with data sovereignty requirements. Those environments should continue to use their tenant-specific URL.
+:::
 
-Cursor allows for deep links into its configuration. By clicking the button below, you will be asked to open the link in Cursor. This will take you to the MCP Server configuration with most of the configuration filled out for you.
+## Step 1: Create an API client in ISC
 
-[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=SailPoint%20MCP&config=ewogICAgImNvbW1hbmQiOiAibnB4IiwKICAgICJlbnYiOiB7CiAgICAgICAgIkFVVEhfVE9LRU4iOiAieW91cl9hdXRoX3Rva2VuX2hlcmUiCiAgICB9LAogICAgImFyZ3MiOiBbCiAgICAgICAgIm1jcC1yZW1vdGVAbGF0ZXN0IiwKICAgICAgICAiaHR0cHM6Ly9tY3Auc2FpbHBvaW50LmNvbS9sYXRlc3QvYWNjZXNzLXJlcXVlc3RzL21jcCIsCiAgICAgICAgIi0tZGVidWciLAogICAgICAgICItLWhlYWRlciIsCiAgICAgICAgIkF1dGhvcml6YXRpb246IEJlYXJlciAke0FVVEhfVE9LRU59IgogICAgXQp9)
+In ISC, go to **Admin > Security Settings > API Management** and create a new API client:
 
-Once in Cursor, following the prompt to install the SailPoint MCP server and select install to continue.
+1. Set the client type to **Public**.
+2. Enable the **Authorization Code** and **Refresh Token** grant types.
+3. Set the **Redirect URL**:
+    - Cursor 3.11 and later: `http://localhost:8787/callback`
+    - Earlier versions: `cursor://anysphere.cursor-mcp/oauth/callback`
+4. Set the **Scope** to `sp:scopes:all`.
 
-![cursor install](../img/cursor-install.png)
+Save the client and copy the **Client ID** — you will need it in the next step.
 
-## Step 2: Add your authentication token
+## Step 2: Add the SailPoint MCP Server to `mcp.json`
 
-Click the edit icon next to the newly installed SailPoint MCP server. This will bring up the `mcp.json` file in the editor.
+Open `~/.cursor/mcp.json` (or use **Cursor Settings > MCP > Add**) and add the configuration below.
 
-The configuration uses the global MCP URL (`https://mcp.sailpoint.com/latest/access-requests/mcp`), which works for all tenants without any tenant-specific changes.
+The configuration uses the global MCP URL (`https://mcp.sailpoint.com/latest/access-requests/mcp`), which works for all tenants without any tenant-specific changes. Your tenant is identified automatically during authentication. If the tenant name cannot be detected, you will be prompted to enter it on first connect.
 
-**Replace `your_auth_token_here` with your authorization token.**
+```json
+{
+  "mcpServers": {
+    "sailpoint-access-requests": {
+      // highlight-next-line
+      "url": "https://mcp.sailpoint.com/latest/access-requests/mcp",
+      "auth": {
+        // highlight-next-line
+        "CLIENT_ID": "your-client-id",
+        "scopes": ["sp:scopes:all"]
+      }
+    }
+  }
+}
+```
 
-Save the file.
+**Replace `your-client-id` with the Client ID from Step 1**, then save the file.
 
-### Step 3: Verify the Connection
+## Step 3: Connect and authenticate
+
+Open **Cursor Settings > MCP** and click **Connect** next to the SailPoint MCP server. Cursor handles the entire OAuth flow:
+
+1. A browser window opens.
+2. Log in with your ISC credentials (SSO is supported if it is configured for your tenant).
+3. Approve the consent screen.
+4. You are connected — tokens refresh automatically, so you will not need to re-enter your credentials mid-session.
+
+### Step 4: Verify the Connection
 
 Go back to the Cursor settings tab.
 
 1. Open the Command Palette (`Cmd+Shift+P` on macOS or `Ctrl+Shift+P` on Windows/Linux).
 2. Search for and select `View: Open MCP Settings`.
 
-You will see that Cursor is connected and has four tools available.
+You will see that Cursor is connected and has the SailPoint access request tools available.
 
 ![cursor tools](../img/cursor-connected.png)
 

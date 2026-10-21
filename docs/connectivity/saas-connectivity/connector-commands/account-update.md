@@ -178,8 +178,6 @@ Check whether your source API accepts a partial update (PATCH with only changed 
 
 <a id="testing-in-identity-security-cloud" class="legacy-anchor"></a>
 
-<a id="testing-in-sailpoint-human-fabric" class="legacy-anchor"></a>
-
 ## Testing in SailPoint Identity Security
 
 You can test the account update command the way you test the [Account Create](./account-create.md) command. Follow the steps in “Testing in SailPoint Identity Security” from “Account Create” to set up an access profile and role. Be sure to run the aggregation so the account(s) are created in the target source. Once the account(s) are created in the target source, modify the access profile to grant an additional entitlement. Return to the role and click the ‘Update’ button in the upper right corner. Doing so triggers the account update command because the accounts are already created in the target source. Once the update is complete, ensure the account(s) have the additional entitlement.

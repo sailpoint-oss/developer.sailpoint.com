@@ -31,8 +31,6 @@ To authenticate with a NERM-specific API key, you will need to generate a token 
 
 <a id="2-identity-security-cloud-isc-api-token-recommended" class="legacy-anchor"></a>
 
-<a id="2-sailpoint-human-fabric-shf-api-token-recommended" class="legacy-anchor"></a>
-
 ### 2. SailPoint Identity Security API Token (Recommended)
 
 NERM now supports authentication using SailPoint Identity Security personal access tokens. This allows you to use the same authentication method across both SailPoint Identity Security and NERM APIs.

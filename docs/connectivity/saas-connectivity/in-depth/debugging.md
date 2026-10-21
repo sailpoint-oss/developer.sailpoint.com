@@ -89,8 +89,6 @@ With these configurations set, you can run the debugger by selecting the options
 
 <a id="debug-in-identity-security-cloud" class="legacy-anchor"></a>
 
-<a id="debug-in-sailpoint-human-fabric" class="legacy-anchor"></a>
-
 ## Debug in SailPoint Identity Security
 
 You can use the `sail conn logs` command to gain insight into how your connector is performing while running in SailPoint Identity Security. See the section on logging for more information.

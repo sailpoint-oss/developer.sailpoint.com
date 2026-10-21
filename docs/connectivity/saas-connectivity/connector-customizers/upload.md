@@ -13,8 +13,6 @@ tags: ['Connectivity']
 
 <a id="building-and-uploading-to-identity-security-cloud" class="legacy-anchor"></a>
 
-<a id="building-and-uploading-to-sailpoint-human-fabric" class="legacy-anchor"></a>
-
 # Building and uploading to SailPoint Identity Security
 
 ### Initial requirements
@@ -53,8 +51,6 @@ Connector zip file created under dist folder: my-connector-customizer-0.1.0.zip
 ```
 
 <a id="upload-to-identity-security-cloud" class="legacy-anchor"></a>
-
-<a id="upload-to-sailpoint-human-fabric" class="legacy-anchor"></a>
 
 ### Upload to SailPoint Identity Security
 

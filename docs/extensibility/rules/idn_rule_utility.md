@@ -27,8 +27,6 @@ There are three critical components involves with working with searchable attrib
 
 <a id="configuration-of-search-attributes-within-identity-security-cloud" class="legacy-anchor"></a>
 
-<a id="configuration-of-search-attributes-within-sailpoint-human-fabric" class="legacy-anchor"></a>
-
 ## Configuration of search attributes within SailPoint Identity Security
 
 When you are planning to implement search attributes, it is important that you consider the way new accounts' values will be generated and which attributes should be used as references.
@@ -67,8 +65,6 @@ The following information is necessary to create your search attribute:
   - `Promoted Email Address`
 
 <a id="create-the-new-search-attribute-in-identity-security-cloud" class="legacy-anchor"></a>
-
-<a id="create-the-new-search-attribute-in-sailpoint-human-fabric" class="legacy-anchor"></a>
 
 ### Create the new search attribute in SailPoint Identity Security
 

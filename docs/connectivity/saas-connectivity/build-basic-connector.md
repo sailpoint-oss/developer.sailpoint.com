@@ -1251,8 +1251,6 @@ export class AirtableAccount {
 
 <a id="connect-to-isc" class="legacy-anchor"></a>
 
-<a id="connect-to-shf" class="legacy-anchor"></a>
-
 ## Connect to SailPoint Identity Security
 
 Before implementing any more new commands, this is a good time to connect your SaaS connector to SailPoint Identity Security. 
@@ -1436,8 +1434,6 @@ The authentication process now looks for the correct keys, `apiKey` and `airtabl
 
 <a id="create-empty-isc-connector" class="legacy-anchor"></a>
 
-<a id="create-empty-shf-connector" class="legacy-anchor"></a>
-
 ### Create empty SailPoint Identity Security connector
 
 Before you can upload your SaaS connector to SailPoint Identity Security, you must create an entry for the connector in your tenant. 
@@ -1463,8 +1459,6 @@ The output includes your new connector entry's name (alias) and its ID. You will
 You can use the the `sail conn list` command to list the available connectors at any time. To learn more about the other available SaaS connector commands you can use with the SailPoint CLI, refer to [Connectors](/docs/tools/cli/connectors/#commands). 
 
 <a id="upload-connector-to-isc" class="legacy-anchor"></a>
-
-<a id="upload-connector-to-shf" class="legacy-anchor"></a>
 
 ### Upload connector to SailPoint Identity Security
 
@@ -1538,8 +1532,6 @@ The CLI will go through the different commands and skip tests for any commands t
 ```
 
 <a id="configure-isc-connector" class="legacy-anchor"></a>
-
-<a id="configure-shf-connector" class="legacy-anchor"></a>
 
 ### Configure SailPoint Identity Security connector
 

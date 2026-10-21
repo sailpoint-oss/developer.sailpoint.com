@@ -75,16 +75,12 @@ It is common for other critical information and credentials to be used as well, 
 
 <a id="identity-security-cloud-login-and-authentication-information" class="legacy-anchor"></a>
 
-<a id="sailpoint-human-fabric-login-and-authentication-information" class="legacy-anchor"></a>
-
 ### SailPoint Identity Security login and authentication information
 
 SailPoint uses *Zero Knowledge Encryption* along with multiple layers of encryption for authentication in SailPoint Identity Security. 
 The specific methods of encryption are tailored for whichever authentication method is chosen by the administrator.
 
 <a id="identity-security-cloud-password" class="legacy-anchor"></a>
-
-<a id="sailpoint-human-fabric-password" class="legacy-anchor"></a>
 
 #### SailPoint Identity Security password
 

@@ -78,8 +78,6 @@ $ sail conn list
 
 <a id="upload-connector-zip-file-to-identity-security-cloud" class="legacy-anchor"></a>
 
-<a id="upload-connector-zip-file-to-sailpoint-human-fabric" class="legacy-anchor"></a>
-
 ### Upload connector zip file to SailPoint Identity Security
 
 Run `sail conn upload -c [connectorID | connectorAlias] -f dist/[connector filename].zip` to upload the zip file built from the previous step to SailPoint Identity Security.
@@ -112,15 +110,11 @@ Make sure that you implement a form of version control or regular backup process
 
 <a id="test-your-connector-in-identity-security-cloud" class="legacy-anchor"></a>
 
-<a id="test-your-connector-in-sailpoint-human-fabric" class="legacy-anchor"></a>
-
 ## Test your connector in SailPoint Identity Security
 
 Follow these steps to test a connector bundle in both SailPoint Identity Security and its user interface (UI).
 
 <a id="test-your-connector-bundle-in-identity-security-cloud" class="legacy-anchor"></a>
-
-<a id="test-your-connector-bundle-in-sailpoint-human-fabric" class="legacy-anchor"></a>
 
 ### Test your connector bundle in SailPoint Identity Security
 
@@ -153,8 +147,6 @@ $ sail connectors invoke account-list -c example-connector -p config.json
 > Ensure that you add config.json to your .gitignore file so you do not accidentally store secrets in your code repository.
 
 <a id="test-your-connector-from-identity-security-cloud-ui" class="legacy-anchor"></a>
-
-<a id="test-your-connector-from-sailpoint-human-fabric-ui" class="legacy-anchor"></a>
 
 ## Test your connector from SailPoint Identity Security UI
 

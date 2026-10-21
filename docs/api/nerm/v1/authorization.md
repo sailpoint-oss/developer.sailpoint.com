@@ -17,8 +17,6 @@ SailPoint Identity Security API tokens support scopes. Scopes grant certain kind
 
 When Non-Employee Risk Management receives a request authenticated with a SailPoint Identity Security API token, it checks the scopes on that token against the resource type being requested and the kind of access the request needs. If none of the token's scopes grant that access, Non-Employee Risk Management rejects the request.
 
-<a id="shf-api-tokens-required-for-scopes" class="legacy-anchor"></a>
-
 ## SailPoint Identity Security API Tokens Required for Scopes
 
 Scopes only work with SailPoint Identity Security API tokens. Legacy Non-Employee Risk Management API tokens do not support scopes. Legacy Non-Employee Risk Management API tokens are deprecated — use SailPoint Identity Security API tokens instead. Refer to [Authentication](./authentication.md) for details on generating and using SailPoint Identity Security API tokens.

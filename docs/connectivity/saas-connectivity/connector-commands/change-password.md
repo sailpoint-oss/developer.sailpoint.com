@@ -84,8 +84,6 @@ The password in `input.password` is the new plaintext password that has already 
 
 <a id="testing-in-identity-security-cloud" class="legacy-anchor"></a>
 
-<a id="testing-in-sailpoint-human-fabric" class="legacy-anchor"></a>
-
 ## Testing in SailPoint Identity Security
 
 In order to test in SailPoint Identity Security, the source application must be configured so that it is able to accept password change requests through the Password Manager. Once this setup is complete, you can log in as a user whose identity exists in the configured application and change their password in the Password Manager.

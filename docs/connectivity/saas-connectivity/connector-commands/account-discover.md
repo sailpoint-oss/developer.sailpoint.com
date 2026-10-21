@@ -347,8 +347,6 @@ There are many properties in this payload, so you may want to remove some, but i
 
 <a id="test-in-identity-security-cloud" class="legacy-anchor"></a>
 
-<a id="test-in-sailpoint-human-fabric" class="legacy-anchor"></a>
-
 ## Test in SailPoint Identity Security
 
 To test the account discover schema command in SailPoint Identity Security, ensure that you upload your latest connector code and create a new source in your tenant. After you configure and test your source connection, go to the ‘Account Schema’ page. You will see an empty schema.

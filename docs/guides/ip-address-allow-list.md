@@ -27,8 +27,6 @@ Go to the admin console in SailPoint Identity Security and find the 'Org Details
 
 <a id="finding-your-tenant-programatically-using-the-ip-address-returned-by-identity-security-cloud" class="legacy-anchor"></a>
 
-<a id="finding-your-tenant-programatically-using-the-ip-address-returned-by-sailpoint-human-fabric" class="legacy-anchor"></a>
-
 ### Finding your tenant programatically using the IP address returned by SailPoint Identity Security
 
 If you can't access the admin console or you want to dynamically find the region through code, follow these steps to find it:

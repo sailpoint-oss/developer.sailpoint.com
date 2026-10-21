@@ -179,7 +179,7 @@ public static createWithStdAccountCreateInput(record: StdAccountCreateInput): Ai
 
 ## The return object
 
-When the account is returned to SailPoint Identity Security, any values you set are updated in your tenant. So if an account ID is auto-generated on the source system, you must send the account ID back to SailPoint Identity Security so the platform is aware of it for future account update activities. This is useful for the compound key type.
+When the account is returned to SailPoint Identity Security, any values you set are updated in the tenant. So if an account ID is auto-generated on the source system, you must send the account ID back to SailPoint Identity Security so the platform is aware of it for future account update activities. This is useful for the compound key type.
 
 ## Password Handling
 
@@ -227,8 +227,6 @@ async createAccount(input: StdAccountCreateInput): Promise<AirtableAccount> {
 ```
 
 <a id="testing-in-identity-security-cloud" class="legacy-anchor"></a>
-
-<a id="testing-in-sailpoint-human-fabric" class="legacy-anchor"></a>
 
 ## Testing in SailPoint Identity Security
 

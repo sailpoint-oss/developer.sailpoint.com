@@ -47,7 +47,7 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-The account list command aggregates all accounts from the target source into SailPoint Identity Security. SailPoint Identity Security calls this command during a manual or scheduled account aggregation.
+The account list command aggregates all accounts from the target source into SailPoint Identity Security. This command is called during a manual or scheduled account aggregation.
 
 To use this command, you must specify this value in the `commands` array: `std:account:list`
 
@@ -75,13 +75,13 @@ async getAllAccounts(): Promise<AirtableAccount[]> {
 
 :::caution Important
 
-SailPoint Identity Security will throw a connection timeout error if your connector doesn't respond within 3 minutes, and there are memory limitations involved with aggregating data. To prevent large memory utilization or timeout errors, you should set up your connectors to send data to SailPoint Identity Security as it's retrieved from your source system. For more details and an example, refer to [Connector Timeouts](../in-depth/connector-timeouts.md).
+A connection timeout error will be thrown if your connector doesn't respond within 3 minutes, and there are memory limitations involved with aggregating data. To prevent large memory utilization or timeout errors, you should set up your connectors to send data as it's retrieved from your source system. For more details and an example, refer to [Connector Timeouts](../in-depth/connector-timeouts.md).
 
 :::
 
 :::caution Important
 
-SailPoint Identity Security supports [delta aggregation](#delta-aggregation-state). If your source has a large number of accounts that will be syncronized with SailPoint Identity Security, then it is highly recommended to utilize [delta aggregation](#delta-aggregation-state) for the source.
+SailPoint Identity Security supports [delta aggregation](#delta-aggregation-state). If your source has a large number of accounts that will be synchronized, then it is highly recommended to utilize [delta aggregation](#delta-aggregation-state) for the source.
 
 :::
 

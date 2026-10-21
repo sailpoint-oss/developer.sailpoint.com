@@ -48,11 +48,9 @@ curl --location 'https://mycompany.nonemployee.com/api/v2025/non-employee-source
 ```
 
   </TabItem>
-  <TabItem value="isc" label="SailPoint Identity Security API Token">
+  <TabItem value="identity-security" label="SailPoint Identity Security API Token">
 
 <a id="isc-api-token-authentication" class="legacy-anchor"></a>
-
-<a id="shf-api-token-authentication" class="legacy-anchor"></a>
 
 ### SailPoint Identity Security API Token Authentication
 

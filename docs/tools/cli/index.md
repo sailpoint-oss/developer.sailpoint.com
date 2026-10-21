@@ -249,6 +249,7 @@ These commands are available:
 - `va`: Run this command to access VAs connected to your tenant. For more information about the `va` command, refer to the CLI [VA guide](/docs/tools/cli/va).
 - `cluster`: Run this command to access VA clusters connected to your tenant. For more information about the `cluster` command, refer to the CLI [Clusters guide](/docs/tools/cli/cluster).
 - `workflow`: Run this command to create and manage workflows within the CLI. For more information about the `workflow` command, refer to the CLI [Workflows guide](/docs/tools/cli/workflow).
+- `marketplace`: Run this command to package, publish, and install SailPoint Identity Security configuration with the SailPoint Marketplace. You can also use the aliases `mp` and `mkt`. For more information about the `marketplace` command, refer to the [SailPoint Marketplace guide](/docs/tools/cli/marketplace).
 
 ## Support
 

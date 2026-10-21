@@ -35,7 +35,7 @@ this.api.listTransformsV1({filters: 'id eq'}).subscribe({
 | Field | Description |
 | --- | --- |
 | `status` | The HTTP status code, for example 400. |
-| `error` | The parsed response body. An ISC error body holds `detailCode`, `trackingId`, `messages`, and `causes`. |
+| `error` | The parsed response body. A SailPoint Identity Security error body holds `detailCode`, `trackingId`, `messages`, and `causes`. |
 | `headers` | The response headers. |
 | `url` | The URL of the failed request. |
 | `message` | A summary string that Angular builds for logging. |
@@ -66,9 +66,11 @@ this.api
 
 The example recovers from a 400 response and re-raises every other error. Return `of([])` for every status code to make the request never fail.
 
-## Read the error message from ISC
+<a id="read-the-error-message-from-isc" class="legacy-anchor"></a>
 
-The ISC APIs return a structured body on an error. Read `error.error.messages` to get the text:
+## Read the error message from SailPoint Identity Security
+
+The SailPoint Identity Security APIs return a structured body on an error. Read `error.error.messages` to get the text:
 
 ```typescript
 error: (error: HttpErrorResponse) => {
@@ -79,6 +81,6 @@ error: (error: HttpErrorResponse) => {
 },
 ```
 
-`trackingId` identifies the failed request inside ISC. Include that value in a support case.
+`trackingId` identifies the failed request inside SailPoint Identity Security. Include that value in a support case.
 
 For retry behavior on a 401, a 429, or a 5xx response, refer to [Retries](./retries.md).

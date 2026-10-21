@@ -6,20 +6,20 @@ sidebar_label: Subscribing to a Trigger
 sidebar_position: 3
 sidebar_class_name: subscribingToTrigger
 keywords: ['event', 'trigger', 'subscribing']
-description: Usually, you will subscribe to event triggers using the user interface in SHF. Refer to subscribing to event triggers to learn how to subscribe to an event trigger through the SHF UI.
+description: Usually, you will subscribe to event triggers using the user interface in SailPoint Identity Security. Refer to subscribing to event triggers to learn how to subscribe to an event trigger through the SailPoint Identity Security UI.
 slug: /extensibility/event-triggers/subscribing-to-trigger
 tags: ['Event Triggers']
 ---
 
 ## View the available triggers
 
-SailPoint is continuously developing new event triggers to satisfy different use cases. Some of these triggers are considered **early access** and are only available in an SHF tenant upon request. To see a list of available event triggers in your tenant, go to the **Event Triggers** tab in the **Admin** section of SailPoint Human Fabric. The first page is a list of your tenant's available event triggers. You can select each trigger to learn more about its type, what causes it to fire, and what the payload will look like.
+SailPoint is continuously developing new event triggers to satisfy different use cases. Some of these triggers are considered **early access** and are only available in a SailPoint Identity Security tenant upon request. To see a list of available event triggers in your tenant, go to the **Event Triggers** tab in the **Admin** section of SailPoint Identity Security. The first page is a list of your tenant's available event triggers. You can select each trigger to learn more about its type, what causes it to fire, and what the payload will look like.
 
 ![Available triggers](./img/available-triggers.png)
 
 ## Subscribe to a trigger from the UI
 
-Usually, you will subscribe to event triggers using the user interface in SHF. Refer to [subscribing to event triggers](https://documentation.sailpoint.com/saas/help/common/event_triggers.html#subscribing-to-event-triggers) to learn how to subscribe to an event trigger through the SHF UI.
+Usually, you will subscribe to event triggers using the user interface in SailPoint Identity Security. Refer to [subscribing to event triggers](https://documentation.sailpoint.com/saas/help/common/event_triggers.html#subscribing-to-event-triggers) to learn how to subscribe to an event trigger through the SailPoint Identity Security UI.
 
 ## Subscribe to a trigger from the API
 

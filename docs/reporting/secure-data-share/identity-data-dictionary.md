@@ -153,7 +153,7 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | --- | --- | --- | --- |
 | TENANT_ID | text |  | Unique Id for an Organization tenant |
 | ID | text |  | Unique Id for the Access Profile |
-| NAME | text |  | Name of the object in SHF |
+| NAME | text |  | Name of the object in SailPoint Identity Security |
 | DISPLAY_NAME | text |  | Human-readable display name of the object |
 | DESCRIPTION | text |  | Description of the object |
 | CREATED_DATE | datetime |  | date when the object was created |
@@ -174,14 +174,14 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | --- | --- | --- | --- |
 | TENANT_ID | text |  | Unique Id for an Organization tenant |
 | ID | text |  | Unique Id for the Access Profile |
-| NAME | text |  | Name of the object in SHF |
+| NAME | text |  | Name of the object in SailPoint Identity Security |
 | CREATED_DATE | datetime |  | date when the object was created |
 | UPDATED_DATE | datetime |  | date when the object was modified |
 | DELETED_DATE | datetime |  | date when the object was deleted |
 | TARGET_ID | text |  | Identity ID whose access is getting updated |
 | REQUESTER_ID | text |  | Identity ID who raised this access request |
 | END_DATE | datetime |  | date when the access request was completed |
-| EXECUTION_STATUS | text |  | Execution status at SHF Ex: Completed, Terminated etc. |
+| EXECUTION_STATUS | text |  | Execution status at SailPoint Identity Security Ex: Completed, Terminated etc. |
 | COMPLETION_STATUS | text |  | Completion status Ex: Success, Failure etc. |
 | PRIORITY | text |  | one of low, Normal and high |
 | TYPE | text |  | type of access item or Identity items requested |
@@ -196,7 +196,7 @@ Contains certification data sourced from **Certs 1.0**.
 | --- | --- | --- | --- |
 | TENANT_ID | text |  | Unique Id for an Organization tenant |
 | ID | text |  | Unique Id for the Certification |
-| NAME | text |  | Name of the object in SHF |
+| NAME | text |  | Name of the object in SailPoint Identity Security |
 | CREATED_DATE | datetime |  | date when the object was created |
 | UPDATED_DATE | datetime |  | date when the object was modified |
 | DELETED_DATE | datetime |  | date when the object was deleted |
@@ -271,7 +271,7 @@ Contains certification data sourced from **Certs 2.0**.
 | --- | --- | --- | --- |
 | TENANT_ID | text |  | Unique Id for an Organization tenant |
 | ID | text |  | Unique Id for the Role |
-| NAME | text |  | Name of the object in SHF |
+| NAME | text |  | Name of the object in SailPoint Identity Security |
 | CREATED_DATE | datetime |  | date when the object was created |
 | UPDATED_DATE | datetime |  | date when the object was modified |
 | DELETED_DATE | datetime |  | date when the object was deleted |
@@ -331,7 +331,7 @@ Contains certification item data sourced from **Certs 1.0**.
 | TYPE | text |  | Type of certification item Ex: Bundle, Exception, Account Etc. |
 | SUB_TYPE | text |  | Associated Sub_type for each of the type |
 | COMPLETED_DATE | datetime |  | time the access item certification was completed |
-| DECISION_DATE | datetime |  | time the decision was submitted on SHF |
+| DECISION_DATE | datetime |  | time the decision was submitted on SailPoint Identity Security |
 | APPROVED | number |  | Whether the item was approved(1) or rejected(0) |
 | STATUS | text |  | Status of the certification item |
 | DECISION | text |  | Decision taken by reviewer on the access item Ex: Approved, Mitigated, remediated etc. |

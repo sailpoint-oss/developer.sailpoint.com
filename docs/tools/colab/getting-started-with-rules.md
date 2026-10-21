@@ -4,19 +4,19 @@ title: Getting Started with Rules in CoLab
 pagination_label: Getting Started with Rules
 sidebar_label: Rules Guide
 sidebar_position: 11
-keywords: ['CoLab', 'Rules', 'SHF', 'Rule Development Kit']
-description: Learn how to use CoLab cloud and connector rules in SailPoint Human Fabric.
+keywords: ['CoLab', 'Rules', 'SailPoint Identity Security', 'Rule Development Kit']
+description: Learn how to use CoLab cloud and connector rules in SailPoint Identity Security.
 slug: /tools/colab/getting-started-with-rules
 tags: ['CoLab']
 ---
 
-Use this category to view and download SailPoint Human Fabric (SHF) rules built by the community.
+Use this category to view and download SailPoint Identity Security rules built by the community.
 
 :::warning
-Update all rule inputs to match your SailPoint Human Fabric environment **before** uploading.
+Update all rule inputs to match your SailPoint Identity Security environment **before** uploading.
 :::
 
-There are two types of rules in SHF: cloud rules and connector rules. The setup steps are slightly different.
+There are two types of rules in SailPoint Identity Security: cloud rules and connector rules. The setup steps are slightly different.
 
 ## Cloud rules
 
@@ -28,7 +28,7 @@ Follow these steps to download and use a cloud rule:
 4. Review the rule documentation and replace required inputs to match your environment.
 5. Test your rule logic with the Rule Development Kit.
 6. Run the Rule Validator to validate syntax and usage.
-7. Submit the cloud rule for upload to SailPoint Human Fabric.
+7. Submit the cloud rule for upload to SailPoint Identity Security.
 
 ## Connector rules
 

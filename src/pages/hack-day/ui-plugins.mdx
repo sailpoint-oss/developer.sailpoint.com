@@ -1,6 +1,6 @@
 ---
 title: UI Plugins
-description: Build a custom identity search page that runs inside your own Identity Security Cloud tenant.
+description: Build a custom identity search page that runs inside your own SailPoint Identity Security tenant.
 wrapperClassName: hack-day-track
 ---
 
@@ -19,7 +19,7 @@ build your own plugin.
 
 :::
 
-A UI plugin is a page that Identity Security Cloud (ISC) loads inside the product. It uses the
+A UI plugin is a page that SailPoint Identity Security loads inside the product. It uses the
 signed-in user's session, so every API call you make is already authenticated.
 
 You will build a **manager lookup**: pick a manager from a searchable dropdown and get a table of
@@ -40,7 +40,7 @@ Work through the steps in order:
 - **Steps 1 to 4** get your local code rendering inside the tenant.
 - **Steps 5 to 7** build the page, one piece at a time. Each one ends with a **Checkpoint** so you
   can confirm it works before you move on.
-- **Step 8** deploys the page, and **step 9** adds it to the ISC nav bar. Both are optional.
+- **Step 8** deploys the page, and **step 9** adds it to the SailPoint Identity Security nav bar. Both are optional.
 
 Each step has collapsed sections. **Why it works** explains the code, and **The code so far** shows
 the full files, so you can catch up in case you get stuck.
@@ -222,7 +222,7 @@ You now have a normal Angular application with a few files that are specific to 
 
 | File | What it does |
 | --- | --- |
-| `sp-ui-plugin.json` | Describes the plugin to ISC: its alias, its API scopes, and the slots it fills |
+| `sp-ui-plugin.json` | Describes the plugin to SailPoint Identity Security: its alias, its API scopes, and the slots it fills |
 | `src/app/app.config.ts` | Sets up the SDK and the themed component library |
 | `src/app/core/spds-prime-theme.ts` | The SailPoint design system as a PrimeNG theme. Generated, so do not edit it |
 | `src/app/app.ts` | Your component. It contains some default examples |
@@ -334,7 +334,7 @@ You now have a normal Angular application with a few files that are specific to 
 </div>
 
 The stylesheet is short because the theme does most of the work. It uses the theme's
-`--spds-*` CSS variables for its colours, so the page matches SHF. See
+`--spds-*` CSS variables for its colours, so the page matches SailPoint Identity Security. See
 [UI Plugins: an in-depth look](#ui-plugins-an-in-depth-look) for more about the theme.
 
 </details>
@@ -369,7 +369,7 @@ This is the only file that is not an ordinary Angular file:
 
 The file has two parts:
 
-- **`manifest`** is sent to SHF. It declares the alias, the display name, the API scopes your page can
+- **`manifest`** is sent to SailPoint Identity Security. It declares the alias, the display name, the API scopes your page can
   use, and the **slots** the plugin fills. `full-page` gives your plugin a whole page of its own,
   not a panel inside an existing screen.
 - **`build`** stays on your laptop. `outDir` tells `upload` where your compiled files are, and `port`
@@ -428,7 +428,7 @@ change applies only to you, so nobody else in the tenant is affected.
 
    ```text
    Plugin manager-lookup-[name] linked to port 4200
-   To load your local plugin in ISC navigate to:
+   To load your local plugin in SailPoint Identity Security navigate to:
    https://<tenant>/ui/plugin/033b32b5-280f-4d78-a856-05c2a34d15d1?spPluginDev=manager-lookup-[name]
    ```
 
@@ -448,7 +448,7 @@ it. This error almost always has one of two causes:
 
 - `npm run start` is not running.
 - You have not accepted the certificate yet. Open `https://localhost:4200` in a new tab, accept the
-  warning, then return to the ISC tab and click **Retry**. The browser shows the dev server as
+  warning, then return to the SailPoint Identity Security tab and click **Retry**. The browser shows the dev server as
   **Not Secure**, which is expected for local development.
 
 :::
@@ -456,7 +456,7 @@ it. This error almost always has one of two causes:
 <details>
 <summary>See details: why not localhost, other ports, and how to unlink</summary>
 
-When your plugin starts, it performs a handshake with the ISC **App Shell**. The App Shell gives it
+When your plugin starts, it performs a handshake with the SailPoint Identity Security **App Shell**. The App Shell gives it
 the tenant, the signed-in user, and the token for API calls. If you open `https://localhost:4200`
 directly, there is no App Shell. The page renders, but every API call fails.
 
@@ -1472,7 +1472,7 @@ changes. When you upload again, the new bundle becomes the active one.
 ### 9. Add to the nav bar
 
 A plugin URL works, but right now the only way to navigate to it is through the URL. A nav bar item gives your page a permanent home in
-ISC, next to the standard menus. This way it looks like it's really part of the product.
+SailPoint Identity Security, next to the standard menus. This way it looks like it's really part of the product.
 
 :::tip Deploy first
 
@@ -1503,7 +1503,7 @@ menu item loads the deployed bundle, not your dev server.
 :::tip Checkpoint
 
 Refresh your tenant. The nav bar shows a **Manager Lookup** menu, and the menu contains
-**Manager Lookup Page**. Click it, and your page opens inside ISC.
+**Manager Lookup Page**. Click it, and your page opens inside SailPoint Identity Security.
 
 :::
 
@@ -1547,7 +1547,7 @@ Pick whichever looks most interesting. Each one is something real plugins need t
 ## UI Plugins: an in-depth look
 
 You do not need this section to finish the track. It explains the scaffold files you did not write,
-which is why your code is so short and why the page looks like ISC without extra styling.
+which is why your code is so short and why the page looks like SailPoint Identity Security without extra styling.
 
 | File | What it does for you |
 | --- | --- |
@@ -1640,14 +1640,14 @@ followed: PrimeNG components in the `imports` array, and a map from a state to a
 
 ## Take it to the main hack
 
-You now know what a UI plugin does! It runs inside ISC, it uses the signed-in user's session, and it
+You now know what a UI plugin does! It runs inside SailPoint Identity Security, it uses the signed-in user's session, and it
 can call SailPoint APIs with no extra authentication. **Now, what do you want to build?**
 
 You can submit a UI plugin as your main hack. The judges score it with the same
 [judging criteria](/hack-day/judging-criteria) as the MCP Server hack, and it can win the same
 prizes.
 
-Start with a real problem. Think of a task that takes too many clicks in ISC today, or a question
+Start with a real problem. Think of a task that takes too many clicks in SailPoint Identity Security today, or a question
 that a manager, an auditor, or a help desk agent cannot answer easily. Then build the page that
 solves it.
 

@@ -6,16 +6,16 @@ sidebar_label: CLI
 sidebar_position: 1
 sidebar_class_name: cli
 keywords: ['cli']
-description: Terminal-based tool for interaction with SHF.
+description: Terminal-based tool for interaction with SailPoint Identity Security.
 slug: /tools/cli
 tags: ['CLI']
 ---
 
 ## Start using the CLI
 
-The SailPoint CLI is a terminal-based tool you can use to to interact with your SailPoint Human Fabric (SHF) tenant. The CLI provides a text-based environment you can use to run operations known as "commands" to interact with your tenant however you want.
+The SailPoint CLI is a terminal-based tool you can use to to interact with your SailPoint Identity Security tenant. The CLI provides a text-based environment you can use to run operations known as "commands" to interact with your tenant however you want.
 
-You can use the CLI to perform many functions you would have otherwise used Postman or custom scripts to perform before. For example, you can use the CLI to call the SailPoint APIs to do whatever you want in your SHF tenant, and you can do all this directly on the command line, with minimal setup.
+You can use the CLI to perform many functions you would have otherwise used Postman or custom scripts to perform before. For example, you can use the CLI to call the SailPoint APIs to do whatever you want in your SailPoint Identity Security tenant, and you can do all this directly on the command line, with minimal setup.
 
 <div className="text--center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JInlFmABuO8?si=CE8fw3RB1w7qFESv" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
@@ -119,9 +119,9 @@ sudo yum localinstall /path/to/rpm/package/sail_x.x.x_linux_amd64.rpm
 
 ## Configuration
 
-To configure the CLI to connect and authenticate to your SHF tenant, you must do the following:
+To configure the CLI to connect and authenticate to your SailPoint Identity Security tenant, you must do the following:
 
-- Find your tenant name or tenant URL. To learn how to find it, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The CLI will use this value to connect to your SHF instance.
+- Find your tenant name or tenant URL. To learn how to find it, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The CLI will use this value to connect to your SailPoint Identity Security instance.
 - Choose an authentication method:
   - OAuth | Sign in through your browser. You do not need to create credentials first.
   - PAT | Create a personal access token (PAT). Make sure to note the "Client ID" and "Client Secret." The CLI needs this information to authenticate successfully. To learn how to create a PAT, refer to [Personal Access Tokens](/docs/api/authentication#generate-a-personal-access-token).
@@ -141,8 +141,8 @@ The CLI asks for your tenant name or URL. You can enter either of these:
 
 From this value, the CLI creates two URLs:
 
-- The Tenant URL - The web URL used to access your SailPoint Human Fabric tenant (ex. https://tenant.identitynow.com), this is used during the OAuth process.
-- The API URL - The API URL used to access your SailPoint Human Fabric tenant (ex. https://tenant.api.identitynow.com), this is used for the api calls made by certain commands.
+- The Tenant URL - The web URL used to access your SailPoint Identity Security tenant (ex. https://tenant.identitynow.com), this is used during the OAuth process.
+- The API URL - The API URL used to access your SailPoint Identity Security tenant (ex. https://tenant.api.identitynow.com), this is used for the api calls made by certain commands.
 
 The CLI then checks the API URL with your tenant. If the check passes, the CLI skips the URL confirmation prompts:
 
@@ -167,7 +167,7 @@ The CLI runs the authorization code flow with PKCE, and it exchanges the code wi
 
 1. The CLI opens your browser and prints a confirmation code, such as `Ab3d-9Kx1`.
 
-2. You sign in to Identity Security Cloud.
+2. You sign in to SailPoint Identity Security.
 
 3. The page at `https://developer.sailpoint.com/sailapps` shows the same confirmation code and a one-time code that starts with `sp1.`. Make sure that both confirmation codes match.
 
@@ -242,9 +242,9 @@ Run the `sail` command for an overview of available commands and flags. You can 
 These commands are available:
 
 - `connectors`: This command is a CLI interface for the SaaS Connectivity platform. The CLI is the best way to create and manage SaaS connectors within your tenant. For more information about the `connectors` command, refer to the CLI [Connectors guide](/docs/tools/cli/connectors).
-- `search`: Run this command to access SHF search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](/docs/tools/cli/search).
+- `search`: Run this command to access SailPoint Identity Security search functionality within the CLI. For more information about the `search` command, refer to the CLI [Search guide](/docs/tools/cli/search).
 - `set`: Run this command to configure your CLI settings. For more information about the `set` command, refer to the CLI [Set guide](/docs/tools/cli/set).
-- `spconfig`: Run this command to access SHF SP Config functionality. For more information about the `spconfig` command, refer to the CLI [SPConfig guide](/docs/tools/cli/spconfig).
+- `spconfig`: Run this command to access SailPoint Identity Security SP Config functionality. For more information about the `spconfig` command, refer to the CLI [SPConfig guide](/docs/tools/cli/spconfig).
 - `transform`: This command is a CLI interface that makes it easy to create, manage, and test transforms. For more information about the `transform` command, refer to the CLI [Transforms guide](/docs/tools/cli/transforms).
 - `va`: Run this command to access VAs connected to your tenant. For more information about the `va` command, refer to the CLI [VA guide](/docs/tools/cli/va).
 - `cluster`: Run this command to access VA clusters connected to your tenant. For more information about the `cluster` command, refer to the CLI [Clusters guide](/docs/tools/cli/cluster).

@@ -1,14 +1,21 @@
 /* Getting Started Card */
+/* The link is the grid item, so it stretches to the row height. Make it a
+   flex container so the card inside stretches too and cards in a row match. */
+.cardLink {
+  display: flex;
+}
+
 .card {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
-  min-height: 200px;
+  gap: 16px;
+  min-height: 170px;
   position: relative;
   margin-top: 30px;
   margin-bottom: 30px;
-  padding: 20px;
+  padding: 20px 20px 48px;
   opacity: 1;
   transition: all 0.3s;
   background: var(--dev-new-car-background);
@@ -36,18 +43,6 @@
 .cardIcon {
   width: 30%;
   flex-shrink: 0;
-}
-
-.product {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--ifm-primary-text-color);
-}
-
-.shf,
-.iiq {
-  color: var(--ifm-primary-text-color);
-  font-weight: 400;
 }
 
 .cardText {

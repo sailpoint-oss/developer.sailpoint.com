@@ -31,7 +31,7 @@ const pluginConfig = [
     '@writechoice/docusaurus-plugin-llms-txt',
     {
       description:
-        'Documentation, API references, SDKs, and guides for building on SailPoint Identity Security Cloud, IdentityIQ, and Non-Employee Risk Management.',
+        'Documentation, API references, SDKs, and guides for building on SailPoint Identity Security, IdentityIQ, and Non-Employee Risk Management.',
     },
   ],
   [

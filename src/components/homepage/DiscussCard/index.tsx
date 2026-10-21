@@ -17,40 +17,33 @@ interface DiscussCardProps {
 }
 
 const DiscussCard: React.FC<DiscussCardProps> = ({ link, title, tags, views, liked, solution }) => {
-  let solved = (
-    <img className={styles.cardDiscuss} src={useBaseUrl('/homepage/edit.png')} alt="Discussion" />
-  );
-  let linkText = <div className={styles.linkText}>Join the Discussion</div>;
-
-  if (solution) {
-    solved = <FontAwesomeIcon icon={faSquareCheck} className={styles.cardSolved} size="lg" />;
-    linkText = <div className={styles.linkSolvedText}>View the Solution</div>;
-  }
-
   return (
     <Link to={link}>
       <div className={styles.card}>
-        <ThemedImage
-          className={styles.cardIcon}
-          sources={{
-            light: useBaseUrl('/homepage/quotes.png'),
-            dark: useBaseUrl(addDarkToFileName('/homepage/quotes.png')),
-          }}
-        />
-        <ThemedImage
-          className={styles.cardArrow}
-          sources={{
-            light: useBaseUrl('/homepage/arrow-right.png'),
-            dark: useBaseUrl('/homepage/arrow-right-dark.png'),
-          }}
-        />
-        <FontAwesomeIcon icon={faEye} className={styles.cardEye} size="lg" />
-        <img className={styles.cardLiked} src={useBaseUrl('/homepage/liked.png')} alt="Liked" />
-        {solved}
+        <div className={styles.cardHeader}>
+          <ThemedImage
+            className={styles.cardIcon}
+            sources={{
+              light: useBaseUrl('/homepage/quotes.png'),
+              dark: useBaseUrl(addDarkToFileName('/homepage/quotes.png')),
+            }}
+          />
+          <div className={styles.cardStats}>
+            {solution && (
+              <FontAwesomeIcon icon={faSquareCheck} className={styles.cardSolved} size="lg" />
+            )}
+            <span className={styles.cardStat}>
+              <img className={styles.cardLiked} src={useBaseUrl('/homepage/liked.png')} alt="Liked" />
+              {liked}
+            </span>
+            <span className={styles.cardStat}>
+              <FontAwesomeIcon icon={faEye} className={styles.cardEye} />
+              {views}
+            </span>
+          </div>
+        </div>
+
         <div className={styles.cardText}>{title}</div>
-        <div className={styles.cardViews}>{views}</div>
-        <div className={styles.cardLikes}>{liked}</div>
-        {linkText}
 
         <div className={styles.tags}>
           {tags?.slice(0, 3).map((tag) => (
@@ -58,6 +51,19 @@ const DiscussCard: React.FC<DiscussCardProps> = ({ link, title, tags, views, lik
               {typeof tag === 'object' ? tag.name : tag}
             </div>
           ))}
+        </div>
+
+        <div className={styles.cardFooter}>
+          <div className={styles.linkText}>
+            {solution ? 'View the Solution' : 'Join the Discussion'}
+          </div>
+          <ThemedImage
+            className={styles.cardArrow}
+            sources={{
+              light: useBaseUrl('/homepage/arrow-right.png'),
+              dark: useBaseUrl('/homepage/arrow-right-dark.png'),
+            }}
+          />
         </div>
       </div>
     </Link>

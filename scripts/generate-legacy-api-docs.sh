@@ -66,11 +66,11 @@ bundle() {
   echo "  Done: sailpoint-api-${key}-light.html + sailpoint-api-${key}-dark.html"
 }
 
-bundle "beta"  "SailPoint ISC API (Beta)"
-bundle "v3"    "SailPoint ISC API (V3)"
-bundle "v2024" "SailPoint ISC API (V2024)"
-bundle "v2025" "SailPoint ISC API (V2025)"
-bundle "v2026" "SailPoint ISC API (V2026)"
+bundle "beta"  "SailPoint Identity Security API (Beta)"
+bundle "v3"    "SailPoint Identity Security API (V3)"
+bundle "v2024" "SailPoint Identity Security API (V2024)"
+bundle "v2025" "SailPoint Identity Security API (V2025)"
+bundle "v2026" "SailPoint Identity Security API (V2026)"
 
 echo ""
 echo "All legacy API docs generated in $OUT_DIR"

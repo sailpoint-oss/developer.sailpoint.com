@@ -11,7 +11,7 @@ slug: /tools/sdk/angular/search
 tags: ['SDK']
 ---
 
-`SearchService` calls the ISC [search endpoint](/docs/api/search-post-v-1). Copy this component into your Angular project to try it out:
+`SearchService` calls the SailPoint Identity Security [search endpoint](/docs/api/search-post-v-1). Copy this component into your Angular project to try it out:
 
 ```typescript title="src/app/search.component.ts"
 import {Component, inject} from '@angular/core';

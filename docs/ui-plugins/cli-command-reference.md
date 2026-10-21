@@ -19,7 +19,7 @@ All UI plugin workflows run through the `sail ui-plugins` command group in the [
 | --- | --- | --- |
 | [`init`](#init) | Scaffold a new workspace or attach the SDK to an existing project | Read-only (alias validation) |
 | [`create`](#create) | Register a plugin instance in the current tenant | Yes |
-| [`link`](#link) | Load your local dev server inside ISC | Yes |
+| [`link`](#link) | Load your local dev server inside SailPoint Identity Security | Yes |
 | [`unlink`](#unlink) | Remove your local dev override | Yes |
 | [`upload`](#upload) | Deploy compiled assets as a new asset bundle | Yes |
 | [`list`](#list) | List plugin instances in the current tenant | Yes |
@@ -83,7 +83,7 @@ sail ui-plugins create --private
 
 ## link
 
-Registers your local development server with a plugin instance so ISC loads your local code in the live tenant. Run it from within an initialized workspace; the alias is read from `./sp-ui-plugin.json` and the tenant is resolved from your CLI authentication.
+Registers your local development server with a plugin instance so SailPoint Identity Security loads your local code in the live tenant. Run it from within an initialized workspace; the alias is read from `./sp-ui-plugin.json` and the tenant is resolved from your CLI authentication.
 
 Linking binds your dev server port to your own identity (a per-developer override). It does not affect other developers or the plugin's deployed assets. The port is resolved from `--port`, then `build.port` in the manifest, then the default `4200`.
 
@@ -109,7 +109,7 @@ sail ui-plugins link --port 4300
 
 ## unlink
 
-Removes your local development override so ISC stops loading your local code and returns to serving the deployed plugin. It affects only your own override — never the deployed plugin or other developers'. Unlinking is idempotent: it is safe to run whether or not a link currently exists.
+Removes your local development override so SailPoint Identity Security stops loading your local code and returns to serving the deployed plugin. It affects only your own override — never the deployed plugin or other developers'. Unlinking is idempotent: it is safe to run whether or not a link currently exists.
 
 ```bash
 sail ui-plugins unlink

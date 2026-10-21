@@ -50,7 +50,7 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Description
 
-The account lock and account unlock commands provide ways to temporarily prevent access to an account. SHF only supports the **unlock** command — accounts can only be locked at the source system level, but they can be unlocked through SHF.
+The account lock and account unlock commands provide ways to temporarily prevent access to an account. SailPoint Identity Security only supports the **unlock** command — accounts can only be locked at the source system level, but they can be unlocked through the platform.
 
 The `locked` state is distinct from the `disabled` state:
 - `disabled: true` means the account has been intentionally deactivated (e.g., a leaver event). Use the [Account Disable](./account-disable.md) command for this.

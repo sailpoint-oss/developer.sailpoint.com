@@ -1,21 +1,21 @@
 ---
-id: cli-marketplace
-title: Marketplace
-pagination_label: SailPoint Marketplace
-sidebar_label: Marketplace
+id: cli-atlas-application-builder
+title: Atlas Application Builder
+pagination_label: Atlas Application Builder
+sidebar_label: Atlas Application Builder
 sidebar_position: 11
-sidebar_class_name: sailpoint-marketplace
-keywords: ['cli', 'marketplace', 'package', 'publish', 'install']
-description: Learn how to use the CLI to package, publish, and install SailPoint Identity Security configuration with the SailPoint Marketplace.
-slug: /tools/cli/marketplace
+sidebar_class_name: atlas-application-builder
+keywords: ['cli', 'atlas application builder', 'marketplace', 'package', 'publish', 'install']
+description: Learn how to use the CLI to package, publish, and install SailPoint Identity Security configuration with Atlas Application Builder.
+slug: /tools/cli/atlas-application-builder
 tags: ['CLI']
 ---
 
-Learn how to use the SailPoint CLI to package SailPoint Identity Security configuration, publish it to the SailPoint Marketplace, and install it into another tenant.
+Learn how to use the SailPoint CLI to package SailPoint Identity Security configuration, publish it with Atlas Application Builder, and install it into another tenant.
 
-Use the Marketplace to package Identity Security configuration objects, such as transforms, forms, workflows, widgets, and UI plugins. You can publish that package as a versioned, shareable unit, and you can install it into another tenant in a single, previewed, repeatable step. Instead of rebuilding the same objects by hand in every tenant, you author them once and distribute them with integrity guarantees and a clear upgrade path. Each artifact carries a SHA-256 digest, and each version follows semantic versioning.
+Use Atlas Application Builder to package Identity Security configuration objects, such as transforms, forms, workflows, widgets, and UI plugins. You can publish that package as a versioned, shareable unit, and you can install it into another tenant in a single, previewed, repeatable step. Instead of rebuilding the same objects by hand in every tenant, you author them once and distribute them with integrity guarantees and a clear upgrade path. Each artifact carries a SHA-256 digest, and each version follows semantic versioning.
 
-The `marketplace` command makes it easy to author, publish, compare, and install packages from within the SailPoint CLI. You can also use the aliases `sail mp` and `sail mkt`.
+You work with Atlas Application Builder through the `sail marketplace` command group in the SailPoint CLI. These commands make it easy to author, publish, compare, and install packages. You can also use the aliases `sail mp` and `sail mkt`.
 
 - **Publishers** scaffold a package, add objects to it, build a signed artifact, and publish a version.
 - **Consumers** install a published version into their tenant, preview exactly what it will create or update, and confirm.
@@ -45,12 +45,12 @@ The `marketplace` command makes it easy to author, publish, compare, and install
 
 ## Before you begin
 
-You need these to use the Marketplace:
+You need these to use Atlas Application Builder:
 
 - **The SailPoint CLI**, installed and authenticated against your tenant. To learn how to install and configure the CLI, refer to the [Command Line Interface](/docs/tools/cli). Use the `sail environment` commands to select the tenant you want to work with.
-- **A tenant with the Marketplace enabled.** If a `sail marketplace` command returns a `404` error indicating the feature isn't available, contact SailPoint to have it turned on.
+- **A tenant with Atlas Application Builder enabled.** If a `sail marketplace` command returns a `404` error indicating the feature isn't available, contact SailPoint to have it turned on.
 - **Administrative rights in the tenant.** A `403` error from a command means your account is missing the right the operation needs.
-- **For publishing UI plugins:** a plugin that you have already built with its own toolchain. The Marketplace packages the compiled output, but it never builds the plugin for you. To learn more about UI plugins, refer to [UI Plugins](/docs/ui-plugins).
+- **For publishing UI plugins:** a plugin that you have already built with its own toolchain. Atlas Application Builder packages the compiled output, but it never builds the plugin for you. To learn more about UI plugins, refer to [UI Plugins](/docs/ui-plugins).
 
 :::tip
 
@@ -58,7 +58,7 @@ You can play both roles while you test. Publish from one tenant, and install int
 
 :::
 
-Every command and its flags are documented in the CLI itself. Run `sail marketplace --help` to list all the Marketplace commands, or add `--help` to any command to see its full flag set and examples.
+Every command and its flags are documented in the CLI itself. Run `sail marketplace --help` to list all the `marketplace` commands, or add `--help` to any command to see its full flag set and examples.
 
 ## Key concepts
 
@@ -76,18 +76,6 @@ Every command and its flags are documented in the CLI itself. Run `sail marketpl
 ## Package lifecycle
 
 A package moves from an empty directory to installed objects in a tenant through a short, ordered set of commands. You run the authoring commands inside a package directory, and you run the installation commands against the target tenant.
-
-```mermaid
-flowchart LR
-  subgraph author ["Author and publish (in the package directory)"]
-    init["init<br/>scaffold"] --> add["add<br/>pick objects"] --> build["build<br/>zip + digest"] --> push["push<br/>private test"] --> publish["publish<br/>review / public"]
-  end
-  subgraph consume ["Install (in the target tenant)"]
-    install["install<br/>preview + apply"] --> status["status<br/>follow / verify"]
-  end
-  publish --> install
-  push -.-> diff["diff<br/>compare local and published, or version and version"]
-```
 
 You can run `diff` at any point to compare what you have locally against a published version, or to compare two published versions against each other.
 
@@ -320,12 +308,12 @@ A failed installation returns a non-zero exit code, so your scripts can branch o
 
 ## Verify your changes
 
-Every Marketplace action produces an observable change. You can confirm each change in three ways: with the CLI, with a raw API call (`sail api get <path>`), or in the Identity Security user interface.
+Every Atlas Application Builder action produces an observable change. You can confirm each change in three ways: with the CLI, with a raw API call (`sail api get <path>`), or in the Identity Security user interface.
 
 | After you... | You should see... | How to verify |
 | --- | --- | --- |
 | `push` (private) | A package listing with a `packageId`, hidden from other tenants, holding a `DRAFT` version. | **CLI:** `sail marketplace list packages` shows the package, and the printed `packageId` is written to `metadata.json`.<br/>**API:** `sail api get /marketplace/v1/packages/<id>` |
-| `publish` | The version is submitted for review. With `--public`, it becomes discoverable to other tenants once approved. | **CLI:** `sail marketplace list packages` (check the latest version's status and visibility).<br/>**API:** `sail api get /marketplace/v1/packages/<id>`<br/>**UI:** In Identity Security, open the Marketplace catalog and find the listing. |
+| `publish` | The version is submitted for review. With `--public`, it becomes discoverable to other tenants once approved. | **CLI:** `sail marketplace list packages` (check the latest version's status and visibility).<br/>**API:** `sail api get /marketplace/v1/packages/<id>` |
 | `publish` (contents recorded) | The version's asset inventory is queryable and matches what you packaged. | **API:** `sail api get /marketplace/v1/packages/<id>/contents?version=1.0.0`<br/>**CLI:** `sail marketplace diff 1.0.0`, run from the workspace, reports no differences. |
 | `install` (preview) | A planned action (`CREATE` or `UPDATE`) for each object, plus any findings, before the tenant changes. | **CLI:** `sail marketplace status --installation-id <id> --preview`<br/>**UI:** Confirm or cancel the preview in Identity Security. |
 | `install` (complete) | The packaged objects exist in the tenant, created or updated as previewed. | **CLI:** `sail marketplace status --installation-id <id>` reports `COMPLETE`.<br/>**API:** Query the object type, for example `sail api get /v2024/transforms` or `sail api get /beta/workflows`.<br/>**UI:** Open the matching Identity Security admin page (Transforms, Workflows, Forms, Widgets, UI plugins) and find the object. |
@@ -334,9 +322,9 @@ The `/contents` endpoint returns one version's exact inventory. It's the same da
 
 ## Troubleshooting
 
-You can diagnose and fix most Marketplace issues from the CLI:
+You can diagnose and fix most Atlas Application Builder issues from the CLI:
 
-- **Read the error.** Marketplace errors state the failed step, the HTTP status, a tracking ID, and a suggested next step. The next step is usually the fix. Here is an example:
+- **Read the error.** Atlas Application Builder errors state the failed step, the HTTP status, a tracking ID, and a suggested next step. The next step is usually the fix. Here is an example:
 
   ```text
   Starting the install failed: 401 Unauthorized
@@ -344,7 +332,7 @@ You can diagnose and fix most Marketplace issues from the CLI:
   Authentication failed. Check your SailPoint environment and credentials and re-authenticate.
   ```
 
-- **Run a health check.** `sail marketplace list packages` returns listings only when authentication, your environment, and Marketplace access are all working, so it quickly isolates setup problems.
+- **Run a health check.** `sail marketplace list packages` returns listings only when authentication, your environment, and Atlas Application Builder access are all working, so it quickly isolates setup problems.
 - **Inspect instead of guessing.** Use `status --preview` for installations, `diff` for content questions, and `sail api get` to read the catalog or your tenant directly.
 
 ### Diagnose an installation
@@ -377,7 +365,7 @@ Most questions come up during installation, and you can inspect every installati
 | --- | --- |
 | `401 Unauthorized` on any command | Your session isn't authenticated for the active environment. Re-authenticate and confirm the selected environment with `sail environment`. For more information, refer to [Command Line Interface](/docs/tools/cli). |
 | `403 Forbidden` | Your account lacks the right the operation needs. Ask a tenant administrator to grant it, and then retry. |
-| `404` for a Marketplace command | The Marketplace isn't enabled on this tenant. Confirm with `sail marketplace list packages`. If that command also returns a `404`, contact SailPoint to enable the Marketplace. |
+| `404` for a `sail marketplace` command | Atlas Application Builder isn't enabled on this tenant. Confirm with `sail marketplace list packages`. If that command also returns a `404`, contact SailPoint to enable Atlas Application Builder. |
 | `add` can't find an object | The ID, name, or SRN matches nothing in the tenant. Verify it (for example, `sail api get /v2024/transforms`), or pass a local file path instead. |
 | `build` or `push`: "package no longer matches `assets/`" | Files under `assets/` changed outside the CLI. Run `add` again for anything you meant to include, delete anything you didn't, and then run `build` again. |
 | `push` or `publish`: `409 Conflict` | This version is already in review, or it has no new changes to publish. Make your changes, and then run `build`, `push`, and `publish` again. |

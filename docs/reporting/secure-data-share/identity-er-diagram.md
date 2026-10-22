@@ -318,6 +318,18 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         datetime DELETED_DATE "date when the relationship was deleted"
         datetime SYNC_DATE "When the row is last synced"
     }
+    ENTITLEMENT_CONNECTION {
+        text TENANT_ID "Unique Id for an Organization tenant"
+        text ID PK "Unique Id of the entitlement connection"
+        text IDENTITY_ID "Identity connected to the entitlement"
+        text ACCOUNT_ID "Account connected to the entitlement"
+        text ENTITLEMENT_ID "Entitlement connected to the identity and account"
+        text SOURCE_ID "Source containing the account and entitlement"
+        text ATTRIBUTE_NAME "Name of the entitlement attribute in the source system"
+        text ATTRIBUTE_VALUE "Value of the entitlement attribute in the source system"
+        boolean STANDALONE "Whether the entitlement was assigned directly rather than through a role"
+        datetime SYNC_DATE "When the row is last synced"
+    }
     CERTIFICATION_CAMPAIGN {
         text TENANT_ID "Unique Id for an Organization tenant"
         text ID PK "Unique Id for the Certification Campaign"
@@ -410,6 +422,10 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     ACCOUNT }o--|| IDENTITY: "Owned by"
     ACCOUNT ||--o{ ACCOUNT_ENTITLEMENTS: "has"
     ENTITLEMENT ||--o{ ACCOUNT_ENTITLEMENTS: "associated to"
+    IDENTITY ||--o{ ENTITLEMENT_CONNECTION: "associated to"
+    ACCOUNT ||--o{ ENTITLEMENT_CONNECTION: "has"
+    ENTITLEMENT ||--o{ ENTITLEMENT_CONNECTION: "associated to"
+    SOURCE ||--o{ ENTITLEMENT_CONNECTION: "contains"
     CERTIFICATION_V2 {
         text TENANT_ID "Unique Id for an Organization tenant"
         text ID PK "Unique Id for the Certification"

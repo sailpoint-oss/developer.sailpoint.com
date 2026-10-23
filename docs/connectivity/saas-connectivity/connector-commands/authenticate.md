@@ -123,4 +123,3 @@ export const connector = async () => {
 }
 ```
 
-Do not log `input.password`.

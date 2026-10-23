@@ -120,7 +120,7 @@ Each aggregation creates, updates, and deletes machine identities in SailPoint I
 
 ## Implementation
 
-Call `res.send()` once for each machine identity. Do not send an array.
+Call `res.send()` once for each machine identity.
 
 ```typescript
 import {

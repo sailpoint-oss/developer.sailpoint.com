@@ -109,7 +109,7 @@ The application list in SailPoint Identity Security shows the name, description,
 
 ## Implementation
 
-The SDK has two ways to register this command. Use only one of them.
+The SDK has two ways to register this command, but only one can be used at a time.
 
 | Method | Use it when |
 | :----- | :---------- |
@@ -118,7 +118,7 @@ The SDK has two ways to register this command. Use only one of them.
 
 With `stdApplicationDiscoveryListWithDataset`, the SDK calls your handler once for each dataset ID and adds `datasetId` to each object that you send.
 
-Call `res.send()` once for each application. Do not send an array.
+Call `res.send()` once for each application.
 
 ```typescript
 import {

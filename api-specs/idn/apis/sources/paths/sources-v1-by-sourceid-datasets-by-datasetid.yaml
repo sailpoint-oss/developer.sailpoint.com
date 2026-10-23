@@ -1,0 +1,295 @@
+get:
+  operationId: getSourceDatasetV1
+  security:
+  - userAuth:
+    - idn:sources:read
+    - idn:sources:manage
+  - applicationAuth:
+    - idn:sources:read
+    - idn:sources:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  tags:
+  - Sources
+  summary: Get source dataset by id
+  description: |
+    Use this API to get a dataset by id for the specified source in Identity Security Cloud (ISC).
+  parameters:
+  - in: path
+    name: sourceId
+    required: true
+    x-sailpoint-resource-operation-id: listSourcesV1
+    schema:
+      type: string
+    description: Source ID.
+    example: 2c9180835d191a86015d28455b4a2329
+  - in: path
+    name: datasetId
+    required: true
+    x-sailpoint-resource-operation-id: getSourceDatasetsV1
+    schema:
+      type: string
+    description: Dataset ID.
+    example: cmdb-servicenow:applications
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: The requested dataset was successfully retrieved.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/sourcedataset.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+put:
+  operationId: putSourceDatasetV1
+  security:
+  - userAuth:
+    - idn:sources:update
+    - idn:sources:manage
+  - applicationAuth:
+    - idn:sources:update
+    - idn:sources:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  tags:
+  - Sources
+  summary: Update source dataset (full)
+  description: |
+    Use this API to replace a dataset on the specified source in Identity Security Cloud (ISC).
+
+
+    Callers should round-trip the GET representation. `id` is required in the request body and must
+    match the path. `aggregationEnabled` may always be updated. `name`, `description`, and `resources`
+    can be changed only when the connector has the `supportDatasetCreation` label.
+  parameters:
+  - in: path
+    name: sourceId
+    required: true
+    x-sailpoint-resource-operation-id: listSourcesV1
+    schema:
+      type: string
+    description: Source ID.
+    example: 2c9180835d191a86015d28455b4a2329
+  - in: path
+    name: datasetId
+    required: true
+    x-sailpoint-resource-operation-id: getSourceDatasetsV1
+    schema:
+      type: string
+    description: Dataset ID.
+    example: cmdb-servicenow:applications
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/sourcedataset.yaml
+        examples:
+          Replace Dataset:
+            value:
+              id: cmdb-servicenow:applications
+              name: Applications
+              description: CMDB application records for this source.
+              aggregationEnabled: true
+              resources:
+              - id: aws:iam-role
+                name: Role
+                type: std:resource
+  responses:
+    '200':
+      description: The dataset was successfully replaced.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/sourcedataset.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+patch:
+  operationId: updateSourceDatasetV1
+  security:
+  - userAuth:
+    - idn:sources:update
+    - idn:sources:manage
+  - applicationAuth:
+    - idn:sources:update
+    - idn:sources:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  tags:
+  - Sources
+  summary: Update source dataset (partial)
+  description: |
+    Use this API to selectively update an existing dataset using a JSONPatch payload.
+
+
+    `aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed
+    only when the connector has the `supportDatasetCreation` label. `id` is immutable.
+  parameters:
+  - in: path
+    name: sourceId
+    required: true
+    x-sailpoint-resource-operation-id: listSourcesV1
+    schema:
+      type: string
+    description: Source ID.
+    example: 2c9180835d191a86015d28455b4a2329
+  - in: path
+    name: datasetId
+    required: true
+    x-sailpoint-resource-operation-id: getSourceDatasetsV1
+    schema:
+      type: string
+    description: Dataset ID.
+    example: cmdb-servicenow:applications
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the dataset.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../shared/schemas/jsonpatchoperation.yaml
+        examples:
+          enable-aggregation:
+            summary: Enable aggregation for the dataset
+            value:
+            - op: replace
+              path: /aggregationEnabled
+              value: true
+  responses:
+    '200':
+      description: The dataset was successfully updated.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/sourcedataset.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+delete:
+  operationId: deleteSourceDatasetV1
+  security:
+  - userAuth:
+    - idn:sources:delete
+    - idn:source-schema:delete
+    - idn:sources:manage
+    - idn:source-schema:manage
+  - applicationAuth:
+    - idn:sources:delete
+    - idn:source-schema:delete
+    - idn:sources:manage
+    - idn:source-schema:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  tags:
+  - Sources
+  summary: Delete source dataset by id
+  description: |
+    Use this API to delete a dataset on the specified source in Identity Security Cloud (ISC).
+
+
+    This operation requires a connector with the `supportDatasetCreation` label. Linked resource
+    schemas are not deleted.
+  parameters:
+  - in: path
+    name: sourceId
+    required: true
+    x-sailpoint-resource-operation-id: listSourcesV1
+    schema:
+      type: string
+    description: Source ID.
+    example: 2c9180835d191a86015d28455b4a2329
+  - in: path
+    name: datasetId
+    required: true
+    x-sailpoint-resource-operation-id: getSourceDatasetsV1
+    schema:
+      type: string
+    description: Dataset ID.
+    example: cmdb-servicenow:applications
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '204':
+      $ref: ../../shared/responses/204.yaml
+      description: The dataset was successfully deleted.
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

@@ -1,0 +1,67 @@
+type : object
+description: >-
+  Details about report result or current state.
+properties:
+  reportType:
+    type: string
+    enum:
+      - ACCOUNTS
+      - IDENTITIES_DETAILS
+      - IDENTITIES
+      - IDENTITY_PROFILE_IDENTITY_ERROR
+      - ORPHAN_IDENTITIES
+      - SEARCH_EXPORT
+      - UNCORRELATED_ACCOUNTS
+    description: >-
+      Use this property to define what report should be processed in the RDE service.
+    example: IDENTITIES_DETAILS
+  taskDefName:
+    type: string
+    description: >-
+      Name of the task definition which is started to process requesting report. Usually the same as report name
+    example: Identities Details Report
+  id:
+    type: string
+    description: >-
+      Unique task definition identifier.
+    example: a248c16fe22222b2bd49615481311111
+  created:
+    type: string
+    description: >-
+      Report processing start date
+    format: date-time
+    example: '2020-09-07T42:14:00.364Z'
+  status:
+    type: string
+    enum:
+      - SUCCESS
+      - FAILURE
+      - WARNING
+      - TERMINATED
+    description: >-
+      Report current state or result status.
+    example: SUCCESS
+  duration:
+    type: integer
+    format: int64
+    description: >-
+      Report processing time in ms.
+    example: 342
+  rows:
+    type: integer
+    format: int64
+    description: >-
+      Report size in rows.
+    example: 37
+  availableFormats:
+    type: array
+    items:
+      type: string
+      enum:
+        - CSV
+        - PDF
+    description: >-
+      Output report file formats. This are formats for calling get endpoint as a query parameter 'fileFormat'. 
+      In case report won't have this argument there will be ['CSV', 'PDF'] as default.
+    example:
+      - CSV

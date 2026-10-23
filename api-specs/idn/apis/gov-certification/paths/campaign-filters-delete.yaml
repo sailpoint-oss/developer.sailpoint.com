@@ -1,0 +1,50 @@
+post:
+  operationId: deleteGovCertificationCampaignFiltersV1
+  tags:
+    - Next Generation Certification Campaigns
+  summary: Deletes Campaign Filters
+  description: >-
+    Deletes campaign filters whose IDs are specified in the provided list of campaign filter IDs.
+    Required roles are ORG_ADMIN or CERT_ADMIN.
+  security:
+    - userAuth: [ idn:campaign-filter:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+  requestBody:
+    description: A JSON list of IDs of campaign filters to delete.
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+          example:
+            - e9f9a139-7b84-2fd5-a658-42087040d3ac
+            - 2efb374d-392c-4d88-a345-a7b11e8a4e96
+  responses:
+    '204':
+      $ref: '../../shared/responses/204.yaml'
+    '400':
+      $ref: '../../shared/responses/400.yaml'
+    '401':
+      $ref: '../../shared/responses/401.yaml'
+    '403':
+      $ref: '../../shared/responses/403.yaml'
+    '404':
+      $ref: '../../shared/responses/404.yaml'
+    '429':
+      $ref: '../../shared/responses/429.yaml'
+    '500':
+      $ref: '../../shared/responses/500.yaml'

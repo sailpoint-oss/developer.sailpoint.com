@@ -1,0 +1,43 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Api Usage
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Api Usage
+    description: >
+      Use this API to retrieve metrics about an org's API usage.
+
+      With this functionality in place, administrators can monitor the usage of APIs within a specified timespan, as
+      well as a breakdown of commonly-used APIs sorted by number of requests.
+paths:
+  /api-usage/v1/count:
+    $ref: ./paths/api-usage-v1-count.yaml
+  /api-usage/v1/summary:
+    $ref: ./paths/api-usage-v1-summary.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

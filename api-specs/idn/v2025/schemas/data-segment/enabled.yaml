@@ -1,0 +1,4 @@
+type: boolean
+description: This boolean indicates whether the segment is currently active. Inactive segments have no effect.
+default: false
+example: true

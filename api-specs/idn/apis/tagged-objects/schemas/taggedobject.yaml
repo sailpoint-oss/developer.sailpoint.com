@@ -1,0 +1,14 @@
+type: object
+title: Tagged Object
+description: Tagged object.
+properties:
+  objectRef:
+    $ref: ./taggedobjectdto.yaml
+  tags:
+    type: array
+    items:
+      type: string
+    description: Labels to be applied to an Object
+    example:
+      - BU_FINANCE
+      - PCI

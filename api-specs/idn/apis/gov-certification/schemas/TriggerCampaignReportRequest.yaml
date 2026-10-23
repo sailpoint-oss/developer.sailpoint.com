@@ -1,0 +1,14 @@
+type: object
+required:
+  - type
+  - format
+  - name
+properties:
+  type:
+    $ref: "./CampaignReportType.yaml"
+  format:
+    $ref: "./CampaignReportFormat.yaml"
+  name:
+    type: string
+    description: The name of the report. The final name will include a timestamp and the appropriate extension based on the format value
+    example: My Campaign Report

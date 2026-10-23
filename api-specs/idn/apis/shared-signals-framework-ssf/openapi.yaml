@@ -1,0 +1,61 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Shared Signals Framework (SSF)
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Shared Signals Framework (SSF)
+    description: >
+      The SSF Transmitter Service is a security event notification system that monitors identity attribute changes
+
+      and automatically triggers session revocation events when specific lifecycle conditions are met.
+
+
+      Use this API to implement transmitter functionality so administrators can discover the transmitter and manage
+      streams.
+
+      Transmitters send identity data and events from Identity Security Cloud to external receivers over the Secure Sync
+      Framework (SSF).
+
+      The SSF configuration and JWKS endpoints support discovery and verification; the stream management endpoints
+      support creating, updating, and managing streams and verifying receivers.
+
+      In Identity Security Cloud, administrators can use the "Connections" > "Shared Signals" area to view and manage
+      transmitters and their streams.
+paths:
+  /.well-known/v1/ssf-configuration:
+    $ref: ./paths/well-known-v1-ssf-configuration.yaml
+  /ssf/v1/jwks:
+    $ref: ./paths/ssf-v1-jwks.yaml
+  /ssf/v1/streams:
+    $ref: ./paths/ssf-v1-streams.yaml
+  /ssf/v1/streams/status:
+    $ref: ./paths/ssf-v1-streams-status.yaml
+  /ssf/v1/streams/verify:
+    $ref: ./paths/ssf-v1-streams-verify.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

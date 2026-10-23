@@ -1,0 +1,51 @@
+servers:
+  - url: https://{tenant}.api.{domain}.com
+    description: Use this URL so Postman generates https://{{tenant}}.api.{{domain}}.com/saml/metadata/alias/{{tenant}}-sp
+    variables:
+      tenant:
+        default: sailpoint
+        description: Tenant name
+      domain:
+        default: identitynow
+        description: Domain (e.g. identitynow for identitynow.com)
+tags:
+  - OAuth
+summary: Get SAML SP metadata
+get:
+  operationId: getSamlMetadataAlias
+  security:
+    - { }
+  x-sailpoint-userLevels:
+    - Any
+  tags:
+    - OAuth
+  summary: Get SAML SP metadata
+  description: >-
+    Returns SAML 2.0 metadata for the Identity Security Cloud service provider.
+    The path uses the tenant in the form {tenant}-sp so the URL is https://{{tenant}}.api.{{domain}}.com/saml/metadata/alias/{{tenant}}-sp.
+  parameters:
+    - in: path
+      name: tenant
+      required: true
+      schema:
+        type: string
+        example: sailpoint
+      description: Tenant name; the path suffix will be -sp (e.g. sailpoint-sp).
+  responses:
+    '200':
+      description: SAML 2.0 metadata XML for the service provider.
+      content:
+        application/xml:
+          schema:
+            type: string
+            description: SAML metadata document.
+    '400':
+      $ref: '../../apis/shared/responses/400.yaml'
+    '401':
+      $ref: '../../apis/shared/responses/401.yaml'
+    '403':
+      $ref: '../../apis/shared/responses/403.yaml'
+    '429':
+      $ref: '../../apis/shared/responses/429.yaml'
+    '500':
+      $ref: '../../apis/shared/responses/500.yaml'

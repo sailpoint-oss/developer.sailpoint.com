@@ -1,0 +1,10 @@
+summary: Bucketaggregation
+value:
+  indices:
+    - identities
+  aggregationType: SAILPOINT
+  aggregations:
+    bucket:
+      name: Identity Locations
+      type: TERMS
+      field: attributes.city

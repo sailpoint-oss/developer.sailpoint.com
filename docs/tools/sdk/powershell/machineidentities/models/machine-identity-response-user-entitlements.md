@@ -1,0 +1,31 @@
+# MachineIdentityResponseUserEntitlements
+
+# MachineIdentityResponseUserEntitlements
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**SourceId** | **String** | The source ID of the entitlement | [optional] 
+**EntitlementId** | **String** | The ID of the entitlement | [optional] 
+**DisplayName** | **String** | The display name of the entitlement | [optional] 
+**Source** | **SystemCollectionsHashtable** | The source of the entitlement | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$MachineIdentityResponseUserEntitlements = Initialize-MachineIdentityResponseUserEntitlements  -SourceId 5898b7c1-620c-49c6-cccc-cbf81eb4bddd `
+ -EntitlementId 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa `
+ -DisplayName Entitlement Name `
+ -Source null
+```
+
+- Convert the resource to JSON
+```powershell
+$MachineIdentityResponseUserEntitlements | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

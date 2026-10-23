@@ -1,0 +1,14 @@
+type: object
+properties:
+  previousReviewer:
+    $ref: './ReassignmentTrailReviewer.yaml'
+  newReviewer:
+    $ref: './ReassignmentTrailReviewer.yaml'
+  reassignmentType:
+    type: string
+    description: The type of reassignment.
+    enum:
+      - AUTOMATIC_REASSIGNMENT
+      - MANUAL_REASSIGNMENT
+      - SELF_REVIEW_DELEGATION
+    example: AUTOMATIC_REASSIGNMENT

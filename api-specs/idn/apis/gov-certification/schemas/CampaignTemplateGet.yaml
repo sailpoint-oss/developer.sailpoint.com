@@ -1,0 +1,123 @@
+type: object
+description: Campaign Template
+properties:
+  id:
+    type: string
+    format: uuid
+    description: ID of the campaign template
+    example: 2c9079b2-70a2-66a6-a170-a277bb960008
+  name:
+    type: string
+    description: Name of the campaign template.
+    example: Manager Campaign Template
+  description:
+    type: string
+    description: Description of the campaign template.
+    example: Template for the annual manager campaign.
+  type:
+    $ref: 'CampaignType.yaml'
+  ownerId:
+    type: string
+    description: >-
+      The owner of this template, and the owner of campaigns generated from this template via a schedule. This field
+      is automatically populated at creation time with the current user.
+    readOnly: true
+    example: 2c918086676d3e0601677611dbde220f
+  remediatorRef:
+    $ref: 'CampaignRemediatorRef.yaml'
+  mandatoryCommentRequirement:
+    $ref: './CampaignMandatoryCommentRequirement.yaml'
+  emailNotificationEnabled:
+    type: boolean
+    description: Enables email notification for this campaign
+    default: false
+    example: false
+  autoRevokeAllowed:
+    type: boolean
+    description: Allows auto revoke for this campaign
+    default: false
+    example: false
+  recommendationsEnabled:
+    type: boolean
+    description: >-
+      Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off
+      then campaigns generated from this template will indicate false. The real value will then be returned if
+      IAI is ever enabled for the org in the future.
+    default: false
+    example: true
+  sunsetCommentsRequired:
+    type: boolean
+    description: >-
+      Determines if comments on sunset date changes are required.
+    default: true
+    example: true
+  reviewer:
+    $ref: 'Reviewer.yaml'
+  deadlineDuration:
+    type: string
+    format: duration
+    description: >-
+      The time period during which the campaign should be completed, formatted as an ISO-8601 Duration. When this template
+      generates a campaign, the campaign's deadline will be the current date plus this duration. For example, if generation
+      occurred on 2020-01-01 and this field was "P2W" (two weeks), the resulting campaign's deadline would be 2020-01-15
+      (the current date plus 14 days). If it is passed as empty then deadline is not set, but this need to be set
+      before campaign activation api by using PATCH operation
+    example: P2W
+  campaignName:
+    description: The campaign name.
+    type: string
+    example: Manager Campaign
+  campaignDescription:
+    type: string
+    description: The campaign description.
+    example: Everyone needs to be reviewed by their manager
+  filterRef:
+    $ref: 'CampaignFilterRef.yaml'
+  searchBasedParams:
+    $ref: 'CampaignSearchBasedParams.yaml'
+  sourceIds:
+    type: array
+    description: A direct list of sourceIds to include in this campaign.
+    items:
+      type: string
+    example: [ "0fbe863c063c4c88a35fd7f17e8a3df5" ]
+  schedule:
+    $ref: "./Schedule.yaml"
+  scheduleStatus:
+    type: string
+    enum:
+      - NOT_SCHEDULED
+      - SCHEDULING
+      - SCHEDULED
+      - SCHEDULE_FAILED
+    readOnly: true
+    description: Used to determine current status of campaign template schedule
+    example: SCHEDULED
+  scheduleError:
+    type: string
+    description: Details about scheduling error
+    readOnly: true
+    example: Failed to schedule campaign template due to invalid scheduling details
+  created:
+    type: string
+    description: Creation date of Campaign Template
+    readOnly: true
+    format: date-time
+    example: '2020-03-05T22:44:00.364Z'
+  modified:
+    type: string
+    description: Modification date of Campaign Template
+    readOnly: true
+    format: date-time
+    example: '2020-03-05T22:52:09.969Z'
+required:
+  - id
+  - name
+  - description
+  - type
+  - ownerId
+  - campaignName
+  - campaignDescription
+  - reviewer
+  - created
+  - modified

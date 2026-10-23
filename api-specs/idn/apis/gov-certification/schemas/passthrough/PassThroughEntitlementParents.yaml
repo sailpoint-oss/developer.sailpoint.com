@@ -1,0 +1,27 @@
+type: array
+description: An entitlement parent details corresponding to the given entitlement ID
+items:
+  $ref: './PassThroughEntitlement.yaml'
+example:
+  - id: 2c918088-837f-e149-0183-8062005e047e
+    name: Example parent entitlement
+    created: '2022-12-06T13:53:47.066414Z'
+    modified: '2023-02-08T18:09:45.934Z'
+    attribute: memberOf
+    value: CN=Example,OU=Entitlements,DC=example,DC=com
+    sourceSchemaObjectType: group
+    privileged: false
+    cloudGoverned: false
+    description: Example parent entitlement
+    requestable: false
+    attributes: {}
+    source:
+      id: 2c918086-8380-489d-0183-8060ef8e01cc
+      type: SOURCE
+      name: Example Source
+    owner: null
+    directPermissions: []
+    segments: []
+    manuallyUpdatedFields: null
+    containsDataAccess: false
+    dataAccess: null

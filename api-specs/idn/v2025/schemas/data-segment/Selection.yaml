@@ -1,0 +1,15 @@
+type: array
+items:
+  $ref: './Ref.yaml'
+nullable: false
+description: List of Identities that are assigned to the segment
+example: [
+  {
+    "type":"IDENTITY",
+    "id":"29cb6c061da843ea8be4b3125f248f2a"
+  },
+  {
+    "type": "IDENTITY",
+    "id": "f7b1b8a35fed4fd4ad2982014e137e19"
+  }
+]

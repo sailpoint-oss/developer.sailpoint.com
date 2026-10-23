@@ -1,0 +1,19 @@
+description: >-
+  This creates a template that can be used to generate manager campaigns. The campaigns will have a due date
+  that is two weeks after their creation date, and will be named "{current date} Manager Review" (e.g.
+  "2020-03-16 Manager Review").
+value:
+  name: Manager Review
+  description: A review of everyone's access by their manager.
+  deadlineDuration: P2W
+  campaign:
+    name: Manager Review
+    description: Review everyone's access.
+    type: MANAGER
+    filter:
+      type: CAMPAIGN_FILTER
+      id: e0adaae69852e8fe8b8a3d48e5ce757c
+    emailNotificationEnabled: true
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    mandatoryCommentRequirement: NO_DECISIONS

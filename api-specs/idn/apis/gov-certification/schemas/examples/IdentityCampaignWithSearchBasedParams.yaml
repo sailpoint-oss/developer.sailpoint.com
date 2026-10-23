@@ -1,0 +1,16 @@
+value:
+  name: Identity Campaign With Manager
+  description: Identity Campaign With Manager
+  type: IDENTITY
+  emailNotificationEnabled: true
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  sunsetCommentsRequired: true
+  autoActivate: false
+  mandatoryCommentRequirement: NO_DECISIONS
+  reviewer:
+    type: MANAGER
+  searchBasedParams:
+    searchType: IDENTITY
+    identityIds:
+      - 2c9180888380236101838062001f00b6

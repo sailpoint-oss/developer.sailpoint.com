@@ -1,0 +1,12 @@
+description: Runs on the 15th day of the month, at 5PM.
+value:
+  type: MONTHLY
+  hours:
+    type: LIST
+    values:
+      - '17'
+  days:
+    type: LIST
+    values:
+      - '15'
+  timeZoneId: America/Chicago

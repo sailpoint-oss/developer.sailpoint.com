@@ -1,0 +1,100 @@
+type: object
+description: |
+  Flat identity response with identity attributes hoisted to the top level.
+  The accounts, privilegedAccess, and accessHistory slices are always present.
+  The outliers slice is omitted when the tenant lacks the IDA-outliers license.
+required:
+  - id
+  - type
+  - isManager
+  - accounts
+  - privilegedAccess
+  - accessHistory
+properties:
+  id:
+    type: string
+    description: Identity Security Cloud identifier for this identity.
+    example: ef38f94347e94562b5bb8424a56397d8
+  type:
+    type: string
+    enum:
+      - HUMAN
+    description: Identity type for the matched record.
+    example: HUMAN
+  displayName:
+    type: string
+    description: Preferred display name for the identity across administrative experiences.
+    example: Example User
+  description:
+    type: string
+    nullable: true
+    description: Optional free-text description assigned to the identity profile when present.
+    example: Example description.
+  subtype:
+    type: string
+    nullable: true
+    description: NERM classification for the identity.
+    enum:
+      - Employee
+      - Non Employee
+      - Cannot Determine
+    example: Employee
+  owners:
+    type: string
+    nullable: true
+    description: Serialized owner reference information when populated by upstream identity services.
+    example: governance-group-001
+  attributes:
+    type: object
+    additionalProperties: true
+    description: Arbitrary SCIM-style attribute bag returned for the identity context view.
+    example:
+      department: Engineering
+      region: US
+  created:
+    type: string
+    format: date-time
+    description: Timestamp when the identity record was created in Identity Security Cloud.
+    example: "2026-05-12T08:00:00Z"
+  modified:
+    type: string
+    format: date-time
+    description: Timestamp when the identity record was last modified in Identity Security Cloud.
+    example: "2026-05-12T09:15:30Z"
+  alias:
+    type: string
+    description: Primary login or account alias for the identity.
+    example: example.user
+  email:
+    type: string
+    format: email
+    description: Primary business email address for the identity.
+    example: user@example.com
+  identityStatus:
+    type: string
+    description: Current identity lifecycle status label from Identity Security Cloud.
+    example: ACTIVE
+  isManager:
+    type: boolean
+    description: True when the identity is flagged as a people manager in the organization.
+    example: false
+  accounts:
+    type: object
+    description: First page of accounts for the identity.
+    allOf:
+      - $ref: ./IntelAccountsSlice.yaml
+  privilegedAccess:
+    type: object
+    description: Full privileged access result for the identity.
+    allOf:
+      - $ref: ./IntelPrivilegedAccessSlice.yaml
+  outliers:
+    type: object
+    description: Rare access slice; omitted when the tenant lacks the IDA-outliers license.
+    allOf:
+      - $ref: ./IntelOutliersSlice.yaml
+  accessHistory:
+    type: object
+    description: Access-history split into access items and certifications sub-slices.
+    allOf:
+      - $ref: ./IntelAccessHistory.yaml

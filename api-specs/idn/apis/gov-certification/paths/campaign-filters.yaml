@@ -1,0 +1,112 @@
+post:
+  operationId: createGovCertificationCampaignFilterV1
+  tags:
+    - Next Generation Certification Campaigns
+  summary: Create a Campaign Filter
+  description: >-
+    Create a campaign filter based on filter details and criteria. Required roles are ORG_ADMIN or CERT_ADMIN.
+    The request body must not exceed 1 MiB (1,048,576 bytes); larger requests are rejected with a 400 response.
+  security:
+    - userAuth: [ idn:campaign-filter:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CampaignFilterCreate.yaml'
+        examples:
+          Simple Campaign Filter:
+            $ref: '../schemas/examples/SimpleCampaignFilter.yaml'
+          Composite Campaign Filter:
+            $ref: '../schemas/examples/CompositeCampaignFilter.yaml'
+  responses:
+    '201':
+      description: Created successfully.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignFilterGet.yaml'
+    '400':
+      $ref: '../../shared/responses/400.yaml'
+    '401':
+      $ref: '../../shared/responses/401.yaml'
+    '403':
+      $ref: '../../shared/responses/403.yaml'
+    '429':
+      $ref: '../../shared/responses/429.yaml'
+    '500':
+      $ref: '../../shared/responses/500.yaml'
+get:
+  operationId: listGovCertificationCampaignFiltersV1
+  tags:
+    - Next Generation Certification Campaigns
+  summary: List Campaign Filters
+  description: >-
+    Lists all Campaign Filters. Scope can be reduced via standard V3 query params.
+
+    All Campaign Filters matching the query params. Required roles are ORG_ADMIN or CERT_ADMIN
+  security:
+    - userAuth: [ idn:campaign-filter-list:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+    - $ref: '../../shared/parameters/limit.yaml'
+    - $ref: '../../shared/parameters/offset.yaml'
+    - $ref: '../../shared/parameters/count.yaml'
+  responses:
+    '200':
+      description: List of campaign filter objects
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/CampaignFilterGet.yaml'
+          example:
+            - id: 5b8a2ba8-6393-dd17-4495-c4436dd76b25
+              name: Identity Attribute Inclusion Campaign Filter
+              description: Includes identities whose display name contains "#".
+              owner: SailPoint Support
+              mode: INCLUSION
+              criteriaList:
+                - criteriaType: IDENTITY_ATTRIBUTE
+                  operation: CONTAINS
+                  criteriaProperty: displayName
+                  criteriaValue: '#'
+      headers:
+        X-Total-Count:
+          description: Total number of items, regardless of paging limits.
+          schema:
+            type: integer
+            format: int64
+    '400':
+      $ref: '../../shared/responses/400.yaml'
+    '401':
+      $ref: '../../shared/responses/401.yaml'
+    '403':
+      $ref: '../../shared/responses/403.yaml'
+    '429':
+      $ref: '../../shared/responses/429.yaml'
+    '500':
+      $ref: '../../shared/responses/500.yaml'

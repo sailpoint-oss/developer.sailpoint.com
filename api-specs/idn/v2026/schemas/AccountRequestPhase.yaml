@@ -1,0 +1,26 @@
+type: object
+title: Account Request phase
+description: Contains detailed information about each phase in the account request process, including its type, current state, and relevant timestamps.
+properties:
+  name:
+    type: string
+    enum:
+      - APPROVAL_PHASE
+      - PROVISIONING_PHASE
+    title: AccountRequestPhaseType
+    description: Enum of account request phase type
+    example: APPROVAL_PHASE
+  state:
+    $ref: ./AccountRequestPhaseState.yaml
+  started:
+    type: string
+    description: Start date of account request phase.
+    format: date-time
+    readOnly: true
+    example: "2026-01-21T11:43:22.432Z"
+  finished:
+    description: Finish date of account request phase.
+    type: string
+    format: date-time
+    readOnly: true
+    example: "2026-01-21T11:45:22.432Z"

@@ -1,0 +1,8 @@
+type: string
+description: >-
+  The mode/type of Filter, where it is of INCLUSION or EXCLUSION type. INCLUSION type will include the data in generated campaign
+  as per specified in criteria, whereas EXCLUSION type will exclude the the data in generated campaign as per specified in criteria.
+enum:
+  - "INCLUSION"
+  - "EXCLUSION"
+example: INCLUSION

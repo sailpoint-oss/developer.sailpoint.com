@@ -1,0 +1,19 @@
+type: array
+description: Default provisioning policies parsed from the connector application XML templates. Always an array; empty when the connector ships no templates.
+nullable: false
+items:
+  $ref: ../../sources/schemas/provisioningpolicydto.yaml
+example:
+  - name: Account
+    description: Create Account Profile
+    usageType: CREATE
+    fields:
+      - name: distinguishedName
+        transform:
+          type: identityAttribute
+          attributes:
+            name: email
+        attributes: {}
+        isRequired: true
+        type: string
+        isMultiValued: false

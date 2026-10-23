@@ -1,0 +1,9 @@
+type: object
+title: Detailed decision summary
+properties:
+  entitlementDecisions:
+    $ref: './DecisionStatistics.yaml'
+  accessProfileDecisions:
+    $ref: './DecisionStatistics.yaml'
+  roleDecisions:
+    $ref: './DecisionStatistics.yaml'

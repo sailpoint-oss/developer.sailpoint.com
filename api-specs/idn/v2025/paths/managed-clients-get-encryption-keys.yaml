@@ -1,0 +1,39 @@
+get:
+  tags:
+    - Managed Clients
+  summary: Get encryption keys for client
+  description: >-
+    Get existing encryption keys from the Managed Cluster this Managed client is part of. To be used by a new VA joining an existing cluster.
+
+    AMS Security: idn:managed-client-access-management
+  operationId: getEncryptionKeys
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: getManagedClients
+      description: The Managed client ID
+      example: aClientId
+  responses:
+    "200":
+      description: Responds with a GetEncryptionKeysData
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/GetEncryptionKeysData.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - userAuth: [idn:managed-client-certificate:read]

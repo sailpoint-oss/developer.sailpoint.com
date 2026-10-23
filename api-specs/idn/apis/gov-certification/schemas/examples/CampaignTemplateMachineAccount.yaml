@@ -1,0 +1,23 @@
+value:
+  id: b91f66d4-0a3e-4c71-9e28-55aa10c83f07
+  name: Machine Accounts Campaign Template
+  description: Template for a machine-account review.
+  campaignName: Machine Accounts Campaign
+  campaignDescription: A review of machine accounts.
+  type: MACHINE_ACCOUNT
+  ownerId: 7ec252ac-bd42-4554-8bc2-5df22348cb75
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  sunsetCommentsRequired: true
+  reviewer:
+    type: ACCOUNT_OWNER
+  sourceIds:
+    - d88917c32c6f463fa6db291f8d0d6fff
+  filterRef:
+    id: d5e2cb8b-0779-4732-9190-ba8784dbcbb9
+    name: Machine Account Filter
+  mandatoryCommentRequirement: NO_DECISIONS
+  scheduleStatus: NOT_SCHEDULED
+  created: '2022-08-02T19:16:42.632Z'
+  modified: '2022-08-02T19:16:42.632Z'

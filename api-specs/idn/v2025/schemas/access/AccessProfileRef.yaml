@@ -1,0 +1,17 @@
+type: object
+properties:
+    id:
+        type: string
+        description: ID of the Access Profile
+        example: ff808081751e6e129f1518161919ecca
+    type:
+        type: string
+        description: Type of requested object. This field must be either left null or set to 'ACCESS_PROFILE' when creating an Access Profile, otherwise a 400 Bad Request error will result.
+        enum:
+          - ACCESS_PROFILE
+        example: "ACCESS_PROFILE"
+    name:
+        type: string
+        description: Human-readable display name of the Access Profile. This field is ignored on input.
+        example: Access Profile 2567
+

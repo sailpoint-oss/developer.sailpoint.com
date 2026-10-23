@@ -1,0 +1,10 @@
+value:
+  id: 7e1a731e3fb845cfbe58112ba4673ee4
+  name: Search Campaign
+  description: Search Campaign Info
+  deadline: 2022-07-26T15:42:44Z
+  type: SEARCH
+  status: ACTIVE
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  recommendationsEnabled: false

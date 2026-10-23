@@ -1,0 +1,16 @@
+description: |
+  If the *Accept:text/csv* header is specified and the *aggregationType* parameter in the request body is *SAILPOINT*,
+
+  the aggregation result will be returned as a CSV document.
+type: string
+example:
+- 'Identity Locations,Count'
+- 'Munich,23'
+- 'Brussels,26'
+- 'Singapore,22'
+- 'Tokyo,20'
+- 'Taipei,16'
+- 'London,64'
+- 'Austin,109'
+- 'Sao Paulo,24'
+- 'San Jose,27'

@@ -1,0 +1,87 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The id for the entitlement
+    example: 2c918085718230600171993742c63558
+  name:
+    type: string
+    description: The name of the entitlement
+    example: 'CN=entitlement.bbb7c650'
+  description:
+    type: string
+    description: Information about the entitlement
+    example: Gives read/write access to the company database
+  privileged:
+    type: boolean
+    example: false
+    default: false
+    deprecated: true
+    description: >-
+      Deprecated. Replaced by effectivePrivilege (HIGH, MEDIUM, LOW, NONE).
+      Indicates if the entitlement is a privileged entitlement.
+      Retained for backward compatibility.
+  owner:
+    $ref: './IdentityReference.yaml'
+  attributeName:
+    type: string
+    description: The name of the attribute on the source
+    example: memberOf
+  attributeValue:
+    type: string
+    description: The value of the attribute on the source
+    example: 'CN=entitlement.bbb7c650'
+  sourceSchemaObjectType:
+    type: string
+    description: The schema object type on the source used to represent the entitlement and its attributes
+    example: 'groups'
+  sourceName:
+    type: string
+    description: The name of the source for which this entitlement belongs
+    example: ODS-AD-Source
+  sourceType:
+    type: string
+    description: The type of the source for which the entitlement belongs
+    example: Active Directory - Direct
+  sourceId:
+    type: string
+    description: The ID of the source for which the entitlement belongs
+    example: 78ca6be511cb41fbb86dba2fcca7780c
+  hasPermissions:
+    type: boolean
+    default: false
+    description: Indicates if the entitlement has permissions
+    example: false
+  isPermission:
+    type: boolean
+    default: false
+    description: Indicates if the entitlement is a representation of an account permission
+    example: false
+  revocable:
+    type: boolean
+    default: true
+    description: Indicates whether the entitlement can be revoked
+    example: true
+  cloudGoverned:
+    type: boolean
+    default: false
+    description: True if the entitlement is cloud governed
+    example: false
+  account:
+    $ref: './AccountReference.yaml'
+  dataAccess:
+    $ref: './DataAccess.yaml'
+  containsDataAccess:
+    type: boolean
+    default: false
+    description: Will be true if the dataAccess property is populated.
+    example: true
+  activityInsights:
+    $ref: './ActivityInsights.yaml'
+  provisioningType:
+    type: string
+    enum:
+      - JIT
+      - STANDING
+    description: Whether the entitlement assignment is just-in-time or standing
+    example: STANDING

@@ -1,0 +1,7 @@
+value:
+  id: 2c918086719eec070171a7e3355a360a
+  targetId: 2c918086-719e-ec07-0171-a7e3355a834c
+  type: REASSIGN_CERTIFICATIONS
+  targetType: CAMPAIGN
+  status: QUEUED
+  created: '2020-09-24T18:10:47.693Z'

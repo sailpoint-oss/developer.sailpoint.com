@@ -1,0 +1,63 @@
+get:
+  operationId: getSourceServiceDeskIntegrationsV1
+  security:
+  - userAuth:
+    - idn:sources:read
+    - idn:sources:manage
+  - applicationAuth:
+    - idn:sources:read
+    - idn:sources:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  tags:
+  - Sources
+  summary: List source service desk integrations
+  description: >-
+    Use this API to list the Service Desk Integrations that carry out provisioning for a source in Identity Security
+    Cloud (ISC).
+
+
+    A source is provisioned either entirely through its own connector or entirely through a Service Desk Integration;
+    provisioning is never split between the two. An empty list therefore means the source's own connector handles
+    provisioning, and a non-empty list means every provisioning request for the source is routed to the integrations
+    named in the response.
+
+
+    Use this API to determine why provisioning settings on the source itself have no effect, and to identify the
+    integration an administrator must change instead.
+  parameters:
+  - in: path
+    name: sourceId
+    schema:
+      type: string
+    required: true
+    x-sailpoint-resource-operation-id: listSourcesV1
+    description: Source ID.
+    example: 2c9180835d191a86015d28455b4a2329
+  - $ref: ../../shared/parameters/limit.yaml
+  - $ref: ../../shared/parameters/offset.yaml
+  responses:
+    '200':
+      description: >-
+        The Service Desk Integrations that manage provisioning for the source, empty if the source's own connector
+        handles provisioning.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/sourceservicedeskintegrationdto.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

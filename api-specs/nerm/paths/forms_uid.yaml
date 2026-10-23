@@ -1,0 +1,53 @@
+get:
+  summary: Get form data by UID
+  operationId: getFormByUid
+  description: Info for a specific form
+  parameters:
+    - $ref: "../parameters/path/uid.yaml"
+  tags:
+  - forms
+  responses:
+    '200':
+      $ref: "../responses/Forms.yaml"
+    '404':
+      $ref: "../responses/404.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update form data by UID
+  operationId: updateFormByUid
+  description: Update info for a specific form
+  tags:
+  - forms
+  parameters:
+    - $ref: "../parameters/path/uid.yaml"
+  requestBody:
+    $ref: "../requestBodies/PATCH/Form.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Attribute.yaml"
+    '404':
+      $ref: "../responses/404.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+delete:
+  summary: Delete form by UID
+  operationId: deleteFormByUid
+  description: Delete form by UID
+  tags:
+  - forms
+  parameters:
+    - $ref: "../parameters/path/uid.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Attribute.yaml"
+    '404':
+      $ref: "../responses/404.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

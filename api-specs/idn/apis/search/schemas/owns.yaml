@@ -1,0 +1,29 @@
+type: object
+properties:
+  sources:
+    type: array
+    items:
+      $ref: ./reference.yaml
+  entitlements:
+    type: array
+    items:
+      $ref: ./reference.yaml
+  accessProfiles:
+    type: array
+    items:
+      $ref: ./reference.yaml
+  roles:
+    type: array
+    items:
+      $ref: ./reference.yaml
+  apps:
+    type: array
+    items:
+      $ref: ./reference.yaml
+  governanceGroups:
+    type: array
+    items:
+      $ref: ./reference.yaml
+  fallbackApprover:
+    type: boolean
+    example: false

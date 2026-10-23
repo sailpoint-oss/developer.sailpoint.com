@@ -1,0 +1,9 @@
+value:
+  name: Campaign Filter
+  description: Campaign Filter Description
+  mode: EXCLUSION
+  criteriaList:
+    - criteriaType: ACCESS_PROFILE
+      operation: EQUALS
+      criteriaValue: Admin Access
+      criteriaProperty: DISPLAY_NAME

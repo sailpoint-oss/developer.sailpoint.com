@@ -1,0 +1,28 @@
+type: object
+description: Campaign Filter Create Details
+properties:
+  name:
+    type: string
+    description: This is campaign filter's name.
+    example: Identity Attribute Campaign Filter
+  description:
+    type: string
+    description: This is campaign filter's description.
+    example: Campaign filter to certify data based on specified property of Identity Attribute.
+  mode:
+    $ref: './CampaignFilterType.yaml'
+  criteriaList:
+    type: array
+    description: List of criteria.
+    items:
+      $ref: './Criteria.yaml'
+    example:
+      - criteriaType: IDENTITY
+        criteriaProperty: DISPLAY_NAME
+        criteriaValue: support
+        operation: EQUALS
+required:
+  - name
+  - description
+  - mode
+  - criteriaList

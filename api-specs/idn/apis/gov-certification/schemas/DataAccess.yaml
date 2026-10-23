@@ -1,0 +1,34 @@
+type: object
+properties:
+  policies:
+    type: array
+    description: List of classification policies that apply to resources the entitlement or group has access to.
+    items:
+      type: object
+      properties:
+        value:
+          type: string
+          description: Value of the policy
+          example: GDPR-20
+  categories:
+    type: array
+    description: List of classification categories that apply to resources the entitlement or group has access to.
+    items:
+      type: object
+      properties:
+        value:
+          type: string
+          description: Value of the category
+          example: SSN
+        matchCount:
+          type: integer
+          description: Number of matches for the category.
+          example: 10
+  impactScore:
+    type: object
+    properties:
+      value:
+        type: string
+        description: Impact Score for this data
+        example: Medium
+

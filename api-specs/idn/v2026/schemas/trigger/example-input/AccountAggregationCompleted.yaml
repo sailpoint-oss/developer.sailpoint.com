@@ -1,0 +1,111 @@
+title: Account Aggregation Completed
+type: object
+required:
+- source
+- status
+- started
+- completed
+- errors
+- warnings
+- stats
+properties:
+  source:
+    required:
+    - type
+    - name
+    - id
+    type: object
+    description: The source the accounts are being aggregated from. 
+    properties:
+      type:
+        type: string 
+        description: The DTO type of the source the accounts are being aggregated from. 
+        enum: 
+          - SOURCE
+        example: SOURCE
+      id:
+        type: string
+        description: The ID of the source the accounts are being aggregated from. 
+        example: 2c9180835d191a86015d28455b4b232a
+      name:
+        type: string
+        description: Display name of the source the accounts are being aggregated from. 
+        example: HR Active Directory
+  status:
+    description: The overall status of the aggregation.
+    enum:
+    - Success
+    - Failed
+    - Terminated
+    example: Success
+  started:
+    type: string
+    format: date-time
+    description: The date and time when the account aggregation started.
+    example: "2020-06-29T22:01:50.474Z"
+  completed:
+    type: string
+    format: date-time
+    description: The date and time when the account aggregation finished.
+    example: "2020-06-29T22:02:04.090Z"
+  errors:
+    nullable: true
+    description: A list of errors that occurred during the aggregation.
+    type: array
+    items:
+      type: string
+      description: A descriptive error message.
+      example: Accounts unable to be aggregated.
+  warnings:
+    nullable: true
+    description: A list of warnings that occurred during the aggregation.
+    type: array
+    items:
+      type: string
+      description: A descriptive warning message.
+      example: Account Skipped
+  stats:
+    type: object
+    description: Overall statistics about the account aggregation.
+    required:
+    - scanned
+    - unchanged
+    - changed
+    - added
+    - removed
+    properties:
+      scanned:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 2147483647
+        description: The number of accounts which were scanned / iterated over.
+        example: 200
+      unchanged:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 2147483647
+        description: The number of accounts which existed before, but had no changes.
+        example: 190
+      changed:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 2147483647
+        description: The number of accounts which existed before, but had changes.
+        example: 6
+      added:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 2147483647
+        description: The number of accounts which are new - have not existed before.
+        example: 4
+      removed:
+        type: integer
+        minimum: 0
+        maximum: 2147483647
+        format: int32
+        description: The number accounts which existed before, but no longer exist (thus getting removed).
+        example: 3

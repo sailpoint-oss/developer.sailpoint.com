@@ -1,0 +1,8 @@
+name: ne_attribute_id
+in: query
+description: ID of an attribute for filtering
+required: false
+schema:
+  type: string
+  format: uuid
+  example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8

@@ -1,0 +1,46 @@
+description: The subject being targeted by a certification.
+type: object
+properties:
+  subjectType:
+    type: string
+    description: The type of subject being targeted by this certification
+    enum:
+      - IDENTITY
+      - MACHINE_IDENTITY
+      - ROLE
+    example: IDENTITY
+  id:
+    type: string
+    format: uuid
+    description: The subject id
+    example: 10dcb487-fd0d-44a1-8338-e48e7b9caf61
+  subjectName:
+    type: string
+    description: Name of the target subject
+    example: Alison Ferguson
+  subjectTargetId:
+    type: string
+    description: The ID of the entity being targeted by a certification
+    example: 2c9180857182306001719937377a33de
+  completed:
+    type: boolean
+    description: Indicates whether the review items for the linked subject's certification have been completed
+    example: false
+    default: false
+  subjectEmail:
+    type: string
+    format: email
+    description: Email of the subject
+    example: Alison.Ferguson@email.com
+  subjectManagerName:
+    type: string
+    description: The name of the subject's manager
+    example: Bobby Boss
+  identityState:
+    type: string
+    description: The state of identity/subject
+    enum:
+      - ACTIVE
+      - INACTIVE_LONG_TERM
+      - INACTIVE_SHORT_TERM
+    example: ACTIVE

@@ -1,0 +1,30 @@
+type: object
+description: External source metadata captured for audit and traceability.
+required:
+  - source
+properties:
+  source:
+    type: string
+    description: External system that initiated the action.
+    enum:
+      - CROWDSTRIKE
+      - SENTINEL
+      - SPLUNK
+      - CUSTOM
+    maxLength: 128
+    example: CROWDSTRIKE
+  externalAlertId:
+    type: string
+    description: External alert or case identifier.
+    maxLength: 256
+    example: CS-FALCON-12345
+  reason:
+    type: string
+    description: Human-readable reason for the action.
+    maxLength: 1024
+    example: Contain compromised account
+  operator:
+    type: string
+    description: Operator or analyst who initiated the action.
+    maxLength: 256
+    example: soc-analyst@customer.com

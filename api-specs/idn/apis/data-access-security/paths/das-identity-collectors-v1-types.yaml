@@ -1,0 +1,86 @@
+get:
+  summary: List identity collector types
+  description: >-
+    Returns the public identity collector types exposed for metadata and UI discovery, including
+    the ISC `connectorName` values to use when listing sources for each type. This endpoint lists
+    base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed as
+    separate types; create derives the identity collector type from `sourceId`. Existing identity
+    collectors may still report SaaS variant types in list and update responses.
+
+
+    Flagged types (Snowflake, Databricks, Atlassian Suite) are included only when the corresponding
+    tenant feature flag is enabled.
+
+
+    Pagination is not supported for this endpoint; the full set of enabled public types is always
+    returned.
+  security:
+  - userAuth:
+    - das:identity-collectors:read
+    - das:identity-collectors:manage
+  - applicationAuth:
+    - das:identity-collectors:read
+    - das:identity-collectors:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+  - Data Access Security
+  operationId: getIdentityCollectorTypesV1
+  parameters:
+  - $ref: ../../shared/parameters/limit.yaml
+  - $ref: ../../shared/parameters/offset.yaml
+  responses:
+    '200':
+      description: Supported identity collector types with ISC connector names.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/identitycollectortypesresponse.yaml
+          example:
+            types:
+              - type: Active Directory
+                iscConnectorNames:
+                  - Active Directory
+              - type: Atlassian Suite
+                iscConnectorNames:
+                  - Atlassian Suite - Cloud
+                  - Atlassian Suite SaaS
+              - type: AWS
+                iscConnectorNames:
+                  - AWS
+                  - AWS SaaS
+              - type: Azure Active Directory
+                iscConnectorNames:
+                  - Azure Active Directory
+              - type: Box
+                iscConnectorNames:
+                  - Box
+                  - Box SaaS
+              - type: Databricks
+                iscConnectorNames:
+                  - Databricks
+              - type: Dropbox
+                iscConnectorNames:
+                  - Dropbox
+                  - Dropbox SaaS
+              - type: Google Drive
+                iscConnectorNames:
+                  - G Suite
+                  - Google Workspace SaaS
+              - type: Microsoft Entra SaaS
+                iscConnectorNames:
+                  - Microsoft Entra
+              - type: Snowflake
+                iscConnectorNames:
+                  - Snowflake
+                  - Snowflake SaaS
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

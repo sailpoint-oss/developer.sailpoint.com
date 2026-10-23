@@ -1,0 +1,7 @@
+type: string
+description: >-
+  Lifecycle action requested against a machine identity.
+enum:
+  - DEACTIVATE
+  - ACTIVATE
+example: DEACTIVATE

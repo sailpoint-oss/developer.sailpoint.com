@@ -1,0 +1,43 @@
+type: object
+required:
+  - impactedSources
+  - impactedAccounts
+  - impactedHumans
+description: Fast SOC view of impact across sources, accounts, and humans.
+properties:
+  impactedSources:
+    type: array
+    description: Source systems that may be impacted if compromised.
+    items:
+      type: string
+    example:
+      - Example AWS Source
+  impactedAccounts:
+    type: integer
+    format: int32
+    description: Linked machine accounts that may be impacted if compromised.
+    example: 1
+  impactedHumans:
+    type: integer
+    format: int32
+    description: Unique owners and authorized humans potentially impacted if compromised.
+    example: 1
+  hasEntitlements:
+    type: boolean
+    default: false
+    description: Whether this NHI holds entitlements included in summary.
+    example: true
+  environments:
+    type: array
+    description: Environment labels for impacted access in this summary.
+    items:
+      type: string
+    example:
+      - production
+  accessTypes:
+    type: array
+    description: Access type labels for impacted access in this summary.
+    items:
+      type: string
+    example:
+      - entitlement

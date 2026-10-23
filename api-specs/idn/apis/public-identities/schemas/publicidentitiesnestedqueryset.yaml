@@ -1,0 +1,20 @@
+type: object
+title: Public Identities Nested Query Set
+description: >-
+  Query set nested inside a COMPOSITE entry. TEXT entries combined with AND
+  (matchAny false) or OR (matchAny true).
+additionalProperties: false
+required:
+- matchAny
+- entries
+properties:
+  matchAny:
+    type: boolean
+    description: When true, entries are OR'd; when false, entries are AND'd.
+    example: true
+  entries:
+    type: array
+    minItems: 1
+    items:
+      $ref: ./publicidentitiestextentry.yaml
+    description: One or more TEXT entries.

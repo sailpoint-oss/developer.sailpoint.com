@@ -1,0 +1,10 @@
+description: Managed Client type
+type: string
+example: CCG
+nullable: true
+enum:
+  - CCG
+  - VA
+  - INTERNAL
+  - IIQ_HARVESTER
+  - null

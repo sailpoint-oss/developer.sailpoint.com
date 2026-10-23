@@ -1,0 +1,201 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Certification Campaigns
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Certification Campaigns
+    description: >
+      Use this API to implement certification campaign functionality.
+
+      With this functionality in place, administrators can create, customize, and manage certification campaigns for
+      their organizations' use. 
+
+      Certification campaigns provide Identity Security Cloud users with an interactive review process they can use to
+      identify and verify access to systems. 
+
+      Campaigns help organizations reduce risk of inappropriate access and satisfy audit requirements. 
+
+
+      A certification refers to Identity Security Cloud's mechanism for reviewing a user's access to entitlements (sets
+      of permissions) and approving or removing that access. 
+
+      These certifications serve as a way of showing that a user's access has been reviewed and approved. 
+
+      Multiple certifications by different reviewers are often required to approve a user's access. 
+
+      A set of multiple certifications is called a certification campaign. 
+
+
+      For example, an organization may use a Manager Certification campaign as a way of showing that a user's access has
+      been reviewed and approved by multiple managers. 
+
+      Once this campaign has been completed, Identity Security Cloud would provision all the access the user needs,
+      nothing more. 
+
+
+      Identity Security Cloud provides two simple campaign types users can create without using search queries, Manager
+      and Source Owner campaigns:
+
+
+      You can create these types of campaigns without using any search queries in Identity Security Cloud: 
+
+
+      - ManagerCampaign: Identity Security Cloud provides this campaign type as a way to ensure that an identity's
+      access is certified by their managers. 
+
+      You only need to provide a name and description to create one. 
+
+
+      - Source Owner Campaign: Identity Security Cloud provides this campaign type as a way to ensure that an identity's
+      access to a source is certified by its source owners. 
+
+      You only need to provide a name and description to create one. 
+
+      You can specify the sources whose owners you want involved or just run it across all sources. 
+
+
+      For more information about these campaign types, refer to [Starting a Manager or Source Owner
+      Campaign](https://documentation.sailpoint.com/saas/help/certs/starting_campaign.html).
+
+
+      One useful way to create certification campaigns in Identity Security Cloud is to use a specific search and then
+      run a campaign on the results returned by that search. 
+
+      This allows you to be much more specific about whom you are certifying in your campaigns and what access you are
+      certifying in your campaigns. 
+
+      For example, you can search for all identities who are managed by "Amanda.Ross" and also have the access to the
+      "Accounting" role and then run a certification campaign based on that search to ensure that the returned
+      identities are appropriately certified. 
+
+
+      You can use Identity Security Cloud search queries to create these types of campaigns: 
+
+
+      - Identities: Use this campaign type to review and revoke access items for specific identities. 
+
+      You can either build a search query and create a campaign certifying all identities returned by that query, or you
+      can search for individual identities and add those identities to the certification campaign. 
+
+
+      - Access Items: Use this campaign type to review and revoke a set of roles, access profiles, or entitlements from
+      the identities that have them. 
+
+      You can either build a search query and create a campaign certifying all access items returned by that query, or
+      you can search for individual access items and add those items to the certification campaign. 
+
+
+      - Role Composition: Use this campaign type to review a role's composition, including its title, description, and
+      membership criteria. 
+
+      You can either build a search query and create a campaign certifying all roles returned by that query, or you can
+      search for individual roles and add those roles to the certification campaign. 
+
+
+      - Uncorrelated Accounts: Use this campaign type to certify source accounts that aren't linked to an authoritative
+      identity in Identity Security Cloud. 
+
+      You can use this campaign type to view all the uncorrelated accounts for a source and certify them. 
+
+
+      For more information about search-based campaigns, refer to [Starting a Campaign from
+      Search](https://documentation.sailpoint.com/saas/help/certs/starting_search_campaign.html).
+
+
+      Once you have generated your campaign, it becomes available for preview. 
+
+      An administrator can review the campaign and make changes, or if it's ready and accurate, activate it. 
+
+
+      Once the campaign is active, organization administrators or certification administrators can designate other
+      Identity Security Cloud users as certification reviewers. 
+
+      Those reviewers can view any of the certifications they either need to review (active) or have already reviewed
+      (completed).
+
+
+      When a certification campaign is in progress, certification reviewers see the listed active certifications whose
+      involved identities they can review. 
+
+      Reviewers can then make decisions to grant or revoke access, as well as reassign the certification to another
+      reviewer. If the reviewer chooses this option, they must provide a reason for reassignment in the form of a
+      comment.
+
+
+      Once a reviewer has made decisions on all the certification's involved access items, he or she must "Sign Off" to
+      complete the review process.
+
+      Doing so converts the certification into read-only status, preventing any further changes to the review decisions
+      and deleting the work item (task) from the reviewer's list of work items. 
+
+
+      Once all the reviewers have signed off, the certification campaign either completes or, if any reviewers decided
+      to revoke access for any of the involved identities, it moves into a remediation phase. 
+
+      In the remediation phase, identities' entitlements are altered to remove any entitlements marked for revocation.
+
+      In this situation, the certification campaign completes once all the remediation requests are completed. 
+
+
+      The end of a certification campaign is determined by its deadline, its completion status, or by an administrator's
+      decision. 
+
+
+      For more information about certifications and certification campaigns, refer to
+      [Certifications](https://documentation.sailpoint.com/saas/user-help/certs/reviewing/index.html).
+paths:
+  /campaigns/v1:
+    $ref: ./paths/campaigns-v1.yaml
+  /campaigns/v1/{id}:
+    $ref: ./paths/campaigns-v1-by-id.yaml
+  /campaigns/v1/{id}/reassign:
+    $ref: ./paths/campaigns-v1-by-id-reassign.yaml
+  /campaigns/v1/{id}/activate:
+    $ref: ./paths/campaigns-v1-by-id-activate.yaml
+  /campaigns/v1/{id}/complete:
+    $ref: ./paths/campaigns-v1-by-id-complete.yaml
+  /campaigns/v1/delete:
+    $ref: ./paths/campaigns-v1-delete.yaml
+  /campaigns/v1/{id}/run-remediation-scan:
+    $ref: ./paths/campaigns-v1-by-id-run-remediation-scan.yaml
+  /campaigns/v1/{id}/reports:
+    $ref: ./paths/campaigns-v1-by-id-reports.yaml
+  /campaigns/v1/{id}/run-report/{type}:
+    $ref: ./paths/campaigns-v1-by-id-run-report-by-type.yaml
+  /campaigns/v1/reports-configuration:
+    $ref: ./paths/campaigns-v1-reports-configuration.yaml
+  /campaign-templates/v1:
+    $ref: ./paths/campaign-templates-v1.yaml
+  /campaign-templates/v1/{id}:
+    $ref: ./paths/campaign-templates-v1-by-id.yaml
+  /campaign-templates/v1/{id}/schedule:
+    $ref: ./paths/campaign-templates-v1-by-id-schedule.yaml
+  /campaign-templates/v1/{id}/generate:
+    $ref: ./paths/campaign-templates-v1-by-id-generate.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

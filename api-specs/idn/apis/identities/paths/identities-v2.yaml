@@ -1,0 +1,205 @@
+get:
+  operationId: listIdentitiesV2
+  tags:
+  - Identities
+  summary: List identities (search)
+  description: >-
+    List identities from the identities search index.
+
+
+    Use standard collection parameters for paging (`limit`, `offset`, `count`). Default page size is 25 when no
+    collection parameters are sent. Maximum `limit` is 250. Requests that specify a larger `limit` are capped at 250.
+    `offset + limit` cannot exceed 10,000. To page beyond that window, use `searchAfter` instead of a large offset.
+    `searchAfter` cannot be combined with `offset`. Always include `id` in `sorters` when using `searchAfter`. Refer
+    to [Paginating Search
+    Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more
+    information.
+
+
+    `privilegeLevel` is returned when the `IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE` feature flag is enabled. When
+    the flag is disabled, `privilegeLevel` is null and a filter or sort on `privilegeLevel.effective` is rejected.
+    When the flag is enabled, an identity with no privilege level is returned as `NONE`. Comparisons on
+    `privilegeLevel.effective` are case-insensitive, and returned values are uppercase: `HIGH`, `MEDIUM`, `LOW`, or
+    `NONE`. An identity with no privilege level matches `privilegeLevel.effective eq "NONE"` and does not match
+    `isnull`.
+  security:
+  - userAuth:
+    - idn:identity-list:read
+    - idn:identity-self:read
+  - applicationAuth:
+    - idn:identity-list:read
+    - idn:identity-self:read
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  - HELPDESK
+  parameters:
+  - $ref: ../../shared/parameters/limit.yaml
+  - $ref: ../../shared/parameters/offset.yaml
+  - $ref: ../../shared/parameters/count.yaml
+  - $ref: ../parameters/searchafter.yaml
+  - in: query
+    name: filters
+    required: false
+    schema:
+      type: string
+    example: privilegeLevel.effective eq "HIGH"
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection
+      Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **id**: *eq, in, sw*
+
+
+      **name**: *eq, in, sw, isnull, pr*
+
+
+      **alias**: *eq, in, sw, isnull, pr*
+
+
+      **type**: *eq, in, sw, isnull, pr*
+
+
+      **emailAddress**: *eq, in, sw, isnull, pr*
+
+
+      **identityStatus**: *eq, in, sw, isnull, pr*
+
+
+      **processingState**: *eq, in, sw, isnull, pr*
+
+
+      **protected**: *eq*
+
+
+      **correlated**: *eq*
+
+
+      **inactive**: *eq*
+
+
+      **isManager**: *eq*
+
+
+      **locked**: *eq*
+
+
+      **disabled**: *eq*
+
+
+      **manager.id**: *eq, in, sw*
+
+
+      **manager.name**: *eq, in, sw, isnull, pr*
+
+
+      **manager.type**: *eq, in, sw, isnull, pr*
+
+
+      **lifecycleState.stateName**: *eq, in, sw, isnull, pr*
+
+
+      **lifecycleState.manuallyUpdated**: *eq*
+
+
+      **created**: *eq, ge, gt, le, lt*
+
+
+      **modified**: *eq, ge, gt, le, lt*
+
+
+      **synced**: *eq, ge, gt, le, lt*
+
+
+      **lastRefresh**: *eq, ge, gt, le, lt*
+
+
+      **privilegeLevel.effective**: *eq, in, isnull, pr*
+  - in: query
+    name: sorters
+    required: false
+    schema:
+      type: string
+      format: comma-separated
+    example: privilegeLevel.effective,id
+    description: >-
+      Sort results using the standard syntax described in [V3 API Standard Collection
+      Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+      Sorting is supported for the following fields: **id, name, alias, type, emailAddress, identityStatus,
+      processingState, protected, correlated, inactive, isManager, locked, disabled, manager.id, manager.name,
+      manager.type, lifecycleState.stateName, lifecycleState.manuallyUpdated, created, modified, synced, lastRefresh,
+      privilegeLevel.effective**
+
+
+      Sorting on **privilegeLevel.effective** is case-insensitive and is accepted only when
+      `IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE` is enabled. Returned values are uppercase.
+
+
+      Default sort is **created** when no collection parameters are sent.
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: List of identity objects.
+      headers:
+        x-total-count:
+          description: The total result count (returned when count=true is passed).
+          schema:
+            type: integer
+            format: int32
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/identityv2.yaml
+          example:
+          - id: 01f04e428c484542a241dc89c303b178
+            name: John Mathews
+            alias: john.mathews
+            type: HUMAN
+            emailAddress: john.mathews@example.com
+            identityStatus: ACTIVE
+            processingState: OK
+            protected: false
+            correlated: true
+            inactive: false
+            isManager: true
+            locked: false
+            disabled: false
+            manager:
+              id: 2c4180a46faadee4016fb4e018c20626
+              name: Robert Robinson
+              type: IDENTITY
+            lifecycleState:
+              stateName: active
+              manuallyUpdated: false
+            created: '2023-01-03T21:16:22.432Z'
+            modified: '2023-01-03T21:16:22.432Z'
+            synced: '2023-01-03T21:16:22.432Z'
+            lastRefresh: '2020-11-22T15:42:31.123Z'
+            privilegeLevel:
+              effective: HIGH
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

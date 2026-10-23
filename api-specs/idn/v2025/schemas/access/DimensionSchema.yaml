@@ -1,0 +1,10 @@
+type: object
+description: Contains a list of dimension attributes. Required only for Dynamic Roles
+properties:
+    dimensionAttributes:
+        type: array
+        items:
+            $ref: './DimensionAttribute.yaml'
+        nullable: false
+        
+  

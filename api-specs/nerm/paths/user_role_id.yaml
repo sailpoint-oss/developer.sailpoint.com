@@ -1,0 +1,19 @@
+delete:
+  summary: Delete a user role assignment
+  operationId: deleteUserRole
+  description: Delete a user role assignment
+  tags:
+    - user roles
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      description: "User role was destroyed"
+      content:
+        application/json:
+          schema:
+            type: object
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

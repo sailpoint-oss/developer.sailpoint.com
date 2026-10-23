@@ -1,0 +1,11 @@
+type: object
+properties:
+  autoCompleteAction:
+    description:
+      Determines whether to auto-approve(APPROVE) or auto-revoke(REVOKE) upon campaign completion.
+    type: string
+    enum:
+      - APPROVE
+      - REVOKE
+    default: APPROVE
+    example: REVOKE

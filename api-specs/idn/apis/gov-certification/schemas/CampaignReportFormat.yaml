@@ -1,0 +1,6 @@
+type: string
+enum:
+  - PDF
+  - CSV
+description: Format of the report.
+example: PDF

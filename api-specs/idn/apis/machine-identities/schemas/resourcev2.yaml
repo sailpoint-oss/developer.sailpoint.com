@@ -1,0 +1,24 @@
+type: object
+title: Resource V2
+description: The source resource a machine identity is derived from.
+properties:
+  id:
+    type: string
+    description: The source resource identifier.
+    example: 8886e5e3-63d0-462f-a195-d98da885b8dc
+  type:
+    type: string
+    description: The type of the source resource.
+    example: aws:iam-role
+  name:
+    type: string
+    description: The display name of the source resource.
+    example: nightly-batch-role
+  features:
+    type: array
+    description: The set of features supported by the source resource.
+    items:
+      type: string
+    example:
+      - PROVISIONING
+      - AUTHENTICATION

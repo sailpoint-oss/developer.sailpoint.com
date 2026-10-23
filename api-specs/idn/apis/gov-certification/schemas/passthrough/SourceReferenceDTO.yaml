@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The source ID
+    example: 2c9180827ca885d7017ca8ce28a000eb
+  type:
+    type: string
+    description: The source type, will always be "SOURCE"
+    example: SOURCE
+  name:
+    type: string
+    description: The source name
+    example: ODS-AD-Source

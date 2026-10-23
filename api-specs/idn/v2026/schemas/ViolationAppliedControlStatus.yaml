@@ -1,0 +1,14 @@
+type: string
+title: Violation Applied Control Status
+description: >-
+  Lifecycle status of a compensating control application on a violation.
+  **Pending** - not yet in effect; **Active** - currently mitigating the violation;
+  **Completed** - finished successfully; **Canceled** - withdrawn before completion;
+  **Failed** - could not be completed successfully.
+enum:
+  - Pending
+  - Active
+  - Completed
+  - Canceled
+  - Failed
+example: Active

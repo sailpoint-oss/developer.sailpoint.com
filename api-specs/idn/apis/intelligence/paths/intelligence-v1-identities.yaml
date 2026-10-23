@@ -1,0 +1,92 @@
+get:
+  operationId: getIdentityIntelligenceV1
+  security:
+  - userAuth:
+    - sp:identity-sec-intel:read
+  - applicationAuth:
+    - sp:identity-sec-intel:read
+  x-required-right: sp:identity-sec-intel:read
+  x-sailpoint-userLevels:
+  - Any
+  tags:
+  - Intelligence
+  summary: Get identity by filter
+  description: |
+    Requires tenant license idn:response-and-remediation.
+
+    **Caution:** When Data Segmentation is enabled, generic API Management API keys are not tied to
+    a user identity and may fail or return incomplete data. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token)
+    or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html)
+    and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).
+
+    Resolves exactly one identity using a single SCIM-style filters expression. Returns an enriched
+    Human or non-human identity (NHI) envelope. Single-clause filters only; unsupported fields or
+    operators return HTTP 400.
+  parameters:
+  - in: query
+    name: filters
+    required: true
+    schema:
+      type: string
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection
+      Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **id**: *eq*
+
+
+      **email**: *eq*
+
+
+      **opaqueIdentifier**: *eq*
+    example: id eq "ef38f94347e94562b5bb8424a56397d8"
+  responses:
+    '200':
+      description: Exactly one identity matched.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/intelidentityenvelope.yaml
+          examples:
+            Human identity:
+              $ref: ../examples/intel-identity-human-envelope.yaml
+            Non-human identity (NHI):
+              $ref: ../examples/intel-identity-nhi-envelope.yaml
+    '400':
+      description: Invalid filters or unsupported filter field or operator.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      description: Unauthorized access
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+    '404':
+      description: No identity matched the filter (detailCode IDC_IDENTITY_NOT_FOUND).
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/intelidentitynotfoundbody.yaml
+    '409':
+      description: Multiple identities matched the filter (detailCode IDC_IDENTITY_AMBIGUOUS).
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/intel-identity-ambiguous-body.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      description: Internal or upstream server failure.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml

@@ -1,0 +1,16 @@
+type: object
+description: >-
+  The nested aggregation object.
+required: ["name", "type"]
+properties:
+  name:
+    description: >-
+      The name of the nested aggregate to be included in the result.
+    type: string
+    example: 'id'
+  type:
+    description: >-
+      The type of the nested object.
+    type: string
+    example: 'access'
+

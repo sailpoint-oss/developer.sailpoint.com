@@ -1,0 +1,17 @@
+get:
+  summary: Get identity proofing result data
+  operationId: getIdentityProofingResults
+  description: Retrieves identity proofing result data in bulk from Lifecycle
+  tags:
+    - identity proofing results
+  parameters:
+    - $ref: "../parameters/query/limit.yaml"
+    - $ref: "../parameters/query/offset.yaml"
+    - $ref: "../parameters/query/order.yaml"
+    - $ref: "../parameters/query/profile_id.yaml"
+    - $ref: "../parameters/query/workflow_session_id.yaml"
+    - $ref: "../parameters/query/result.yaml"
+    - $ref: "../parameters/query/metadata.yaml"
+  responses:
+    '200':
+      $ref: "../responses/IdentityProofingResults.yaml"

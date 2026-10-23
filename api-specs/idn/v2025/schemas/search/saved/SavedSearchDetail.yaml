@@ -1,0 +1,102 @@
+type: object
+properties:
+  created:
+    description: |
+        The date the saved search was initially created.
+    $ref: ../model/base/DateTime.yaml
+  modified:
+    description: |
+        The last date the saved search was modified.
+    $ref: ../model/base/DateTime.yaml
+  indices:
+    description: |
+      The names of the Elasticsearch indices in which to search.
+    type: array
+    items:
+      $ref: '../Index.yaml'
+    example: ['identities']
+  columns:
+    description: |
+      The columns to be returned (specifies the order in which they will be presented) for each document type.
+
+      The currently supported document types are: _accessprofile_, _accountactivity_, _account_, _aggregation_, _entitlement_, _event_, _identity_, and _role_.
+    type: object
+    additionalProperties:
+      type: array
+      items:
+        $ref: 'Column.yaml'
+    example:
+      identity:
+        - field: 'displayName'
+          header: 'Display Name'
+        - field: 'e-mail'
+          header: 'Work Email'
+  query:
+    description: |
+      The search query using Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL.
+    type: string
+    example: '@accounts(disabled:true)'
+  fields:
+    description: |
+      The fields to be searched against in a multi-field query.
+    type: array
+    nullable: true
+    items:
+      type: string
+    example: [ 'disabled' ]
+  orderBy:
+    description: |
+      Sort by index. This takes precedence over the `sort` property.
+    type: object
+    additionalProperties:
+      type: array
+      items:
+        type: string
+    nullable: true
+    example:
+      identity: ["lastName", "firstName"]
+      role: ["name"]
+  sort:
+    description: |
+      The fields to be used to sort the search results.
+    type: array
+    items:
+      type: string
+    example: [ 'displayName' ]
+    nullable: true
+  filters:
+    nullable: true
+    allOf:
+      - type: object
+        description: The filters to be applied for each filtered field name.
+        example:
+          attributes.cloudAuthoritativeSource:
+            type: 'EXISTS'
+            exclude: true
+          accessCount:
+            type: 'RANGE'
+            range:
+              lower:
+                value: '3'
+          created:
+            type: 'RANGE'
+            range:
+              lower:
+                value: '2019-12-01'
+                inclusive: true
+              upper:
+                value: '2020-01-01'
+          source.name:
+            type: 'TERMS'
+            terms:
+              - 'HR Employees'
+              - 'Corporate Active Directory'
+            exclude: true
+          protected:
+            type: 'TERMS'
+            terms:
+              - 'true'
+      - $ref: '../../filter/Filter.yaml'
+required:
+- indices
+- query

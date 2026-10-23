@@ -1,0 +1,22 @@
+allOf:
+  - $ref: './MachineIdentity.yaml'
+  - type: object
+    title: Machine Identity Request
+    properties:
+      userEntitlements:
+        type: array
+        description: The user entitlements associated to the machine identity
+        items:
+          type: object
+          required:
+            - entitlementId
+            - sourceId
+          properties:
+            entitlementId:
+              type: string
+              description: The ID of the entitlement
+              example: '6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa'
+            sourceId:
+              type: string
+              description: The source ID of the entitlement
+              example: '5898b7c1-620c-49c6-cccc-cbf81eb4bddd'

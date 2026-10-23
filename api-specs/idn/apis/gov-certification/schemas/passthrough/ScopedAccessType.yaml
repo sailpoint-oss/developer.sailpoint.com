@@ -1,0 +1,7 @@
+type: string
+description: Type of the scoped access item.
+enum:
+  - ENTITLEMENT
+  - ACCESS_PROFILE
+  - ROLE
+example: ENTITLEMENT

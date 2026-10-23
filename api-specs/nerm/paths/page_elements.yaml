@@ -1,0 +1,29 @@
+---
+get:
+  summary: Get page element data
+  operationId: getPageElements
+  description: Retrieves page elements data.
+  tags:
+    - page elements
+  responses:
+    '200':
+      $ref: "../responses/PageElement.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Create a page element entry
+  operationId: createPageElement
+  description: Creates a page element.
+  tags:
+    - page elements
+  requestBody:
+    $ref: "../requestBodies/POST/PageElement.yaml"
+  responses:
+    '201':
+      $ref: "../responses/PageElement.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

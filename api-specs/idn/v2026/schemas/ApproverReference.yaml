@@ -1,0 +1,15 @@
+type: object
+title: ApproverReference
+properties:
+  id:
+    type: string
+    description: Id of supported DtoType like IDENTITY, MACHINE_IDENTITY etc.
+    example: 85131bd73fdc423599e57f40b29f01fe
+  type:
+    type: string
+    description: Type of Dto
+    example: IDENTITY
+  name:
+    type: string
+    description: Display name of DtoType like IDENTITY, MACHINE_IDENTITY etc
+    example: SailPoint Support

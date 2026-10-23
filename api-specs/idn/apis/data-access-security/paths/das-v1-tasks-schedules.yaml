@@ -1,0 +1,114 @@
+get:
+  summary: List all schedules.
+  security:
+  - userAuth:
+    - das:task:read
+    - das:task:manage
+  - applicationAuth:
+    - das:task:read
+    - das:task:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+  - Data Access Security
+  description: This end-point lists all the schedules in Data Access Security.
+  operationId: getSchedulesV1
+  parameters:
+  - name: filters
+    in: query
+    schema:
+      type: string
+    required: false
+    example: ScheduleType eq "Daily" and startTime eq 1762237200
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection
+      Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **scheduleTaskIds**: *eq, in*
+
+
+      **taskTypeName**: *eq, in*
+
+
+      **status**: *eq*
+
+
+      **applicationId**: *eq*
+
+
+      **fullName**: *eq*
+
+
+      **nameSubString**: *eq*
+
+
+      **scheduleType**: *eq*
+
+
+      Supported composite operators are *and, or*
+  - $ref: ../../shared/parameters/limit.yaml
+  - $ref: ../../shared/parameters/offset.yaml
+  - $ref: ../../shared/parameters/count.yaml
+  responses:
+    '200':
+      description: List of Schedule objects.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/scheduleinfo.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+post:
+  summary: Create a new schedule.
+  security:
+  - userAuth:
+    - das:task:manage
+  - applicationAuth:
+    - das:task:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+  - Data Access Security
+  operationId: createScheduleV1
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/createschedulerequest.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: integer
+            format: int64
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

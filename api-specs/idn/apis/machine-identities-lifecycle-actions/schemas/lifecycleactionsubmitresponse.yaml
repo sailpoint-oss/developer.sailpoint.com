@@ -1,0 +1,34 @@
+type: object
+title: Lifecycle Action Submit Response
+required:
+  - requestId
+  - status
+  - action
+  - targetId
+  - createdAt
+properties:
+  requestId:
+    type: string
+    format: uuid
+    description: Unique identifier for the created lifecycle request.
+    example: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+  status:
+    type: string
+    description: Initial lifecycle request status.
+    example: RECEIVED
+  action:
+    $ref: ./lifecycleaction.yaml
+  targetId:
+    type: string
+    format: uuid
+    description: Internal machine identity UUID for the lifecycle target.
+    example: 1c9c8e1f-2f5f-4f77-9f7e-5d37e4fb3ef0
+  resourceId:
+    type: string
+    description: Connector resource id for the lifecycle target, when present.
+    example: aws:bedrock:agent-42
+  createdAt:
+    type: string
+    format: date-time
+    description: Time when the lifecycle request was created (ISO-8601).
+    example: '2026-05-26T19:00:00Z'

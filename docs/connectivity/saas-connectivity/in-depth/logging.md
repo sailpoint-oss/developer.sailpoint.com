@@ -49,7 +49,7 @@ export const connector = async () => {
     // Use the vendor SDK, or implement own client as necessary, to initialize a client
     const airtable = new AirtableClient(config)
     return createConnector()
-        .stdTestConnection(async (context: Context, input: undefined, res: Response<StdTestConnectionOutput>) => {
+        .stdTestConnection(async (context: Context, input: StdTestConnectionInput, res: Response<StdTestConnectionOutput>) => {
             // print the output to the console
             console.log('testing connector logging')
             res.send(await airtable.testConnection())
@@ -99,7 +99,7 @@ export const connector = async () => {
     // Use the vendor SDK, or implement own client as necessary, to initialize a client
     const airtable = new AirtableClient(config)
     return createConnector()
-        .stdAccountList(async (context: Context, input: undefined, res: Response<StdAccountListOutput>) => {
+        .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
             const accounts = await airtable.getAllAccounts()
 
             // use the logger to send accounts that are fetched
@@ -152,7 +152,7 @@ export const connector = async () => {
 ...
     const airtable = new AirtableClient(config)
     return createConnector()
-        .stdAccountList(async (context: Context, input: undefined, res: Response<StdAccountListOutput>) => {
+        .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
             logger.debug('Starting account list fetch')
             const accounts = await airtable.getAllAccounts()
 
@@ -234,7 +234,7 @@ export class AirtableAccount {
 Now when you log the contents of an `AirtableAccount` object, you will see all the fields redacted. For example, in [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts) we log the `accounts` in the following code snippet:
 
 ```javascript
-.stdAccountList(async (context: Context, input: undefined, res: Response<StdAccountListOutput>) => {
+.stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
     const accounts = await airtable.getAllAccounts()
 
     logger.info(accounts, "fetched the following accounts from Airtable")

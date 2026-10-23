@@ -97,7 +97,7 @@ export const connector = async () => {
     const airtable = new AirtableClient(config)
 
     return createConnector()
-        .stdAccountList(async (context: Context, input: undefined, res: Response<StdAccountListOutput>) => {
+        .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
             const accounts = await airtable.getAllAccounts()
 
             for (const account of accounts) {

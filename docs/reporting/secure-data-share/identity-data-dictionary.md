@@ -86,7 +86,6 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | IS_MANAGER | boolean |  | Whether the identity is a manager |
 | LIFECYCLE_STATE | text |  | name of the lifecycle state Ex: Active, leaver, dormant etc. |
 | IDENTITY_STATE | text |  | State of the Identity. Can be one of ACTIVE, INACTIVE_SHORT_TERM and INACTIVE_LONG_TERM |
-| CORRELATED | boolean |  | Whether the identity is correlated to at least one account |
 | SYNC_DATE | datetime |  | When the row is last synced |
 | IDENTITY_PROFILE_ID | text |  | Unique Id of the Identity Profile that governs this identity |
 

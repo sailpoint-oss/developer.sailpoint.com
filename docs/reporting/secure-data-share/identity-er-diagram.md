@@ -64,7 +64,6 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         boolean IS_MANAGER "Whether the identity is a manager"
         text LIFECYCLE_STATE "name of the lifecycle state Ex: Active, leaver, dormant etc."
         text IDENTITY_STATE "State of the Identity. Can be one of ACTIVE, INACTIVE_SHORT_TERM and INACTIVE_LONG_TERM"
-        boolean CORRELATED "Whether the identity is correlated to at least one account"
         datetime SYNC_DATE "When the row is last synced"
         text IDENTITY_PROFILE_ID "Unique Id of the Identity Profile that governs this identity"
     }

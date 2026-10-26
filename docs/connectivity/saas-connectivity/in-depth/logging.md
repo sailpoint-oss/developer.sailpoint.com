@@ -13,7 +13,7 @@ tags: ['Connectivity']
 
 ## Printing Logs with the CLI
 
-Fetch logs from SHF by issuing the `sail conn logs` command:
+Fetch logs from SailPoint Identity Security by issuing the `sail conn logs` command:
 
 ```bash
 $ sail conn logs
@@ -49,7 +49,7 @@ export const connector = async () => {
     // Use the vendor SDK, or implement own client as necessary, to initialize a client
     const airtable = new AirtableClient(config)
     return createConnector()
-        .stdTestConnection(async (context: Context, input: undefined, res: Response<StdTestConnectionOutput>) => {
+        .stdTestConnection(async (context: Context, input: StdTestConnectionInput, res: Response<StdTestConnectionOutput>) => {
             // print the output to the console
             console.log('testing connector logging')
             res.send(await airtable.testConnection())
@@ -99,7 +99,7 @@ export const connector = async () => {
     // Use the vendor SDK, or implement own client as necessary, to initialize a client
     const airtable = new AirtableClient(config)
     return createConnector()
-        .stdAccountList(async (context: Context, input: undefined, res: Response<StdAccountListOutput>) => {
+        .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
             const accounts = await airtable.getAllAccounts()
 
             // use the logger to send accounts that are fetched
@@ -117,7 +117,7 @@ export const connector = async () => {
 
 ### Adding the option to your connector spec
 
-To expose a debug logging toggle in the SHF source configuration UI, add `"showDebugLoggingOption": true` to your `connector-spec.json`:
+To expose a debug logging toggle in the SailPoint Identity Security source configuration UI, add `"showDebugLoggingOption": true` to your `connector-spec.json`:
 
 ```json
 {
@@ -132,7 +132,7 @@ To expose a debug logging toggle in the SHF source configuration UI, add `"showD
 
 Once `showDebugLoggingOption` is enabled in the spec, an administrator can activate debug logging without redeploying the connector:
 
-1. In SHF, go to **Admin** > **Connections** > **Sources** and open the source.
+1. In SailPoint Identity Security, go to **Admin** > **Connections** > **Sources** and open the source.
 2. Click **Edit Configuration**, then open the **Administrator Settings** tab.
 3. Enable the **Enable Debug Logging** toggle.
 4. Select an expiry duration for how long debug logging should remain active.
@@ -152,13 +152,13 @@ export const connector = async () => {
 ...
     const airtable = new AirtableClient(config)
     return createConnector()
-        .stdAccountList(async (context: Context, input: undefined, res: Response<StdAccountListOutput>) => {
+        .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
             logger.debug('Starting account list fetch')
             const accounts = await airtable.getAllAccounts()
 
             logger.debug({count: accounts.length}, 'Fetched accounts from Airtable')
             for (const account of accounts) {
-                logger.debug({accountId: account.id}, 'Sending account to SHF')
+                logger.debug({accountId: account.id}, 'Sending account to SailPoint Identity Security')
                 res.send(account.toStdAccountListOutput())
             }
         })
@@ -174,7 +174,7 @@ $ sail conn logs tail
 
 [2022-07-14T11:23:05.100-04:00] DEBUG | connectorMessage ▶︎ {"commandType":"std:account:list","connectorName":"Airtable","message":"Starting account list fetch",...}
 [2022-07-14T11:23:05.200-04:00] DEBUG | connectorMessage ▶︎ {"commandType":"std:account:list","connectorName":"Airtable","count":3,"message":"Fetched accounts from Airtable",...}
-[2022-07-14T11:23:05.210-04:00] DEBUG | connectorMessage ▶︎ {"commandType":"std:account:list","connectorName":"Airtable","accountId":"recdUN76q9KibYMir","message":"Sending account to SHF",...}
+[2022-07-14T11:23:05.210-04:00] DEBUG | connectorMessage ▶︎ {"commandType":"std:account:list","connectorName":"Airtable","accountId":"recdUN76q9KibYMir","message":"Sending account to SailPoint Identity Security",...}
 ```
 
 When debug logging is **not** enabled, these `logger.debug` calls produce no output, so there is no performance or noise impact in normal operation.
@@ -234,7 +234,7 @@ export class AirtableAccount {
 Now when you log the contents of an `AirtableAccount` object, you will see all the fields redacted. For example, in [index.ts](https://github.com/sailpoint-oss/airtable-example-connector/blob/main/src/index.ts) we log the `accounts` in the following code snippet:
 
 ```javascript
-.stdAccountList(async (context: Context, input: undefined, res: Response<StdAccountListOutput>) => {
+.stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {
     const accounts = await airtable.getAllAccounts()
 
     logger.info(accounts, "fetched the following accounts from Airtable")

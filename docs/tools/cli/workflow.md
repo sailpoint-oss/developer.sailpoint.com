@@ -13,7 +13,7 @@ tags: ['CLI']
 
 Learn how to use the SailPoint CLI to create, manage, and test workflows in this guide.
 
-A workflow is a set of steps that are completed whenever a specific event occurs. Once that event triggers the workflow, the workflow performs the steps within SailPoint Human Fabric.
+A workflow is a set of steps that are completed whenever a specific event occurs. Once that event triggers the workflow, the workflow performs the steps within SailPoint Identity Security.
 
 The `workflow` command makes it easy to create, manage, and test workflows from within the SailPoint CLI. To learn more about workflows, refer to [Workflows](https://documentation.sailpoint.com/saas/help/workflows/).
 

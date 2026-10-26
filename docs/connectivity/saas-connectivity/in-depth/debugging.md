@@ -39,7 +39,7 @@ export const connector = async () => {
 };
 ```
 
-`console.log()` statements work anywhere, and they work when you deploy your connector to SHF. However, these statements can create clutter in your code. You will often have to clean up debug statements once you are done.
+`console.log()` statements work anywhere, and they work when you deploy your connector to SailPoint Identity Security. However, these statements can create clutter in your code. You will often have to clean up debug statements once you are done.
 
 If your IDE supports debugging JavaScript, then your IDE’s built-in debugger can be a powerful and easy way to debug your code.
 
@@ -89,6 +89,6 @@ With these configurations set, you can run the debugger by selecting the options
 
 <a id="debug-in-identity-security-cloud" class="legacy-anchor"></a>
 
-## Debug in SailPoint Human Fabric
+## Debug in SailPoint Identity Security
 
-You can use the `sail conn logs` command to gain insight into how your connector is performing while running in SHF. See the section on logging for more information.
+You can use the `sail conn logs` command to gain insight into how your connector is performing while running in SailPoint Identity Security. See the section on logging for more information.

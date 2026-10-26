@@ -13,9 +13,9 @@ tags: ['tools']
 
 ## Overview
 
-The **Escaping Tool Formatter** (also known as the **Java/.NET String Escaper**) is a SailPoint-maintained tool that escapes and unescapes Java code so you can move rules between your editor and the SHF APIs without leaving the Developer Community.
+The **Escaping Tool Formatter** (also known as the **Java/.NET String Escaper**) is a SailPoint-maintained tool that escapes and unescapes Java code so you can move rules between your editor and the SailPoint Identity Security APIs without leaving the Developer Community.
 
-Rules in SailPoint Human Fabric (SHF) are typically written in Java (BeanShell). When you upload a rule through the API, the rule's source has to be embedded inside a JSON payload as a single string value. JSON strings can't contain raw line breaks, tabs, or unescaped quotation marks, so the code must first be **escaped** into a valid string. When you want to read or edit a rule you've pulled back down, you need to reverse the process and **unescape** it into readable code.
+Rules in SailPoint Identity Security are typically written in Java (BeanShell). When you upload a rule through the API, the rule's source has to be embedded inside a JSON payload as a single string value. JSON strings can't contain raw line breaks, tabs, or unescaped quotation marks, so the code must first be **escaped** into a valid string. When you want to read or edit a rule you've pulled back down, you need to reverse the process and **unescape** it into readable code.
 
 This tool handles both directions for you, so you no longer need to rely on a third-party website to format your rules.
 
@@ -23,12 +23,12 @@ This tool handles both directions for you, so you no longer need to rely on a th
 
 ## When to use it
 
-- **Escape** your Java rule before uploading it in a JSON request body (for example, when creating or updating a rule through the [SHF APIs](/docs/api)).
+- **Escape** your Java rule before uploading it in a JSON request body (for example, when creating or updating a rule through the [SailPoint Identity Security APIs](/docs/api)).
 - **Unescape** a rule you've retrieved from the API so you can read, review, or edit it as normal Java.
 - Format code for other tasks that require escaped strings, such as building custom rule reports or assembling large datasets for email attachments.
 
 :::tip Already using the VS Code extension?
-The [SHF VS Code extension](https://marketplace.visualstudio.com/items?itemName=yannick-beot-sp.vscode-sailpoint-identitynow) escapes and unescapes rules automatically. Right-click a rule, choose **Edit Script**, make your changes, and save — the extension handles the formatting for you. The Escaping Tool Formatter is handy when you're working outside of VS Code or want a quick, one-off conversion.
+The [SailPoint Identity Security VS Code extension](https://marketplace.visualstudio.com/items?itemName=yannick-beot-sp.vscode-sailpoint-identitynow) escapes and unescapes rules automatically. Right-click a rule, choose **Edit Script**, make your changes, and save — the extension handles the formatting for you. The Escaping Tool Formatter is handy when you're working outside of VS Code or want a quick, one-off conversion.
 :::
 
 ## How to use it

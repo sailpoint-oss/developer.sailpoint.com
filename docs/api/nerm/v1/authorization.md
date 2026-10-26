@@ -6,20 +6,20 @@ sidebar_label: Authorization
 sidebar_position: 3
 sidebar_class_name: authorization
 keywords: ['authorization', 'scopes']
-description: Control what SHF API tokens can access with scopes.
+description: Control what SailPoint Identity Security API tokens can access with scopes.
 slug: /api/nerm/v1/authorization
 tags: ['Authorization', 'Scopes']
 ---
 
 ## Overview
 
-SailPoint Human Fabric (SHF) API tokens support scopes. Scopes grant certain kinds of access to certain resource types in Non-Employee Risk Management, so you can give each integration only the access it needs instead of full administrator access.
+SailPoint Identity Security API tokens support scopes. Scopes grant certain kinds of access to certain resource types in Non-Employee Risk Management, so you can give each integration only the access it needs instead of full administrator access.
 
-When Non-Employee Risk Management receives a request authenticated with an SHF API token, it checks the scopes on that token against the resource type being requested and the kind of access the request needs. If none of the token's scopes grant that access, Non-Employee Risk Management rejects the request.
+When Non-Employee Risk Management receives a request authenticated with a SailPoint Identity Security API token, it checks the scopes on that token against the resource type being requested and the kind of access the request needs. If none of the token's scopes grant that access, Non-Employee Risk Management rejects the request.
 
-## SHF API Tokens Required for Scopes
+## SailPoint Identity Security API Tokens Required for Scopes
 
-Scopes only work with SHF API tokens. Legacy Non-Employee Risk Management API tokens do not support scopes. Legacy Non-Employee Risk Management API tokens are deprecated — use SHF API tokens instead. Refer to [Authentication](./authentication.md) for details on generating and using SHF API tokens.
+Scopes only work with SailPoint Identity Security API tokens. Legacy Non-Employee Risk Management API tokens do not support scopes. Legacy Non-Employee Risk Management API tokens are deprecated — use SailPoint Identity Security API tokens instead. Refer to [Authentication](./authentication.md) for details on generating and using SailPoint Identity Security API tokens.
 
 ## Resource Types
 
@@ -31,7 +31,7 @@ Scopes grant access to groups of related Non-Employee Risk Management resources:
 | Profile types | Profile types and profile type namings |
 | Workflows | Workflows, condition rules, workflow actions, and workflow action performers |
 | Workflow sessions | Workflow sessions |
-| Users & roles | Users, roles, delegations, user profiles, user roles, user managers, role profiles, and SHF integration settings |
+| Users & roles | Users, roles, delegations, user profiles, user roles, user managers, role profiles, and SailPoint Identity Security integration settings |
 | Templates/Configuration | Forms, form attributes, pages, page contents, page elements, page content translations, attributes, attribute options, attribute roles, risk levels, validations, and tables |
 | Advanced search | Advanced searches, advanced search profile types, and advanced search roles |
 | Audit | Audit events |
@@ -85,7 +85,7 @@ A token can carry more than one scope. When it does, the token's access is the c
 
 If a token carries `nerm:general:manage`, it has full administrator access regardless of any other scopes on the token.
 
-An SHF API token must carry at least one of the scopes listed above to call the Non-Employee Risk Management API.
+A SailPoint Identity Security API token must carry at least one of the scopes listed above to call the Non-Employee Risk Management API.
 
 ## Denied Requests
 
@@ -99,4 +99,4 @@ If a token's scopes don't grant the access a request needs, Non-Employee Risk Ma
 
 ## More Information
 
-For information about how scopes work across SHF APIs, refer to the [SHF Authorization Guide](/docs/api/authorization).
+For information about how scopes work across SailPoint Identity Security APIs, refer to the [Authorization Guide](/docs/api/authorization).

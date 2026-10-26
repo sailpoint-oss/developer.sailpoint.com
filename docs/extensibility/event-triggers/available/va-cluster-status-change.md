@@ -23,7 +23,7 @@ Additional notes about VA Cluster Status Changes:
 
 - VA cluster health checks run every 30 minutes.
 - This trigger will invoke on any VA cluster health status change (i.e. healthy -> unhealthy, unhealthy -> healthy).
-- See [troubleshooting virtual appliances](https://community.sailpoint.com/t5/SailPoint Human Fabric-Connectors/Virtual-Appliance-Troubleshooting-Guide/ta-p/78735) for more information.
+- See [troubleshooting virtual appliances](https://community.sailpoint.com/knowledge/Virtual-Appliance-Troubleshooting-Guide) for more information.
 
 Healthy Cluster Source
 

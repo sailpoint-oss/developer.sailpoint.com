@@ -13,7 +13,7 @@ tags: ['Connectivity']
 
 # Overview
 
-SaaS Connectivity Customizers are cloud-based connector customizers that make customizing out of the box SaaS connectors possible. The customizers allow you to customize the out of the box connectors in a similar way to how you can use rules to customize VA (virtual appliance) based connectors. By using a customizer, you can change a connector's input before the connector ingests the data, or you can change the connector's output before to the output is sent to SailPoint Human Fabric.
+SaaS Connectivity Customizers are cloud-based connector customizers that make customizing out of the box SaaS connectors possible. The customizers allow you to customize the out of the box connectors in a similar way to how you can use rules to customize VA (virtual appliance) based connectors. By using a customizer, you can change a connector's input before the connector ingests the data, or you can change the connector's output before to the output is sent to SailPoint Identity Security.
 
 <div className="text--center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bYQakKlKilY?si=o9vtqKLvcyGkHVjS" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
@@ -21,7 +21,7 @@ SaaS Connectivity Customizers are cloud-based connector customizers that make cu
 
 ## How do they work?
 
-SaaS Connectivity Customizers work by sitting in between SailPoint Human Fabric and the connector. They intercept calls from SailPoint Human Fabric to the connector and calls from the connector to SailPoint Human Fabric. When the customizer intercepts a call, it can call custom code to mutate the data in any way necessary to change the connector behavior.
+SaaS Connectivity Customizers work by sitting in between SailPoint Identity Security and the connector. They intercept calls from SailPoint Identity Security to the connector and calls from the connector to the platform. When the customizer intercepts a call, it can call custom code to mutate the data in any way necessary to change the connector behavior.
 
 This chart shows an example of this interception process - the `stdAccountRead` command is implemented with the customizer in place:
 
@@ -30,14 +30,14 @@ This chart shows an example of this interception process - the `stdAccountRead` 
 ```mermaid
 sequenceDiagram
     autonumber
-    participant SHF as SailPoint Human Fabric
+    participant SailPoint Identity Security as SailPoint Identity Security
     participant CUS as Customizer
     participant CON as SaaS Connector
 
-    SHF->>CUS: StdAccountRead Request
+    SailPoint Identity Security->>CUS: StdAccountRead Request
     CUS->>CON: Mutated StdAccountRead Request
     CON->>CUS: StdAccountRead Response
-    CUS->>SHF: Mutated StdAccountRead Response
+    CUS->>SailPoint Identity Security: Mutated StdAccountRead Response
 
 ```
 

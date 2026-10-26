@@ -25,7 +25,7 @@ In this guide you'll learn the end to end process of writing a cloud rule to gen
 
 This rule generates complex account attribute values during provisioning, e.g. when creating an account. You would typically use this rule when you are creating an account to generate attributes like usernames.
 
-This rule executes in the SailPoint Human Fabric (SHF) cloud, and it has read-only access to SHF data models, but it doesn't have access to on-premise sources or connectors.
+This rule executes in the SailPoint Identity Security cloud, and it has read-only access to the platform's data models, but it doesn't have access to on-premise sources or connectors.
 
 Refer to [Attribute Generator Rule](../cloud-rules/account_profile_attribute_generator.md) to learn more about the inputs available to you during the rule execution.
 
@@ -487,7 +487,7 @@ To submit your Cloud Rule for review, approval, and inclusion in the SailPoint p
 
 ## Add Rule to account creation
 
-Log into your SHF tenant and navigate to **Admin** -\> **Connections** -\> **Sources** -\> **[Source Name]** -\> **Accounts** -\> **Create Account**. Scroll to the attribute you wish to use the rule for generating the username. Check the generator radio button and pick your new rule from the drop down.
+Log into your SailPoint Identity Security tenant and navigate to **Admin** -\> **Connections** -\> **Sources** -\> **[Source Name]** -\> **Accounts** -\> **Create Account**. Scroll to the attribute you wish to use the rule for generating the username. Check the generator radio button and pick your new rule from the drop down.
 
 ![Account Create](./img/account-create.png)
 

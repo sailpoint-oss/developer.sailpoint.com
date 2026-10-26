@@ -1,6 +1,6 @@
 ---
 title: SaaS Connectivity
-description: Build and deploy a cloud-hosted SaaS connector for Identity Security Cloud.
+description: Build and deploy a cloud-hosted SaaS connector for SailPoint Identity Security.
 wrapperClassName: hack-day-track
 ---
 
@@ -173,9 +173,9 @@ cd saas-connectivity-demo
 npm install
 ```
 
-A SaaS connector is a small TypeScript app that ISC runs for you. ISC never calls the demo API
+A SaaS connector is a small TypeScript app that SailPoint Identity Security runs for you. SailPoint Identity Security never calls the demo API
 itself — it sends your connector a command such as "list every account", and your connector turns
-that into HTTP calls and hands the results back in the shape ISC expects. What you just generated is
+that into HTTP calls and hands the results back in the shape the platform expects. What you just generated is
 a complete but nearly empty version of that app: the build scripts, a local dev server, and one
 placeholder command are wired up, and the translation between the two systems is left to you.
 Everything from here is you filling in that translation, one command at a time.
@@ -184,7 +184,7 @@ Three files matter:
 
 | File | What it does |
 | --- | --- |
-| `connector-spec.json` | Tells ISC which commands you support, what config to prompt for, and your schemas |
+| `connector-spec.json` | Tells SailPoint Identity Security which commands you support, what config to prompt for, and your schemas |
 | `src/my-client.ts` | Your HTTP calls to the demo API |
 | `src/index.ts` | Maps the demo API's data onto the `std:*` commands |
 
@@ -192,8 +192,8 @@ Three files matter:
 
 ### 4. Define the connector spec
 
-The spec is your connector's contract with ISC, and ISC reads it before any of your code runs. It
-answers three questions: which commands ISC is allowed to send you, which configuration fields to
+The spec is your connector's contract with SailPoint Identity Security, and the platform reads it before any of your code runs. It
+answers three questions: which commands SailPoint Identity Security is allowed to send you, which configuration fields to
 show an admin setting up a source, and what shape the data you return will be in. Code you write in
 later steps has no effect until it is declared here.
 
@@ -328,7 +328,7 @@ with the following:
       {
         "name": "active",
         "type": "boolean",
-        "description": "Whether the account is active. Note this is the inverse of the ISC \"disabled\" flag."
+        "description": "Whether the account is active. Note this is the inverse of the SailPoint Identity Security \"disabled\" flag."
       },
       {
         "name": "locked",
@@ -397,17 +397,17 @@ with the following:
 
 Key things to note about what was changed from the scaffold:
 
-- **`commands`** — `std:entitlement:list` and `std:entitlement:read` are added. ISC will only invoke commands listed here.
-- **`sourceConfig`** — `baseUrl` (type `url`) and `apiKey` (type `secret`) are added so ISC renders the right form fields when an admin configures the source. Keys map directly to what `readConfig()` returns in your code.
-- **`accountSchema`** — `identityAttribute` points to `id` (the opaque `usr_...` key), `groupAttribute` points to `groups`, and the `groups` attribute is flagged `entitlement: true`, `multi: true`, and `managed: true` so ISC treats its values as entitlements it can add and remove.
-- **`entitlementSchemas`** — one entry of `type: "group"` with `includePermissions: true`, telling ISC to request and store permission detail from your connector.
+- **`commands`** — `std:entitlement:list` and `std:entitlement:read` are added. SailPoint Identity Security will only invoke commands listed here.
+- **`sourceConfig`** — `baseUrl` (type `url`) and `apiKey` (type `secret`) are added so SailPoint Identity Security renders the right form fields when an admin configures the source. Keys map directly to what `readConfig()` returns in your code.
+- **`accountSchema`** — `identityAttribute` points to `id` (the opaque `usr_...` key), `groupAttribute` points to `groups`, and the `groups` attribute is flagged `entitlement: true`, `multi: true`, and `managed: true` so SailPoint Identity Security treats its values as entitlements it can add and remove.
+- **`entitlementSchemas`** — one entry of `type: "group"` with `includePermissions: true`, telling SailPoint Identity Security to request and store permission detail from your connector.
 
 - [Connector spec reference](/docs/connectivity/saas-connectivity/connector-spec)
 
 ### 5. Implement `std:test-connection`
 
 This is the first of four commands you will implement, and the smallest — a good way to prove your
-credentials, your build, and your test loop all work before writing anything harder. ISC calls it
+credentials, your build, and your test loop all work before writing anything harder. SailPoint Identity Security calls it
 when an admin clicks **Test Connection** while configuring a source, and it is the only signal they
 get that the base URL and API key they typed are right. Return an empty object on success, or throw —
 there is no "false" to return.
@@ -453,7 +453,7 @@ That is enough to pass the test. For a friendlier failure, wrap the call in a `t
 `401`, throw a `ConnectorError` with a message an admin can act on — the **See details** section at
 the end of this step shows that version.
 
-Now wire it up in `src/index.ts`. That file is your connector's entry point: ISC loads it, gives it
+Now wire it up in `src/index.ts`. That file is your connector's entry point: SailPoint Identity Security loads it, gives it
 the source config, and dispatches every incoming command to a handler registered there. The
 scaffolded version registers handlers for a fictional system, so replace its entire contents with
 the shell below. It reads the config, builds one `MyClient` from it, and registers a single handler
@@ -492,11 +492,11 @@ Now test it without deploying anything. In your terminal, run:
 npm run dev
 ```
 
-That starts a local server at `http://localhost:3000` which accepts the same command payloads ISC
+That starts a local server at `http://localhost:3000` which accepts the same command payloads SailPoint Identity Security
 sends, and reloads every time you save a file — so leave it running for the rest of the walkthrough.
 
 Open a **second terminal** window, or open Postman. Since the first is busy running the server, and send the server a
-`std:test-connection` command yourself. This is the same request ISC would make, so if it works here
+`std:test-connection` command yourself. This is the same request SailPoint Identity Security would make, so if it works here
 it will work in your tenant — and you get an answer in a second instead of after a deploy:
 
 <Tabs groupId="client">
@@ -615,11 +615,11 @@ export const connector = async () => {
 
 ### 6. Implement `std:account:list`
 
-This is the command that gets identity data into ISC. *Aggregation* is the run — scheduled, or
-started by hand — where ISC asks a source for its accounts and reconciles what comes back against
+This is the command that gets identity data into SailPoint Identity Security. *Aggregation* is the run — scheduled, or
+started by hand — where SailPoint Identity Security asks a source for its accounts and reconciles what comes back against
 the identities it already knows about, so this handler is what an admin actually triggers when they
 click **Start Aggregation**. Yours does **full** aggregation: every account in the source, every
-time, with no attempt to send only what changed. (More on what ISC does with the results:
+time, with no attempt to send only what changed. (More on what SailPoint Identity Security does with the results:
 [loading account data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html).)
 
 **Endpoint:** `GET /v1/users`. Two things to handle:
@@ -670,10 +670,10 @@ page's `response.data.items` onto the `accounts` array, and one that sets `curso
     }
 ```
 
-Now register the handler ISC will call. In `index.ts`, chain `.stdAccountList()` onto the same
+Now register the handler SailPoint Identity Security will call. In `index.ts`, chain `.stdAccountList()` onto the same
 `createConnector()` call from the last step — every command you implement adds another link to that
 chain, and a command with no handler registered simply fails. The handler calls your client, then
-translates each raw demo-API account into ISC's account shape.
+translates each raw demo-API account into SailPoint Identity Security's account shape.
 
 The output is a **stream, not an array**: you call `res.send()` once per account inside the loop
 rather than returning a list, which is what lets a source with 100,000 accounts aggregate without
@@ -706,7 +706,7 @@ block:
 
 That snippet uses three things the file does not import yet, so add `logger`, `StdAccountListInput`,
 and `StdAccountListOutput` to the existing import from `@sailpoint/connector-sdk`. The two `Std...`
-names are the TypeScript types for what ISC sends this handler and what it expects back, so your
+names are the TypeScript types for what SailPoint Identity Security sends this handler and what it expects back, so your
 editor autocompletes the fields and flags a bad mapping before you deploy. `logger` writes to the
 connector log, which is how you see what happened once the connector is running in your tenant
 instead of on your laptop.
@@ -844,7 +844,7 @@ This step is optional. You can skip straight to [step 8](#8-implement-stdentitle
 
 :::
 
-Aggregation hands ISC the whole source at once, but plenty of things only need one account. ISC
+Aggregation hands SailPoint Identity Security the whole source at once, but plenty of things only need one account. SailPoint Identity Security
 calls `std:account:read` to refresh a single account — after a provisioning operation changed it, or
 when someone clicks **Reload Account** — instead of re-reading all 50 to pick up one change. It
 returns the same account shape as `std:account:list`, so most of this step is work you have already
@@ -858,7 +858,7 @@ Two things to get right:
   you reach straight for `input.key.simple.id` — narrow it first. Fall back to `input.identity` so your
   local test payloads work without a `key` block.
 - **Missing accounts.** An unknown id returns `404`. Map that onto
-  `ConnectorErrorType.NotFound` — that specific error is how ISC knows to fall through to
+  `ConnectorErrorType.NotFound` — that specific error is how SailPoint Identity Security knows to fall through to
   `std:account:create` instead of failing the whole operation. Anything else you throw is a hard
   failure.
 
@@ -906,7 +906,7 @@ covers the local test payloads below, which send a bare identity and no `key` bl
 ```
 
 Two more imports. `ConnectorErrorType` in `my-client.ts` is the enum that holds `NotFound`, the
-value telling ISC it hit a missing account rather than a broken connector. `StdAccountReadInput` and
+value telling SailPoint Identity Security it hit a missing account rather than a broken connector. `StdAccountReadInput` and
 `StdAccountReadOutput` in `index.ts` are this command's input and output types, exactly like the
 `StdAccountList...` pair in the last step.
 
@@ -968,7 +968,7 @@ Add to `src/my-client.ts`:
             })
             return response.data
         } catch (error: any) {
-            // Let ISC fall through to std:account:create when the account is gone.
+            // Let SailPoint Identity Security fall through to std:account:create when the account is gone.
             if (error?.response?.status === 404) {
                 throw new ConnectorError(`Account ${id} not found`, ConnectorErrorType.NotFound)
             }
@@ -1012,12 +1012,12 @@ Add to `src/index.ts`:
 
 ### 8. Implement `std:entitlement:list`
 
-Same shape as `std:account:list`, but for groups — and this is the one to run **first** in ISC, so
+Same shape as `std:account:list`, but for groups — and this is the one to run **first** in SailPoint Identity Security, so
 accounts have something to correlate their `groups` values against.
 
 **Endpoint:** `GET /v1/groups`. 8 entitlements fit in one page at `limit=100`, so no cursor loop is
 needed. Pass `includePermissions=true` to get permission detail back; without it the field is
-withheld, mirroring the schema flag ISC passes you.
+withheld, mirroring the schema flag SailPoint Identity Security passes you.
 
 In `my-client.ts`, add a `getAllEntitlements()` method inside `MyClient`, below `getAccount()`. It is
 the groups equivalent of `getAllAccounts()` and much simpler, because all 8 groups fit in one page
@@ -1182,7 +1182,7 @@ Add to `src/index.ts`:
 
 ### 9. Deploy to your tenant
 
-Everything so far has run on your laptop. These commands put the connector in your tenant so ISC can
+Everything so far has run on your laptop. These commands put the connector in your tenant so SailPoint Identity Security can
 run it. In your terminal — the second one, not the one running `npm run dev` — paste them one at a
 time. The first bundles your code into a zip, the second registers a connector under that name in
 your org, and the third uploads the zip to that registration.
@@ -1195,7 +1195,7 @@ sail conn upload -c saas-connectivity-demo -f dist/saas-connectivity-demo-0.1.0.
 
 The zip filename comes from `name` and `version` in `package.json` — run `ls dist` if you are not sure.
 
-Now run a command against the uploaded copy instead of the local one. When ISC runs your connector
+Now run a command against the uploaded copy instead of the local one. When SailPoint Identity Security runs your connector
 it passes in the config an admin filled out on the source form, but you have no source yet — so the
 CLI needs somewhere else to read those values from. Create a `config.json` in the project root with
 the same keys your `sourceConfig` declares; it stands in for that form:
@@ -1256,7 +1256,7 @@ In your tenant, go to **Admin → Connections → Sources → Create New**, sear
    groups to correlate against.
 5. Then go to **Account Management → Account Aggregation** and click the "Start Aggregation" button.
 
-You should see 8 entitlements and 50 accounts land in ISC. Open an account and check the attributes
+You should see 8 entitlements and 50 accounts land in SailPoint Identity Security. Open an account and check the attributes
 came through the way you mapped them, and that its entitlements resolved to group names rather than
 raw `grp_...` ids.
 

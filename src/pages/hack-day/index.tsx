@@ -34,7 +34,7 @@ const miniHacks = [
     title: 'UI Plugins',
     href: '/hack-day/ui-plugins',
     description:
-      'A UI plugin adds your own interface to Identity Security Cloud. You build the interface, then you deploy the plugin to your tenant with the SailPoint CLI.',
+      'A UI plugin adds your own interface to SailPoint Identity Security. You build the interface, then you deploy the plugin to your tenant with the SailPoint CLI.',
   },
 ];
 
@@ -53,14 +53,14 @@ const mainHacks = [
     href: '/hack-day/ui-plugins',
     cta: 'Start with Track 03',
     description:
-      'Build your own page inside Identity Security Cloud. Do the UI Plugins mini hack first, then use what you learned to build a plugin that solves a real problem.',
+      'Build your own page inside SailPoint Identity Security. Do the UI Plugins mini hack first, then use what you learned to build a plugin that solves a real problem.',
   },
 ];
 
 const HackDay: React.FC = () => (
   <Layout
     title="Hack Day"
-    description="Choose a one-hour mini hack or the main hack that takes several hours. Then follow the instructions and build on Identity Security Cloud.">
+    description="Choose a one-hour mini hack or the main hack that takes several hours. Then follow the instructions and build on SailPoint Identity Security.">
     <main>
       {/* Gradient bar */}
       <div className={styles.gradientBar} />
@@ -86,7 +86,7 @@ const HackDay: React.FC = () => (
             </div>
           </div>
           <p className={styles.heroBody}>
-            You have two ways to build on Identity Security Cloud today. A mini
+            You have two ways to build on SailPoint Identity Security today. A mini
             hack is a small project with step-by-step instructions that you can
             complete in about one hour. The main hack takes most of the
             afternoon, and you design your own solution.

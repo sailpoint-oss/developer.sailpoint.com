@@ -994,8 +994,8 @@ html.hack-day-track [class*='codeBlockLines'] * {
 }
 /*
  * Legacy heading anchors kept alive across the Identity Security Cloud ->
- * SailPoint Human Fabric rename. The heading now generates its own
- * brand-correct id, and an empty <a id="old-slug"> sits just above it so
+ * SailPoint Human Fabric -> SailPoint Identity Security renames. The heading
+ * now generates its own brand-correct id, and an empty <a id="old-slug"> sits just above it so
  * pre-rename deep links still land. Docusaurus only applies its sticky-navbar
  * scroll offset to real headings, so mirror it here or the old links scroll
  * the target underneath the fixed navbar.

@@ -1,6 +1,6 @@
 ---
 id: connectivity-customizers-uploading
-title: Build and Upload into SailPoint Human Fabric
+title: Build and Upload into SailPoint Identity Security
 pagination_label: Build and Upload
 sidebar_label: Build and Upload
 sidebar_position: 5
@@ -13,7 +13,7 @@ tags: ['Connectivity']
 
 <a id="building-and-uploading-to-identity-security-cloud" class="legacy-anchor"></a>
 
-# Building and uploading to SailPoint Human Fabric
+# Building and uploading to SailPoint Identity Security
 
 ### Initial requirements
 
@@ -52,9 +52,9 @@ Connector zip file created under dist folder: my-connector-customizer-0.1.0.zip
 
 <a id="upload-to-identity-security-cloud" class="legacy-anchor"></a>
 
-### Upload to SailPoint Human Fabric
+### Upload to SailPoint Identity Security
 
-To upload the customizer to SailPoint Human Fabric, use the upload command:
+To upload the customizer to SailPoint Identity Security, use the upload command:
 
 ```bash
 sail conn customizers upload -c 7b968fab-0f40-49f0-b13b-8bf529fc0b82 -f .\dist\my-connector-customizer-0.1.0.zip

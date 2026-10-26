@@ -23,7 +23,7 @@ NERM supports two authentication methods:
 
 :::caution Deprecated
 
-Legacy NERM API keys are deprecated and do not support scopes. Use SailPoint Human Fabric (SHF) API tokens instead, as described below. For details on the scopes available with SHF API tokens, refer to [Authorization](./authorization.md).
+Legacy NERM API keys are deprecated and do not support scopes. Use SailPoint Identity Security API tokens instead, as described below. For details on the scopes available with SailPoint Identity Security API tokens, refer to [Authorization](./authorization.md).
 
 :::
 
@@ -31,13 +31,13 @@ To authenticate with a NERM-specific API key, you will need to generate a token 
 
 <a id="2-identity-security-cloud-isc-api-token-recommended" class="legacy-anchor"></a>
 
-### 2. SailPoint Human Fabric (SHF) API Token (Recommended)
+### 2. SailPoint Identity Security API Token (Recommended)
 
-NERM now supports authentication using SailPoint Human Fabric (SHF) personal access tokens. This allows you to use the same authentication method across both SHF and NERM APIs.
+NERM now supports authentication using SailPoint Identity Security personal access tokens. This allows you to use the same authentication method across both SailPoint Identity Security and NERM APIs.
 
-To authenticate with an SHF token:
+To authenticate with a SailPoint Identity Security token:
 
-1. **Find your SHF tenant's OAuth details** - Your SHF instance is likely using the domain name supplied by SailPoint (`[tenant].api.identitynow.com`). If you have admin access but don't know your tenant name, you can find it in your SHF instance under Dashboard > Overview > Org Details.
+1. **Find your SailPoint Identity Security tenant's OAuth details** - Your tenant is likely using the domain name supplied by SailPoint (`[tenant].api.identitynow.com`). If you have admin access but don't know your tenant name, you can find it in your tenant under Dashboard > Overview > Org Details.
 
 2. **Generate a personal access token (PAT)** - Follow these steps:
    - Select **Preferences** from the drop-down menu under your username, then **Personal Access Tokens** on the left
@@ -62,7 +62,7 @@ curl --location 'https://mycompany.nonemployee.com/api/v1/non-employee-sources' 
 --header 'Authorization: Bearer {access_token}'
 ```
 
-For more detailed information about SHF authentication, refer to the [SHF Authentication Guide](/docs/api/authentication).
+For more detailed information about SailPoint Identity Security authentication, refer to the [Authentication Guide](/docs/api/authentication).
 
 ## API Tools
 

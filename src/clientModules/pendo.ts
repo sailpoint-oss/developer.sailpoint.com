@@ -6,7 +6,8 @@
  * changes on its own, so no route listener is needed.
  *
  * The API key comes from the PENDO_API_KEY environment variable through
- * customFields in docusaurus.config.ts. If the key is empty, Pendo does not load.
+ * customFields in docusaurus.config.ts. If the key is empty, or the site is not
+ * served from developer.sailpoint.com, Pendo does not load.
  */
 
 import siteConfig from '@generated/docusaurus.config';
@@ -19,7 +20,14 @@ declare global {
 
 const apiKey = siteConfig.customFields?.PENDO_API_KEY as string | undefined;
 
-if (typeof window !== 'undefined' && apiKey) {
+// Only track visits to the live site, not localhost or preview deployments
+const PENDO_HOSTNAME = 'developer.sailpoint.com';
+
+if (
+  typeof window !== 'undefined' &&
+  apiKey &&
+  window.location.hostname === PENDO_HOSTNAME
+) {
   // Pendo install snippet: creates a command queue and loads the agent script
   (function (p: any, e: Document, n: string, d: string) {
     const o = (p[d] = p[d] || {});

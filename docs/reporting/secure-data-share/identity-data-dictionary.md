@@ -81,7 +81,9 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | LOCATION_CODE | text |  | Location code of the Identity |
 | DEPARTMENT | text |  | Department of the identity |
 | EMAIL | text |  | The email address of the identity |
-| MANAGER | text |  | manager of the identity |
+| MANAGER | text |  | Name of the manager identity |
+| MANAGER_ID | text |  | Unique Id of the manager identity |
+| IS_MANAGER | boolean |  | Whether the identity is a manager |
 | LIFECYCLE_STATE | text |  | name of the lifecycle state Ex: Active, leaver, dormant etc. |
 | IDENTITY_STATE | text |  | State of the Identity. Can be one of ACTIVE, INACTIVE_SHORT_TERM and INACTIVE_LONG_TERM |
 | SYNC_DATE | datetime |  | When the row is last synced |

@@ -11,9 +11,9 @@ slug: /extensibility/mcp/integrations/vs-code
 tags: ['MCP', 'VS Code']
 ---
 
-This guide will walk you through configuring Visual Studio Code to connect with the SailPoint Model Context Protocol (MCP) Server using the `mcp.json` configuration file.
+This guide shows you how to connect Visual Studio Code to the SailPoint Model Context Protocol (MCP) servers with the `mcp.json` configuration file.
 
-VS Code connects to the SailPoint MCP Server using OAuth 2.1 with PKCE, so you no longer need to generate or paste in an authentication token. Instead, you supply a Client ID and VS Code handles the login and consent flow for you.
+VS Code connects to the SailPoint MCP servers through the `mcp-remote` helper, with OAuth 2.1 and PKCE. You do not need an authentication token. You add a Client ID to `mcp.json`, and `mcp-remote` runs the login and consent flow in your browser.
 
 :::warning
 Before configuring this integration, please confirm with your organization's administrator whether the integration is allowed with this AI provider. SailPoint does not bear any responsibility in this regard.
@@ -23,29 +23,17 @@ Before configuring this integration, please confirm with your organization's adm
 
 - [Visual Studio Code](https://code.visualstudio.com/) (v1.101+) installed
 - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension installed and enabled
-- An ISC tenant with the MCP Access Requests feature enabled
-- Permission to create an API client in ISC, or a Client ID provided by your administrator
+- Node.js and npm installed (required for the `npx` command)
+- A SailPoint Identity Security tenant with the MCP Access Requests feature enabled
+- Permission to create an API client in SailPoint Identity Security, or a Client ID provided by your administrator
 
 :::note
-The global MCP URL is not available for FedRAMP tenants or tenants with data sovereignty requirements. Those environments should continue to use their tenant-specific URL.
+The global MCP URL is not available for FedRAMP tenants or tenants with data sovereignty requirements. Those environments must use their tenant-specific URL.
 :::
 
-## Step 1: Create an API client in ISC
+## Step 1: Create an API client in SailPoint Identity Security
 
-In ISC, go to **Admin > Security Settings > API Management** and create a new API client:
-
-1. Set the client type to **Public**.
-2. Enable the **Authorization Code** and **Refresh Token** grant types.
-3. Set the **Redirect URLs** to both of the URLs VS Code uses for its OAuth callback:
-    - `http://127.0.0.1:33418`
-    - `https://vscode.dev/redirect`
-4. Set the **Scope** to `sp:scopes:all`.
-
-Save the client and copy the **Client ID** — you will need it in Step 3.
-
-:::note
-VS Code uses the loopback port `33418` for its OAuth callback by default. If that port is unavailable, VS Code may fall back to a different port and authentication can fail with a redirect URI mismatch. If you hit this, set a fixed `callbackPort` in the server's `oauth` configuration and register the matching redirect URL on the API client.
-:::
+Create an API client, as described in [Create an API client](../getting-started.mdx#step-1-create-an-api-client-in-sailpoint-identity-security). Use the redirect URL for VS Code. Then copy the **Client ID**. You need it in Step 3.
 
 ## Step 2: Enable MCP Support in VS Code
 
@@ -61,57 +49,92 @@ Before configuring the server, make sure MCP support is enabled in your VS Code 
 
 This setting allows VS Code to discover and connect to MCP servers defined in your `mcp.json` file.
 
-## Step 3: Add the SailPoint MCP Server to `mcp.json`
+## Step 3: Add the SailPoint MCP Servers to `mcp.json`
 
 1. Open the Command Palette (`Cmd+Shift+P` on macOS or `Ctrl+Shift+P` on Windows/Linux).
 2. Search for and select `MCP: Open User Configuration`.
-3. Add the following configuration to `mcp.json`:
+3. Add the SailPoint servers to the `servers` object in `mcp.json`. If the object does not exist, add it:
 
-The configuration uses the global MCP URL (`https://mcp.sailpoint.com/latest/access-requests/mcp`), which works for all tenants without any tenant-specific changes. Your tenant is identified automatically during authentication. If the tenant name cannot be detected, you will be prompted to enter it on first connect.
-
-```json
-{
-  "servers": {
-    "sailpoint-access-requests": {
-      "type": "http",
-      // highlight-next-line
-      "url": "https://mcp.sailpoint.com/latest/access-requests/mcp",
-      "oauth": {
-        // highlight-next-line
-        "clientId": "your-client-id"
+    ```json
+    {
+      "servers": {
+        "sailpoint-access-requests": {
+          "type": "stdio",
+          "command": "npx",
+          "args": [
+            "-y",
+            "mcp-remote@0.8.7",
+            "https://mcp.sailpoint.com/latest/access-requests/mcp",
+            "13509",
+            "--static-oauth-client-info",
+            "{\"client_id\": \"YOUR_CLIENT_ID\"}",
+            "--static-oauth-client-metadata",
+            "{\"scope\": \"sp:scopes:all\"}"
+          ]
+        },
+        "sailpoint-identity-intelligence": {
+          "type": "stdio",
+          "command": "npx",
+          "args": [
+            "-y",
+            "mcp-remote@0.8.7",
+            "https://mcp.sailpoint.com/latest/intelligence/mcp",
+            "13509",
+            "--static-oauth-client-info",
+            "{\"client_id\": \"YOUR_CLIENT_ID\"}",
+            "--static-oauth-client-metadata",
+            "{\"scope\": \"sp:identity-sec-intel:read\"}"
+          ]
+        }
       }
     }
-  }
-}
-```
+    ```
 
-**Replace `your-client-id` with the Client ID from Step 1**, then save the file.
+4. Replace each `YOUR_CLIENT_ID` with the Client ID from Step 1. You can use the same Client ID for every server.
+5. Save the file.
+
+If you need only one server, delete the other one. For the URL and scope of each server, refer to [Servers](../getting-started.mdx#servers). For a description of each value in `args`, refer to [Claude Code](./claude-code.md#step-2-add-the-sailpoint-mcp-servers-to-claudejson).
+
+:::note If VS Code cannot find npx
+VS Code does not always load the `PATH` from your shell. For example, this occurs if you installed Node.js with nvm. If the server does not start, make these changes to each SailPoint server:
+
+1. Find the full path to `npx`. On macOS or Linux, run `which npx`. On Windows, run `where npx`.
+2. Set `command` to that full path.
+3. Add an `env` object that puts the folder of that path first in `PATH`. For example:
+
+    ```json
+    "command": "/Users/you/.nvm/versions/node/v22.0.0/bin/npx",
+    "env": {
+      "PATH": "/Users/you/.nvm/versions/node/v22.0.0/bin:/usr/bin:/bin"
+    }
+    ```
+
+`npx` starts `node` from the `PATH`, so the full path to `npx` alone is not enough.
+:::
 
 ## Step 4: Connect and authenticate
 
 1. Open the Command Palette.
 2. Search for and select `MCP: Open User Configuration`.
-3. Select `Start` above the configuration for "sailpoint-access-requests".
-    ![vs code mcp](../img/vs-code-mcp-json.png)
-4. VS Code opens a browser window to complete the OAuth flow:
-    1. Log in with your ISC credentials (SSO is supported if it is configured for your tenant).
-    2. Approve the consent screen.
-    3. You are connected — tokens refresh automatically, so you will not need to re-enter your credentials mid-session.
+3. Select `Start` above the configuration of a SailPoint server, for example `sailpoint-access-requests`.
+4. `mcp-remote` opens a browser window for the OAuth flow. Enter your tenant name.
+5. Log in with your SailPoint Identity Security credentials. SSO is supported if it is configured for your tenant.
+6. Approve the consent screen. The browser goes back to `http://localhost:13509/oauth/callback`, and VS Code connects to the server.
 
-### Step 5: Verify the Connection
+Tokens refresh automatically, so you do not need to log in again during the session.
 
-Once connected, you should be able to interact with the SailPoint MCP Server directly from VS Code.
+## Step 5: Verify the Connection
 
-Begin a new VS Code chat and select the Tools icon.
-
-![vs code chat](../img/vs-code-chat.png)
-
-This will bring up the Tools menu. You should see the SailPoint MCP Server and the available tools listed:
-
-![vs code tools](../img/vs-code-tools.png)
+1. Open the Command Palette.
+2. Search for and select `MCP: Show Installed Servers`.
+3. Make sure that the SailPoint servers show in the list and are running.
 
 ## **Try it out!**
 
-You can now ask VS Code things like "What can I request access to?” or “What is the status of my access request?” or “Cancel access request XYZ”
+In a new VS Code chat, ask questions about your access. For example:
+
+- “What can I request access to?”
+- “What is the status of my access request?”
+- “Cancel access request XYZ.”
 
 For more information about the tools, refer to the [SailPoint MCP tool documentation](../available-tools.mdx).

@@ -15,21 +15,23 @@ tags: ['MCP']
 
 The SailPoint MCP (Model Context Protocol) Server enables AI applications to interact with SailPoint's identity governance platform through a standardized interface. This guide shows you how to connect to the SailPoint MCP servers with the MCP Inspector and test the available tools.
 
-SailPoint provides more than one MCP server. Each server has its own URL and its own set of tools:
-
-| Server | Global URL | Purpose |
-|---|---|---|
-| Access Requests | `https://mcp.sailpoint.com/latest/access-requests/mcp` | Search for requestable items, and create, view, and cancel access requests. |
-| Identity Intelligence | `https://mcp.sailpoint.com/latest/intelligence/mcp` | Investigate human identities: profile, access, risk, access history, and certifications. Read-only. |
-
-The global URLs work for all tenants without any tenant-specific configuration. They are the recommended entry point for AI client integration.
-
 **What you'll accomplish:**
-- [Create an API client in ISC](#step-1-create-an-api-client-in-isc)
+- [Create an API client in SailPoint Identity Security](#step-1-create-an-api-client-in-sailpoint-identity-security)
 - [Prepare the SailPoint config file](#step-2-prepare-the-sailpoint-config-file)
 - [Launch the MCP Inspector with the SailPoint servers](#step-3-launch-the-mcp-inspector)
 - [Connect and authenticate with your SailPoint tenant](#step-4-connect-to-a-server)
 - [List and explore available tools](#step-5-list-available-tools)
+
+## Servers
+
+SailPoint provides more than one MCP server. Each server has its own URL, its own scope, and its own set of tools:
+
+| Server | Global URL | Scope | Purpose |
+|---|---|---|---|
+| Access Requests | `https://mcp.sailpoint.com/latest/access-requests/mcp` | `sp:scopes:all` | Search for requestable items, and create, view, and cancel access requests. |
+| Identity Intelligence | `https://mcp.sailpoint.com/latest/intelligence/mcp` | `sp:identity-sec-intel:read` | Investigate human identities: profile, access, risk, access history, and certifications. Read-only. |
+
+The global URLs work for all tenants without any tenant-specific configuration. They are the recommended entry point for AI client integration.
 
 ## Prerequisites
 
@@ -39,25 +41,27 @@ Before you begin, make sure that you have:
 - **Node.js** installed, so that you can run `npx`
 - **Modern web browser** (Chrome, Firefox, Safari, or Edge)
 
-## Step 1: Create an API Client in ISC
+## Step 1: Create an API Client in SailPoint Identity Security
 
-The MCP Inspector uses OAuth to sign you in to your tenant. SailPoint's authorization server does not support Dynamic Client Registration, so you must create an API client in ISC and give its Client ID to the Inspector.
+AI clients use OAuth to sign you in to your tenant. SailPoint's authorization server does not support Dynamic Client Registration, so you must create an API client in SailPoint Identity Security and give its Client ID to your AI client.
 
-In ISC, go to **Admin > Security Settings > API Management** and create a new API client:
+In SailPoint Identity Security, go to **Admin > Security Settings > API Management** and create a new API client:
 
 1. Set the client type to **Public**.
 2. Enable the **Authorization Code** and **Refresh Token** grant types.
-3. Set the **Redirect URL** to `http://localhost:6274/oauth/callback` (the MCP Inspector's OAuth callback).
-4. Set the **Scope** to the scopes of the servers that you want to use. If you use both servers with one Client ID, add both scopes.
+3. Set the **Redirect URL** to the OAuth callback URL of your AI client, as listed in the table below.
+4. Set the **Scope** to the scope of each server that you want to use, as listed in [Servers](#servers). If you use both servers with one Client ID, add both scopes.
 
 Save the client and copy the **Client ID**.
 
-Each server requires a different scope:
+Use the redirect URL of your AI client from this table. To use one Client ID with the MCP Inspector and other AI clients, add both redirect URLs.
 
-| Server | Scope |
+| AI client | Redirect URL |
 |---|---|
-| Access Requests | `sp:scopes:all` |
-| Identity Intelligence | `sp:identity-sec-intel:read` |
+| MCP Inspector | `http://localhost:6274/oauth/callback` |
+| [Claude Code](./integrations/claude-code.md), [Claude Desktop](./integrations/claude-desktop.md), [Cursor](./integrations/cursor.md), [VS Code](./integrations/vs-code.md) | `http://localhost:13509/oauth/callback` |
+
+The AI clients in the second row connect through `mcp-remote`. The port `13509` in the redirect URL must match the port in the `args` of the MCP configuration of the client.
 
 ## Step 2: Prepare the SailPoint Config File
 
@@ -86,14 +90,14 @@ Each server requires a different scope:
     }
     ```
 
-2. Open the file and replace each `YOUR_CLIENT_ID` with the Client ID from [Step 1](#step-1-create-an-api-client-in-isc). You can use the same Client ID for every server.
+2. Open the file and replace each `YOUR_CLIENT_ID` with the Client ID from [Step 1](#step-1-create-an-api-client-in-sailpoint-identity-security). You can use the same Client ID for every server.
 
 The `oauth` block fills in the OAuth settings for each server, so you do not need to enter them in the Inspector:
 
-- `clientId`: the Client ID of your ISC API client.
-- `scopes`: the OAuth scopes to request for that server. The file already contains the scope of each server, as listed in [Step 1](#step-1-create-an-api-client-in-isc). Enter scopes as one string, separated by spaces, not as an array. If a field has the wrong type, the Inspector ignores the whole `oauth` block.
+- `clientId`: the Client ID of your SailPoint Identity Security API client.
+- `scopes`: the OAuth scopes to request for that server. The file already contains the scope of each server, as listed in [Servers](#servers). Enter scopes as one string, separated by spaces, not as an array. If a field has the wrong type, the Inspector ignores the whole `oauth` block.
 
-Do not add a `clientSecret`. The ISC API client is a public client that uses PKCE.
+Do not add a `clientSecret`. The SailPoint Identity Security API client is a public client that uses PKCE.
 
 :::tip Only need one server?
 Delete the servers you don't need from `sailpoint-mcp-inspector.json`.
@@ -126,7 +130,7 @@ If the Inspector is already open, you can import the file instead. Select **Add 
 ## Step 4: Connect to a Server
 
 1. On a SailPoint server card, select the toggle next to **Disconnected**.
-2. When you connect to a server for the first time, the Inspector opens a browser window. Log in with your ISC credentials and approve the consent screen. If the tenant cannot be determined from your Client ID, you are prompted to enter your tenant name.
+2. When you connect to a server for the first time, the Inspector opens a browser window. Log in with your SailPoint Identity Security credentials and approve the consent screen. If the tenant cannot be determined from your Client ID, you are prompted to enter your tenant name.
 
 **When the connection succeeds:**
 
@@ -163,18 +167,12 @@ Use these steps only if you cannot use the config file from [Step 2](#step-2-pre
 
 2. On the **Servers** page, select **Add Servers ▾** in the top-right corner, then choose **Add manually**.
 3. Set the **Transport Type** to `Streamable HTTP`.
-4. Enter the server **URL**:
-
-    | Server | Global URL |
-    |---|---|
-    | Access Requests | `https://mcp.sailpoint.com/latest/access-requests/mcp` |
-    | Identity Intelligence | `https://mcp.sailpoint.com/latest/intelligence/mcp` |
-
+4. Enter the global URL of the server, as listed in [Servers](#servers).
 5. Save the server.
 6. On the server card, select **Settings** and expand **OAuth Settings**. Then set:
-    - **Client ID**: the Client ID from [Step 1](#step-1-create-an-api-client-in-isc)
-    - **Client Secret**: leave blank (the ISC client is a public client that uses PKCE)
-    - **Scopes**: the scope of the server, as listed in [Step 1](#step-1-create-an-api-client-in-isc) (space-separated, no commas)
+    - **Client ID**: the Client ID from [Step 1](#step-1-create-an-api-client-in-sailpoint-identity-security)
+    - **Client Secret**: leave blank (the SailPoint Identity Security client is a public client that uses PKCE)
+    - **Scopes**: the scope of the server, as listed in [Servers](#servers) (space-separated, no commas)
 7. Leave **Enterprise-managed authorization** unchecked.
 8. To add another server, repeat steps 2 to 7 with that server's URL.
 

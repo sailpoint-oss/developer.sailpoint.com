@@ -11,12 +11,12 @@ slug: /extensibility/mcp-available-tools
 tags: ['MCP']
 ---
 
-SailPoint provides more than one MCP server. Each server has its own URL and its own set of tools. To connect to a server, refer to [Getting Started](./getting-started.mdx).
+SailPoint provides more than one MCP server. Each server has its own set of tools. For the URL and scope of each server, refer to [Servers](./getting-started.mdx#servers).
 
-| Server | Global URL | Tools |
-|---|---|---|
-| [Access Requests](#access-requests-server) | `https://mcp.sailpoint.com/latest/access-requests/mcp` | [list-requestable](#list-requestable)<br />[create-access-request](#create-access-request)<br />[view-access-requests](#view-access-requests)<br />[cancel-access-request](#cancel-access-request) |
-| [Identity Intelligence](#identity-intelligence-server) | `https://mcp.sailpoint.com/latest/intelligence/mcp` | [get-identity-intelligence](#get-identity-intelligence)<br />[get-identity-resource](#get-identity-resource) |
+| Server | Tools |
+|---|---|
+| [Access Requests](#access-requests-server) | [list-requestable](#list-requestable)<br />[create-access-request](#create-access-request)<br />[view-access-requests](#view-access-requests)<br />[cancel-access-request](#cancel-access-request) |
+| [Identity Intelligence](#identity-intelligence-server) | [get-identity-intelligence](#get-identity-intelligence)<br />[get-identity-resource](#get-identity-resource) |
 
 ---
 
@@ -221,7 +221,7 @@ Common error scenarios include:
 
 ## Identity Intelligence Server
 
-The Identity Intelligence server provides two read-only tools that AI clients can use to investigate human identities in Identity Security Cloud (ISC). The tools do not change data in your tenant.
+The Identity Intelligence server provides two read-only tools that AI clients can use to investigate human identities in SailPoint Identity Security. The tools do not change data in your tenant.
 
 This server supports the following operations:
 - Get the full intelligence package for one identity: profile, access, risk, and access history

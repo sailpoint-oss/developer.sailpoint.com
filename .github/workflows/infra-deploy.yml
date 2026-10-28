@@ -186,6 +186,7 @@ jobs:
           echo "CMS_APP_API_ENDPOINT=$API_GATEWAY_URL" >> .env
           echo "ALGOLIA_SEARCH_KEY=${{ secrets.ALGOLIA_SEARCH_KEY }}" >> .env
           echo "SECRET_MESSAGE=${{ secrets.SECRET_MESSAGE }}" >> .env
+          echo "PENDO_API_KEY=${{ secrets.PENDO_API_KEY }}" >> .env
           export NODE_OPTIONS="--max_old_space_size=60000"
           export DOCUSAURUS_IGNORE_SSG_WARNINGS=true
           export DOCUSAURUS_DISABLE_LAST_UPDATE=true

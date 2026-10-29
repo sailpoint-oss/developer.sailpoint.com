@@ -464,24 +464,6 @@ Contains certification item data sourced from **Certs 2.0**.
 | SYNC_DATE | datetime |  | When the row is last synced |
 
 
-### ENTITLEMENT_CONNECTION
-
-One row is one entitlement connection: an identity, an account, and an entitlement on a source. The identity and entitlement on the row line up with IDENTITY_ENTITLEMENTS (`IDENTITY_ID` = `IDENTITY_ENTITLEMENTS.ID`, same `ENTITLEMENT_ID`). The account and entitlement line up with ACCOUNT_ENTITLEMENTS (`ACCOUNT_ID` = `ACCOUNT_ENTITLEMENTS.ID`, same `ENTITLEMENT_ID`). `ID` is the connection id.
-
-| Column | Data Type | Key | Description |
-| --- | --- | --- | --- |
-| TENANT_ID | text |  | Unique Id for an Organization tenant |
-| ID | text | PK | Unique Id of the entitlement connection |
-| IDENTITY_ID | text |  | Identity connected to the entitlement |
-| ACCOUNT_ID | text |  | Account connected to the entitlement |
-| ENTITLEMENT_ID | text |  | Entitlement connected to the identity and account |
-| SOURCE_ID | text |  | Source containing the account and entitlement |
-| ATTRIBUTE_NAME | text |  | Name of the entitlement attribute in the source system |
-| ATTRIBUTE_VALUE | text |  | Value of the entitlement attribute in the source system |
-| STANDALONE | boolean |  | Whether the entitlement was assigned directly rather than through a role |
-| SYNC_DATE | datetime |  | When the row is last synced |
-
-
 ### CERTIFICATION_CAMPAIGN
 
 Contains certification campaign data sourced from **Certs 1.0**.
@@ -622,10 +604,6 @@ The following table describes the relationships between the tables in the identi
 | ACCOUNT | IDENTITY | Many to One | Owned by |
 | ACCOUNT | ACCOUNT_ENTITLEMENTS | One to Zero-or-More | has |
 | ENTITLEMENT | ACCOUNT_ENTITLEMENTS | One to Zero-or-More | associated to |
-| IDENTITY | ENTITLEMENT_CONNECTION | One to Zero-or-More | associated to |
-| ACCOUNT | ENTITLEMENT_CONNECTION | One to Zero-or-More | has |
-| ENTITLEMENT | ENTITLEMENT_CONNECTION | One to Zero-or-More | associated to |
-| SOURCE | ENTITLEMENT_CONNECTION | One to Zero-or-More | contains |
 | CERTIFICATION_CAMPAIGN | CERTIFICATION | One to One-or-More | spawns |
 | CERTIFICATION_CAMPAIGN_V2 | CERTIFICATION_V2 | One to One-or-More | spawns |
 | CERTIFICATION_V2 | CERTIFICATION_ITEM_V2 | One to One-or-More | contains |

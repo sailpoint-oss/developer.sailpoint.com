@@ -1,0 +1,45 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - Machine Account Recommendation
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Machine Account Recommendation
+    description: >
+      Use this API to review machine account discovery results. Machine account discovery analyzes accounts and
+      recommends whether each account belongs to a machine rather than a person.
+
+
+      You can get the recommendation for an account, including the reasons behind it, and you can list the reasons
+      that machine account discovery reports, with a readable message for each reason.
+paths:
+  /accounts/v1/{id}/recommendation:
+    $ref: ./paths/accounts-v1-by-id-recommendation.yaml
+  /ai-recommendations/v1/reasons/machine-account-discovery:
+    $ref: ./paths/ai-recommendations-v1-reasons-machine-account-discovery.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

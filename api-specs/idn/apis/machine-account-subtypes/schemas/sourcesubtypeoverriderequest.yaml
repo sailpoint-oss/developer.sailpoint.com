@@ -1,0 +1,10 @@
+type: object
+title: Source Subtype Override Request
+description: Request body for overriding a connector subtype on one source.
+required:
+- sourceId
+properties:
+  sourceId:
+    type: string
+    description: ID of the source to create the overriding source subtype on.
+    example: 6d0458373bec4b4b80460992b76016da

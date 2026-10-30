@@ -1,0 +1,38 @@
+type: object
+title: Subtype Provisioning Policy
+description: The machine account creation provisioning policy of a subtype.
+properties:
+  id:
+    type: string
+    readOnly: true
+    description: System-generated unique ID of the provisioning policy. Must not be supplied on create.
+    example: d7ae9ea3-507f-4d00-9d4f-b4464b344b88
+  subtypeId:
+    type: string
+    readOnly: true
+    description: ID of the subtype the policy belongs to. Must not be supplied on create.
+    example: 43bdd144-4b17-4fce-a744-17c7fd3e717b
+  name:
+    type: string
+    nullable: true
+    description: Name of the provisioning policy. Defaults to the subtype's display name when omitted or blank.
+    example: Service Account
+  description:
+    type: string
+    nullable: true
+    description: Description of the provisioning policy.
+    example: Fields collected when creating a service account.
+  usageType:
+    type: string
+    enum:
+    - CREATE_MACHINE_ACCOUNT
+    default: CREATE_MACHINE_ACCOUNT
+    description: Usage type of the provisioning policy. Only `CREATE_MACHINE_ACCOUNT` is supported.
+    example: CREATE_MACHINE_ACCOUNT
+  fields:
+    type: array
+    description: >-
+      Fields of the provisioning policy. Every field must have a non-blank `name`. When two fields share a name, only
+      the first is kept.
+    items:
+      $ref: ./subtypeprovisioningpolicyfield.yaml

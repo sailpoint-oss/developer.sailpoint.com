@@ -1,0 +1,33 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  identity_proofing_action_id:
+    type: string
+    format: uuid
+  workflow_session_id:
+    type: string
+    format: uuid
+  profile_id:
+    type: string
+    format: uuid
+  proofing_workflow:
+    type: string
+    format: uuid
+  result:
+    type: string
+    enum: [pending, pass, fail]
+  proofing_attributes:
+    type: object
+    additionalProperties:
+      type: string
+    example:
+      result: approve
+  created_at:
+    type: string
+    format: date-time
+  updated_at:
+    type: string
+    format: date-time

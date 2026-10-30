@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The id of the Access Profile
+    example: 2c91808a7190d06e01719938fcd20792
+  name:
+    type: string
+    description: Name of the Access Profile
+    example: Employee-database-read-write
+  description:
+    type: string
+    description: Information about the Access Profile
+    example: Collection of entitlements to read/write the employee database

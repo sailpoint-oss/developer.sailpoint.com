@@ -1,0 +1,9 @@
+type: string
+enum:
+  - NORMAL
+  - UNDEFINED
+  - NOT_CONFIGURED
+  - CONFIGURING
+  - WARNING
+  - ERROR
+  - FAILED

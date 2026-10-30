@@ -1,0 +1,10 @@
+description: >-
+  Enum representing the currently supported filter types.
+
+  Additional values may be added in the future without notice.
+type: string
+enum:
+- EXISTS
+- RANGE
+- TERMS
+example: RANGE

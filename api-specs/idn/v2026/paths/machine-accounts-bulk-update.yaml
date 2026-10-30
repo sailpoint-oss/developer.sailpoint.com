@@ -1,0 +1,54 @@
+post:
+  operationId: updateMachineAccountsInBulk
+  tags:
+    - Machine Accounts
+  summary: Bulk update machine accounts
+  description: |-
+    Applies the same JSON Patch document to up to 100 machine accounts in one request.
+
+    The response uses HTTP 207 Multi-Status. Each array element reports the result for one requested ID in its **status** field (for example, 200 for success, 404 if the account was not found or is not accessible to the caller, 409 for a duplicate ID in the batch).
+
+    Callers without the **idn:mis-account:update** right may still update accounts they own. IDs the caller cannot operate on are reported as not found or failed in the per-row results.
+
+    Patchable fields include **description**, **subtype**, **environment**, **machineIdentity**, **ownerIdentity**, and **manuallyEdited** only.
+  security:
+    - userAuth:
+        - idn:mis-account:update
+    - applicationAuth:
+        - idn:mis-account:update
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/MisBulkUpdateRequest.yaml
+  responses:
+    '207':
+      description: Per-account bulk update results.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/MisBulkResponseList.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

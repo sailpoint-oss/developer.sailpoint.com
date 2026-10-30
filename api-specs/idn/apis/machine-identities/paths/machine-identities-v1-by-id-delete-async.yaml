@@ -1,0 +1,59 @@
+delete:
+  operationId: deleteMachineIdentityAsyncV1
+  tags:
+  - Machine Identities
+  summary: Delete AI agent asynchronously
+  description: |
+    This API deletes an AI agent machine identity. It applies only to AI agents. Application machine identities return
+    `400`; delete them with the delete machine identity API instead.
+
+    When the AI agent was aggregated from a source and still exists on that source, the API starts a deletion task on
+    the source and returns the task status. When the AI agent was created manually or no longer exists on the source,
+    the API deletes it immediately and returns `200` with an empty body.
+
+    The API returns `400` when the AI agent is still assigned to machine accounts, or when its source does not support
+    deleting it. It returns `404` when the machine identity or its source is not found.
+  security:
+  - userAuth:
+    - idn:dataset:manage
+  - applicationAuth:
+    - idn:dataset:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    x-sailpoint-resource-operation-id: listMachineIdentitiesV1
+    description: Machine Identity ID.
+    example: ef38f94347e94562b5bb8424a56397d8
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: >-
+        Status of the deletion task. The body is empty when the AI agent was deleted immediately.
+      content:
+        application/json:
+          schema:
+            $ref: ../../task-management/schemas/taskstatus.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

@@ -1,0 +1,17 @@
+type: object
+description: >-
+  The specified target will be the reviewer for all certifications in
+  this campaign.
+properties:
+  id:
+    type: string
+    description: The ID of the Identity or Governance Group
+    example: 0fbe863c063c4c88a35fd7f17e8a3df5
+  type:
+    $ref: './CampaignReviewerType.yaml'
+  name:
+    type: string
+    description: Human-readable display name of the Identity or Governance Group
+    example: William Wilson
+required:
+  - type

@@ -1,0 +1,80 @@
+post:
+  operationId: searchCampaignTemplatesV1
+  tags:
+    - Next Generation Certification Campaigns
+  summary: Search campaign templates
+  description: >-
+    This executes a full-text search for campaign templates using the provided search string. It matches
+    any campaign templates that match the search terms in the name or description field of the Campaign Template itself, or
+    the name and description of the campaign defined by the template. Required roles are ORG_ADMIN or CERT_ADMIN.
+  security:
+    - userAuth: [ idn:campaign-template:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+    - $ref: '../../shared/parameters/limit.yaml'
+    - $ref: '../../shared/parameters/offset.yaml'
+    - $ref: '../../shared/parameters/count.yaml'
+    - in: query
+      name: sorters
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **name, created, modified**
+      example: name
+      required: false
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **id**: *eq, ne, in, gt, ge, lt, le, sw, co*
+
+
+        **name**: *eq, ne, in, gt, ge, lt, le, sw, co*
+      example: name eq "Campaign Template"
+      required: false
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/SearchRequest.yaml'
+  responses:
+    '200':
+      description: Search was executed with the returned matching results
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/CampaignTemplateGet.yaml'
+    '400':
+      $ref: '../../shared/responses/400.yaml'
+    '401':
+      $ref: '../../shared/responses/401.yaml'
+    '403':
+      $ref: '../../shared/responses/403.yaml'
+    '429':
+      $ref: '../../shared/responses/429.yaml'
+    '500':
+      $ref: '../../shared/responses/500.yaml'

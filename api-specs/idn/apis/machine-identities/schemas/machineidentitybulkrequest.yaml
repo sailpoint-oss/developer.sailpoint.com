@@ -1,0 +1,17 @@
+type: object
+title: Machine Identity Bulk Request
+description: Machine identities to act on in a single bulk request.
+required:
+  - ids
+properties:
+  ids:
+    type: array
+    description: IDs of the machine identities. Provide between 1 and 100 IDs.
+    minItems: 1
+    maxItems: 100
+    items:
+      type: string
+      maxLength: 128
+    example:
+      - ef38f94347e94562b5bb8424a56397d8
+      - 2c9180858082150f0180893dbaf44201

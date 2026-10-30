@@ -1,0 +1,45 @@
+type: object
+title: Requested Account Ref
+properties:
+  direct:
+    type: string
+    description: Direct privilege level assigned to the entitlement
+    example: 'HIGH'
+    enum:
+      - HIGH
+      - LOW
+      - MEDIUM
+      - NONE
+  setBy:
+    type: string
+    description: User or process that set the privilege level
+    example: 'SAILPOINT_MIGRATION'
+  setByType:
+    type: string
+    nullable: true
+    description: Method by which the privilege level was set
+    example: 'OVERRIDE'
+    enum:
+      - OVERRIDE
+      - CUSTOM_CRITERIA
+      - CONNECTOR_CRITERIA
+      - SINGLE_LEVEL_CRITERIA
+  inherited:
+    type: string
+    nullable: true
+    description: Inherited privilege level on the entitlement, if any
+    example: null
+    enum:
+      - HIGH
+      - LOW
+      - MEDIUM
+      - NONE
+  effective:
+    type: string
+    description: Effective privilege level assigned to the entitlement
+    example: 'HIGH'
+    enum:
+      - HIGH
+      - LOW
+      - MEDIUM
+      - NONE

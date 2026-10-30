@@ -1,0 +1,27 @@
+type: object
+description: |
+  Ownership category for agents or applications. On success, primaryOwned and secondaryOwned
+  carry independently paged buckets. On category-level upstream failure, message and reason are
+  set (reason: UPSTREAM_UNAVAILABLE). The service emits one flat object today, so primaryOwned
+  and secondaryOwned may still appear on the failure path with empty items.
+properties:
+  primaryOwned:
+    type: object
+    description: First page of non-human identities for which this human is the primary owner.
+    allOf:
+      - $ref: ./intel-non-human-identity-owned-slice.yaml
+  secondaryOwned:
+    type: object
+    description: First page of non-human identities for which this human is a secondary owner.
+    allOf:
+      - $ref: ./intel-non-human-identity-owned-slice.yaml
+  message:
+    type: string
+    description: Human-readable explanation of the temporary ownership data failure.
+    example: Data temporarily unavailable. Please try again later.
+  reason:
+    type: string
+    enum:
+      - UPSTREAM_UNAVAILABLE
+    description: Machine-readable reason code for the category-level ownership failure.
+    example: UPSTREAM_UNAVAILABLE

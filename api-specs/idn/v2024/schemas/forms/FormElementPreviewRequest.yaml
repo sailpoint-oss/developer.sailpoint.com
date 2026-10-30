@@ -1,0 +1,5 @@
+properties:
+  dataSource:
+    $ref: './FormElementDynamicDataSource.yaml'
+type: object
+x-go-package: github.com/sailpoint/sp-forms/domain

@@ -1,0 +1,72 @@
+title: accountAttribute
+type: object
+required:
+  - sourceName
+  - attributeName
+properties:
+  sourceName:
+    type: string
+    description: A reference to the source to search for the account
+    example: Workday
+  attributeName:
+    type: string
+    description:
+      The name of the attribute on the account to return. This should match the
+      name of the account attribute name visible in the user interface, or on
+      the source schema.
+    example: DEPARTMENT
+  accountSortAttribute:
+    type: string
+    description:
+      The value of this configuration is a string name of the attribute to use
+      when determining the ordering of returned accounts when there are multiple
+      entries
+    example: created
+    default: created
+  accountSortDescending:
+    type: boolean
+    description: >-
+      The value of this configuration is a boolean (true/false). Controls the
+      order of the sort when there are multiple accounts. If not defined, the
+      transform will default to false (ascending order)
+    example: false
+    default: false
+  accountReturnFirstLink:
+    type: boolean
+    description: >-
+      The value of this configuration is a boolean (true/false). Controls which
+      account to source a value from for an attribute.  If this flag is set to
+      true, the transform returns the value from the first account in the list,
+      even if it is null. If it is set to false, the transform returns the first
+      non-null value. If not defined, the transform will default to false
+    example: false
+    default: false
+  accountFilter:
+    type: string
+    description: >-
+      This expression queries the database to narrow search results. The value
+      of this configuration is a sailpoint.object.Filter expression and used
+      when searching against the database.  The default filter will always
+      include the source and identity, and any subsequent expressions will be
+      combined in an AND operation to the existing search criteria.
+
+      Only certain searchable attributes are available: 
+      - `nativeIdentity` - the Account ID 
+      - `displayName` - the Account Name 
+      - `entitlements` - a boolean value to determine if the account has entitlements
+    example: "!(nativeIdentity.startsWith(\"*DELETED*\"))"
+  accountPropertyFilter:
+    type: string
+    description: >-
+      This expression is used to search and filter accounts in memory. The value
+      of this configuration is a sailpoint.object.Filter expression and used
+      when searching against the returned resultset.
+
+
+      All account attributes are available for filtering as this operation is
+      performed in memory.
+    example: "(groups.containsAll({'Admin'}) || location == 'Austin')"
+  requiresPeriodicRefresh:
+    $ref: "./RequiresPeriodicRefresh.yaml"
+  input:
+    $ref: "./input.yaml"

@@ -1,0 +1,12 @@
+type: string
+enum:
+  - APP_OWNER
+  - SOURCE_OWNER
+  - MANAGER
+  - ROLE_OWNER
+  - ACCESS_PROFILE_OWNER
+  - ENTITLEMENT_OWNER
+  - GOVERNANCE_GROUP
+description:
+  Describes the individual or group that is responsible for an approval step.
+example: MANAGER

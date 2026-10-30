@@ -1,0 +1,665 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Access Risk Management Utilization Tracking",
+    "version": "v1"
+  },
+  "tags":[{"name":"ChangeDocument"},{"name":"EamUtilization"}],
+  "paths": {
+    "/api/utilization/changedocument": {
+      "post": {
+        "tags": [
+          "ChangeDocument"
+        ],
+        "summary": "Responsible for creating a new Change Document record, based on the supplied model.",
+        "requestBody": {
+          "description": "Represents the Change Document model that will be created.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.UtilizationTracking.Common.Models.ChangeDocumentModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.UtilizationTracking.Common.Models.ChangeDocumentModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.UtilizationTracking.Common.Models.ChangeDocumentModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.UtilizationTracking.Common.Models.ChangeDocumentModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "ChangeDocument"
+        ],
+        "summary": "Responsible for updating an existing Change Document record, based on the supplied model.",
+        "requestBody": {
+          "description": "Represents the Change Document model that will be updated.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.UtilizationTracking.Common.Models.ChangeDocumentModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.UtilizationTracking.Common.Models.ChangeDocumentModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.UtilizationTracking.Common.Models.ChangeDocumentModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ErpMaestro.UtilizationTracking.Common.Models.ChangeDocumentModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.UtilizationTracking.Common.Models.ChangeDocumentModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.UtilizationTracking.Common.Models.ChangeDocumentModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.UtilizationTracking.Common.Models.ChangeDocumentModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/utilization/changedocument/{changeDocumentId}": {
+      "get": {
+        "tags": [
+          "ChangeDocument"
+        ],
+        "summary": "Returns a Change Document record, based on the supplied change document identifier.",
+        "parameters": [
+          {
+            "name": "changeDocumentId",
+            "in": "path",
+            "description": "Represents the Change Document identifier.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Represents the Change Document identifier.",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.UtilizationTracking.Common.Models.ChangeDocumentModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.UtilizationTracking.Common.Models.ChangeDocumentModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErpMaestro.UtilizationTracking.Common.Models.ChangeDocumentModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/utilization/changedocument/eamid/{emergencyAccessRequestId}": {
+      "get": {
+        "tags": [
+          "ChangeDocument"
+        ],
+        "summary": "Returns a collection of Change Document records, based on the supplied emergency access request identifier.",
+        "parameters": [
+          {
+            "name": "emergencyAccessRequestId",
+            "in": "path",
+            "description": "Represents the Emergency Access Request identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Represents the Emergency Access Request identifier.",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.UtilizationTracking.Common.Models.ChangeDocumentModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.UtilizationTracking.Common.Models.ChangeDocumentModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErpMaestro.UtilizationTracking.Common.Models.ChangeDocumentModel"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/utilization/changedocument/hasData/{emergencyAccessRequestId}": {
+      "get": {
+        "tags": [
+          "ChangeDocument"
+        ],
+        "summary": "Determines if there are any Change Document record(s) for the given emergencyAccessRequestId.",
+        "parameters": [
+          {
+            "name": "emergencyAccessRequestId",
+            "in": "path",
+            "description": "Represents the unique identifier of the Emergency Access Request.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Represents the unique identifier of the Emergency Access Request.",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/utilization/eam/{eamRequestId}/hasAvailableData": {
+      "get": {
+        "tags": [
+          "EamUtilization"
+        ],
+        "summary": "Returns a boolean indicating if the specified EAM request has utilization data on UTS",
+        "parameters": [
+          {
+            "name": "eamRequestId",
+            "in": "path",
+            "description": "Id for EAM Request",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Id for EAM Request",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/utilization/eam/{eamRequestId}/availableData": {
+      "get": {
+        "tags": [
+          "EamUtilization"
+        ],
+        "summary": "Returns utilization data for an specific EAM Request in an Aggregate form ErpMaestro.UtilizationTracking.Common.Models.AggregateUtilizationResponse",
+        "parameters": [
+          {
+            "name": "eamRequestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/utilization/eam/{erpSystemId}/{eamRequestId}": {
+      "post": {
+        "tags": [
+          "EamUtilization"
+        ],
+        "summary": "Upload and process utilization data for an EAM request after validate the relation between the Erp System and the EAM request",
+        "parameters": [
+          {
+            "name": "erpSystemId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "eamRequestId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "contentType": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "contentDisposition": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "headers": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "nullable": true
+                  },
+                  "length": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "name": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "fileName": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                }
+              },
+              "encoding": {
+                "contentType": {
+                  "style": "form"
+                },
+                "contentDisposition": {
+                  "style": "form"
+                },
+                "headers": {
+                  "style": "form"
+                },
+                "length": {
+                  "style": "form"
+                },
+                "name": {
+                  "style": "form"
+                },
+                "fileName": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ErpMaestro.UtilizationTracking.Common.Models.ChangeDocumentModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "emergencyAccessRequestId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "erpSystemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "documentData": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdDateUtc": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "updatedDateUtc": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedBy": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

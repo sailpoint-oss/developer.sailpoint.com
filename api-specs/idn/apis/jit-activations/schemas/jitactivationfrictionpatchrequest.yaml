@@ -1,0 +1,20 @@
+type: object
+title: JIT Activation Friction Patch Request
+description: Submission for the current friction step.
+required:
+  - type
+properties:
+  type:
+    allOf:
+      - $ref: ./jitactivationfrictiontype.yaml
+    description: Kind of friction step being submitted.
+  submittedData:
+    allOf:
+      - $ref: ./frictionsubmitteddata.yaml
+    description: Data submitted for this friction step. Omit when bypassing a step that allows bypass.
+  bypass:
+    type: boolean
+    nullable: true
+    default: false
+    description: Whether to bypass this friction step.
+    example: false

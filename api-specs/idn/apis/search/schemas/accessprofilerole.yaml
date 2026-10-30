@@ -1,0 +1,15 @@
+description: Role
+allOf:
+  - $ref: ./access.yaml
+  - type: object
+    properties:
+      type:
+        type: string
+        description: Type of the access item.
+        example: ROLE
+      owner:
+        $ref: ./displayreference.yaml
+      disabled:
+        type: boolean
+      revocable:
+        type: boolean

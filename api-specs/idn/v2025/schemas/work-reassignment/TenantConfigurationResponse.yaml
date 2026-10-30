@@ -1,0 +1,7 @@
+type: object
+description: Tenant-wide Reassignment Configuration settings
+properties:
+  auditDetails:
+    $ref: 'AuditDetails.yaml'
+  configDetails:
+    $ref: 'TenantConfigurationDetails.yaml'

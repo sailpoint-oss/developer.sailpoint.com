@@ -1,0 +1,13 @@
+description: Sed Assignment
+type: object
+title: Sed Assignment
+properties:
+  assignee:
+    $ref: 'SedAssignee.yaml'
+  items:
+    description: List of SED id's
+    items:
+      format: uuid
+      type: string
+      example: 016629d1-1d25-463f-97f3-c6686846650
+    type: array

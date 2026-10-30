@@ -1,0 +1,28 @@
+title: Device Summary
+type: object
+description: Tenant-wide device counts.
+properties:
+  totalEndpoints:
+    type: integer
+    format: int64
+    description: The total number of devices in the tenant.
+    example: 1250
+  byOs:
+    description: The number of devices for each operating system.
+    $ref: ./deviceoscounts.yaml
+  avgAgentsPerEndpoint:
+    type: number
+    format: double
+    description: The average number of agents per device, rounded to one decimal place.
+    example: 2.4
+  endpointsWithoutRecentData:
+    type: integer
+    format: int64
+    description: >-
+      The number of devices for which the source has sent no endpoint data or resource link in the last three days.
+    example: 37
+  endpointsWithActiveAgents:
+    type: integer
+    format: int64
+    description: The number of devices linked to at least one existing agent.
+    example: 980

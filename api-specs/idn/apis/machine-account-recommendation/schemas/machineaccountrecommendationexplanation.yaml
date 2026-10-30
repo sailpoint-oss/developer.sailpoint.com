@@ -1,0 +1,8 @@
+title: Machine Account Recommendation Explanation
+type: object
+description: A reason that contributed to a machine account recommendation.
+properties:
+  feature:
+    type: string
+    description: Account feature that contributed to the recommendation.
+    example: high-privilege-grant

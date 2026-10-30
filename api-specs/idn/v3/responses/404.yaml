@@ -1,0 +1,16 @@
+description: Not Found - returned if the request URL refers to a resource or object that does not exist
+content:
+  application/json:
+    schema:
+      $ref: '../../v3/schemas/ErrorResponseDto.yaml'
+    examples:
+      "404":
+        summary: An example of a 404 response object
+        value:
+          detailCode: "404 Not found"
+          trackingId: "b21b1f7ce4da4d639f2c62a57171b427"
+          messages:
+            - locale: "en-US"
+              localeOrigin: "DEFAULT"
+              text: "The server did not find a current representation for the target resource."
+          

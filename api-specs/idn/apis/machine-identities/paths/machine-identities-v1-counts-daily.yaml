@@ -1,0 +1,79 @@
+get:
+  operationId: getMachineIdentityDailyCountsV1
+  tags:
+  - Machine Identities
+  summary: Get daily non-human entity counts
+  description: |
+    This API returns daily counts of machine identities, machine accounts, capabilities, and credentials for the tenant.
+    The window ends on the day before the current UTC date and covers the number of days set by `days`. The response
+    contains one entry per day. Days with no recorded counts have an empty `metrics` array.
+  security:
+  - userAuth:
+    - idn:mis-identity:read
+    - idn:mis-identity:manage
+  - applicationAuth:
+    - idn:mis-identity:read
+    - idn:mis-identity:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  - HELPDESK
+  parameters:
+  - in: query
+    name: days
+    required: false
+    description: Number of days in the window. Values outside 1 to 90 return `400`.
+    schema:
+      type: integer
+      format: int32
+      minimum: 1
+      maximum: 90
+      default: 30
+    example: 30
+  - in: query
+    name: entityType
+    required: false
+    description: Return counts for this entity type only. Other values return `400`.
+    schema:
+      type: string
+      enum:
+      - machine_identity
+      - machine_account
+      - capability
+      - credential
+    example: machine_identity
+  - in: query
+    name: subType
+    required: false
+    description: Return counts for this subtype only. The value must exactly match a recorded subtype.
+    schema:
+      type: string
+    example: AI Agent
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Daily counts for the window.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/machineidentitydailycounts.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

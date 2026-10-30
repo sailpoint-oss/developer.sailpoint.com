@@ -1,0 +1,36 @@
+post:
+  security:
+    - userAuth: [ das:owners:manage ]
+    - applicationAuth: [ das:owners:manage ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  summary: Assign owner to application resource.
+  tags:
+    - Data Access Security
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/data-access-security/AssignResourceOwnerRequest.yaml'
+        description: The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner.
+    required: true
+  responses:
+    '200':
+      description: 1 - success, otherwise failure.
+      content:
+        application/json:
+          schema:
+            type: integer
+            format: int32
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

@@ -1,0 +1,37 @@
+type: object
+title: Subtype Target Summary
+description: >-
+  Summary of the subtypes defined for one target. There is one item per connector type for `CONNECTOR` targets, and
+  one item per source subtype for `SOURCE` targets.
+properties:
+  targetType:
+    type: string
+    enum:
+    - SOURCE
+    - CONNECTOR
+    description: Tier of the target.
+    example: CONNECTOR
+  targetId:
+    type: string
+    description: Connector type for a `CONNECTOR` target, or source ID for a `SOURCE` target.
+    example: active-directory
+  targetName:
+    type: string
+    description: Display name of the target. Falls back to `targetId` when no name is stored.
+    example: Active Directory
+  subtypeCount:
+    type: integer
+    format: int32
+    description: Number of subtypes defined for the target.
+    example: 3
+  sourceCount:
+    type: integer
+    format: int32
+    description: Number of sources the target's subtypes apply to.
+    example: 12
+  lastModified:
+    type: string
+    format: date-time
+    nullable: true
+    description: Most recent modification time across the target's subtypes.
+    example: '2026-07-28T16:13:42.750Z'

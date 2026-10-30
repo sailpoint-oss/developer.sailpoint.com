@@ -1,0 +1,6 @@
+type: object
+title: Visibility Criteria
+nullable: true
+properties:
+  expression:
+    $ref: './Expression.yaml'

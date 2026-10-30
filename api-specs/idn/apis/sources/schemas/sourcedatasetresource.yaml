@@ -1,0 +1,38 @@
+type: object
+title: Source Dataset Resource
+description: >-
+  Resource definition for a source. On create, `name`, `type`, `datasetId`, and `schema` are required.
+  The `schema` must define at least one attribute plus `identityAttribute` and `displayAttribute`.
+  The resource `id` is always server-generated from `name` (`customer:` plus a normalized form of `name`); any
+  client-supplied `id` is ignored. After creation, schema attribute edits are made through the source
+  schema APIs. `datasetId` associates the resource with a dataset and is recorded in the resource
+  schema configuration.
+properties:
+  id:
+    type: string
+    readOnly: true
+    description: Resource identifier. Server-generated on create.
+    example: aws:iam-role
+  name:
+    type: string
+    description: Display name of the resource. Required on create.
+    example: Account
+  features:
+    type: array
+    description: Feature identifiers supported by this resource.
+    items:
+      type: string
+    example:
+      - Create
+      - Delete
+  type:
+    type: string
+    description: Resource type. Required on create.
+    example: std:resource
+  datasetId:
+    type: string
+    description: Dataset identifier to associate this resource with. Required on create.
+    example: cmdb-servicenow:applications
+  schema:
+    $ref: ./schema.yaml
+    description: CIS schema for the resource. Required on create.

@@ -1,0 +1,56 @@
+type: object
+title: Object Mapping Request
+required:
+  - objectType
+  - jsonPath
+  - sourceValue
+  - targetValue
+properties:
+  objectType:
+    type: string
+    description: Type of the object the mapping value applies to, must be one from enum
+    example: IDENTITY
+    enum:
+      - ACCESS_PROFILE
+      - ACCESS_REQUEST_CONFIG
+      - ATTR_SYNC_SOURCE_CONFIG
+      - AUTH_ORG
+      - CAMPAIGN_FILTER
+      - ENTITLEMENT
+      - FORM_DEFINITION
+      - GOVERNANCE_GROUP
+      - IDENTITY
+      - IDENTITY_OBJECT_CONFIG
+      - IDENTITY_PROFILE
+      - LIFECYCLE_STATE
+      - NOTIFICATION_TEMPLATE
+      - PASSWORD_POLICY
+      - PASSWORD_SYNC_GROUP
+      - PUBLIC_IDENTITIES_CONFIG
+      - ROLE
+      - RULE
+      - SEGMENT
+      - SERVICE_DESK_INTEGRATION
+      - SOD_POLICY
+      - SOURCE
+      - TAG
+      - TRANSFORM
+      - TRIGGER_SUBSCRIPTION
+      - WORKFLOW
+  jsonPath:
+    type: string
+    description: JSONPath expression denoting the path within the object where the mapping value should be applied
+    example: $.name
+  sourceValue:
+    type: string
+    description: Original value at the jsonPath location within the object
+    example: My Governance Group Name
+  targetValue:
+    type: string
+    description: Value to be assigned at the jsonPath location within the object
+    example: My New Governance Group Name
+  enabled:
+    type: boolean
+    description: Whether or not this object mapping is enabled
+    default: false
+    example: false

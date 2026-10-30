@@ -1,0 +1,46 @@
+type: object
+properties:
+  accountId:
+    type: string
+    description: Unique ID of the account
+    example: John.Doe
+  attributeRequests:
+    type: array
+    items:
+      $ref: ./attributerequest.yaml
+  op:
+    type: string
+    example: Modify
+    description: The operation that was performed
+  provisioningTarget:
+    $ref: ./accountsource.yaml
+  result:
+    type: object
+    properties:
+      errors:
+        type: array
+        items:
+          type: string
+          example: |-
+            [ConnectorError] [
+              {
+                "code": "unrecognized_keys",
+                "keys": [
+                  "groups"
+                ],
+                "path": [],
+                "message": "Unrecognized key(s) in object: 'groups'"
+              }
+            ] (requestId: 5e9d6df5-9b1b-47d9-9bf1-dc3a2893299e)
+        description: Error message.
+      status:
+        type: string
+        description: The status of the account request
+        example: failed
+      ticketId:
+        type: string
+        nullable: true
+        example: null
+        description: ID of associated ticket.
+  source:
+    $ref: ./accountsource.yaml

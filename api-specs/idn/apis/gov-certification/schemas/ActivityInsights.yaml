@@ -1,0 +1,14 @@
+type: object
+properties:
+  usageDays:
+    type: integer
+    description: The number of usage days in the last 90 days
+    example: 12
+    format: int32
+  usageDaysState:
+    type: string
+    enum:
+      - COMPLETE
+      - UNKNOWN
+    description: The state indicates whether data is missing, or whether there is usage data with no value
+    example: COMPLETE

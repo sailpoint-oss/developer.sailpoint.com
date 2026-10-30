@@ -1,0 +1,24 @@
+type: object
+title: Machine Identity All Counts
+description: Number of machine identities and machine accounts owned by an identity.
+properties:
+  applicationIdentityCount:
+    type: integer
+    format: int64
+    description: Number of application machine identities where the identity is a primary or secondary owner.
+    example: 4
+  aiAgentCount:
+    type: integer
+    format: int64
+    description: Number of AI agent machine identities where the identity is a primary or secondary owner.
+    example: 7
+  machineAccountsCount:
+    type: integer
+    format: int64
+    description: Number of machine accounts owned by the identity.
+    example: 15
+  totalCount:
+    type: integer
+    format: int64
+    description: Sum of the application, AI agent, and machine account counts.
+    example: 26

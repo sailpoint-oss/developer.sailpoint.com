@@ -1,0 +1,45 @@
+---
+get:
+  summary: Get a single delegation
+  description: Returns a single delegation record by its ID.
+  tags:
+    - delegations
+  parameters:
+    - $ref: "../../../nerm/parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Delegation.yaml"
+    '404':
+      $ref: "../../../nerm/responses/404.yaml"
+    '500':
+      $ref: "../../../nerm/responses/500.yaml"
+patch:
+  summary: Update a delegation
+  description: Update an existing delegation record.
+  tags:
+    - delegations
+  parameters:
+    - $ref: "../../../nerm/parameters/path/id.yaml"
+  requestBody:
+    $ref: "../../../nerm/requestBodies/PATCH/Delegation.yaml"
+  responses:
+    '200':
+      $ref: "../../../nerm/responses/Delegation.yaml"
+    '404':
+      $ref: "../../../nerm/responses/404.yaml"
+    '500':
+      $ref: "../../../nerm/responses/500.yaml"
+delete:
+  summary: Delete a delegation
+  description: Delete an existing delegation record.
+  tags:
+    - delegations
+  parameters:
+    - $ref: "../../../nerm/parameters/path/id.yaml"
+  responses:
+    '200':
+      description: The delegation record '<delegation_id>' has been destroyed.
+    '404':
+      $ref: "../../../nerm/responses/404.yaml"
+    '500':
+      $ref: "../../../nerm/responses/500.yaml"

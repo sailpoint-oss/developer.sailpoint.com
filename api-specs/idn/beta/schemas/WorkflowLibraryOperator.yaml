@@ -1,0 +1,76 @@
+title: Workflow Operator
+type: object
+properties:
+  id:
+    type: string
+    description: Operator ID.
+    example: "sp:compare-boolean"
+  name:
+    type: string
+    description: Operator friendly name
+    example: Compare Boolean Values
+  type:
+    description: Operator type
+    type: string
+    example: "OPERATOR"
+  description:
+    type: string
+    description: Description of the operator
+    example: Compare two boolean values and decide what happens based on the result.
+  isDynamicSchema:
+    type: boolean
+    description: Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
+    example: false
+  deprecated:
+    type: boolean
+  deprecatedBy:
+    type: string
+    format: date-time
+  isSimulationEnabled:
+    type: boolean
+  formFields:
+    type: array
+    nullable: true
+    description: One or more inputs that the operator accepts
+    items:
+      $ref: './WorkflowLibraryFormFields.yaml'
+    example: 
+      [
+        {
+            "description": "Enter the JSONPath to a value from the input to compare to Variable B.",
+            "helpText": "",
+            "label": "Variable A",
+            "name": "variableA.$",
+            "required": true,
+            "type": "text"
+        },
+        {
+            "helpText": "Select an operation.",
+            "label": "Operation",
+            "name": "operator",
+            "options": [
+                {
+                    "label": "Equals",
+                    "value": "BooleanEquals"
+                }
+            ],
+            "required": true,
+            "type": "select"
+        },
+        {
+            "description": "Enter the JSONPath to a value from the input to compare to Variable A.",
+            "helpText": "",
+            "label": "Variable B",
+            "name": "variableB.$",
+            "required": false,
+            "type": "text"
+        },
+        {
+            "description": "Enter True or False.",
+            "helpText": "",
+            "label": "Variable B",
+            "name": "variableB",
+            "required": false,
+            "type": "text"
+        }
+      ]

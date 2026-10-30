@@ -1,0 +1,24 @@
+type: object
+title: Access Summary
+description: An object holding the access that is being reviewed
+properties:
+  access:
+    type: object
+    properties:
+      type:
+        description: The type of item being certified
+        $ref: ../../shared/schemas/dtotype.yaml
+      id:
+        type: string
+        description: The ID of the item being certified
+        example: 2c9180867160846801719932c5153fb7
+      name:
+        type: string
+        description: The name of the item being certified
+        example: Entitlement for Company Database
+  entitlement:
+    $ref: ./reviewableentitlement.yaml
+  accessProfile:
+    $ref: ./reviewableaccessprofile.yaml
+  role:
+    $ref: ./reviewablerole.yaml

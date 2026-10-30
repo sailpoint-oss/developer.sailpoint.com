@@ -1,0 +1,18 @@
+properties:
+  id:
+    description: ID is a unique identifier
+    example: 00000000-0000-0000-0000-000000000000
+    type: string
+    x-go-name: ID
+  type:
+    description: |-
+      Type is a FormInstanceRecipientType value
+      IDENTITY FormInstanceRecipientIdentity
+    enum:
+      - IDENTITY
+    example: IDENTITY
+    type: string
+    x-go-enum-desc: IDENTITY FormInstanceRecipientIdentity
+    x-go-name: Type
+type: object
+x-go-package: github.com/sailpoint/sp-forms/domain

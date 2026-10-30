@@ -1,0 +1,12 @@
+value:
+  name: Manager Review
+  description: A review of everyone's access by their manager.
+  deadline: 2020-12-25T06:00:00.468Z
+  type: MANAGER
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  filter:
+    type: CAMPAIGN_FILTER
+    id: 0c46fb26c6b20967a55517ee90d15b93
+  mandatoryCommentRequirement: NO_DECISIONS

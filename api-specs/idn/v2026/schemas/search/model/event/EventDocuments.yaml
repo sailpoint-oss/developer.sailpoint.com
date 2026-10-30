@@ -1,0 +1,16 @@
+type: object
+allOf:
+  - $ref: 'EventDocument.yaml'
+  - properties:
+      pod:
+        type: string
+        example: pod01-useast1
+      org:
+        type: string
+        example: org-name
+      _type:
+        $ref: "../base/DocumentType.yaml"
+      _index:
+        type: string
+        example: "44"
+        description: Internal metadata field. This field is for SailPoint internal use only and is subject to change without notice. Do not rely on it in your integrations.

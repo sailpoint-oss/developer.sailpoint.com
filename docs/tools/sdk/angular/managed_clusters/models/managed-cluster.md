@@ -1,0 +1,47 @@
+# ManagedCluster
+
+# ManagedCluster
+
+Import this model from the entry point of its package:
+
+```typescript
+import { ManagedCluster } from '@sailpoint/angular-sdk/managed_clusters';
+```
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | `string` | ManagedCluster ID | [default to undefined]
+**name** | **(optional)** `string` | ManagedCluster name | [default to undefined]
+**pod** | **(optional)** `string` | ManagedCluster pod | [default to undefined]
+**org** | **(optional)** `string` | ManagedCluster org | [default to undefined]
+**type** | **(optional)** `ManagedClusterTypes` |  | [default to undefined]
+**configuration** | **(optional)**  | ManagedProcess configuration map | [default to undefined]
+**keyPair** | **(optional)** `ManagedClusterKeyPair` |  | [default to undefined]
+**attributes** | **(optional)** `ManagedClusterAttributes` |  | [default to undefined]
+**description** | **(optional)** `string` | ManagedCluster description | [default to 'q']
+**redis** | **(optional)** `ManagedClusterRedis` |  | [default to undefined]
+**clientType** | `ManagedClientType` |  | [default to undefined]
+**ccgVersion** | `string` | CCG version used by the ManagedCluster | [default to undefined]
+**pinnedConfig** | **(optional)** `boolean` | boolean flag indicating whether or not the cluster configuration is pinned | [default to false]
+**logConfiguration** | **(optional)** `ClientLogConfiguration` |  | [default to undefined]
+**operational** | **(optional)** `boolean` | Whether or not the cluster is operational or not | [default to false]
+**status** | **(optional)** `string` | Cluster status | [default to undefined]
+**publicKeyCertificate** | **(optional)** `string` | Public key certificate | [default to undefined]
+**publicKeyThumbprint** | **(optional)** `string` | Public key thumbprint | [default to undefined]
+**publicKey** | **(optional)** `string` | Public key | [default to undefined]
+**encryptionConfiguration** | **(optional)** `ManagedClusterEncryptionConfig` |  | [default to undefined]
+**alertKey** | **(optional)** `string` | Key describing any immediate cluster alerts | [default to undefined]
+**clientIds** | **(optional)** `Array<string>` | List of clients in a cluster | [default to undefined]
+**serviceCount** | **(optional)** `number` | Number of services bound to a cluster | [default to 0]
+**ccId** | **(optional)** `string` | CC ID only used in calling CC, will be removed without notice when Migration to CEGS is finished | [default to '0']
+**createdAt** | **(optional)** `string` | The date/time this cluster was created | [default to undefined]
+**updatedAt** | **(optional)** `string` | The date/time this cluster was last updated | [default to undefined]
+**lastReleaseNotifiedAt** | **(optional)** `string` | The date/time this cluster was notified for the last release | [default to undefined]
+**updatePreferences** | **(optional)** `ManagedClusterUpdatePreferences` |  | [default to undefined]
+**currentInstalledReleaseVersion** | **(optional)** `string` | The current installed release on the Managed cluster | [default to undefined]
+**updatePackage** | **(optional)** `string` | New available updates for the Managed cluster | [default to undefined]
+**isOutOfDateNotifiedAt** | **(optional)** `string` | The time at which out of date notification was sent for the Managed cluster | [default to undefined]
+**consolidatedHealthIndicatorsStatus** | **(optional)** `string` | The consolidated Health Status for the Managed cluster | [default to undefined]
+

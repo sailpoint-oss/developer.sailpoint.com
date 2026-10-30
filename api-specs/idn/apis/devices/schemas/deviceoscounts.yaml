@@ -1,0 +1,24 @@
+title: Device OS Counts
+type: object
+description: The number of devices for each operating system.
+properties:
+  macos:
+    type: integer
+    format: int64
+    description: The number of macOS devices.
+    example: 610
+  windows:
+    type: integer
+    format: int64
+    description: The number of Windows devices.
+    example: 540
+  linux:
+    type: integer
+    format: int64
+    description: The number of Linux devices.
+    example: 85
+  unknown:
+    type: integer
+    format: int64
+    description: The number of devices whose operating system is missing or is not macOS, Windows, or Linux.
+    example: 15

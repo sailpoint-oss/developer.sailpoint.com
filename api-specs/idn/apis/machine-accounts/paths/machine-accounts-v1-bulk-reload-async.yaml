@@ -1,0 +1,56 @@
+post:
+  operationId: reloadMachineAccountsInBulkAsyncV1
+  tags:
+  - Machine Accounts
+  summary: Bulk reload machine accounts asynchronously
+  description: |
+    Use this API to submit one task that reloads up to 100 machine accounts from their sources, and get the task ID. Machine accounts that can't be reloaded are skipped. When none of the machine accounts can be reloaded, the task completes with an error.
+
+    The request fails with `400` when `ids` is empty or has more than 100 entries.
+
+    A caller who owns the machine accounts can reload them. Other callers need the **idn:mis-account:reload** right. For a caller without the right, machine accounts they do not own are skipped.
+
+    When this capability is not enabled for the tenant, this API returns `403`.
+  security:
+  - userAuth:
+    - idn:mis-account-state:manage
+  - applicationAuth:
+    - idn:mis-account-state:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/machineaccountbulkrequest.yaml
+  responses:
+    '202':
+      description: Async task details.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/machineaccountrequestasyncresult.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

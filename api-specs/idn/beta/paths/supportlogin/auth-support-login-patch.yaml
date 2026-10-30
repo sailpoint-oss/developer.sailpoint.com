@@ -1,0 +1,48 @@
+operationId: authSupportLoginPatch
+tags:
+  - Auth Support Login
+summary: Patch auth support login record by auth tenant
+description: >-
+  This request will patch an auth support login record.  Patchable fields:
+  **expirationDate**   Request will require the following security
+  scope:  **sp:auth-support-login:update**
+parameters:
+  - in: path
+    name: authTenant
+    description: >-
+      The tenant providing support.
+    required: true
+    schema:
+      type: string
+requestBody:
+  description:
+    A list of auth support login update operations according to the [JSON
+    Patch](https://tools.ietf.org/html/rfc6902) standard.
+  required: true
+  content:
+    application/json-patch+json:
+      schema:
+        type: array
+        items:
+          $ref: "../../schemas/JsonPatchOperation.yaml"
+      example:
+        - op: "replace"
+          path: "/expirationDate"
+          value: "2030-08-23T18:00:00.000Z"
+responses:
+  "200":
+    description: Updated auth support login record.
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/AuthSupportLoginResponse.yaml"
+  "400":
+    $ref: "../../../v3/responses/400.yaml"
+  "401":
+    $ref: "../../../v3/responses/401.yaml"
+  "403":
+    $ref: "../../../v3/responses/403.yaml"
+  "404":
+    $ref: "../../../v3/responses/404.yaml"
+  "500":
+    $ref: "../../../v3/responses/500.yaml"

@@ -1,0 +1,10 @@
+type: string
+title: Sanctioned Status
+description: |-
+  Sanctioned status for a Business Application or the derived effective status on a machine identity.
+  Values are case-sensitive.
+enum:
+  - SANCTIONED
+  - UNSANCTIONED
+  - UNKNOWN
+example: SANCTIONED

@@ -1,0 +1,35 @@
+title: Identity Created
+type: object
+required:
+- identity
+- attributes
+properties:
+  identity:
+    required:
+    - id
+    - type
+    - name
+    type: object
+    description: Created identity.
+    properties:
+      type:
+        type: string 
+        description: Identity's DTO type. 
+        enum: 
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: Identity's unique ID.
+        example: 2c7180a46faadee4016fb4e018c20642
+      name:
+        type: string
+        description: Identity's name. 
+        example: Michael Michaels
+  attributes:
+    type: object
+    description: Attributes assigned to the identity. These attributes are determined by the identity profile.
+    additionalProperties: true
+    example: {
+      "firstname": "John"
+    }

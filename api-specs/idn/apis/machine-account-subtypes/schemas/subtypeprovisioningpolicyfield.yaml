@@ -1,0 +1,44 @@
+type: object
+title: Subtype Provisioning Policy Field
+description: One field of a subtype provisioning policy.
+required:
+- name
+properties:
+  name:
+    type: string
+    description: Name of the attribute.
+    example: userName
+  transform:
+    type: object
+    nullable: true
+    additionalProperties: true
+    description: Transform to apply to the field.
+    example:
+      type: rule
+      attributes:
+        name: Create Unique LDAP Attribute
+  attributes:
+    type: object
+    nullable: true
+    additionalProperties: true
+    description: Attributes required for the transform.
+    example:
+      template: '{firstname}.{lastname}{uniqueCounter}'
+      cloudMaxUniqueChecks: '50'
+      cloudMaxSize: '20'
+      cloudRequired: 'true'
+  isRequired:
+    type: boolean
+    description: Indicates whether the attribute is required.
+    default: false
+    example: false
+  type:
+    type: string
+    nullable: true
+    description: Type of the attribute.
+    example: string
+  isMultiValued:
+    type: boolean
+    description: Indicates whether the attribute is multi-valued.
+    default: false
+    example: false

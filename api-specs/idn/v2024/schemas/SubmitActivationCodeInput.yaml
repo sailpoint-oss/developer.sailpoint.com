@@ -1,0 +1,10 @@
+description: Submit Activation Code Input
+type: object
+title: Submit Activation Code Input
+required:
+  - code
+properties:
+  code:
+    description: Activation Code to finish creating Managed Client
+    type: string
+    example: ZHeFq3hwMN

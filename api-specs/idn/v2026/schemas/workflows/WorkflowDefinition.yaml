@@ -1,0 +1,28 @@
+type: object
+description: The map of steps that the workflow will execute.
+properties:
+  start:
+    type: string
+    description: The name of the starting step.
+    example: "Send Email Test"
+  steps:
+    type: object
+    description: One or more step objects that comprise this workflow.  Please see the Workflow documentation to see the JSON schema for each step type.
+    additionalProperties: true
+    example: {
+      "Send Email": {
+        "actionId": "sp:send-email",
+        "attributes": {
+          "body": "This is a test",
+          "from": "sailpoint@sailpoint.com",
+          "recipientId.$": "$.identity.id",
+          "subject": "test"
+        },
+        "nextStep": "success",
+        "selectResult": null,
+        "type": "ACTION"
+      },
+      "success": {
+        "type": "success"
+      }
+    }

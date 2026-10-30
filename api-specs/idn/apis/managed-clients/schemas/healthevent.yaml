@@ -1,0 +1,36 @@
+description: Individual error or warning event
+type: object
+properties:
+  detailedMessage:
+    description: Description of the issue
+    type: string
+    example: CPU utilization is high
+  uuid:
+    description: Unique identifier for the health event
+    type: string
+    example: '5'
+  url:
+    description: Optional URL associated with the issue
+    type: string
+    nullable: true
+    example: https://example.com:80/
+  timestamp:
+    description: Time when the event occurred
+    type: string
+    format: date-time
+    example: '2025-03-25T14:46:58.605Z'
+  lastNotifiedTimeStamp:
+    description: Last time notification was sent for this issue
+    type: string
+    format: date-time
+    example: '2025-08-06T06:53:22.206956Z'
+  cpuUtilizationPercentage:
+    description: CPU usage percentage
+    type: number
+    nullable: true
+    example: 80
+  freeSpacePercentage:
+    description: Free memory percentage
+    type: number
+    nullable: true
+    example: 8

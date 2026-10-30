@@ -1,0 +1,4199 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "v1",
+    "title": "Access Risk Management Logging Web APIs"
+  },
+  "tags":[{"name":"Audit"},{"name":"Logs"},{"name":"MultiSystemRulebookAudit"},{"name":"RulebookAudit"},{"name":"UserManagementAudit"}],
+  "paths": {
+    "/api/audit": {
+      "post": {
+        "tags": [
+          "Audit"
+        ],
+        "summary": "Gets audit logs using presented filters from model.  URL for GET requests has limit for its length. So, POST request type is used.",
+        "operationId": "GetLogs",
+        "parameters": [
+          {
+            "name": "serviceName",
+            "in": "query",
+            "description": "Filter for audit logs by service name.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tableName",
+            "in": "query",
+            "description": "Filter for audit logs by table name.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "description": "Filter by keys."
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/logs": {
+      "post": {
+        "tags": [
+          "Logs"
+        ],
+        "summary": "Save anonymous log if token matches expected token",
+        "operationId": "SaveAnonymousLog",
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnonymousLog"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnonymousLog"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnonymousLog"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnonymousLog"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/logs/central": {
+      "post": {
+        "tags": [
+          "Logs"
+        ],
+        "summary": "Responsible for performing bulk log uploads of the supplied logs.",
+        "operationId": "UploadBulkLogs",
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CentralLog"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CentralLog"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CentralLog"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CentralLog"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/logs/frontend": {
+      "post": {
+        "tags": [
+          "Logs"
+        ],
+        "summary": "This endpoint allows for the UI to write events to our centralized logging servers",
+        "operationId": "LogFrontEnd",
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FrontEndLogModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FrontEndLogModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FrontEndLogModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FrontEndLogModel"
+              }
+            }
+          },
+          "description": "Represents a log entry."
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/msrb-audit/rulebooks": {
+      "post": {
+        "tags": [
+          "MultiSystemRulebookAudit"
+        ],
+        "summary": "Gets audit logs for specified rulebooks using specified request parameters.",
+        "operationId": "GetRulebookLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "description": "Identifiers of the rulebooks."
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/msrb-audit/businessFunctions": {
+      "post": {
+        "tags": [
+          "MultiSystemRulebookAudit"
+        ],
+        "summary": "Gets audit logs for specified business functions using specified request parameters.",
+        "operationId": "GetBusinessFunctionLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GetBusinessFunctionLogsBusinessfunctionids"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/msrb-audit/mitigations": {
+      "post": {
+        "tags": [
+          "MultiSystemRulebookAudit"
+        ],
+        "summary": "Gets audit logs for specified mitigations using specified request parameters.",
+        "operationId": "GetMitigationLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GetMitigationLogsMitigationids"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/msrb-audit/risks": {
+      "post": {
+        "tags": [
+          "MultiSystemRulebookAudit"
+        ],
+        "summary": "Gets audit logs for specified risks using specified request parameters.",
+        "operationId": "GetRiskLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "int64",
+                  "type": "integer"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "int64",
+                  "type": "integer"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "int64",
+                  "type": "integer"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "int64",
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "description": "Identifiers of the risks."
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/msrb-audit/systems": {
+      "post": {
+        "tags": [
+          "MultiSystemRulebookAudit"
+        ],
+        "summary": "Gets audit logs for specified systems using specified request parameters.",
+        "operationId": "GetSystemLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GetSystemLogsSystemids"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/msrb-audit/permissions": {
+      "post": {
+        "tags": [
+          "MultiSystemRulebookAudit"
+        ],
+        "summary": "Gets audit logs for specified permissions using specified request parameters.",
+        "operationId": "GetPermissionLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "int64",
+                  "type": "integer"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "int64",
+                  "type": "integer"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "int64",
+                  "type": "integer"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "int64",
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "description": "Identifiers of the permissions."
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/msrb-audit/systemBusinessFunctions": {
+      "post": {
+        "tags": [
+          "MultiSystemRulebookAudit"
+        ],
+        "summary": "Gets audit logs for system business functions using specified request parameters.",
+        "operationId": "GetSystemBusinessFunctionsLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GetSystemLogsSystemids"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/msrb-audit/riskMitigations": {
+      "post": {
+        "tags": [
+          "MultiSystemRulebookAudit"
+        ],
+        "summary": "Gets audit logs for risk mitigations using specified request parameters.",
+        "operationId": "GetRiskMitigationsLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GetMitigationLogsMitigationids"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/msrb-audit/riskBusinessFunctions": {
+      "post": {
+        "tags": [
+          "MultiSystemRulebookAudit"
+        ],
+        "summary": "Gets audit logs for risk business functions using specified request parameters.",
+        "operationId": "GetRiskBusinessFunctionsLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GetBusinessFunctionLogsBusinessfunctionids"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/audit/rulebooks": {
+      "post": {
+        "tags": [
+          "RulebookAudit"
+        ],
+        "summary": "Gets audit logs for specified rulebooks using specified request parameters.",
+        "operationId": "GetRulebookLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "description": "Identifiers of the rulebooks."
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/audit/businessFunctions": {
+      "post": {
+        "tags": [
+          "RulebookAudit"
+        ],
+        "summary": "Gets audit logs for specified business functions using specified request parameters.",
+        "operationId": "GetBusinessFunctionLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "description": "Identifiers of the business functions."
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/audit/businessFunctionPermissions": {
+      "post": {
+        "tags": [
+          "RulebookAudit"
+        ],
+        "summary": "Gets audit logs for business function permissions using specified request parameters.",
+        "operationId": "GetBusinessFunctionPermissionLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "description": "Identifiers of related business functions."
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/audit/mitigatingControls": {
+      "post": {
+        "tags": [
+          "RulebookAudit"
+        ],
+        "summary": "Gets audit logs for specified mitigating controls using specified request parameters.",
+        "operationId": "GetMitigatingControlLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "description": "Identifiers of the mitigating controls."
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/audit/mitigatingEntities": {
+      "post": {
+        "tags": [
+          "RulebookAudit"
+        ],
+        "summary": "Gets audit logs for specified mitigating entities using specified request parameters.",
+        "operationId": "GetMitigatingEntityLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "description": "Identifiers of the mitigating entities."
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/audit/mitigatingRules": {
+      "post": {
+        "tags": [
+          "RulebookAudit"
+        ],
+        "summary": "Gets audit logs for specified mitigating rules using specified request parameters.",
+        "operationId": "GetMitigatingRuleLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "description": "Identifiers of the mitigating rules."
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/audit/parameters": {
+      "post": {
+        "tags": [
+          "RulebookAudit"
+        ],
+        "summary": "Gets audit logs for specified parameters using specified request parameters.",
+        "operationId": "GetParameterLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "description": "Identifiers of the parameters."
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/audit/parameterDetails": {
+      "post": {
+        "tags": [
+          "RulebookAudit"
+        ],
+        "summary": "Gets audit logs for specified parameter details using specified request parameters.",
+        "operationId": "GetParameterDetailLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "description": "Identifiers of the parameter details."
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/audit/riskApprovers": {
+      "post": {
+        "tags": [
+          "RulebookAudit"
+        ],
+        "summary": "Gets audit logs for specified risk approvers using specified request parameters.",
+        "operationId": "GetRiskApproverLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GetRiskApproverLogsRuleids"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/audit/riskOwners": {
+      "post": {
+        "tags": [
+          "RulebookAudit"
+        ],
+        "summary": "Gets audit logs for specified risk owners using specified request parameters.",
+        "operationId": "GetRiskOwnerLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GetRiskApproverLogsRuleids"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/audit/rules": {
+      "post": {
+        "tags": [
+          "RulebookAudit"
+        ],
+        "summary": "Gets audit logs for specified rules using specified request parameters.",
+        "operationId": "GetRuleLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "description": "Identifiers of the rules."
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/audit/rulebookRules": {
+      "post": {
+        "tags": [
+          "RulebookAudit"
+        ],
+        "summary": "Gets audit logs for specified rulebook rules using specified request parameters.",
+        "operationId": "GetRulebookRuleLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "description": "Identifiers of related rulebooks."
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/audit/ruleBusinessFunctions": {
+      "post": {
+        "tags": [
+          "RulebookAudit"
+        ],
+        "summary": "Gets audit logs for specified rule business functions using specified request parameters.",
+        "operationId": "GetRuleBusinessFunctionLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GetRiskApproverLogsRuleids"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/userManagementAudit/users": {
+      "post": {
+        "tags": [
+          "UserManagementAudit"
+        ],
+        "summary": "Gets audit logs for specified users using specified request parameters.",
+        "operationId": "GetUserLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GetUserLogsUserids"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/userManagementAudit/userRoles": {
+      "post": {
+        "tags": [
+          "UserManagementAudit"
+        ],
+        "summary": "Gets audit logs for specified user roles using specified request parameters.",
+        "operationId": "GetUserRoleLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GetUserRoleLogsCustomerids"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/userManagementAudit/userSettings": {
+      "post": {
+        "tags": [
+          "UserManagementAudit"
+        ],
+        "summary": "Gets audit logs for specified user settings using specified request parameters.",
+        "operationId": "GetUserSettingLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GetUserLogsUserids"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/userManagementAudit/customerUsers": {
+      "post": {
+        "tags": [
+          "UserManagementAudit"
+        ],
+        "summary": "Gets audit logs for specified customer users using specified request parameters.",
+        "operationId": "GetCustomerUserLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GetUserRoleLogsCustomerids"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/userManagementAudit/userIdentityProviders": {
+      "post": {
+        "tags": [
+          "UserManagementAudit"
+        ],
+        "summary": "Gets audit logs for specified user identity providers using specified request parameters.",
+        "operationId": "GetUserIdentityProviderLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GetUserLogsUserids"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/userManagementAudit/userAccessContexts": {
+      "post": {
+        "tags": [
+          "UserManagementAudit"
+        ],
+        "summary": "Gets audit logs for specified user access contexts using specified request parameters.",
+        "operationId": "GetUserAccessContextLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GetUserLogsUserids"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/api/userManagementAudit/accessContexts": {
+      "post": {
+        "tags": [
+          "UserManagementAudit"
+        ],
+        "summary": "Gets audit logs for specified access contexts using specified request parameters.",
+        "operationId": "GetAccessContextLogs",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Filter for audit logs by start date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Filter for audit logs by end date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Determines how many items should be skipped.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Determines how many items should be taken.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "uniqueItems": false,
+                "type": "array",
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "description": "Identifiers of the contexts."
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEntryModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "requestBodies": {
+      "GetBusinessFunctionLogsBusinessfunctionids": {
+        "content": {
+          "application/json-patch+json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          },
+          "application/json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          },
+          "text/json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          },
+          "application/*+json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "description": "Identifiers of the business functions."
+      },
+      "GetMitigationLogsMitigationids": {
+        "content": {
+          "application/json-patch+json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          },
+          "application/json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          },
+          "text/json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          },
+          "application/*+json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "description": "Identifiers of the mitigations."
+      },
+      "GetSystemLogsSystemids": {
+        "content": {
+          "application/json-patch+json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "int32",
+                "type": "integer"
+              }
+            }
+          },
+          "application/json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "int32",
+                "type": "integer"
+              }
+            }
+          },
+          "text/json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "int32",
+                "type": "integer"
+              }
+            }
+          },
+          "application/*+json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "int32",
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "description": "Identifiers of the systems."
+      },
+      "GetRiskApproverLogsRuleids": {
+        "content": {
+          "application/json-patch+json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "text/json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/*+json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "description": "Identifiers of related rules."
+      },
+      "GetUserLogsUserids": {
+        "content": {
+          "application/json-patch+json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "text/json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/*+json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "description": "Identifiers of the users."
+      },
+      "GetUserRoleLogsCustomerids": {
+        "content": {
+          "application/json-patch+json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "text/json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          },
+          "application/*+json": {
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "format": "uuid",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "description": "Identifiers of the customers."
+      }
+    },
+    "schemas": {
+      "AuditEntryModel": {
+        "description": "Represents model for an audit log item. Contains information about what, who and when changed.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "format": "int64",
+            "description": "Identifier of the log item.",
+            "type": "integer"
+          },
+          "serviceName": {
+            "description": "Name of the service audit log item belongs to.",
+            "type": "string"
+          },
+          "tableName": {
+            "description": "Name of the table audit log item belongs to.",
+            "type": "string"
+          },
+          "utcTimestamp": {
+            "format": "date-time",
+            "description": "Created date of audit log item, UTC.",
+            "type": "string"
+          },
+          "operation": {
+            "$ref": "#/components/schemas/Operation"
+          },
+          "user": {
+            "description": "Name of user, who created audit log item.",
+            "type": "string"
+          },
+          "keyValues": {
+            "description": "Key values of related entity.",
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          },
+          "oldValues": {
+            "description": "Old values of related entity.",
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          },
+          "newValues": {
+            "description": "New values of related entity.",
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "Operation": {
+        "enum": [
+          "?",
+          "i",
+          "u",
+          "d"
+        ],
+        "type": "string"
+      },
+      "AnonymousLog": {
+        "description": "Anonymous log model  Should have all fields in ErpMaestro.LoggingServices.Common.Models.Log  except identity specific properties like Id, User, and Logger",
+        "required": [
+          "application",
+          "level",
+          "machine",
+          "message",
+          "utcTimestamp"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "application": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "exception": {
+            "type": "string"
+          },
+          "level": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string"
+          },
+          "logger": {
+            "maxLength": 250,
+            "minLength": 0,
+            "type": "string"
+          },
+          "machine": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "referenceId": {
+            "type": "string"
+          },
+          "utcTimestamp": {
+            "format": "date-time",
+            "type": "string"
+          }
+        }
+      },
+      "CentralLog": {
+        "required": [
+          "application",
+          "level",
+          "machine",
+          "message",
+          "utcTimestamp"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "application": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "exception": {
+            "type": "string"
+          },
+          "level": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string"
+          },
+          "logger": {
+            "maxLength": 250,
+            "minLength": 0,
+            "type": "string"
+          },
+          "machine": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "referenceId": {
+            "type": "string"
+          },
+          "utcTimestamp": {
+            "format": "date-time",
+            "type": "string"
+          }
+        }
+      },
+      "FrontEndLogModel": {
+        "description": "Log model from the Front End",
+        "required": [
+          "application",
+          "level",
+          "machine",
+          "message",
+          "utcTimestamp"
+        ],
+        "type": "object",
+        "properties": {
+          "application": {
+            "description": "Name of the applications that created this log entry",
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "exception": {
+            "description": "Exception data if any.",
+            "type": "string"
+          },
+          "level": {
+            "description": "Level of the log entry. Trace, Info, Warn, Error, etc",
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string"
+          },
+          "machine": {
+            "description": "Name of the machine where the event being logged happened",
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "message": {
+            "description": "Event log message text.",
+            "type": "string"
+          },
+          "utcTimestamp": {
+            "format": "date-time",
+            "description": "When the even occurred. In UTC.",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

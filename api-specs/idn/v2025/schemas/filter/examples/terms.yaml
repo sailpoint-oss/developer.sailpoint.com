@@ -1,0 +1,10 @@
+source.name:
+  type: 'TERMS'
+  terms:
+  - 'HR Employees'
+  - 'Corporate Active Directory'
+  exclude: true
+protected:
+  type: 'TERMS'
+  terms:
+  - 'true'

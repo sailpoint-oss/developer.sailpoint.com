@@ -1,0 +1,104 @@
+type: object
+title: Source Agent Deletion Task Status
+description: Details and current status of the task that deletes AI agents from a source.
+properties:
+  id:
+    type: string
+    description: System-generated unique ID of the deletion task.
+    example: 8886e5e3-63d0-462f-a195-d98da885b8dc
+  type:
+    type: string
+    description: Type of the deletion task.
+    enum:
+      - QUARTZ
+      - QPOC
+      - QUEUED_TASK
+    example: QUEUED_TASK
+  uniqueName:
+    type: string
+    description: Name of the deletion task.
+    example: Machine Identity Deletion
+  description:
+    type: string
+    description: Description of the deletion task.
+    example: Machine Identity Deletion
+  parentName:
+    type: string
+    nullable: true
+    description: Name of the parent of the deletion task.
+    example: Parent Task
+  launcher:
+    type: string
+    description: Service or user that launched the deletion task.
+    example: System
+  target:
+    description: The source that AI agents are deleted from.
+    allOf:
+      - $ref: ../../shared/schemas/basereferencedto.yaml
+      - type: object
+        example:
+          id: 2c9180835d191a86015d28455b4a2329
+          name: Source name
+          type: APPLICATION
+  created:
+    type: string
+    format: date-time
+    description: Creation date of the deletion task.
+    example: '2026-10-22T14:03:11.000Z'
+  modified:
+    type: string
+    format: date-time
+    nullable: true
+    description: Last modification date of the deletion task.
+    example: '2026-10-22T14:03:11.000Z'
+  launched:
+    type: string
+    format: date-time
+    nullable: true
+    description: Launch date of the deletion task.
+    example: '2026-10-22T14:03:11.000Z'
+  completed:
+    type: string
+    format: date-time
+    nullable: true
+    description: Completion date of the deletion task. `null` until the task finishes.
+    example: '2026-10-22T14:09:47.000Z'
+  taskDefinitionSummary:
+    $ref: ../../shared/schemas/taskdefinitionsummary.yaml
+  completionStatus:
+    type: string
+    nullable: true
+    description: Completion status of the deletion task. `null` until the task finishes.
+    enum:
+      - SUCCESS
+      - WARNING
+      - ERROR
+      - TERMINATED
+      - TEMPERROR
+      - null
+    example: SUCCESS
+  messages:
+    type: array
+    description: Messages associated with the deletion task.
+    items:
+      $ref: ../../shared/schemas/taskstatusmessage.yaml
+  returns:
+    type: array
+    description: Return values from the deletion task.
+    items:
+      $ref: ../../shared/schemas/taskreturndetails.yaml
+  attributes:
+    type: object
+    additionalProperties: true
+    description: Attributes of the deletion task.
+    example: {}
+  progress:
+    type: string
+    nullable: true
+    description: Current progress of the deletion task.
+    example: Started
+  percentComplete:
+    type: integer
+    format: int32
+    description: Current percentage completion of the deletion task.
+    example: 0

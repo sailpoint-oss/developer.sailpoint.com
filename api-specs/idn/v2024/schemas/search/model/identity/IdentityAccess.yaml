@@ -1,0 +1,10 @@
+discriminator:
+  propertyName: 'type'
+  mapping:
+    ACCESS_PROFILE: '../access/AccessProfileSummary.yaml'
+    ENTITLEMENT: '../access/AccessProfileEntitlement.yaml'
+    ROLE: '../access/AccessProfileRole.yaml'
+oneOf:
+- $ref: '../access/AccessProfileSummary.yaml'
+- $ref: '../access/AccessProfileEntitlement.yaml'
+- $ref: '../access/AccessProfileRole.yaml'

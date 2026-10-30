@@ -1,0 +1,9 @@
+employeeId,uid,firstname,lastname,fullName,email,department,jobTitle,managerUid,location,startDate,lifecycleState
+1001,ada.byron,Ada,Byron,Ada Byron,ada.byron@navigate.example,Engineering,VP Engineering,,Austin,2019-03-04,active
+1002,grace.hopper,Grace,Hopper,Grace Hopper,grace.hopper@navigate.example,Engineering,Director of Platform,ada.byron,Austin,2019-07-15,active
+1003,alan.turing,Alan,Turing,Alan Turing,alan.turing@navigate.example,Security,Director of Security,ada.byron,London,2020-01-06,active
+1004,katherine.johnson,Katherine,Johnson,Katherine Johnson,katherine.johnson@navigate.example,Finance,Controller,,Austin,2018-05-21,active
+1005,mary.jackson,Mary,Jackson,Mary Jackson,mary.jackson@navigate.example,Sales,VP Sales,,Chicago,2018-11-05,active
+1006,jean.bartik,Jean,Bartik,Jean Bartik,jean.bartik@navigate.example,Engineering,Engineering Manager,grace.hopper,Austin,2021-02-08,active
+1007,margaret.hamilton,Margaret,Hamilton,Margaret Hamilton,margaret.hamilton@navigate.example,Engineering,Staff Engineer,jean.bartik,Austin,2021-09-13,active
+1008,radia.perlman,Radia,Perlman,Radia Perlman,radia.perlman@navigate.example,Security,Security Engineer,alan.turing,London,2022-03-28,active

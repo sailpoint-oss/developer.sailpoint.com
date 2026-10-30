@@ -1,0 +1,14 @@
+type: object
+properties:
+  field:
+    description: |
+      The name of the field.
+    type: string
+    example: email
+  header:
+    description: |
+      The value of the header.
+    type: string
+    example: Work Email 
+required:
+- field

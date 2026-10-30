@@ -1,0 +1,17 @@
+type: object
+description: The identity or governance group to which a policy violation is reassigned.
+required:
+  - assigneeId
+  - assigneeType
+properties:
+  assigneeId:
+    type: string
+    description: The unique identifier of the identity or governance group receiving the violation.
+    example: 3e07886555ed43cfb83c85c58d2016e6
+  assigneeType:
+    type: string
+    description: The type of assignee receiving the violation.
+    enum:
+      - IDENTITY
+      - GOVERNANCE_GROUP
+    example: IDENTITY

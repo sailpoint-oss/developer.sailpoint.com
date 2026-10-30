@@ -1,0 +1,34 @@
+title: Account Created
+type: object
+required:
+- event
+- source
+- account
+- identity
+properties:
+  event:
+    type: object
+    description: Details about the event.
+    required:
+      - type
+      - cause
+    properties:
+      type:
+        type: string
+        description: The type of event.
+        enum:
+          - ACCOUNT_CREATED_V2
+        example: ACCOUNT_CREATED_V2
+      cause:
+        type: string
+        description: The cause of the event.
+        enum:
+          - AGGREGATION
+          - PROVISIONING
+        example: AGGREGATION
+  source:
+    $ref: './AccountSourceReference.yaml'
+  account:
+    $ref: './AccountV2.yaml'
+  identity:
+    $ref: './IdentityReference.yaml'

@@ -1,0 +1,46 @@
+get:
+  operationId: testMFAConfigV1
+  tags:
+  - MFA Configuration
+  summary: Mfa method's test configuration
+  description: >-
+    This API validates that the configuration is valid and will properly authenticate with the MFA provider identified
+    by the method path parameter.
+  security:
+  - userAuth:
+    - idn:mfa-configuration:read
+    - idn:mfa-configuration:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  parameters:
+  - in: path
+    name: method
+    schema:
+      type: string
+      example: okta-verify
+      nullable: false
+      enum:
+      - okta-verify
+      - duo-web
+    required: true
+    description: The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
+  responses:
+    '200':
+      description: The result of configuration test for the MFA provider.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/mfaconfigtestresponse.yaml
+          example:
+            state: SUCCESS
+            error:
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

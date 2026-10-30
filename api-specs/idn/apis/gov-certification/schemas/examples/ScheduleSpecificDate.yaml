@@ -1,0 +1,12 @@
+description: Runs at 1AM on February 18th, 2020.
+value:
+  type: CALENDAR
+  hours:
+    type: LIST
+    values:
+      - '1'
+  days:
+    type: LIST
+    values:
+      - '2020-02-18'
+  timeZoneId: America/Chicago

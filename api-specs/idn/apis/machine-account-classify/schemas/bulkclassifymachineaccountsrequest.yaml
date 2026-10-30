@@ -1,0 +1,16 @@
+type: object
+title: Bulk Classify Machine Accounts Request
+description: Accounts to classify.
+required:
+  - ids
+properties:
+  ids:
+    type: array
+    description: IDs of the accounts to classify. Provide between 1 and 250 account IDs.
+    minItems: 1
+    maxItems: 250
+    items:
+      type: string
+    example:
+      - ef38f94347e94562b5bb8424a56397d8
+      - 2c9180835d191a86015d28455b4a2329

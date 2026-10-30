@@ -1,0 +1,9 @@
+allOf:
+  - $ref: "./SpConfigJob.yaml"
+  - type: object
+    nullable: true
+    properties:
+      description:
+        type: string
+        description: Optional user defined description/name for export job.
+        example: "ETS configuration objects from Acme-Solar sandbox"

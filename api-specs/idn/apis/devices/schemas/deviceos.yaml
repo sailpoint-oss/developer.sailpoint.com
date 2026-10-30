@@ -1,0 +1,12 @@
+title: Device OS
+type: object
+description: The operating system reported by the source for a device.
+properties:
+  type:
+    type: string
+    description: The operating system type.
+    example: macos
+  version:
+    type: string
+    description: The operating system version.
+    example: '14.5'

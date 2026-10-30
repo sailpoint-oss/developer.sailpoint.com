@@ -1,0 +1,33 @@
+type: object
+title: JIT Activation Friction Response
+description: One friction step on an activation.
+required:
+  - type
+  - status
+  - submittedData
+  - bypassAllowed
+properties:
+  type:
+    allOf:
+      - $ref: ./jitactivationfrictiontype.yaml
+    nullable: true
+    description: Kind of friction step.
+  status:
+    allOf:
+      - $ref: ./jitactivationfrictionstatus.yaml
+    nullable: true
+    description: Lifecycle of this friction step.
+  submittedData:
+    allOf:
+      - $ref: ./frictionsubmitteddata.yaml
+    nullable: true
+    description: Data submitted for this friction step.
+  bypassAllowed:
+    type: boolean
+    description: Whether this step may be bypassed.
+    example: false
+  minWords:
+    type: integer
+    format: int32
+    description: Minimum word count for a justification step.
+    example: 5

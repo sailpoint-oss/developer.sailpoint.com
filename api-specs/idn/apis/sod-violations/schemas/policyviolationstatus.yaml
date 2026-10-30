@@ -1,0 +1,9 @@
+type: string
+description: The current status of a policy violation.
+enum:
+  - Open
+  - Mitigated
+  - Remediated
+  - Closed
+example: Open
+readOnly: true

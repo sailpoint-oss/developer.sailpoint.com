@@ -1,0 +1,8 @@
+name: language_locale
+in: path
+description: Language locale of the object
+required: true
+schema:
+  type: string
+  format: string
+  example: es

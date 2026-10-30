@@ -1,0 +1,29 @@
+# AccountAllOfSourceOwner
+
+# AccountAllOfSourceOwner
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **String** | The ID of the identity | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | The type of object being referenced | [optional] 
+**Name** | **String** | display name of identity | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$AccountAllOfSourceOwner = Initialize-AccountAllOfSourceOwner  -Id 2c918084660f45d6016617daa9210584 `
+ -Type IDENTITY `
+ -Name Adam Kennedy
+```
+
+- Convert the resource to JSON
+```powershell
+$AccountAllOfSourceOwner | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

@@ -1,0 +1,55 @@
+value:
+  - id: e7dbec99-d493-49c8-951b-d84f58a05120
+    name: Manager Review
+    description: A review of everyone's access by their manager.
+    campaignName: Manager Review
+    campaignDescription: Review everyone's access.
+    deadlineDuration: P14D
+    type: IDENTITY
+    ownerId: 7ec252ac-bd42-4554-8bc2-5df22348cb75
+    emailNotificationEnabled: true
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    sunsetCommentsRequired: true
+    reviewer:
+      type: MANAGER
+    mandatoryCommentRequirement: NO_DECISIONS
+    scheduleStatus: NOT_SCHEDULED
+    created: '2022-08-02T19:16:42.632Z'
+    modified: '2022-08-02T19:16:42.632Z'
+  - id: 6a1c0c2e-4b77-4d8a-9f31-0c5e8a1b2d44
+    name: Search Campaign Template
+    description: Template for a search-based access review.
+    campaignName: Search Campaign
+    campaignDescription: A review of access returned by a search.
+    deadlineDuration: P14D
+    type: IDENTITY
+    ownerId: 7ec252ac-bd42-4554-8bc2-5df22348cb75
+    emailNotificationEnabled: false
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    sunsetCommentsRequired: true
+    reviewer:
+      type: MANAGER
+    mandatoryCommentRequirement: NO_DECISIONS
+    scheduleStatus: NOT_SCHEDULED
+    created: '2022-08-02T19:16:42.632Z'
+    modified: '2022-08-02T19:16:42.632Z'
+  - id: 8c4e91aa-2d10-4f55-a6b3-11e0c7d94ab2
+    name: Source Owner Campaign Template
+    description: Template for a source-owner review.
+    campaignName: AD Source Review
+    campaignDescription: A review of the Active Directory source.
+    deadlineDuration: P2W
+    type: IDENTITY
+    ownerId: 7ec252ac-bd42-4554-8bc2-5df22348cb75
+    emailNotificationEnabled: false
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    sunsetCommentsRequired: true
+    reviewer:
+      type: SOURCE_OWNER
+    mandatoryCommentRequirement: NO_DECISIONS
+    scheduleStatus: SCHEDULED
+    created: '2022-08-02T19:16:42.632Z'
+    modified: '2022-08-02T19:16:42.632Z'

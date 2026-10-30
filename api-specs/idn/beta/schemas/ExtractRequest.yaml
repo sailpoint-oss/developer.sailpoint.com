@@ -1,0 +1,34 @@
+type: object
+title: Extract Request
+description: Request model for initiate extract from source connectors.
+properties:
+  referenceId:
+    type: string
+    nullable: false
+    description: Reference ID at request initiator for tracking
+    format: uuid
+    example: 2c9180837ab5b716017ab7c6c9ef1e20
+  fromUtc:
+    type: string
+    nullable: true
+    format: date-time
+    description: The start date/time for the extraction. ISO-8601 in UTC.
+    example: "2022-02-07T20:13:29.356648026Z"
+  toUtc:
+    type: string
+    nullable: true
+    format: date-time
+    description: The end date/time for the extraction. ISO-8601 in UTC.
+    example: "2022-02-07T20:13:29.356648026Z"
+  callbackUrl:
+    type: string
+    nullable: false
+    description: callback url for updates and completion.
+    example: https://your-callback-url
+  attributes:
+    type: object
+    nullable: true
+    additionalProperties:
+      type: string
+    description: map with attributes for an extract type
+    example: { "filters": ["USERID in (1015643,0)","TECH_STACK='AUDIT'"]}

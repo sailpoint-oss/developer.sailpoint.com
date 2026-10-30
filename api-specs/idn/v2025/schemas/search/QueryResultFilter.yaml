@@ -1,0 +1,18 @@
+type: object
+description: >-
+  Allows the query results to be filtered by specifying a list of fields to include and/or exclude from the result documents.
+properties:
+  includes:
+    description: >-
+      The list of field names to include in the result documents.
+    type: array
+    items:
+      type: string
+    example: [ 'name', 'displayName' ]
+  excludes:
+    description: >-
+      The list of field names to exclude from the result documents.
+    type: array
+    items:
+      type: string
+    example: [ 'stacktrace' ]

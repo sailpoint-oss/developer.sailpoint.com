@@ -1,0 +1,21 @@
+type: object
+title: Selector
+properties:
+  type:
+    type: string
+    description: The type of a schedule selector - list or range.
+    enum:
+      - LIST
+      - RANGE
+    example: LIST
+  values:
+    type: array
+    description: A list of a selector values.
+    items:
+      type: string
+    example: ['1', '2', '3']
+  interval:
+    type: integer
+    format: int32
+    description: Interval of the schedule selector
+    example: 2

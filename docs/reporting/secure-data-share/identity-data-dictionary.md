@@ -190,6 +190,74 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | SYNC_DATE | datetime |  | When the row is last synced |
 
 
+### ACCESS_REQUEST_PHASES
+
+| Column | Data Type | Key | Description |
+| --- | --- | --- | --- |
+| TENANT_ID | text |  | Unique Id for an Organization tenant |
+| ACCESS_REQUEST_ID | text | PK | Unique Id of the access request this phase belongs to |
+| NAME | text | PK | Name of the access request phase (e.g. APPROVAL, PROVISIONING) |
+| STATE | text |  | Current state of the phase |
+| STARTED_DATE | datetime |  | Timestamp when the phase started |
+| FINISHED_DATE | datetime |  | Timestamp when the phase finished |
+| SUMMARY | variant |  | Per-item outcomes for this phase (e.g. approvals with actionedBy, approvalId, itemId, status) |
+| DETAILS | text |  | Additional details about the phase |
+| RESULT | text |  | Result of the phase |
+| DELETED_DATE | datetime |  | date when the phase was deleted |
+| SYNC_DATE | datetime |  | When the row is last synced |
+
+
+### PROVISIONING_TARGET
+
+| Column | Data Type | Key | Description |
+| --- | --- | --- | --- |
+| TENANT_ID | text |  | Unique Id for an Organization tenant |
+| PROVISIONING_ID | text | PK | Unique Id of the provisioning run |
+| ACCESS_REQUEST_ID | text |  | Unique Id of the access request that triggered this provisioning run |
+| TARGET_KEY | text | PK | Key identifying the provisioning target account |
+| TARGET_ID | text |  | Id of the target account |
+| SOURCE_ID | text | PK | Unique Id of the source containing the target account |
+| ITEM_KEY | text |  | Key of the provisioned item |
+| OPERATION | text |  | Operation performed on the target account (e.g. Add, Remove, Modify) |
+| EXTERNAL_REQUEST_ID | text |  | External system request Id associated with the provisioning action |
+| WORK_ITEM_ID | text |  | Id of the manual work item if manual provisioning was required |
+| PROVISIONING_ENGINE | text |  | Source or connector used to provision |
+| STATUS | text |  | Status of the provisioning action |
+| RESULT_STATUS | text |  | Final result status of the provisioning action |
+| RESULT_ERRORS | variant |  | List of errors encountered during provisioning |
+| RESULT_WARNINGS | variant |  | List of warnings encountered during provisioning |
+| DELETED_DATE | datetime |  | date when the record was deleted |
+| SYNC_DATE | datetime |  | When the row is last synced |
+
+
+### APPROVAL
+
+| Column | Data Type | Key | Description |
+| --- | --- | --- | --- |
+| TENANT_ID | text |  | Unique Id for an Organization tenant |
+| ID | text | PK | Unique Id for the approval step |
+| TYPE | text |  | Type of approval step |
+| ACCESS_REQUEST_ID | text |  | Unique Id of the access request this approval belongs to |
+| TARGET_ID | text |  | Id of the item being approved |
+| REQUESTED_TARGET | variant |  | Object describing the requested item (id, name, requestType, targetType) |
+| STATUS | text |  | Current status of the approval step |
+| SERIAL_STEP | number |  | Sequential step number within the approval chain |
+| REQUESTER | variant |  | Identity that submitted the approval request |
+| REQUESTEE | variant |  | Identity on behalf of whom the request was made (for proxy requests) |
+| APPROVERS | variant |  | List of identities and governance groups assigned to approve |
+| ASSIGNED_TO | variant |  | Identity or group currently assigned to action this approval |
+| APPROVED_BY | variant |  | Identity that approved the request |
+| REJECTED_BY | variant |  | Identity that rejected the request |
+| COMMENTS | variant |  | Comments added by approvers |
+| REASSIGNMENT_HISTORY | variant |  | History of approval reassignments |
+| CREATED_DATE | datetime |  | date when the approval was created |
+| UPDATED_DATE | datetime |  | date when the approval was modified |
+| DUE_DATE | datetime |  | date by which the approval should be actioned |
+| COMPLETED_DATE | datetime |  | date when the approval was completed |
+| DELETED_DATE | datetime |  | date when the approval was deleted |
+| SYNC_DATE | datetime |  | When the row is last synced |
+
+
 ### CERTIFICATION
 
 Contains certification data sourced from **Certs 1.0**.
@@ -589,6 +657,9 @@ The following table describes the relationships between the tables in the identi
 | ROLE | IDENTITY_ROLES | One to Zero-or-More | associated to |
 | ROLE | IDENTITY | Many to One | Owned by |
 | ACCESS_REQUEST | IDENTITY | One to One | contains - requested by and for |
+| ACCESS_REQUEST | ACCESS_REQUEST_PHASES | One to One-or-More | has phases |
+| ACCESS_REQUEST | PROVISIONING_TARGET | One to Zero-or-More | triggers provisioning for |
+| ACCESS_REQUEST | APPROVAL | One to Zero-or-More | has approval steps |
 | CERTIFICATION | IDENTITY | One to One-or-More | contains |
 | CERTIFICATION_ITEM | IDENTITY | One to One | contains |
 | CERTIFICATION_ITEM | ROLE | One to Zero-or-One | contains |

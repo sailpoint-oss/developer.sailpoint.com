@@ -28,7 +28,7 @@ SailPoint provides more than one MCP server. Each server has its own URL, its ow
 
 | Server | Global URL | Scope | Purpose |
 |---|---|---|---|
-| Access Requests | `https://mcp.sailpoint.com/latest/access-requests/mcp` | `sp:scopes:all` | Search for requestable items, and create, view, and cancel access requests. |
+| Access Requests | `https://mcp.sailpoint.com/latest/access-requests/mcp` | `idn:access-request:manage` | Search for requestable items, and create, view, and cancel access requests. |
 | Identity Intelligence | `https://mcp.sailpoint.com/latest/intelligence/mcp` | `sp:identity-sec-intel:read` | Investigate human identities: profile, access, risk, access history, and certifications. Read-only. |
 
 The global URLs work for all tenants without any tenant-specific configuration. They are the recommended entry point for AI client integration.
@@ -75,7 +75,7 @@ The AI clients in the second row connect through `mcp-remote`. The port `13509` 
           "url": "https://mcp.sailpoint.com/latest/access-requests/mcp",
           "oauth": {
             "clientId": "YOUR_CLIENT_ID",
-            "scopes": "sp:scopes:all"
+            "scopes": "idn:access-request:manage"
           }
         },
         "sailpoint-identity-intelligence": {

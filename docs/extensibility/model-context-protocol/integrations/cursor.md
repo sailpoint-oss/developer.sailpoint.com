@@ -53,7 +53,7 @@ Create an API client, as described in [Create an API client](../getting-started.
             "--static-oauth-client-info",
             "{\"client_id\": \"YOUR_CLIENT_ID\"}",
             "--static-oauth-client-metadata",
-            "{\"scope\": \"sp:scopes:all\"}"
+            "{\"scope\": \"idn:access-request:manage\"}"
           ]
         },
         "sailpoint-identity-intelligence": {

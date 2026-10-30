@@ -5,7 +5,7 @@
       "url": "https://mcp.sailpoint.com/latest/access-requests/mcp",
       "oauth": {
         "clientId": "YOUR_CLIENT_ID",
-        "scopes": "sp:scopes:all"
+        "scopes": "idn:access-request:manage"
       }
     },
     "sailpoint-identity-intelligence": {

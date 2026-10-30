@@ -58,7 +58,7 @@ Claude Desktop reads its local MCP servers from the `claude_desktop_config.json`
             "--static-oauth-client-info",
             "{\"client_id\": \"YOUR_CLIENT_ID\"}",
             "--static-oauth-client-metadata",
-            "{\"scope\": \"sp:scopes:all\"}"
+            "{\"scope\": \"idn:access-request:manage\"}"
           ]
         },
         "sailpoint-identity-intelligence": {

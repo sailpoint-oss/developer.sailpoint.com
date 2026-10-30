@@ -231,10 +231,6 @@ This server supports the following operations:
 The Identity Intelligence server currently supports only human identities.
 :::
 
-:::info Required access
-The token or OAuth session that you use must have the `sp:identity-sec-intel:read` scope. This is the least permissive scope for this server. `sp:scopes:all` also works. It must also carry a user identity, so use an OAuth session or a personal access token (PAT). Your tenant must also have the MCP Server and Response and Remediation licenses.
-:::
-
 ### get-identity-intelligence
 
 Retrieve the full intelligence package for one human identity. The package includes the identity's profile, access, risk, and access history.

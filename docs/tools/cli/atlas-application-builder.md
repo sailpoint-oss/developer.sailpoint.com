@@ -88,9 +88,11 @@ Run every command in this section from the publishing tenant's environment.
 The `init` command creates a new package directory named after the package and sets up its files. It only prepares files locally, so it doesn't contact the tenant:
 
 ```shell
-sail marketplace init employee-lifecycle
-cd employee-lifecycle
+sail marketplace init [PACKAGE NAME]
+cd [PACKAGE NAME]
 ```
+
+Replace `[PACKAGE NAME]` with the name of your package.
 
 That is all you need to start. The CLI and the catalog service handle package details, such as versioning, for you.
 
@@ -125,6 +127,8 @@ sail marketplace add --workflow ./onboarding.json --force
 sail marketplace add --ui-plugin ../demo-plugin-one
 ```
 
+To add several objects of the same type at once, use `"*"` to add every object of that type, as the workflow and widget examples show. Otherwise, add each object individually by its ID, name, SRN, or file path.
+
 These are the supported type flags: `--transform`, `--form`, `--workflow`, `--widget`, and `--ui-plugin`. Singular and plural spellings are equivalent (for example, `--workflow` and `--workflows`).
 
 If a file already exists with identical content, the CLI leaves it untouched. If the content differs, the CLI prompts you before it overwrites the file. To overwrite without a prompt, use the `--force` flag.
@@ -140,7 +144,7 @@ sail marketplace build
 The CLI reports the artifact it built:
 
 ```text
-Built employee-lifecycle.zip (12345 bytes, SHA-256 5b36b0…)
+Built [PACKAGE NAME].zip (12345 bytes, SHA-256 5b36b0…)
 ```
 
 To write the artifact to a different directory, use the `--output-dir` flag.
@@ -163,15 +167,17 @@ On the first push, the CLI writes the assigned `packageId` back into `metadata.j
 
 ### Publish for review
 
-The `publish` command submits the current `DRAFT` version for SailPoint review. Without a flag, the package stays hidden. With the `--public` flag, the command requests a publicly discoverable listing:
+The `publish` command submits the current `DRAFT` version for SailPoint review, and the package stays hidden:
 
 ```shell
-# Submit for review and remain private
 sail marketplace publish
-
-# Submit for review and request a public listing
-sail marketplace publish --public
 ```
+
+:::info
+
+More information about publishing public packages is coming soon.
+
+:::
 
 If `push` already uploaded the current digest, the review starts without uploading the artifact again.
 

@@ -14,8 +14,8 @@ Use this category to discover community-built developer utilities and helper too
 
 ## Get started
 
-1. Browse CoLab **Community Tools** and choose a tool.
-2. Open the tool details and review prerequisites and setup notes.
+1. Browse CoLab [**Community Tools**](https://developer.sailpoint.com/colab/colabsolutions?category=community-tools) and choose a tool.
+2. Select a community tool and review requirements and setup notes.
 3. Download or clone the tool from the linked source repository.
 4. Follow the project README for installation and configuration.
 5. Validate behavior in a non-production environment first.

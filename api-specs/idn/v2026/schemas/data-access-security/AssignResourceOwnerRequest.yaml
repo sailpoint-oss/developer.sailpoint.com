@@ -1,0 +1,17 @@
+type: object
+properties:
+  appId:
+    type: integer
+    format: int64
+    description: The unique identifier of the application containing the resource.
+    example: 12345
+  fullPath:
+    type: string
+    nullable: true
+    description: The full path to the resource within the application (e.g., file path or object path).
+    example: "/shared/hr/documents/employee-records.pdf"
+  identityId:
+    type: string
+    format: uuid
+    description: The unique identifier (UUID) of the identity to be assigned as the resource owner.
+    example: "d290f1ee-6c54-4b01-90e6-d701748f0851"

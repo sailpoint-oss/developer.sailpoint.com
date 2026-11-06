@@ -1,0 +1,33 @@
+type: object
+properties:
+  forcedAuthSignature:
+    type: string
+    example: "string"
+    description: Signature required for forced authentication.
+  id:
+    type: string
+    example: "string"
+    description: ID of the requested target.
+  name:
+    type: string
+    example: "string"
+    description: Name of the requested target.
+  reauthRequired:
+    type: boolean
+    example: true
+    description: Indicates if reauthentication is required.
+    default: false
+  removalDate:
+    type: string
+    format: date-time
+    example: "2025-07-07T18:10:13.687Z"
+    description: Date when the target will be removed.
+  requestType:
+    type: string
+    example: "string"
+    description: Type of the request.
+  targetType:
+    type: string
+    example: "string"
+    description: Type of the target.
+description: Represents a requested target in an approval process, including details such as ID, name, reauthentication requirements, and removal date.

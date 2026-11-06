@@ -1,0 +1,7 @@
+type: string
+description: Enum list of valid work types that can be selected for a Reassignment Configuration
+enum:
+  - ACCESS_REQUESTS
+  - CERTIFICATIONS
+  - MANUAL_TASKS
+example: ACCESS_REQUESTS

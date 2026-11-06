@@ -1,0 +1,167 @@
+get:
+  operationId: listUiPluginsV1
+  x-sailpoint-lint-ignore:
+    path-list-operations-must-return-object: The service returns a top-level array and puts the total count in the X-Total-Count header.
+  tags:
+    - UI Plugins
+  summary: List plugin instances
+  description: >-
+    Returns plugin instances for the caller's tenant with optional V3-style
+    pagination. When `count=true`, the response includes header `x-total-count`.
+
+
+    Requires product license `idn:ui-plugins` or `idn:ui-plugins-author`
+    (404 if neither is present). Returns 400 `User context is invalid` when
+    the caller has no tenant id. Results include only that tenant's plugin
+    instances.
+  security:
+    - userAuth:
+        - idn:plugins-ui:read
+    - applicationAuth:
+        - idn:plugins-ui:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - $ref: ../../shared/parameters/limit.yaml
+    - $ref: ../../shared/parameters/offset.yaml
+    - $ref: ../../shared/parameters/count.yaml
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+  responses:
+    '200':
+      description: List of plugin instances (may be empty)
+      headers:
+        x-total-count:
+          description: Total number of matching items (present when `count=true`)
+          schema:
+            type: integer
+            minimum: 0
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/uiplugin.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+post:
+  operationId: createUiPluginV1
+  x-sailpoint-lint-ignore:
+    path-201-responses-must-define-location-header: The service returns the new resource in the response body and does not set a Location header.
+  tags:
+    - UI Plugins
+  summary: Create a plugin instance
+  description: >-
+    Registers a new tenant-scoped plugin installation.
+
+
+    Enforces:
+
+    - Max **20** plugin instances per tenant
+
+    - Slot registry rules (`slotId` must exist; per-slot `maxPlugins`; no duplicate slotIds)
+
+    - Alias uniqueness within the tenant (normalized lowercase)
+
+    - CSP / Permissions-Policy / iframe-allow / iframe-sandbox allowlists
+
+    - Product license `idn:ui-plugins-author` (404 if missing)
+
+    - Caller tenant id is present (400 `User context is invalid` otherwise).
+      The instance is created in that tenant.
+
+
+    Emits Kafka audit event `UI_PLUGIN_INSTANCE_CREATED` on success.
+
+
+    Response body is the created plugin instance plus `devDocumentHeaders`, the
+    ephemeral `Content-Security-Policy` and `Permissions-Policy` header values
+    a local dev server can use for CSP parity with the deployed plugin. They
+    are returned only on create (and link), not when reading the instance.
+  security:
+    - userAuth:
+        - idn:plugins-ui:create
+    - applicationAuth:
+        - idn:plugins-ui:create
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/createuipluginrequest.yaml
+        example:
+          alias: my-custom-plugin
+          name:
+            en: My Custom Plugin
+          description:
+            en: Extends the ISC UI with custom workflows
+          apiScopes:
+            - idn:account:read
+          slots:
+            - slotId: full-page
+              requiredCapabilities: []
+              restrictToUsers: []
+          contentSecurityPolicies:
+            default-src:
+              - "'self'"
+          permissionPolicy:
+            camera:
+              - "'self'"
+          iframeAllow:
+            camera:
+              - "'self'"
+          iframeSandbox:
+            - allow-modals
+            - allow-popups
+  responses:
+    '201':
+      description: Plugin instance created; includes devDocumentHeaders
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/createuipluginresponse.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '409':
+      description: Alias already in use for this tenant
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

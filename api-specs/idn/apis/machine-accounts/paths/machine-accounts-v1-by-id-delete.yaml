@@ -1,0 +1,62 @@
+post:
+  operationId: deleteMachineAccountV1
+  tags:
+  - Machine Accounts
+  summary: Delete machine account
+  description: |
+    Use this API to submit a request to delete a machine account from its source. Depending on the tenant's account deletion approval settings, the request can need approval before the account is deleted. The response returns the ID of the account request.
+
+    The machine account must be linked to a machine identity; otherwise this API returns `404`. Machine accounts aggregated from a dataset can be rejected with `400`.
+
+    A caller who owns the machine account can delete it. Other callers need the **idn:mis-account:delete** right.
+  security:
+  - userAuth:
+    - idn:mis-account:manage
+  - applicationAuth:
+    - idn:mis-account:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    x-sailpoint-resource-operation-id: listMachineAccountsV1
+    description: Machine Account ID.
+    example: ef38f94347e94562b5bb8424a56397d8
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/machineaccountdeleterequest.yaml
+  responses:
+    '202':
+      description: The deletion request was accepted.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/machineaccountrequestasyncresult.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

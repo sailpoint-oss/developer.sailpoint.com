@@ -1,0 +1,36 @@
+type: object
+required:
+- name
+- operation
+- includeNumbers
+- includeSpecialChars
+- length
+properties:
+  name: 
+    type: string
+    description: This must always be set to "Cloud Services Deployment Utility"
+    example: 'Cloud Services Deployment Utility'
+  operation:
+    type: string
+    description: The operation to perform `generateRandomString`
+    example: 'generateRandomString'
+  includeNumbers:
+    type: boolean
+    description: This must be either "true" or "false" to indicate whether the generator logic should include numbers
+    example: true
+  includeSpecialChars: 
+    type: boolean
+    description: This must be either "true" or "false" to indicate whether the generator logic should include special characters
+    example: true
+  length:
+    type: string
+    description: |
+      This specifies how long the randomly generated string needs to be
+      
+
+      >NOTE Due to identity attribute data constraints, the maximum allowable value is 450 characters
+    example: "10"
+  requiresPeriodicRefresh:
+    type: boolean
+    description: A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+    example: false

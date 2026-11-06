@@ -1,0 +1,17 @@
+description: >-
+  This is a summary representation of an access profile.
+allOf:
+  - $ref: "Access.yaml"
+  - type: object
+    properties:
+      type:
+        type: string
+        description: Type of the access item.
+        example: ACCESS_PROFILE
+      source:
+        $ref: "../base/Reference.yaml"
+      owner:
+        $ref: "../base/DisplayReference.yaml"
+      revocable:
+        type: boolean
+        example: true

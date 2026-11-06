@@ -1,0 +1,20 @@
+type: object
+title: Correlation Rule Action
+description: The action applied when a correlation rule matches.
+required:
+  - type
+properties:
+  type:
+    type: string
+    description: The target owner type resolved by this action.
+    enum:
+      - IDENTITY
+      - ACCOUNT
+      - GOVERNANCE_GROUP
+    example: IDENTITY
+  payload:
+    type: object
+    additionalProperties: true
+    description: Action-specific payload.
+    example:
+      identityId: 2c9180858082150f0180893dbaf44201

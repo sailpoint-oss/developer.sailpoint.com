@@ -1,0 +1,111 @@
+type: object
+title: EntitlementConnection
+description: Entitlement connection entity returned by patch APIs.
+properties:
+  tenantId:
+    type: string
+    format: uuid
+    description: Tenant identifier that owns the connection.
+    example: 0b0d4856-4f0b-490a-a7da-3a741946e1d9
+  connectionId:
+    type: string
+    description: Entitlement connection identifier.
+    example: 6c692d9972f8400ca4560a68f62c4c5f
+  identityId:
+    type: string
+    description: Identity identifier associated with the connection.
+    example: 35d80d89f3274418ba5748f0b3838d49
+  machineIdentityId:
+    type: string
+    description: Machine identity identifier when the connection is machine-backed.
+    example: 77c4ca79c5554f09afd87d651f62af79
+  accountId:
+    type: string
+    description: Account identifier for the connected source account.
+    example: 17a0e011f3fc4b43a19ddf13d6b92ede
+  entitlementId:
+    type: string
+    description: Entitlement identifier on the source.
+    example: d532fa5cb15748e2873c6a01e5923ec4
+  sourceId:
+    type: string
+    description: Source identifier that provides the account and entitlement.
+    example: 60ab87390360421f8b7d731cb1f7017b
+  standalone:
+    type: boolean
+    default: false
+    description: Indicates whether the connection is marked as standalone.
+    example: true
+  attributeName:
+    type: string
+    description: Entitlement attribute name on the source.
+    example: memberOf
+  attributeValue:
+    type: string
+    description: Entitlement attribute value on the source.
+    example: CN=cloud support,OU=Automation_Users,OU=slpt-automation,DC=TestAutomationAD,DC=local
+  type:
+    type: string
+    description: Connection type classification.
+    example: JIT
+    enum:
+      - JIT
+      - STANDING
+      - NA
+  state:
+    type: string
+    description: Current lifecycle state of the connection.
+    example: AVAILABLE
+  stateChanged:
+    type: string
+    format: date-time
+    description: Time the connection state was last updated.
+    example: "2025-10-30T15:02:12.345-05:00"
+  stateChangedBy:
+    type: string
+    description: Identifier of the actor that last changed state.
+    example: c0bd1330f1c34d7989dd10dc39a1b561
+  jitActivation:
+    type: string
+    format: date-time
+    description: Time JIT activation occurred.
+    example: "2025-12-03T10:15:30+01:00"
+  jitProvision:
+    type: string
+    format: date-time
+    description: Time provisioning completed for JIT activation.
+    example: "2025-12-03T10:15:30+01:00"
+  jitDeactivation:
+    type: string
+    format: date-time
+    description: Time JIT deactivation occurred.
+    example: "2025-12-03T10:15:30+01:00"
+  jitDeprovision:
+    type: string
+    format: date-time
+    description: Time deprovisioning completed after JIT deactivation.
+    example: "2025-12-03T10:15:30+01:00"
+  jitExpiration:
+    type: string
+    format: date-time
+    description: Time when JIT access expires.
+    example: "2025-12-03T10:15:30+01:00"
+  deleteAfter:
+    type: string
+    format: date-time
+    description: Time after which the connection is eligible for deletion.
+    example: "2026-12-03T10:15:30+01:00"
+  created:
+    type: string
+    format: date-time
+    description: Time when the connection was created.
+    example: "2025-10-29T09:00:00-05:00"
+  modified:
+    type: string
+    format: date-time
+    description: Time when the connection was last modified.
+    example: "2025-10-30T15:02:12.345-05:00"
+  actorName:
+    type: string
+    description: Display value for the actor associated with the latest change.
+    example: e29b41d4a41644679df31f96c209888a

@@ -1,0 +1,12 @@
+description: Runs every January 1st at midnight.
+value:
+  type: ANNUALLY
+  hours:
+    type: LIST
+    values:
+      - '0'
+  days:
+    type: LIST
+    values:
+      - '--01-01'
+  timeZoneId: America/Chicago

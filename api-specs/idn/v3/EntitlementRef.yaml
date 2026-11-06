@@ -1,0 +1,17 @@
+type: object
+description: Entitlement including a specific set of access.
+properties:
+  type:
+    type: string 
+    description: Entitlement's DTO type. 
+    enum: 
+      - ENTITLEMENT
+    example: ENTITLEMENT
+  id:
+    type: string
+    description: Entitlement's ID. 
+    example: 2c91809773dee32014e13e122092014e
+  name:
+    type: string
+    description: Entitlement's display name. 
+    example: "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local"

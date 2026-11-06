@@ -1,0 +1,35 @@
+post:
+  operationId: runDataPipelineByType
+  tags:
+    - IAI Data Pipeline
+  summary: Run a specific data pipeline dag for a customer by data pipeline type
+  description: >-
+    This starts a latest data pipeline dag based on previous dags execution date for a customer by data pipeline type.
+
+    Requires security scope of 'iai:data-pipeline:run'.
+  parameters:
+    - in: path
+      name: type
+      schema:
+        type: string
+        enum:
+          - PGA
+          - STREAMING
+      required: true
+      description: The data pipeline type
+      example: STREAMING
+  responses:
+    '202':
+      $ref: '../../v3/responses/202.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  # security:
+  #   - oauth2: [iai:data-pipeline:run]

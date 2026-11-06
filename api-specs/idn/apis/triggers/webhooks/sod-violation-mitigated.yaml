@@ -1,0 +1,18 @@
+post:
+  summary: SOD Violation Mitigated
+  operationId: sodViolationMitigatedEvent
+  x-displayName: SODViolationMitigated
+  description: >-
+    This event trigger fires when compensating controls are applied to an SOD violation such that the violation is mitigated. This is a `FIRE_AND_FORGET` event trigger. You can have a maximum of 50 subscriptions for this trigger. 
+
+    The payload includes the violation in **Mitigated** state and **appliedControls** listing the active control application(s) (including applier, control reference, expiration, and optional workflow correlation).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/sodviolationmitigatedpayload.yaml'

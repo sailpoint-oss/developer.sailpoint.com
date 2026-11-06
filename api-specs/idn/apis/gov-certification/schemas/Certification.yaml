@@ -1,0 +1,88 @@
+type: object
+required:
+  - campaignRef
+  - completed
+  - decisionsMade
+  - decisionsTotal
+  - dueDate
+  - reviewer
+  - phase
+  - completedSubjects
+  - totalSubjects
+properties:
+  campaignRef:
+    $ref: './CampaignReference.yaml'
+  phase:
+    $ref: './CertificationPhase.yaml'
+  reviewProgress:
+    $ref: './CertificationReviewProgress.yaml'
+  dueDate:
+    type: string
+    format: date-time
+    description: The due date of the certification.
+    example: '2018-10-19T13:49:37.385Z'
+  dateSigned:
+    type: string
+    format: date-time
+    description: The date the reviewer signed off on the certification. Omitted until the certification is signed off.
+    example: '2018-10-19T13:49:37.385Z'
+  dateFinished:
+    type: string
+    format: date-time
+    description: The date the certification was finished.
+    example: '2018-10-19T14:49:37.385Z'
+  reviewer:
+    $ref: './CertificationReviewer.yaml'
+    description: A reference to the reviewer of the campaign.
+  reassignment:
+    $ref: './Reassignment.yaml'
+    nullable: true
+    description: A reference to a reviewer that this campaign has been reassigned to.
+  completed:
+    type: boolean
+    description: Indicates if all certification decisions have been made.
+    example: false
+  decisionsMade:
+    type: integer
+    description: The number of approve/revoke/acknowledge decisions that have been made by the reviewer.
+    example: 20
+    format: int32
+  decisionsTotal:
+    type: integer
+    description: The total number of approve/revoke/acknowledge decisions for the certification.
+    example: 40
+    format: int32
+  completedSubjects:
+    type: integer
+    description: The number of subjects (identities, access profiles, roles, etc.) for which all decisions have been made and are complete.
+    example: 5
+    format: int32
+  totalSubjects:
+    type: integer
+    format: int32
+    description: The total number of subjects (identities, access profiles, roles, etc.) in the certification, both complete and incomplete.
+    example: 10
+  id:
+    type: string
+    format: uuid
+    description: The certificationId
+    example: ef38f943-47e9-4562-b5bb-8424a56397d8
+  name:
+    type: string
+    description: The name of the certification
+    example: Quarterly Access Review - Q4 2018
+  created:
+    type: string
+    format: date-time
+    description: The date the certification was created
+    example: '2018-10-18T13:49:37.385Z'
+  modified:
+    type: string
+    format: date-time
+    description: The date the certification was last modified
+    example: '2018-10-19T12:49:37.385Z'
+  reauthRequired:
+    type: boolean
+    description: Indicates whether any review items within this certification requires reauthentication before sign-off or completion
+    example: false
+    default: false

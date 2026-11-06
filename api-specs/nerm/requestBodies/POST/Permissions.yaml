@@ -1,0 +1,9 @@
+required: true
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        permission:
+          type: object
+          $ref: "../../schemas/POST/Permission.yaml"

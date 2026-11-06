@@ -1,0 +1,11 @@
+type: object
+description: Details of the reviewer in the reassignment trail
+properties:
+  id:
+    type: string
+    description: The ID of the Identity
+    example: 0fbe863c063c4c88a35fd7f17e8a3df5
+  name:
+    type: string
+    description: Human-readable display name of the Identity
+    example: William Wilson

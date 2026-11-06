@@ -1,0 +1,9 @@
+type: string
+title: Plugin Instance State
+description: >-
+  Lifecycle state for a tenant plugin installation. DISABLED instances are
+  omitted from active-slots delivery.
+enum:
+  - ENABLED
+  - DISABLED
+example: ENABLED

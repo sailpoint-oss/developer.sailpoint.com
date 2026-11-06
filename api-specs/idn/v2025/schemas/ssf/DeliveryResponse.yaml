@@ -1,0 +1,11 @@
+type: object
+description: Delivery configuration returned in stream responses.
+properties:
+  method:
+    type: string
+    description: Delivery method.
+    example: "urn:ietf:rfc:8935"
+  endpoint_url:
+    type: string
+    description: Receiver endpoint URL.
+    example: "https://receiver.example.com/ssf/events"

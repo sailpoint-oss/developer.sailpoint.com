@@ -1,0 +1,3049 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "v1",
+    "title": "Scheduling Service API"
+  },
+  "paths": {
+    "/api/scheduledtasks": {
+      "post": {
+        "tags": [
+          "ScheduledTasks"
+        ],
+        "summary": "Adds or updates a scheduled task, and returns the task object.  Updates can only change the following properties  IsEnabled, Description, Method, OnBehalfOf, Url, Payload, Tags",
+        "operationId": "CreateOrUpdateScheduledTask",
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskModel"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskModel"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskModel"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskModel"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskModel"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskModel"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskModel"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskModel"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskModel"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskModel"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskModel"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskModel"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskModel"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/scheduledtasks/{scheduledTaskId}": {
+      "delete": {
+        "tags": [
+          "ScheduledTasks"
+        ],
+        "summary": "Deletes a scheduled task. This endpoint can only be executed by a service account",
+        "operationId": "DeleteScheduledTask",
+        "parameters": [
+          {
+            "name": "scheduledTaskId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/scheduledtasks/{scheduledTaskId}/trigger": {
+      "get": {
+        "tags": [
+          "ScheduledTasks"
+        ],
+        "summary": "re-triggers a scheduled task to run immediately",
+        "operationId": "TriggerScheduledTask",
+        "parameters": [
+          {
+            "name": "scheduledTaskId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledTaskModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/scheduledtasks/{customerId}/tags": {
+      "get": {
+        "tags": [
+          "ScheduledTasks"
+        ],
+        "summary": "Returns a list of tag names currently in use by the customer for allowing the customer to select  commonly used values from a dropdown.",
+        "operationId": "GetTagNames",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/scheduledtasks/{customerId}/tags/{tagName}": {
+      "get": {
+        "tags": [
+          "ScheduledTasks"
+        ],
+        "summary": "Returns a list of values the customer has used for the specified tag.  Used by the UI in auto-suggesting  values to tag a task with.",
+        "operationId": "GetTagValues",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "tagName",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/scheduledtasks/search": {
+      "post": {
+        "tags": [
+          "ScheduledTasks"
+        ],
+        "summary": "Returns a list of qualifying scheduled tasks belonging to the customer that matches all specified tags  and search string.  The optional search string is only compared to the name and description of the  scheduled task.",
+        "operationId": "Search",
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskSearchModel"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskSearchModel"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskSearchModel"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskSearchModel"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskSearchModel"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskSearchModel"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskSearchModel"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskSearchModel"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskSearchModel"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskSearchModel"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskSearchModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskSearchModel"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskSearchModel"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskSearchModel"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskSearchModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskSearchModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduledTaskSearchModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduledTaskModel"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduledTaskModel"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduledTaskModel"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduledTaskModel"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduledTaskModel"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduledTaskModel"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduledTaskModel"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduledTaskModel"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduledTaskModel"
+                  }
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduledTaskModel"
+                  }
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduledTaskModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduledTaskModel"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduledTaskModel"
+                  }
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduledTaskModel"
+                  }
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduledTaskModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "uniqueItems": false,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduledTaskModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/odata/scheduledtasks": {
+      "get": {
+        "tags": [
+          "ScheduledTasks"
+        ],
+        "summary": "Retrieves the scheduled tasks available for the specified customer as per  the ODATA query.",
+        "operationId": "CustomerGet",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/odata/{accountId}/scheduledtasks": {
+      "get": {
+        "tags": [
+          "ScheduledTasks"
+        ],
+        "summary": "Retrieves the scheduled tasks available for the specified customer as per  the ODATA query.",
+        "operationId": "AccountGet",
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "options",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "ScheduledTasks",
+      "description": "Manages scheduled tasks."
+    }
+  ],
+  "components": {
+    "schemas": {
+      "ScheduledTaskModel": {
+        "description": "A Scheduled Request is a call to a service endpoint at some point in the future.  All requests take the form of SOA Web API endpoints to be invoked.",
+        "required": [
+          "name",
+          "url",
+          "method",
+          "scheduledExecutionTimestamp"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "format": "uuid",
+            "description": "Gets or sets the unique identifier of the scheduled task.",
+            "type": "string"
+          },
+          "customerId": {
+            "format": "uuid",
+            "description": "If there is a customer associated with this request, (something that we would  like to group on), put the id value in here.",
+            "type": "string"
+          },
+          "accountId": {
+            "format": "int32",
+            "description": "If there is an accountId associated with this request, (something that we would  like to group on), put the id value in here.",
+            "type": "integer"
+          },
+          "tags": {
+            "description": "A list of free-text metadata that can be used to categorize this scheduled  request.",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "name": {
+            "description": "The descriptive name of the scheduled request.",
+            "maxLength": 250,
+            "minLength": 8,
+            "type": "string"
+          },
+          "description": {
+            "description": "A (optional) more comprehensive description of the scheduled task than the descriptive name,  used for business justification or execution notes.",
+            "maxLength": 2000,
+            "minLength": 0,
+            "type": "string"
+          },
+          "url": {
+            "description": "The SOA endpoint to hit, which will actually kick off the scheduled task.  <b><i>Do not set this value  to a non-SOA Web API endpoint</i></b> as it will expose the scheduling service's authentication token  to the destination server.",
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string"
+          },
+          "method": {
+            "description": "Specifies the HTTP method that hitting the ErpMaestro.SchedulingService.Common.Models.ScheduledTaskModel.Url endpoint will use; default is GET, but acceptable  values include POST, PATCH, PUT, and DELETE.",
+            "maxLength": 30,
+            "minLength": 0,
+            "type": "string"
+          },
+          "payload": {
+            "description": "If the ErpMaestro.SchedulingService.Common.Models.ScheduledTaskModel.Method supports a payload (POST, PATCH, PUT) and this is not null,  it will be included with the request.",
+            "type": "object"
+          },
+          "onBehalfOf": {
+            "description": "If specified, sets the \"On-Behalf-Of\" header to the set value.  Useful for attributing an action  to a specified user.",
+            "maxLength": 250,
+            "minLength": 0,
+            "type": "string"
+          },
+          "scheduledExecutionTimestamp": {
+            "format": "date-time",
+            "description": "Gets or sets the timestamp of when the scheduled task is to be invoked.",
+            "type": "string"
+          },
+          "recurrencePattern": {
+            "$ref": "#/components/schemas/RecurrencePattern"
+          },
+          "isEnabled": {
+            "description": "Gets or sets the enabled state of the scheduled task.  Default !:true.  A disabled task will not execute.",
+            "type": "boolean"
+          },
+          "lastExecution": {
+            "format": "date-time",
+            "type": "string"
+          }
+        }
+      },
+      "RecurrencePattern": {
+        "description": "Sets a recurrence pattern for when to repeat.    * `NotRecurring` - Recurrence is not set for this task.  * `Hourly` - Recurs on an hourly basis at the same minutes past the hour as the scheduled execution.  * `Daily` - Recurs on a daily basis at the same hour and minutes past the hour as the scheduled execution.  * `Weekly` - Recurs on the same day of the week, same hour and same minutes past the hour as the scheduled execution.  * `Monthly` - Recurs on the same day of the month, same hour and same minutes past the hour as the scheduled execution.  * `Quarterly` - Recurs on the same day of the month, same hour and same minutes past the hour as the scheduled execution,\n            but only every 3 months (January, April, July, October).  * `Annually` - Recurs on the same month, same day of the month, same hour and same minutes past the hour as the scheduled execution,\n            once per year.  * `OnWorkDays` - Recurs on each working day (Monday, Tuesday, Wednesday, Thursday, Friday)  * `LastDayOfMonth` - Recurs on each last day of month  ",
+        "enum": [
+          "notRecurring",
+          "hourly",
+          "daily",
+          "weekly",
+          "monthly",
+          "quarterly",
+          "annually",
+          "onWorkDays",
+          "lastDayOfMonth"
+        ],
+        "type": "string"
+      },
+      "ScheduledTaskSearchModel": {
+        "description": "Used to search for scheduled tasks in the Scheduling Service.",
+        "required": [
+          "customerId"
+        ],
+        "type": "object",
+        "properties": {
+          "tags": {
+            "description": "Gets or sets a collection of tags and values that must match the scheduled task(s).",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "searchTerm": {
+            "description": "Gets or sets the (optional) text that must match in the name or description.",
+            "type": "string"
+          },
+          "customerId": {
+            "format": "uuid",
+            "description": "Gets or sets the customer id that the scheduled task belongs to.",
+            "type": "string"
+          },
+          "maxRecords": {
+            "format": "int32",
+            "description": "Gets or sets the number of matching records to return.  Default value is 10.",
+            "maximum": 1000,
+            "minimum": 1,
+            "type": "integer"
+          }
+        }
+      },
+      "HttpRequest": {
+        "type": "object",
+        "properties": {
+          "httpContext": {
+            "$ref": "#/components/schemas/HttpContext"
+          },
+          "method": {
+            "type": "string"
+          },
+          "scheme": {
+            "type": "string"
+          },
+          "isHttps": {
+            "type": "boolean"
+          },
+          "host": {
+            "$ref": "#/components/schemas/HostString"
+          },
+          "pathBase": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "queryString": {
+            "$ref": "#/components/schemas/QueryString"
+          },
+          "query": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeyValuePair_String_StringValues_"
+            }
+          },
+          "protocol": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "additionalProperties": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "readOnly": true
+          },
+          "cookies": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeyValuePair_String_String_"
+            }
+          },
+          "contentLength": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "contentType": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/components/schemas/Stream"
+          },
+          "hasFormContentType": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "form": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeyValuePair_String_StringValues_"
+            }
+          }
+        }
+      },
+      "ODataQueryContext": {
+        "type": "object",
+        "properties": {
+          "defaultQuerySettings": {
+            "$ref": "#/components/schemas/DefaultQuerySettings"
+          },
+          "model": {
+            "$ref": "#/components/schemas/IEdmModel"
+          },
+          "elementType": {
+            "$ref": "#/components/schemas/IEdmType"
+          },
+          "navigationSource": {
+            "$ref": "#/components/schemas/IEdmNavigationSource"
+          },
+          "elementClrType": {
+            "type": "string",
+            "readOnly": true
+          },
+          "path": {
+            "$ref": "#/components/schemas/ODataPath"
+          },
+          "requestContainer": {
+            "$ref": "#/components/schemas/IServiceProvider"
+          }
+        }
+      },
+      "ODataRawQueryOptions": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "string",
+            "readOnly": true
+          },
+          "apply": {
+            "type": "string",
+            "readOnly": true
+          },
+          "orderBy": {
+            "type": "string",
+            "readOnly": true
+          },
+          "top": {
+            "type": "string",
+            "readOnly": true
+          },
+          "skip": {
+            "type": "string",
+            "readOnly": true
+          },
+          "select": {
+            "type": "string",
+            "readOnly": true
+          },
+          "expand": {
+            "type": "string",
+            "readOnly": true
+          },
+          "count": {
+            "type": "string",
+            "readOnly": true
+          },
+          "format": {
+            "type": "string",
+            "readOnly": true
+          },
+          "skipToken": {
+            "type": "string",
+            "readOnly": true
+          },
+          "deltaToken": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "SelectExpandQueryOption": {
+        "type": "object",
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/ODataQueryContext"
+          },
+          "rawSelect": {
+            "type": "string",
+            "readOnly": true
+          },
+          "rawExpand": {
+            "type": "string",
+            "readOnly": true
+          },
+          "validator": {
+            "$ref": "#/components/schemas/SelectExpandQueryValidator"
+          },
+          "selectExpandClause": {
+            "$ref": "#/components/schemas/SelectExpandClause"
+          },
+          "levelsMaxLiteralExpansionDepth": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      },
+      "ApplyQueryOption": {
+        "type": "object",
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/ODataQueryContext"
+          },
+          "resultClrType": {
+            "type": "string",
+            "readOnly": true
+          },
+          "applyClause": {
+            "$ref": "#/components/schemas/ApplyClause"
+          },
+          "rawValue": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "FilterQueryOption": {
+        "type": "object",
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/ODataQueryContext"
+          },
+          "validator": {
+            "$ref": "#/components/schemas/FilterQueryValidator"
+          },
+          "filterClause": {
+            "$ref": "#/components/schemas/FilterClause"
+          },
+          "rawValue": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "OrderByQueryOption": {
+        "type": "object",
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/ODataQueryContext"
+          },
+          "orderByNodes": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderByNode"
+            },
+            "readOnly": true
+          },
+          "rawValue": {
+            "type": "string",
+            "readOnly": true
+          },
+          "validator": {
+            "$ref": "#/components/schemas/OrderByQueryValidator"
+          },
+          "orderByClause": {
+            "$ref": "#/components/schemas/OrderByClause"
+          }
+        }
+      },
+      "SkipQueryOption": {
+        "type": "object",
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/ODataQueryContext"
+          },
+          "rawValue": {
+            "type": "string",
+            "readOnly": true
+          },
+          "value": {
+            "format": "int32",
+            "type": "integer",
+            "readOnly": true
+          },
+          "validator": {
+            "$ref": "#/components/schemas/SkipQueryValidator"
+          }
+        }
+      },
+      "SkipTokenQueryOption": {
+        "type": "object",
+        "properties": {
+          "rawValue": {
+            "type": "string",
+            "readOnly": true
+          },
+          "context": {
+            "$ref": "#/components/schemas/ODataQueryContext"
+          },
+          "validator": {
+            "$ref": "#/components/schemas/SkipTokenQueryValidator"
+          },
+          "querySettings": {
+            "$ref": "#/components/schemas/ODataQuerySettings"
+          },
+          "queryOptions": {
+            "$ref": "#/components/schemas/ODataQueryOptions"
+          }
+        }
+      },
+      "TopQueryOption": {
+        "type": "object",
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/ODataQueryContext"
+          },
+          "rawValue": {
+            "type": "string",
+            "readOnly": true
+          },
+          "value": {
+            "format": "int32",
+            "type": "integer",
+            "readOnly": true
+          },
+          "validator": {
+            "$ref": "#/components/schemas/TopQueryValidator"
+          }
+        }
+      },
+      "CountQueryOption": {
+        "type": "object",
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/ODataQueryContext"
+          },
+          "rawValue": {
+            "type": "string",
+            "readOnly": true
+          },
+          "value": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "validator": {
+            "$ref": "#/components/schemas/CountQueryValidator"
+          }
+        }
+      },
+      "ODataQueryValidator": {
+        "type": "object"
+      },
+      "HttpContext": {
+        "type": "object",
+        "properties": {
+          "features": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeyValuePair_Type_Object_"
+            },
+            "readOnly": true
+          },
+          "request": {
+            "$ref": "#/components/schemas/HttpRequest"
+          },
+          "response": {
+            "$ref": "#/components/schemas/HttpResponse"
+          },
+          "connection": {
+            "$ref": "#/components/schemas/ConnectionInfo"
+          },
+          "webSockets": {
+            "$ref": "#/components/schemas/WebSocketManager"
+          },
+          "user": {
+            "$ref": "#/components/schemas/ClaimsPrincipal"
+          },
+          "items": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          },
+          "requestServices": {
+            "$ref": "#/components/schemas/IServiceProvider"
+          },
+          "requestAborted": {
+            "$ref": "#/components/schemas/CancellationToken"
+          },
+          "traceIdentifier": {
+            "type": "string"
+          },
+          "session": {
+            "$ref": "#/components/schemas/ISession"
+          }
+        }
+      },
+      "HostString": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "readOnly": true
+          },
+          "hasValue": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "host": {
+            "type": "string",
+            "readOnly": true
+          },
+          "port": {
+            "format": "int32",
+            "type": "integer",
+            "readOnly": true
+          }
+        }
+      },
+      "QueryString": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "readOnly": true
+          },
+          "hasValue": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        }
+      },
+      "Stream": {
+        "type": "object",
+        "properties": {
+          "canRead": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "canSeek": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "canTimeout": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "canWrite": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "length": {
+            "format": "int64",
+            "type": "integer",
+            "readOnly": true
+          },
+          "position": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "readTimeout": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "writeTimeout": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      },
+      "DefaultQuerySettings": {
+        "type": "object",
+        "properties": {
+          "enableExpand": {
+            "type": "boolean"
+          },
+          "enableSelect": {
+            "type": "boolean"
+          },
+          "enableCount": {
+            "type": "boolean"
+          },
+          "enableOrderBy": {
+            "type": "boolean"
+          },
+          "enableFilter": {
+            "type": "boolean"
+          },
+          "maxTop": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "enableSkipToken": {
+            "type": "boolean"
+          }
+        }
+      },
+      "IEdmModel": {
+        "type": "object",
+        "properties": {
+          "schemaElements": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IEdmSchemaElement"
+            },
+            "readOnly": true
+          },
+          "vocabularyAnnotations": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IEdmVocabularyAnnotation"
+            },
+            "readOnly": true
+          },
+          "referencedModels": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IEdmModel"
+            },
+            "readOnly": true
+          },
+          "declaredNamespaces": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true
+          },
+          "directValueAnnotationsManager": {
+            "$ref": "#/components/schemas/IEdmDirectValueAnnotationsManager"
+          },
+          "entityContainer": {
+            "$ref": "#/components/schemas/IEdmEntityContainer"
+          }
+        }
+      },
+      "IEdmType": {
+        "type": "object",
+        "properties": {
+          "typeKind": {
+            "$ref": "#/components/schemas/EdmTypeKind"
+          }
+        }
+      },
+      "IEdmNavigationSource": {
+        "type": "object",
+        "properties": {
+          "navigationPropertyBindings": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IEdmNavigationPropertyBinding"
+            },
+            "readOnly": true
+          },
+          "path": {
+            "$ref": "#/components/schemas/IEdmPathExpression"
+          },
+          "type": {
+            "$ref": "#/components/schemas/IEdmType"
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "ODataPath": {
+        "type": "object",
+        "properties": {
+          "edmType": {
+            "$ref": "#/components/schemas/IEdmType"
+          },
+          "navigationSource": {
+            "$ref": "#/components/schemas/IEdmNavigationSource"
+          },
+          "segments": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ODataPathSegment"
+            },
+            "readOnly": true
+          },
+          "pathTemplate": {
+            "type": "string",
+            "readOnly": true
+          },
+          "path": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ODataPathSegment"
+            },
+            "readOnly": true
+          }
+        }
+      },
+      "IServiceProvider": {
+        "type": "object"
+      },
+      "SelectExpandQueryValidator": {
+        "type": "object"
+      },
+      "SelectExpandClause": {
+        "type": "object",
+        "properties": {
+          "selectedItems": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SelectItem"
+            },
+            "readOnly": true
+          },
+          "allSelected": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        }
+      },
+      "ApplyClause": {
+        "type": "object",
+        "properties": {
+          "transformations": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransformationNode"
+            },
+            "readOnly": true
+          }
+        }
+      },
+      "FilterQueryValidator": {
+        "type": "object"
+      },
+      "FilterClause": {
+        "type": "object",
+        "properties": {
+          "expression": {
+            "$ref": "#/components/schemas/SingleValueNode"
+          },
+          "rangeVariable": {
+            "$ref": "#/components/schemas/RangeVariable"
+          },
+          "itemType": {
+            "$ref": "#/components/schemas/IEdmTypeReference"
+          }
+        }
+      },
+      "OrderByNode": {
+        "type": "object",
+        "properties": {
+          "direction": {
+            "$ref": "#/components/schemas/OrderByDirection"
+          }
+        }
+      },
+      "OrderByQueryValidator": {
+        "type": "object",
+      },
+      "OrderByClause": {
+        "type": "object",
+        "properties": {
+          "thenBy": {
+            "$ref": "#/components/schemas/OrderByClause"
+          },
+          "expression": {
+            "$ref": "#/components/schemas/SingleValueNode"
+          },
+          "direction": {
+            "$ref": "#/components/schemas/OrderByDirection"
+          },
+          "rangeVariable": {
+            "$ref": "#/components/schemas/RangeVariable"
+          },
+          "itemType": {
+            "$ref": "#/components/schemas/IEdmTypeReference"
+          }
+        }
+      },
+      "SkipQueryValidator": {
+        "type": "object"
+      },
+      "SkipTokenQueryValidator": {
+        "type": "object"
+      },
+      "ODataQuerySettings": {
+        "type": "object",
+        "properties": {
+          "ensureStableOrdering": {
+            "type": "boolean"
+          },
+          "handleNullPropagation": {
+            "$ref": "#/components/schemas/HandleNullPropagationOption"
+          },
+          "enableConstantParameterization": {
+            "type": "boolean"
+          },
+          "enableCorrelatedSubqueryBuffering": {
+            "type": "boolean"
+          },
+          "pageSize": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "handleReferenceNavigationPropertyExpandFilter": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ODataQueryOptions": {
+        "type": "object",
+        "properties": {
+          "request": {
+            "$ref": "#/components/schemas/HttpRequest"
+          },
+          "context": {
+            "$ref": "#/components/schemas/ODataQueryContext"
+          },
+          "rawValues": {
+            "$ref": "#/components/schemas/ODataRawQueryOptions"
+          },
+          "selectExpand": {
+            "$ref": "#/components/schemas/SelectExpandQueryOption"
+          },
+          "apply": {
+            "$ref": "#/components/schemas/ApplyQueryOption"
+          },
+          "filter": {
+            "$ref": "#/components/schemas/FilterQueryOption"
+          },
+          "orderBy": {
+            "$ref": "#/components/schemas/OrderByQueryOption"
+          },
+          "skip": {
+            "$ref": "#/components/schemas/SkipQueryOption"
+          },
+          "skipToken": {
+            "$ref": "#/components/schemas/SkipTokenQueryOption"
+          },
+          "top": {
+            "$ref": "#/components/schemas/TopQueryOption"
+          },
+          "count": {
+            "$ref": "#/components/schemas/CountQueryOption"
+          },
+          "validator": {
+            "$ref": "#/components/schemas/ODataQueryValidator"
+          },
+          "ifMatch": {
+            "type": "object",
+            "readOnly": true
+          },
+          "ifNoneMatch": {
+            "type": "object",
+            "readOnly": true
+          }
+        }
+      },
+      "TopQueryValidator": {
+        "type": "object"
+      },
+      "CountQueryValidator": {
+        "type": "object"
+      },
+      "HttpResponse": {
+        "type": "object",
+        "properties": {
+          "httpContext": {
+            "$ref": "#/components/schemas/HttpContext"
+          },
+          "statusCode": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "headers": {
+            "type": "object",
+            "additionalProperties": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "readOnly": true
+          },
+          "body": {
+            "$ref": "#/components/schemas/Stream"
+          },
+          "contentLength": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "contentType": {
+            "type": "string"
+          },
+          "cookies": {
+            "$ref": "#/components/schemas/IResponseCookies"
+          },
+          "hasStarted": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        }
+      },
+      "ConnectionInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "remoteIpAddress": {
+            "$ref": "#/components/schemas/IPAddress"
+          },
+          "remotePort": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "localIpAddress": {
+            "$ref": "#/components/schemas/IPAddress"
+          },
+          "localPort": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "clientCertificate": {
+            "$ref": "#/components/schemas/X509Certificate2"
+          }
+        }
+      },
+      "WebSocketManager": {
+        "type": "object",
+        "properties": {
+          "isWebSocketRequest": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "webSocketRequestedProtocols": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true
+          }
+        }
+      },
+      "ClaimsPrincipal": {
+        "type": "object",
+        "properties": {
+          "claims": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Claim"
+            },
+            "readOnly": true
+          },
+          "identities": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClaimsIdentity"
+            },
+            "readOnly": true
+          },
+          "identity": {
+            "$ref": "#/components/schemas/IIdentity"
+          }
+        }
+      },
+      "CancellationToken": {
+        "type": "object",
+        "properties": {
+          "isCancellationRequested": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "canBeCanceled": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "waitHandle": {
+            "$ref": "#/components/schemas/WaitHandle"
+          }
+        }
+      },
+      "ISession": {
+        "type": "object",
+        "properties": {
+          "isAvailable": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "id": {
+            "type": "string",
+            "readOnly": true
+          },
+          "keys": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true
+          }
+        }
+      },
+      "IEdmSchemaElement": {
+        "type": "object",
+        "properties": {
+          "schemaElementKind": {
+            "$ref": "#/components/schemas/EdmSchemaElementKind"
+          },
+          "namespace": {
+            "type": "string",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "IEdmVocabularyAnnotation": {
+        "type": "object",
+        "properties": {
+          "qualifier": {
+            "type": "string",
+            "readOnly": true
+          },
+          "term": {
+            "$ref": "#/components/schemas/IEdmTerm"
+          },
+          "target": {
+            "$ref": "#/components/schemas/IEdmVocabularyAnnotatable"
+          },
+          "value": {
+            "$ref": "#/components/schemas/IEdmExpression"
+          }
+        }
+      },
+      "IEdmDirectValueAnnotationsManager": {
+        "type": "object"
+      },
+      "IEdmEntityContainer": {
+        "type": "object",
+        "properties": {
+          "elements": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IEdmEntityContainerElement"
+            },
+            "readOnly": true
+          },
+          "schemaElementKind": {
+            "$ref": "#/components/schemas/EdmSchemaElementKind"
+          },
+          "namespace": {
+            "type": "string",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "EdmTypeKind": {
+        "description": "    * `None` -   * `Primitive` -   * `Entity` -   * `Complex` -   * `Collection` -   * `EntityReference` -   * `Enum` -   * `TypeDefinition` -   * `Untyped` -   * `Path` -   ",
+        "enum": [
+          "none",
+          "primitive",
+          "entity",
+          "complex",
+          "collection",
+          "entityReference",
+          "enum",
+          "typeDefinition",
+          "untyped",
+          "path"
+        ],
+        "type": "string"
+      },
+      "IEdmNavigationPropertyBinding": {
+        "type": "object",
+        "properties": {
+          "navigationProperty": {
+            "$ref": "#/components/schemas/IEdmNavigationProperty"
+          },
+          "target": {
+            "$ref": "#/components/schemas/IEdmNavigationSource"
+          },
+          "path": {
+            "$ref": "#/components/schemas/IEdmPathExpression"
+          }
+        }
+      },
+      "IEdmPathExpression": {
+        "type": "object",
+        "properties": {
+          "pathSegments": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true
+          },
+          "path": {
+            "type": "string",
+            "readOnly": true
+          },
+          "expressionKind": {
+            "$ref": "#/components/schemas/EdmExpressionKind"
+          }
+        }
+      },
+      "ODataPathSegment": {
+        "type": "object",
+        "properties": {
+          "edmType": {
+            "$ref": "#/components/schemas/IEdmType"
+          },
+          "identifier": {
+            "type": "string"
+          }
+        }
+      },
+      "SelectItem": {
+        "type": "object"
+      },
+      "TransformationNode": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/TransformationNodeKind"
+          }
+        }
+      },
+      "SingleValueNode": {
+        "type": "object",
+        "properties": {
+          "typeReference": {
+            "$ref": "#/components/schemas/IEdmTypeReference"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/QueryNodeKind"
+          }
+        }
+      },
+      "RangeVariable": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "readOnly": true
+          },
+          "typeReference": {
+            "$ref": "#/components/schemas/IEdmTypeReference"
+          },
+          "kind": {
+            "format": "int32",
+            "type": "integer",
+            "readOnly": true
+          }
+        }
+      },
+      "IEdmTypeReference": {
+        "type": "object",
+        "properties": {
+          "isNullable": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "definition": {
+            "$ref": "#/components/schemas/IEdmType"
+          }
+        }
+      },
+      "OrderByDirection": {
+        "description": "    * `Ascending` -   * `Descending` -   ",
+        "enum": [
+          "ascending",
+          "descending"
+        ],
+        "type": "string"
+      },
+      "HandleNullPropagationOption": {
+        "description": "    * `Default` -   * `True` -   * `False` -   ",
+        "enum": [
+          "default",
+          "true",
+          "false"
+        ],
+        "type": "string"
+      },
+      "IResponseCookies": {
+        "type": "object"
+      },
+      "IPAddress": {
+        "type": "object",
+        "properties": {
+          "addressFamily": {
+            "$ref": "#/components/schemas/AddressFamily"
+          },
+          "scopeId": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "isIPv6Multicast": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isIPv6LinkLocal": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isIPv6SiteLocal": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isIPv6Teredo": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isIPv4MappedToIPv6": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        }
+      },
+      "X509Certificate2": {
+        "type": "object",
+        "properties": {
+          "archived": {
+            "type": "boolean"
+          },
+          "extensions": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "readOnly": true
+          },
+          "friendlyName": {
+            "type": "string"
+          },
+          "hasPrivateKey": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "privateKey": {
+            "$ref": "#/components/schemas/AsymmetricAlgorithm"
+          },
+          "issuerName": {
+            "$ref": "#/components/schemas/X500DistinguishedName"
+          },
+          "notAfter": {
+            "format": "date-time",
+            "type": "string",
+            "readOnly": true
+          },
+          "notBefore": {
+            "format": "date-time",
+            "type": "string",
+            "readOnly": true
+          },
+          "publicKey": {
+            "$ref": "#/components/schemas/PublicKey"
+          },
+          "rawData": {
+            "format": "byte",
+            "type": "string",
+            "readOnly": true
+          },
+          "serialNumber": {
+            "type": "string",
+            "readOnly": true
+          },
+          "signatureAlgorithm": {
+            "$ref": "#/components/schemas/Oid"
+          },
+          "subjectName": {
+            "$ref": "#/components/schemas/X500DistinguishedName"
+          },
+          "thumbprint": {
+            "type": "string",
+            "readOnly": true
+          },
+          "version": {
+            "format": "int32",
+            "type": "integer",
+            "readOnly": true
+          },
+          "handle": {
+            "type": "object",
+            "readOnly": true
+          },
+          "issuer": {
+            "type": "string",
+            "readOnly": true
+          },
+          "subject": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "Claim": {
+        "type": "object",
+        "properties": {
+          "issuer": {
+            "type": "string",
+            "readOnly": true
+          },
+          "originalIssuer": {
+            "type": "string",
+            "readOnly": true
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "readOnly": true
+          },
+          "subject": {
+            "$ref": "#/components/schemas/ClaimsIdentity"
+          },
+          "type": {
+            "type": "string",
+            "readOnly": true
+          },
+          "value": {
+            "type": "string",
+            "readOnly": true
+          },
+          "valueType": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "ClaimsIdentity": {
+        "type": "object",
+        "properties": {
+          "authenticationType": {
+            "type": "string",
+            "readOnly": true
+          },
+          "isAuthenticated": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "actor": {
+            "$ref": "#/components/schemas/ClaimsIdentity"
+          },
+          "bootstrapContext": {
+            "type": "object"
+          },
+          "claims": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Claim"
+            },
+            "readOnly": true
+          },
+          "label": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          },
+          "nameClaimType": {
+            "type": "string",
+            "readOnly": true
+          },
+          "roleClaimType": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "IIdentity": {
+        "type": "object",
+        "properties": {
+          "authenticationType": {
+            "type": "string",
+            "readOnly": true
+          },
+          "isAuthenticated": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "WaitHandle": {
+        "type": "object",
+        "properties": {
+          "safeWaitHandle": {
+            "$ref": "#/components/schemas/SafeWaitHandle"
+          }
+        }
+      },
+      "EdmSchemaElementKind": {
+        "description": "    * `None` -   * `TypeDefinition` -   * `Term` -   * `Action` -   * `EntityContainer` -   * `Function` -   ",
+        "enum": [
+          "none",
+          "typeDefinition",
+          "term",
+          "action",
+          "entityContainer",
+          "function"
+        ],
+        "type": "string"
+      },
+      "IEdmTerm": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/IEdmTypeReference"
+          },
+          "appliesTo": {
+            "type": "string",
+            "readOnly": true
+          },
+          "defaultValue": {
+            "type": "string",
+            "readOnly": true
+          },
+          "schemaElementKind": {
+            "$ref": "#/components/schemas/EdmSchemaElementKind"
+          },
+          "namespace": {
+            "type": "string",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "IEdmVocabularyAnnotatable": {
+        "type": "object"
+      },
+      "IEdmExpression": {
+        "type": "object",
+        "properties": {
+          "expressionKind": {
+            "$ref": "#/components/schemas/EdmExpressionKind"
+          }
+        }
+      },
+      "IEdmEntityContainerElement": {
+        "type": "object",
+        "properties": {
+          "containerElementKind": {
+            "$ref": "#/components/schemas/EdmContainerElementKind"
+          },
+          "container": {
+            "$ref": "#/components/schemas/IEdmEntityContainer"
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "IEdmNavigationProperty": {
+        "type": "object",
+        "properties": {
+          "partner": {
+            "$ref": "#/components/schemas/IEdmNavigationProperty"
+          },
+          "onDelete": {
+            "$ref": "#/components/schemas/EdmOnDeleteAction"
+          },
+          "containsTarget": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "referentialConstraint": {
+            "$ref": "#/components/schemas/IEdmReferentialConstraint"
+          },
+          "propertyKind": {
+            "$ref": "#/components/schemas/EdmPropertyKind"
+          },
+          "type": {
+            "$ref": "#/components/schemas/IEdmTypeReference"
+          },
+          "declaringType": {
+            "$ref": "#/components/schemas/IEdmStructuredType"
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "EdmExpressionKind": {
+        "description": "    * `None` -   * `BinaryConstant` -   * `BooleanConstant` -   * `DateTimeOffsetConstant` -   * `DecimalConstant` -   * `FloatingConstant` -   * `GuidConstant` -   * `IntegerConstant` -   * `StringConstant` -   * `DurationConstant` -   * `Null` -   * `Record` -   * `Collection` -   * `Path` -   * `If` -   * `Cast` -   * `IsType` -   * `FunctionApplication` -   * `LabeledExpressionReference` -   * `Labeled` -   * `PropertyPath` -   * `NavigationPropertyPath` -   * `DateConstant` -   * `TimeOfDayConstant` -   * `EnumMember` -   * `AnnotationPath` -   ",
+        "enum": [
+          "none",
+          "binaryConstant",
+          "booleanConstant",
+          "dateTimeOffsetConstant",
+          "decimalConstant",
+          "floatingConstant",
+          "guidConstant",
+          "integerConstant",
+          "stringConstant",
+          "durationConstant",
+          "null",
+          "record",
+          "collection",
+          "path",
+          "if",
+          "cast",
+          "isType",
+          "functionApplication",
+          "labeledExpressionReference",
+          "labeled",
+          "propertyPath",
+          "navigationPropertyPath",
+          "dateConstant",
+          "timeOfDayConstant",
+          "enumMember",
+          "annotationPath"
+        ],
+        "type": "string"
+      },
+      "TransformationNodeKind": {
+        "description": "    * `Aggregate` -   * `GroupBy` -   * `Filter` -   * `Compute` -   * `Expand` -   ",
+        "enum": [
+          "aggregate",
+          "groupBy",
+          "filter",
+          "compute",
+          "expand"
+        ],
+        "type": "string"
+      },
+      "QueryNodeKind": {
+        "description": "    * `None` -   * `Constant` -   * `Convert` -   * `NonResourceRangeVariableReference` -   * `BinaryOperator` -   * `UnaryOperator` -   * `SingleValuePropertyAccess` -   * `CollectionPropertyAccess` -   * `SingleValueFunctionCall` -   * `Any` -   * `CollectionNavigationNode` -   * `SingleNavigationNode` -   * `SingleValueOpenPropertyAccess` -   * `SingleResourceCast` -   * `All` -   * `CollectionResourceCast` -   * `ResourceRangeVariableReference` -   * `SingleResourceFunctionCall` -   * `CollectionFunctionCall` -   * `CollectionResourceFunctionCall` -   * `NamedFunctionParameter` -   * `ParameterAlias` -   * `EntitySet` -   * `KeyLookup` -   * `SearchTerm` -   * `CollectionOpenPropertyAccess` -   * `CollectionComplexNode` -   * `SingleComplexNode` -   * `Count` -   * `SingleValueCast` -   * `CollectionPropertyNode` -   * `AggregatedCollectionPropertyNode` -   * `In` -   * `CollectionConstant` -   ",
+        "enum": [
+          "none",
+          "constant",
+          "convert",
+          "nonResourceRangeVariableReference",
+          "binaryOperator",
+          "unaryOperator",
+          "singleValuePropertyAccess",
+          "collectionPropertyAccess",
+          "singleValueFunctionCall",
+          "any",
+          "collectionNavigationNode",
+          "singleNavigationNode",
+          "singleValueOpenPropertyAccess",
+          "singleResourceCast",
+          "all",
+          "collectionResourceCast",
+          "resourceRangeVariableReference",
+          "singleResourceFunctionCall",
+          "collectionFunctionCall",
+          "collectionResourceFunctionCall",
+          "namedFunctionParameter",
+          "parameterAlias",
+          "entitySet",
+          "keyLookup",
+          "searchTerm",
+          "collectionOpenPropertyAccess",
+          "collectionComplexNode",
+          "singleComplexNode",
+          "count",
+          "singleValueCast",
+          "collectionPropertyNode",
+          "aggregatedCollectionPropertyNode",
+          "in",
+          "collectionConstant"
+        ],
+        "type": "string"
+      },
+      "AddressFamily": {
+        "description": "    * `Unspecified` -   * `Unix` -   * `InterNetwork` -   * `ImpLink` -   * `Pup` -   * `Chaos` -   * `NS` -   * `NS` -   * `Osi` -   * `Osi` -   * `Ecma` -   * `DataKit` -   * `Ccitt` -   * `Sna` -   * `DecNet` -   * `DataLink` -   * `Lat` -   * `HyperChannel` -   * `AppleTalk` -   * `NetBios` -   * `VoiceView` -   * `FireFox` -   * `Banyan` -   * `Atm` -   * `InterNetworkV6` -   * `Cluster` -   * `Ieee12844` -   * `Irda` -   * `NetworkDesigners` -   * `Max` -   * `Unknown` -   ",
+        "enum": [
+          "unknown",
+          "unspecified",
+          "unix",
+          "interNetwork",
+          "impLink",
+          "pup",
+          "chaos",
+          "nS",
+          "ipx",
+          "iso",
+          "osi",
+          "ecma",
+          "dataKit",
+          "ccitt",
+          "sna",
+          "decNet",
+          "dataLink",
+          "lat",
+          "hyperChannel",
+          "appleTalk",
+          "netBios",
+          "voiceView",
+          "fireFox",
+          "banyan",
+          "atm",
+          "interNetworkV6",
+          "cluster",
+          "ieee12844",
+          "irda",
+          "networkDesigners",
+          "max"
+        ],
+        "type": "string"
+      },
+      "AsymmetricAlgorithm": {
+        "type": "object",
+        "properties": {
+          "keySize": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "legalKeySizes": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeySizes"
+            },
+            "readOnly": true
+          },
+          "signatureAlgorithm": {
+            "type": "string",
+            "readOnly": true
+          },
+          "keyExchangeAlgorithm": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "X500DistinguishedName": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "readOnly": true
+          },
+          "oid": {
+            "$ref": "#/components/schemas/Oid"
+          },
+          "rawData": {
+            "format": "byte",
+            "type": "string"
+          }
+        }
+      },
+      "PublicKey": {
+        "type": "object",
+        "properties": {
+          "encodedKeyValue": {
+            "$ref": "#/components/schemas/AsnEncodedData"
+          },
+          "encodedParameters": {
+            "$ref": "#/components/schemas/AsnEncodedData"
+          },
+          "key": {
+            "$ref": "#/components/schemas/AsymmetricAlgorithm"
+          },
+          "oid": {
+            "$ref": "#/components/schemas/Oid"
+          }
+        }
+      },
+      "Oid": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "friendlyName": {
+            "type": "string"
+          }
+        }
+      },
+      "SafeWaitHandle": {
+        "type": "object",
+        "properties": {
+          "isInvalid": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isClosed": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        }
+      },
+      "EdmContainerElementKind": {
+        "description": "    * `None` -   * `EntitySet` -   * `ActionImport` -   * `FunctionImport` -   * `Singleton` -   ",
+        "enum": [
+          "none",
+          "entitySet",
+          "actionImport",
+          "functionImport",
+          "singleton"
+        ],
+        "type": "string"
+      },
+      "EdmOnDeleteAction": {
+        "description": "    * `None` -   * `Cascade` -   ",
+        "enum": [
+          "none",
+          "cascade"
+        ],
+        "type": "string"
+      },
+      "IEdmReferentialConstraint": {
+        "type": "object",
+        "properties": {
+          "propertyPairs": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EdmReferentialConstraintPropertyPair"
+            },
+            "readOnly": true
+          }
+        }
+      },
+      "EdmPropertyKind": {
+        "description": "    * `None` -   * `Structural` -   * `Navigation` -   ",
+        "enum": [
+          "none",
+          "structural",
+          "navigation"
+        ],
+        "type": "string"
+      },
+      "IEdmStructuredType": {
+        "type": "object",
+        "properties": {
+          "isAbstract": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isOpen": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "baseType": {
+            "$ref": "#/components/schemas/IEdmStructuredType"
+          },
+          "declaredProperties": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IEdmProperty"
+            },
+            "readOnly": true
+          },
+          "typeKind": {
+            "$ref": "#/components/schemas/EdmTypeKind"
+          }
+        }
+      },
+      "KeySizes": {
+        "type": "object",
+        "properties": {
+          "minSize": {
+            "format": "int32",
+            "type": "integer",
+            "readOnly": true
+          },
+          "maxSize": {
+            "format": "int32",
+            "type": "integer",
+            "readOnly": true
+          },
+          "skipSize": {
+            "format": "int32",
+            "type": "integer",
+            "readOnly": true
+          }
+        }
+      },
+      "AsnEncodedData": {
+        "type": "object",
+        "properties": {
+          "oid": {
+            "$ref": "#/components/schemas/Oid"
+          },
+          "rawData": {
+            "format": "byte",
+            "type": "string"
+          }
+        }
+      },
+      "EdmReferentialConstraintPropertyPair": {
+        "type": "object",
+        "properties": {
+          "dependentProperty": {
+            "$ref": "#/components/schemas/IEdmStructuralProperty"
+          },
+          "principalProperty": {
+            "$ref": "#/components/schemas/IEdmStructuralProperty"
+          }
+        }
+      },
+      "IEdmProperty": {
+        "type": "object",
+        "properties": {
+          "propertyKind": {
+            "$ref": "#/components/schemas/EdmPropertyKind"
+          },
+          "type": {
+            "$ref": "#/components/schemas/IEdmTypeReference"
+          },
+          "declaringType": {
+            "$ref": "#/components/schemas/IEdmStructuredType"
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "IEdmStructuralProperty": {
+        "type": "object",
+        "properties": {
+          "defaultValueString": {
+            "type": "string",
+            "readOnly": true
+          },
+          "propertyKind": {
+            "$ref": "#/components/schemas/EdmPropertyKind"
+          },
+          "type": {
+            "$ref": "#/components/schemas/IEdmTypeReference"
+          },
+          "declaringType": {
+            "$ref": "#/components/schemas/IEdmStructuredType"
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "ODataQueryOptions_ScheduledTask_": {
+        "type": "object",
+        "properties": {
+          "ifMatch": {
+            "type": "object",
+            "readOnly": true
+          },
+          "ifNoneMatch": {
+            "type": "object",
+            "readOnly": true
+          },
+          "request": {
+            "$ref": "#/components/schemas/HttpRequest"
+          },
+          "context": {
+            "$ref": "#/components/schemas/ODataQueryContext"
+          },
+          "rawValues": {
+            "$ref": "#/components/schemas/ODataRawQueryOptions"
+          },
+          "selectExpand": {
+            "$ref": "#/components/schemas/SelectExpandQueryOption"
+          },
+          "apply": {
+            "$ref": "#/components/schemas/ApplyQueryOption"
+          },
+          "filter": {
+            "$ref": "#/components/schemas/FilterQueryOption"
+          },
+          "orderBy": {
+            "$ref": "#/components/schemas/OrderByQueryOption"
+          },
+          "skip": {
+            "$ref": "#/components/schemas/SkipQueryOption"
+          },
+          "skipToken": {
+            "$ref": "#/components/schemas/SkipTokenQueryOption"
+          },
+          "top": {
+            "$ref": "#/components/schemas/TopQueryOption"
+          },
+          "count": {
+            "$ref": "#/components/schemas/CountQueryOption"
+          },
+          "validator": {
+            "$ref": "#/components/schemas/ODataQueryValidator"
+          }
+        }
+      },
+      "KeyValuePair_String_StringValues_": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "readOnly": true
+          },
+          "value": {
+            "uniqueItems": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true
+          }
+        }
+      },
+      "KeyValuePair_String_String_": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "readOnly": true
+          },
+          "value": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "KeyValuePair_Type_Object_": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "readOnly": true
+          },
+          "value": {
+            "type": "object",
+            "readOnly": true
+          }
+        }
+      }
+    }
+  }
+}

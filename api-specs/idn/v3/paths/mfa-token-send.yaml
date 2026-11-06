@@ -1,0 +1,44 @@
+post:
+  operationId: createSendToken
+  tags:
+    - MFA Controller
+  summary: Create and send user token
+  description:
+    This API send token request.
+  security:
+    - userAuth: [idn:mfa:send]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/SendTokenRequest.yaml"
+        example:
+          {
+            "userAlias": "will.albin",
+            "deliveryType": "EMAIL_WORK"
+          }
+
+  responses:
+    "200":
+      description: Token send status.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/SendTokenResponse.yaml"
+          example:
+            {
+              "requestId": "089899f13a8f4da7824996191587bab9",
+              "status": "SUCCESS",
+              "errorMessage": ""
+            }
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

@@ -1,0 +1,26 @@
+value:
+  id: 3b2e2e58-21e8-4127-b6d6-93d41c40623b
+  name: Machine Accounts Campaign
+  description: A review of machine accounts.
+  deadline: '2020-12-25'
+  deadlineTimezone: -06:00
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  autoActivate: false
+  recommendationsEnabled: false
+  sunsetCommentsRequired: true
+  type: MACHINE_ACCOUNT
+  status: ACTIVE
+  reviewer:
+    type: ACCOUNT_OWNER
+  sourceIds:
+    - d88917c32c6f463fa6db291f8d0d6fff
+  filterRef:
+    id: d5e2cb8b-0779-4732-9190-ba8784dbcbb9
+    name: Machine Account Filter
+  mandatoryCommentRequirement: NO_DECISIONS
+  ownerId: 4030ca72bdfb4980b51b8fcee948be50
+  created: '2022-08-02T20:29:51.065Z'
+  modified: '2022-08-02T20:29:51.065Z'
+  totalCertifications: 4
+  completedCertifications: 1

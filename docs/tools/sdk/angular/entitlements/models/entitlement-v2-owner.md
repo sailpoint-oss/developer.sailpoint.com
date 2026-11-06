@@ -1,0 +1,18 @@
+# EntitlementV2Owner
+
+# EntitlementV2Owner
+
+Import this model from the entry point of its package:
+
+```typescript
+import { EntitlementV2Owner } from '@sailpoint/angular-sdk/entitlements';
+```
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **(optional)** `string` | The identity ID | [default to undefined]
+**type** | **(optional)** `string` | The type of object | [default to undefined]
+**name** | **(optional)** `string` | The display name of the identity | [default to undefined]
+

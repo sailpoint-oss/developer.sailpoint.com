@@ -1,0 +1,18 @@
+value:
+  name: Identity Campaign Template With Manager
+  description: Identity Campaign Template With Manager
+  campaignName: Identity Campaign With Manager
+  campaignDescription: Identity Campaign With Manager
+  type: IDENTITY
+  deadlineDuration: P2W
+  emailNotificationEnabled: true
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  sunsetCommentsRequired: true
+  mandatoryCommentRequirement: NO_DECISIONS
+  reviewer:
+    type: MANAGER
+  searchBasedParams:
+    searchType: IDENTITY
+    identityIds:
+      - 2c9180888380236101838062001f00b6

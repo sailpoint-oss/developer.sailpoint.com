@@ -1,0 +1,23 @@
+type: object
+properties:
+  reassign:
+    type: array
+    description: List of entities to be reassigned.
+    items:
+      $ref: './Reassign.yaml'
+    example:
+      - id: ef38f943-47e9-4562-b5bb-8424a56397d8
+        type: ITEM
+  reassignTo:
+    type: string
+    description: The ID of the identity to which the certification is reassigned
+    format: uuid
+    example: ef38f943-47e9-4562-b5bb-8424a56397d8
+  reason:
+    type: string
+    description: The reason comment for why the reassign was made
+    example: Reassigning this item to the appropriate reviewer.
+required:
+  - reassign
+  - reassignTo
+  - reason

@@ -1,0 +1,30 @@
+type: object
+title: Public Identities Query Set
+description: >-
+  A set of COMPOSITE query entries combined with AND (matchAny false) or OR
+  (matchAny true).
+additionalProperties: false
+required:
+- matchAny
+- entries
+properties:
+  matchAny:
+    type: boolean
+    description: When true, entries are OR'd; when false, entries are AND'd.
+    example: false
+  entries:
+    type: array
+    minItems: 1
+    items:
+      $ref: ./publicidentitiescompositeentry.yaml
+    description: One or more TEXT or nested COMPOSITE entries.
+    example:
+    - queryType: TEXT
+      textQuery:
+        fields:
+        - attributes.identityState.exact
+        terms:
+        - ACTIVE
+        matchAny: false
+        contains: false
+        strict: true

@@ -1,0 +1,17 @@
+type: object
+description: >-
+  This determines who remediation tasks will be assigned to. Remediation tasks are created for each
+  revoke decision on items in the campaign. The only legal remediator type is 'IDENTITY', and the
+  chosen identity must be a Role Admin or Org Admin.
+properties:
+  id:
+    type: string
+    description: The ID of the remediator.
+    example: 2c90ad2a70ace7d50170acf22ca90010
+  name:
+    type: string
+    description: The name of the remediator.
+    readOnly: true
+    example: Role Admin
+required:
+  - id

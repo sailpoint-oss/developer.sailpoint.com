@@ -1,0 +1,120 @@
+type: object
+title: SlimCampaign
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+    description: ID of the campaign
+    example: 2c9079b2-70a2-66a6-a170-a2779fcb0007
+  name:
+    description: >-
+      The campaign name. If this object is part of a template, special formatting applies; see the
+      `/campaign-templates/{id}/generate` endpoint documentation for details.
+    type: string
+    example: Manager Campaign
+  description:
+    type: string
+    description: >-
+      The campaign description. If this object is part of a template, special formatting applies; see the
+      `/campaign-templates/{id}/generate` endpoint documentation for details.
+    example: Everyone needs to be reviewed by their manager
+  deadline:
+    type: string
+    format: date
+    description: The campaign's completion deadline date.
+    example: '2020-03-15'
+  deadlineTimezone:
+    type: string
+    description:
+      The timezone must be in a valid ISO 8601 format. Timezones in ISO 8601 are represented as UTC (represented as 'Z')
+      or as an offset from UTC. The offset format can be +/-hh:mm, +/-hhmm, or +/-hh.
+    example: -05:00
+  deadlineTime:
+    type: string
+    format: date-time
+    description: Calculated deadline time in UTC timezone of the campaign calculated from the deadline and the deadlineTimezone
+    example: '2018-10-19T13:49:37.385Z'
+  emailNotificationEnabled:
+    type: boolean
+    description: Enables email notification for this campaign
+    default: false
+    example: false
+  autoRevokeAllowed:
+    type: boolean
+    description: Allows auto revoke for this campaign
+    default: false
+    example: false
+  recommendationsEnabled:
+    type: boolean
+    description: >-
+      Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off
+      then campaigns generated from this template will indicate false. The real value will then be returned if
+      IAI is ever enabled for the org in the future.
+    default: false
+    example: true
+  sunsetCommentsRequired:
+    type: boolean
+    description: >-
+      Determines if comments on sunset date changes are required.
+    default: true
+    example: true
+  mandatoryCommentRequirement:
+    $ref: './CampaignMandatoryCommentRequirement.yaml'
+  type:
+    $ref: 'CampaignType.yaml'
+  reviewer:
+    $ref: 'Reviewer.yaml'
+  alerts:
+    type: array
+    description: A list of errors and warnings that have accumulated.
+    readOnly: true
+    items:
+      $ref: 'Alert.yaml'
+    default: [ ]
+  created:
+    type: string
+    readOnly: true
+    format: date-time
+    description: Created time of the campaign
+    example: '2020-03-03T22:15:13.611Z'
+  modified:
+    type: string
+    readOnly: true
+    format: date-time
+    description: Modified time of the campaign
+    example: '2020-03-03T22:20:12.674Z'
+  totalCertifications:
+    type: integer
+    format: int32
+    description: The total number of certifications in this campaign.
+    readOnly: true
+    example: 100
+  completedCertifications:
+    type: integer
+    format: int32
+    description: The number of completed certifications in this campaign.
+    readOnly: true
+    example: 10
+  status:
+    type: string
+    description: The campaign's current status.
+    readOnly: true
+    enum:
+      - ACTIVE
+      - ACTIVATING
+      - CANCELING
+      - COMPLETED
+      - COMPLETING
+      - ERROR
+      - PENDING
+      - STAGED
+    example: ACTIVE
+  generationType:
+    allOf:
+      - $ref: './CampaignGenerationType.yaml'
+    readOnly: true
+required:
+  - name
+  - description
+  - type

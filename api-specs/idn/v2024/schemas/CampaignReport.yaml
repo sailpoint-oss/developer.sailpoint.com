@@ -1,0 +1,22 @@
+type : object
+title: Campaign Report
+required:
+  - reportType
+allOf:
+- $ref: './ReportResultReference.yaml'
+- type: object
+  properties:
+    reportType:
+      $ref: './ReportType.yaml'
+    lastRunAt:
+      type: string
+      readOnly: true
+      format: date-time
+      description: The most recent date and time this report was run
+example:
+  type: REPORT_RESULT
+  id: 2c91808568c529c60168cca6f90c1313
+  name: Campaign Composition Report
+  status: SUCCESS
+  reportType: CAMPAIGN_COMPOSITION_REPORT
+  lastRunAt: '2019-12-19T13:49:37.385Z'

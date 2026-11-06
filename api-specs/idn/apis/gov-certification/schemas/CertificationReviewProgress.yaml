@@ -1,0 +1,13 @@
+type: string
+description: |
+  The progress of certification review.
+  * `NOT_STARTED`: No certification item is reviewed yet.
+  * `IN_PROGRESS`: Partial review is done on certification.
+  * `DECISIONS_COMPLETE`: All the decision completed on certification, just sign-off pending.
+  * `SIGNED`: Certification is signed off.
+enum:
+  - NOT_STARTED
+  - IN_PROGRESS
+  - DECISIONS_COMPLETE
+  - SIGNED
+example: SIGNED

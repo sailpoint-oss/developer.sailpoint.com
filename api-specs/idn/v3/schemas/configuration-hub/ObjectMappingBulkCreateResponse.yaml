@@ -1,0 +1,7 @@
+type: object
+title: Bulk Create Object Mapping Response
+properties:
+  addedObjects:
+    type: array
+    items:
+      $ref: '../../../v3/schemas/configuration-hub/ObjectMappingResponse.yaml'

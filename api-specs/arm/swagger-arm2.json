@@ -1,0 +1,948 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Access Risk Management ARM Web APIs",
+    "version": "v1"
+  },
+  "tags":[{"name":"CustomerSot"},{"name":"SupportDashboard"},{"name":"UserSync"}],
+  "paths": {
+    "/api/customer-sot": {
+      "get": {
+        "tags": [
+          "CustomerSot"
+        ],
+        "summary": "Get Customers with Source of Truth based on OData functionality.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerAccountSotDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerAccountSotDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerAccountSotDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerAccountSotDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerAccountSotDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerAccountSotDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerAccountSotDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerAccountSotDto"
+                  }
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerAccountSotDto"
+                  }
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerAccountSotDto"
+                  }
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerAccountSotDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerAccountSotDto"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerAccountSotDto"
+                  }
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerAccountSotDto"
+                  }
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerAccountSotDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerAccountSotDto"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {}
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json": {
+                "schema": {}
+              },
+              "application/xml": {
+                "schema": {}
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {}
+              },
+              "text/plain": {
+                "schema": {}
+              },
+              "text/json": {
+                "schema": {}
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {}
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json": {
+                "schema": {}
+              },
+              "application/xml": {
+                "schema": {}
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {}
+              },
+              "text/plain": {
+                "schema": {}
+              },
+              "text/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "CustomerSot"
+        ],
+        "summary": "Update the SourceOfTruths of CustomerSots.",
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ListOfCustomerSotSimpleDto"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ListOfCustomerSotSimpleDto"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/ListOfCustomerSotSimpleDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ListOfCustomerSotSimpleDto"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ListOfCustomerSotSimpleDto"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/ListOfCustomerSotSimpleDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ListOfCustomerSotSimpleDto"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ListOfCustomerSotSimpleDto"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/ListOfCustomerSotSimpleDto"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ListOfCustomerSotSimpleDto"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ListOfCustomerSotSimpleDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListOfCustomerSotSimpleDto"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/ListOfCustomerSotSimpleDto"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/ListOfCustomerSotSimpleDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListOfCustomerSotSimpleDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListOfCustomerSotSimpleDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {}
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json": {
+                "schema": {}
+              },
+              "application/xml": {
+                "schema": {}
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {}
+              },
+              "text/plain": {
+                "schema": {}
+              },
+              "text/json": {
+                "schema": {}
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {}
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json": {
+                "schema": {}
+              },
+              "application/xml": {
+                "schema": {}
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {}
+              },
+              "text/plain": {
+                "schema": {}
+              },
+              "text/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/support-dashboard": {
+      "get": {
+        "tags": [
+          "SupportDashboard"
+        ],
+        "summary": "supports dashboard",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {}
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json": {
+                "schema": {}
+              },
+              "application/xml": {
+                "schema": {}
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {}
+              },
+              "text/plain": {
+                "schema": {}
+              },
+              "text/json": {
+                "schema": {}
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {}
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json": {
+                "schema": {}
+              },
+              "application/xml": {
+                "schema": {}
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {}
+              },
+              "text/plain": {
+                "schema": {}
+              },
+              "text/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/usersync": {
+      "post": {
+        "tags": [
+          "UserSync"
+        ],
+        "summary": "Kick off User Sync Process by queuing a message.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {}
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json": {
+                "schema": {}
+              },
+              "application/xml": {
+                "schema": {}
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {}
+              },
+              "text/plain": {
+                "schema": {}
+              },
+              "text/json": {
+                "schema": {}
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {}
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {}
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {}
+              },
+              "application/json": {
+                "schema": {}
+              },
+              "application/xml": {
+                "schema": {}
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {}
+              },
+              "text/plain": {
+                "schema": {}
+              },
+              "text/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AuthenticationMethods": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "CustomerAccountSotDto": {
+        "type": "object",
+        "properties": {
+          "customerId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "customerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "accountName": {
+            "type": "string",
+            "nullable": true
+          },
+          "authenticationMethod": {
+            "$ref": "#/components/schemas/AuthenticationMethods"
+          },
+          "sourceOfTruth": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SourceOfTruth": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "SimpleSotDto": {
+        "type": "object",
+        "properties": {
+          "customerId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "sourceOfTruth": {
+            "$ref": "#/components/schemas/SourceOfTruth"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListOfCustomerSotSimpleDto": {
+        "type": "object",
+        "properties": {
+          "simpleSotDtos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SimpleSotDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

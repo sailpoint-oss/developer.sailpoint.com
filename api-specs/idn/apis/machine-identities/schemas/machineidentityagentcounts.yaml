@@ -1,0 +1,34 @@
+type: object
+title: Machine Identity Agent Counts
+description: Tenant-wide summary counts for AI agent machine identities.
+properties:
+  agentCount:
+    type: integer
+    format: int64
+    description: Total number of AI agents.
+    example: 85
+  unsanctionedAgentCount:
+    type: integer
+    format: int64
+    description: Number of AI agents that are not sanctioned.
+    example: 6
+  discovered:
+    description: AI agents discovered in the last 30 days.
+    $ref: ./machineidentitydiscoveredcounts.yaml
+  riskSeverity:
+    description: AI agents grouped by risk severity.
+    $ref: ./machineidentityriskseveritycounts.yaml
+  ownership:
+    type: object
+    description: Ownership coverage of AI agents.
+    properties:
+      ownedAgents:
+        type: integer
+        format: int64
+        description: Number of AI agents that have at least one owner.
+        example: 70
+      ownedPercent:
+        type: integer
+        format: int32
+        description: Percentage of AI agents that have at least one owner.
+        example: 82

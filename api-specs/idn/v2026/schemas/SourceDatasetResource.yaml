@@ -1,0 +1,29 @@
+type: object
+title: Source Dataset Resource
+description: >-
+  Resource definition for a source. The resource is reconstructed from source schema data
+  (resourceId/resourceType in schema config and schema objectType as name).
+properties:
+  id:
+    type: string
+    description: Resource identifier from source schema config.
+    example: aws:iam-role
+  name:
+    type: string
+    description: Display name of the resource.
+    example: Account
+  features:
+    type: array
+    description: Feature identifiers supported by this resource.
+    items:
+      type: string
+    example:
+      - Create
+      - Delete
+  type:
+    type: string
+    description: Resource type from source schema config.
+    example: std:resource
+  schema:
+    $ref: './Schema.yaml'
+    description: CIS schema for the resource.

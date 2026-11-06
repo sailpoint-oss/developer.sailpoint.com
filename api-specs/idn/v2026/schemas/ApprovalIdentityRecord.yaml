@@ -1,0 +1,37 @@
+type: object
+properties:
+  identityID:
+    type: string
+    example: "17e633e7d57e481569df76323169deb6a"
+    description: Identity ID.
+  type:
+    type: string
+    enum:
+    - "IDENTITY"
+    example: "IDENTITY"
+    description: Type of identity.
+  name:
+    type: string
+    example: "Jim Bob"
+    description: Name of the identity.
+  actionedAs:
+    type: array
+    items:
+      $ref: '../schemas/ApprovalReference.yaml'
+    description: List of references representing actions taken by the identity.
+  members:
+    type: array
+    items:
+      $ref: '../schemas/ApprovalReference.yaml'
+    description: List of references representing members of the identity.
+  decisionDate:
+    type: string
+    format: date-time
+    example: "2023-04-12T23:20:50.52Z"
+    description: Date when the decision was made.
+  email:
+    type: string
+    format: email
+    example: "user@example.com"
+    description: Email associated with the identity.
+description: Identity Record Object

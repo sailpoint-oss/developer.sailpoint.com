@@ -1,0 +1,74 @@
+post:
+  operationId: startApplicationDiscovery
+  tags:
+    - Application Discovery
+  summary: Start Application Discovery
+  security:
+    - userAuth:
+        - 'idn:application-discovery:write'
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+  description: Use this API to discover applications.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ApplicationDiscoveryRequest.yaml'
+  responses:
+    '200':
+      description: Application Discovery task was started successfully.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ApplicationDiscoveryResponse.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      description: >
+        Forbidden. Returned when the user doesn't have access to this endpoint,
+        or when the quota of allowed invocations for the day has been exceeded.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '../schemas/ErrorResponseDto.yaml'
+              - type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message when quota is exceeded
+                required:
+                  - error
+          examples:
+            access_denied:
+              summary: An example of a 403 response when access is denied
+              value:
+                detailCode: "403 Forbidden"
+                trackingId: "b21b1f7ce4da4d639f2c62a57171b427"
+                messages:
+                  - locale: "en-US"
+                    localeOrigin: "DEFAULT"
+                    text: "The server understood the request but refuses to authorize it."
+            quota_exceeded:
+              summary: Quota exceeded - cannot execute more than one application discovery task within 24 hours
+              value:
+                error: "cannot execute more than one application discovery task within 24 hours"
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true

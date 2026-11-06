@@ -1,0 +1,123 @@
+title: Event Trigger Attributes
+type: object
+description: Attributes related to an IdentityNow ETS event
+additionalProperties: false
+required:
+  - id
+properties:
+  id:
+    type: string
+    description: The unique ID of the trigger
+    example: idn:identity-attributes-changed
+    nullable: true
+  filter.$:
+    type: string
+    description: >-
+      JSON path expression that will limit which events the trigger will fire on.
+      When the trigger's `mode` is `basic`, this must match the expression compiled from `filterDefinition`.
+    example: '$.changes[?(@.attribute == "manager")]'
+    nullable: true
+  filterDefinition:
+    type: object
+    description: >-
+      Basic-mode filter that `filter.$` is compiled from.
+      Required when the trigger's `mode` is `basic`, and must be omitted otherwise.
+    nullable: true
+    required:
+      - path
+      - conditions
+    properties:
+      path:
+        type: string
+        description: >-
+          Collection in the event payload that the conditions are applied to, such as `changes` or `accountRequests`.
+          Use `$` to apply the conditions to the root of the payload.
+        example: changes
+      logic:
+        type: string
+        description: How the conditions are combined. Defaults to `and` when omitted.
+        enum:
+          - and
+          - or
+        example: and
+      conditions:
+        type: array
+        description: Conditions evaluated against each item in `path`.
+        minItems: 1
+        maxItems: 5
+        items:
+          type: object
+          description: A single field comparison.
+          required:
+            - path
+            - operator
+          properties:
+            path:
+              type: string
+              description: Dot-separated path to the field to compare, relative to each item in the filter's `path`.
+              example: attribute
+            operator:
+              type: string
+              description: >-
+                Comparison operator.
+                `string` fields support `==`, `!=`, `=~`, `size`, `contains`, `is empty`, `is not empty`, `is null` and `is not null`.
+                `number` fields support `==`, `!=`, `<`, `<=`, `>`, `>=`, `is null` and `is not null`.
+                `boolean` fields support `==`, `!=`, `is null` and `is not null`.
+              example: '=='
+            type:
+              type: string
+              description: Data type of the field at `path`, which determines how `value` is compared.
+              enum:
+                - string
+                - number
+                - boolean
+              example: string
+            value:
+              description: >-
+                Value to compare the field against. Omit for `is empty`, `is not empty`, `is null` and `is not null`.
+                Use a 64-bit integer for `number` fields and for `size`.
+                Use `true` or `false` for `boolean` fields, and a regular expression literal such as `/^john/i` for `=~`.
+                JSONPath and inline expressions are not allowed.
+              nullable: true
+              oneOf:
+                - type: string
+                - type: integer
+                  format: int64
+                - type: boolean
+              example: manager
+  description:
+    type: string
+    description: Description of the event trigger
+    example: Triggered when an identity's manager attribute changes
+    nullable: true
+  attributeToFilter:
+    type: string
+    description: >-
+      For the `sp:form-submitted` trigger, the name of the form element to filter on. Use it with `operatorValue` and `attributeValue`.
+      For other event triggers this is a legacy field from the earlier trigger filter picker; use `filterDefinition` with `mode` set to `basic` instead.
+      Create and update requests that set this field for the `idn:identity-attributes-changed` or `idn:identity-created` trigger are rejected.
+    example: department
+    nullable: true
+  operatorValue:
+    type: string
+    description: >-
+      For the `sp:form-submitted` trigger, the operator that compares the `attributeToFilter` form element with `attributeValue`,
+      such as `StringEquals`, `StringContains`, `StringStartsWith`, `NumericGreaterThan`, `BooleanEquals` or `ArrayAnyOf`.
+      Create and update requests that set this field for the `idn:identity-created` trigger are rejected.
+    example: StringEquals
+    nullable: true
+  attributeValue:
+    type: string
+    description: >-
+      For the `sp:form-submitted` trigger, the value the `attributeToFilter` form element is compared with.
+      For `ArrayAnyOf`, use a list such as `['HR', 'IT']`.
+      Create and update requests that set this field for the `idn:identity-created` trigger are rejected.
+    example: IT
+    nullable: true
+  formDefinitionId:
+    type: string
+    description: >-
+      For the `sp:form-submitted` trigger, the ID of the form whose submission starts the workflow. Required when `filter.$` is not set.
+      When `filter.$` is not set, the trigger filter is built from this ID, narrowed by `attributeToFilter`, `operatorValue` and `attributeValue` when all three are set.
+    example: 49841cb8-00a5-4fbd-9888-8bbb28d48331
+    nullable: true

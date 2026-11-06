@@ -1,0 +1,21 @@
+type: array
+title: Iframe Sandbox Grants
+x-sailpoint-lint-ignore:
+  schema-enum-values-must-be-upper-snake-case: These values are HTML iframe sandbox tokens. The service accepts only these exact lowercase tokens.
+description: >-
+  Opt-in iframe `sandbox` tokens granted to the plugin on top of the platform
+  sandbox baseline. Only the listed tokens are accepted (exact, case-sensitive
+  match); any other token is rejected with 400. Duplicates are removed and the
+  list is stored and returned sorted. Empty means no additional grants.
+maxItems: 50
+items:
+  type: string
+  enum:
+    - allow-top-navigation
+    - allow-popups
+    - allow-popups-to-escape-sandbox
+    - allow-downloads
+    - allow-modals
+example:
+  - allow-modals
+  - allow-popups

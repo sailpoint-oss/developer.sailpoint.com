@@ -1,0 +1,17 @@
+type: object
+description: Self block for imported/exported object. 
+properties:
+  type:
+    type: string 
+    description: Imported/exported object's DTO type.
+    enum: 
+      - FORM_DEFINITION
+    example: FORM_DEFINITION
+  id:
+    type: string
+    description: Imported/exported object's ID. 
+    example: 2c9180835d191a86015d28455b4b232a
+  name:
+    type: string
+    description: Imported/exported object's display name. 
+    example: Temporary User Level Permissions - Requester

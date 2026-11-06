@@ -1,0 +1,30 @@
+type: object
+properties:
+  criteriaList:
+    type: array
+    description: List of exception criteria. There is a min of 1 and max of 50 items in the list.
+    items:
+      allOf:
+      - $ref: './ExceptionCriteriaAccess.yaml'
+      description: The types of objects supported for SOD violations
+      properties:
+        type:
+          enum:
+          - "ENTITLEMENT"
+          example: "ENTITLEMENT"
+          description: The type of object that is referenced
+    # oneOf:
+    #   - minItems: 1
+    #   - maxItems: 50
+    example: [
+      {
+        "type": "ENTITLEMENT",
+        "id": "2c9180866166b5b0016167c32ef31a66",
+        "existing": true
+      },
+      {
+        "type": "ENTITLEMENT",
+        "id": "2c9180866166b5b0016167c32ef31a67",
+        "existing": false
+      }
+    ]

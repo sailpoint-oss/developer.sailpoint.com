@@ -1,0 +1,69 @@
+title: Device
+type: object
+description: A device, such as a laptop or server, discovered from a connected source.
+allOf:
+  - $ref: ../../shared/schemas/basecommondto.yaml
+  - type: object
+    properties:
+      nativeIdentity:
+        type: string
+        description: The device's unique identifier on the source.
+        example: 6c2f4a8e-1d3b-4f6a-9e2c-7b5d8a1f0c34
+      description:
+        type: string
+        description: Description of the device.
+        example: Finance team laptop
+      environment:
+        type: string
+        description: The environment the device belongs to.
+        example: production
+      hostname:
+        type: string
+        description: The device hostname reported by the source.
+        example: lab-mbp-0142
+      os:
+        description: The operating system reported by the source for the device.
+        $ref: ./deviceos.yaml
+      email:
+        type: string
+        description: The email address the source reports for the device.
+        example: jane.doe@example.com
+      sentinelVersion:
+        type: string
+        description: The version of the endpoint agent the source reports for the device.
+        example: 24.1.2.6
+      detectionModuleVersion:
+        type: string
+        description: The version of the detection module the source reports for the device.
+        example: 3.4.1
+      source:
+        description: The source the device was discovered from.
+        allOf:
+          - $ref: ../../shared/schemas/basereferencedto.yaml
+          - example:
+              id: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa
+              name: Endpoint Security
+              type: SOURCE
+      resource:
+        description: The source resource the device is derived from.
+        $ref: ./deviceresource.yaml
+      datasetId:
+        type: string
+        description: The ID of the source dataset the device was retrieved from.
+        example: 8886e5e3-63d0-462f-a195-d98da885b8dc
+      owners:
+        description: The owner configuration of the device.
+        $ref: ./deviceowners.yaml
+      connectorAttributes:
+        type: object
+        additionalProperties: true
+        description: A map of attributes sourced from the connector during aggregation.
+        example:
+          agentId: 1785462398123456789
+      attributes:
+        type: object
+        additionalProperties: true
+        description: A map of curated device attributes.
+        example:
+          hostname: lab-mbp-0142
+          osType: macos

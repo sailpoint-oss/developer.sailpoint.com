@@ -1,0 +1,11 @@
+type: object
+title: Account Delete Config
+description: detailed information about account delete approval config
+properties:
+    approvalRequired:
+      type: boolean
+      default: false
+      example: true
+      description: Specifies if an account deletion request requires approval.
+    approvalConfig:
+      $ref: ./ApprovalConfig.yaml

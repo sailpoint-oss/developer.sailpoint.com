@@ -1,0 +1,35 @@
+delete:
+  security:
+  - userAuth:
+    - idn:notification-templates:delete
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  operationId: deleteVerifiedFromAddress
+  tags:
+  - Notifications
+  summary: Delete verified from address
+  description: Delete a verified sender email address
+  parameters:
+  - in: path
+    name: id
+    description: Unique identifier of the verified sender address to delete.
+    required: true
+    x-sailpoint-resource-operation-id: listFromAddresses
+    schema:
+      type: string
+      example: c17bea3a-574d-453c-9e04-4365fbf5af0b
+  responses:
+    '204':
+      $ref: ../responses/204.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

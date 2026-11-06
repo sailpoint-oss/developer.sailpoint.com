@@ -1,0 +1,47 @@
+type: object
+description: A compensating control that has been applied to a policy violation.
+required:
+  - id
+  - violation
+  - control
+  - applier
+  - appliedDate
+  - expiration
+properties:
+  id:
+    type: string
+    format: uuid
+    description: The system-generated unique identifier of the applied control record.
+    example: 3e07886555ed43cfb83c85c58d2016e6
+  violation:
+    type: string
+    format: uuid
+    description: The unique identifier of the policy violation the control was applied to.
+    example: 99fbef9738c146e9b526b6147f57a0e2
+  control:
+    $ref: ./referenceresponse.yaml
+  applier:
+    $ref: ./referenceresponse.yaml
+  appliedDate:
+    type: string
+    format: date-time
+    description: The date and time when the control was applied to the violation.
+    example: '2025-01-01T00:00:00-05:00'
+    readOnly: true
+  expiration:
+    type: string
+    format: date-time
+    description: The date and time when the applied control expires.
+    example: '2025-01-01T02:00:00-05:00'
+    readOnly: true
+  comments:
+    type: string
+    description: Optional comments captured when the control was applied.
+    example: Some comments about the applied control
+  status:
+    $ref: ./appliedcontrolstatus.yaml
+    readOnly: true
+  workflowId:
+    type: string
+    description: The identifier of the workflow triggered when the control was applied.
+    example: 82044924-daff-4b0b-9dcb-17e64de4d25b

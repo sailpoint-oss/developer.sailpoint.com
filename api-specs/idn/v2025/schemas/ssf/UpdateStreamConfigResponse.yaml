@@ -1,0 +1,11 @@
+type: object
+description: Stream configuration response including updatedAt (for PATCH/PUT). Same JSON shape as GET single stream plus updatedAt.
+allOf:
+  - $ref: ./StreamConfigResponse.yaml
+  - type: object
+    properties:
+      updatedAt:
+        type: string
+        format: date-time
+        description: Timestamp of the last configuration update.
+        example: "2025-02-11T14:30:00Z"

@@ -1,0 +1,7 @@
+type: object
+title: Access Request Context
+properties:
+  contextAttributes:
+    type: array
+    items:
+      $ref: "./ContextAttributeDto.yaml"

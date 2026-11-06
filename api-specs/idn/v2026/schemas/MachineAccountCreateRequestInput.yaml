@@ -1,0 +1,46 @@
+type: object
+title: Machine Account Create Request Input
+description: Contains the required information for processing a user-initiated machine account creation request.
+required:
+  - subtypeId
+  - ownerIdentityId
+properties:
+  subtypeId:
+    type: string
+    description: Subtype ID for which machine account create is enabled and user have the entitlement to create the machine account.
+    example: "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
+  formId:
+    type: string
+    description: Form ID selected by user for the machine account create request.
+    example: "f5dd23fe-3414-42b7-bb1c-869400ad7a10"
+  ownerIdentityId:
+    type: string
+    description: Owner Identity ID. This identity will be assigned as an owner of the created machine account.
+    example: "18104e7e499b4e23882d6323344ab6bc"
+  machineIdentityId:
+    type: string
+    nullable: true
+    description: Machine identity to correlate with the created machine account. If not provided, a new machine identity will be created.
+    example: "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
+  environment:
+    type: string
+    description: Environment type to use for the machine account.
+    example: "Dev"
+  description:
+    type: string
+    description: Description for the machine account.
+    example: "Requesting machine account for tracking the inventory."
+  userInput:
+    type: object
+    description: Fields of the form linked to the subtype in approval settings.
+    example:
+      target: "AD Source"
+      description: "Inventory tracking"
+  entitlementIds:
+    type: array
+    description: List of entitlement IDs to provision for created machine account.
+    items:
+      type: string
+    example:
+      - "6d28b7c1620c49c6b6d5cbf81eb4b5fa"
+      - "2c91808a7624751a01762f19d67c220e"

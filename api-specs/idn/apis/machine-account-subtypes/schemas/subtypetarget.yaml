@@ -1,0 +1,25 @@
+type: object
+title: Subtype Target
+description: Reference to the source or connector the subtype is defined for.
+properties:
+  type:
+    type: string
+    enum:
+    - SOURCE
+    - CONNECTOR
+    description: Type of the target.
+    example: CONNECTOR
+  id:
+    type: string
+    description: Source ID for a `SOURCE` target, or connector type for a `CONNECTOR` target.
+    example: active-directory
+  name:
+    type: string
+    description: Name of the source or connector.
+    example: Active Directory
+  supportsProvisioning:
+    type: boolean
+    default: false
+    description: >-
+      Indicates whether the target supports provisioning. Only returned when you get a single subtype by ID.
+    example: true

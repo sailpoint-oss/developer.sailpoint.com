@@ -1,0 +1,24 @@
+type: object
+title: User Entitlement V2
+description: A user entitlement associated to a machine identity.
+properties:
+  sourceId:
+    type: string
+    description: The source ID of the entitlement.
+    example: 5898b7c1-620c-49c6-cccc-cbf81eb4bddd
+  entitlementId:
+    type: string
+    description: The ID of the entitlement.
+    example: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa
+  displayName:
+    type: string
+    description: The display name of the entitlement.
+    example: Entitlement Name
+  source:
+    description: The source of the entitlement.
+    allOf:
+      - $ref: ../../shared/schemas/basereferencedto.yaml
+      - example:
+          id: 5898b7c1-620c-49c6-cccc-cbf81eb4bddd
+          name: Test Source
+          type: SOURCE

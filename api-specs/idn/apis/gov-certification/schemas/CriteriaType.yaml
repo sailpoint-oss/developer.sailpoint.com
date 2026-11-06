@@ -1,0 +1,16 @@
+type: string
+enum:
+  - COMPOSITE
+  - ROLE
+  - IDENTITY
+  - IDENTITY_ATTRIBUTE
+  - ENTITLEMENT
+  - ACCESS_PROFILE
+  - SOURCE
+  - ACCOUNT
+  - ACCOUNT_ATTRIBUTE
+  - IDENTITY_PROFILE
+  - APP
+  - ACCESS
+description: Type of the criteria in the filter.
+example: IDENTITY_ATTRIBUTE

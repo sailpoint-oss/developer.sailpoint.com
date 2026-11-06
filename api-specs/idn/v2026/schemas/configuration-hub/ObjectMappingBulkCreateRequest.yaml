@@ -1,0 +1,9 @@
+type: object
+title: Bulk Create Object Mapping Request
+required:
+  - newObjectsMappings
+properties:
+  newObjectsMappings:
+    type: array
+    items:
+      $ref: '../configuration-hub/ObjectMappingRequest.yaml'

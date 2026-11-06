@@ -1,0 +1,57 @@
+type: object
+title: MCP Server
+description: >-
+  An MCP (Model Context Protocol) server discovered for the tenant and tracked as a Business
+  Application.
+properties:
+  id:
+    type: string
+    format: uuid
+    description: MCP server ID.
+    example: 2ee5e239-e68c-4d69-93fb-6c7ce4576190
+  serverName:
+    type: string
+    description: MCP server name.
+    example: io.github.github/github-mcp-server
+  sanctionedStatus:
+    allOf:
+      - $ref: ./sanctionedstatus.yaml
+    description: Sanctioned status of the MCP server. MCP servers are currently always `UNKNOWN`.
+    example: UNKNOWN
+  description:
+    type: string
+    nullable: true
+    description: MCP server description.
+    example: Connects AI agents to GitHub repositories, issues, and pull requests.
+  version:
+    type: string
+    nullable: true
+    description: MCP server version.
+    example: 1.0.0
+  remotes:
+    type: array
+    description: Remote endpoints the MCP server can be reached at.
+    items:
+      type: string
+    example:
+      - https://api.githubcopilot.com/mcp/
+  packages:
+    type: array
+    description: Packages the MCP server can be installed or launched from.
+    items:
+      $ref: ./mcppackage.yaml
+  connectedAgentCount:
+    type: integer
+    format: int64
+    description: Number of AI agents connected to the MCP server.
+    example: 3
+  created:
+    type: string
+    format: date-time
+    description: Date and time the MCP server was created.
+    example: '2026-03-01T12:00:00.000Z'
+  modified:
+    type: string
+    format: date-time
+    description: Date and time the MCP server was last modified.
+    example: '2026-03-15T08:30:00.000Z'

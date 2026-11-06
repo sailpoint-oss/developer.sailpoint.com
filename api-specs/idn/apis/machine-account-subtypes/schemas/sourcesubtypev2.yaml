@@ -1,0 +1,100 @@
+type: object
+title: Source Subtype V2
+description: A machine account subtype defined at the source tier or the connector tier.
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Unique identifier for the subtype.
+    example: 43bdd144-4b17-4fce-a744-17c7fd3e717b
+  technicalName:
+    type: string
+    description: Technical name of the subtype.
+    example: service-account
+  displayName:
+    type: string
+    description: Display name of the subtype.
+    example: Service Account
+  description:
+    type: string
+    description: Description of the subtype.
+    example: Accounts used by automated services.
+  type:
+    type: string
+    description: Entity type of the subtype.
+    example: MACHINE
+  targetType:
+    type: string
+    enum:
+    - SOURCE
+    - CONNECTOR
+    - CONNECTOR_VARIANT
+    description: >-
+      Tier the subtype is defined at. `SOURCE` subtypes apply to one source. `CONNECTOR` subtypes apply to every
+      source of a connector type. `CONNECTOR_VARIANT` is reserved for future use.
+    example: CONNECTOR
+  targetId:
+    type: string
+    description: >-
+      Scope key of the subtype. The source ID for `SOURCE` subtypes, or the connector type for `CONNECTOR`
+      subtypes.
+    example: active-directory
+  targetName:
+    type: string
+    nullable: true
+    description: Display name of the target source or connector.
+    example: Active Directory
+  classification:
+    type: string
+    enum:
+    - MACHINE
+    description: Classification of the subtype.
+    example: MACHINE
+  origin:
+    type: string
+    nullable: true
+    enum:
+    - SOURCE
+    - CONNECTOR
+    - CONNECTOR_VARIANT
+    description: >-
+      Tier of the parent subtype this subtype overrides. Set to `CONNECTOR` when a source subtype replaces a
+      connector subtype with the same technical name in a source's effective subtype list. Otherwise `null`.
+    example: null
+  profile:
+    type: object
+    nullable: true
+    description: Connector variant profile. Reserved for future use and currently always `null`.
+    example: null
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: Unique identifier for the connector variant profile.
+        example: 9a4b7d2e-1c3f-4e5a-8b6c-7d8e9f0a1b2c
+      connectorType:
+        type: string
+        description: Connector type of the variant.
+        example: JDBC
+      variant:
+        type: string
+        description: Name of the connector variant.
+        example: MySql
+  systemManaged:
+    type: boolean
+    readOnly: true
+    description: Indicates whether the subtype is managed by the system.
+    default: false
+    example: false
+  created:
+    type: string
+    format: date-time
+    description: Creation timestamp.
+    example: '2026-07-28T16:13:42.801Z'
+  modified:
+    type: string
+    format: date-time
+    description: Last modified timestamp.
+    example: '2026-07-28T16:13:42.750Z'
+  target:
+    $ref: ./subtypetarget.yaml

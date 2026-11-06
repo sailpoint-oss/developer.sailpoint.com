@@ -1,0 +1,15 @@
+type : object
+title: Common Access ID Status
+properties:
+  confirmedIds:
+    description: List of confirmed common access ids.
+    type: array
+    items:
+      type: string
+      format: uuid
+  deniedIds:
+    description: List of denied common access ids.
+    type: array
+    items:
+      type: string
+      format: uuid

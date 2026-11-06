@@ -1,0 +1,21 @@
+title: leftPad
+type: object
+required:
+- length
+properties:
+  length:
+    type: string
+    description: An integer value for the desired length of the final output string
+    example: "4"
+  padding:
+    type: string
+    description: |
+      A string value representing the character that the incoming data should be padded with to get to the desired length
+      
+      
+      If not provided, the transform will default to a single space (" ") character for padding
+    example: "0"
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml'
+  input:
+    $ref: './input.yaml'

@@ -1,0 +1,43 @@
+type: object
+title: AccountV2Recommendation
+nullable: true
+description: Indicates that the account is currently classified as one type but is recommended to be a different one.
+properties:
+  type:
+    type: string
+    enum:
+    - HUMAN
+    - MACHINE
+    description: Recommended type of account.
+    example: MACHINE
+    nullable: true
+  method:
+    type: string
+    enum:
+    - DISCOVERY
+    - SOURCE
+    - CRITERIA
+    description: >-
+      Method used to produce the recommendation. DISCOVERY - suggested by AI, SOURCE - the account comes from a source
+      flagged as containing machine accounts, CRITERIA - the account satisfies classification criteria.
+    example: DISCOVERY
+    nullable: true
+  machineLikelihood:
+    type: integer
+    format: int32
+    minimum: 0
+    maximum: 3
+    description: >-
+      Ranked likelihood that this account is a machine account. Present when machine-account recommendation enrichment
+      is available for the tenant.
+    example: 3
+    nullable: true
+  explanation:
+    type: array
+    items:
+      type: string
+    description: >-
+      Reasons supporting the machine-account recommendation. Never null; an empty array when no explanation is
+      available.
+    example:
+    - AD_GMSA

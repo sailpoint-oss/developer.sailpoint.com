@@ -1,0 +1,70 @@
+get:
+  tags:
+  - Connector Rule Management
+  operationId: getConnectorRuleListV1
+  summary: List connector rules
+  description: List existing connector rules.
+  responses:
+    '200':
+      description: List of connector rules.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/connectorruleresponse.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:rule-management-connector:read
+    - idn:rule-management-connector:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  parameters:
+  - $ref: ../../shared/parameters/limit50.yaml
+  - $ref: ../../shared/parameters/offset.yaml
+  - $ref: ../../shared/parameters/count.yaml
+post:
+  tags:
+  - Connector Rule Management
+  operationId: createConnectorRuleV1
+  summary: Create connector rule
+  description: Create a connector rule from the available types.
+  requestBody:
+    required: true
+    description: Connector rule to create.
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/connectorrulecreaterequest.yaml
+  responses:
+    '201':
+      description: Created connector rule.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/connectorruleresponse.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:rule-management-connector:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN

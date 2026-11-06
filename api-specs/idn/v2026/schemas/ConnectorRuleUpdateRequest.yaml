@@ -1,0 +1,12 @@
+description: ConnectorRuleUpdateRequest
+allOf:
+  - type: object
+    required:
+      - id
+    properties:
+      id:
+        type: string
+        description: the ID of the rule to update
+        example: 8113d48c0b914f17b4c6072d4dcb9dfe
+  - $ref: './ConnectorRuleCreateRequest.yaml'
+

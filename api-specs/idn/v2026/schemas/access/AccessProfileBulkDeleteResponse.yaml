@@ -1,0 +1,19 @@
+type: object
+properties:
+    taskId:
+        type: string
+        description: >-
+            ID of the task which is executing the bulk deletion. This can be passed to the **/task-status** API to
+            track status.
+        example: 2c9180867817ac4d017817c491119a20
+    pending:
+        type: array
+        description: List of IDs of Access Profiles which are pending deletion.
+        items:
+            type: string
+        example: ["2c91808876438bbb017668c21919ecca","2c91808876438bb201766e129f151816"]
+    inUse:
+        type: array
+        description: List of usages of Access Profiles targeted for deletion.
+        items:
+            $ref: './AccessProfileUsage.yaml'

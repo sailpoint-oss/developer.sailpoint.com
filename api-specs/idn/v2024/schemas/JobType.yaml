@@ -1,0 +1,9 @@
+type: string
+description: Job Type
+example: 'VA_UPGRADE'
+enum:
+  - VA_UPGRADE
+  - VA_REBOOT
+  - VA_RELOAD
+  - VA_PACKAGE_UPGRADE
+  - VA_ENABLE_SAP

@@ -1,0 +1,62 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud API - UI Plugins
+  x-audience: external-public
+  description: >-
+    Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+externalDocs:
+  url: https://developer.sailpoint.com/docs/api/ui-plugins
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: UI Plugins
+    description: >-
+      UI Plugins let you extend the Identity Security Cloud (ISC) user interface with your own custom web applications. Rather than building a separate app that lives outside the platform, a UI plugin is a micro-frontend that ISC loads directly into designated **slots** in its UI — so your custom experience runs inside ISC, using the tenant's session and honoring its security model. UI Plugins are a licensed feature. 
+
+      The best way to interact with the UI Plugins API is to use the [SailPoint CLI](https://developer.sailpoint.com/docs/tools/cli). Alternatively, you can use the REST APIs for tenant UI plugin instance lifecycle (CRUD, alias
+      validate/resolve, local-dev linking), asset bundle upload, and the static UI plugin slot registry.
+paths:
+  /ui-plugins/v1:
+    $ref: ./paths/ui-plugins-v1.yaml
+  /ui-plugins/v1/validate-alias:
+    $ref: ./paths/ui-plugins-v1-validate-alias.yaml
+  /ui-plugins/v1/resolve-alias:
+    $ref: ./paths/ui-plugins-v1-resolve-alias.yaml
+  /ui-plugins/v1/{pluginInstanceId}:
+    $ref: ./paths/ui-plugins-v1-by-plugininstanceid.yaml
+  /ui-plugins/v1/{pluginInstanceId}/link:
+    $ref: ./paths/ui-plugins-v1-by-plugininstanceid-link.yaml
+  /ui-plugins/v1/{pluginInstanceId}/asset-bundles:
+    $ref: ./paths/ui-plugins-v1-by-plugininstanceid-asset-bundles.yaml
+  /ui-plugin-slots/v1:
+    $ref: ./paths/ui-plugin-slots-v1.yaml
+components:
+  securitySchemes:
+    userAuth:
+      $ref: ../shared/security-schemes.yaml#/userAuth
+    applicationAuth:
+      $ref: ../shared/security-schemes.yaml#/applicationAuth
+security:
+  - userAuth:
+      - sp:scopes:all

@@ -1,0 +1,6 @@
+type: object
+title: Role Mining Session Status
+properties:
+  state:
+    $ref: ./roleminingsessionstate.yaml
+    description: Role mining session state

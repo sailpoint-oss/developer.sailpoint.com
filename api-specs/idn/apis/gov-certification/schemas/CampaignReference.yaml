@@ -1,0 +1,37 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    description: The unique ID of the campaign.
+    example: ef38f943-47e9-4562-b5bb-8424a56397d8
+  name:
+    type: string
+    description: The name of the campaign.
+    example: 'Campaign Name'
+  description:
+    type: string
+    description: The description of the campaign set by the admin who created it.
+    example: 'A description of the campaign'
+  type:
+    $ref: './CampaignType.yaml'
+  mandatoryCommentRequirement:
+    $ref: './MandatoryCommentType.yaml'
+  recommendationsEnabled:
+    type: boolean
+    description: Indicates if the campaign related recommendations enabled.
+    default: false
+    example: false
+  reviewer:
+    type: object
+    description: >-
+      The specified target will be the reviewer for all certifications in
+      this campaign.
+    properties:
+      type:
+        $ref: 'CampaignReviewerType.yaml'
+  generationType:
+    $ref: './CampaignGenerationType.yaml'
+required:
+  - id
+  - name

@@ -1,0 +1,8 @@
+name: profile_id
+in: query
+description: Profile ID to filter by
+required: false
+schema:
+  type: string
+  format: uuid
+  example: 4e480441-451d-47d9-87c2-9a0f0fe135eb

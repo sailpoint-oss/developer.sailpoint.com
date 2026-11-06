@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  label:
+    type: string
+  condition_rules_attributes:
+    type: array
+    items:
+      anyOf:
+        - $ref: "./ProfileTypeRule.yaml"
+        - $ref: "./ProfileStatusRule.yaml"
+        - $ref: "./ProfileAttributeRuleString.yaml"
+        - $ref: "./ProfileAttributeRuleDate.yaml"
+        - $ref: "./ProfileAttributeRuleId.yaml"
+        - $ref: "./RiskRule.yaml"

@@ -1,0 +1,55 @@
+type: object
+description: A Dimension
+properties:
+    id:
+        type: string
+        description: The id of the Dimension. This field must be left null when creating a dimension, otherwise a 400 Bad Request error will result.
+        example: 2c918086749d78830174a1a40e121518
+    name:
+        type: string
+        description: The human-readable display name of the Dimension
+        maxLength: 128
+        example: Dimension 2567
+    created:
+        type: string
+        description: Date the Dimension was created
+        format: 'date-time'
+        example: '2021-03-01T22:32:58.104Z'
+        readOnly: true
+    modified:
+        type: string
+        description: Date the Dimension was last modified.
+        format: 'date-time'
+        example: '2021-03-02T20:22:28.104Z'
+        readOnly: true
+    description:
+        type: string
+        nullable: true
+        description: A human-readable description of the Dimension
+        example: Urna amet cursus pellentesque nisl orci maximus lorem nisl euismod fusce morbi placerat adipiscing maecenas nisi tristique et metus et lacus sed morbi nunc nisl maximus magna arcu varius sollicitudin elementum enim maecenas nisi id ipsum tempus fusce diam ipsum tortor.
+    owner:
+        $ref: './OwnerReference.yaml'
+    accessProfiles:
+        type: array
+        items:
+            $ref: './AccessProfileRef.yaml'
+        nullable: true
+    entitlements:
+        type: array
+        items:
+            $ref: './EntitlementRef.yaml'
+    membership:
+        $ref: './DimensionMembershipSelector.yaml'
+        nullable: true
+    parentId:
+        type: string
+        nullable: true
+        description: The ID of the parent role. This field can be left null when creating a dimension, but if provided, it must match the role ID specified in the path variable of the API call.
+        example: 2c918086749d78830174a1a40e121518
+
+required:
+    - name
+    - owner
+
+        
+  

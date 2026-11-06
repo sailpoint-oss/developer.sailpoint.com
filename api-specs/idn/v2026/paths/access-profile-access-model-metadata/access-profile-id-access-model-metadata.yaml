@@ -1,0 +1,121 @@
+post:
+  operationId: updateAttributeKeyAndValueToAccessProfile
+  summary: Add metadata to access profile
+  description: >-
+    This API adds a single Access Model Metadata value to an access profile by attribute key and attribute value.
+
+    A token with ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN or SOURCE_SUBADMIN authority is required to call this API.
+
+    A single access profile cannot be assigned more than 25 metadata values.
+    Adding custom metadata requires a suite license.
+  tags:
+    - Access Profiles
+  security:
+    - userAuth: [ idn:access-profile:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - name: "id"
+      in: "path"
+      required: true
+      x-sailpoint-resource-operation-id: listAccessProfiles
+      schema:
+        type: "string"
+      description: The access profile's ID.
+      example: c24359c389374d0fb8585698a2189e3d
+    - name: "attributeKey"
+      in: "path"
+      required: true
+      x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
+      schema:
+        type: "string"
+      description: Technical name of the Attribute.
+      example: "iscPrivacy"
+    - name: "attributeValue"
+      in: "path"
+      required: true
+      x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeValue
+      schema:
+        type: "string"
+      description: Technical name of the Attribute Value.
+      example: "public"
+  responses:
+    "200":
+      description: Responds with the access profile as updated.
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/access/AccessProfile.yaml"
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+delete:
+  operationId: deleteMetadataFromAccessProfileByKeyAndValue
+  summary: Remove metadata from access profile
+  description: >-
+    This API removes a single Access Model Metadata value from an access profile by attribute key and attribute value.
+
+    A token with ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN or SOURCE_SUBADMIN authority is required to call this API.
+  tags:
+    - Access Profiles
+  security:
+    - userAuth: [ idn:access-profile:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - name: "id"
+      in: "path"
+      required: true
+      schema:
+        type: "string"
+      description: The access profile's ID.
+      example: 2c91808c74ff913f0175097daa9d59cd
+      x-sailpoint-resource-operation-id: listAccessProfiles
+    - name: "attributeKey"
+      in: "path"
+      required: true
+      x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
+      schema:
+        type: "string"
+      description: Technical name of the Attribute.
+      example: "iscPrivacy"
+    - name: "attributeValue"
+      in: "path"
+      required: true
+      x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeValue
+      schema:
+        type: "string"
+      description: Technical name of the Attribute Value.
+      example: "public"
+  responses:
+    "202":
+      description: Request accepted. The metadata value is removed asynchronously.
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

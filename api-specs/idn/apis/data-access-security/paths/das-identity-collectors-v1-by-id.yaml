@@ -1,0 +1,101 @@
+put:
+  summary: Replace identity collector
+  description: >-
+    Fully replaces an existing identity collector in Data Access Security. This is a PUT operation, not a partial
+    update: the request body must contain the complete resource representation. Omitted or null top-level properties
+    are rejected. After a successful request, a subsequent list request returns exactly the configuration that was
+    sent.
+
+
+    Retrieve the current configuration with [List Identity Collectors](https://developer.sailpoint.com/docs/api/list-identity-collectors-v-1) before replacing it. The `sourceId` and `type`
+    cannot be changed and must match the current values.
+  security:
+  - userAuth:
+    - das:identity-collectors:manage
+  - applicationAuth:
+    - das:identity-collectors:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+  - Data Access Security
+  operationId: putIdentityCollectorV1
+  parameters:
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: integer
+      format: int64
+    description: The unique identifier of the identity collector to replace.
+    example: 12345
+    x-sailpoint-resource-operation-id: listIdentityCollectorsV1
+  requestBody:
+    description: >-
+      Complete identity collector representation used to fully replace the existing resource. Partial updates are not
+      supported.
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/updateidentitycollectorrequest.yaml
+    required: true
+  responses:
+    '204':
+      description: The identity collector was fully replaced.
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '409':
+      $ref: ../responses/409.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+delete:
+  summary: Delete identity collector by identifier
+  description: This endpoint deletes an identity collector from Data Access Security by its unique identifier.
+  security:
+  - userAuth:
+    - das:identity-collectors:manage
+  - applicationAuth:
+    - das:identity-collectors:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+  - Data Access Security
+  operationId: deleteIdentityCollectorV1
+  parameters:
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: integer
+      format: int64
+    description: The unique identifier of the identity collector to delete.
+    example: 12345
+    x-sailpoint-resource-operation-id: listIdentityCollectorsV1
+  responses:
+    '204':
+      description: No Content
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '409':
+      description: The identity collector is in use and cannot be deleted.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/identitycollectordependenciesconflicterror.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

@@ -1,0 +1,9 @@
+type: object
+description: Authorization scheme supported by the transmitter.
+properties:
+  spec_urn:
+    type: string
+    description: |
+      URN describing the authorization specification.
+      OAuth 2.0: `urn:ietf:rfc:6749`; Bearer token: `urn:ietf:rfc:6750`.
+    example: "urn:ietf:rfc:6749"

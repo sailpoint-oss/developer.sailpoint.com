@@ -1,0 +1,54 @@
+type: object
+title: Public Identities Text Query
+description: Text query clause used inside a TEXT composite entry.
+additionalProperties: false
+required:
+- fields
+- terms
+properties:
+  fields:
+    type: array
+    minItems: 1
+    items:
+      type: string
+    description: >-
+      Attribute keys to search. Base keys must match GET
+      /public-identities/v2/visible-attributes (defaultAttributes +
+      configuredAttributes). Optional "attributes." prefix and/or ".exact"
+      suffix (e.g. email, attributes.email, email.exact, attributes.email.exact).
+    example:
+    - name
+    - email
+  terms:
+    type: array
+    minItems: 1
+    items:
+      oneOf:
+      - type: string
+        minLength: 1
+      - type: boolean
+    description: Search terms. Each value must be a non-blank string or a JSON boolean.
+    example:
+    - Mara
+  matchAny:
+    type: boolean
+    default: false
+    description: >-
+      When true, terms/fields are OR'd within this text query. Optional for normal
+      search clauses. The mandatory ACTIVE identityState gate entry must set this
+      to false.
+    example: true
+  contains:
+    type: boolean
+    default: false
+    description: >-
+      When true, matches substrings. Optional for normal search clauses. The
+      mandatory ACTIVE identityState gate entry must set this to false.
+    example: true
+  strict:
+    type: boolean
+    default: false
+    description: >-
+      When true, applies strict matching. Optional for normal search clauses. The
+      mandatory ACTIVE identityState gate entry must set this to true.
+    example: true

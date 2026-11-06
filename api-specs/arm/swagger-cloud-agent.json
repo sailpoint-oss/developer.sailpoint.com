@@ -1,0 +1,1539 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "v1",
+    "title": "Cloud Agent API"
+  },
+  "tags":[{"name":"Extracts"},{"name":"System"},{"name":"TaskAuditTrails"},{"name":"Tasks"}],
+  "paths": {
+    "/api/Extracts/RunSecurityExtract": {
+      "post": {
+        "tags": [
+          "Extracts"
+        ],
+        "summary": "Schedules a security extract to run. Returns the task ID which references that extract.",
+        "operationId": "RunSecurityExtract",
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/RunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/RunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/RunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/RunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/RunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/RunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/RunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/RunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/RunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/RunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/RunSecurityExtractRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RunSecurityExtractRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/RunSecurityExtractRequest"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/RunSecurityExtractRequest"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RunSecurityExtractRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RunSecurityExtractRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RunSecurityExtractRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Extracts/ReRunSecurityExtract": {
+      "post": {
+        "tags": [
+          "Extracts"
+        ],
+        "summary": "Schedules a security extract for a repeated run. Returns the task ID which references that extract.",
+        "operationId": "ReRunSecurityExtract",
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ReRunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ReRunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/ReRunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ReRunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ReRunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/ReRunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ReRunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ReRunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/ReRunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ReRunSecurityExtractRequest"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ReRunSecurityExtractRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReRunSecurityExtractRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/ReRunSecurityExtractRequest"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/ReRunSecurityExtractRequest"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReRunSecurityExtractRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReRunSecurityExtractRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReRunSecurityExtractRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/System/ValidateConnectionInformation": {
+      "post": {
+        "tags": [
+          "System"
+        ],
+        "summary": "Validates connection information for ERP system.",
+        "operationId": "ValidateConnectionInformation",
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateConnectionInfoRequest"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateConnectionInfoRequest"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateConnectionInfoRequest"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateConnectionInfoRequest"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateConnectionInfoRequest"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateConnectionInfoRequest"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateConnectionInfoRequest"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateConnectionInfoRequest"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateConnectionInfoRequest"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateConnectionInfoRequest"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateConnectionInfoRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateConnectionInfoRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateConnectionInfoRequest"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateConnectionInfoRequest"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateConnectionInfoRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateConnectionInfoRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateConnectionInfoRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/TaskAuditTrails": {
+      "get": {
+        "tags": [
+          "TaskAuditTrails"
+        ],
+        "summary": "OData endpoint to get a collection of Task Audit Trail.",
+        "operationId": "Get",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TaskAuditTrails/{id}": {
+      "get": {
+        "tags": [
+          "TaskAuditTrails"
+        ],
+        "summary": "OData endpoint to get a Task Audit Trail by its ID.",
+        "operationId": "Get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the Task Audit Trail.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Tasks/completed": {
+      "post": {
+        "tags": [
+          "Tasks"
+        ],
+        "summary": "Creates an audit trail record which indicates a task has been \"Completed\". A FileOutput record is also created.",
+        "operationId": "SetTaskToCompleted",
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityExtractModel"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityExtractModel"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityExtractModel"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityExtractModel"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityExtractModel"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityExtractModel"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityExtractModel"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityExtractModel"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityExtractModel"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityExtractModel"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityExtractModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityExtractModel"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityExtractModel"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityExtractModel"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityExtractModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityExtractModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityExtractModel"
+              }
+            }
+          },
+          "description": "Represents the security extract model that contains the metadata used to set the status to completed."
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Tasks/{id}/Errored": {
+      "post": {
+        "tags": [
+          "Tasks"
+        ],
+        "summary": "Creates an audit trail record which indicates a task has errored.",
+        "operationId": "SetTaskToErrored",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 1,
+              "maximum": 2147483647
+            }
+          },
+          {
+            "name": "errorMessage",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Tasks/{referenceId}": {
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "summary": "Returns current status of the task.",
+        "operationId": "GetTaskStatus",
+        "parameters": [
+          {
+            "name": "referenceId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/Tasks/{referenceId}/OutputFile": {
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "summary": "Returns output file for the specified task.",
+        "operationId": "GetOutputFile",
+        "parameters": [
+          {
+            "name": "referenceId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/Tasks/{systemId}/OutputFiles": {
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "summary": "Returns output files for the specified system of specified type.",
+        "operationId": "GetOutputFiles",
+        "parameters": [
+          {
+            "name": "systemId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 1,
+              "maximum": 2147483647
+            }
+          },
+          {
+            "name": "taskType",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "afterDate",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RunSecurityExtractRequest": {
+        "required": [
+          "systemId",
+          "createdBy"
+        ],
+        "type": "object",
+        "properties": {
+          "systemId": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "referenceId": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string"
+          },
+          "callbackUrl": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string"
+          },
+          "createdBy": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "jobRequestId": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "customerId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "rulebookId": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "useLiveExtract": {
+            "type": "boolean"
+          },
+          "taskId": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "serializedConnectionInfo": {
+            "type": "string"
+          },
+          "resultFilePath": {
+            "type": "string"
+          }
+        }
+      },
+      "ReRunSecurityExtractRequest": {
+        "type": "object",
+        "properties": {
+          "referenceId": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string"
+          }
+        }
+      },
+      "ValidateConnectionInfoRequest": {
+        "type": "object",
+        "properties": {
+          "systemType": {
+            "enum": [
+              "Undefined",
+              "Sap",
+              "SuccessFactors",
+              "Ariba",
+              "Concur",
+              "UConnect"
+            ],
+            "type": "string"
+          },
+          "encryptedConnectionInfo": {
+            "type": "string"
+          }
+        }
+      },
+      "SecurityExtractModel": {
+        "type": "object",
+        "properties": {
+          "createdBy": {
+            "type": "string"
+          },
+          "customerId": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "jobRequestId": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "pathToExtractDb": {
+            "type": "string"
+          },
+          "referenceId": {
+            "type": "string"
+          },
+          "rulebookId": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "systemId": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "useLiveExtract": {
+            "type": "boolean"
+          },
+          "taskId": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}

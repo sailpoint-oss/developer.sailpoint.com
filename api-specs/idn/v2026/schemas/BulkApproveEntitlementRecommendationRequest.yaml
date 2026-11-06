@@ -1,0 +1,18 @@
+description: Request body for bulk-approving a set of entitlement recommendations.
+type: object
+title: Bulk Approve Entitlement Recommendation Request
+required:
+  - items
+properties:
+  items:
+    description: The list of recommendation items to approve.
+    type: array
+    items:
+      $ref: ./BulkApproveEntitlementRecommendationItem.yaml
+    example:
+      - id: "79db50d4-723c-4aa0-a824-83c2205d82d1"
+        recordType: SED
+        description: "Provides access and permissions related to the Delinea Secret Server Cloud system."
+      - id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+        recordType: privilege
+        privilegeLevel: high

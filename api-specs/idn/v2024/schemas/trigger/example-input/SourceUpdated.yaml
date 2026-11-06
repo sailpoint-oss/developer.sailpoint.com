@@ -1,0 +1,52 @@
+title: Source Updated
+type: object
+required:
+- id
+- name
+- type
+- modified
+- connector
+- actor
+properties:
+  id:
+    type: string
+    description: The unique ID of the source.
+    example: 2c9180866166b5b0016167c32ef31a66
+  name:
+    type: string
+    description: The user friendly name of the source.
+    example: Corporate Active Directory
+  type:
+    type: string
+    description: The connection type of the source.
+    example: DIRECT_CONNECT
+  modified:
+    type: string
+    format: date-time
+    description: The date and time the source was modified.
+    example: '2021-03-29T22:01:50.474Z'
+  connector:
+    type: string
+    description: The connector type used to connect to the source.
+    example: active-directory
+  actor:
+    required:
+    - type
+    - name
+    type: object
+    description: Identity who updated the source. 
+    properties:
+      type:
+        type: string 
+        description: DTO type of identity who updated the source. 
+        enum: 
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: ID of identity who updated the source. 
+        example: 2c7180a46faadee4016fb4e018c20648
+      name:
+        type: string
+        description: Display name of identity who updated the source. 
+        example: William Wilson

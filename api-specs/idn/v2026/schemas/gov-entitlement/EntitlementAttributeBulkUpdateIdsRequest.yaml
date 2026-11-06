@@ -1,0 +1,25 @@
+type: object
+properties:
+  entitlements:
+    type: array
+    items:
+      type: string
+    description: List of entitlement IDs to update.
+    example: [ "2c9180867817ac4d017817c491119a20", "2c9180867817ac4d017817c491119a21" ]
+  operation:
+    type: string
+    description: Operation to perform on the attributes in the bulk update request.
+    enum:
+      - ADD
+      - REMOVE
+      - REPLACE
+    example: add
+  replaceScope:
+    type: string
+    description: The choice of update scope.
+    enum:
+      - ALL
+      - ATTRIBUTE
+    example: attribute
+  values:
+    $ref: BulkUpdateAMMKeyValue.yaml

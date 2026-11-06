@@ -1,0 +1,11 @@
+type: object
+title: Machine Account Delete Request
+description: Details for a request to delete a machine account.
+properties:
+  comments:
+    type: string
+    nullable: true
+    description: >-
+      Comments about the deletion request. Depending on the tenant's account deletion approval settings, comments
+      can be required.
+    example: This machine account is no longer used.

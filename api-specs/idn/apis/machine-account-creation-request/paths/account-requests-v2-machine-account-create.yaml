@@ -1,0 +1,80 @@
+post:
+  operationId: createMachineAccountRequestV2
+  tags:
+  - Machine Account Creation Request
+  summary: Submit Machine Account Creation Request
+  security:
+  - userAuth: []
+  x-sailpoint-userLevels:
+  - USER
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  description: >
+    Submits a machine account creation request on the account-requests API.
+
+    This operation accepts the same request and runs the same creation process as
+    [Create Machine Account](https://developer.sailpoint.com/docs/api/create-machine-account-v-2).
+    Use this operation when the integration already calls the account-requests APIs.
+    New integrations should call
+    [Create Machine Account](https://developer.sailpoint.com/docs/api/create-machine-account-v-2).
+
+
+    This method validates the input data, processes the machine account creation request,
+    and returns an asynchronous result containing a tracking ID.
+
+
+    Compared with v1, this version:
+
+    - Accepts a `sourceId` so you can choose the source to create the account on. When subtypes can be configured per
+    source for the tenant, `sourceId` is required and the subtype must be available on that source.
+
+    - Accepts `entitlements`, which lets you add a comment, start date, and remove date to each requested entitlement.
+
+    - Supports subtypes that are not tied to a single source. Version 1 rejects those subtypes.
+
+
+    There is no v2 status endpoint. Use the returned `accountRequestId` with
+    [Get Machine Account Creation Request](https://developer.sailpoint.com/docs/api/get-create-machine-account-request-v-1)
+    to track the request.
+
+
+    This API returns `403` when machine identity creation is not included in the tenant's plan.
+    When machine account creation is not enabled for the tenant, this API returns `404`.
+
+
+    >**NOTE: You can only request a machine account on a subtype for which you have a create machine account
+    entitlement provisioned. Otherwise, this API returns `403`.**
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/machineaccountcreaterequestinputv2.yaml
+  responses:
+    '202':
+      description: Machine account creation request result.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/accountrequestasyncresult.yaml
+          example:
+            accountRequestId: 2d81808474683da6017468693c260196
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

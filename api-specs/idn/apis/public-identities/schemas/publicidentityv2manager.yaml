@@ -1,0 +1,23 @@
+type: object
+title: Public Identity V2 Manager
+description: Manager reference for a public identity search result
+required:
+- id
+- name
+- displayName
+properties:
+  id:
+    nullable: true
+    type: string
+    description: Manager identity id
+    example: '2c9180a46faadee4016fb4e018c20639'
+  name:
+    nullable: true
+    type: string
+    description: Manager alias / technical name
+    example: 'thomas.edison'
+  displayName:
+    nullable: true
+    type: string
+    description: Manager display name. Null when absent from the search hit.
+    example: 'Thomas Edison'

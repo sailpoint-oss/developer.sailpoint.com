@@ -1,0 +1,12 @@
+type: string
+description: JIT activation workflow status.
+enum:
+  - CREATING
+  - ACTIVATING
+  - INVALID
+  - ERROR
+  - PROVISIONED
+  - DEPROVISIONING
+  - COMPLETED
+  - REVOKED
+example: PROVISIONED

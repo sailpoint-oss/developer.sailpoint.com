@@ -1,0 +1,10 @@
+type: string
+enum:
+  - PENDING
+  - FINISHED
+  - UNVERIFIABLE
+  - COMMITED
+  - FAILED
+  - RETRY
+description: Provisioning state of an account activity item
+example: PENDING

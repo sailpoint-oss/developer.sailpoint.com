@@ -1,0 +1,20 @@
+# ApprovalReference
+
+# ApprovalReference
+
+Import this model from the entry point of its package:
+
+```typescript
+import { ApprovalReference } from '@sailpoint/angular-sdk/approvals';
+```
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **(optional)** `string` | Id of the reference object | [default to undefined]
+**type** | **(optional)** `string` | What reference object does this ID correspond to | [default to undefined]
+**name** | **(optional)** `string` | Name of the reference object | [default to undefined]
+**email** | **(optional)** `string` | Email associated with the reference object | [default to undefined]
+**serialOrder** | **(optional)** `number` | The serial step of the identity in the approval. For example serialOrder 1 is the first identity to action in an approval request chain. Parallel approvals are set to 0. | [default to undefined]
+

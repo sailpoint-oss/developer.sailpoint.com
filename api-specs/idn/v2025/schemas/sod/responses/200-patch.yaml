@@ -1,0 +1,8 @@
+description: Indicates the PATCH operation succeeded, and returns the SOD exception's new representation.
+content:
+  application/json:
+    schema:
+      $ref: '../models/Exception.yaml'
+    examples:
+      SOD Exception:
+        $ref: '../examples/exception-response.yaml'

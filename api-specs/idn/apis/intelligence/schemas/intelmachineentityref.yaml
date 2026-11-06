@@ -1,0 +1,23 @@
+type: object
+description: Typed id and name reference for owners, machine identities, and authorized humans.
+required:
+  - type
+  - id
+  - name
+properties:
+  type:
+    type: string
+    description: Reference type label from upstream (for example IDENTITY or MACHINE_IDENTITY).
+    example: IDENTITY
+  id:
+    type: string
+    description: Referenced object identifier.
+    example: ef38f94347e94562b5bb8424a56397d8
+  name:
+    type: string
+    description: Display name for the referenced identity or entity.
+    example: Example User
+  email:
+    type: string
+    description: Email for authorized human holders when available upstream.
+    example: user@example.com

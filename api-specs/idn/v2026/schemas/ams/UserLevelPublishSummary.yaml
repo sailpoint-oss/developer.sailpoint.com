@@ -1,0 +1,21 @@
+type: object
+description: It represents a summary of a user level publish operation, including its metadata and status.
+properties:
+  userLevelId:
+    type: string
+    description: The unique identifier of the UserLevel.
+    example: 6e110911-5984-491b-be74-2707980a46a7
+  publish:
+    type: boolean
+    description: Indicates whether the API call triggered a publish operation.
+    default: false
+    example: true
+  status:
+    type: string
+    description: The status of the UserLevel publish operation.
+    example: ACTIVE
+  modified:
+    type: string
+    format: date-time
+    description: The last modification timestamp of the UserLevel.
+    example: '2023-01-02T12:00:00Z'

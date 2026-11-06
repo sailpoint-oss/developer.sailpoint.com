@@ -1,0 +1,76 @@
+openapi: 3.0.1
+info:
+  title: SailPoint Identity Security API - Machine Accounts
+  description: >-
+    Use these APIs to interact with the SailPoint Identity Security platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Machine Accounts
+paths:
+  /machine-accounts/v1:
+    $ref: ./paths/machine-accounts-v1.yaml
+  /machine-accounts/v1/{id}:
+    $ref: ./paths/machine-accounts-v1-by-id.yaml
+  /machine-accounts/v1/{id}/enable:
+    $ref: ./paths/machine-accounts-v1-by-id-enable.yaml
+  /machine-accounts/v1/{id}/disable:
+    $ref: ./paths/machine-accounts-v1-by-id-disable.yaml
+  /machine-accounts/v1/{id}/reload:
+    $ref: ./paths/machine-accounts-v1-by-id-reload.yaml
+  /machine-accounts/v1/{id}/remove:
+    $ref: ./paths/machine-accounts-v1-by-id-remove.yaml
+  /machine-accounts/v1/{id}/unlock:
+    $ref: ./paths/machine-accounts-v1-by-id-unlock.yaml
+  /machine-accounts/v1/{id}/delete:
+    $ref: ./paths/machine-accounts-v1-by-id-delete.yaml
+  /machine-accounts/v1/{id}/entitlements:
+    $ref: ./paths/machine-accounts-v1-by-id-entitlements.yaml
+  /machine-accounts/v1/{id}/machine-identities:
+    $ref: ./paths/machine-accounts-v1-by-id-machine-identities.yaml
+  /machine-accounts/v1/machine-accounts-summary:
+    $ref: ./paths/machine-accounts-v1-machine-accounts-summary.yaml
+  /machine-accounts/v1/bulk-update:
+    $ref: ./paths/machine-accounts-v1-bulk-update.yaml
+  /machine-accounts/v1/bulk-enable:
+    $ref: ./paths/machine-accounts-v1-bulk-enable.yaml
+  /machine-accounts/v1/bulk-disable:
+    $ref: ./paths/machine-accounts-v1-bulk-disable.yaml
+  /machine-accounts/v1/bulk-reload:
+    $ref: ./paths/machine-accounts-v1-bulk-reload.yaml
+  /machine-accounts/v1/bulk-reload-async:
+    $ref: ./paths/machine-accounts-v1-bulk-reload-async.yaml
+  /machine-accounts/v2:
+    $ref: ./paths/machine-accounts-v2.yaml
+  /machine-accounts/v2/{id}:
+    $ref: ./paths/machine-accounts-v2-by-id.yaml
+  /sources/v1/{sourceId}/subtypes:
+    $ref: ./paths/sources-v1-by-sourceid-subtypes.yaml
+  /sources/v1/{sourceId}/subtypes/{technicalName}:
+    $ref: ./paths/sources-v1-by-sourceid-subtypes-by-technicalname.yaml
+  /sources/v1/subtypes/{subtypeId}:
+    $ref: ./paths/sources-v1-subtypes-by-subtypeid.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

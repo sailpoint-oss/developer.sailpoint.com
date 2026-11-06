@@ -1,0 +1,18 @@
+type: object
+title: Convert Entitlement Connection Request
+required:
+  - connectionId
+  - targetType
+properties:
+  connectionId:
+    type: string
+    format: uuid
+    description: The ID of the entitlement connection to convert.
+    example: 757fb803-9024-5861-e510-83a56e4c5bd3
+  targetType:
+    type: string
+    enum:
+      - JIT
+      - STANDING
+    description: The assignment type to convert the entitlement connection to.
+    example: JIT

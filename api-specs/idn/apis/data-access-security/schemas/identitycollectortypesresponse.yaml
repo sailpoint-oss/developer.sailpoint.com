@@ -1,0 +1,12 @@
+type: object
+description: Public identity collector types available for discovery and create flows.
+properties:
+  types:
+    type: array
+    description: >-
+      Enabled public identity collector types. Flagged types (Snowflake, Databricks, Atlassian Suite)
+      are omitted when their feature flags are disabled.
+    items:
+      $ref: './identitycollectortype.yaml'
+required:
+- types

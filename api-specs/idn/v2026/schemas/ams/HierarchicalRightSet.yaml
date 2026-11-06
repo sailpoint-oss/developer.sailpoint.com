@@ -1,0 +1,52 @@
+type: object
+description: A HierarchicalRightSet
+properties:
+  id:
+    type: string
+    description: The unique identifier of the RightSet.
+    example: idn:ui-right-set-example
+  name:
+    type: string
+    description: The human-readable name of the RightSet.
+    example: Hierarchical Right Set Name
+  description:
+    type: string
+    description: A human-readable description of the RightSet.
+    example: This is a description of the HierarchicalRightSet.
+    nullable: true
+  category:
+    type: string
+    description: The category of the RightSet.
+    example: identity
+  nestedConfig:
+    $ref: './NestedConfig.yaml'
+    description: Nested configuration for the HierarchicalRightSet.
+    example:
+      {
+        "ancestorId": "idn:ui-identity-management-example",
+        "depth": 0,
+        "parentId": null,
+        "childrenIds": [
+          "idn:ui-identity-details-example",
+          "idn:ui-identity-access-example"
+        ]
+      }
+  children:
+    type: array
+    items:
+      $ref: './HierarchicalRightSet.yaml'
+    description: List of child HierarchicalRightSets.
+    example:
+      {
+        "id": "idn:ui-identity-details-example",
+        "name": "Identity Details",
+        "description": "Read only access for identity details.",
+        "category": "identity",
+        "nestedConfig": {
+          "ancestorId": "idn:ui-identity-management-example",
+          "depth": 1,
+          "parentId": "idn:ui-identity-management-example",
+          "childrenIds": [ ]
+        },
+        "children": [ ]
+      }

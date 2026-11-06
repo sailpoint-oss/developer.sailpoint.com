@@ -1,0 +1,54 @@
+description: >- 
+  More complete representation of an access profile.  
+allOf:
+- $ref: '../BaseAccess.yaml'
+- type: object
+  required: ["id", "name"]
+  properties:
+    id: 
+      type: string
+      description: Access profile's ID. 
+      example: 2c9180825a6c1adc015a71c9023f0818
+    name: 
+      type: string
+      description: Access profile's name. 
+      example: Cloud Eng
+    source:
+      type: object
+      description: Access profile's source. 
+      properties: 
+        id: 
+          type: string
+          description: Source's ID. 
+          example: ff8081815757d4fb0157588f3d9d008f
+        name: 
+          type: string
+          description: Source's name. 
+          example: Employees
+    entitlements:
+      type: array
+      description: Entitlements the access profile has access to. 
+      items:
+        $ref: '../../entitlement/BaseEntitlement.yaml'
+    entitlementCount:
+      type: integer
+      description: Number of entitlements. 
+      example: 5
+    segments:
+      type: array
+      description: Segments with the access profile. 
+      items:
+        $ref: '../../base/BaseSegment.yaml'
+    segmentCount:
+      type: integer
+      description: Number of segments with the access profile.
+      format: int32
+      example: 1
+    tags:
+      $ref: '../../base/Tags.yaml'
+    apps:
+      type: array
+      description: Applications with the access profile
+      items:
+        $ref: '../AccessApps.yaml'
+

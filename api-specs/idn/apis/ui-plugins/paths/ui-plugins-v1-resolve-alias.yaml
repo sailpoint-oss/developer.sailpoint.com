@@ -1,0 +1,67 @@
+get:
+  operationId: getUiPluginByAliasV1
+  x-sailpoint-lint-ignore:
+    path-response-codes-must-be-standard: The service returns 409 when the alias matches more than one plugin instance.
+  tags:
+    - UI Plugins
+  summary: Get plugin by alias
+  description: >-
+    Resolves a tenant-scoped alias to its `UiPlugin`. Returns 404 if no match;
+    409 if the alias is ambiguous (more than one match; should not occur after
+    uniqueness enforcement).
+
+
+    Requires product license `idn:ui-plugins` or `idn:ui-plugins-author`
+    (404 if neither is present). Returns 400 `User context is invalid` when
+    the caller has no tenant id. The alias is resolved only within that
+    tenant; no match is 404.
+  security:
+    - userAuth:
+        - idn:plugins-ui:read
+    - applicationAuth:
+        - idn:plugins-ui:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - name: alias
+      in: query
+      required: true
+      description: Alias to resolve within the caller's tenant
+      example: my-custom-plugin
+      schema:
+        type: string
+        minLength: 3
+        maxLength: 63
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+  responses:
+    '200':
+      description: Resolved plugin instance
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/uiplugin.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '409':
+      description: Alias resolves to more than one plugin instance
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

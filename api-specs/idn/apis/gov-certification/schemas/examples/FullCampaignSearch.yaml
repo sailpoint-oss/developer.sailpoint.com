@@ -1,0 +1,27 @@
+value:
+  id: 7e1a731e-3fb8-45cf-be58-112ba4673ee4
+  name: Search Campaign
+  description: A review of access returned by a search.
+  deadline: '2020-12-25'
+  deadlineTimezone: -06:00
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  autoActivate: false
+  recommendationsEnabled: false
+  sunsetCommentsRequired: true
+  type: IDENTITY
+  status: ACTIVE
+  reviewer:
+    type: MANAGER
+  searchBasedParams:
+    searchType: ACCESS
+    query: user
+  filterRef:
+    id: 0c46fb26-c6b2-4967-a555-17ee90d15b93
+    name: Test Manager Filter
+  mandatoryCommentRequirement: NO_DECISIONS
+  ownerId: 4030ca72bdfb4980b51b8fcee948be50
+  created: '2022-07-25T15:42:18.276Z'
+  modified: '2022-07-25T15:42:18.276Z'
+  totalCertifications: 5
+  completedCertifications: 3

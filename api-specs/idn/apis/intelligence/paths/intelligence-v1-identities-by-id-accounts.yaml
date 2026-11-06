@@ -1,0 +1,126 @@
+get:
+  operationId: getIntelIdentityAccountsV1
+  security:
+  - userAuth:
+    - sp:identity-sec-intel:read
+  - applicationAuth:
+    - sp:identity-sec-intel:read
+  x-required-right: sp:identity-sec-intel:read
+  x-sailpoint-userLevels:
+  - Any
+  tags:
+  - Intelligence
+  summary: List identity accounts
+  description: |
+    Continuation endpoint for `accounts.next`. Pass `count=true` for `X-Total-Count`.
+
+    - Human (default): omit `isNHI` or set it to `false`. Slice object (`items`).
+    - Non-human identity (NHI): set `isNHI=true` (required for NHI aggregate `accounts.next` links). Bare JSON array.
+  parameters:
+  - $ref: ../parameters/intelligence-identity-id-path.yaml
+  - name: limit
+    in: query
+    required: false
+    description: Page size. Defaults to 250; values above 250 are rejected with 400.
+    schema:
+      type: integer
+      format: int32
+      minimum: 1
+      maximum: 250
+      default: 250
+    example: 250
+  - name: offset
+    in: query
+    required: false
+    description: Zero-based page offset. Defaults to 0.
+    schema:
+      type: integer
+      format: int32
+      minimum: 0
+      default: 0
+    example: 0
+  - $ref: ../../shared/parameters/count.yaml
+  - $ref: ../parameters/intelligence-is-nhi.yaml
+  responses:
+    '200':
+      description: Human path returns an accounts slice object. NHI path (`isNHI=true`) returns a bare array.
+      headers:
+        X-Total-Count:
+          description: Total number of accounts for this identity; present only when `count=true` was sent (including `0` on empty pages).
+          schema:
+            type: integer
+            minimum: 0
+      content:
+        application/json:
+          schema:
+            oneOf:
+            - $ref: ../schemas/intelaccountsslice.yaml
+            - type: array
+              description: NHI machine account page when `isNHI=true`.
+              items:
+                $ref: ../schemas/intelmachineaccountwire.yaml
+          examples:
+            Human accounts:
+              summary: Default path. `isNHI` omitted or `false`.
+              value:
+                items:
+                - id: 2c91808874ff91550175097daaec161c
+                  name: example.user
+                  source:
+                    id: 60de165099e649cb828553a5e8510fc4
+                    name: Example Directory
+                  disabled: false
+                  locked: false
+                  authoritative: false
+                  systemAccount: false
+                  isMachine: false
+                  manuallyCorrelated: false
+                  nativeIdentity: CN=example.user,OU=users
+                  created: '2026-01-01T00:00:00Z'
+                  modified: '2026-05-01T00:00:00Z'
+                totalCount: 2
+            NHI accounts:
+              summary: '`isNHI=true`.'
+              value:
+              - id: 8a38d5adb13d48fdadbc9d85d1509aa0
+                name: account-name
+                nativeIdentity: arn:aws:bedrock:us-east-1:336721:agent/ABCDEFGHI/MNO
+                source:
+                  id: 310a15aa1cf34939a8730cc16b6473da
+                  name: Example Source
+                  type: SOURCE
+                enabled: true
+                locked: false
+                machineIdentity:
+                  type: MACHINE_IDENTITY
+                  id: 2c91808874ff91550175097daaec161e
+                  name: Example AI Agent
+                classificationMethod: MANUAL
+                manuallyEdited: true
+                manuallyCorrelated: false
+                hasEntitlements: true
+                created: '2026-07-23T09:21:47.622754Z'
+                modified: '2026-07-23T11:14:31.531508Z'
+                connectorAttributes: {}
+    '400':
+      description: Invalid path or query parameters.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      description: Unauthorized access
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      description: Internal or upstream server failure.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml

@@ -1,0 +1,69 @@
+get:
+  operationId: getCampaignReportsConfigV1
+  tags:
+  - Certification Campaigns
+  summary: Get campaign reports configuration
+  description: >
+    Use this API to fetch the configuration for certification campaign reports. The configuration includes only one
+    element - identity attributes defined as custom report columns. 
+  security:
+  - userAuth:
+    - idn:campaign:read
+    - idn:campaign:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - CERT_ADMIN
+  responses:
+    '200':
+      description: Campaign report configuration.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/campaignreportsconfig.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+put:
+  operationId: setCampaignReportsConfigV1
+  tags:
+  - Certification Campaigns
+  summary: Set campaign reports configuration
+  description: |
+    Use this API to overwrite the configuration for campaign reports. 
+  security:
+  - userAuth:
+    - idn:campaign:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - CERT_ADMIN
+  requestBody:
+    required: true
+    description: Campaign report configuration.
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/campaignreportsconfig.yaml
+  responses:
+    '200':
+      description: The persisted campaign report configuration.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/campaignreportsconfig.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

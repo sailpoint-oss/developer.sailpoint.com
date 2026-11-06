@@ -1,0 +1,53 @@
+type: object
+title: Create Source Subtype V2 Request
+description: Request body for creating a machine account subtype at the source tier or the connector tier.
+required:
+- targetId
+- technicalName
+- displayName
+- description
+properties:
+  targetType:
+    type: string
+    enum:
+    - SOURCE
+    - CONNECTOR
+    default: SOURCE
+    description: Tier to create the subtype at. Defaults to `SOURCE`.
+    example: CONNECTOR
+  targetId:
+    type: string
+    description: >-
+      Scope key of the subtype. The source ID for a `SOURCE` subtype, or a registered connector type for a
+      `CONNECTOR` subtype.
+    example: active-directory
+  targetName:
+    type: string
+    description: >-
+      Display name of the target. For a `CONNECTOR` subtype, a supplied value must match the connector's registered
+      name and is replaced by the registered spelling. When omitted, the registered name is used.
+    example: Active Directory
+  technicalName:
+    type: string
+    description: Technical name of the subtype.
+    example: service-account
+  displayName:
+    type: string
+    description: Display name of the subtype.
+    example: Service Account
+  description:
+    type: string
+    description: Description of the subtype.
+    example: Accounts used by automated services.
+  type:
+    type: string
+    default: MACHINE
+    description: Entity type of the subtype. Defaults to `MACHINE`.
+    example: MACHINE
+  classification:
+    type: string
+    enum:
+    - MACHINE
+    default: MACHINE
+    description: Classification of the subtype. Defaults to `MACHINE`.
+    example: MACHINE

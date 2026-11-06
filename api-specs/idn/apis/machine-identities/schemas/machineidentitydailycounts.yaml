@@ -1,0 +1,19 @@
+type: object
+title: Machine Identity Daily Counts
+description: Daily counts of non-human entities for the tenant over a window of days.
+properties:
+  from:
+    type: string
+    format: date
+    description: First day (UTC) of the window, inclusive.
+    example: '2026-05-27'
+  to:
+    type: string
+    format: date
+    description: Last day (UTC) of the window, inclusive. This is always the day before the current UTC date.
+    example: '2026-06-25'
+  days:
+    type: array
+    description: One entry for each calendar day in the window, in ascending order.
+    items:
+      $ref: ./machineidentitydailycountsday.yaml

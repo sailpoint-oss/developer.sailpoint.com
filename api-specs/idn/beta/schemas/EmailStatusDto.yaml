@@ -1,0 +1,30 @@
+type: object
+title: Email Status Dto
+properties:
+  id:
+    type: string
+    nullable: true
+    description: Unique identifier for the verified sender address
+  email:
+    type: string
+    example: "sender@example.com"
+    description: The verified sender email address
+  isVerifiedByDomain:
+    type: boolean
+    default: false
+    example: false
+    description: Whether the sender address is verified by domain
+  verificationStatus:
+    type: string
+    enum:
+      - PENDING
+      - SUCCESS
+      - FAILED
+      - NA
+    example: SUCCESS
+    description: The verification status of the sender address
+  region:
+    type: string
+    nullable: true
+    example: us-east-1
+    description: The AWS SES region the sender address is associated with

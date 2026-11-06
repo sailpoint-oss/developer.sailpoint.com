@@ -1,0 +1,171 @@
+title: Machine Account Linked Machine Identity
+type: object
+description: A machine identity that is linked to a machine account.
+allOf:
+- $ref: ../../shared/schemas/basecommondto.yaml
+- type: object
+  properties:
+    description:
+      type: string
+      nullable: true
+      description: The description of the machine identity.
+      example: Service identity for nightly batch jobs
+    attributes:
+      type: object
+      nullable: true
+      additionalProperties: true
+      description: The attributes of the machine identity, including the attributes read from the source.
+      example:
+        Region: EU
+    manuallyEdited:
+      type: boolean
+      default: false
+      description: Indicates whether the machine identity has been manually edited.
+      example: false
+    manuallyCreated:
+      type: boolean
+      default: false
+      description: Indicates whether the machine identity was created manually rather than by aggregation.
+      example: false
+    owners:
+      type: object
+      nullable: true
+      description: The owners of the machine identity.
+      properties:
+        primaryIdentity:
+          description: The identity selected as the primary owner.
+          allOf:
+          - $ref: ../../shared/schemas/basereferencedto.yaml
+          example:
+            id: 2c918084660f45d6016617daa9210584
+            type: IDENTITY
+            name: Adam Kennedy
+        secondaryIdentities:
+          type: array
+          description: The identities selected as secondary owners.
+          items:
+            $ref: ../../shared/schemas/basereferencedto.yaml
+          example:
+          - id: 2c9180858082150f0180893dbaf44202
+            type: IDENTITY
+            name: Jane Doe
+    subtype:
+      type: string
+      nullable: true
+      description: The subtype of the machine identity.
+      example: Application
+    sourceId:
+      type: string
+      nullable: true
+      description: ID of the source the machine identity comes from.
+      example: 8d3e0094e99445de98eef6c75e25jc04
+    uuid:
+      type: string
+      nullable: true
+      description: The UUID of the machine identity, as read from the source.
+      example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
+    nativeIdentity:
+      type: string
+      nullable: true
+      description: The native identity of the machine identity, as read from the source.
+      example: abc:123:dddd
+    datasetId:
+      type: string
+      nullable: true
+      description: ID of the dataset the machine identity was aggregated from.
+      example: aws-iam-roles
+    source:
+      description: The source the machine identity comes from.
+      nullable: true
+      allOf:
+      - $ref: ../../shared/schemas/basereferencedto.yaml
+      example:
+        id: 8d3e0094e99445de98eef6c75e25jc04
+        type: SOURCE
+        name: Active Directory
+    userEntitlements:
+      type: array
+      nullable: true
+      description: The user entitlements associated with the machine identity.
+      items:
+        type: object
+        properties:
+          sourceId:
+            type: string
+            description: ID of the source the entitlement belongs to.
+            example: 8d3e0094e99445de98eef6c75e25jc04
+          entitlementId:
+            type: string
+            description: ID of the entitlement.
+            example: 2c9180835d2e5168015d32f890ca1581
+          displayName:
+            type: string
+            description: The display name of the entitlement.
+            example: Administrators
+          source:
+            description: The source the entitlement belongs to.
+            allOf:
+            - $ref: ../../shared/schemas/basereferencedto.yaml
+            example:
+              id: 8d3e0094e99445de98eef6c75e25jc04
+              type: SOURCE
+              name: Active Directory
+    existsOnSource:
+      type: string
+      nullable: true
+      description: Indicates whether the machine identity still exists on the source.
+      enum:
+      - 'TRUE'
+      - 'FALSE'
+      - NOT_APPLICABLE
+      example: NOT_APPLICABLE
+    businessApplicationRefs:
+      type: array
+      description: >-
+        The business applications linked to the machine identity. This field is omitted when business application
+        links are not available for the machine identity.
+      items:
+        type: object
+        properties:
+          type:
+            type: string
+            description: The reference type.
+            enum:
+            - BUSINESS_APPLICATION
+            example: BUSINESS_APPLICATION
+          id:
+            type: string
+            description: ID of the business application.
+            example: 2ee5e239-e68c-4d69-93fb-6c7ce4576190
+          name:
+            type: string
+            nullable: true
+            description: The display name of the business application.
+            example: Cursor
+          sanctionedStatus:
+            type: string
+            nullable: true
+            description: The sanctioned status of the business application.
+            enum:
+            - SANCTIONED
+            - UNSANCTIONED
+            - UNKNOWN
+            example: SANCTIONED
+          correlationType:
+            type: string
+            nullable: true
+            description: How the business application was linked to the machine identity.
+            enum:
+            - MANUAL
+            - AUTOMATIC
+            example: MANUAL
+    effectiveSanctionedStatus:
+      type: string
+      description: >-
+        The sanctioned status derived from the linked business applications. This field is present only when
+        `businessApplicationRefs` is present.
+      enum:
+      - SANCTIONED
+      - UNSANCTIONED
+      - UNKNOWN
+      example: SANCTIONED

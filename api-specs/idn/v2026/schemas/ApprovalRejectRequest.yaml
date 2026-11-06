@@ -1,0 +1,12 @@
+type: object
+properties:
+  comment:
+    type: string
+    description: Comment associated with the reject request.
+    example: "string"
+  overrideApproverID:
+    type: string
+    description: Optional field for ServiceNow Administrators to specify which member of a governance group to override/reject on behalf of.
+    example: "12345678901234567890123456789012"
+description: >-
+  Request body for rejecting an approval request.

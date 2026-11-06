@@ -1,0 +1,47 @@
+type: object
+title: UI Plugin Slot
+required:
+  - slotId
+  - name
+  - description
+  - state
+  - inputSchema
+  - slotType
+  - maxPlugins
+properties:
+  slotId:
+    type: string
+    description: Identifier of the UI extension point
+    example: full-page
+  name:
+    description: >-
+      Localized display name. Single translated string by default; locale map
+      when `allLangs=true`.
+    oneOf:
+      - type: string
+      - $ref: ./localizedstringmap.yaml
+  description:
+    description: >-
+      Localized description. Single translated string by default; locale map when
+      `allLangs=true`.
+    oneOf:
+      - type: string
+      - $ref: ./localizedstringmap.yaml
+  state:
+    $ref: ./slotstate.yaml
+  inputSchema:
+    type: object
+    additionalProperties: true
+    description: JSON Schema for data the App Shell provides to plugins in this slot
+    example:
+      type: object
+      properties:
+        identityId:
+          type: string
+  slotType:
+    $ref: ./slottype.yaml
+  maxPlugins:
+    type: integer
+    format: int32
+    description: Max concurrent plugins in this slot; `-1` means unlimited
+    example: -1

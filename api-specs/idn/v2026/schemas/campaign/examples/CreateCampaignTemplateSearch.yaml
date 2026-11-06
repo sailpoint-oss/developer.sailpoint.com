@@ -1,0 +1,22 @@
+description: >-
+  This creates a template that can be used to generate search access campaigns. The campaigns
+  will cover the "reporter" access item for across all identities.
+value:
+  name: Reporting Access Review
+  description: A review of everyone's access to the reporting system.
+  deadlineDuration: P2W
+  campaign:
+    name: Search Review
+    description: Review everyone's access to the reporting system.
+    type: SEARCH
+    filter:
+      type: CAMPAIGN_FILTER
+      id: e0adaae69852e8fe8b8a3d48e5ce757c
+    searchCampaignInfo:
+      type: ACCESS
+      query: "@access(name: (\"reporter\"))"
+      description: Identities with reporting abilities
+    emailNotificationEnabled: true
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    mandatoryCommentRequirement: NO_DECISIONS

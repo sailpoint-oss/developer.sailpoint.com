@@ -1,0 +1,55 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+    description: The unique identifier of the application.
+    example: 12345
+  name:
+    type: string
+    nullable: true
+    description: The display name of the application.
+    example: "HR File Server"
+  description:
+    type: string
+    nullable: true
+    description: A brief description of the application and its purpose.
+    example: "Stores HR documents and employee records."
+  type:
+    type: string
+    nullable: true
+    description: The type of the application.
+    example: "OneDriveForBusiness"
+  tags:
+    type: array
+    items:
+      $ref: './Tag.yaml'
+    nullable: true
+    description: A list of tags associated with the application.
+    example: [{ "id": 101, "name": "Confidential" }]
+  testConnectionStatus:
+    type: string
+    nullable: true
+    description: The status of the last connection test performed on the application.
+    example: "Success"
+  testConnectionDate:
+    type: integer
+    format: int64
+    nullable: true
+    description: The timestamp of the last connection test performed on the application, in milliseconds since epoch.
+    example: 1700000000000
+  rcClusterId:
+    type: string
+    nullable: true
+    description: The identifier of the cluster used for crawling resources.
+    example: "459B5ABB-47BE-4069-8DB1-D6A8BE3F4D47"
+  dcClusterId:
+    type: string
+    nullable: true
+    description: The identifier of the cluster used for data classification.
+    example: "B28B4B37-9E47-426B-BAFD-A1FF048B4DAC"
+  pcClusterId:
+    type: string
+    nullable: true
+    description: The identifier of the cluster used for permission collection.
+    example: "E1304AA9-D8FA-4574-A5CD-B59A6D8CB918"

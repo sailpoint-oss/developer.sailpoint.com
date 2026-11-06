@@ -1,0 +1,4 @@
+    type: boolean
+    description: A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+    example: false
+    default: false

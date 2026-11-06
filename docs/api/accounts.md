@@ -1,0 +1,40 @@
+# Accounts
+
+Use this API to implement and customize account functionality.
+With this functionality in place, administrators can manage users' access across sources in SailPoint Identity Security. 
+
+In SailPoint Identity Security, an account refers to a user's account on a supported source.
+This typically includes a unique identifier for the user, a unique password, a set of permissions associated with the source and a set of attributes. SailPoint Identity Security loads accounts through the creation of sources in SailPoint Identity Security.
+
+Administrators can correlate users' identities with the users' accounts on the different sources they use. 
+This allows SailPoint Identity Security to govern the access of identities and all their correlated accounts securely and cohesively. 
+
+To view the accounts on a source and their correlated identities, administrators can use the Connections drop-down menu, select Sources, select the relevant source, and select its Account tab. 
+
+To view and edit source account statuses for an identity in SailPoint Identity Security, administrators can use the Identities drop-down menu, select Identity List, select the relevant identity, and select its Accounts tab. 
+Administrators can toggle an account's Actions to aggregate the account, enable/disable it, unlock it, or remove it from the identity. 
+
+Accounts can have the following statuses: 
+
+- Enabled: The account is enabled. The user can access it.
+
+- Disabled: The account is disabled, and the user cannot access it, but the identity is not disabled in SailPoint Identity Security. This can occur when an administrator disables the account or when the user's lifecycle state changes. 
+
+- Locked: The account is locked. This may occur when someone has entered an incorrect password for the account too many times.
+
+- Pending: The account is currently updating. This status typically lasts seconds. 
+
+Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
+
+Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/accounts/identities.html?h=disabling+identities#managing-access) for more information about accounts.
+
+
+
+
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
+<DocCardList items={useCurrentSidebarCategory().items}/>
+```
+      

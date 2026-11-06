@@ -1,0 +1,31 @@
+description: Patch operation for Auto-Write Setting
+type: object
+title: Auto-Write Setting Patch
+required:
+  - op
+  - path
+  - value
+properties:
+  op:
+    description: "The operation to perform. Only \"replace\" is supported."
+    type: string
+    enum:
+      - replace
+    example: replace
+  path:
+    description: "The field to update. Allowed values: /enabled, /includedSourceIds, /excludedSourceIds"
+    type: string
+    example: /enabled
+  value:
+    description: The new value for the field
+    oneOf:
+      - type: boolean
+        title: boolean
+        example: true
+      - type: array
+        title: array
+        items:
+          type: string
+        example:
+          - "2c91808a7813090a017814552e526349"
+    example: true

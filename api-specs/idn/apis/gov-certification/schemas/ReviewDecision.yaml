@@ -1,0 +1,24 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    description: The id of the Certification Item being decided on
+    example: ef38f943-47e9-4562-b5bb-8424a56397d8
+  decision:
+    $ref: './CertificationDecision.yaml'
+  proposedEndDate:
+    type: string
+    format: date-time
+    example: '2017-07-11T18:45:37.098Z'
+    description: The date at which a user's access should be taken away. Should only be set for `REVOKE` decisions.
+  recommendation:
+    nullable: true
+    $ref: './ReviewRecommendation.yaml'
+  comments:
+    type: string
+    description: Comments recorded when the decision was made
+    example: 'This user no longer needs access to this source'
+required:
+  - id
+  - decision

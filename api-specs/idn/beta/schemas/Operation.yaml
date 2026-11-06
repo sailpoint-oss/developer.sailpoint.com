@@ -1,0 +1,10 @@
+type: string
+enum:
+  - EQUALS
+  - NOT_EQUALS
+  - CONTAINS
+  - STARTS_WITH
+  - ENDS_WITH
+  - AND
+  - OR
+example: EQUALS

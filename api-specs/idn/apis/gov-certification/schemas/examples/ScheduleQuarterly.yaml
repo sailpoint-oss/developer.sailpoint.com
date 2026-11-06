@@ -1,0 +1,17 @@
+description: Runs once a quarter, on the first day of the month at 1AM, starting in January.
+value:
+  type: ANNUALLY
+  hours:
+    type: LIST
+    values:
+      - '1'
+  days:
+    type: LIST
+    values:
+      - '1'
+  months:
+    type: LIST
+    values:
+      - '1'
+    interval: 3
+  timeZoneId: America/Chicago

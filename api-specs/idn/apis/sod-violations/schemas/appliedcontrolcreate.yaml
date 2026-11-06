@@ -1,0 +1,13 @@
+type: object
+description: Data needed to apply a compensating control to a policy violation.
+required:
+  - control
+properties:
+  control:
+    type: string
+    description: The unique identifier of the compensating control to apply.
+    example: 3e07886555ed43cfb83c85c58d2016e6
+  comments:
+    type: string
+    description: Optional comments to capture when applying the control.
+    example: Some comments about the applied control

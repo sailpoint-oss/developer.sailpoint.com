@@ -1,0 +1,69 @@
+allOf:
+  - $ref: ../../shared/schemas/basecommondto.yaml
+  - type: object
+    title: Machine Identity Capability
+    description: A capability, such as an MCP server or tool, that is linked to a machine identity.
+    properties:
+      description:
+        type: string
+        description: Description of the capability.
+        example: Reads customer records from the CRM
+      type:
+        type: string
+        description: Type of the capability. `UNDEFINED` is returned when the type is missing or not recognized.
+        enum:
+          - MCP
+          - TOOL
+          - SKILL
+          - PLUGIN
+          - PROCESS
+          - UNDEFINED
+        example: TOOL
+      status:
+        type: string
+        nullable: true
+        description: Status of the capability, as reported by the source. `null` when the source does not report one.
+        example: active
+      nativeIdentity:
+        type: string
+        description: Unique identifier of the capability on the source.
+        example: crm-reader-tool
+      environment:
+        type: string
+        description: Environment the capability runs in.
+        example: production
+      source:
+        description: The source the capability was aggregated from.
+        allOf:
+          - $ref: ../../shared/schemas/basereferencedto.yaml
+          - example:
+              id: 2c9180835d191a86015d28455b4a2329
+              name: AI Agent Platform
+              type: SOURCE
+      resource:
+        description: The source resource the capability is derived from.
+        $ref: ./resourcev2.yaml
+      datasetId:
+        type: string
+        description: ID of the source dataset the capability was aggregated from.
+        example: agents-dataset
+      owners:
+        description: The owner configuration of the capability.
+        $ref: ./machineidentityownersv2.yaml
+      attributes:
+        type: object
+        additionalProperties: true
+        description: A map of curated capability attributes.
+        example:
+          status: active
+      connectorAttributes:
+        type: object
+        additionalProperties: true
+        description: A map of attributes sourced from the connector during aggregation.
+        example:
+          toolVersion: '1.4'
+      manuallyEdited:
+        type: boolean
+        default: false
+        description: Indicates whether the capability has been manually edited.
+        example: false

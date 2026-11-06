@@ -1,0 +1,14 @@
+type: object
+title: Link UI Plugin Request
+required:
+  - port
+properties:
+  port:
+    type: integer
+    minimum: 1024
+    maximum: 65535
+    format: int32
+    description: >-
+      Local dev server port. UMS constructs `https://localhost:{port}`
+      server-side. Clients do not send a URL.
+    example: 4200

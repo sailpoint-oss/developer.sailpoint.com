@@ -1,0 +1,38 @@
+get:
+  operationId: accessGranterSupportLoginGet
+  tags:
+    - Auth Support Login
+  summary: Get an access granter support login record by granter tenant
+  description: >-
+    Fetch the auth support login record associated with the tenant requesting
+    support (i.e., the tenant requesting support). To be invoked by the
+    authTenant. 
+
+    Request will require the following security scope:
+    **sp:auth-support-login:read**
+  parameters:
+    - in: path
+      name: accessGranterTenant
+      description: >-
+        The tenant in need of support.
+      required: true
+      schema:
+        type: string
+
+  responses:
+    "200":
+      description: access granter support login response.
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/AccessGranterAuthSupportLoginResponse.yaml"
+    "400":
+      $ref: "../../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../../v3/responses/404.yaml"
+    "500":
+      $ref: "../../../v3/responses/500.yaml"

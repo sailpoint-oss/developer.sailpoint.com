@@ -1,0 +1,7 @@
+type: object
+title: Work Items Count
+properties:
+  count:
+    type: integer
+    description: The count of work items
+    example: 29

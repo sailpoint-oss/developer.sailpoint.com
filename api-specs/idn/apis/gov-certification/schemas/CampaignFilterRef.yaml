@@ -1,0 +1,17 @@
+type: object
+description: >-
+  Determines which items will be included in this campaign. The default campaign filter is used if this
+  field is left blank.
+properties:
+  id:
+    type: string
+    format: uuid
+    description: The ID of whatever type of filter is being used.
+    example: e9f9a139-7b84-2fd5-a658-42087040d3ac
+  name:
+    type: string
+    description: Name of the filter
+    example: Test Filter
+required:
+  - id
+  - name

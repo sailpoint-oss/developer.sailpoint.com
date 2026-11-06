@@ -1,0 +1,35 @@
+type: object
+title: Anomaly
+description: A single anomaly detected for a machine identity by Agent Behavior Monitoring.
+properties:
+  id:
+    type: string
+    description: Anomaly identifier.
+    example: rule-anom-001
+  anomalyType:
+    type: string
+    description: Category of the detected anomaly.
+    example: unsanctioned_app
+  description:
+    type: string
+    description: Human-readable description of the anomaly.
+    example: Agent accessed an unsanctioned application.
+  ruleId:
+    type: string
+    description: Identifier of the detection rule that produced the anomaly.
+    example: rule-tool-usage
+  dataSources:
+    type: array
+    description: Source systems that contributed to the detection.
+    items:
+      type: string
+    example:
+    - SENTINEL
+  detectedAt:
+    type: string
+    format: date-time
+    description: Date-time the anomaly was detected.
+    example: '2026-07-13T10:14:00Z'
+  evidence:
+    description: Detection evidence associated with the anomaly.
+    $ref: ./anomalyevidence.yaml

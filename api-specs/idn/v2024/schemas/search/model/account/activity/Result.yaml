@@ -1,0 +1,6 @@
+type: object
+properties:
+  status:
+    type: string
+    description: Request result status
+    example: "Manual Task Created"

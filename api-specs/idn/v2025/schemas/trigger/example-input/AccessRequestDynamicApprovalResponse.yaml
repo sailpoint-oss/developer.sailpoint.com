@@ -1,0 +1,22 @@
+title: Access Request Dynamic Approval Response
+type: object
+required:
+  - id
+  - type
+  - name
+properties:
+  id: 
+    type: string
+    description: Unique identifier of the approver to add to the approval process. If there is none, send an empty value "".
+    example: 2c91808b6ef1d43e016efba0ce470906
+  type:
+    type: string
+    description: Type of approver to add to the approval process. If there is none, send an empty value "".
+    enum:
+      - IDENTITY
+      - GOVERNANCE_GROUP
+    example: IDENTITY
+  name:
+    type: string
+    description: Name of the approver to add to the approval process. If there is none, send an empty value "".
+    example: Adam Adams

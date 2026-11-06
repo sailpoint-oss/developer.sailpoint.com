@@ -1,0 +1,118 @@
+# Decompose Diacritical Marks
+
+## Overview
+
+Use the decompose diacritical marks transform to clean or standardize symbols used within language to inform the reader how to say or pronounce a letter. These symbols are often incompatible with downstream applications and must be standardized to another character set such as ASCII.
+
+The following are examples of diacritical marks:
+
+> - Ā
+> - Ĉ
+> - Ň
+> - Ŵ
+
+The decomposeDiacriticalMarks transform uses the [Normalizer library](https://docs.oracle.com/javase/7/docs/api/java/text/Normalizer.html) to decompose the diacritical marks. It specifically uses the Normalization Form KD (NFKD), as described in Sections 3.6, 3.10, and 3.11 of the Unicode Standard, also summarized under [Annex 4: Decomposition](https://www.unicode.org/reports/tr15/tr15-23.html#Decomposition).
+
+After decomposition, the transform uses a [Regex Replace](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) to replace all diacritical marks by using the `InCombiningDiacriticalMarks` property of Unicode (ex. `replaceAll("[\\p{InCombiningDiacriticalMarks}]", "")`).
+
+## Transform structure
+
+The transform for decompose diacritical marks requires only the transform's `type` and `name` attributes:
+
+```json
+{
+  "type": "decomposeDiacriticalMarks",
+  "name": "Decompose Diacritical Marks Transform"
+}
+```
+
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `decomposeDiacriticalMarks`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
+## Attributes
+
+The decompose diacritical marks transform only requires top-level properties:
+
+```json
+{
+  "type": "decomposeDiacriticalMarks",
+  "name": "Transform Name"
+}
+```
+
+### `attributes` (required)
+
+The `attributes` object contains the decompose diacritical marks configuration.
+
+#### Optional
+
+- **input** `object` _(optional)_  
+  Explicitly defines the input data passed into the transform. If not provided, the transform uses input from the source and attribute combination configured in the UI.
+
+## Examples
+
+```bash
+Input: "Āric"
+Output: "Aric"
+```
+
+**Transform request body**:
+
+```json
+{
+  "type": "decomposeDiacriticalMarks",
+  "name": "Test Decompose Diacritical Marks Transform"
+}
+```
+
+---
+
+<p>&nbsp;</p>
+
+This transform takes the user's "LastName" attribute from the "HR Source" and replaces any diacritical marks with ASCII-compatible values.
+
+```bash
+Input: "Dubçek"
+Output: "Dubcek"
+```
+
+**Transform request body**:
+
+```json
+{
+  "attributes": {
+    "input": {
+      "attributes": {
+        "sourceName": "HR Source",
+        "attributeName": "LastName"
+      },
+      "type": "accountAttribute"
+    }
+  },
+  "type": "decomposeDiacriticalMarks",
+  "name": "Decompose Diacritical Marks Transform"
+}
+```
+
+## Testing
+
+To run some tests in code, use this java code to compare the results of what the transform does to what your code does:
+
+```java
+import java.text.Normalizer;
+import java.util.regex.Pattern;
+
+// Decomposes characters from their diacritical marks
+input = Normalizer.normalize(input, Normalizer.Form.NFKD);
+
+// Removes the marks
+input = input.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+```

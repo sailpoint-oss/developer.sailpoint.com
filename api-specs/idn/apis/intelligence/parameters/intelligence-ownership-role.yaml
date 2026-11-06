@@ -1,0 +1,13 @@
+name: ownershipRole
+in: query
+required: false
+description: |
+  Optional ownership role discriminator. When set to `primary` or `secondary`, returns one
+  paged role bucket. When omitted, defaults to `primary`.
+schema:
+  type: string
+  enum:
+    - primary
+    - secondary
+  default: primary
+example: primary

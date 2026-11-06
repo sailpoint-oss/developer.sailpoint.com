@@ -1,0 +1,6 @@
+type: object
+properties:
+  leftCriteria:
+    $ref: ./exceptioncriteria.yaml
+  rightCriteria:
+    $ref: ./exceptioncriteria.yaml

@@ -1,0 +1,64 @@
+get:
+  operationId: getMcpServerV1
+  tags:
+    - Business Applications
+  summary: Get MCP server
+  description: >-
+    Returns a single MCP server by ID for the requesting tenant. Requires the
+    `idn:business-application:read` right and the Machine Identity Security product to be enabled for
+    the tenant. Returns `404` if MCP server discovery is not enabled for the tenant.
+  security:
+    - userAuth:
+        - idn:business-application:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - HELPDESK
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+        format: uuid
+      required: true
+      x-sailpoint-resource-operation-id: listMcpServersV1
+      description: MCP server ID.
+      example: 2ee5e239-e68c-4d69-93fb-6c7ce4576190
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  responses:
+    '200':
+      description: An MCP server.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/mcpserver.yaml
+    '400':
+      description: Client Error - Returned if `id` is not a valid UUID.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      description: >-
+        Not Found - Returned if no MCP server exists for the given ID, or if MCP server discovery is not
+        enabled for the tenant.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

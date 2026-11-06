@@ -1,0 +1,47 @@
+type: object
+title: Plugin Slot
+required:
+  - slotId
+properties:
+  slotId:
+    type: string
+    maxLength: 128
+    description: Identifier referencing an entry in the slot registry
+    example: full-page
+  requiredCapabilities:
+    type: array
+    maxItems: 10
+    description: >-
+      ISC capabilities the user must hold (AND logic) to see this plugin in the
+      slot. Empty means unrestricted.
+    items:
+      type: string
+      enum:
+        - ORG_ADMIN
+        - SOURCE_ADMIN
+        - REPORT_ADMIN
+        - ACCESS_REQUEST_ADMIN
+        - ROLE_ADMIN
+        - CERT_ADMIN
+        - DASHBOARD
+        - SOURCE_SUBADMIN
+        - HELPDESK
+        - CLOUD_GOV_ADMIN
+        - CLOUD_GOV_USER
+    default: []
+    example:
+      - ORG_ADMIN
+  restrictToUsers:
+    type: array
+    maxItems: 10
+    description: >-
+      User GUIDs (32-char hex) limiting visibility during development. Empty
+      means no user restriction.
+    items:
+      type: string
+      minLength: 32
+      maxLength: 32
+      pattern: '^[0-9a-fA-F]{32}$'
+    default: []
+    example:
+      - 2c9180867b5f4b3e8a1c2d3e4f5a6b7c

@@ -1,0 +1,82 @@
+{
+	"modified": "2026-09-29T15:28:50.944909995Z",
+	"modifiedBy": {
+		"type": "IDENTITY",
+		"id": "58879a6e685b447b9470ba0b56e7a08f",
+		"name": "samantha.holstine"
+	},
+	"definition": {
+		"start": "Wait",
+		"steps": {
+			"End Step - Success": {
+				"actionId": "sp:operator-success",
+				"displayName": "",
+				"type": "success"
+			},
+			"Get Identity": {
+				"actionId": "sp:get-identity",
+				"attributes": {
+					"id.$": "$.trigger.identity.id",
+					"resultSelector": [
+						"$.getIdentity.attributes.department",
+						"$.getIdentity.attributes.jobTitle",
+						"$.getIdentity.attributes.email",
+						"$.getIdentity.attributes.displayName",
+						"$.getIdentity.attributes.uid",
+						"$.getIdentity.attributes.firstname",
+						"$.getIdentity.attributes.lastname",
+						"$.getIdentity.managerRef.id",
+						"$.getIdentity.managerRef.name",
+						"$.getIdentity.displayName",
+						"$.getIdentity.emailAddress"
+					]
+				},
+				"displayName": "Get New Hire",
+				"nextStep": "Get Identity 1",
+				"type": "action",
+				"versionNumber": 2
+			},
+			"Get Identity 1": {
+				"actionId": "sp:get-identity",
+				"attributes": {
+					"id.$": "$.getIdentity.managerRef.id",
+					"resultSelector": [
+						"$.getIdentity1.attributes.displayName",
+						"$.getIdentity1.attributes.email",
+						"$.getIdentity1.displayName",
+						"$.getIdentity1.emailAddress"
+					]
+				},
+				"displayName": "Get Manager",
+				"nextStep": "End Step - Success",
+				"type": "action",
+				"versionNumber": 2
+			},
+			"Wait": {
+				"actionId": "sp:sleep",
+				"attributes": {
+					"duration": "1m",
+					"type": "waitFor"
+				},
+				"displayName": "",
+				"nextStep": "Get Identity",
+				"type": "action",
+				"versionNumber": 1
+			}
+		}
+	},
+	"trigger": {
+		"type": "EVENT",
+		"attributes": {
+			"id": "idn:identity-created",
+			"integrationId": null
+		}
+	},
+	"creator": {
+		"type": "IDENTITY",
+		"id": "58879a6e685b447b9470ba0b56e7a08f",
+		"name": "samantha.holstine"
+	},
+	"name": "Workflows Mini Hack Template",
+	"description": ""
+}

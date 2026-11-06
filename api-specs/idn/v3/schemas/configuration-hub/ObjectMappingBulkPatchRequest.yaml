@@ -1,0 +1,30 @@
+type: object
+title: Bulk Update Object Mapping Request
+required:
+  - patches
+properties:
+  patches:
+    description: >-
+      Map of id of the object mapping to a JsonPatchOperation describing what to patch on that object mapping.
+    type: object
+    additionalProperties:
+      type: array
+      items:
+        $ref: '../../schemas/JsonPatchOperation.yaml'
+    example:
+      {
+        "603b1a61-d03d-4ed1-864f-a508fbd1995d": [
+          {
+            "op": "replace",
+            "path": "/enabled",
+            "value": true
+          }
+        ],
+        "00bece34-f50d-4227-8878-76f620b5a971": [
+          {
+            "op": "replace",
+            "path": "/targetValue",
+            "value": "New Target Value"
+          }
+        ]
+      }

@@ -1,0 +1,8 @@
+name: ne_attribute_id
+in: path
+description: Ne attribute ID of the object
+required: true
+schema:
+  type: string
+  format: uuid
+  example: 1246d8b3-ac29-4015-8154-dea4434a73fa

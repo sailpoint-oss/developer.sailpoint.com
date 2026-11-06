@@ -1,0 +1,60 @@
+properties:
+  aggregationBucketField:
+    description: AggregationBucketField is the aggregation bucket field name
+    example: attributes.cloudStatus.exact
+    type: string
+    x-go-name: AggregationBucketField
+  indices:
+    description: Indices is a list of indices to use
+    example:
+      - identities
+    items:
+      enum:
+        - accessprofiles
+        - accountactivities
+        - entitlements
+        - identities
+        - events
+        - roles
+        - '*'
+      type: string
+      x-go-enum-desc: |-
+        accessprofiles SearchIndexAccessProfiles
+        accountactivities SearchIndexAccountActivities
+        entitlements SearchIndexEntitlements
+        identities SearchIndexIdentities
+        events SearchIndexEvents
+        roles SearchIndexRoles
+        * SearchIndexWildcard
+    type: array
+    x-go-name: Indices
+  objectType:
+    description: |-
+      ObjectType is a PreDefinedSelectOption value
+      IDENTITY PreDefinedSelectOptionIdentity
+      ACCESS_PROFILE PreDefinedSelectOptionAccessProfile
+      SOURCES PreDefinedSelectOptionSources
+      ROLE PreDefinedSelectOptionRole
+      ENTITLEMENT PreDefinedSelectOptionEntitlement
+    enum:
+      - IDENTITY
+      - ACCESS_PROFILE
+      - SOURCES
+      - ROLE
+      - ENTITLEMENT
+    example: IDENTITY
+    type: string
+    x-go-enum-desc: |-
+      IDENTITY PreDefinedSelectOptionIdentity
+      ACCESS_PROFILE PreDefinedSelectOptionAccessProfile
+      SOURCES PreDefinedSelectOptionSources
+      ROLE PreDefinedSelectOptionRole
+      ENTITLEMENT PreDefinedSelectOptionEntitlement
+    x-go-name: ObjectType
+  query:
+    description: Query is a text
+    example: '*'
+    type: string
+    x-go-name: Query
+type: object
+x-go-package: github.com/sailpoint/sp-forms/domain

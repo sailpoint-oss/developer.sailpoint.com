@@ -1,0 +1,25 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The Id of the task which is executing the bulk update.
+    example: 2c9180867817ac4d017817c491119a20
+  sourceId:
+    type: string
+    description: The Id of the source that the criteria configuration is applied to.
+    minLength: 32
+    maxLength: 32
+    example: c42c45d8d7c04d2da64d215cd8c32f21
+  config:
+    type: object
+    example: {"globalPrivilegeLevelEnabled": true, "privilegeClassificationMode": "SINGLE_PRIVILEGE_LEVEL", "singlePrivilegeLevel.privilegeLevel": "HIGH", "criteriaPrivilegeLevel.connectorHighEnabled": true, "criteriaPrivilegeLevel.connectorMediumEnabled": true, "criteriaPrivilegeLevel.connectorLowEnabled": true, "criteriaPrivilegeLevel.customHighEnabled": true, "criteriaPrivilegeLevel.customMediumEnabled": true, "criteriaPrivilegeLevel.customLowEnabled": true}
+    description: >-
+      The configuration settings for privilege criteria evaluation. 
+  created:
+    type: string
+    example: "2024-01-10T12:00:00Z"
+    description: The date and time when the privilege criteria configuration was created.
+  modified:
+    type: string
+    example: "2024-01-15T12:00:00Z"
+    description: The date and time when the privilege criteria configuration was last modified.

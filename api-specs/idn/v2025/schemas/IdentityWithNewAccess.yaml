@@ -1,0 +1,46 @@
+description: An identity with a set of access to be added
+required:
+  - identityId
+  - accessRefs
+type: object
+title: Identity With New Access
+properties:
+  identityId:
+    description: Set of identity IDs to be checked.
+    type: string
+    example: '2c91809050db617d0150e0bf3215385e'
+  accessRefs:
+    description: >-
+      The list of access items to be added to the identities specified.
+      Supported types are ENTITLEMENT, ACCESS_PROFILE, and ROLE.
+    type: array
+    items:
+      type: object
+      description: Reference to an access item that may contribute to an SOD violation.
+      properties:
+        type:
+          type: string
+          description: Access item DTO type.
+          enum:
+            - ENTITLEMENT
+            - ACCESS_PROFILE
+            - ROLE
+          example: ENTITLEMENT
+        id:
+          type: string
+          description: Access item ID.
+          example: 2c91809773dee32014e13e122092014e
+        name:
+          type: string
+          description: Access item display name.
+          example: "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local"
+  clientMetadata:
+    type: object
+    additionalProperties:
+      type: string
+    description: >-
+      Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on
+      completion of the violation check.
+    example:
+        clientName: client1
+        clientId: 2c91808f7892918f0178b78da4a305a1

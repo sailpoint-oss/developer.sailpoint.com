@@ -1,0 +1,16 @@
+value:
+  name: Composite Campaign Filter
+  description: Campaign Filter Description
+  mode: INCLUSION
+  criteriaList:
+    - criteriaType: COMPOSITE
+      operation: AND
+      children:
+        - criteriaType: ACCOUNT_ATTRIBUTE
+          criteriaProperty: department
+          criteriaValue: Engineering
+          operation: EQUALS
+        - criteriaType: SOURCE
+          criteriaProperty: DISPLAY_NAME
+          criteriaValue: AD
+          operation: EQUALS

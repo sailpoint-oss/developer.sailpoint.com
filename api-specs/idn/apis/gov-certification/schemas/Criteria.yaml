@@ -1,0 +1,35 @@
+type: object
+properties:
+  criteriaType:
+    $ref: './CriteriaType.yaml'
+  operation:
+    $ref: './Operation.yaml'
+  criteriaProperty:
+    type: string
+    description: The specified key from the Type of criteria.
+    example: displayName
+  criteriaValue:
+    type: string
+    description: The value for the specified key from the Type of Criteria. Used for scalar operations. Must be absent when operation is IN.
+    example: Allie
+  criteriaValues:
+    type: array
+    description: List of values for the IN operation. Required when operation is IN; must be absent for all other operations.
+    items:
+      type: string
+    example:
+      - 8a32c3d5f2864555948e63867c377ca2
+      - 9b41d4e6g3975666059f74978d488db3
+  children:
+    type: array
+    description: List of child criteria. Applicable only for COMPOSITE criteriaType
+    items:
+      $ref: './Criteria.yaml'
+    example:
+      - criteriaType: IDENTITY
+        criteriaProperty: DISPLAY_NAME
+        criteriaValue: support
+        operation: EQUALS
+required:
+  - criteriaType
+  - operation

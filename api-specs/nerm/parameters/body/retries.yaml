@@ -1,0 +1,8 @@
+name: retries
+in: body
+description: sets the number of attempts to login into the portal.
+required: false
+schema:
+  type: integer
+  format: int32
+  example: 3

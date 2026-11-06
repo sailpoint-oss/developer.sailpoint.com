@@ -1,0 +1,13 @@
+type: object
+title: Resolver URL Format for Object Configuration.
+description: Format of resolver URLs for Object Configurations
+properties:
+  url:
+    description: URL for the target object endpoint.
+    type: string
+    example: ets://trigger-subscriptions/$id
+  query:
+    description: Any query parameters that are needed for the URL.
+    type: object
+    nullable: true
+    example: null

@@ -1,0 +1,42 @@
+get:
+  operationId: getAttestationDocumentV1
+  summary: Get an attestation document.
+  tags:
+  - Parameter Storage
+  description: >-
+    Get an attestation document containing a NIST P-384 service public key for an ECDHE handshake, enabling the
+    end-to-end-encrypted transport of parameter private fields.
+  parameters:
+  - name: key
+    in: query
+    required: true
+    description: Base64Url encoded NIST P-384 public key
+    example: >-
+      BLdV-KA7nSRXx2XkksQX7bmOAShARsB3CCVWodKr4dOJj_puru76wy6drBTVlSytW_rDheLwepm9xdrRuqUI7p81wMP576frFBbsjndBKyRm3eouPbDcW8MAz0XRH1BB3w==
+    schema:
+      type: string
+  security:
+  - userAuth:
+    - sp:parameter-storage:read
+    - sp:parameter-storage:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  x-audience:
+  - external-public
+  responses:
+    '200':
+      description: Returns the attestation document. This contains the public key needed to add a parameter to the store.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/parameterstorageattestationdocument.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

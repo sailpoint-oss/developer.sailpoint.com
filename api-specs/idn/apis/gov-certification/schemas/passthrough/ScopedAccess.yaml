@@ -1,0 +1,42 @@
+type: object
+properties:
+  type:
+    $ref: 'ScopedAccessType.yaml'
+  id:
+    type: string
+    description: Unique identifier of the access item.
+    example: 2c918085718230600171993742c63558
+  name:
+    type: string
+    description: Name of the access item.
+    example: CN=entitlement.bbb7c650
+  description:
+    type: string
+    description: Description of the access item.
+    example: Gives read/write access to the company database
+  sourceName:
+    type: string
+    description: Name of the source that provides this access.
+    example: Active Directory
+  privileged:
+    type: boolean
+    deprecated: true
+    default: false
+    example: false
+    description: >-
+      Deprecated. Replaced by effectivePrivilege (HIGH, MEDIUM, LOW, NONE).
+      Indicates if the access item is privileged.
+      Retained for backward compatibility.
+  attributeName:
+    type: string
+    description: Name of the attribute that defines this access.
+    example: memberOf
+  attributeValue:
+    type: string
+    description: Value of the attribute that defines this access.
+    example: CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local
+  hasDataAccess:
+    type: boolean
+    description: Indicates whether this access grants data access.
+    default: false
+    example: false

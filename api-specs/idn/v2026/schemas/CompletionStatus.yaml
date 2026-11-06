@@ -1,0 +1,10 @@
+nullable: true
+type: string
+description: The status after completion.
+enum:
+  - SUCCESS
+  - FAILURE
+  - INCOMPLETE
+  - PENDING
+  - null
+example: SUCCESS

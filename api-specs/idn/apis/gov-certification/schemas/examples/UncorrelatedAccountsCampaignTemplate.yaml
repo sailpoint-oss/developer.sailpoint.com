@@ -1,0 +1,17 @@
+value:
+  name: Uncorrelated Account Campaign Template
+  description: Uncorrelated Account Campaign Template
+  campaignName: Uncorrelated Account Campaign
+  campaignDescription: Uncorrelated Account Campaign
+  type: UNCORRELATED_ACCOUNT
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  sunsetCommentsRequired: true
+  mandatoryCommentRequirement: NO_DECISIONS
+  sourceIds:
+    - d88917c32c6f463fa6db291f8d0d6fff
+  reviewer:
+    type: SOURCE_OWNER
+  filterRef:
+    id: d5e2cb8b-0779-4732-9190-ba8784dbcbb9

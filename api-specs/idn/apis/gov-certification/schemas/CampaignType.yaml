@@ -1,0 +1,7 @@
+type: string
+description: Type of the campaign.
+enum:
+  - IDENTITY
+  - UNCORRELATED_ACCOUNT
+  - MACHINE_ACCOUNT
+example: IDENTITY

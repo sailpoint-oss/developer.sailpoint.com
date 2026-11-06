@@ -1,0 +1,20 @@
+type: object
+title: Asset File Entry
+required:
+  - path
+  - sizeBytes
+  - sha256
+properties:
+  path:
+    type: string
+    description: Relative path within the asset bundle directory
+    example: assets/app.js
+  sizeBytes:
+    type: integer
+    format: int64
+    description: Uncompressed file size in bytes
+    example: 2048
+  sha256:
+    type: string
+    description: SHA-256 hex digest of file contents
+    example: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855

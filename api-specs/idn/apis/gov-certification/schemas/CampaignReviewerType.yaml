@@ -1,0 +1,10 @@
+type: string
+description: Type of the reviewer of the campaign.
+enum:
+  - ACCOUNT_OWNER
+  - GOVERNANCE_GROUP
+  - IDENTITY
+  - MANAGER
+  - OBJECT_OWNER
+  - SOURCE_OWNER
+example: IDENTITY

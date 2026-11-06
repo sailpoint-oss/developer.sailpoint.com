@@ -1,0 +1,106 @@
+get:
+  operationId: getGovCertificationCampaignFilterByIdV1
+  tags:
+    - Next Generation Certification Campaigns
+  summary: Get Campaign Filter by ID
+  description: >-
+    Retrieves information for an existing campaign filter using the filter's ID. Required roles are ORG_ADMIN or CERT_ADMIN.
+  security:
+    - userAuth: [ idn:campaign-filter:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+    - in: path
+      name: id
+      schema:
+        type: string
+        format: uuid
+        example: e9f9a139-7b84-2fd5-a658-42087040d3ac
+      required: true
+      description: The ID of the campaign filter to be retrieved.
+      x-sailpoint-resource-operation-id: listGovCertificationCampaignFiltersV1
+  responses:
+    '200':
+      description: The data for the campaign filter matching the given ID.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignFilterGet.yaml'
+    '400':
+      $ref: '../../shared/responses/400.yaml'
+    '401':
+      $ref: '../../shared/responses/401.yaml'
+    '403':
+      $ref: '../../shared/responses/403.yaml'
+    '404':
+      $ref: '../../shared/responses/404.yaml'
+    '429':
+      $ref: '../../shared/responses/429.yaml'
+    '500':
+      $ref: '../../shared/responses/500.yaml'
+put:
+  operationId: putCampaignFilterV1
+  tags:
+    - Next Generation Certification Campaigns
+  summary: Updates a Campaign Filter
+  description: >-
+    Updates an existing campaign filter using the filter's ID. Required roles are ORG_ADMIN or CERT_ADMIN.
+    The request body must not exceed 1 MiB (1,048,576 bytes); larger requests are rejected with a 400 response.
+  security:
+    - userAuth: [ idn:campaign-filter:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+    - in: path
+      name: id
+      schema:
+        type: string
+        format: uuid
+        example: e9f9a139-7b84-2fd5-a658-42087040d3ac
+      required: true
+      description: The ID of the campaign filter being modified.
+      x-sailpoint-resource-operation-id: listGovCertificationCampaignFiltersV1
+  requestBody:
+    required: true
+    description: A campaign filter details with updated field values.
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CampaignFilterUpdate.yaml'
+  responses:
+    '200':
+      description: Resource updated successfully.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignFilterGet.yaml'
+    '400':
+      $ref: '../../shared/responses/400.yaml'
+    '401':
+      $ref: '../../shared/responses/401.yaml'
+    '403':
+      $ref: '../../shared/responses/403.yaml'
+    '404':
+      $ref: '../../shared/responses/404.yaml'
+    '429':
+      $ref: '../../shared/responses/429.yaml'
+    '500':
+      $ref: '../../shared/responses/500.yaml'

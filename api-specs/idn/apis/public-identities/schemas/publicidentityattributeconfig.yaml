@@ -1,0 +1,15 @@
+type: object
+title: Public Identity Attribute Config
+description: Maps an identity attribute key to its display name.
+required:
+- key
+- name
+properties:
+  key:
+    type: string
+    description: Attribute / search field key (e.g. email, manager.displayName).
+    example: country
+  name:
+    type: string
+    description: Human-readable display name for the attribute.
+    example: Country

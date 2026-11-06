@@ -1,0 +1,8 @@
+type: object
+title: Team Summary Reports Dto
+properties:
+  direct:
+    type: integer
+    description: Count of Identities that are managed by the provided identity
+    format: int32
+    example: 5

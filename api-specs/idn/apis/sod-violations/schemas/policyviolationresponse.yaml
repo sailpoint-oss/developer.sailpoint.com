@@ -1,0 +1,89 @@
+type: object
+description: A separation-of-duties policy violation for an identity.
+required:
+  - id
+  - owner
+  - created
+  - modified
+  - conflictingCriteria
+  - appliedControls
+  - target
+  - policy
+  - status
+  - level
+  - expiration
+properties:
+  id:
+    type: string
+    format: uuid
+    description: The system-generated unique identifier of the policy violation.
+    example: 3e078865-55ed-43cf-b83c-85c58d2016e6
+    readOnly: true
+  name:
+    type: string
+    description: The display name of the policy violation.
+    example: Policy Violation 123
+    readOnly: true
+  created:
+    type: string
+    format: date-time
+    description: The date and time when the policy violation was created.
+    example: '2025-01-01T00:00:00-05:00'
+    readOnly: true
+  modified:
+    type: string
+    format: date-time
+    description: The date and time when the policy violation was last modified.
+    example: '2025-01-01T02:00:00-05:00'
+    readOnly: true
+  lastEvaluatedDate:
+    type: string
+    format: date-time
+    description: The date and time when the policy violation was last evaluated by the policy engine.
+    example: '2025-01-01T01:00:00-05:00'
+    readOnly: true
+  owner:
+    $ref: ./referenceresponse.yaml
+  conflictingCriteria:
+    type: array
+    items:
+      $ref: ./accesscriteria.yaml
+    readOnly: true
+    description: |
+      List of conflicting criteria. Each conflicting item supports optional description and optional
+      sourceRef (id, name, type, description); for ENTITLEMENT items, sourceRef may be populated from
+      the entitlement's source on GET via hydration.
+    example:
+      - name: money-in
+        conflictingItems:
+          - id: 2c9180866166b5b0016167c32ef31a66
+            name: Administrator
+            type: ENTITLEMENT
+  appliedControls:
+    type: array
+    items:
+      $ref: ./appliedcontrol.yaml
+    readOnly: true
+    description: List of compensating controls that have been applied to this policy violation.
+    example:
+      - id: 3e07886555ed43cfb83c85c58d2016e6
+        violation: 99fbef9738c146e9b526b6147f57a0e2
+        status: Active
+  expiration:
+    type: string
+    format: date-time
+    nullable: true
+    example: '2026-01-01T02:00:00-05:00'
+    readOnly: true
+    description: >-
+      Expiration on the active applied compensating control row (latest applied_date,
+      tie-break id). Always returned; null when there is no active control or that
+      row has no expiration.
+  target:
+    $ref: ./referenceresponse.yaml
+  policy:
+    $ref: ./referenceresponse.yaml
+  status:
+    $ref: ./policyviolationstatus.yaml
+  level:
+    $ref: ./policyviolationrisklevel.yaml

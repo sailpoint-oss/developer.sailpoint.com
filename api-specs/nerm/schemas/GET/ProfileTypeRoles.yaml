@@ -1,0 +1,14 @@
+type: object
+properties:
+  profile_type_id:
+    type: string   
+    description: The id of the profile type
+    example: 2eb5773f-2486-452f-bdb3-796133b30862
+  role_id:
+    type: string   
+    description: The id of the role
+    example: 2eb5773f-2486-452f-bdb3-796133b30862  
+  id:
+    type: string       
+    description: The id of the profile type role
+    example: 2e06b876-f456-473d-bd65-b6435e0b6b2d

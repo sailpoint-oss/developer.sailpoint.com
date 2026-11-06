@@ -1,0 +1,22 @@
+type: object
+description: Request body for PATCH /ssf/streams (partial update).
+required:
+  - stream_id
+properties:
+  stream_id:
+    type: string
+    description: ID of the stream to update.
+    example: "550e8400-e29b-41d4-a716-446655440000"
+  delivery:
+    $ref: ./DeliveryRequest.yaml
+  events_requested:
+    type: array
+    items:
+      type: string
+      format: uri
+    description: Event types the receiver wants. Use CAEP event-type URIs.
+    example: ["https://schemas.openid.net/secevent/caep/event-type/session-revoked"]
+  description:
+    type: string
+    description: Optional human-readable description of the stream.
+    example: "Updated production event stream configuration"

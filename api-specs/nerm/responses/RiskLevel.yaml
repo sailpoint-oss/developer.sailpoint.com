@@ -1,0 +1,9 @@
+description: Expected response to a valid request
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        risk_level:
+          type: object
+          $ref: '../schemas/GET/RiskLevel.yaml'

@@ -1,0 +1,56 @@
+type: object
+title: Accounts Selection Request
+description: >
+  Prefetch account selections for an access request before submit.
+  Machine identity accounts-selection must use `requestedForWithRequestedItems` with
+  `identityType: MACHINE` on each entry and only `ENTITLEMENT` items. Flat `requestedFor` /
+  `requestedItems` must be omitted (do not send an empty array) for machine requests.
+properties:
+  requestedFor:
+    description: >-
+      A list of Identity IDs for whom the Access is requested.
+
+      * Must be omitted (do not send an empty array) when using `requestedForWithRequestedItems`
+        (including all machine identity requests).
+    type: array
+    items:
+      type: string
+    example: 2c918084660f45d6016617daa9210584
+  requestType:
+    $ref: ./accessrequesttype.yaml
+  requestedItems:
+    description: >
+      Access items requested.
+
+      * Must be omitted (do not send an empty array) when using `requestedForWithRequestedItems`.
+    type: array
+    items:
+      $ref: ./accessrequestitem.yaml
+    minItems: 1
+    maxItems: 25
+  clientMetadata:
+    type: object
+    additionalProperties:
+      type: string
+      example:
+        requestedAppId: 2c91808f7892918f0178b78da4a305a1
+        requestedAppName: test-app
+    example:
+      requestedAppId: 2c91808f7892918f0178b78da4a305a1
+      requestedAppName: test-app
+    description: >-
+      Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on
+      associated APIs such as /account-activities.
+  requestedForWithRequestedItems:
+    description: >-
+      Nested payload pairing each identity with its requested items.
+
+      * Required for machine identity accounts-selection. Set `identityType: MACHINE` on each entry.
+
+      * Machine requests support `ENTITLEMENT` items only and do not allow mixed human and machine identities.
+
+      * When present, `requestedFor` and `requestedItems` must be omitted (do not send an empty array).
+    type: array
+    items:
+      $ref: ./requestedfordtoref.yaml
+    nullable: true

@@ -1,0 +1,33 @@
+type: object
+properties:
+  name:
+    type: string
+    description: Name of non-employee source.
+    example: Retail
+  description:
+    type: string
+    description: Description of non-employee source.
+    example: Source description
+  owner:
+    description: Owner of non-employee source.
+    $ref: './NonEmployeeIdnUserRequest.yaml'
+  managementWorkgroup:
+    type: string
+    description: The ID for the management workgroup that contains source sub-admins
+    example: '123299'
+  approvers:
+    description: List of approvers.
+    type: array
+    items:
+      $ref: './NonEmployeeIdnUserRequest.yaml'
+    maxItems: 3
+  accountManagers:
+    description: List of account managers.
+    type: array
+    items:
+      $ref: './NonEmployeeIdnUserRequest.yaml'
+    maxItems: 10
+required:
+  - owner
+  - name
+  - description

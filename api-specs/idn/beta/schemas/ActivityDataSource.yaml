@@ -1,0 +1,17 @@
+description: A reference to the source of activity
+allOf:
+  - $ref: '../../v3/schemas/SourceDto.yaml'
+  - type: object
+    properties:
+      integrationType:
+        type: string
+        enum:
+          - DIRECT
+          - SSO
+          - UNKNOWN
+        description: Describes the method used to collect source activity data
+example:
+  - type: 'SOURCE'
+    id: '2c9180835d191a86015d28455b4b232a'
+    name: 'GitHub'
+    integrationType: DIRECT

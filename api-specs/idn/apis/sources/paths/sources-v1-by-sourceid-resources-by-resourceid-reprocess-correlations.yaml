@@ -1,0 +1,184 @@
+post:
+  operationId: startSourceResourceCorrelationReprocessV1
+  tags:
+  - Sources
+  summary: Start resource correlation reprocess
+  description: |
+    Use this API to re-run correlation for the machine objects aggregated from a resource on a source, without
+    running a new aggregation. The run is asynchronous. Poll its progress with the `GET` method on the same path
+    and `type`.
+
+
+    Only one run of a given `type` can be in progress for a source resource at a time. Starting another run while one
+    is in progress returns `400`. This API returns `404` when the source or resource does not exist.
+
+
+    When machine identity security is not enabled for the tenant, or correlation reprocessing is not available,
+    this API returns `404`.
+  security:
+  - userAuth:
+    - idn:mis-correlation:manage
+  - applicationAuth:
+    - idn:mis-correlation:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  parameters:
+  - in: path
+    name: sourceId
+    required: true
+    x-sailpoint-resource-operation-id: listSourcesV1
+    schema:
+      type: string
+    description: Source ID.
+    example: 2c9180835d191a86015d28455b4a2329
+  - in: path
+    name: resourceId
+    required: true
+    x-sailpoint-resource-operation-id: getSourceResourcesV1
+    schema:
+      type: string
+    description: Resource ID.
+    example: account
+  - in: query
+    name: type
+    required: true
+    schema:
+      type: string
+      enum:
+      - OWNER_CORRELATION
+    description: Kind of correlation to reprocess. `OWNER_CORRELATION` re-runs owner correlation.
+    example: OWNER_CORRELATION
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '202':
+      description: Accepted. Returns the initial status of the run.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/correlationreprocessstatus.yaml
+          example:
+            sourceId: 2c9180835d191a86015d28455b4a2329
+            resourceId: account
+            type: OWNER_CORRELATION
+            status: STARTED
+            total:
+            processed: 0
+            updated: 0
+            errored: 0
+            startedAt: '2026-10-22T14:03:11.512Z'
+            finishedAt:
+            startedBy:
+              type: IDENTITY
+              id: 2c91808568c529c60168cca6f90c1313
+              name: William Wilson
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+get:
+  operationId: getSourceResourceCorrelationReprocessV1
+  tags:
+  - Sources
+  summary: Get resource correlation reprocess status
+  description: |
+    Use this API to get the progress of the latest correlation reprocess run of the given `type` for a resource on a
+    source. You can call it whatever state the run is in. Finished runs are kept for a limited time. This API returns
+    `404` when no run is found for the source resource and `type`.
+
+
+    When machine identity security is not enabled for the tenant, or correlation reprocessing is not available,
+    this API returns `404`.
+  security:
+  - userAuth:
+    - idn:mis-correlation:manage
+  - applicationAuth:
+    - idn:mis-correlation:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  parameters:
+  - in: path
+    name: sourceId
+    required: true
+    x-sailpoint-resource-operation-id: listSourcesV1
+    schema:
+      type: string
+    description: Source ID.
+    example: 2c9180835d191a86015d28455b4a2329
+  - in: path
+    name: resourceId
+    required: true
+    x-sailpoint-resource-operation-id: getSourceResourcesV1
+    schema:
+      type: string
+    description: Resource ID.
+    example: account
+  - in: query
+    name: type
+    required: true
+    schema:
+      type: string
+      enum:
+      - OWNER_CORRELATION
+    description: Kind of correlation reprocess run to get.
+    example: OWNER_CORRELATION
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Current status of the run.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/correlationreprocessstatus.yaml
+          example:
+            sourceId: 2c9180835d191a86015d28455b4a2329
+            resourceId: account
+            type: OWNER_CORRELATION
+            status: COMPLETED
+            total: 1200
+            processed: 1200
+            updated: 37
+            errored: 2
+            startedAt: '2026-10-22T14:03:11.512Z'
+            finishedAt: '2026-10-22T14:09:47.120Z'
+            startedBy:
+              type: IDENTITY
+              id: 2c91808568c529c60168cca6f90c1313
+              name: William Wilson
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

@@ -1,0 +1,12 @@
+type: object
+properties:
+  type:
+    $ref: './CertificationItemType.yaml'
+  id:
+    type: string
+    description: Identifier of the target item.
+    example: 5168015d32f890ca15812c9180835d2e
+  name:
+    type: string
+    description: Human-readable display name of identity. This is read-only
+    example: "Alison Ferguso"

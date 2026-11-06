@@ -1,0 +1,11 @@
+type: string
+enum:
+    - EQUALS
+    - NOT_EQUALS
+    - STARTS_WITH
+    - ENDS_WITH
+    - CONTAINS
+    - AND
+    - OR
+description: An operation to perform on the classification criteria
+example: EQUALS

@@ -1,0 +1,79 @@
+post:
+  operationId: updateMachineIdentitiesInBulkV2
+  tags:
+    - Machine Identities
+  summary: Bulk update machine identities
+  description: |
+    This API applies the same JSON Patch operations to up to 100 machine identities and returns a result for each
+    requested ID. Only `/description`, `/userEntitlements`, `/owners`, `/owners/primary`, and `/owners/secondary` can
+    be patched. Patching any other path returns `400`. When access requests for non-human identities are not enabled
+    for the tenant, a patch that changes `/userEntitlements` returns `403`.
+
+    The response is always `207` when the request is valid. Check the `status` of each result to see whether that
+    machine identity was updated.
+
+    A caller who owns a machine identity can update it. Other callers need the **idn:mis-identity:update** right.
+    For callers without that right, IDs of machine identities they do not own return a `404` result.
+  security:
+    - userAuth:
+        - idn:mis-identity:manage
+    - applicationAuth:
+        - idn:mis-identity:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/machineidentitybulkupdaterequest.yaml
+        examples:
+          Replace description:
+            value:
+              ids:
+                - ef38f94347e94562b5bb8424a56397d8
+                - 2c9180858082150f0180893dbaf44201
+              jsonPatch:
+                - op: replace
+                  path: /description
+                  value: Agent used by the finance team
+          Replace primary owner:
+            value:
+              ids:
+                - ef38f94347e94562b5bb8424a56397d8
+              jsonPatch:
+                - op: replace
+                  path: /owners/primary
+                  value:
+                    id: 2c9180858082150f0180893dbaf44201
+                    type: IDENTITY
+  responses:
+    '207':
+      description: A result for each requested machine identity ID.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/machineidentitybulkresult.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

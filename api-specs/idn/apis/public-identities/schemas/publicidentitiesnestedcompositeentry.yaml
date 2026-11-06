@@ -1,0 +1,18 @@
+type: object
+title: Public Identities Nested Composite Entry
+description: A COMPOSITE query entry that nests another querySet.
+additionalProperties: false
+required:
+- queryType
+- querySet
+properties:
+  queryType:
+    type: string
+    enum:
+    - COMPOSITE
+    description: Entry type discriminator. Must be COMPOSITE for nested query sets.
+    example: COMPOSITE
+  querySet:
+    description: Nested query set for this COMPOSITE entry.
+    allOf:
+    - $ref: ./publicidentitiesnestedqueryset.yaml

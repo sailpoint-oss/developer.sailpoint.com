@@ -1,0 +1,21 @@
+type: object
+required:
+  - items
+description: Accounts slice embedded in the aggregate identity response.
+properties:
+  items:
+    type: array
+    description: First page of accounts for the identity.
+    items:
+      $ref: ./intelaccessaccountwire.yaml
+  totalCount:
+    type: integer
+    format: int32
+    minimum: 1
+    description: Total number of accounts for this identity; omitted when `items` is empty.
+    example: 42
+  next:
+    type: string
+    format: uri
+    description: Absolute URL to the next accounts page; present when totalCount exceeds the items returned on this page.
+    example: https://tenant.example.api.cloud.sailpoint.com/intelligence/identities/v1/ef38f94347e94562b5bb8424a56397d8/accounts?limit=10&offset=10&count=true

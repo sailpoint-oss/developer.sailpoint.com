@@ -1,0 +1,29 @@
+type: object
+properties:
+  commentID:
+    type: string
+    example: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+    description: Unique identifier for the comment associated with the reassignment.
+  reassignedFrom:
+    $ref: '../schemas/ApprovalIdentity.yaml'
+    description: Identity of the user or entity from whom the approval request was reassigned.
+  reassignedTo:
+    $ref: '../schemas/ApprovalIdentity.yaml'
+    description: Identity of the user or entity to whom the approval request was reassigned.
+  reassigner:
+    $ref: '../schemas/ApprovalIdentity.yaml'
+    description: Identity of the user or entity who performed the reassignment.
+  reassignmentDate:
+    type: string
+    format: date-time
+    example: "2023-10-01T12:34:56.789Z"
+    description: Date and time when the reassignment occurred.
+  reassignmentType:
+    type: string
+    enum:
+    - ESCALATION
+    - MANUAL_REASSIGNMENT
+    - AUTO_REASSIGNMENT
+    example: ESCALATION
+    description: Type of reassignment, such as escalation or manual reassignment.
+description: ReassignmentHistoryRecord holds a history record of reassignment and escalation actions for an approval request

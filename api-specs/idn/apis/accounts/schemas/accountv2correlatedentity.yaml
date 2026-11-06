@@ -1,0 +1,22 @@
+type: object
+title: AccountV2CorrelatedEntity
+description: A correlated identity or machine-identity associated with this account.
+properties:
+  type:
+    $ref: ../../shared/schemas/dtotype.yaml
+    description: The DTO type of the correlated entity.
+  id:
+    type: string
+    description: The unique ID of the correlated entity.
+    example: 2c918084660f45d6016617daa9210584
+    nullable: true
+  name:
+    type: string
+    description: The display name of the correlated entity.
+    example: John Doe
+    nullable: true
+  state:
+    type: string
+    description: The identity state. Populated for IDENTITY entries only.
+    example: ACTIVE
+    nullable: true

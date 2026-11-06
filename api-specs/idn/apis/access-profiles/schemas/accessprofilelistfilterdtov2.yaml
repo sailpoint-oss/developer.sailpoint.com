@@ -1,0 +1,79 @@
+title: Access Profile List Filter V2
+description: Filter criteria and Access Model Metadata key/values used to select access profiles.
+type: object
+properties:
+  filters:
+    type: string
+    nullable: true
+    description: >-
+      Filter results using the standard syntax described in [API Standard Collection
+      Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **id**: *eq, in*
+
+
+      **name**: *eq, in, co*
+
+
+      **created**: *lt, le, gt, ge*
+
+
+      **modified**: *lt, le, gt, ge*
+
+
+      **owner.id**: *eq, in*
+
+
+      **additionalOwners.id**: *eq, in*
+
+
+      **requestable**: *eq*
+
+
+      **source.id**: *eq, in*
+
+
+      **dimensional**: *eq*
+
+
+      **entitlement.id**: *eq, in*
+
+
+      **entitlement.name**: *eq, co*
+
+
+      **privilegeLevel.effective**: *eq, in*
+
+
+      Supported composite operators are *and, or*
+    example: privilegeLevel.effective eq "HIGH"
+  ammKeyValues:
+    type: array
+    nullable: true
+    description: The Access Model Metadata attributes and values used to filter the results.
+    items:
+      type: object
+      properties:
+        attribute:
+          type: string
+          description: >-
+            The technical name of the metadata attribute. A blank or missing value is rejected with a 400 error.
+          example: iscFederalClassifications
+        values:
+          type: array
+          description: >-
+            The attribute values used to filter access profiles. If the list is empty, results are filtered by
+            attribute key only.
+          items:
+            type: string
+            example: secret
+          example:
+            - secret
+    example:
+      - attribute: iscFederalClassifications
+        values:
+          - secret

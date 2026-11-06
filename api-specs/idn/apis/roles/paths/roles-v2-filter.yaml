@@ -1,0 +1,178 @@
+post:
+  operationId: searchRolesByFilterV2
+  x-sailpoint-lint-ignore:
+    path-query-parameters-must-be-camel-case: RolesV4Controller.listRolesViaPost binds for-subadmin, for-segment-ids, and include-unsegmented by those kebab-case query names. Camel-case names are not accepted.
+  summary: Filter roles by metadata
+  description: >-
+    This API returns a list of Roles filtered by Access Model Metadata and by filter expression. Filtering is supported
+    by filter expression, by metadata attribute key and values, or by both together. Each Role includes its effective
+    privilege level in `privilegeLevel.effective`.
+
+
+    The `filters` expression in the request body supports the same fields and operators as the `filters` query
+    parameter of [List roles](#operation/listRolesV2), including **privilegeLevel.effective**: *eq, in*.
+
+
+    Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results
+    are available, the `x-next-cursor` response header contains the cursor for the next page. Send that value in the
+    `cursor` query parameter, with the same request body and `sorters`, to get the next page. You can't use `cursor`
+    together with an `offset` greater than 0, and `offset` plus `limit` can't be greater than 10,000.
+  security:
+  - userAuth:
+    - idn:role-unchecked:read
+    - idn:role-unchecked:manage
+    - idn:role-checked:manage
+    - idn:role-checked:read
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - ROLE_ADMIN
+  - ROLE_SUBADMIN
+  tags:
+  - Roles
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: 'true'
+    schema:
+      type: string
+      default: 'true'
+    required: true
+  - name: for-subadmin
+    in: query
+    schema:
+      type: string
+      default: ""
+    description: >-
+      If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The
+      value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling
+      Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an
+      Identity that is not a subadmin.
+    example: 5168015d32f890ca15812c9180835d2e
+    required: false
+  - name: limit
+    in: query
+    schema:
+      type: integer
+      format: int32
+      minimum: 0
+      maximum: 250
+      default: 50
+    description: >-
+      Max number of results to return See [API Standard Collection
+      Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+    example: 50
+    required: false
+  - name: offset
+    in: query
+    description: >-
+      Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or
+      omitted when *cursor* is specified.
+
+      See [API Standard Collection
+      Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+    schema:
+      type: integer
+      format: int32
+      minimum: 0
+      default: 0
+    required: false
+    example: 0
+  - $ref: ../../shared/parameters/count.yaml
+  - name: cursor
+    in: query
+    schema:
+      type: string
+      default: ""
+    description: >-
+      Opaque cursor returned in the `x-next-cursor` response header of the previous page. Pass it with the same request
+      body and `sorters` to get the next page of results. Can't be used with an *offset* greater than 0.
+    example: eyJzb3J0IjpbIm5hbWUiLCJpZCJdLCJzZWFyY2hBZnRlciI6WyJSb2xlIDI1NjciLCIyYzkxIl19
+    required: false
+  - name: sorters
+    in: query
+    schema:
+      type: string
+      format: comma-separated
+      default: name
+    description: >-
+      Sort results using the standard syntax described in [API Standard Collection
+      Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)
+
+
+      Sorting is supported for the following fields: **id, name, created, modified, privilegeLevel.effective**
+
+
+      The default sort is **name**. **id** is always added as the final sort field so that cursor pagination is
+      stable.
+    example: name,-modified
+    required: false
+  - name: for-segment-ids
+    in: query
+    schema:
+      type: string
+      format: comma-separated
+      default: ""
+    description: >-
+      If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the
+      specified IDs.
+
+
+      If segmentation is currently unavailable, specifying this parameter results in an error.
+    example: 0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d
+    required: false
+  - name: include-unsegmented
+    in: query
+    description: >-
+      Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty,
+      specifying *include-unsegmented* as false results in an error.
+    schema:
+      type: boolean
+      default: true
+    required: false
+    example: false
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../roles/schemas/rolelistfilterdtov2.yaml
+        example:
+          filters: privilegeLevel.effective eq "HIGH"
+          ammKeyValues:
+          - attribute: iscFederalClassifications
+            values:
+            - secret
+  responses:
+    '200':
+      description: List of Roles matching the filter criteria.
+      headers:
+        x-total-count:
+          description: The total result count (returned only if the *count* parameter is specified as *true*).
+          schema:
+            type: integer
+            format: int32
+          example: 75
+        x-next-cursor:
+          description: >-
+            Opaque cursor for the next page of results. Returned only when more results are available. Pass it in the
+            *cursor* query parameter to get the next page.
+          schema:
+            type: string
+          example: eyJzb3J0IjpbIm5hbWUiLCJpZCJdLCJzZWFyY2hBZnRlciI6WyJSb2xlIDI1NjciLCIyYzkxIl19
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../roles/schemas/rolev2.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

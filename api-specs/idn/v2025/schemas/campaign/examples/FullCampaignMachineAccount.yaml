@@ -1,0 +1,27 @@
+value:
+  id: 3e9ff3d6555e4721b74695d5b578e847
+  name: Machine Account Owner Campaign
+  description: A review done by a machine account's owner.
+  deadline: 2024-05-07T19:43:38.186Z
+  type: MACHINE_ACCOUNT
+  status: PENDING
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  created: 2024-04-23T19:43:38.355Z
+  modified: 2024-04-23T19:43:38.355Z
+  filter: null
+  sunsetCommentsRequired: true
+  mandatoryCommentRequirement: NO_DECISIONS
+  sourceOwnerCampaignInfo: null
+  searchCampaignInfo: null
+  roleCompositionCampaignInfo: null
+  totalCertifications: 0
+  completedCertifications: 0
+  alerts: null
+  correlatedStatus: CORRELATED
+  sourcesWithOrphanEntitlements: [ ]
+  machineAccountCampaignInfo:
+    sourceIds:
+      - d988f117b7624a16ab0b64c439d5dbb8
+    reviewerType: ACCOUNT_OWNER

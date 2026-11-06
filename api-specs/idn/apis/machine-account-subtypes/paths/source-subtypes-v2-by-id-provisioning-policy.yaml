@@ -1,0 +1,324 @@
+get:
+  operationId: getSourceSubtypeProvisioningPolicyV2
+  tags:
+  - Machine Account Subtypes
+  summary: Get subtype provisioning policy
+  description: |-
+    Get the machine account creation provisioning policy of a subtype of any tier. Returns `404` when the subtype has
+    no provisioning policy.
+
+    The caller needs the `idn:source-subtypes:read` right. A malformed ID returns `400`.
+
+    This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+  security:
+  - userAuth:
+    - idn:sources:read
+    - idn:sources:manage
+    - idn:connector-subtypes:manage
+  - applicationAuth:
+    - idn:sources:read
+    - idn:sources:manage
+    - idn:connector-subtypes:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  - HELPDESK
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+      format: uuid
+    description: The ID of the subtype.
+    example: 43bdd144-4b17-4fce-a744-17c7fd3e717b
+    x-sailpoint-resource-operation-id: listSourceSubtypesV2
+  - in: query
+    name: sourceId
+    required: false
+    schema:
+      type: string
+    description: >-
+      ID of the source the subtype belongs to. Supply it for `SOURCE` subtypes so that a policy stored with the
+      source can be found.
+    example: 6d0458373bec4b4b80460992b76016da
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Subtype provisioning policy.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/subtypeprovisioningpolicy.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+post:
+  operationId: createSourceSubtypeProvisioningPolicyV2
+  tags:
+  - Machine Account Subtypes
+  summary: Create subtype provisioning policy
+  description: |-
+    Create the machine account creation provisioning policy of a subtype of any tier. A subtype has at most one
+    provisioning policy; the request is rejected if one already exists.
+
+    `id` and `subtypeId` must not be supplied (otherwise `400`). `usageType` must be `CREATE_MACHINE_ACCOUNT` or
+    omitted. `name` defaults to the subtype's display name.
+
+    Who can call this API depends on the tier of the subtype:
+
+    * `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source
+    sub-admins.
+
+    * `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.
+
+    A caller without the right for the subtype's tier receives `404`, not `403`. A malformed ID returns `400`.
+
+    This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+  security:
+  - userAuth:
+    - idn:sources:manage
+    - idn:connector-subtypes:manage
+  - applicationAuth:
+    - idn:sources:manage
+    - idn:connector-subtypes:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+      format: uuid
+    description: The ID of the subtype.
+    example: 43bdd144-4b17-4fce-a744-17c7fd3e717b
+    x-sailpoint-resource-operation-id: listSourceSubtypesV2
+  - in: query
+    name: useDefaultFields
+    required: false
+    schema:
+      type: boolean
+      default: true
+    description: >-
+      When `true` and the request body has no `fields`, a `CONNECTOR` subtype's policy is created with the connector's
+      default account creation fields. Ignored for `SOURCE` subtypes.
+    example: true
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/subtypeprovisioningpolicy.yaml
+        examples:
+          Create policy:
+            value:
+              name: Service Account
+              description: Fields collected when creating a service account.
+              usageType: CREATE_MACHINE_ACCOUNT
+              fields:
+              - name: userName
+                transform:
+                  type: rule
+                  attributes:
+                    name: Create Unique LDAP Attribute
+                attributes:
+                  template: '{firstname}.{lastname}{uniqueCounter}'
+                  cloudMaxUniqueChecks: '50'
+                  cloudMaxSize: '20'
+                  cloudRequired: 'true'
+                isRequired: false
+                type: string
+                isMultiValued: false
+  responses:
+    '201':
+      description: Created subtype provisioning policy.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/subtypeprovisioningpolicy.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+patch:
+  operationId: patchSourceSubtypeProvisioningPolicyV2
+  tags:
+  - Machine Account Subtypes
+  summary: Patch subtype provisioning policy
+  description: |-
+    Update the machine account creation provisioning policy of a subtype of any tier, using the [JSON
+    Patch](https://tools.ietf.org/html/rfc6902) standard. Only `name`, `description` and `fields` are patchable.
+    Returns `404` when the subtype has no provisioning policy.
+
+    Who can call this API depends on the tier of the subtype:
+
+    * `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source
+    sub-admins.
+
+    * `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.
+
+    A caller without the right for the subtype's tier receives `404`, not `403`. A malformed ID returns `400`.
+
+    This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+  security:
+  - userAuth:
+    - idn:sources:manage
+    - idn:connector-subtypes:manage
+  - applicationAuth:
+    - idn:sources:manage
+    - idn:connector-subtypes:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+      format: uuid
+    description: The ID of the subtype.
+    example: 43bdd144-4b17-4fce-a744-17c7fd3e717b
+    x-sailpoint-resource-operation-id: listSourceSubtypesV2
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    required: true
+    description: A list of policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../shared/schemas/jsonpatchoperation.yaml
+        examples:
+          Update description:
+            value:
+            - op: replace
+              path: /description
+              value: Fields collected when creating a service account.
+  responses:
+    '200':
+      description: Updated subtype provisioning policy.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/subtypeprovisioningpolicy.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+delete:
+  operationId: deleteSourceSubtypeProvisioningPolicyV2
+  tags:
+  - Machine Account Subtypes
+  summary: Delete subtype provisioning policy
+  description: |-
+    Delete the machine account creation provisioning policy of a subtype of any tier. Returns `404` when the subtype
+    has no provisioning policy.
+
+    Who can call this API depends on the tier of the subtype:
+
+    * `SOURCE`: requires the `idn:source-subtypes:delete` right, held by org admins, source admins and source
+    sub-admins.
+
+    * `CONNECTOR`: requires the `idn:connector-subtypes:delete` right, held by org admins.
+
+    A caller without the right for the subtype's tier receives `404`, not `403`. A malformed ID returns `400`.
+
+    This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+  security:
+  - userAuth:
+    - idn:sources:manage
+    - idn:connector-subtypes:manage
+  - applicationAuth:
+    - idn:sources:manage
+    - idn:connector-subtypes:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+      format: uuid
+    description: The ID of the subtype.
+    example: 43bdd144-4b17-4fce-a744-17c7fd3e717b
+    x-sailpoint-resource-operation-id: listSourceSubtypesV2
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '204':
+      description: Provisioning policy deleted successfully.
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

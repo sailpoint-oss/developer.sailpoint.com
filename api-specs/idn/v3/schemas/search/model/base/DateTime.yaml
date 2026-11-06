@@ -1,0 +1,5 @@
+type: string
+nullable: true
+format: 'date-time'
+example: '2018-06-25T20:22:28.104Z'
+description: A date-time in ISO-8601 format

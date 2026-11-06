@@ -1,0 +1,77 @@
+get:
+  security:
+    - userAuth: [ das:task:read, das:task:manage ]
+    - applicationAuth: [ das:task:read, das:task:manage ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+    - Data Access Security
+  summary: Get a DAS task.
+  description: >-
+    This end-point gets a task in Data Access Security.
+  operationId: getTask
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: The unique identifier of the task to retrieve.
+      example: 1001
+  responses:
+    '200':
+      description: >-
+        A Task object.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/data-access-security/TaskInfo.yaml'
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+delete:
+  security:
+    - userAuth: [ das:task:manage ]
+    - applicationAuth: [ das:task:manage ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  tags:
+    - Data Access Security
+  summary: Delete a DAS task.
+  description: >
+    This end-point sends a request to delete a task in Data Access Security.
+  operationId: deleteTask
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+      description: The unique identifier of the task to delete.
+      example: 1001
+  responses:
+    '204':
+      description: No Content
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

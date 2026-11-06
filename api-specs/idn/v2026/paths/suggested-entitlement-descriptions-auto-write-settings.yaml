@@ -1,0 +1,125 @@
+get:
+  tags:
+    - Suggested Entitlement Description
+  operationId: getAutoWriteSettings
+  summary: Get auto-write settings for SED
+  description: >-
+    Get the current auto-write configuration for the tenant, including the enabled
+    state and source include/exclude lists.
+  responses:
+    '200':
+      description: Current auto-write settings
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/AutoWriteSettingResponse.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - idn:sed:read
+    - applicationAuth:
+        - idn:sed:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+post:
+  tags:
+    - Suggested Entitlement Description
+  operationId: createAutoWriteSettings
+  summary: Create auto-write settings for SED
+  description: >-
+    Create the initial auto-write settings for a tenant. Returns 409 Conflict if
+    settings already exist. Use PATCH to update existing settings.
+  requestBody:
+    description: Auto-write settings to create
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/AutoWriteSetting.yaml
+    required: true
+  responses:
+    '201':
+      description: Auto-write settings created successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/AutoWriteSettingResponse.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '409':
+      $ref: ../responses/409.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - idn:sed:manage
+    - applicationAuth:
+        - idn:sed:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+patch:
+  tags:
+    - Suggested Entitlement Description
+  operationId: updateAutoWriteSettings
+  summary: Update auto-write settings for SED
+  description: >-
+    Partially update the auto-write settings for a tenant using JSON Patch operations.
+    Only the "replace" operation is supported. Returns 404 if no settings exist yet -
+    use POST to create them first.
+  requestBody:
+    description: Patch operations for auto-write settings
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../schemas/AutoWriteSettingPatch.yaml
+    required: true
+  responses:
+    '200':
+      description: Updated auto-write settings
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/AutoWriteSettingResponse.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - idn:sed:manage
+    - applicationAuth:
+        - idn:sed:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

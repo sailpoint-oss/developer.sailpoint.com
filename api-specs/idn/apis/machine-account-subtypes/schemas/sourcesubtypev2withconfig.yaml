@@ -1,0 +1,22 @@
+title: Source Subtype V2 With Config
+description: A machine account subtype list item, returned when `includeConfigs=true`.
+allOf:
+- $ref: ./sourcesubtypev2.yaml
+- type: object
+  properties:
+    config:
+      type: object
+      nullable: true
+      description: >-
+        Summary of the subtype's machine account creation configuration. `null` when the subtype is not a `MACHINE`
+        subtype or has no machine account creation configuration.
+      properties:
+        machineAccountCreate:
+          type: object
+          description: Machine account creation settings.
+          properties:
+            accountCreateEnabled:
+              type: boolean
+              default: false
+              description: Indicates whether machine account creation is enabled for the subtype.
+              example: true

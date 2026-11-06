@@ -1,0 +1,88 @@
+type: object
+title: Resource Object
+description: Representation of the object which is returned from source connectors.
+properties:
+  instance:
+    description: Identifier of the specific instance where this object resides.
+    type: string
+    readOnly: true
+  identity:
+    description: Native identity of the object in the Source.
+    type: string
+    example: 'CN=Aaron Carr,OU=test1,DC=test2,DC=test'
+    readOnly: true
+  uuid:
+    description: Universal unique identifier of the object in the Source.
+    type: string
+    example: '{abf7bd9b-68b4-4d21-9b70-870c58ebf844}'
+    readOnly: true
+  previousIdentity:
+    description: Native identity that the object has previously.
+    type: string
+    readOnly: true
+  name:
+    description: Display name for this object.
+    type: string
+    example: 'Aaron Carr'
+    readOnly: true
+  objectType:
+    description: Type of object.
+    type: string
+    example: 'account'
+    readOnly: true
+  incomplete:
+    description: >-
+      A flag indicating that this is an incomplete object.
+      Used in special cases where the connector has to return account information in several phases and the objects
+      might not have a complete set of all account attributes. The attributes in this object will replace the
+      corresponding attributes in the Link, but no other Link attributes will be changed.
+    type: boolean
+    example: false
+    readOnly: true
+  incremental:
+    description: >-
+      A flag indicating that this is an incremental change object.
+      This is similar to incomplete but it also means that the values of any multi-valued attributes in this object
+      should be merged with the existing values in the Link rather than replacing the existing Link value.
+    type: boolean
+    example: false
+    readOnly: true
+  delete:
+    description: >-
+      A flag indicating that this object has been deleted.
+      This is set only when doing delta aggregation and the connector supports detection of native deletes.
+    type: boolean
+    example: false
+    readOnly: true
+  remove:
+    description: >-
+      A flag set indicating that the values in the attributes represent things to remove rather than things to add.
+      Setting this implies incremental. The values which are always for multi-valued attributes are removed from
+      the current values.
+    type: boolean
+    example: false
+    readOnly: true
+  missing:
+    description: >-
+      A list of attribute names that are not included in this object.
+      This is only used with SMConnector and will only contain "groups".
+    type: array
+    items:
+      type: string
+    example: [ "missFieldOne", "missFieldTwo" ]
+    readOnly: true
+  attributes:
+    description: Attributes of this ResourceObject.
+    type: object
+    example: {
+      "telephoneNumber": "12-(345)678-9012",
+      "mail": "example@test.com",
+      "displayName": "Aaron Carr"
+    }
+    readOnly: true
+  finalUpdate:
+    description: >-
+      In Aggregation, for sparse object the count for total accounts scanned identities updated is not incremented.
+    type: boolean
+    example: false
+    readOnly: true

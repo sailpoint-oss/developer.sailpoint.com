@@ -1,0 +1,8 @@
+type: string
+enum:
+  - STATUS
+  - SIGN_OFF
+  - COMPOSITION
+  - REMEDIATION
+description: Type of the report.
+example: REMEDIATION

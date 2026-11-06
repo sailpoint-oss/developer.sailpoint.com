@@ -1,0 +1,47 @@
+get:
+  summary: Find option attribute value
+  operationId: getAttributeOptionByUid
+  description: Get a specific option based attribute value by UID (user-specified identifier)
+  tags:
+    - attribute options
+  parameters:
+    - $ref: "../parameters/path/uid.yaml"
+  responses:
+    '200':
+      $ref: "../responses/AttributeOption.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update option value
+  operationId: patchAttributeOptionByUid
+  description: Update a option based attribute value by UID (user-specified identifier)
+  tags:
+    - attribute options
+  parameters:
+    - $ref: "../parameters/path/uid.yaml"
+  requestBody:
+    $ref: "../requestBodies/PATCH/AttributeOption.yaml"
+  responses:
+    '200':
+      $ref: "../responses/AttributeOption.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+delete:
+  summary: Delete option value
+  operationId: deleteAttributeOptionByUid
+  description: Delete a option based attribute value by UID (user-specified identifier)
+  tags:
+    - attribute options
+  parameters:
+    - $ref: "../parameters/path/uid.yaml"
+  responses:
+    '200':
+      $ref: "../responses/DeleteConfirmation.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

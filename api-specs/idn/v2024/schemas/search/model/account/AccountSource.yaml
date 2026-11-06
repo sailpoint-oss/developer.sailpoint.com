@@ -1,0 +1,8 @@
+allOf:
+- $ref: '../base/Reference.yaml'
+- type: object
+  properties:
+    type:
+      type: string
+      example: Delimited File
+      description: Type of source returned.

@@ -1,0 +1,34 @@
+type: object
+properties:
+  id:
+    $ref: ./segmentid.yaml
+  name:
+    type: string
+    description: The segment's business name.
+    example: segment-xyz
+  created:
+    type: string
+    format: date-time
+    description: The time when the segment is created.
+    example: '2020-01-01T00:00:00.000000Z'
+  modified:
+    type: string
+    format: date-time
+    description: The time when the segment is modified.
+    example: '2020-01-01T00:00:00.000000Z'
+  description:
+    type: string
+    description: The segment's optional description.
+    example: This segment represents xyz
+  scopes:
+    $ref: ./scopes.yaml
+  memberSelection:
+    $ref: ./selection.yaml
+  memberFilter:
+    $ref: ./visibilitycriteria.yaml
+  membership:
+    $ref: ./membershiptype.yaml
+  enabled:
+    $ref: ./enabled.yaml
+  published:
+    $ref: ./published.yaml

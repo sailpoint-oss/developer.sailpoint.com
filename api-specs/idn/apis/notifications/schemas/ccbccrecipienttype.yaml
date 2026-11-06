@@ -1,0 +1,12 @@
+type: string
+title: CC/BCC Recipient Type
+description: >-
+  Recipient resolution type for a CC or BCC preference entry. Dynamic types are resolved at
+  notification send time based on the triggering event's context.
+example: IDENTITY
+enum:
+  - IDENTITY
+  - MANAGER_OF
+  - GOVERNANCE_GROUP
+  - ORG_ADMINS
+  - STATIC_EMAIL

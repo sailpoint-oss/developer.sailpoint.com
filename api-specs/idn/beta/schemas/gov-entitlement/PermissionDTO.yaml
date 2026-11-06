@@ -1,0 +1,22 @@
+type: object
+properties:
+  target:
+    type: string
+    description: perimission target
+    example: SYS.GV_$TRANSACTION
+  annotation:
+    type: string
+    description: permission annotation
+    example: some extra information about a permission
+  rights:
+    type: array
+    description: All the rights (e.g. actions) that this permission allows on the target
+    items:
+      type: string
+      example: SELECT
+  attributes:
+    type: object
+    description: permission attribute values
+    example: {
+      "id": "2e8d818024bc4d2191c67affdb473b0d"
+    }

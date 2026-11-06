@@ -1,0 +1,26 @@
+type: object
+title: Machine Identity Owners V2
+description: >-
+  Owner configuration for a machine identity. A single primary (human IDENTITY) owner plus additional
+  owners that are either up to ten human (IDENTITY) references or exactly one GOVERNANCE_GROUP reference - not both.
+properties:
+  primary:
+    description: The identity selected as the primary owner.
+    allOf:
+      - $ref: ../../shared/schemas/basereferencedto.yaml
+      - example:
+          id: 2c9180858082150f0180893dbaf44201
+          name: John Doe
+          type: IDENTITY
+  secondary:
+    type: array
+    maxItems: 10
+    description: >-
+      Additional owners. Entries are either up to ten human (IDENTITY) references or exactly one
+      GOVERNANCE_GROUP reference - not both. Governance-group owners appear here with type GOVERNANCE_GROUP.
+    items:
+      $ref: ../../shared/schemas/basereferencedto.yaml
+    example:
+      - id: 2c9180858082150f0180893dbaf44202
+        name: Jane Doe
+        type: IDENTITY

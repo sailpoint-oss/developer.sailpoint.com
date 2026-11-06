@@ -1,0 +1,32 @@
+type: object
+title: Machine Identity Daily Count Metric
+description: Counts for one entity type and subtype on a single day.
+properties:
+  entityType:
+    type: string
+    description: Entity type the counts apply to.
+    enum:
+      - machine_identity
+      - machine_account
+      - capability
+      - credential
+    example: machine_identity
+  subType:
+    type: string
+    description: Subtype the counts apply to. `UNKNOWN` is used for entities that have no subtype.
+    example: AI Agent
+  totalCount:
+    type: integer
+    format: int64
+    description: Number of entities of this type and subtype that existed on the day.
+    example: 412
+  createdCount:
+    type: integer
+    format: int64
+    description: Number of entities of this type and subtype created on the day.
+    example: 3
+  createdCount30d:
+    type: integer
+    format: int64
+    description: Number of entities of this type and subtype created in the 30 days ending on the day.
+    example: 37

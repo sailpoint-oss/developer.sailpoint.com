@@ -1,0 +1,15 @@
+post:
+  summary: Create a profile type role
+  description: This endpoint can create a profile type role. NOTE- The ability to toggle Allow/Block is done through the Profile Type
+  operationId: createProfileTypeRole
+  tags:
+    - profile  type roles
+  requestBody:
+    $ref: "../requestBodies/POST/ProfileTypeRoles.yaml"
+  responses:
+    '200':
+      $ref: "../responses/ProfileTypeRoles.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

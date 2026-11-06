@@ -1,0 +1,25 @@
+type: object
+description: Request body for PUT /ssf/streams (full replace).
+required:
+  - stream_id
+  - delivery
+properties:
+  stream_id:
+    type: string
+    description: ID of the stream to replace.
+    example: "550e8400-e29b-41d4-a716-446655440000"
+  delivery:
+    allOf:
+      - $ref: ./CreateStreamDeliveryRequest.yaml
+      - description: Full delivery configuration required for PUT (replace). method and endpoint_url are required.
+  events_requested:
+    type: array
+    items:
+      type: string
+      format: uri
+    description: Event types the receiver wants. Use CAEP event-type URIs.
+    example: ["https://schemas.openid.net/secevent/caep/event-type/session-revoked"]
+  description:
+    type: string
+    description: Optional human-readable description of the stream.
+    example: "Production event stream"

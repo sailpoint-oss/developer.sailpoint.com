@@ -1,0 +1,96 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The id for the entitlement
+    example: 2c918085718230600171993742c63558
+  name:
+    type: string
+    description: The name of the entitlement
+    example: 'CN=entitlement.bbb7c650'
+  created:
+    type: string
+    description: Time when the entitlement was created
+    format: date-time
+    example: "2020-10-08T18:33:52.029Z"
+  modified:
+    type: string
+    description: Time when the entitlement was last modified
+    format: date-time
+    example: "2020-10-08T18:33:52.029Z"
+  attribute:
+    type: string
+    description: The entitlement attribute name
+    example: "memberOf"
+  value:
+    type: string
+    description: The value of the entitlement
+    example: "CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local"
+  sourceSchemaObjectType:
+    type: string
+    description: The schema object type on the source used to represent the entitlement and its attributes
+    example: 'groups'
+  privileged:
+    type: boolean
+    example: false
+    default: false
+    deprecated: true
+    description: >-
+      Deprecated. Replaced by effectivePrivilege (HIGH, MEDIUM, LOW, NONE).
+      Indicates if the entitlement is a privileged entitlement.
+      Retained for backward compatibility.
+  cloudGoverned:
+    type: boolean
+    example: true
+    default: false
+    description: Indicates if the entitlement is cloud governed
+  description:
+    type: string
+    description: Information about the entitlement
+    example: Gives read/write access to the company database
+  requestable:
+    type: boolean
+    example: false
+    default: false
+    description: Indicates if the entitlement is requestable
+  attributes:
+    type: object
+    description: A map of free-form key-value pairs from the source system
+    example: { "fieldName": "fieldValue" }
+    additionalProperties: true
+  source:
+    $ref: './SourceReferenceDTO.yaml'
+  owner:
+    $ref: './OwnerReferenceDTO.yaml'
+  directPermissions:
+    type: array
+    items:
+      $ref: './PermissionDTO.yaml'
+  segments:
+    type: array
+    items:
+      type: string
+    description: List of IDs of segments, if any, to which this Entitlement is assigned.
+    example:
+      - f7b1b8a3-5fed-4fd4-ad29-82014e137e19
+      - 29cb6c06-1da8-43ea-8be4-b3125f248f2a
+  manuallyUpdatedFields:
+    description: >-
+      Object contains entitlement manually updated fields.
+      Field value is true if is was updated manually via entitlement import csv or patch endpoint.
+      Field value is false if that property value has not been changed after first entitlement aggregation.
+      Values for all manually updatable fields must be specified.
+      For now only two entitlement fields support this: DISPLAY_NAME and DESCRIPTION.
+    example:
+      displayName: true
+      description: true
+    $ref: './ManuallyUpdatedFieldsDTO.yaml'
+  containsDataAccess:
+    type: boolean
+    description: True if the entitlement has DAS data
+    default: false
+    example: true
+  dataAccess:
+    $ref: './DataAccess.yaml'
+    nullable: true
+    description: DAS data for the entitlement

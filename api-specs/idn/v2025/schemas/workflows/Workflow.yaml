@@ -1,0 +1,48 @@
+allOf:
+- type: object
+  properties:
+    id:
+      type: string
+      description: Workflow ID. This is a UUID generated upon creation.
+      example: d201c5e9-d37b-4aff-af14-66414f39d569
+    executionCount:
+      type: integer
+      format: int32
+      description: The number of times this workflow has been executed.
+      example: 2
+    failureCount:
+      type: integer
+      format: int32
+      description: The number of times this workflow has failed during execution.
+      example: 0
+    created:
+      type: string
+      format: date-time
+      description: The date and time the workflow was created.
+      example: "2022-01-10T16:06:16.636381447Z"
+    modified:
+      type: string
+      format: date-time
+      description: The date and time the workflow was modified.
+      example: 2023-12-05T15:18:27.699132301Z
+    modifiedBy:
+      $ref: './WorkflowModifiedBy.yaml'
+    creator:
+      type: object
+      description: Workflow creator's identity.
+      properties:
+        type:
+          type: string
+          description: Workflow creator's DTO type.
+          enum:
+            - IDENTITY
+          example: IDENTITY
+        id:
+          type: string
+          description: Workflow creator's identity ID.
+          example: 2c7180a46faadee4016fb4e018c20642
+        name:
+          type: string
+          description: Workflow creator's display name.
+          example: Michael Michaels
+- $ref: './WorkflowBody.yaml'

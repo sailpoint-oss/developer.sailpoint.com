@@ -1,0 +1,22 @@
+type: object
+description: |
+  Response reference: required id and type; optional name when display metadata resolves (omitted if not).
+  For request bodies use ReferenceInput (id and type only).
+required:
+  - id
+  - type
+properties:
+  id:
+    type: string
+    description: The unique identifier of the referenced object.
+    example: 3e07886555ed43cfb83c85c58d2016e6
+  name:
+    type: string
+    readOnly: true
+    description: >-
+      Optional display name when metadata resolves. Omitted when unknown or not resolvable.
+    example: John Doe
+  type:
+    type: string
+    description: The type of the referenced object.
+    example: IDENTITY

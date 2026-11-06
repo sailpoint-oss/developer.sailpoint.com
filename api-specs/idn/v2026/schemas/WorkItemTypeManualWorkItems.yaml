@@ -1,0 +1,18 @@
+type: string
+enum:
+  - Generic
+  - Certification
+  - Remediation
+  - Delegation
+  - Approval
+  - ViolationReview
+  - Form
+  - PolicyVioloation
+  - Challenge
+  - ImpactAnalysis
+  - Signoff
+  - Event
+  - ManualAction
+  - Test
+example: Generic
+description: The type of the work item

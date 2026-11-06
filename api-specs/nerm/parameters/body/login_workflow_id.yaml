@@ -1,0 +1,8 @@
+name: login_workflow_id
+in: body
+description: login workflow ID for the portal
+required: false
+schema:
+  type: string
+  format: uuid
+  example: bba9cfb2-96c1-4acb-ac79-a21732527265

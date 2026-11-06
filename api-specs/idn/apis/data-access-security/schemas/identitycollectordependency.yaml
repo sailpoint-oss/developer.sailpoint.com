@@ -1,0 +1,17 @@
+type: object
+description: A dependent object blocking deletion of an identity collector.
+properties:
+  name:
+    type: string
+    description: >-
+      The display name of the dependent object. For applications, the platform dependency
+      query may prefix the object name (for example, `Application - Finance SharePoint`).
+    example: Application - Finance SharePoint
+  type:
+    type: string
+    description: The internal dependent object type identifier (fully qualified type name).
+    example: WBX.WhiteOPS.ServerCore.BAM
+  typeDisplayName:
+    type: string
+    description: The human-readable display name of the dependent object type.
+    example: Application

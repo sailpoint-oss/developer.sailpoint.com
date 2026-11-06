@@ -1,0 +1,12 @@
+description: Expected response to a valid request
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        risk_scores:
+          type: array
+          items:
+            $ref: '../schemas/GET/RiskScore.yaml'
+        _metadata:
+          $ref: '../schemas/Metadata.yaml'

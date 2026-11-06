@@ -1,0 +1,15 @@
+type: object
+required:
+  - id
+  - presignedUrl
+properties:
+  id:
+    type: string
+    format: uuid
+    description: The unique ID of the campaign report.
+    example: e1aeb0b6-0021-4f40-8bc7-5c56533214b3
+  presignedUrl:
+    type: string
+    format: uri
+    description: A URL to download the campaign report
+    example: https://secure-content.accessiq.sailpoint.com/someCampaignReport.pdf

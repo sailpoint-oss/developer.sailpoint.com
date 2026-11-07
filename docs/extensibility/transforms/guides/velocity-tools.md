@@ -26,7 +26,7 @@ In this guide, you will learn how to:
 
 - [Find the latest of several dates](#find-the-latest-of-several-dates).
 - [Get the number of days between two dates](#get-the-number-of-days-between-two-dates).
-- [Do arithmetic on numbers](#do-arithmetic-on-numbers).
+- [Use MathTool to calculate numbers](#use-mathtool-to-calculate-numbers).
 - [Format numbers](#format-numbers).
 - [Get and format the current date](#get-and-format-the-current-date).
 - [Format for another locale](#format-for-another-locale).
@@ -322,7 +322,7 @@ Do not use `$__mathTool.idiv` with millisecond values. The `idiv` method changes
 
 :::
 
-## Do arithmetic on numbers
+## Use MathTool to calculate numbers
 
 Velocity treats a transform value as a string. The `+` operator joins two strings, and does not add them. For example, if `$employeeId` is `202500020098`, the template `#set($n = $employeeId + 1)$n` returns `2025000200981`.
 

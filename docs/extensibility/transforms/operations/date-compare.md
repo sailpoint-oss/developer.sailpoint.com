@@ -21,6 +21,12 @@ Use the date compare transform to compare two dates and, depending on the compar
 
 :::
 
+:::tip
+
+To get the number of days between two dates, or the latest of several dates, use the Velocity tools in a static transform. Refer to [Use Velocity tools in transforms](../guides/velocity-tools.md).
+
+:::
+
 ## Transform structure
 
 The date compare transform takes as an input the two dates to compare, denoted as `firstDate` and `secondDate`. The transform also requires an `operator` designation so it knows which condition to evaluate for. Lastly, the transform requires both a `positiveCondition` and a `negativeCondition` -- the former returns if the comparison evaluates to `true`; the latter returns if the comparison evaluates to `false`.

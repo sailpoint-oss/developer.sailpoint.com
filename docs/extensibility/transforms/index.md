@@ -172,6 +172,21 @@ The following variables are available to the Apache Velocity template engine whe
 | application | sailpoint.object.Application | This is the application backing the source that owns the account profile. |
 | current | Object | This is the attribute's current value. |
 
+### Velocity tools
+
+The global template context of every transform includes these [Apache Velocity Tools](https://velocity.apache.org/tools/3.1/tools-summary.html). You can use them in any string that goes through the template engine, in any transform type. For example, you can use them in a `static` value, a `concat` value, an `input`, or a `dateCompare` condition.
+
+| Variable | Type | Description |
+| --- | --- | --- |
+| `__dateTool` | [org.apache.velocity.tools.generic.DateTool](https://velocity.apache.org/tools/3.1/apidocs/org/apache/velocity/tools/generic/DateTool.html) | Parses, formats, and reads dates. For example, `$__dateTool.format('yyyy-MM-dd', $__dateTool.date)` returns the current date. |
+| `__mathTool` | [org.apache.velocity.tools.generic.MathTool](https://velocity.apache.org/tools/3.1/apidocs/org/apache/velocity/tools/generic/MathTool.html) | Does arithmetic on numbers and numeric strings. For example, `$__mathTool.add($employeeId, 1)`. |
+| `__numberTool` | [org.apache.velocity.tools.generic.NumberTool](https://velocity.apache.org/tools/3.1/apidocs/org/apache/velocity/tools/generic/NumberTool.html) | Formats numbers. For example, `$__numberTool.format('000000', $employeeNumber)` adds leading zeros. |
+| `__esc` | [org.apache.velocity.tools.generic.EscapeTool](https://velocity.apache.org/tools/3.1/apidocs/org/apache/velocity/tools/generic/EscapeTool.html) | Escapes values for URLs, XML, HTML, and JavaScript. For example, `$__esc.url($email)`. |
+
+The default time zone is GMT, and the default locale is `en_US`. You can give a different locale to each method call, for example `$__numberTool.format('currency', $amount, $__dateTool.toLocale('de_DE'))`. Do not give your own variables a name that starts with `__`.
+
+For examples, refer to [Use Velocity tools in transforms](./guides/velocity-tools.md).
+
 ## Implicit vs explicit input
 
 A special configuration attribute available to all transforms is input. If the input attribute is not specified, this is referred to as implicit input, and the system determines the input based on what is configured. If the input attribute is specified, then this is referred to as explicit input, and the system's input is ignored in favor of whatever the transform explicitly specifies. A good way to understand this concept is to walk through an example. Imagine that SailPoint Identity Security has the following:

@@ -139,7 +139,33 @@ This transform extends the previous one to show how you can use if/else logic to
 }
 ```
 
+---
+
+<p>&nbsp;</p>
+
+This transform uses the `$__numberTool` [Velocity tool](../guides/velocity-tools.md) to pad the employee number to six digits. For example, if `empNumber` is `42`, the transform returns `000042`.
+
+**Transform request body**:
+
+```json
+{
+  "attributes": {
+    "empNumber": {
+      "attributes": {
+        "sourceName": "HR Source",
+        "attributeName": "employeeNumber"
+      },
+      "type": "accountAttribute"
+    },
+    "value": "$__numberTool.format('000000', $empNumber)"
+  },
+  "type": "static",
+  "name": "Static Transform"
+}
+```
+
 ## References
 
 - [https://velocity.apache.org/engine/1.7/user-guide.html](https://velocity.apache.org/engine/1.7/user-guide.html)
 - [https://velocity.apache.org/engine/2.0/vtl-reference.html](https://velocity.apache.org/engine/2.0/vtl-reference.html)
+- [Use Velocity tools in transforms](../guides/velocity-tools.md)

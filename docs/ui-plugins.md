@@ -29,7 +29,8 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 - **Plugin workspace** — a local project scaffolded by `sail ui-plugins init`. It contains your framework application plus a `sp-ui-plugin.json` manifest that describes the plugin to SailPoint Identity Security.
 - **Plugin instance** — the registration of your plugin in a tenant, created with `sail ui-plugins create`. Each instance has a tenant-unique **alias** and a generated **plugin instance ID** (a UUID).
 - **Alias** — the tenant-unique, human-readable key for a plugin (for example, `access-request-plugin`). The alias is the deterministic lookup key the CLI uses to deploy to whichever tenant you are currently authenticated against, so the same commands can target staging and production without tracking environment-specific IDs.
-- **Slot** — a designated extension point in the SailPoint Identity Security UI that a plugin occupies (for example, `full-page`). A plugin declares the slots it fills in its manifest.
+- **Slot** — a designated extension point in the SailPoint Identity Security UI that a plugin occupies. Plugins use the `full-page` slot, which renders the plugin as its own page. A plugin declares its slots in its [manifest](/docs/ui-plugins/manifest#slots).
+- **Manifest** — the `sp-ui-plugin.json` file in the workspace. It describes the plugin and declares the [security policies](/docs/ui-plugins/manifest#security-policies) it needs.
 - **Asset bundle** — a set of compiled assets uploaded to a plugin instance with `sail ui-plugins upload`. The most recently uploaded bundle becomes the instance's active deployment.
 - **Local dev link** — a per-developer override, created with `sail ui-plugins link`, that tells SailPoint Identity Security to load your locally running dev server instead of the deployed assets. It affects only your own session.
 

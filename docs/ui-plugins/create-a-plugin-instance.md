@@ -72,8 +72,10 @@ The scaffold is a standard Angular workspace personalized with your alias and na
 }
 ```
 
-- The `manifest` section is the payload sent to SailPoint Identity Security when you register the plugin. It declares the `alias`, localized `name` and `description`, the API scopes the plugin needs, the required security policy objects, and the `slots` the plugin occupies.
+- The `manifest` section is the payload sent to SailPoint Identity Security when you register the plugin. It declares the `alias`, localized `name` and `description`, the API scopes the plugin needs, the [security policies](/docs/ui-plugins/manifest#security-policies) that control which browser capabilities the plugin can use, and the `slots` the plugin occupies.
 - The `build` section is local CLI configuration only — it is **never** sent to the backend. `outDir` tells `upload` where the compiled assets live, and `port` is the default local dev server port used by `link`.
+
+For every field and its allowed values, see the [plugin manifest reference](/docs/ui-plugins/manifest).
 
 You can validate the manifest's structure at any time without touching the backend:
 
@@ -248,6 +250,12 @@ Run `npm run build` first, then upload.
 
 :::
 
+:::info Bundle limits
+
+Each file in the bundle can be up to 10 MB, and the whole bundle up to 100 MB across at most 1,000 files. Every file must have a supported extension. See [Limits and supported files](/docs/ui-plugins/limits) for the full list and for help with upload errors.
+
+:::
+
 :::tip Write once, deploy anywhere
 
 The workspace `alias` is the deterministic lookup key for the plugin instance, so `upload` deploys to whichever tenant your CLI is currently authenticated against. Run it while authenticated to staging to update the staging instance, then switch your CLI environment to production and run the identical command to update production — no environment-specific plugin IDs to track.
@@ -293,4 +301,5 @@ sail ui-plugins delete test-plugin
 ## Next steps
 
 - Explore every command and its flags in the [CLI command reference](/docs/ui-plugins/cli-command-reference).
-- Review the full [`sp-ui-plugin.json` manifest](/docs/ui-plugins/cli-command-reference#the-sp-ui-pluginjson-manifest) contract.
+- Review every field of the [`sp-ui-plugin.json` manifest](/docs/ui-plugins/manifest), including its security policies.
+- Check the [limits and supported file types](/docs/ui-plugins/limits) for plugins.

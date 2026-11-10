@@ -6,12 +6,12 @@ sidebar_label: CLI Command Reference
 sidebar_position: 3
 sidebar_class_name: uiPluginsCliReference
 keywords: ['ui', 'plugins', 'ui-plugins', 'cli', 'commands', 'reference']
-description: Reference for every sail ui-plugins command and the sp-ui-plugin.json manifest.
+description: Reference for every sail ui-plugins command.
 slug: /ui-plugins/cli-command-reference
 tags: ['ui-plugins']
 ---
 
-All UI plugin workflows run through the `sail ui-plugins` command group in the [SailPoint CLI](/docs/tools/cli). This page documents each command and the `sp-ui-plugin.json` manifest.
+All UI plugin workflows run through the `sail ui-plugins` command group in the [SailPoint CLI](/docs/tools/cli). This page documents each command. The workspace file those commands read is documented in the [plugin manifest reference](/docs/ui-plugins/manifest).
 
 ## Command summary
 
@@ -121,6 +121,8 @@ Uploads the compiled UI plugin assets from a workspace to its plugin instance. *
 
 The output directory is resolved from `--out-dir`, then `build.outDir` in the manifest. If the resolved directory is missing or empty, the command fails fast. On success the assets become the plugin instance's active asset bundle, hosted immutably behind the CDN.
 
+The bundle must stay within the plugin size limits and contain only supported file types. See [Limits and supported files](/docs/ui-plugins/limits).
+
 | Flag | Description |
 | --- | --- |
 | `--out-dir` | Custom output directory to use instead of the manifest's `build.outDir` value |
@@ -172,53 +174,9 @@ sail ui-plugins delete access-request-plugin --force
 
 Performs an offline structural validation of `./sp-ui-plugin.json`. Its alias is `validate`. It checks the JSON shape, required fields and types, rejects unknown fields, verifies the supported config schema version, and confirms the required policy objects are present (an empty object `{}` is accepted).
 
-It does **not** contact the backend, so it does not check alias availability, slot registry membership, security policy directive values, or other tenant-specific rules. Use `create` for full backend validation.
+It does **not** contact the backend, so it does not check alias availability, slot registry membership, [security policy](/docs/ui-plugins/manifest#security-policies) values, or other tenant-specific rules. Use `create` for full backend validation.
 
 ```bash
 sail ui-plugins validate-manifest
 sail ui-plugins validate
 ```
-
-## The `sp-ui-plugin.json` manifest
-
-Every workspace contains an `sp-ui-plugin.json` file describing the plugin. It has two top-level sections: `manifest` (sent to the backend) and `build` (local CLI configuration only).
-
-```json
-{
-    "version": 1,
-    "manifest": {
-        "alias": "my-plugin",
-        "name": { "en": "My Plugin" },
-        "description": { "en": "My Plugin" },
-        "apiScopes": ["sp:scopes:all"],
-        "contentSecurityPolicies": {},
-        "permissionPolicy": {},
-        "iframeAllow": {},
-        "slots": [{ "slotId": "full-page" }]
-    },
-    "build": {
-        "outDir": "./dist/my-plugin/browser",
-        "port": 4200
-    }
-}
-```
-
-| Field | Required | Description |
-| --- | --- | --- |
-| `version` | Yes | Config schema version. Currently only `1` is supported. |
-| `manifest.alias` | Yes | Tenant-unique key for the plugin; also the deploy lookup key. |
-| `manifest.name` | Yes | Localized display name (locale → string). At least one locale entry is required. |
-| `manifest.description` | Yes | Localized description (locale → string). At least one locale entry is required. |
-| `manifest.apiScopes` | No | API scopes the plugin requires. |
-| `manifest.contentSecurityPolicies` | Yes | CSP directives (directive → values). Use `{}` if the plugin declares none. |
-| `manifest.permissionPolicy` | Yes | Permission-policy directives. Use `{}` if the plugin declares none. |
-| `manifest.iframeAllow` | Yes | iframe `allow` directives. Use `{}` if the plugin declares none. |
-| `manifest.slots` | Yes | The UI slots the plugin occupies; at least one is required. Each slot needs a `slotId` and may declare `requiredCapabilities` and `restrictToUsers`. |
-| `build.outDir` | No | Local build output directory that `upload` deploys from. Never sent to the backend. |
-| `build.port` | No | Default local dev server port used by `link`. Never sent to the backend. |
-
-:::note
-
-The `build` section is stripped from everything sent to the backend. It exists purely so the CLI knows where your compiled assets are (`outDir`) and which port your dev server uses (`port`).
-
-:::

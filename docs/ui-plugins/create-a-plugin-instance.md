@@ -73,7 +73,7 @@ The scaffold is a standard Angular workspace personalized with your alias and na
 ```
 
 - The `manifest` section is the payload sent to SailPoint Identity Security when you register the plugin. It declares the `alias`, localized `name` and `description`, the API scopes the plugin needs, the [security policies](/docs/ui-plugins/manifest#security-policies) that control which browser capabilities the plugin can use, and the `slots` the plugin occupies.
-- The `build` section is local CLI configuration only — it is **never** sent to the backend. `outDir` tells `upload` where the compiled assets live, and `port` is the default local dev server port used by `link`.
+- The `build` section is local CLI configuration. `outDir` tells `upload` where the compiled assets live and stays on your machine. `port` is the dev server port that `link` sends so SailPoint Identity Security can load your local code.
 
 For every field and its allowed values, see the [plugin manifest reference](/docs/ui-plugins/manifest).
 

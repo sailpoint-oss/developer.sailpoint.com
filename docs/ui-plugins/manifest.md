@@ -19,7 +19,7 @@ The file has three top-level fields:
 
 - `version` — the config schema version.
 - `manifest` — the plugin definition sent to SailPoint Identity Security when you run `create` or `push-manifest`.
-- `build` — local CLI configuration. It is never sent to SailPoint Identity Security.
+- `build` — local CLI configuration. `outDir` stays on your machine. `link` sends `port` to SailPoint Identity Security so it can load your dev server.
 
 ```json
 {
@@ -203,7 +203,7 @@ Your local dev server applies the same policies. In the Angular starter, `create
 
 ## build
 
-Local CLI configuration. The CLI strips this section before sending anything to SailPoint Identity Security.
+Local CLI configuration. `outDir` stays on your machine. `link` sends `port` to SailPoint Identity Security so it can load your dev server.
 
 | Field | Description |
 | --- | --- |

@@ -1,0 +1,12 @@
+name: Create Jira Story from GitHub Issue
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  jira:
+    permissions:
+      issues: write
+    uses: sailpoint-oss/.github/.github/workflows/github-issue-to-jira.yml@main
+    secrets: inherit

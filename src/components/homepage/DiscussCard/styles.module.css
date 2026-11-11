@@ -1,8 +1,11 @@
 /* Getting Started Card */
 .card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   margin-top: 20px;
   height: 300px;
+  padding: 22px;
   /* UI Properties */
   opacity: 1;
   transition: all 0.3s;
@@ -28,100 +31,61 @@
   box-shadow: var(--dev-card-selected);
 }
 
-.cardText {
-  position: absolute;
-  margin: 22px;
-  font-size: 16px;
-  font-weight: 500;
-  min-width: 170px;
-  top: 35px;
-  left: 0;
-}
-
-.linkText {
-  position: absolute;
-  margin: 15px 45px 15px 25px;
-  font-size: 18px;
-  font-weight: 700;
-  bottom: 22px;
-  left: -19;
-  color: var(--ifm-color-primary);
-}
-
-.linkSolvedText {
-  position: absolute;
-  margin: 15px 45px;
-  font-size: 18px;
-  font-weight: 700;
-  bottom: 22px;
-  left: -19px;
-  color: var(--ifm-color-primary);
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 .cardIcon {
-  position: absolute;
-  margin: 20px;
-  top: 20px;
-  left: 0;
   width: 20px;
 }
 
-.cardArrow {
-  position: absolute;
-  margin: 20px;
-  bottom: 20px;
-  right: 0;
-  width: 20px;
+.cardStats {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 15px;
+  white-space: nowrap;
 }
 
-.cardViews {
-  position: absolute;
-  margin: 15px;
-  right: 0px;
-  top: 0;
-  width: 30px;
-}
-
-.cardLikes {
-  position: absolute;
-  margin: 15px;
-  right: 45px;
-  top: 0;
-  width: 30px;
-}
-
-.cardSolved {
-  position: absolute;
-  margin: 0px;
-  right: 132px;
-  top: 18px;
-  width: 20px;
-  color: var(--ifm-color-primary);
-}
-
-.cardDiscuss {
-  display: none;
-  position: absolute;
-  margin: 0px;
-  left: 12px;
-  bottom: 57px;
-  width: 28px;
-}
-
-.cardEye {
-  position: absolute;
-  margin: 20px;
-  right: 28px;
-  top: -3px;
-  width: 22px;
+.cardStat {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .cardLiked {
-  position: absolute;
-  margin: 16px;
-  right: 75px;
-  top: 0;
-  width: 22px;
+  width: 18px;
+}
+
+.cardEye {
+  width: 18px;
+}
+
+.cardSolved {
+  color: var(--ifm-color-primary);
+}
+
+/* Long titles stop after four lines so they never push into the tags. */
+.cardText {
+  display: -webkit-box;
+  margin-top: 14px;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+.tags {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: auto;
+  padding-top: 12px;
 }
 
 .tag {
@@ -130,15 +94,21 @@
   color: var(--dev-secondary-text);
 }
 
-.tags {
-  grid-gap: 3px;
-  bottom: 50px;
-  display: grid;
-  position: absolute;
-  padding: -4%;
-  margin-top: 5%;
-  margin-bottom: 6%;
-  margin-left: 8%;
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+
+.linkText {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+}
+
+.cardArrow {
+  width: 20px;
 }
 
 .idn {

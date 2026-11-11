@@ -2,13 +2,13 @@ const fs   = require('fs');
 const yaml = require('js-yaml');
 const path = require('path');
 
-// Get file paths from command line arguments
-// Accepts 3 required args (python, powershell, go) plus an optional 4th (typescript)
-const [pythonFilePath, powershellFilePath, goFilePath, typescriptFilePath] = process.argv.slice(2);
+// Get file paths from command line arguments.
+// Every argument is one per-SDK code-examples overlay. Missing or empty files
+// are tolerated, so an SDK whose build produced no overlay is simply skipped.
+const overlayPaths = process.argv.slice(2);
 
-// Check that the three required arguments are provided
-if (!pythonFilePath || !powershellFilePath || !goFilePath) {
-  console.error('Usage: node merge.js <python.yml> <powershell.yml> <go.yml> [<typescript.yml>]');
+if (overlayPaths.length === 0) {
+  console.error('Usage: node mergeoverlayfiles.js <overlay.yaml> [<overlay.yaml> ...]');
   process.exit(1);
 }
 
@@ -24,18 +24,17 @@ const loadYaml = (filePath) => {
 };
 
 // Read & parse all files
-const pythonData     = loadYaml(pythonFilePath);
-const powershellData = loadYaml(powershellFilePath);
-const goData         = loadYaml(goFilePath);
-const typescriptData = loadYaml(typescriptFilePath);
+const overlayData = overlayPaths.map(loadYaml);
 
-// Merge logic — collects all languages, keyed by path+method
+// Merge logic — collects all languages, keyed by path+method. The method case
+// differs between SDK generators, so normalize it to build one entry per
+// endpoint instead of one per generator.
 const mergeCodeSamples = (...allData) => {
   const merged = {};
 
   allData.forEach(fileData => {
     (fileData || []).forEach(item => {
-      const key = `${item.path}|${item.method}`;
+      const key = `${item.path}|${String(item.method).toLowerCase()}`;
       if (!merged[key]) {
         merged[key] = { path: item.path, method: item.method, xCodeSample: [] };
       }
@@ -49,13 +48,13 @@ const mergeCodeSamples = (...allData) => {
 };
 
 // Perform the merge
-const mergedArray = mergeCodeSamples(pythonData, powershellData, goData, typescriptData);
+const mergedArray = mergeCodeSamples(...overlayData);
 
 // Dump back to YAML without line-wrapping
 const mergedYaml = yaml.dump(mergedArray, { lineWidth: -1 });
 
-// Write output next to the Go file
-const outDir  = path.dirname(goFilePath);
+// Write output next to the first overlay — all overlays share one directory
+const outDir  = path.dirname(overlayPaths[0]);
 const outPath = path.join(outDir, 'merged_code_examples.yaml');
 fs.writeFileSync(outPath, mergedYaml, 'utf8');
 

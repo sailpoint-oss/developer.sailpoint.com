@@ -17,7 +17,7 @@ Use the static transform to return a fixed string value, or more commonly, to ev
 :::note Other Considerations
 
 - When you are using static transforms within the create profile for a source, you can enter the value directly in the input field if the user selects Static as the attribute type.
-- Because Identity Security Cloud supports the ability to order attributes in a create profile, you can use the Velocity template of an attribute higher in the list to generate a static value for an attribute that is lower in the list. For example, if you wanted to generate an email address based on a display name, you would need to do the follwing:
+- Because SailPoint Identity Security supports the ability to order attributes in a create profile, you can use the Velocity template of an attribute higher in the list to generate a static value for an attribute that is lower in the list. For example, if you wanted to generate an email address based on a display name, you would need to do the follwing:
   - Move the "displayName" attribute higher in the list so that it is created before the email address.
   - In the "mail" attribute, select Static for the attribute type. In the Static Value field, enter `$displayName@yourdomain.com`.
 
@@ -139,7 +139,33 @@ This transform extends the previous one to show how you can use if/else logic to
 }
 ```
 
+---
+
+<p>&nbsp;</p>
+
+This transform uses the `$__numberTool` [Velocity tool](../guides/velocity-tools.md) to pad the employee number to six digits. For example, if `empNumber` is `42`, the transform returns `000042`.
+
+**Transform request body**:
+
+```json
+{
+  "attributes": {
+    "empNumber": {
+      "attributes": {
+        "sourceName": "HR Source",
+        "attributeName": "employeeNumber"
+      },
+      "type": "accountAttribute"
+    },
+    "value": "$__numberTool.format('000000', $empNumber)"
+  },
+  "type": "static",
+  "name": "Static Transform"
+}
+```
+
 ## References
 
 - [https://velocity.apache.org/engine/1.7/user-guide.html](https://velocity.apache.org/engine/1.7/user-guide.html)
 - [https://velocity.apache.org/engine/2.0/vtl-reference.html](https://velocity.apache.org/engine/2.0/vtl-reference.html)
+- [Use Velocity tools in transforms](../guides/velocity-tools.md)

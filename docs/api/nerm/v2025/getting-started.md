@@ -21,15 +21,23 @@ NERM supports two authentication methods:
 
 ### 1. NERM API Key (Legacy)
 
+:::caution Deprecated
+
+Legacy NERM API keys are deprecated and do not support scopes. Use SailPoint Identity Security API tokens instead, as described below. For details on the scopes available with SailPoint Identity Security API tokens, refer to [Authorization](./authorization.md).
+
+:::
+
 To authenticate with a NERM-specific API key, you will need to generate a token by following the instructions here: [Generating a New API Key](https://documentation.sailpoint.com/ne-admin/help/setup/api.html). Once you have your token, you are ready to start making calls!
 
-### 2. Identity Security Cloud (ISC) API Token (Recommended)
+<a id="2-identity-security-cloud-isc-api-token-recommended" class="legacy-anchor"></a>
 
-NERM now supports authentication using Identity Security Cloud (ISC) personal access tokens. This allows you to use the same authentication method across both ISC and NERM APIs.
+### 2. SailPoint Identity Security API Token (Recommended)
 
-To authenticate with an ISC token:
+NERM now supports authentication using SailPoint Identity Security personal access tokens. This allows you to use the same authentication method across both SailPoint Identity Security and NERM APIs.
 
-1. **Find your ISC tenant's OAuth details** - Your ISC instance is likely using the domain name supplied by SailPoint (`[tenant].api.identitynow.com`). If you have admin access but don't know your tenant name, you can find it in your ISC instance under Dashboard > Overview > Org Details.
+To authenticate with a SailPoint Identity Security token:
+
+1. **Find your SailPoint Identity Security tenant's OAuth details** - Your tenant is likely using the domain name supplied by SailPoint (`[tenant].api.identitynow.com`). If you have admin access but don't know your tenant name, you can find it in your tenant under Dashboard > Overview > Org Details.
 
 2. **Generate a personal access token (PAT)** - Follow these steps:
    - Select **Preferences** from the drop-down menu under your username, then **Personal Access Tokens** on the left
@@ -54,7 +62,7 @@ curl --location 'https://mycompany.nonemployee.com/api/v2025/non-employee-source
 --header 'Authorization: Bearer {access_token}'
 ```
 
-For more detailed information about ISC authentication, refer to the [ISC Authentication Guide](/docs/api/authentication).
+For more detailed information about SailPoint Identity Security authentication, refer to the [Authentication Guide](/docs/api/authentication).
 
 ## API Tools
 

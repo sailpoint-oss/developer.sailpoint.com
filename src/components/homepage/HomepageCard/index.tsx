@@ -9,14 +9,11 @@ export interface HomepageCardProps {
   link: string;
   title: string;
   image?: string;
-  product: 'isc' | 'iiq';
 }
 
-const HomepageCard: React.FC<HomepageCardProps> = ({ link, title, image, product }) => {
-  const productStyles = product === 'isc' ? styles.idn : styles.iiq;
-
+const HomepageCard: React.FC<HomepageCardProps> = ({ link, title, image }) => {
   return (
-    <Link to={link}>
+    <Link to={link} className={styles.cardLink}>
       <div className={styles.card}>
         {image && (
           <ThemedImage
@@ -27,7 +24,6 @@ const HomepageCard: React.FC<HomepageCardProps> = ({ link, title, image, product
             }}
           />
         )}
-        <div className={`${styles.product} ${productStyles}`}>{product}</div>
         <div className={styles.cardText}>{title}</div>
         {image && (
           <ThemedImage

@@ -24,15 +24,13 @@ export default function HomepageGettingStarted(): JSX.Element {
           <div className={styles.gridContainer}>
             <HomepageCard
               link="/docs"
-              title="Get started with Identity Security Cloud"
+              title="Get started with SailPoint Identity Security"
               image="/homepage/SailPointIdentitySecurityCloud.svg"
-              product="isc"
             />
             <HomepageCard
               link="https://documentation.sailpoint.com/identityiq/help/iiqlandingpage.html"
               title="Get started with IdentityIQ"
               image="/homepage/IdentityIQ.svg"
-              product="iiq"
             />
           </div>
         </div>

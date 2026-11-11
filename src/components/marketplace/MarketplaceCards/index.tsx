@@ -59,7 +59,7 @@ const MarketplaceCards: React.FC<MarketplaceCardsProps> = ({
       tags = ['featured'];
     }
     const data = await getMarketplacePosts(
-      tags ? tags.join('+') : '',
+      tags ?? [],
       filterCallback.category
     );
 

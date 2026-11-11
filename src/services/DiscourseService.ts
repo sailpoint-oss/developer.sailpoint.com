@@ -1,4 +1,8 @@
-import { discourseBaseURL } from '../util/util';
+import {
+  discourseBaseURL,
+  discourseFilterQuery,
+  expandProductTags,
+} from '../util/util';
 import { discourseFetch } from './discourseFetch';
 
 export async function getTopPosts(): Promise<any[]> {
@@ -111,26 +115,37 @@ export async function getBlogPosts(tags: string | string[]): Promise<DiscourseRe
     },
   };
 
-  const formattedTags = Array.isArray(tags) ? tags.join('+') : tags;
+  const tagList = (Array.isArray(tags) ? tags : tags ? [tags] : []).filter(Boolean);
 
-  if (!formattedTags || formattedTags.length < 1) {
+  if (tagList.length === 0) {
     url = `${discourseBaseURL()}c/content/community-blog/125.json`;
   } else {
-    url = `${discourseBaseURL()}tags/c/content/community-blog/${formattedTags}.json`;
+    // /filter.json is the only listing endpoint that supports OR across tags,
+    // which the product tag now needs. It returns the same shape (topic_list +
+    // users) as the old /tags/c route.
+    url = `${discourseBaseURL()}filter.json?q=${encodeURIComponent(
+      discourseFilterQuery('community-blog', tagList),
+    )}`;
   }
 
   try {
     let page = 0;
 
-    while (true) {
-      const pageUrl = page === 0 ? url : `${url}`;
+    // Page until a short page arrives. The hard cap is a backstop so a change in
+    // Discourse's paging behaviour can never spin this loop forever.
+    while (page < 50) {
+      const separator = url.includes('?') ? '&' : '?';
+      const pageUrl = page === 0 ? url : `${url}${separator}page=${page}`;
       const response = await fetch(pageUrl);
       const data: DiscourseResponse = await response.json();
 
-      allData.topic_list.topics = allData.topic_list.topics.concat(data.topic_list.topics);
-      allData.users = allData.users.concat(data.users);
+      const topics = data.topic_list?.topics ?? [];
+      allData.topic_list.topics = allData.topic_list.topics.concat(topics);
+      if (Array.isArray(data.users)) {
+        allData.users = allData.users.concat(data.users);
+      }
 
-      if (data.topic_list.topics.length < 30 || formattedTags === 'identity-security-cloud') {
+      if (topics.length < 30) {
         break;
       }
 
@@ -170,37 +185,35 @@ export async function getVideoPosts(tags?: string[]): Promise<VideoPostResponse 
     },
   };
 
-  if (tags && tags.length > 0) {
-    switch (tags.length) {
-      case 1:
-        url = `${discourseBaseURL()}/tags/c/content/video-library/127/${tags[0]}.json`;
-        break;
-      case 2:
-        url = `${discourseBaseURL()}/filter.json?q=category%3Avideo-library%20tag%3A${tags[0]}%2B${tags[1]}`;
-        break;
-      case 3:
-        url = `${discourseBaseURL()}/filter.json?q=category%3Avideo-library%20tag%3A${tags[0]}%2B${tags[1]}%2B${tags[2]}`;
-        break;
-      default:
-        url = `${discourseBaseURL()}c/content/video-library/127.json`;
-    }
+  const tagList = (tags ?? []).filter(Boolean);
+
+  if (tagList.length > 0) {
+    // One clause per tag ANDs them, while the product tags collapse into a
+    // single OR clause -- so a product + video-type selection still intersects.
+    // The old code joined every tag with '+', which the /tags/c route does not
+    // parse at all (it returned zero results for any multi-tag selection).
+    url = `${discourseBaseURL()}filter.json?q=${encodeURIComponent(
+      discourseFilterQuery('video-library', tagList),
+    )}`;
   } else {
     url = `${discourseBaseURL()}c/content/video-library/l/latest.json`;
   }
 
   try {
     let page = 0;
-    while (true) {
-      const pageUrl = page === 0 ? url : `${url}${tags && tags.length > 1 ? '&' : '?'}page=${page}`;
+    while (page < 50) {
+      const separator = url.includes('?') ? '&' : '?';
+      const pageUrl = page === 0 ? url : `${url}${separator}page=${page}`;
       const response = await fetch(pageUrl);
       const data: VideoPostResponse = await response.json();
 
-      allData.topic_list.topics = [...allData.topic_list.topics, ...data.topic_list.topics];
+      const topics = data.topic_list?.topics ?? [];
+      allData.topic_list.topics = [...allData.topic_list.topics, ...topics];
       if (Array.isArray(data.users)) {
         allData.users = [...allData.users, ...data.users];
       }
 
-      if (data.topic_list.topics.length < 30) {
+      if (topics.length < 30) {
         // Less than 30 topics means it's the last page
         break;
       }
@@ -213,13 +226,27 @@ export async function getVideoPosts(tags?: string[]): Promise<VideoPostResponse 
   }
 }
 
-export async function getMarketplacePosts(tags?: string, category?: string): Promise<any> {
+export async function getMarketplacePosts(
+  tags?: string[],
+  category?: string,
+): Promise<any> {
   let filterCategory = 'colab';
   if (category && category !== 'colab') {
     filterCategory += `/${category}`;
   }
 
-  const url = discourseBaseURL() + `c/${filterCategory}/l/latest.json` + (tags ? `?tags=${tags}` : '');
+  // This route ignores `?tags=a,b` and `?tags=a+b` (both return nothing); the
+  // repeated `tags[]=` form is what actually ORs them. Verified against the
+  // live forum.
+  const tagList = expandProductTags((tags ?? []).filter(Boolean));
+  const query = tagList
+    .map((tag) => `tags%5B%5D=${encodeURIComponent(tag)}`)
+    .join('&');
+
+  const url =
+    discourseBaseURL() +
+    `c/${filterCategory}/l/latest.json` +
+    (query ? `?${query}` : '');
 
   try {
     const response = await fetch(url);

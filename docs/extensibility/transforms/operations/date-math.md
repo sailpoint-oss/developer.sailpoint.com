@@ -29,6 +29,12 @@ The output format for the DateMath transform is "yyyy-MM-dd'T'HH:mm". When you u
 
 :::
 
+:::tip
+
+The date math transform adds or subtracts a fixed amount of time. To get the number of days between two dates, use the Velocity tools in a static transform. Refer to [Use Velocity tools in transforms](../guides/velocity-tools.md).
+
+:::
+
 ## Transform structure
 
 The date math transform takes the input value and executes addition, subtraction and/or rounding operations to that value based on an `expression` configuration value. As indicated earlier, the input datetime must be in [ISO8601 format](https://en.wikipedia.org/wiki/ISO_8601). The `expression` value leverages the following abbreviations to indicate which date or time component to evaluate:

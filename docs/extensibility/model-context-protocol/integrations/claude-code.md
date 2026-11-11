@@ -13,8 +13,14 @@ tags: ['MCP', 'Claude Code', 'CLI']
 
 This guide will walk you through the process of connecting the SailPoint MCP server using Claude Code.
 
+Claude Code connects to the SailPoint MCP servers through the `mcp-remote` helper, with OAuth 2.1 and PKCE. You do not need an authentication token. You add a Client ID to `~/.claude.json`, and `mcp-remote` runs the login and consent flow in your browser.
+
 :::warning
 Before configuring this integration, please confirm with your organization's administrator whether the integration is allowed with this AI provider. SailPoint does not bear any responsibility in this regard.
+:::
+
+:::note
+Claude Code's built-in remote MCP OAuth (`claude mcp add --transport http`) currently requires Dynamic Client Registration, which the SailPoint MCP Server does not support. This guide uses `mcp-remote` with a pre-registered Client ID instead.
 :::
 
 ## Prerequisites
@@ -23,95 +29,100 @@ Before you begin, ensure you have the following:
 
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) installed and configured on your system
 - Node.js and npm installed (required for the `npx` command)
-- Access credentials for your MCP server
+- A SailPoint Identity Security tenant with the MCP Access Requests feature enabled
+- Permission to create an API client in SailPoint Identity Security, or a Client ID provided by your administrator
 - Basic familiarity with command line operations
 
-## Step 1: Set Up Authentication
-
-First, you'll need to configure your authentication token as an environment variable. This keeps your credentials secure and separate from your configuration.
-
-### Setting the Environment Variable
-
-**On macOS/Linux:**
-
-```bash
-export AUTH_TOKEN="your_actual_token_here"
-```
-
-**On Windows (Command Prompt):**
-
-```cmd
-set AUTH_TOKEN=your_actual_token_here
-```
-
-**On Windows (PowerShell):**
-
-```powershell
-$env:AUTH_TOKEN="your_actual_token_here"
-```
-
-:::tip
-To make the environment variable persistent across sessions, add it to your shell profile (`.bashrc`, `.zshrc`, etc.) or system environment variables.
+:::note
+The global MCP URL is not available for FedRAMP tenants or tenants with data sovereignty requirements. Those environments should continue to use their tenant-specific URL.
 :::
 
-## Step 2: Add the MCP Server to Claude Code
+## Step 1: Create an API client in SailPoint Identity Security
 
-Once your authentication is configured, you can add the MCP server to Claude Code using the following command:
+Create an API client, as described in [Create an API client](../getting-started.mdx#step-1-create-an-api-client-in-sailpoint-identity-security). Use the redirect URL for Claude Code. Then copy the **Client ID**. You need it in the next step.
 
-The command below uses the global MCP URL, which works for all tenants without any tenant-specific changes.
+## Step 2: Add the SailPoint MCP Servers to `~/.claude.json`
 
-```bash
-claude mcp add-json sailpoint-mcp '{"type":"stdio","command":"npx","args":["mcp-remote@latest","https://mcp.sailpoint.com/latest/access-requests/mcp","--header","Authorization: Bearer ${AUTH_TOKEN}"]}'
-```
+Claude Code reads its MCP servers from the `~/.claude.json` file. The servers in the top-level `mcpServers` object are available in all of your projects.
 
-### Using the --scope Flag
+1. Open `~/.claude.json` in a text editor.
+2. Add the SailPoint servers to the top-level `mcpServers` object. If the object does not exist, add it:
 
-The `--scope` flag is an optional parameter that controls which projects or directories have access to your MCP server. For detailed information about MCP installation scopes and when to use them, see the [MCP Installation Scopes documentation](https://docs.anthropic.com/en/docs/claude-code/mcp#mcp-installation-scopes).
+    ```json
+    {
+      "mcpServers": {
+        "sailpoint-access-requests": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "mcp-remote@0.8.7",
+            "https://mcp.sailpoint.com/latest/access-requests/mcp",
+            "13509",
+            "--static-oauth-client-info",
+            "{\"client_id\": \"YOUR_CLIENT_ID\"}",
+            "--static-oauth-client-metadata",
+            "{\"scope\": \"idn:access-request:manage\"}"
+          ]
+        },
+        "sailpoint-identity-intelligence": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "mcp-remote@0.8.7",
+            "https://mcp.sailpoint.com/latest/intelligence/mcp",
+            "13509",
+            "--static-oauth-client-info",
+            "{\"client_id\": \"YOUR_CLIENT_ID\"}",
+            "--static-oauth-client-metadata",
+            "{\"scope\": \"sp:identity-sec-intel:read\"}"
+          ]
+        }
+      }
+    }
+    ```
 
-### Command Breakdown
+3. Replace each `YOUR_CLIENT_ID` with the Client ID from Step 1. You can use the same Client ID for every server.
+4. Save the file.
 
-Let's break down the base command:
+If you need only one server, delete the other one. For the URL and scope of each server, refer to [Servers](../getting-started.mdx#servers).
 
-- `claude mcp add-json` - The Claude Code command to add an MCP server using JSON configuration
-- `sailpoint-mcp` - A custom name for your MCP server connection (you can choose any name)
-- `--scope <path>` - (Optional) Limits the server to specific project directories
-- The JSON configuration object contains:
-  - `"type": "stdio"` - Specifies the connection type as standard input/output
-  - `"command": "npx"` - Uses npx to run the MCP remote package
-  - `"args": [...]` - Array of arguments passed to the npx command:
-    - `"mcp-remote@latest"` - The MCP remote package (always uses latest version)
-    - `"https://mcp.sailpoint.com/latest/access-requests/mcp"` - The global MCP server endpoint
-    - `"--header"` - Specifies a custom header for authentication
-    - `"Authorization: Bearer ${AUTH_TOKEN}"` - The authorization header using your environment variable
+The `args` array contains these values:
 
-## Step 3: Verify the Connection
+- `"-y"`: lets `npx` install `mcp-remote` without a prompt.
+- `"mcp-remote@0.8.7"`: the helper that runs the OAuth flow and connects Claude Code to the remote server.
+- The server URL: the global URL of the server.
+- `"13509"`: the local port that `mcp-remote` uses for the OAuth callback. This port must match the redirect URL from Step 1.
+- `"--static-oauth-client-info"`: the Client ID from Step 1. `mcp-remote` uses this Client ID because the SailPoint MCP servers do not support Dynamic Client Registration.
+- `"--static-oauth-client-metadata"`: the scope that `mcp-remote` requests for the server.
 
-Here's an improved version of that snippet:
+:::note
+Claude Desktop does not read `~/.claude.json`. To use the SailPoint servers in Claude Desktop, add the same configuration to `claude_desktop_config.json`. For instructions, refer to [Claude Desktop](./claude-desktop.md).
+:::
 
-**Verifying the MCP Server Installation**
+## Step 3: Authenticate and Verify the Connection
 
-After adding the MCP server, verify the installation by starting a new Claude session:
+1. Start a new Claude Code session:
 
-```bash
-claude
-```
+    ```bash
+    claude
+    ```
 
-Once the session starts, use the MCP command to connect to your server:
+2. Enter the `/mcp` command. Claude Code shows the SailPoint servers in the list of MCP servers.
+3. Select a SailPoint server to connect. `mcp-remote` opens a browser window for the OAuth flow.
+4. Enter your tenant name.
+5. Log in with your SailPoint Identity Security credentials. SSO is supported if it is configured for your tenant.
+6. Approve the consent screen. The browser goes back to `http://localhost:13509/oauth/callback`, and Claude Code connects to the server.
 
-```bash
-/mcp
-```
+Tokens refresh automatically, so you do not need to log in again during the session.
 
-Claude will attempt to establish a connection to all configured MCP servers. Upon successful connection, you can:
-
-- Browse the tools and their descriptions
-- Verify that your `sailpoint-mcp` server appears in the configured servers list
-- Test the server's functionality
-
-If the connection is successful, you should see `sailpoint-mcp` listed among your active MCP servers, confirming that the setup was completed correctly.
+From the `/mcp` menu, you can see the tools of each server and their descriptions.
 
 ## **Try it out!**
 
-You can now ask Claude Code questions like "What can I request access to?” or “What is the status of my access request?” or “Cancel access request XYZ”
+In a Claude Code session, ask questions about your access. For example:
+
+- “What can I request access to?”
+- “What is the status of my access request?”
+- “Cancel access request XYZ.”
 
 For more information about the tools, refer to the [SailPoint MCP tool documentation](../available-tools.mdx).

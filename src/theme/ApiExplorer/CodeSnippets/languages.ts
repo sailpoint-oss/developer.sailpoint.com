@@ -64,10 +64,47 @@ export function getCodeSampleSourceFromLanguage(language: Language) {
   return "";
 }
 
+// Order of the outer language tabs. The languages with a SailPoint SDK come
+// first, in this order; everything else keeps the postman-code-generators order.
+const PRIORITY_ORDER = [
+  "go",
+  "powershell",
+  "python",
+  "typescript",
+  "angular",
+];
+
+// Languages that postman-code-generators does not provide. They are added
+// manually so that x-codeSamples with a matching `lang` are displayed.
+const SDK_ONLY_LANGUAGES = [
+  {
+    highlight: "typescript",
+    language: "typescript",
+    codeSampleLanguage: "TypeScript",
+    logoClass: "typescript",
+  },
+  {
+    // Angular samples are TypeScript, so they use the TypeScript highlighter.
+    highlight: "typescript",
+    language: "angular",
+    codeSampleLanguage: "Angular",
+    logoClass: "angular",
+  },
+];
+
+function sortByPriority(languageSet: Language[]) {
+  languageSet.sort((a, b) => {
+    const aPriority = PRIORITY_ORDER.indexOf(a.language);
+    const bPriority = PRIORITY_ORDER.indexOf(b.language);
+    if (aPriority !== -1 && bPriority !== -1) return aPriority - bPriority;
+    if (aPriority !== -1) return -1;
+    if (bPriority !== -1) return 1;
+    return 0;
+  });
+}
+
 export function generateLanguageSet() {
   const languageSet: Language[] = [];
-
-  const priorityOrder = ["go", "powershell", "python", "typescript"];
 
   codegen.getLanguageList().forEach((language: any) => {
     const variants: any = [];
@@ -86,29 +123,14 @@ export function generateLanguageSet() {
       },
       variant: variants[0],
       variants: variants,
-      tag: ["powershell", "python", "go", "typescript"].includes(language.key)
-        ? "sailpoint-sdk"
-        : "",
+      tag: PRIORITY_ORDER.includes(language.key) ? "sailpoint-sdk" : "",
     });
   });
 
-  languageSet.sort((a, b) => {
-    const aPriority = priorityOrder.indexOf(a.language);
-    const bPriority = priorityOrder.indexOf(b.language);
-    if (aPriority !== -1 && bPriority !== -1) return aPriority - bPriority;
-    if (aPriority !== -1) return -1;
-    if (bPriority !== -1) return 1;
-    return 0;
-  });
-
-  // TypeScript is not in postman-code-generators; add it manually so that
-  // x-codeSamples with lang: TypeScript are matched and displayed.
-  if (!languageSet.find((l) => l.language === "typescript")) {
+  SDK_ONLY_LANGUAGES.forEach((sdkLanguage) => {
+    if (languageSet.find((l) => l.language === sdkLanguage.language)) return;
     languageSet.push({
-      highlight: "typescript",
-      language: "typescript",
-      codeSampleLanguage: "TypeScript",
-      logoClass: "typescript",
+      ...sdkLanguage,
       options: {
         longFormat: false,
         followRedirect: true,
@@ -118,15 +140,9 @@ export function generateLanguageSet() {
       variants: ["fetch"],
       tag: "sailpoint-sdk",
     } as any);
-    languageSet.sort((a, b) => {
-      const aPriority = priorityOrder.indexOf(a.language);
-      const bPriority = priorityOrder.indexOf(b.language);
-      if (aPriority !== -1 && bPriority !== -1) return aPriority - bPriority;
-      if (aPriority !== -1) return -1;
-      if (bPriority !== -1) return 1;
-      return 0;
-    });
-  }
+  });
+
+  sortByPriority(languageSet);
 
   return languageSet;
 }

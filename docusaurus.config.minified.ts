@@ -1,12 +1,12 @@
-// Minified Docusaurus config — builds only docs/api/v* (ISC API) for faster iteration in PRs.
+// Minified Docusaurus config — builds only docs/api/v* (SailPoint Identity Security API) for faster iteration in PRs.
 // Run with: npm run start-minified  or  npm run build-minified
 //
 // Key differences from the main config:
 //   - onBrokenLinks/onBrokenMarkdownLinks set to 'warn' (api docs may link to non-api pages)
-//   - Uses sidebars.minified.ts (ISC API sidebars only)
+//   - Uses sidebars.minified.ts (SailPoint Identity Security API sidebars only)
 //   - Docs plugin excludes all non-API directories
 //   - Plugins imported from plugins.ts with iiq-api, nerm-api, GTM, and redirects filtered out
-//   - Simplified navbar with only ISC API-spec link
+//   - Simplified navbar with only SailPoint Identity Security API-spec link
 
 import { ThemeConfig } from '@docusaurus/preset-classic';
 import { Config } from '@docusaurus/types';
@@ -17,7 +17,7 @@ import allPlugins from './plugins';
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
 
-// Exclude plugins that are not needed for the ISC API-only minified build.
+// Exclude plugins that are not needed for the SailPoint Identity Security API-only minified build.
 const EXCLUDED_PLUGIN_NAMES = new Set([
   '@docusaurus/plugin-google-tag-manager',
   '@docusaurus/plugin-client-redirects',
@@ -77,7 +77,7 @@ const config: Config = {
           docItemComponent: '@theme/ApiItem',
           // Exclude all non-API doc directories so the plugin skips them entirely.
           // This is what makes the minified build faster — we avoid indexing
-          // connectivity, extensibility, guides, iiq, reporting, and tools content.
+          // connectivity, extensibility, guides, iiq, reporting, tools, and ui-plugins content.
           exclude: [
             'connectivity/**',
             'connectivity.md',
@@ -92,9 +92,19 @@ const config: Config = {
             'reporting.md',
             'tools/**',
             'tools.md',
+            'ui-plugins/**',
+            'ui-plugins.md',
             'index.md',
             'api/iiq/**',
             'api/nerm/**',
+            // Community policy pages use the communityPoliciesSidebar, which is
+            // not part of the SailPoint Identity Security API-only minified build.
+            'ai-policy.md',
+            'ambassador-agreement.md',
+            'ambassador-code-of-conduct.md',
+            'community-code-of-conduct.md',
+            'community-policies.md',
+            'event-code-of-conduct.md',
           ],
         },
         // See docusaurus.config.ts for why the built-in blog plugin is disabled.
@@ -140,7 +150,7 @@ const config: Config = {
           label: 'API specifications',
           position: 'left',
           items: [
-            { label: 'Identity Security Cloud', to: '/docs/api' },
+            { label: 'SailPoint Identity Security', to: '/docs/api' },
           ],
         },
         {
@@ -200,7 +210,11 @@ const config: Config = {
     },
   },
 
-  themes: ['docusaurus-theme-openapi-docs', '@docusaurus/theme-mermaid'],
+  themes: [
+    'docusaurus-theme-openapi-docs',
+    '@docusaurus/theme-mermaid',
+    '@writechoice/docusaurus-theme-llms-txt',
+  ],
 
   customFields: {
     AUTH_USERNAME: process.env.AUTH_USERNAME || '',

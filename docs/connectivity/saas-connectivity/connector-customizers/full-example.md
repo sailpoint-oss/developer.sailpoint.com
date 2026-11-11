@@ -15,7 +15,7 @@ tags: ['Connectivity']
 
 This is a full example of a customizer with all commands provisioned:
 
-```javascript
+```typescript
 import {
     Context,
     createConnectorCustomizer,
@@ -23,6 +23,7 @@ import {
     logger,
     StdAccountReadInput,
     StdAccountReadOutput,
+    StdTestConnectionInput,
     StdTestConnectionOutput,
     StdAccountCreateInput,
     StdAccountCreateOutput,
@@ -37,9 +38,11 @@ import {
     StdAccountUnlockInput,
     StdAccountUnlockOutput,
     StdAccountListInput,
+    StdAccountListOutput,
     StdEntitlementReadInput,
     StdEntitlementReadOutput,
     StdEntitlementListInput,
+    StdEntitlementListOutput,
     StdChangePasswordInput,
     StdChangePasswordOutput,
     StdSourceDataDiscoverInput,
@@ -59,11 +62,12 @@ export const connectorCustomizer = async () => {
             logger.info('Running after test connection')
             return output
         })
-        .beforeStdTestConnection(async (context: Context, input: undefined) => {
+        .beforeStdTestConnection(async (context: Context, input: StdTestConnectionInput) => {
             logger.info('Running before test connection')
+            return input
         })
         .beforeStdAccountCreate(async (context: Context, input: StdAccountCreateInput) => {
-            logger.info(`Running before account, for account ${input.identity}`)
+            logger.info(`Running before account create for account ${input.identity}`)
             return input
         })
         .afterStdAccountCreate(async (context: Context, output: StdAccountCreateOutput) => {
@@ -71,7 +75,7 @@ export const connectorCustomizer = async () => {
             return output
         })
         .beforeStdAccountRead(async (context: Context, input: StdAccountReadInput) => {
-            logger.info(`Running before account, for account ${input.identity}`)
+            logger.info(`Running before account read for account ${input.identity}`)
             return input
         })
         .afterStdAccountRead(async (context: Context, output: StdAccountReadOutput) => {
@@ -79,15 +83,15 @@ export const connectorCustomizer = async () => {
             return output
         })
         .beforeStdAccountUpdate(async (context: Context, input: StdAccountUpdateInput) => {
-            logger.info(`Running before account, for account ${input.identity}`)
+            logger.info(`Running before account update for account ${input.identity}`)
             return input
         })
         .afterStdAccountUpdate(async (context: Context, output: StdAccountUpdateOutput) => {
-            logger.info(`Running after account update for account ${output.identity}}`)
+            logger.info(`Running after account update for account ${output.identity}`)
             return output
         })
         .beforeStdAccountDelete(async (context: Context, input: StdAccountDeleteInput) => {
-            logger.info(`Running before account, for account ${input.identity}`)
+            logger.info(`Running before account delete for account ${input.identity}`)
             return input
         })
         .afterStdAccountDelete(async (context: Context, output: StdAccountDeleteOutput) => {
@@ -95,7 +99,7 @@ export const connectorCustomizer = async () => {
             return output
         })
         .beforeStdAccountEnable(async (context: Context, input: StdAccountEnableInput) => {
-            logger.info(`Running before account, for account ${input.identity}`)
+            logger.info(`Running before account enable for account ${input.identity}`)
             return input
         })
         .afterStdAccountEnable(async (context: Context, output: StdAccountEnableOutput) => {
@@ -103,7 +107,7 @@ export const connectorCustomizer = async () => {
             return output
         })
         .beforeStdAccountDisable(async (context: Context, input: StdAccountDisableInput) => {
-            logger.info(`Running before account, for account ${input.identity}`)
+            logger.info(`Running before account disable for account ${input.identity}`)
             return input
         })
         .afterStdAccountDisable(async (context: Context, output: StdAccountDisableOutput) => {
@@ -111,7 +115,7 @@ export const connectorCustomizer = async () => {
             return output
         })
         .beforeStdAccountUnlock(async (context: Context, input: StdAccountUnlockInput) => {
-            logger.info(`Running before account, for account ${input.identity}`)
+            logger.info(`Running before account unlock for account ${input.identity}`)
             return input
         })
         .afterStdAccountUnlock(async (context: Context, output: StdAccountUnlockOutput) => {
@@ -119,8 +123,12 @@ export const connectorCustomizer = async () => {
             return output
         })
         .beforeStdAccountList(async (context: Context, input: StdAccountListInput) => {
-            logger.info(`Running before account list for account. State: ${input.state}`)
+            logger.info(`Running before account list. State: ${input.state}`)
             return input
+        })
+        .afterStdAccountList(async (context: Context, output: StdAccountListOutput) => {
+            logger.info(`Running after account list for account ${output.identity}`)
+            return output
         })
         .beforeStdEntitlementRead(async (context: Context, input: StdEntitlementReadInput) => {
             logger.info(`Running before entitlement read for account ${input.identity}`)
@@ -131,8 +139,12 @@ export const connectorCustomizer = async () => {
             return output
         })
         .beforeStdEntitlementList(async (context: Context, input: StdEntitlementListInput) => {
-            logger.info(`Running before entitlement list for account. State ${input.state}`)
+            logger.info(`Running before entitlement list. State: ${input.state}`)
             return input
+        })
+        .afterStdEntitlementList(async (context: Context, output: StdEntitlementListOutput) => {
+            logger.info(`Running after entitlement list for entitlement type ${output.type}`)
+            return output
         })
         .beforeStdChangePassword(async (context: Context, input: StdChangePasswordInput) => {
             logger.info(`Running before change password for account ${input.identity}`)
@@ -159,9 +171,8 @@ export const connectorCustomizer = async () => {
             return output
         })
         .customizedOperation('Operation Identifier', async (context: Context, input: any) => {
-        logger.info(`Running customized code.`)
-        return input
+            logger.info(`Running customized code.`)
+            return input
         })
 }
-
 ```

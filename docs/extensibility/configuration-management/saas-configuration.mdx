@@ -10,8 +10,8 @@ slug: /extensibility/configuration-management/saas-configuration
 tags: ['SaaS Configuration']
 ---
 
-import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs';
 
 You can use the SailPoint SaaS Configuration APIs to export snapshots of your tenant configurations and import them to restore those configurations in other SaaS systems, such as new or existing tenants. 
 Use these APIs to get configurations in bulk in support of environmental promotion, go-live, or tenant-to-tenant configuration management processes and pipelines. 
@@ -39,6 +39,10 @@ To learn more about Configuration Hub, refer to [Configuration Hub](https://docu
 
 :::caution
 A ✅ in the **Import** or **Deploy** column indicates support for standard sources only. Non-Employee sources are **not** supported for import or deploy, even when deploying from a backup of another tenant. See the [note below](#importing-configurations) for details.
+:::
+
+:::caution
+A ❌ in the **Import** column means the SaaS Configuration import API cannot import that object type. Including one in an import payload does not fail the job — the unsupported object is skipped and the import still completes. See [Importing configurations](#importing-configurations) for details.
 :::
 
 | **Object** | **Object Type** | **Export** | **Import** | **Backup** | **Deploy** |
@@ -129,6 +133,19 @@ This limitation applies to both terms used for this functionality:
 - You cannot **deploy** a Non-Employee source from a backup in Configuration Hub, including a backup taken from a different tenant (for example, deploying a sandbox backup into production).
 
 If you attempt to deploy a Non-Employee source from a backup, the source is created as a standard source rather than a Non-Employee source. This can cause issues in the target tenant. Because this behavior is expected, the **Import** and **Deploy** columns in the [Supported objects](#supported-objects) table reflect standard source support only and do not apply to Non-Employee sources.
+
+:::
+
+:::caution Unsupported object types are skipped without an error
+
+Importing is not all-or-nothing. If an import payload contains a mix of supported and unsupported object types, the import job imports the supported types, bypasses the unsupported types, and still finishes with a `status` of `COMPLETE`. The job is not interrupted partway through, and no error or warning tells you which objects were skipped.
+
+Before you build an import payload, check the **Import** column in the [Supported objects](#supported-objects) table. A ❌ means the import API cannot import that object type, even when the same object type shows a ✅ in the **Deploy** column.
+
+To confirm what an import actually changes, do either of the following:
+
+- Run the import with `preview=true` first, then review the result. Refer to [Import objects](#import-objects).
+- Compare your payload against the [import results](#import-results), which list only the objects that were imported.
 
 :::
 

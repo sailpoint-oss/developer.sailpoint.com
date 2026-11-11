@@ -85,67 +85,6 @@ Resources:
         - x86_64
       MemorySize: 128
       Timeout: 100
-  SailAppsAuthFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      Events:
-        GenerateSailAppsAuth:
-          Type: HttpApi
-          Properties:
-            Path: /sailapps/auth
-            Method: POST
-            ApiId:
-              Ref: DeveloperSailpointApiGatewayApiv2
-            Auth:
-              Authorizer: NONE
-        PerformSailAppsCodeExchange:
-          Type: HttpApi
-          Properties:
-            Path: /sailapps/auth/code
-            Method: POST
-            ApiId:
-              Ref: DeveloperSailpointApiGatewayApiv2
-            Auth:
-              Authorizer: NONE
-        GetSailAppsToken:
-          Type: HttpApi
-          Properties:
-            Path: /sailapps/auth/token/{uuid}
-            Method: GET
-            ApiId:
-              Ref: DeveloperSailpointApiGatewayApiv2
-            Auth:
-              Authorizer: NONE
-        PerformSailAppsTokenRefresh:
-          Type: HttpApi
-          Properties:
-            Path: /sailapps/auth/refresh
-            Method: POST
-            ApiId:
-              Ref: DeveloperSailpointApiGatewayApiv2
-            Auth:
-              Authorizer: NONE
-      CodeUri: backend/src/mithrandir/
-      Handler: index.handler
-      Runtime: nodejs22.x
-      Architectures:
-        - x86_64
-      MemorySize: 128
-      Timeout: 100
-      Policies:
-        # Give Create/Read/Update/Delete Permissions to the CMSTable
-        - DynamoDBCrudPolicy:
-            TableName: !Ref SailAppsAuth
-      Environment:
-        Variables:
-          # Make table name accessible as environment variable from function code during execution
-          AUTH_TOKENS_TABLE: !Ref SailAppsAuth
-          # Make DynamoDB endpoint accessible as environment variable from function code during execution
-          ENDPOINT_OVERRIDE: ""
-          # OAuth configuration
-          OAUTH_CLIENT_ID: sailpoint-cli
-          OAUTH_DEV_REDIRECT_URL: http://localhost:4200/sailapps
-          OAUTH_REDIRECT_URL: https://developer.sailpoint.com/sailapps
   JSONPathGoFunction:
     Type: AWS::Serverless::Function
     Metadata:
@@ -228,21 +167,6 @@ Resources:
       ProvisionedThroughput:
         ReadCapacityUnits: 20
         WriteCapacityUnits: 2
-  SailAppsAuth:
-    Type: AWS::DynamoDB::Table
-    Properties:
-      AttributeDefinitions:
-        - AttributeName: id
-          AttributeType: S
-      KeySchema:
-        - AttributeName: id
-          KeyType: HASH
-      ProvisionedThroughput:
-        ReadCapacityUnits: 20
-        WriteCapacityUnits: 2
-      TimeToLiveSpecification:
-        AttributeName: ttl
-        Enabled: true
   # S3 Bucket to host single page app website
   DeveloperSailpointWebSiteBucket:
     Type: "AWS::S3::Bucket"

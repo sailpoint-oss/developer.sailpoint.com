@@ -156,25 +156,6 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         datetime DELETED_DATE "date when the phase was deleted"
         datetime SYNC_DATE "When the row is last synced"
     }
-    PROVISIONING_TARGET {
-        text TENANT_ID "Unique Id for an Organization tenant"
-        text PROVISIONING_ID PK "Unique Id of the provisioning run"
-        text ACCESS_REQUEST_ID "Unique Id of the access request that triggered this provisioning run"
-        text TARGET_KEY PK "Key identifying the provisioning target account"
-        text TARGET_ID "Id of the target account"
-        text SOURCE_ID PK "Unique Id of the source containing the target account"
-        text ITEM_KEY "Key of the provisioned item"
-        text OPERATION "Operation performed on the target account (e.g. Add, Remove, Modify)"
-        text EXTERNAL_REQUEST_ID "External system request Id associated with the provisioning action"
-        text WORK_ITEM_ID "Id of the manual work item if manual provisioning was required"
-        text PROVISIONING_ENGINE "Source or connector used to provision"
-        text STATUS "Status of the provisioning action"
-        text RESULT_STATUS "Final result status of the provisioning action"
-        variant RESULT_ERRORS "List of errors encountered during provisioning"
-        variant RESULT_WARNINGS "List of warnings encountered during provisioning"
-        datetime DELETED_DATE "date when the record was deleted"
-        datetime SYNC_DATE "When the row is last synced"
-    }
     APPROVAL {
         text TENANT_ID "Unique Id for an Organization tenant"
         text ID PK "Unique Id for the approval step"
@@ -454,7 +435,6 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     ROLE }o--|| IDENTITY: "Owned by"
     ACCESS_REQUEST ||--|| IDENTITY: "contains - requested by and for"
     ACCESS_REQUEST ||--|{ ACCESS_REQUEST_PHASES: "has phases"
-    ACCESS_REQUEST ||--o{ PROVISIONING_TARGET: "triggers provisioning for"
     ACCESS_REQUEST ||--o{ APPROVAL: "has approval steps"
     CERTIFICATION ||--|{ IDENTITY: "contains"
     CERTIFICATION_ITEM ||--|| IDENTITY: "contains"

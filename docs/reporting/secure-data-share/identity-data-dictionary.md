@@ -207,29 +207,6 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | SYNC_DATE | datetime |  | When the row is last synced |
 
 
-### PROVISIONING_TARGET
-
-| Column | Data Type | Key | Description |
-| --- | --- | --- | --- |
-| TENANT_ID | text |  | Unique Id for an Organization tenant |
-| PROVISIONING_ID | text | PK | Unique Id of the provisioning run |
-| ACCESS_REQUEST_ID | text |  | Unique Id of the access request that triggered this provisioning run |
-| TARGET_KEY | text | PK | Key identifying the provisioning target account |
-| TARGET_ID | text |  | Id of the target account |
-| SOURCE_ID | text | PK | Unique Id of the source containing the target account |
-| ITEM_KEY | text |  | Key of the provisioned item |
-| OPERATION | text |  | Operation performed on the target account (e.g. Add, Remove, Modify) |
-| EXTERNAL_REQUEST_ID | text |  | External system request Id associated with the provisioning action |
-| WORK_ITEM_ID | text |  | Id of the manual work item if manual provisioning was required |
-| PROVISIONING_ENGINE | text |  | Source or connector used to provision |
-| STATUS | text |  | Status of the provisioning action |
-| RESULT_STATUS | text |  | Final result status of the provisioning action |
-| RESULT_ERRORS | variant |  | List of errors encountered during provisioning |
-| RESULT_WARNINGS | variant |  | List of warnings encountered during provisioning |
-| DELETED_DATE | datetime |  | date when the record was deleted |
-| SYNC_DATE | datetime |  | When the row is last synced |
-
-
 ### APPROVAL
 
 | Column | Data Type | Key | Description |
@@ -658,7 +635,6 @@ The following table describes the relationships between the tables in the identi
 | ROLE | IDENTITY | Many to One | Owned by |
 | ACCESS_REQUEST | IDENTITY | One to One | contains - requested by and for |
 | ACCESS_REQUEST | ACCESS_REQUEST_PHASES | One to One-or-More | has phases |
-| ACCESS_REQUEST | PROVISIONING_TARGET | One to Zero-or-More | triggers provisioning for |
 | ACCESS_REQUEST | APPROVAL | One to Zero-or-More | has approval steps |
 | CERTIFICATION | IDENTITY | One to One-or-More | contains |
 | CERTIFICATION_ITEM | IDENTITY | One to One | contains |

@@ -213,14 +213,21 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | --- | --- | --- | --- |
 | TENANT_ID | text |  | Unique Id for an Organization tenant |
 | ID | text | PK | Unique Id for the approval step |
-| TYPE | text |  | Type of approval step |
+| TYPE | text |  | Type of approval step. Only `ACCESS_REQUEST_APPROVAL` and `CUSTOM_ACCESS_REQUEST_APPROVAL` types are included |
 | ACCESS_REQUEST_ID | text |  | Unique Id of the access request this approval belongs to |
+| IDENTITY_REQUEST_ITEM_ID | text |  | Unique Id of the identity request item this approval is associated with |
 | TARGET_ID | text |  | Id of the item being approved |
-| REQUESTED_TARGET | variant |  | Object describing the requested item (id, name, requestType, targetType) |
+| TARGET_NAME | text |  | Name of the item being approved |
+| REQUEST_TYPE | text |  | Type of the access request (e.g. GRANT_ACCESS, REVOKE_ACCESS) |
+| TARGET_TYPE | text |  | Type of the target item (e.g. ROLE, ENTITLEMENT, ACCESS_PROFILE) |
 | STATUS | text |  | Current status of the approval step |
 | SERIAL_STEP | number |  | Sequential step number within the approval chain |
-| REQUESTER | variant |  | Identity that submitted the approval request |
-| REQUESTEE | variant |  | Identity on behalf of whom the request was made (for proxy requests) |
+| REQUESTER_ID | text |  | Id of the identity that submitted the approval request |
+| REQUESTER_NAME | text |  | Name of the identity that submitted the approval request |
+| REQUESTER_TYPE | text |  | Type of the requester |
+| REQUESTEE_ID | text |  | Id of the identity on behalf of whom the request was made (for proxy requests) |
+| REQUESTEE_NAME | text |  | Name of the identity on behalf of whom the request was made (for proxy requests) |
+| REQUESTEE_TYPE | text |  | Type of the requestee |
 | APPROVERS | variant |  | List of identities and governance groups assigned to approve |
 | ASSIGNED_TO | variant |  | Identity or group currently assigned to action this approval |
 | APPROVED_BY | variant |  | Identity that approved the request |

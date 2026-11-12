@@ -1,0 +1,1372 @@
+{
+ "fetchedAt": "2026-11-12T19:37:48.613Z",
+ "id": 222118,
+ "slug": "mastering-timezone-daylight-savings-management-in-isc-transforms",
+ "title": "Mastering Timezone & Daylight Savings Management in ISC Transforms",
+ "url": "https://developer.sailpoint.com/discuss/t/mastering-timezone-daylight-savings-management-in-isc-transforms/222118",
+ "createdAt": "2026-09-09T20:40:50.541Z",
+ "views": 182,
+ "likeCount": 1,
+ "tags": [
+  "sailpoint-identity-security",
+  "workflows",
+  "apis",
+  "transforms"
+ ],
+ "category": {
+  "id": 125,
+  "name": "Community Blog",
+  "slug": "community-blog",
+  "color": "#652D90",
+  "readRestricted": false,
+  "parent": {
+   "id": 69,
+   "name": "Content",
+   "slug": "content",
+   "color": "#652D90",
+   "readRestricted": false,
+   "parent": null
+  }
+ },
+ "readMinutes": 9,
+ "hero": {
+  "src": "https://global.discourse-cdn.com/sailpoint/original/3X/1/7/17a3c23df4d6600bae80e64a42c0441bba039542.jpeg",
+  "alt": "blog title card"
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Introduction"
+  },
+  {
+   "id": "solution-overview",
+   "title": "Solution Overview"
+  },
+  {
+   "id": "the-base-components",
+   "title": "The Base Components"
+  },
+  {
+   "id": "transform-use-cases",
+   "title": "Transform Use Cases"
+  },
+  {
+   "id": "considerations-best-practices-requiresperiodicrefresh",
+   "title": "Considerations & Best Practices: requiresPeriodicRefresh"
+  },
+  {
+   "id": "testing-and-validation",
+   "title": "Testing and Validation"
+  },
+  {
+   "id": "conclusion",
+   "title": "Conclusion"
+  }
+ ],
+ "posts": [
+  {
+   "id": 404082,
+   "number": 1,
+   "username": "trettkowski",
+   "name": "Tyler Rettkowski",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/trettkowski/96/36103_2.png",
+   "userTitle": "Expert Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/e/eb064076112b6705f2406f9119ef84ce300e416a.png",
+    "name": "expert_ambassadors"
+   },
+   "createdAt": "2026-09-09T20:40:50.823Z",
+   "replyTo": null,
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/mastering-timezone-daylight-savings-management-in-isc-transforms/222118/1",
+   "words": 1871,
+   "body": [
+    {
+     "t": "h3",
+     "a": {
+      "id": "introduction"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Introduction"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Why:"
+         ]
+        },
+        " If you manage time-dependent logic in SailPoint Identity Security Cloud (ISC), you likely know the pain of Daylight Saving Time. When you use a transform that calculates an offset based on hours, this logic shifts by an hour as soon as Daylight Saving Time begins or ends."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Problem:"
+         ]
+        },
+        " Hardcoding offsets like ",
+        {
+         "t": "code",
+         "c": [
+          "+5h"
+         ]
+        },
+        " in a ",
+        {
+         "t": "code",
+         "c": [
+          "dateMath"
+         ]
+        },
+        " transform works perfectly until the time changes. Once Daylight Saving Time occurs, your local midnight calculations, grace periods, and lifecycle states start triggering an hour early or late."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Goal:"
+         ]
+        },
+        " A dynamic solution utilizing scheduled Workflows to automatically update base timezone Transforms when Daylight Saving Time transitions occur. This ensures all nested date calculations are always accurate."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Note: This post focuses specifically on Eastern Time (EST/EDT) to illustrate the concept, rather than general timezone management. If your tenant supports global users across multiple timezones, you would incorporate a lookup transform to map the correct offset based on the user’s location."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "solution-overview"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Solution Overview"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Tech Stack:"
+         ]
+        },
+        " 2 Workflows + 2 Base Transforms."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "High-Level Flow:"
+         ]
+        },
+        " We establish two foundational transforms: ",
+        {
+         "t": "code",
+         "c": [
+          "EST To UTC"
+         ]
+        },
+        " and ",
+        {
+         "t": "code",
+         "c": [
+          "UTC To EST"
+         ]
+        },
+        ". All other time-based transforms reference these two base transforms instead of hardcoding their own offsets. We then create two scheduled Workflows, one for entering Daylight Saving Time and one for exiting. These workflows automatically run on the specific Sundays when time changes and use the ISC API to update the ",
+        {
+         "t": "code",
+         "c": [
+          "dateMath"
+         ]
+        },
+        " expressions inside our base transforms."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "the-base-components"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "The Base Components"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-1-base-transforms"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "1. Base Transforms"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "First, you need to create the two base transforms that will act as the single source of truth for your timezone offset."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "EST To UTC Transform:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "{\n  \"id\": \"d9df51b1-5d08-43ac-9e8a-7069e17282b7\",\n  \"name\": \"EST To UTC\",\n  \"type\": \"dateMath\",\n  \"attributes\": {\n    \"expression\": \"+5h\"\n  },\n  \"internal\": false\n}"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "UTC To EST Transform:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "{\n  \"id\": \"71f3f59a-8172-4cc4-a08e-b0960c8e7604\",\n  \"name\": \"UTC To EST\",\n  \"type\": \"dateMath\",\n  \"attributes\": {\n    \"expression\": \"-5h\"\n  },\n  \"internal\": false\n}"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/2DP0GbHiwHBRrJqNPmhdZjiTipw.json"
+       },
+       "c": [
+        "EST To UTC.json"
+       ]
+      },
+      " (166 Bytes)",
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/A9Aq4Z2wS6fdsuqEcbYv7vj3CSF.json"
+       },
+       "c": [
+        "UTC To EST.json"
+       ]
+      },
+      " (166 Bytes)"
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-2-automated-workflows"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "2. Automated Workflows"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Next, we configure the workflows that handle the offset adjustments. The “Enter Daylight Saving Time” workflow triggers yearly on the second Sunday of March, while the “Exit Daylight Saving Time” workflow triggers on the first Sunday of November."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Both workflows utilize the ",
+      {
+       "t": "code",
+       "c": [
+        "sp:http"
+       ]
+      },
+      " action to send PUT requests to the ",
+      {
+       "t": "code",
+       "c": [
+        "/transforms/v1/{id}"
+       ]
+      },
+      " endpoint, updating the ",
+      {
+       "t": "code",
+       "c": [
+        "dateMath"
+       ]
+      },
+      " expressions (e.g., changing ",
+      {
+       "t": "code",
+       "c": [
+        "-5h"
+       ]
+      },
+      " to ",
+      {
+       "t": "code",
+       "c": [
+        "-4h"
+       ]
+      },
+      "). The JSON body payload for the API call looks like this:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "{\n  \"name\": \"EST To UTC\",\n  \"type\": \"dateMath\",\n  \"attributes\": {\n    \"expression\": \"+4h\"\n  }\n}"
+     }
+    },
+    {
+     "t": "div",
+     "a": {
+      "align": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/4/d/4d5e904a10c420283c361a575dda71a0373d3914.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/4/d/4d5e904a10c420283c361a575dda71a0373d3914_2_443x500.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/4/d/4d5e904a10c420283c361a575dda71a0373d3914_2_443x500.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/4/d/4d5e904a10c420283c361a575dda71a0373d3914_2_664x750.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/4/d/4d5e904a10c420283c361a575dda71a0373d3914.png 2x",
+        "alt": "EnterDaylightSavings20260717",
+        "width": "443",
+        "height": "500"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "If the API calls fail or succeed, the workflow catches the result and sends an alert email to the IAM team. This ensures there are no silent failures and the team is well-aware that the offset adjustments went through smoothly!"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "align": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "div",
+       "a": {
+        "class": "d-wrap",
+        "data-wrap": "center"
+       },
+       "c": [
+        "\n",
+        {
+         "t": "lightbox",
+         "a": {
+          "full": "https://global.discourse-cdn.com/sailpoint/original/3X/3/d/3d85997b716a27d4e642a1105fa3fed2b51f7704.png",
+          "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/3/d/3d85997b716a27d4e642a1105fa3fed2b51f7704_2_690x308.png",
+          "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/3/d/3d85997b716a27d4e642a1105fa3fed2b51f7704_2_690x308.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/3/d/3d85997b716a27d4e642a1105fa3fed2b51f7704_2_1035x462.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/3/d/3d85997b716a27d4e642a1105fa3fed2b51f7704.png 2x",
+          "alt": "Enter_Daylight_Savings_Email_Success_Screenshot",
+          "width": "690",
+          "height": "308"
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "div",
+       "a": {
+        "class": "d-wrap",
+        "data-wrap": "center"
+       },
+       "c": [
+        "\n",
+        {
+         "t": "lightbox",
+         "a": {
+          "full": "https://global.discourse-cdn.com/sailpoint/original/3X/2/1/21a9d4a61ea9af7032352fea794beb6a31f49617.png",
+          "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/2/1/21a9d4a61ea9af7032352fea794beb6a31f49617_2_690x272.png",
+          "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/2/1/21a9d4a61ea9af7032352fea794beb6a31f49617_2_690x272.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/2/1/21a9d4a61ea9af7032352fea794beb6a31f49617_2_1035x408.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/2/1/21a9d4a61ea9af7032352fea794beb6a31f49617.png 2x",
+          "alt": "Enter_Daylight_Savings_Email_Failure_Screenshot",
+          "width": "690",
+          "height": "272"
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Workflow Configurations:"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/pCMx9Ne7CZ0E75WwN2xtSYIQnGg.json"
+       },
+       "c": [
+        "ExitDaylightSavings20260717.json"
+       ]
+      },
+      " (7.1 KB)",
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/weCQkbn76Ip68Oz792LOs1RGbxz.json"
+       },
+       "c": [
+        "EnterDaylightSavings20260717.json"
+       ]
+      },
+      " (7.1 KB)"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "transform-use-cases"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Transform Use Cases"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Now that the foundation is set, you can build reliable, timezone-aware transforms. Here are a few practical examples of how to utilize the base transforms. Notice how each date math expression leverages rounding ",
+      {
+       "t": "code",
+       "c": [
+        "/d"
+       ]
+      },
+      " to dynamically interact with midnight."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "em",
+       "c": [
+        "Important Note: In these examples, the ",
+        {
+         "t": "code",
+         "c": [
+          "accountAttribute"
+         ]
+        },
+        " fetches are wrapped in a ",
+        {
+         "t": "code",
+         "c": [
+          "firstValid"
+         ]
+        },
+        " to handle empty fields and prevent ",
+        {
+         "t": "code",
+         "c": [
+          "AttributePromotionException"
+         ]
+        },
+        " errors. They are then wrapped in a ",
+        {
+         "t": "code",
+         "c": [
+          "dateFormat"
+         ]
+        },
+        " to standardize the incoming string into ",
+        {
+         "t": "code",
+         "c": [
+          "ISO8601"
+         ]
+        },
+        ". The ",
+        {
+         "t": "code",
+         "c": [
+          "dateMath"
+         ]
+        },
+        " engine strictly requires ISO8601 formatted strings to perform timezone math successfully!"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "1. Get Current Local Midnight"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\nStandardizes a date so that it evaluates exactly to local midnight rather than shifting by UTC hours. The core of this logic uses the ",
+      {
+       "t": "code",
+       "c": [
+        "dateMath"
+       ]
+      },
+      " expression ",
+      {
+       "t": "code",
+       "c": [
+        "\"/d\""
+       ]
+      },
+      ", which rounds the provided date down to the start of the day (midnight).",
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/hBe2z0RSmiuOlQJBF8IMmSwxYP7.json"
+       },
+       "c": [
+        "Employee - Get Current Local Midnight.json"
+       ]
+      },
+      " (1.1 KB)"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "{\n  \"id\": \"e065a639-cb0c-40e5-9dfc-969ba9287ef6\",\n  \"name\": \"Employee - Get Current Local Midnight\",\n  \"type\": \"reference\",\n  \"attributes\": {\n    \"id\": \"EST To UTC\",\n    \"input\": {\n      \"type\": \"dateMath\",\n      \"attributes\": {\n        \"expression\": \"/d\",\n        \"input\": {\n          \"type\": \"reference\",\n          \"attributes\": {\n            \"id\": \"UTC To EST\",\n            \"input\": {\n              \"type\": \"dateFormat\",\n              \"attributes\": {\n                \"inputFormat\": \"MM/dd/yyyy\",\n                \"outputFormat\": \"ISO8601\",\n                \"input\": {\n                  \"type\": \"firstValid\",\n                  \"attributes\": {\n                    \"values\": [\n                      {\n                        \"type\": \"accountAttribute\",\n                        \"attributes\": {\n                          \"attributeName\": \"terminationDate\",\n                          \"sourceName\": \"Employee Directory\"\n                        }\n                      },\n                      \"12/31/2099\"\n                    ]\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"internal\": false\n}"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "2. Cloud Life Cycle State"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\nCompares the user’s termination date against the current local date to calculate their lifecycle state. The magic here is using the ",
+      {
+       "t": "code",
+       "c": [
+        "dateMath"
+       ]
+      },
+      " expression ",
+      {
+       "t": "code",
+       "c": [
+        "\"now\""
+       ]
+      },
+      " wrapped with the ",
+      {
+       "t": "code",
+       "c": [
+        "EST To UTC"
+       ]
+      },
+      " / ",
+      {
+       "t": "code",
+       "c": [
+        "UTC To EST"
+       ]
+      },
+      " logic and rounding down via ",
+      {
+       "t": "code",
+       "c": [
+        "\"/d\""
+       ]
+      },
+      ". This ensures evening timezone offsets do not trigger terminations a day early.",
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/63f92OQiwFlPRl2ZSSWJUg94jOZ.json"
+       },
+       "c": [
+        "Employee - CloudLifeCycleState.json"
+       ]
+      },
+      " (1.7 KB)"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "{\n  \"id\": \"903eb362-3e8a-4bf0-90c7-19578010b607\",\n  \"name\": \"Employee - CloudLifeCycleState\",\n  \"type\": \"static\",\n  \"attributes\": {\n    \"requiresPeriodicRefresh\": true,\n    \"isTerminated\": {\n      \"type\": \"dateCompare\",\n      \"attributes\": {\n        \"firstDate\": {\n          \"type\": \"reference\",\n          \"attributes\": {\n            \"id\": \"UTC To EST\",\n            \"input\": {\n              \"type\": \"dateFormat\",\n              \"attributes\": {\n                \"inputFormat\": \"MM/dd/yyyy\",\n                \"outputFormat\": \"ISO8601\",\n                \"input\": {\n                  \"type\": \"firstValid\",\n                  \"attributes\": {\n                    \"values\": [\n                      {\n                        \"type\": \"accountAttribute\",\n                        \"attributes\": {\n                          \"attributeName\": \"terminationDate\",\n                          \"sourceName\": \"Employee Directory\"\n                        }\n                      },\n                      \"12/31/2099\"\n                    ]\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"secondDate\": {\n          \"type\": \"dateMath\",\n          \"attributes\": {\n            \"expression\": \"/d\",\n            \"input\": {\n              \"type\": \"reference\",\n              \"attributes\": {\n                \"id\": \"UTC To EST\",\n                \"input\": {\n                  \"type\": \"dateMath\",\n                  \"attributes\": {\n                    \"expression\": \"now\"\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"operator\": \"lte\",\n        \"positiveCondition\": \"yes\",\n        \"negativeCondition\": \"no\"\n      }\n    },\n    \"value\": \"#if($isTerminated == 'yes')inactive#{else}active#end\"\n  },\n  \"internal\": false\n}"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "3. HireDate (First Hour of Start Day)"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\nUses local timezone boundaries to reliably calculate the first hour of a user’s start day, such as 1:00 AM local time. This is done by appending ",
+      {
+       "t": "code",
+       "c": [
+        "+1h"
+       ]
+      },
+      " to the date rounding: ",
+      {
+       "t": "code",
+       "c": [
+        "\"/d+1h\""
+       ]
+      },
+      "."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/bPV3WHmpsYNYXOTcIgz101xNZdn.json"
+       },
+       "c": [
+        "Employee - HireDate.json"
+       ]
+      },
+      " (1.1 KB)"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "{\n  \"id\": \"1f4b79ec-75fa-4160-8cd5-c77f028f4777\",\n  \"name\": \"Employee - HireDate\",\n  \"type\": \"reference\",\n  \"attributes\": {\n    \"id\": \"EST To UTC\",\n    \"input\": {\n      \"type\": \"dateMath\",\n      \"attributes\": {\n        \"expression\": \"/d+1h\",\n        \"input\": {\n          \"type\": \"reference\",\n          \"attributes\": {\n            \"id\": \"UTC To EST\",\n            \"input\": {\n              \"type\": \"dateFormat\",\n              \"attributes\": {\n                \"inputFormat\": \"MM/dd/yyyy\",\n                \"outputFormat\": \"ISO8601\",\n                \"input\": {\n                  \"type\": \"firstValid\",\n                  \"attributes\": {\n                    \"values\": [\n                      {\n                        \"type\": \"accountAttribute\",\n                        \"attributes\": {\n                          \"attributeName\": \"startDate\",\n                          \"sourceName\": \"Employee Directory\"\n                        }\n                      },\n                      \"12/31/2099\"\n                    ]\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"internal\": false\n}"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "4. End of Business Day Disablement"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\nCalculates exactly 5:00 PM (17:00) in the local timezone for a given date to enforce grace periods before disabling an account. The ",
+      {
+       "t": "code",
+       "c": [
+        "dateMath"
+       ]
+      },
+      " logic dynamically adds 17 hours after rounding: ",
+      {
+       "t": "code",
+       "c": [
+        "\"+17h/d\""
+       ]
+      },
+      "."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/6xnLjXwovm7xmLOyqqNO0MWsY7T.json"
+       },
+       "c": [
+        "Employee - End of Business Day Disablement.json"
+       ]
+      },
+      " (1.1 KB)"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "{\n  \"id\": \"39e49f44-041f-438a-b6db-bd92923674db\",\n  \"name\": \"Employee - End of Business Day Disablement\",\n  \"type\": \"reference\",\n  \"attributes\": {\n    \"id\": \"EST To UTC\",\n    \"input\": {\n      \"type\": \"dateMath\",\n      \"attributes\": {\n        \"expression\": \"+17h/d\",\n        \"input\": {\n          \"type\": \"reference\",\n          \"attributes\": {\n            \"id\": \"UTC To EST\",\n            \"input\": {\n              \"type\": \"dateFormat\",\n              \"attributes\": {\n                \"inputFormat\": \"MM/dd/yyyy\",\n                \"outputFormat\": \"ISO8601\",\n                \"input\": {\n                  \"type\": \"firstValid\",\n                  \"attributes\": {\n                    \"values\": [\n                      {\n                        \"type\": \"accountAttribute\",\n                        \"attributes\": {\n                          \"attributeName\": \"endDate\",\n                          \"sourceName\": \"Employee Directory\"\n                        }\n                      },\n                      \"12/31/2099\"\n                    ]\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"internal\": false\n}"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "5. Contractor Expiration Warning"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\nCalculates exactly 8:00 AM local time, 7 days prior to a contractor’s end date, ensuring expiration warnings go out at the correct time regardless of the season. This expression is slightly more complex, utilizing ",
+      {
+       "t": "code",
+       "c": [
+        "\"-7d/d+8h\""
+       ]
+      },
+      " to manipulate the target time precisely."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/gHBbu0CvcsZ8Y0uuhtwGfw2jCB4.json"
+       },
+       "c": [
+        "Employee - Contractor Expiration Warning.json"
+       ]
+      },
+      " (1.1 KB)"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "{\n  \"id\": \"17d5e722-41ac-466e-949b-6632b1d3b3a4\",\n  \"name\": \"Employee - Contractor Expiration Warning\",\n  \"type\": \"reference\",\n  \"attributes\": {\n    \"id\": \"EST To UTC\",\n    \"input\": {\n      \"type\": \"dateMath\",\n      \"attributes\": {\n        \"expression\": \"-7d/d+8h\",\n        \"input\": {\n          \"type\": \"reference\",\n          \"attributes\": {\n            \"id\": \"UTC To EST\",\n            \"input\": {\n              \"type\": \"dateFormat\",\n              \"attributes\": {\n                \"inputFormat\": \"MM/dd/yyyy\",\n                \"outputFormat\": \"ISO8601\",\n                \"input\": {\n                  \"type\": \"firstValid\",\n                  \"attributes\": {\n                    \"values\": [\n                      {\n                        \"type\": \"accountAttribute\",\n                        \"attributes\": {\n                          \"attributeName\": \"endDate\",\n                          \"sourceName\": \"Employee Directory\"\n                        }\n                      },\n                      \"12/31/2099\"\n                    ]\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"internal\": false\n}"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "6. Inactive for 90 Days"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\nRounds the user’s last login date down to local midnight and subtracts 90 days to establish an exact, timezone-aware threshold for stale account cleanups. We achieve this by simply subtracting 90 days from the rounded date: ",
+      {
+       "t": "code",
+       "c": [
+        "\"-90d/d\""
+       ]
+      },
+      ".",
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/8mX6qiI2vhTuoDDSHNfTp7oAcWf.json"
+       },
+       "c": [
+        "Employee - Inactive for 90 Days.json"
+       ]
+      },
+      " (1.1 KB)"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "{\n  \"id\": \"4b29f531-0cf8-4b3d-8023-c0275b87a916\",\n  \"name\": \"Employee - Inactive for 90 Days\",\n  \"type\": \"reference\",\n  \"attributes\": {\n    \"id\": \"EST To UTC\",\n    \"input\": {\n      \"type\": \"dateMath\",\n      \"attributes\": {\n        \"expression\": \"-90d/d\",\n        \"input\": {\n          \"type\": \"reference\",\n          \"attributes\": {\n            \"id\": \"UTC To EST\",\n            \"input\": {\n              \"type\": \"dateFormat\",\n              \"attributes\": {\n                \"inputFormat\": \"MM/dd/yyyy\",\n                \"outputFormat\": \"ISO8601\",\n                \"input\": {\n                  \"type\": \"firstValid\",\n                  \"attributes\": {\n                    \"values\": [\n                      {\n                        \"type\": \"accountAttribute\",\n                        \"attributes\": {\n                          \"attributeName\": \"lastLogin\",\n                          \"sourceName\": \"Employee Directory\"\n                        }\n                      },\n                      \"12/31/2099\"\n                    ]\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"internal\": false\n}"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "7. Standardize Date Format to UTC"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\nProperly ingests localized date strings and shifts them to represent local midnight in UTC format so ISC correctly anchors the date. This requires no custom math expressions, only standardizing the incoming format before it runs through the ",
+      {
+       "t": "code",
+       "c": [
+        "EST To UTC"
+       ]
+      },
+      " transform.",
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/16Bxi0r1c5zs5pvpBdmeW9XgAJ7.json"
+       },
+       "c": [
+        "Employee - Standardize Date Format to UTC.json"
+       ]
+      },
+      " (741 Bytes)"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "{\n  \"id\": \"4adcfbd5-7769-4cb8-9ffd-d5aaee069e95\",\n  \"name\": \"Employee - Standardize Date Format to UTC\",\n  \"type\": \"reference\",\n  \"attributes\": {\n    \"id\": \"EST To UTC\",\n    \"input\": {\n      \"type\": \"dateFormat\",\n      \"attributes\": {\n        \"inputFormat\": \"MM/dd/yyyy\",\n        \"outputFormat\": \"ISO8601\",\n        \"input\": {\n          \"type\": \"firstValid\",\n          \"attributes\": {\n            \"values\": [\n              {\n                \"type\": \"accountAttribute\",\n                \"attributes\": {\n                  \"attributeName\": \"startDate\",\n                  \"sourceName\": \"Employee Directory\"\n                }\n              },\n              \"12/31/2099\"\n            ]\n          }\n        }\n      }\n    }\n  },\n  \"internal\": false\n}"
+     }
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "considerations-best-practices-requiresperiodicrefresh"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Considerations & Best Practices: requiresPeriodicRefresh"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "You might notice that the Cloud Life Cycle State example uses the ",
+      {
+       "t": "code",
+       "c": [
+        "\"requiresPeriodicRefresh\": true"
+       ]
+      },
+      " attribute as a boolean. This is an important parameter when working with time-dependent logic."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "What it does:"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\nIt allows the transform to be checked at the nightly refresh, even if no upstream account data changed. Note that ISC will always perform the daily 8 AM refresh whether this flag is set or not. It is designed for values that can change organically over time."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "When to use it:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Time-dependent logic (e.g., age/tenure bands, grace-period flags, or “isContractEndingIn30Days”)."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Calculations using “now” or the current date."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Any output that should update on a cadence regardless of new source events."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "When NOT to use it:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Simple mappings like ",
+        {
+         "t": "code",
+         "c": [
+          "accountAttribute"
+         ]
+        },
+        ", ",
+        {
+         "t": "code",
+         "c": [
+          "firstValid"
+         ]
+        },
+        ", or string manipulation that only change when source attributes change."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Static defaults and normalization that do not depend on time."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Be selective when enabling this flag. Turning it on everywhere forces the Identity Refresh process to do extra work for no benefit, which can noticeably increase your refresh duration and queue load."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "testing-and-validation"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Testing and Validation"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "When implementing scheduled transform updates, testing is critical to ensure a seamless transition and prevent unexpected disruptions to identity lifecycles. It is highly recommended to:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Test Scheduled Updates:"
+         ]
+        },
+        " Verify that your workflows correctly authenticate and successfully update the base transforms by running manual tests in a sandbox environment prior to the actual transition dates."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Validate Date Math:"
+         ]
+        },
+        " Manually test the date math examples (e.g., local midnight, end of business day disablement) with both standard and daylight saving offsets to confirm your time logic yields the expected outcomes."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Monitor DST Transitions:"
+         ]
+        },
+        " During the actual time change, closely monitor and confirm expected behavior around the transition dates. Ensure no scheduled terminations, grace periods, or lifecycle states trigger prematurely or belatedly."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "conclusion"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Conclusion"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Summary:"
+         ]
+        },
+        " Handling timezone offsets and Daylight Saving Time inside ISC transforms does not have to be a manual headache. By centralizing your offsets into two base transforms and automating their updates via scheduled workflows, you can build a robust date calculation architecture that works year-round."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Call to Action:"
+         ]
+        },
+        " Have you approached timezone management differently in your tenant? If you have any questions or alternative approaches, feel free to drop a comment below. I am happy to help expand on this setup!"
+       ]
+      },
+      "\n"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 404107,
+   "number": 2,
+   "username": "sup3rmark",
+   "name": "Mark Corsillo",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/sup3rmark/96/36229_2.png",
+   "userTitle": "Ambassador",
+   "isAuthor": false,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/1/1aa5dad2d8398ae0eb24a4ac86a3b612c39d4ff9.png",
+    "name": "ambassadors"
+   },
+   "createdAt": "2026-09-10T02:34:39.337Z",
+   "replyTo": null,
+   "likes": 1,
+   "url": "https://developer.sailpoint.com/discuss/t/mastering-timezone-daylight-savings-management-in-isc-transforms/222118/2",
+   "words": 85,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      "what’s crazy is that we still have to manage this ourselves when there’s a solution that already exists - velocity’s off-the-shelf ",
+      {
+       "t": "a",
+       "a": {
+        "href": "https://velocity.apache.org/tools/3.0/apidocs/org/apache/velocity/tools/generic/DateTool.html#format-java.lang.String-java.lang.Object-java.util.Locale-java.util.TimeZone-"
+       },
+       "c": [
+        "DateTool"
+       ]
+      },
+      ". we just need sailpoint to allow us to use this in transforms. i’ve been asking for this for years (",
+      {
+       "t": "a",
+       "a": {
+        "href": "https://developer.sailpoint.com/discuss/t/velocity-tools-available-for-transforms/89201/2"
+       },
+       "c": [
+        "2024"
+       ]
+      },
+      ", ",
+      {
+       "t": "a",
+       "a": {
+        "href": "https://developer.sailpoint.com/discuss/t/timezone-aware-termination-times/116587"
+       },
+       "c": [
+        "2025"
+       ]
+      },
+      ") and have even posted it to the often-suggested-by-CSMs-but-never-actually-looked-at-by-PMs ",
+      {
+       "t": "a",
+       "a": {
+        "href": "https://ideas.sailpoint.com/ideas/GOV-I-4029"
+       },
+       "c": [
+        "Ideas Portal"
+       ]
+      },
+      ". the crazy thing is that DateTool ",
+      {
+       "t": "em",
+       "c": [
+        "is"
+       ]
+      },
+      " supported elsewhere (email templates), but not in transforms."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "a",
+       "a": {
+        "class": "mention",
+        "href": "https://developer.sailpoint.com/discuss/u/tyler_mairose"
+       },
+       "c": [
+        "@tyler_mairose"
+       ]
+      },
+      " was working on it at one point but i’m not sure where it ever ended up…"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 404108,
+   "number": 3,
+   "username": "trettkowski",
+   "name": "Tyler Rettkowski",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/trettkowski/96/36103_2.png",
+   "userTitle": "Expert Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/e/eb064076112b6705f2406f9119ef84ce300e416a.png",
+    "name": "expert_ambassadors"
+   },
+   "createdAt": "2026-09-10T02:42:44.269Z",
+   "replyTo": "sup3rmark",
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/mastering-timezone-daylight-savings-management-in-isc-transforms/222118/3",
+   "words": 43,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      "That’s crazy, I didn’t realize DateTool was OOTB in Velocity. It definitely feels like overkill to build this just to adjust dates, but hey, at least it’s something so we don’t have to manually change things every time daylight saving time rolls around!"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 418892,
+   "number": 4,
+   "username": "ECSjking",
+   "name": "Jacob King",
+   "avatar": "https://avatars.discourse-cdn.com/v4/letter/e/48db29/96.png",
+   "userTitle": null,
+   "isAuthor": false,
+   "staff": false,
+   "flair": null,
+   "createdAt": "2026-11-04T15:01:14.775Z",
+   "replyTo": null,
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/mastering-timezone-daylight-savings-management-in-isc-transforms/222118/4",
+   "words": 50,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "a",
+       "a": {
+        "class": "mention",
+        "href": "https://developer.sailpoint.com/discuss/u/trettkowski"
+       },
+       "c": [
+        "@trettkowski"
+       ]
+      },
+      " This is great work and very useful!"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "I was wondering though, how can we apply similar logic to dates in the future?"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "For example, a termination date that is scheduled in advance, we would want to apply the offset appropriate for the given date and not the current offset."
+     ]
+    }
+   ]
+  }
+ ]
+}

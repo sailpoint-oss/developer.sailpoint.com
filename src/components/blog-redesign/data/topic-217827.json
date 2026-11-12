@@ -1,0 +1,891 @@
+{
+ "fetchedAt": "2026-11-12T19:37:50.484Z",
+ "id": 217827,
+ "slug": "building-custom-paginated-reports-natively-in-isc-workflows",
+ "title": "Building Custom Paginated Reports Natively in ISC Workflows",
+ "url": "https://developer.sailpoint.com/discuss/t/building-custom-paginated-reports-natively-in-isc-workflows/217827",
+ "createdAt": "2026-08-01T03:11:21.606Z",
+ "views": 169,
+ "likeCount": 3,
+ "tags": [
+  "sailpoint-identity-security",
+  "workflows",
+  "apis",
+  "entitlements"
+ ],
+ "category": {
+  "id": 125,
+  "name": "Community Blog",
+  "slug": "community-blog",
+  "color": "#652D90",
+  "readRestricted": false,
+  "parent": {
+   "id": 69,
+   "name": "Content",
+   "slug": "content",
+   "color": "#652D90",
+   "readRestricted": false,
+   "parent": null
+  }
+ },
+ "readMinutes": 5,
+ "hero": {
+  "src": "https://global.discourse-cdn.com/sailpoint/original/3X/4/8/482c6377485812a1a6084c1825b5cf3d990e245e.jpeg",
+  "alt": "blog title card"
+ },
+ "toc": [
+  {
+   "id": "the-problem-the-250-item-limit",
+   "title": "The Problem: The 250 Item Limit"
+  },
+  {
+   "id": "the-architecture-custom-reports-with-workflow-pagination",
+   "title": "The Architecture: Custom Reports with Workflow Pagination"
+  },
+  {
+   "id": "interactive-forms-user-experience",
+   "title": "Interactive Forms & User Experience"
+  },
+  {
+   "id": "walking-through-the-pagination-worker",
+   "title": "Walking Through the Pagination Worker"
+  },
+  {
+   "id": "the-final-result",
+   "title": "The Final Result"
+  },
+  {
+   "id": "downloads-code",
+   "title": "Downloads & Code"
+  },
+  {
+   "id": "conclusion",
+   "title": "Conclusion"
+  }
+ ],
+ "posts": [
+  {
+   "id": 395288,
+   "number": 1,
+   "username": "trettkowski",
+   "name": "Tyler Rettkowski",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/trettkowski/96/36103_2.png",
+   "userTitle": "Expert Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/e/eb064076112b6705f2406f9119ef84ce300e416a.png",
+    "name": "expert_ambassadors"
+   },
+   "createdAt": "2026-08-01T03:11:21.880Z",
+   "replyTo": null,
+   "likes": 3,
+   "url": "https://developer.sailpoint.com/discuss/t/building-custom-paginated-reports-natively-in-isc-workflows/217827/1",
+   "words": 1189,
+   "body": [
+    {
+     "t": "h3",
+     "a": {
+      "id": "the-problem-the-250-item-limit"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "The Problem: The 250 Item Limit"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "The Requirement:"
+         ]
+        },
+        " Organizations often need custom reports, such as a comprehensive list of all disabled accounts that still retain active access entitlements across all sources."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "The Governance Gap:"
+         ]
+        },
+        " While there are out-of-the-box ways to pull this data using external PowerShell scripts or PTA, keeping the entire process native inside Identity Security Cloud (ISC) Workflows is ideal for simplicity and maintenance."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "The Risk:"
+         ]
+        },
+        " Workflows have a strict execution time limit and no native pagination support for HTTP requests. If an API returns more than 250 items, a standard workflow simply cannot process the rest of the data."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "the-architecture-custom-reports-with-workflow-pagination"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "The Architecture: Custom Reports with Workflow Pagination"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "The “Why”:"
+         ]
+        },
+        " By using serial loops and advanced variable updating, we can build robust, paginated reports and send them natively via email without needing any external infrastructure."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "The Workflows:"
+         ]
+        },
+        " We split this into two components.\n",
+        {
+         "t": "ol",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Launcher Workflow:"
+             ]
+            },
+            " Starts with an Interactive Trigger and a form. This allows an admin to select individual sources or “All Sources” to run the report against. It then defines the necessary variables and triggers the worker workflow."
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/4/6/462640715f8f405cc696bc6cf9e983ab7c8f58c3.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/4/6/462640715f8f405cc696bc6cf9e983ab7c8f58c3_2_456x500.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/4/6/462640715f8f405cc696bc6cf9e983ab7c8f58c3_2_456x500.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/4/6/462640715f8f405cc696bc6cf9e983ab7c8f58c3_2_684x750.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/4/6/462640715f8f405cc696bc6cf9e983ab7c8f58c3.png 2x",
+        "alt": "InteractiveDisabledAccountsWithAccessReport20260625",
+        "width": "456",
+        "height": "500"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "ol",
+     "a": {
+      "start": "2"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Pagination Worker Workflow:"
+         ]
+        },
+        " Executes the actual API calls, handles pagination by recursively calling itself, builds the HTML table using update variables, and sends the final email when all data is processed."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/1/a/1a5b060f4dbcefbdaef3323d5cb8f5702eb520da.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/1/a/1a5b060f4dbcefbdaef3323d5cb8f5702eb520da_2_505x499.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/1/a/1a5b060f4dbcefbdaef3323d5cb8f5702eb520da_2_505x499.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/1/a/1a5b060f4dbcefbdaef3323d5cb8f5702eb520da_2_757x748.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/1/a/1a5b060f4dbcefbdaef3323d5cb8f5702eb520da_2_1010x998.png 2x",
+        "alt": "PaginationWorker20260625",
+        "width": "505",
+        "height": "499"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "interactive-forms-user-experience"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Interactive Forms & User Experience"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "blockquote",
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "em",
+         "c": [
+          "Note: This solution specifically utilizes the ",
+          {
+           "t": "code",
+           "c": [
+            "/v3/accounts"
+           ]
+          },
+          " and ",
+          {
+           "t": "code",
+           "c": [
+            "/v3/accounts/:id/entitlements"
+           ]
+          },
+          " API endpoints. While newer API versions exist (such as ",
+          {
+           "t": "code",
+           "c": [
+            "/accounts/v1"
+           ]
+          },
+          "), the ",
+          {
+           "t": "code",
+           "c": [
+            "v3"
+           ]
+          },
+          " endpoints are currently required for this use case to ensure a complete and reliable extraction of all accounts. This approach should be re-evaluated in the future once newer endpoints achieve full feature parity."
+         ]
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The process begins for the end user via an interactive form. Administrators can dynamically select the specific sources they want to audit, or quickly toggle an “All Sources” option."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "When an admin triggers the workflow, they are presented with a native UI right within Identity Security Cloud:"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/a/c/aceb4a21e2d00cddcc96f852116ac0a6d68741b1.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/original/3X/a/c/aceb4a21e2d00cddcc96f852116ac0a6d68741b1.png",
+        "alt": "Form_Execution_Screenshot",
+        "width": "541",
+        "height": "393"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Generating a list of multiple sources introduces a formatting issue. The form outputs the user’s selection as a standard JSON array (e.g., ",
+      {
+       "t": "code",
+       "c": [
+        "[\"id1\", \"id2\"]"
+       ]
+      },
+      "), but the SailPoint ",
+      {
+       "t": "code",
+       "c": [
+        "/v3/accounts"
+       ]
+      },
+      " API requires a specific syntax for the ",
+      {
+       "t": "code",
+       "c": [
+        "in"
+       ]
+      },
+      " operator (e.g., ",
+      {
+       "t": "code",
+       "c": [
+        "(\"id1\", \"id2\")"
+       ]
+      },
+      "). The workflow leverages string replacement transforms to swap brackets ",
+      {
+       "t": "code",
+       "c": [
+        "[]"
+       ]
+      },
+      " with parentheses ",
+      {
+       "t": "code",
+       "c": [
+        "()"
+       ]
+      },
+      ", formatting the form’s output into a valid API query parameter before invoking the worker workflow."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "walking-through-the-pagination-worker"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Walking Through the Pagination Worker"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Building a native paginated report requires a few key steps within the worker workflow to overcome platform limitations."
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-1-the-first-api-call-filtering"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "1. The First API Call & Filtering"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "When the worker workflow kicks off, its immediate task is fetching the accounts. Checking every single account across a tenant to see if it has access would quickly burn through execution time and API limits. To solve this, the workflow pushes the compute load back to the SailPoint backend by appending ",
+      {
+       "t": "code",
+       "c": [
+        "hasEntitlements eq true"
+       ]
+      },
+      " directly to the ",
+      {
+       "t": "code",
+       "c": [
+        "/v3/accounts"
+       ]
+      },
+      " API filter. This ensures the workflow only retrieves and processes accounts that are guaranteed to have access."
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-2-the-secondary-entitlements-call"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "2. The Secondary Entitlements Call"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Once we have our list of disabled accounts, we need to know what access they still hold. The initial ",
+      {
+       "t": "code",
+       "c": [
+        "/v3/accounts"
+       ]
+      },
+      " API tells us they have access, but extracting the actual entitlement names is tricky because different sources use different attribute names (e.g., groups, roles, profiles)."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Instead of hardcoding various attribute names, the workflow uses a serial loop. For each account, it executes a secondary HTTP Request to the ",
+      {
+       "t": "code",
+       "c": [
+        "/v3/accounts/:id/entitlements"
+       ]
+      },
+      " endpoint. This standardizes the data structure, allowing the workflow to extract the entitlement names regardless of the underlying source type."
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-3-building-the-report-html-string-accumulation"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "3. Building the Report: HTML String Accumulation"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "As the serial loop iterates through the accounts and their entitlements, it needs a way to build the final report. Since workflows do not feature a native HTML table builder, the solution relies on the “Update Variable” step and a string concatenation transform."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "During every loop iteration, the workflow dynamically injects the account data into raw HTML rows (",
+      {
+       "t": "code",
+       "c": [
+        "<tr>...</tr>"
+       ]
+      },
+      ") and appends it to a ",
+      {
+       "t": "code",
+       "c": [
+        "currentsummaryvariable"
+       ]
+      },
+      ". This accumulates the data row by row."
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-4-the-recursive-loopback-bypassing-the-250-limit"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "4. The Recursive Loopback: Bypassing the 250 Limit"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "After processing the first batch of accounts, the workflow faces its biggest hurdle: fetching the next page. Because workflows cannot natively loop API calls beyond 250 items, the worker workflow is configured with an ",
+      {
+       "t": "strong",
+       "c": [
+        "External Trigger"
+       ]
+      },
+      "."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Once the loop completes, a “Define Comparison” step checks if the batch size equals 250. If it does, there is likely more data waiting. The workflow then executes an HTTP POST request back to its own trigger URL, calling itself to process the next page."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "To maintain its place in line, it treats the trigger payload as a state machine. It uses a math transform to add 250 to the ",
+      {
+       "t": "code",
+       "c": [
+        "currentoffset"
+       ]
+      },
+      ", and passes that new offset along with the accumulated ",
+      {
+       "t": "code",
+       "c": [
+        "currentsummaryvariable"
+       ]
+      },
+      " HTML table into the next execution. The new execution picks these up natively via ",
+      {
+       "t": "code",
+       "c": [
+        "$.trigger"
+       ]
+      },
+      ", giving the workflow persistent memory across independent runs."
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-5-fixing-the-global-state-caching-bug"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "5. Fixing the Global State Caching Bug"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "There is one quirk when passing the ",
+      {
+       "t": "code",
+       "c": [
+        "currentsummaryvariable"
+       ]
+      },
+      " to the next loopback. While the ",
+      {
+       "t": "code",
+       "c": [
+        "sp:update-variable"
+       ]
+      },
+      " step updates the global state during the serial loop, the final HTTP request step suffers from aggressive caching behavior. If you try to use inline templating (like ",
+      {
+       "t": "code",
+       "c": [
+        "{{$.defineVariable.currentsummaryvariable}}"
+       ]
+      },
+      ") directly in the HTTP payload, it often pulls the original, empty version of the variable from the start of the workflow instead of the updated version."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The fix is inserting a “syncing” Define Variable step immediately after the serial loop finishes. By using JSONPath (",
+      {
+       "t": "code",
+       "c": [
+        "variableA.$: \"$.defineVariable.currentsummaryvariable\""
+       ]
+      },
+      ") instead of inline templating, it reads the live, populated global state. The HTTP loopback step then safely references this synced variable."
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-6-breaking-the-loop-and-sending-the-email"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "6. Breaking the Loop and Sending the Email"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "When the workflow finally pulls a batch of accounts that has a length of less than 250, it knows it has reached the very end of the data. The length-based comparison step breaks the cycle and routes the flow to the final “Send Email” step. The ",
+      {
+       "t": "code",
+       "c": [
+        "currentsummaryvariable"
+       ]
+      },
+      " string is dropped directly into the email body, rendering the HTML table."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "If the workflow processes all accounts and determines that none of them meet the criteria, a secondary comparison checks if the ",
+      {
+       "t": "code",
+       "c": [
+        "currentsummaryvariable"
+       ]
+      },
+      " is empty. In this scenario, it routes to a separate email step to notify the administrator that the source is clean and fully compliant."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "the-final-result"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "The Final Result"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Once the pagination completes, the end user receives an email report of all disabled accounts with access."
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/9/0/9051df7f731d3ecaa3abb8e8b77535645b9f3e76.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/9/0/9051df7f731d3ecaa3abb8e8b77535645b9f3e76_2_690x274.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/9/0/9051df7f731d3ecaa3abb8e8b77535645b9f3e76_2_690x274.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/9/0/9051df7f731d3ecaa3abb8e8b77535645b9f3e76_2_1035x411.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/9/0/9051df7f731d3ecaa3abb8e8b77535645b9f3e76_2_1380x548.png 2x",
+        "alt": "Email_Example_Output_With_Accounts",
+        "width": "690",
+        "height": "274"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "If a source is perfectly clean and has no disabled accounts with access, the user receives a success notification instead."
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/b/5/b5213846c1770592a0f8a51f80ac7307e30d07f2.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/b/5/b5213846c1770592a0f8a51f80ac7307e30d07f2_2_690x282.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/b/5/b5213846c1770592a0f8a51f80ac7307e30d07f2_2_690x282.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/b/5/b5213846c1770592a0f8a51f80ac7307e30d07f2_2_1035x423.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/b/5/b5213846c1770592a0f8a51f80ac7307e30d07f2_2_1380x564.png 2x",
+        "alt": "Email_Example_Output_Without_Accounts",
+        "width": "690",
+        "height": "282"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "downloads-code"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Downloads & Code"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Here are the cleansed workflows and form definitions you can import directly into your environment (update your Client ID, Secret, and Tenant URLs where necessary):"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/1TXFJ1nQikut4cIgtaLaGP2UVL2.json"
+       },
+       "c": [
+        "InteractiveDisabledAccountsWithAccessReport_Cleansed.json"
+       ]
+      },
+      " (5.2 KB)",
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/3EoHNKgpczvXyRKLcJQzsIAFiDY.json"
+       },
+       "c": [
+        "PaginationWorker_Cleansed.json"
+       ]
+      },
+      " (21.0 KB)",
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/qpvB6JzUvzcWk694plvelDfR7ZI.json"
+       },
+       "c": [
+        "SelectSourceForReporting_Form_Cleansed.json"
+       ]
+      },
+      " (3.6 KB)"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "conclusion"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Conclusion"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Summary:"
+         ]
+        },
+        " By using self-calling workflows, state passing, and string manipulation, we can bypass standard limits and build complex, paginated reports natively within SailPoint ISC Workflows."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Call to Action:"
+         ]
+        },
+        " If you have any questions on how to implement this in your own tenant, let me know in the comments below!"
+       ]
+      },
+      "\n"
+     ]
+    }
+   ]
+  }
+ ]
+}

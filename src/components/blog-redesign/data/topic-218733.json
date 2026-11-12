@@ -1,0 +1,1396 @@
+{
+ "fetchedAt": "2026-11-12T19:37:50.011Z",
+ "id": 218733,
+ "slug": "building-email-notifications-for-work-items-in-sailpoint-identity-security-cloud",
+ "title": "Building Email Notifications for Work Items in SailPoint Identity Security Cloud",
+ "url": "https://developer.sailpoint.com/discuss/t/building-email-notifications-for-work-items-in-sailpoint-identity-security-cloud/218733",
+ "createdAt": "2026-08-12T01:57:41.889Z",
+ "views": 199,
+ "likeCount": 2,
+ "tags": [
+  "sailpoint-identity-security",
+  "apis",
+  "work-items"
+ ],
+ "category": {
+  "id": 125,
+  "name": "Community Blog",
+  "slug": "community-blog",
+  "color": "#652D90",
+  "readRestricted": false,
+  "parent": {
+   "id": 69,
+   "name": "Content",
+   "slug": "content",
+   "color": "#652D90",
+   "readRestricted": false,
+   "parent": null
+  }
+ },
+ "readMinutes": 15,
+ "hero": {
+  "src": "https://global.discourse-cdn.com/sailpoint/original/3X/7/1/71018abdbd2ba15c04f24c108ce4c94f84be05ff.jpeg",
+  "alt": "blog title card"
+ },
+ "toc": [
+  {
+   "id": "what-isc-gives-you-natively",
+   "title": "What ISC Gives You Natively"
+  },
+  {
+   "id": "the-design",
+   "title": "The Design"
+  },
+  {
+   "id": "prerequisites",
+   "title": "Prerequisites"
+  },
+  {
+   "id": "the-notification-workflow",
+   "title": "The Notification Workflow"
+  },
+  {
+   "id": "finding-the-work-items",
+   "title": "Finding the Work Items"
+  },
+  {
+   "id": "the-script",
+   "title": "The Script"
+  },
+  {
+   "id": "running-it-on-a-schedule",
+   "title": "Running It on a Schedule"
+  },
+  {
+   "id": "summary",
+   "title": "Summary"
+  }
+ ],
+ "posts": [
+  {
+   "id": 397447,
+   "number": 1,
+   "username": "Pratyush27",
+   "name": "Pratyush Mishra",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/pratyush27/96/36795_2.png",
+   "userTitle": "Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/1/1aa5dad2d8398ae0eb24a4ac86a3b612c39d4ff9.png",
+    "name": "ambassadors"
+   },
+   "createdAt": "2026-08-12T01:57:42.216Z",
+   "replyTo": null,
+   "likes": 2,
+   "url": "https://developer.sailpoint.com/discuss/t/building-email-notifications-for-work-items-in-sailpoint-identity-security-cloud/218733/1",
+   "words": 3114,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      "If you run a role composition campaign in ISC and let a reviewer revoke something, a remediation work item lands in someone’s Task Manager at sign-off. Now ask that person when they found out about it."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Usually the answer is “when I happened to log in.” ISC does not send an email when a work item is created. The campaign sends reminders, but those stop at the reviewers. The work item that comes out the other side sits in the Task Manager until its owner stumbles across it."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "In our case these were remediation work items from role composition campaigns. A reviewer revokes an entitlement from a role, the campaign completes, and a work item is created for whoever carries out the change. Those revokes sat untouched for days because nobody knew they existed. The same gap applies to other work item types, so the approach below filters by type and covers whichever ones you care about."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "what-isc-gives-you-natively"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "What ISC Gives You Natively"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Before building anything, it is worth knowing what the platform already offers, because for some tenants it will be enough."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "There is a ",
+      {
+       "t": "a",
+       "a": {
+        "href": "https://documentation.sailpoint.com/saas/help/common/emails/et_remediation_work_item.html"
+       },
+       "c": [
+        "Remediation Work Item"
+       ]
+      },
+      " email template in Admin > Global > Email Templates, and its description says it notifies a user when a remediation work item is assigned to them. SailPoint’s ",
+      {
+       "t": "a",
+       "a": {
+        "href": "https://support.sailpoint.com/csm/en/email-notification-not-sent-for-campaign-remediation-tasks?id=kb_article&sysparm_article=KB0018836"
+       },
+       "c": [
+        "KB0018836"
+       ]
+      },
+      " explains why it did not fire for us, and goes further than our case: no email notification is sent for specific pending tasks, and that holds for all task types, not just remediation ones."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "What the KB offers instead is the ",
+      {
+       "t": "a",
+       "a": {
+        "href": "https://documentation.sailpoint.com/saas/help/common/emails/et_taskmgr_sub.html"
+       },
+       "c": [
+        "Pending Task Daily Digest"
+       ]
+      },
+      " (",
+      {
+       "t": "code",
+       "c": [
+        "cloud_manual_work_item_summary"
+       ]
+      },
+      "). It is disabled by default, and you turn it on with the “Send task owners daily email digest of pending tasks” checkbox above the template. Once enabled, it sends task owners a daily count of what is outstanding in their Task Manager."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "A count, not a list. It will not tell an owner which item landed, what type it is, or where it came from, and it does not separate a remediation task from an account creation task. It also arrives on the digest’s schedule rather than the work item’s."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "That is the trade-off in one line. Enable the digest and stop reading here if your task volume is low, your owners log in most days, and a nudge saying “something is waiting” is enough to make them look. Build what follows if your owners need to know what landed without logging in first, if the next morning is too late, if you want to notify on specific work item types only, or if the person who should hear about an item is not the person it is assigned to."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "We needed the detail in the mail, so we built it."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "the-design"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "The Design"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Our first instinct was to close the gap with a workflow alone. That does not work, and it is worth knowing why before you start building."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "There is no ",
+      {
+       "t": "strong",
+       "c": [
+        "Work Item Created"
+       ]
+      },
+      " trigger. The catalog is broad, covering accounts and identities, access requests, campaigns and certifications, sources, provisioning, forms, SOD violations, machine identities, and more besides, but nothing fires on work item creation. It grows, so confirm it against your own tenant:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "GET https://<tenant>.api.identitynow.com/v2026/workflow-library/triggers?limit=250\nGET https://<tenant>.api.identitynow.com/v2026/triggers?limit=250"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Check both. Neither list returns anything matching a work item."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "what-about-certification-signed-off"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "What About Certification Signed Off?"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "code",
+       "c": [
+        "idn:certification-signed-off"
+       ]
+      },
+      " is the near miss, since its ",
+      {
+       "t": "code",
+       "c": [
+        "campaignRef.campaignType"
+       ]
+      },
+      " includes ",
+      {
+       "t": "code",
+       "c": [
+        "ROLE_COMPOSITION"
+       ]
+      },
+      ", so it fires at the moment our work items come into existence. Its payload carries the certification, the reviewer, the campaign owner, and the decision counts, but not the work items that resulted or the people who have to act on them. You would still be querying the work items API to find that out, and it would only ever cover items born from certifications."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Whatever notices new work items has to live outside the tenant. So the design has two parts:"
+     ]
+    },
+    {
+     "t": "ol",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "A thin ISC workflow (External Trigger, then Send Email) that takes a JSON payload and turns it into a formatted email sent from the tenant."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "A Python script that polls the work items API on a schedule, keeps pending items created since the last run, groups them per owner, and fires the workflow once per owner."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "We let the workflow do the sending so we would not have to run SMTP or explain an unfamiliar sender address to end users. We put the thinking in the script because ISC gives us nowhere inside the tenant to do it."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "prerequisites"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Prerequisites"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Before building this, make sure the following are in place:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Workflows are enabled"
+         ]
+        },
+        " on your tenant and you have rights to create and enable them."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Two sets of credentials"
+         ]
+        },
+        ", kept separate. One client ID and secret for the API calls that read work items, and a second pair issued by the workflow’s External Trigger. They are not interchangeable, and they do not need the same rights. See the ",
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "a",
+           "a": {
+            "href": "https://developer.sailpoint.com/docs/api/authentication"
+           },
+           "c": [
+            "Authentication"
+           ]
+          }
+         ]
+        },
+        " section of the ISC API documentation for how to generate the first."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Python 3.9+"
+         ]
+        },
+        " with the ",
+        {
+         "t": "code",
+         "c": [
+          "requests"
+         ]
+        },
+        " library, running somewhere that can reach ",
+        {
+         "t": "code",
+         "c": [
+          "https://<tenant>.api.identitynow.com"
+         ]
+        },
+        " on a schedule. Cron, an Azure Function timer, or an Airflow DAG all work."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "You know your tenant’s ",
+        {
+         "t": "strong",
+         "c": [
+          "Task Manager URL"
+         ]
+        },
+        ", so the email can link straight to it. The default shape is ",
+        {
+         "t": "code",
+         "c": [
+          "https://<tenant>.identitynow.com/ui/d/dashboard/task-manager"
+         ]
+        },
+        "."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "permissions"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Permissions"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The script makes two kinds of read call, and they do not need the same authority."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "code",
+       "c": [
+        "GET /work-items"
+       ]
+      },
+      " is documented as returning work items belonging to either the specified user (admin required), or the current user. Passing ",
+      {
+       "t": "code",
+       "c": [
+        "ownerId"
+       ]
+      },
+      " for anyone other than yourself, or omitting it and expecting the whole tenant, needs an admin-level identity. Get this wrong and the failure is a quiet one: a token without the rights comes back scoped to its own items or with a 403, and neither looks like the tenant-wide list you thought you were reading. The endpoint description says “admin” without naming a level, so confirm what your tenant actually accepts rather than assuming."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "code",
+       "c": [
+        "GET /public-identities"
+       ]
+      },
+      ", which we use to turn an ",
+      {
+       "t": "code",
+       "c": [
+        "ownerId"
+       ]
+      },
+      " into an email address, is documented at user level USER. It needs nothing special."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Use a dedicated service identity rather than a personal one. A Personal Access Token is fine for testing, but it carries the rights of whoever created it and stops working when that person’s account changes. Give the service identity enough to read work items and nothing more, keep both sets of credentials in a secret store, and rotate them on whatever schedule the rest of your platform uses."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "the-notification-workflow"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "The Notification Workflow"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Create a workflow with three steps: an ",
+      {
+       "t": "strong",
+       "c": [
+        "External Trigger"
+       ]
+      },
+      ", a ",
+      {
+       "t": "strong",
+       "c": [
+        "Send Email"
+       ]
+      },
+      " action, and an ",
+      {
+       "t": "strong",
+       "c": [
+        "End Step - Success"
+       ]
+      },
+      ". Everything the email needs (recipient, owner name, the item list) arrives in the trigger payload, so the workflow performs no lookups of its own."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "We only needed two pieces of syntax in the Send Email step:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "A key ending in ",
+        {
+         "t": "code",
+         "c": [
+          ".$"
+         ]
+        },
+        " is bound to a JSONPath instead of a literal value. ",
+        {
+         "t": "code",
+         "c": [
+          "\"recipientEmailList.$\": \"$.trigger.recipientEmail\""
+         ]
+        },
+        " reads the recipient straight out of the payload. Everything you POST to the trigger surfaces under ",
+        {
+         "t": "code",
+         "c": [
+          "$.trigger"
+         ]
+        },
+        "."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "The ",
+        {
+         "t": "strong",
+         "c": [
+          "Templating Context"
+         ]
+        },
+        " maps payload fields to named variables, which you can then interpolate inline with ",
+        {
+         "t": "code",
+         "c": [
+          "${...}"
+         ]
+        },
+        " in both the subject and the body."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Here is the workflow definition, trimmed to the Send Email step:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "{\n  \"actionId\": \"sp:send-email\",\n  \"type\": \"action\",\n  \"versionNumber\": 2,\n  \"attributes\": {\n    \"recipientEmailList.$\": \"$.trigger.recipientEmail\",\n    \"subject\": \"Action required: ${itemCount} pending SailPoint task(s)\",\n    \"body\": \"<p>Hi ${ownerName},</p><p>You have ${itemCount} pending task(s) in SailPoint awaiting your action:</p>${itemListHtml}<p><a href=\\\"${taskManagerUrl}\\\">Open the Task Manager</a> to complete them.</p>\",\n    \"context\": {\n      \"ownerName.$\": \"$.trigger.ownerName\",\n      \"itemCount.$\": \"$.trigger.itemCount\",\n      \"itemListHtml.$\": \"$.trigger.itemListHtml\",\n      \"taskManagerUrl.$\": \"$.trigger.taskManagerUrl\"\n    },\n    \"from\": null\n  },\n  \"nextStep\": \"End Step - Success\"\n}"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "We left ",
+      {
+       "t": "code",
+       "c": [
+        "from"
+       ]
+      },
+      " as null, which sends the email from the tenant’s default sender address. That is usually what you want."
+     ]
+    },
+    {
+     "t": "blockquote",
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Note:"
+         ]
+        },
+        " The body field in the workflow builder is a rich-text editor, and it escapes raw HTML typed into it. Paste a ",
+        {
+         "t": "code",
+         "c": [
+          "<ul>"
+         ]
+        },
+        " and the recipient gets literal angle brackets. Keep markup out of the body field and send hand-finished HTML to the workflow through a context variable instead. That is why we build the list markup in the script and pass it in as ",
+        {
+         "t": "code",
+         "c": [
+          "${itemListHtml}"
+         ]
+        },
+        ", so the workflow only has to drop it in as-is."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Before enabling the workflow, open the trigger panel and select ",
+      {
+       "t": "strong",
+       "c": [
+        "New Access Token"
+       ]
+      },
+      ". You get three things back: a client ID, a client secret, and a Client URL. Two details are easy to get wrong here."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "First, the execute call authenticates with a token minted from ",
+      {
+       "t": "em",
+       "c": [
+        "those"
+       ]
+      },
+      " credentials. It is the same client-credentials grant against ",
+      {
+       "t": "code",
+       "c": [
+        "/oauth/token"
+       ]
+      },
+      " you use everywhere else, just with the trigger’s client ID and secret rather than your API client’s."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Second, use the Client URL exactly as issued. Ours came back on ",
+      {
+       "t": "code",
+       "c": [
+        "/v2024/workflows/execute/external/<workflow-id>"
+       ]
+      },
+      " even though everything else we call is ",
+      {
+       "t": "code",
+       "c": [
+        "v2026"
+       ]
+      },
+      ". Don’t “correct” the version segment."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The payload the script sends looks like this:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "{\n  \"recipientEmail\": \"jane.doe@yourcompany.com\",\n  \"ownerName\": \"Jane Doe\",\n  \"itemCount\": 2,\n  \"itemListHtml\": \"<ul><li>Remove entitlement 'entA' from role 'Finance_Read' <i>(created 2026-07-09T06:12:44Z)</i></li><li>Remove entitlement 'entB' from role 'Finance_Read' <i>(created 2026-07-09T07:03:10Z)</i></li></ul>\",\n  \"taskManagerUrl\": \"https://<tenant>.identitynow.com/ui/d/dashboard/task-manager\"\n}"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "You can test the workflow on its own at this point, and it is worth doing before you write any of the script. Mint a token with the trigger credentials and POST that payload to the Client URL from Postman or curl. The response body contains a ",
+      {
+       "t": "code",
+       "c": [
+        "workflowExecutionId"
+       ]
+      },
+      ", and the run shows up in the workflow’s execution history."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "securing-the-trigger"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Securing the Trigger"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The External Trigger deserves a moment’s thought before you wire it into a scheduler."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The recipient comes from ",
+      {
+       "t": "code",
+       "c": [
+        "$.trigger.recipientEmail"
+       ]
+      },
+      ", the body comes from ",
+      {
+       "t": "code",
+       "c": [
+        "$.trigger.itemListHtml"
+       ]
+      },
+      ", and ",
+      {
+       "t": "code",
+       "c": [
+        "from"
+       ]
+      },
+      " is null, so the mail goes out under the tenant’s default sender address. Anyone holding the trigger’s client ID and secret can send whatever they like, to whoever they like, and it arrives looking exactly like a genuine notification from your ISC tenant. That is a convincing phishing primitive, and the credentials deserve the same care as anything else that can send mail as your organization."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "A few things that help:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Keep the trigger client ID and secret in a secret store, not in the script and not in the repository. If they are ever exposed, issue a new token from the trigger panel."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Let the script decide the recipient. Resolve it from the work item’s owner, and never take it from a command-line argument, an editable environment variable, or anything else someone could point elsewhere."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "If your identities sit on known domains, check the resolved address against an allowlist before you post the payload. It costs three lines, and it turns a leaked credential into a much smaller problem."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Restrict who can create and edit workflows in the tenant. A workflow like this one is a send-email capability, and the trigger token is only as good as the workflow behind it."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Watch the execution history. Runs you did not schedule are the signal you want."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "finding-the-work-items"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Finding the Work Items"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "For the read side we only call one endpoint:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "GET https://<tenant>.api.identitynow.com/v2026/work-items"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Don’t go looking for a ",
+      {
+       "t": "code",
+       "c": [
+        "filters"
+       ]
+      },
+      " parameter, because there isn’t one. The list endpoint accepts ",
+      {
+       "t": "code",
+       "c": [
+        "ownerId"
+       ]
+      },
+      " plus the standard paging parameters (",
+      {
+       "t": "code",
+       "c": [
+        "limit"
+       ]
+      },
+      ", ",
+      {
+       "t": "code",
+       "c": [
+        "offset"
+       ]
+      },
+      ", ",
+      {
+       "t": "code",
+       "c": [
+        "count"
+       ]
+      },
+      "), and nothing else. Every other cut you want, whether by state, type, or creation window, you do client-side after you have pulled the pages. We pull the lot, because our open work item set is small enough that paging through it twice a day costs nothing. If your tenant runs hotter, pass ",
+      {
+       "t": "code",
+       "c": [
+        "ownerId"
+       ]
+      },
+      " to narrow it down."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Owner emails are not on the work item either. You get ",
+      {
+       "t": "code",
+       "c": [
+        "ownerId"
+       ]
+      },
+      " and ",
+      {
+       "t": "code",
+       "c": [
+        "ownerName"
+       ]
+      },
+      ", so we resolve the addresses through the public identities endpoint:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "GET https://<tenant>.api.identitynow.com/v2026/public-identities?filters=id eq \"<ownerId>\""
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "The filter value is shown unencoded for readability. The spaces and quotes need URL encoding in a real request, though Postman and the ",
+      {
+       "t": "code",
+       "c": [
+        "requests"
+       ]
+      },
+      " library handle this for you."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "the-script"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "The Script"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "I have only reproduced the interesting parts here. Token retrieval is the standard client-credentials grant against ",
+      {
+       "t": "code",
+       "c": [
+        "/oauth/token"
+       ]
+      },
+      ", and ",
+      {
+       "t": "code",
+       "c": [
+        "paged_get"
+       ]
+      },
+      " is a plain ",
+      {
+       "t": "code",
+       "c": [
+        "limit"
+       ]
+      },
+      "/",
+      {
+       "t": "code",
+       "c": [
+        "offset"
+       ]
+      },
+      " loop over the endpoint. Neither holds any surprises. Both the API client and the External Trigger use the same grant, so we wrote one ",
+      {
+       "t": "code",
+       "c": [
+        "get_token(client_id, client_secret)"
+       ]
+      },
+      " and used it for both."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The client-side filtering is the first part worth showing. We keep an item if it is still ",
+      {
+       "t": "code",
+       "c": [
+        "Pending"
+       ]
+      },
+      ", matches the type filter, and was created inside the lookback window:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "python",
+      "value": "LOOKBACK_HOURS = 12\nWORK_ITEM_TYPES = [\"Remediation\"]\n\ncutoff = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)\ntoo_old = datetime.min.replace(tzinfo=timezone.utc)\nwanted = {t.lower() for t in WORK_ITEM_TYPES}\n\nitems = [\n    it\n    for it in paged_get(\"/work-items\", headers)\n    if it.get(\"state\") == \"Pending\"\n    and (not wanted or (it.get(\"type\") or \"\").lower() in wanted)\n    and (parse_iso(it.get(\"created\")) or too_old) >= cutoff\n]"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "code",
+       "c": [
+        "parse_iso"
+       ]
+      },
+      " is a thin wrapper around ",
+      {
+       "t": "code",
+       "c": [
+        "datetime.fromisoformat"
+       ]
+      },
+      " that swaps the trailing ",
+      {
+       "t": "code",
+       "c": [
+        "Z"
+       ]
+      },
+      " for ",
+      {
+       "t": "code",
+       "c": [
+        "+00:00"
+       ]
+      },
+      " and normalizes to UTC. We fall back to ",
+      {
+       "t": "code",
+       "c": [
+        "too_old"
+       ]
+      },
+      " so that an item with an unparseable or missing ",
+      {
+       "t": "code",
+       "c": [
+        "created"
+       ]
+      },
+      " value gets skipped rather than mailed out on every single run."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Next we resolve each owner’s email once and attach it to the item, so the payload builder does not have to look it up again:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "python",
+      "value": "email_cache: Dict[str, str] = {}\nfor it in items:\n    oid = it.get(\"ownerId\")\n    if oid and oid not in email_cache:\n        email_cache[oid] = lookup_identity_email(headers, oid)\n    it[\"ownerEmail\"] = email_cache.get(oid, \"\")"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Then we group per owner, otherwise three work items would produce three separate emails. One payload per owner, with the item list rendered as HTML:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "python",
+      "value": "def build_workflow_payloads(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:\n    by_owner: Dict[str, List[Dict[str, Any]]] = {}\n    for it in items:\n        key = it.get(\"ownerId\") or it.get(\"ownerName\") or \"(unknown)\"\n        by_owner.setdefault(key, []).append(it)\n\n    payloads: List[Dict[str, Any]] = []\n    for group in by_owner.values():\n        first = group[0]\n        rows_html = \"\".join(\n            \"<li>\"\n            + html.escape(it.get(\"description\") or it.get(\"name\") or it.get(\"id\") or \"\")\n            + f\" <i>(created {it.get('created')})</i></li>\"\n            for it in group\n        )\n        payloads.append(\n            {\n                \"recipientEmail\": first.get(\"ownerEmail\") or \"\",\n                \"ownerName\": first.get(\"ownerName\") or \"\",\n                \"itemCount\": len(group),\n                \"itemListHtml\": f\"<ul>{rows_html}</ul>\",\n                \"taskManagerUrl\": TASK_MANAGER_URL,\n            }\n        )\n    return payloads"
+     }
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "what-to-put-in-the-email"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "What to Put in the Email"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "code",
+       "c": [
+        "itemListHtml"
+       ]
+      },
+      " goes into the workflow as raw HTML, so anything in it gets rendered rather than displayed. Work item descriptions carry entitlement and role names straight from the source systems, and those names are not ours to trust. ",
+      {
+       "t": "code",
+       "c": [
+        "html.escape"
+       ]
+      },
+      " is what stops a stray ",
+      {
+       "t": "code",
+       "c": [
+        "&"
+       ]
+      },
+      " or ",
+      {
+       "t": "code",
+       "c": [
+        "<"
+       ]
+      },
+      " from becoming markup, and it is why the concatenation above is safe to send."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "How much to say is the other decision. Descriptions name entitlements and roles, and email leaves the tenant: forwarded, archived, out of reach of your access governance. We send enough to identify the item and let the Task Manager link carry the rest. If your naming conventions are sensitive, drop the descriptions and send the count and the link. The owner still learns that something needs doing. Same for your scheduler logs, so keep verbose output behind a flag."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "firing-the-workflow"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Firing the Workflow"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "One POST per payload, authenticated with a token minted from the trigger’s own credentials:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "python",
+      "value": "def trigger_reminder_workflow(token: str, payload: Dict[str, Any]) -> str:\n    resp = SESSION.post(\n        WORKFLOW_URL,\n        json=payload,\n        headers={\"Authorization\": f\"Bearer {token}\", \"Accept\": \"application/json\"},\n        timeout=30,\n    )\n    resp.raise_for_status()\n    body = resp.json()\n    return body.get(\"workflowExecutionId\") or body.get(\"id\") or str(body)[:200]"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "We put the send behind a flag so the first few runs were read-only:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "python",
+      "value": "if not TRIGGER_WORKFLOW:\n    print(\"TRIGGER_WORKFLOW is False - no email sent.\")\n    return 0"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "We also skip any owner whose email did not resolve and count it as a failure. Post a payload with an empty ",
+      {
+       "t": "code",
+       "c": [
+        "recipientEmail"
+       ]
+      },
+      " and the workflow accepts it, then the execution fails downstream where it is much harder to spot."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "A dry run looks like this:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "Pending work items (Remediation) created in the last 12h (since 2026-07-09T00:15:02+00:00): 2\n---\nWork item: Remove entitlement 'entA' from role 'Finance_Read'\nType: Remediation\nOwner: Jane Doe <jane.doe@yourcompany.com>\nCreated: 2026-07-09T06:12:44+00:00\n---\nWork item: Remove entitlement 'entB' from role 'Finance_Read'\nType: Remediation\nOwner: Jane Doe <jane.doe@yourcompany.com>\nCreated: 2026-07-09T07:03:10+00:00\n\nTRIGGER_WORKFLOW is False - no email sent."
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Run it that way first. We only flipped the flag once the owners and items in the output were the ones we expected, and then checked the received email against the workflow’s execution history."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "running-it-on-a-schedule"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Running It on a Schedule"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Anything that can run Python on a timer works. Ours is headed for an Airflow DAG, but cron or an Azure Function timer would do the same job. The script’s only dependency is ",
+      {
+       "t": "code",
+       "c": [
+        "requests"
+       ]
+      },
+      "."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "duplicates-and-misses"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Duplicates and Misses"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "We run this twice a day with ",
+      {
+       "t": "code",
+       "c": [
+        "LOOKBACK_HOURS"
+       ]
+      },
+      " set to 12. We match the window to the interval on purpose, so each run only sees items created since the previous run. Every work item then produces exactly one email shortly after it appears, and we never had to build a state store or a dedupe table."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "That symmetry is also the design’s weak point. If a run fails or fires late, the items created in the meantime fall outside the next run’s window and never get their email. There is no retry, because the script has no memory of what it has already sent."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "There are three ways to handle it, and they are a straight trade:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Window equal to interval"
+         ]
+        },
+        ", which is what we run. No state to maintain and no duplicates, but a missed run means missed notifications."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Window slightly larger than the interval."
+         ]
+        },
+        " Nothing gets missed, and items near the boundary get mailed twice. Only pending items qualify, so a duplicate is a second nudge about something genuinely outstanding rather than a false alarm."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "A state store keyed on work item ID."
+         ]
+        },
+        " Record what you have sent, drop the window entirely, and you get delivery that survives a failed run. This is the right answer if the notification is doing compliance work rather than being a convenience, and it is more moving parts than we wanted."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The same script also handles recurring reminders if that is what you want instead of one-shot notifications. Widen the window and the owner gets nudged on every run until the item is handled. We already drop anything completed with the ",
+      {
+       "t": "code",
+       "c": [
+        "Pending"
+       ]
+      },
+      " check, so a seven-day window on a twice-daily schedule turns a one-shot notification into a standing reminder without touching the code."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "summary"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Summary"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "ISC creates work items silently. There is no email on creation, no workflow trigger for the event, and no way for a Scheduled Trigger to find work items through search. The Pending Task Daily Digest is the native answer, and a daily count is enough for some tenants."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "We needed owners to know what had landed and why, so we paired an External Trigger and Send Email workflow with a small polling script. The script decides who needs to hear about what, and the workflow keeps the email native to the tenant. That leaves three moving parts: one enabled workflow, one scheduled script, and two sets of client credentials."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "As with any workaround, this one is worth revisiting periodically. If SailPoint adds a work item trigger or a per-item creation notification, the polling half becomes unnecessary, so check the current trigger catalog before assuming this approach is still required."
+     ]
+    }
+   ]
+  }
+ ]
+}

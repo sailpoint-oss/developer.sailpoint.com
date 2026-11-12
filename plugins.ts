@@ -1,9 +1,11 @@
 const {createApiPageMD} = require('./createApiPageMD');
 import clsx from 'clsx';
 import apiRedirectsPlugin from './api-redirects-plugin';
+import blogRedesignPlugin from './blog-redesign-plugin';
 
 const pluginConfig = [
   [apiRedirectsPlugin, {}],
+  [blogRedesignPlugin, {}],
   [
     function disableExpensiveBundlerOptimizationPlugin() {
       return {

@@ -2,14 +2,15 @@
  * Shape of the snapshot that scripts/fetch-blog-redesign-topic.mjs writes.
  */
 
-/** One element of a post body. Strings are text nodes. */
-export type BodyNode =
-  | string
-  | {
-      t: string;
-      a?: Record<string, string | undefined>;
-      c?: BodyNode[];
-    };
+import type {BodyNode, ForumPost} from '../community/types';
+
+export type {BodyNode};
+/** One post of a topic: the article (the first post) or a comment. */
+export type Post = ForumPost;
+export {DISCOURSE_BASE, formatShortDate} from '../community/types';
+
+/** The Community Blog category on the forum. */
+export const BLOG_CATEGORY_ID = 125;
 
 export interface Category {
   id: number;
@@ -18,24 +19,6 @@ export interface Category {
   color: string;
   readRestricted: boolean;
   parent: Category | null;
-}
-
-export interface Post {
-  id: number;
-  number: number;
-  username: string;
-  name: string;
-  avatar: string;
-  userTitle: string | null;
-  isAuthor: boolean;
-  staff: boolean;
-  flair: {url: string; name: string} | null;
-  createdAt: string;
-  replyTo: string | null;
-  likes: number;
-  url: string;
-  words: number;
-  body: BodyNode[];
 }
 
 export interface TocEntry {
@@ -94,9 +77,6 @@ export interface PostSummary {
   author: {name: string; username: string; avatar: string};
 }
 
-/** Discourse stores the blog content. Readers do not visit it directly. */
-export const DISCOURSE_BASE = 'https://developer.sailpoint.com/discuss';
-
 /** "Jul 14, 2026". Uses the reader's time zone. */
 export const formatLongDate = (iso: string) =>
   new Date(iso).toLocaleDateString('en-US', {
@@ -108,15 +88,3 @@ export const formatLongDate = (iso: string) =>
 /** "November 2024". */
 export const formatMonthYear = (iso: string) =>
   new Date(iso).toLocaleDateString('en-US', {month: 'long', year: 'numeric'});
-
-/** "Jul 15" in the current year, "Jul 15, 2025" in other years. */
-export const formatShortDate = (iso: string) => {
-  const date = new Date(iso);
-  const sameYear = date.getFullYear() === new Date().getFullYear();
-  return date.toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    ...(sameYear ? {} : {year: 'numeric'}),
-  });
-};
-

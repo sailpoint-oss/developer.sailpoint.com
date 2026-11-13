@@ -3,8 +3,11 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import {useHistory, useLocation} from '@docusaurus/router';
 import Layout from '@theme/Layout';
+import CommunityTheme from '../community/CommunityTheme';
+import NotificationButton from '../community/NotificationButton';
+import theme from '../community/theme.module.css';
 import type {PostSummary} from './types';
-import {formatLongDate} from './types';
+import {BLOG_CATEGORY_ID, formatLongDate} from './types';
 import styles from './styles.module.css';
 import landing from './landing.module.css';
 
@@ -23,10 +26,18 @@ const MAX_TAG_FILTERS = 10;
  * A tag on every post does not help to filter or to tell posts apart, so the
  * page does not show it.
  */
-function groupTags(posts: PostSummary[]): {common: Set<string>; popular: string[]} {
+function groupTags(posts: PostSummary[]): {
+  common: Set<string>;
+  popular: string[];
+} {
   const counts = new Map<string, number>();
-  for (const post of posts) for (const tag of post.tags) counts.set(tag, (counts.get(tag) ?? 0) + 1);
-  const common = new Set([...counts].filter(([, count]) => count === posts.length).map(([tag]) => tag));
+  for (const post of posts)
+    for (const tag of post.tags) counts.set(tag, (counts.get(tag) ?? 0) + 1);
+  const common = new Set(
+    [...counts]
+      .filter(([, count]) => count === posts.length)
+      .map(([tag]) => tag),
+  );
   const popular = [...counts]
     .filter(([tag]) => !common.has(tag))
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
@@ -35,10 +46,16 @@ function groupTags(posts: PostSummary[]): {common: Set<string>; popular: string[
   return {common, popular};
 }
 
-function matches(post: PostSummary, query: string, tag: string | null): boolean {
+function matches(
+  post: PostSummary,
+  query: string,
+  tag: string | null,
+): boolean {
   if (tag && !post.tags.includes(tag)) return false;
   if (!query) return true;
-  const haystack = [post.title, post.excerpt, post.author.name, ...post.tags].join(' ').toLowerCase();
+  const haystack = [post.title, post.excerpt, post.author.name, ...post.tags]
+    .join(' ')
+    .toLowerCase();
   return query
     .toLowerCase()
     .split(/\s+/)
@@ -58,7 +75,13 @@ function Cover({post, className}: {post: PostSummary; className: string}) {
 function Byline({post}: {post: PostSummary}) {
   return (
     <div className={landing.byline}>
-      <img src={post.author.avatar} alt="" width={32} height={32} loading="lazy" />
+      <img
+        src={post.author.avatar}
+        alt=""
+        width={32}
+        height={32}
+        loading="lazy"
+      />
       <div className={landing.bylineText}>
         <span className={landing.author}>{post.author.name}</span>
         <span className={landing.bylineMeta}>
@@ -71,28 +94,38 @@ function Byline({post}: {post: PostSummary}) {
       </div>
       {post.comments > 0 && (
         <span className={landing.comments} title={`${post.comments} comments`}>
-          <i className="fa-regular fa-comment" aria-hidden="true" /> {post.comments}
+          <i className="fa-regular fa-comment" aria-hidden="true" />{' '}
+          {post.comments}
         </span>
       )}
     </div>
   );
 }
 
+/** The newest post, as a card in the hero banner. */
 function FeaturedCard({post}: {post: PostSummary}) {
   return (
     <Link to={post.path} className={landing.featured}>
       <Cover post={post} className={landing.featuredCover} />
       <div className={landing.featuredBody}>
-        <span className={landing.label}>Latest post</span>
+        <span className={landing.label}>
+          <i className="fa-solid fa-star" aria-hidden="true" /> Latest post
+        </span>
         <h2 className={landing.featuredTitle}>{post.title}</h2>
-        <p className={landing.excerpt}>{post.excerpt}</p>
+        <p className={landing.featuredExcerpt}>{post.excerpt}</p>
         <Byline post={post} />
       </div>
     </Link>
   );
 }
 
-function PostCard({post, hiddenTags}: {post: PostSummary; hiddenTags: Set<string>}) {
+function PostCard({
+  post,
+  hiddenTags,
+}: {
+  post: PostSummary;
+  hiddenTags: Set<string>;
+}) {
   const tags = post.tags.filter((tag) => !hiddenTags.has(tag)).slice(0, 2);
   return (
     <Link to={post.path} className={landing.card}>
@@ -108,14 +141,20 @@ function PostCard({post, hiddenTags}: {post: PostSummary; hiddenTags: Set<string
           </div>
         )}
         <h3 className={landing.cardTitle}>{post.title}</h3>
-        <p className={clsx(landing.excerpt, landing.cardExcerpt)}>{post.excerpt}</p>
+        <p className={clsx(landing.excerpt, landing.cardExcerpt)}>
+          {post.excerpt}
+        </p>
         <Byline post={post} />
       </div>
     </Link>
   );
 }
 
-export default function LandingPage({posts}: {posts: PostSummary[]}): JSX.Element {
+export default function LandingPage({
+  posts,
+}: {
+  posts: PostSummary[];
+}): JSX.Element {
   const [query, setQuery] = useState('');
   const {common, popular} = useMemo(() => groupTags(posts), [posts]);
 
@@ -150,38 +189,55 @@ export default function LandingPage({posts}: {posts: PostSummary[]}): JSX.Elemen
   const grid = filtering ? results : rest;
 
   return (
-    <Layout title="Community Blog" description="Guides and lessons from the SailPoint developer community.">
-      <div className={clsx(styles.root, landing.page)}>
+    <Layout
+      title="Community Blog"
+      description="Guides and lessons from the SailPoint developer community.">
+      <CommunityTheme className={clsx(styles.root, landing.page)}>
         <section className={landing.hero}>
-          <div className={styles.container}>
-            <p className={landing.eyebrow}>Community Blog</p>
-            <h1 className={landing.heroTitle}>Learn from people who build with SailPoint</h1>
-            <p className={landing.heroLead}>
-              Guides, solutions and lessons learned from developers and identity professionals in the SailPoint
-              community.
-            </p>
-            <div className={landing.heroActions}>
-              <label className={landing.search}>
-                <i className="fa-solid fa-magnifying-glass" aria-hidden="true" />
-                <input
-                  type="search"
-                  placeholder="Search posts"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  aria-label="Search posts"
+          <div className={clsx(styles.container, landing.heroGrid)}>
+            <div className={landing.heroText}>
+              <p className={landing.eyebrow}>Community Blog</p>
+              <h1 className={landing.heroTitle}>
+                Learn from people who build with SailPoint
+              </h1>
+              <p className={landing.heroLead}>
+                Guides, solutions and lessons learned from developers and
+                identity professionals in the SailPoint community.
+              </p>
+              <div className={landing.heroActions}>
+                <label className={landing.search}>
+                  <i
+                    className="fa-solid fa-magnifying-glass"
+                    aria-hidden="true"
+                  />
+                  <input
+                    type="search"
+                    placeholder="Search posts"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    aria-label="Search posts"
+                  />
+                </label>
+                <NotificationButton
+                  target={{type: 'category', id: BLOG_CATEGORY_ID}}
+                  appearance="inverse"
+                  description="New posts on the Community Blog"
                 />
-              </label>
+              </div>
             </div>
+            {featured && <FeaturedCard post={featured} />}
           </div>
         </section>
 
         <div className={styles.container}>
-          {!filtering && featured && <FeaturedCard post={featured} />}
-
           <div className={landing.toolbar}>
-            <h2 className={landing.sectionTitle}>{filtering ? 'Results' : 'Recent posts'}</h2>
-            <div className={landing.filters} role="group" aria-label="Filter by tag">
-
+            <h2 className={landing.sectionTitle}>
+              {filtering ? 'Results' : 'Recent posts'}
+            </h2>
+            <div
+              className={landing.filters}
+              role="group"
+              aria-label="Filter by tag">
               <button
                 type="button"
                 className={clsx(landing.filter, !tag && landing.filterActive)}
@@ -193,7 +249,10 @@ export default function LandingPage({posts}: {posts: PostSummary[]}): JSX.Elemen
                 <button
                   key={name}
                   type="button"
-                  className={clsx(landing.filter, tag === name && landing.filterActive)}
+                  className={clsx(
+                    landing.filter,
+                    tag === name && landing.filterActive,
+                  )}
                   aria-pressed={tag === name}
                   onClick={() => setTag(tag === name ? null : name)}>
                   {name}
@@ -203,9 +262,27 @@ export default function LandingPage({posts}: {posts: PostSummary[]}): JSX.Elemen
           </div>
 
           {filtering && (
-            <p className={styles.muted} aria-live="polite">
-              {results.length} {results.length === 1 ? 'post' : 'posts'}
-            </p>
+            <div className={landing.resultBar}>
+              <p className={theme.muted} aria-live="polite">
+                {results.length} {results.length === 1 ? 'post' : 'posts'}
+                {tag && (
+                  <>
+                    {' '}
+                    tagged <strong>{tag}</strong>
+                  </>
+                )}
+              </p>
+              {tag && (
+                <NotificationButton
+                  target={{type: 'tag', name: tag}}
+                  label={`Subscribe to ${tag}`}
+                  subscribedLabel={`Subscribed to ${tag}`}
+                  size="small"
+                  align="end"
+                  description={`New posts tagged ${tag}`}
+                />
+              )}
+            </div>
           )}
 
           {grid.length > 0 ? (
@@ -226,7 +303,7 @@ export default function LandingPage({posts}: {posts: PostSummary[]}): JSX.Elemen
             </div>
           )}
         </div>
-      </div>
+      </CommunityTheme>
     </Layout>
   );
 }

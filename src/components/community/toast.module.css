@@ -1,0 +1,40 @@
+/* A short status message at the bottom of the screen. */
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  z-index: 500;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #0b1622;
+  color: #ffffff;
+  font-size: 14px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 25%);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 12px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.toastVisible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.toastAction {
+  margin-left: 12px;
+  padding: 2px 10px;
+  border: 1px solid rgb(255 255 255 / 40%);
+  border-radius: 6px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toastAction:hover {
+  background: rgb(255 255 255 / 12%);
+}

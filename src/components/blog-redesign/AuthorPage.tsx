@@ -2,10 +2,13 @@ import React, {useMemo, useState} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
-import PostBody from './PostBody';
+import CommunityTheme from '../community/CommunityTheme';
+import RichText from '../community/RichText';
+import {CommunityLinksContext} from '../community/links';
+import theme from '../community/theme.module.css';
 import type {AuthorProfile, PostSummary} from './types';
 import {formatLongDate, formatMonthYear} from './types';
-import {BLOG_PATH, blogLinks, BlogLinksContext, tagPath} from './links';
+import {BLOG_PATH, blogLinks, tagPath} from './links';
 import styles from './styles.module.css';
 import author from './author.module.css';
 
@@ -105,8 +108,8 @@ export default function AuthorPage({
 
   return (
     <Layout title={profile.name} description={`Posts by ${profile.name} on the SailPoint Developer Community blog.`}>
-      <BlogLinksContext.Provider value={links}>
-        <div className={clsx(styles.root, author.page)}>
+      <CommunityLinksContext.Provider value={links}>
+        <CommunityTheme className={clsx(styles.root, author.page)}>
           <div className={styles.gradientBar} aria-hidden="true" />
 
           <div className={styles.container}>
@@ -168,7 +171,7 @@ export default function AuthorPage({
 
               {profile.bio.length > 0 && (
                 <div className={author.bio}>
-                  <PostBody body={profile.bio} variant="comment" />
+                  <RichText body={profile.bio} variant="comment" />
                 </div>
               )}
 
@@ -209,7 +212,7 @@ export default function AuthorPage({
                 Posts by {profile.name}
               </h2>
               {posts.length === 0 ? (
-                <p className={styles.muted}>No posts yet.</p>
+                <p className={theme.muted}>No posts yet.</p>
               ) : (
                 <div className={author.list}>
                   {posts.slice(0, shown).map((post) => (
@@ -222,15 +225,15 @@ export default function AuthorPage({
                   <button type="button" className={author.moreButton} onClick={() => setShown(shown + PAGE_SIZE)}>
                     Load more posts
                   </button>
-                  <span className={styles.muted}>
+                  <span className={theme.muted}>
                     Showing {shown} of {posts.length}
                   </span>
                 </div>
               )}
             </section>
           </div>
-        </div>
-      </BlogLinksContext.Provider>
+        </CommunityTheme>
+      </CommunityLinksContext.Provider>
     </Layout>
   );
 }

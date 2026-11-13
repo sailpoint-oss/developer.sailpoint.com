@@ -1,0 +1,229 @@
+/*
+ * Comments: the comment list and the comment box. Colors come from the tokens
+ * in theme.module.css.
+ *
+ * Selectors that style links use `.discussion .x`. The theme rule `.theme a`
+ * sets the link color, and these selectors must win over it.
+ */
+
+.discussion {
+  margin-top: 56px;
+  padding-top: 36px;
+  border-top: 1px solid var(--br-border);
+}
+
+.discussionHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.discussion .sectionTitle {
+  margin: 0;
+  color: var(--br-text-strong);
+  font-size: 24px;
+  font-weight: 800;
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 24px);
+}
+
+.comment {
+  display: flex;
+  gap: 16px;
+  padding: 0 0 20px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--br-border);
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 24px);
+}
+
+.avatar {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.commentMain {
+  flex: 1;
+  min-width: 0;
+}
+
+.commentHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+
+.discussion .commentName {
+  color: var(--br-text-strong);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.authorBadge {
+  padding: 1px 7px;
+  border-radius: 4px;
+  background: var(--br-pill-bg);
+  color: var(--br-pill-text);
+  font-size: 11px;
+}
+
+.userTitle {
+  color: var(--br-muted);
+  font-size: 11px;
+}
+
+.flair {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.discussion .commentDate {
+  margin-left: auto;
+  color: var(--br-muted);
+  font-size: 13px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin-left: -8px;
+}
+
+.discussion .action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--br-muted);
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.discussion .action:hover {
+  background: var(--br-surface-2);
+  color: var(--br-text-strong);
+}
+
+.discussion .actionLiked,
+.discussion .actionLiked:hover {
+  color: #e5484d;
+}
+
+/* Composer */
+
+.composer {
+  margin-top: 32px;
+  border: 1px solid var(--br-border);
+  border-radius: 10px;
+  background: var(--br-surface);
+  overflow: hidden;
+}
+
+.composerTabs {
+  display: flex;
+  gap: 4px;
+  padding: 8px 10px 0;
+  border-bottom: 1px solid var(--br-border);
+}
+
+.composerTab {
+  padding: 6px 6px 10px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--br-muted);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.composerTabActive {
+  color: var(--br-text-strong);
+  font-weight: 700;
+  border-bottom-color: var(--br-accent);
+}
+
+.composerInput {
+  display: block;
+  width: 100%;
+  min-height: 80px;
+  padding: 20px 16px;
+  border: 0;
+  background: transparent;
+  color: var(--br-text);
+  font-size: 14px;
+  resize: vertical;
+}
+
+.discussion .composerInput {
+  font-family: var(--br-mono);
+}
+
+.composerInput:focus {
+  outline: none;
+}
+
+.composer:focus-within {
+  border-color: var(--br-accent);
+}
+
+.composerPreview {
+  min-height: 80px;
+  padding: 16px;
+}
+
+.composerFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px 10px 16px;
+  border-top: 1px solid var(--br-border);
+  font-size: 14px;
+}
+
+.composerFooter strong {
+  color: var(--br-text-strong);
+}
+
+.primaryButton {
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--br-button-bg);
+  color: var(--br-button-text);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.15s, opacity 0.15s;
+}
+
+.primaryButton:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.primaryButton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .discussion .commentDate {
+    margin-left: 0;
+  }
+}

@@ -2,36 +2,26 @@ import React, {forwardRef, useContext, useEffect, useImperativeHandle, useRef, u
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import ReactMarkdown from 'react-markdown';
-import PostBody from './PostBody';
-import type {Post, Topic} from './types';
+import RichText from './RichText';
+import NotificationButton from './NotificationButton';
+import type {ForumPost} from './types';
 import {formatShortDate} from './types';
 import type {ForumUser, NewReply} from './forum';
 import {createReply, likedPostIds, likePost, logIn, unlikePost, useForumUser} from './forum';
-import {authorPath, BlogLinksContext} from './links';
-import styles from './styles.module.css';
+import {CommunityLinksContext} from './links';
+import type {ToastMessage} from './useToast';
+import {useToast} from './useToast';
+import styles from './comments.module.css';
+import rich from './richtext.module.css';
+import theme from './theme.module.css';
 
-// ---------------------------------------------------------------------------
-// Status message
-// ---------------------------------------------------------------------------
-
-interface Flash {
-  text: string;
-  /** Shows a "Log in" button in the message. */
-  logIn?: boolean;
-}
-
-/** A short status message that clears itself. */
-function useFlash(): [Flash | null, (flash: Flash) => void] {
-  const [flash, setFlash] = useState<Flash | null>(null);
-  const timer = useRef<ReturnType<typeof setTimeout>>();
-  const show = (next: Flash) => {
-    setFlash(next);
-    clearTimeout(timer.current);
-    timer.current = setTimeout(() => setFlash(null), next.logIn ? 6000 : 3500);
-  };
-  useEffect(() => () => clearTimeout(timer.current), []);
-  return [flash, show];
-}
+/**
+ * The comments on a forum topic: the list, likes, replies, the comment box and
+ * a notification button for the topic. The topic can be a blog post, a video,
+ * or any other forum topic.
+ *
+ *   <Comments topicId={topic.id} comments={topic.posts.slice(1)} />
+ */
 
 // ---------------------------------------------------------------------------
 // One comment
@@ -45,21 +35,21 @@ interface CommentProps {
   createdAt: string;
   isAuthor?: boolean;
   userTitle?: string | null;
-  flair?: Post['flair'];
+  flair?: ForumPost['flair'];
   children: React.ReactNode;
   actions?: React.ReactNode;
 }
 
 function Comment({number, username, name, avatar, createdAt, isAuthor, userTitle, flair, children, actions}: CommentProps) {
-  // Members who wrote a blog post have an author page. Others have no page on the blog.
-  const hasPage = useContext(BlogLinksContext).authors.has(username);
+  // Some members have a page on this section of the site, for example blog authors.
+  const profile = useContext(CommunityLinksContext).profileHref(username);
   return (
     <article className={styles.comment} id={`post-${number}`}>
       <img className={styles.avatar} src={avatar} alt="" width={32} height={32} loading="lazy" />
       <div className={styles.commentMain}>
         <header className={styles.commentHeader}>
-          {hasPage ? (
-            <Link className={styles.commentName} to={authorPath(username)}>
+          {profile ? (
+            <Link className={styles.commentName} to={profile}>
               {name}
             </Link>
           ) : (
@@ -91,7 +81,7 @@ interface ComposerProps {
   topicId: number;
   user: ForumUser | null | undefined;
   onPosted: (reply: NewReply) => void;
-  onFlash: (flash: Flash) => void;
+  onFlash: (message: ToastMessage) => void;
 }
 
 const Composer = forwardRef<ComposerHandle, ComposerProps>(function Composer(
@@ -177,12 +167,12 @@ const Composer = forwardRef<ComposerHandle, ComposerProps>(function Composer(
           rows={3}
         />
       ) : (
-        <div className={clsx(styles.composerPreview, styles.prose, styles.proseComment)}>
-          {text.trim() ? <ReactMarkdown>{text}</ReactMarkdown> : <p className={styles.muted}>Nothing to preview.</p>}
+        <div className={clsx(styles.composerPreview, rich.prose, rich.proseComment)}>
+          {text.trim() ? <ReactMarkdown>{text}</ReactMarkdown> : <p className={theme.muted}>Nothing to preview.</p>}
         </div>
       )}
       <div className={styles.composerFooter}>
-        <span className={styles.muted}>
+        <span className={theme.muted}>
           Markdown supported
           {user && (
             <>
@@ -213,10 +203,30 @@ const Composer = forwardRef<ComposerHandle, ComposerProps>(function Composer(
 // Section
 // ---------------------------------------------------------------------------
 
-export default function Discussion({topic}: {topic: Topic}) {
-  const comments = topic.posts.slice(1);
+export interface CommentsProps {
+  /** The Discourse topic that holds the comments. */
+  topicId: number;
+  /** The comments, oldest first. Do not include the first post of the topic. */
+  comments: ForumPost[];
+  /** The section heading. */
+  title?: string;
+  /** The id of the section heading, for links such as "#discussion". */
+  id?: string;
+  /** Shows a button to get notified about new comments. */
+  notifications?: boolean;
+  className?: string;
+}
+
+export default function Comments({
+  topicId,
+  comments,
+  title = 'Discussion',
+  id = 'discussion',
+  notifications = true,
+  className,
+}: CommentsProps): JSX.Element {
   const composer = useRef<ComposerHandle>(null);
-  const [flash, showFlash] = useFlash();
+  const {toast, showToast: showFlash} = useToast();
   const user = useForumUser();
   const [likedAtLoad, setLikedAtLoad] = useState<Set<number>>(new Set());
   const [liked, setLiked] = useState<Set<number>>(new Set());
@@ -226,15 +236,15 @@ export default function Discussion({topic}: {topic: Topic}) {
   // comments the reader liked.
   useEffect(() => {
     if (!user) return;
-    likedPostIds(topic.id)
+    likedPostIds(topicId)
       .then((ids) => {
         setLikedAtLoad(ids);
         setLiked(ids);
       })
       .catch(() => undefined);
-  }, [user, topic.id]);
+  }, [user, topicId]);
 
-  const toggleLike = async (post: Post) => {
+  const toggleLike = async (post: ForumPost) => {
     if (!user) {
       showFlash({text: 'Log in to like comments.', logIn: true});
       return;
@@ -257,17 +267,29 @@ export default function Discussion({topic}: {topic: Topic}) {
   };
 
   // The snapshot count includes the reader's own like from before this visit.
-  const likeCount = (post: Post) =>
+  const likeCount = (post: ForumPost) =>
     post.likes + (liked.has(post.id) ? 1 : 0) - (likedAtLoad.has(post.id) ? 1 : 0);
 
   return (
-    <section className={styles.discussion} aria-labelledby="discussion">
-      <h2 id="discussion" className={styles.sectionTitle}>
-        Discussion
-      </h2>
+    <section className={clsx(styles.discussion, className)} aria-labelledby={id}>
+      <div className={styles.discussionHeader}>
+        <h2 id={id} className={styles.sectionTitle}>
+          {title}
+        </h2>
+        {notifications && (
+          <NotificationButton
+            target={{type: 'topic', id: topicId}}
+            label="Get notified"
+            subscribedLabel="Notifications on"
+            size="small"
+            align="end"
+            description="Comments on this page"
+          />
+        )}
+      </div>
 
       {comments.length + newReplies.length === 0 && (
-        <p className={styles.muted}>No comments yet. Start the discussion.</p>
+        <p className={theme.muted}>No comments yet. Start the discussion.</p>
       )}
 
       {comments.map((post) => {
@@ -303,7 +325,7 @@ export default function Discussion({topic}: {topic: Topic}) {
                 </button>
               </>
             }>
-            <PostBody body={post.body} variant="comment" />
+            <RichText body={post.body} variant="comment" />
           </Comment>
         );
       })}
@@ -318,7 +340,7 @@ export default function Discussion({topic}: {topic: Topic}) {
           createdAt={reply.createdAt}>
           {/* Discourse sanitizes the HTML it returns for a post. */}
           <div
-            className={clsx(styles.prose, styles.proseComment)}
+            className={clsx(rich.prose, rich.proseComment)}
             dangerouslySetInnerHTML={{__html: reply.cooked}}
           />
         </Comment>
@@ -326,20 +348,13 @@ export default function Discussion({topic}: {topic: Topic}) {
 
       <Composer
         ref={composer}
-        topicId={topic.id}
+        topicId={topicId}
         user={user}
         onPosted={(reply) => setNewReplies((current) => [...current, reply])}
         onFlash={showFlash}
       />
 
-      <div className={clsx(styles.toast, flash && styles.toastVisible)} role="status" aria-live="polite">
-        {flash?.text}
-        {flash?.logIn && (
-          <button type="button" className={styles.toastAction} onClick={logIn}>
-            Log in
-          </button>
-        )}
-      </div>
+      {toast}
     </section>
   );
 }

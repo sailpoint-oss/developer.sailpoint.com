@@ -3,24 +3,9 @@
  * point at forum URLs. These rules change them to blog URLs where the blog
  * has a page for the target.
  */
-import {createContext} from 'react';
+import type {CommunityLinks, ResolvedLink} from '../community/links';
 
 export const BLOG_PATH = '/blog-redesign';
-
-export interface BlogLinks {
-  /** Topic id -> blog path, for every post that has a blog page. */
-  postPaths: Record<number, string>;
-  /** Usernames that have an author page. */
-  authors: Set<string>;
-}
-
-export const BlogLinksContext = createContext<BlogLinks>({postPaths: {}, authors: new Set()});
-
-/** Builds the link data from the list of saved posts. */
-export const blogLinks = (posts: {id: number; path: string; author: {username: string}}[]): BlogLinks => ({
-  postPaths: Object.fromEntries(posts.map((p) => [p.id, p.path])),
-  authors: new Set(posts.map((p) => p.author.username)),
-});
 
 export const tagPath = (tag: string) => `${BLOG_PATH}?tag=${encodeURIComponent(tag)}`;
 export const authorPath = (username: string) => `${BLOG_PATH}/author/${encodeURIComponent(username)}`;
@@ -34,7 +19,7 @@ const TAG = /^\/discuss\/tag\/([^/?#]+)/;
  * Returns the URL to use for a link in a post body, and whether it leaves
  * the site (and opens in a new tab).
  */
-export function resolveLink(href: string, postPaths: Record<number, string>): {href: string; external: boolean} {
+function resolveLink(href: string, postPaths: Record<number, string>): ResolvedLink {
   const path = href.replace(SITE, '');
   if (path === href && /^https?:/.test(href)) return {href, external: true};
 
@@ -52,4 +37,20 @@ export function resolveLink(href: string, postPaths: Record<number, string>): {h
   // developer.sailpoint.com and open in the same tab.
   if (path.startsWith('/discuss')) return {href: `https://developer.sailpoint.com${path}`, external: false};
   return {href: path || '/', external: false};
+}
+
+/**
+ * The link rules for blog pages. Give them to the community components with
+ * <CommunityLinksContext.Provider value={blogLinks(posts)}>.
+ *
+ * - Links to saved posts go to their blog page.
+ * - Members who wrote a saved post link to their author page.
+ */
+export function blogLinks(posts: {id: number; path: string; author: {username: string}}[]): CommunityLinks {
+  const postPaths: Record<number, string> = Object.fromEntries(posts.map((p) => [p.id, p.path]));
+  const authors = new Set(posts.map((p) => p.author.username));
+  return {
+    resolveHref: (href) => resolveLink(href, postPaths),
+    profileHref: (username) => (authors.has(username) ? authorPath(username) : null),
+  };
 }

@@ -1,0 +1,125 @@
+/*
+ * Community design theme. Shared by every page that shows forum content (the
+ * blog, and later the video pages). Wrap the page in <CommunityTheme>.
+ *
+ * Light and dark tokens live on .theme. The site loads only Poppins Regular,
+ * so the other weights are registered here under a separate family name. That
+ * keeps the theme from changing bold text on the rest of the site.
+ */
+
+@font-face {
+  font-family: 'Poppins BR';
+  src: url('../../../static/fonts/poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins BR';
+  src: url('../../../static/fonts/poppins/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins BR';
+  src: url('../../../static/fonts/poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins BR';
+  src: url('../../../static/fonts/poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins BR';
+  src: url('../../../static/fonts/poppins/Poppins-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Tokens                                                                    */
+/* ------------------------------------------------------------------------ */
+
+.theme {
+  --br-bg: #ffffff;
+  --br-text: #1d2b39;
+  --br-text-strong: #0b1622;
+  --br-muted: #5b6b7b;
+  --br-border: #e1e5ea;
+  --br-surface: #f5f7fa;
+  --br-surface-2: #eef2f6;
+  --br-accent: #0033a1;
+  --br-link: #0071ce;
+  --br-pill-bg: #e3eefb;
+  --br-pill-text: #0033a1;
+  --br-tab-active-bg: #e3eefb;
+  --br-tab-active-text: #0033a1;
+  --br-button-bg: #0033a1;
+  --br-button-text: #ffffff;
+  --br-code-bg: #f6f8fa;
+  --br-inline-code-bg: #eef1f5;
+  --br-inline-code-text: #b4237a;
+  --br-quote-bg: #f1f6fd;
+  --br-shadow: 0 1px 2px rgb(16 24 40 / 6%), 0 4px 16px rgb(16 24 40 / 6%);
+  --br-font: 'Poppins BR', 'Poppins', system-ui, sans-serif;
+  --br-mono: var(--ifm-font-family-monospace, ui-monospace, SFMono-Regular, Menlo, monospace);
+
+  background: var(--br-bg);
+  color: var(--br-text);
+}
+
+:global(html[data-theme='dark']) .theme {
+  --br-bg: #1b1b1d;
+  --br-text: #e6eaee;
+  --br-text-strong: #ffffff;
+  --br-muted: #a3adb8;
+  --br-border: #303236;
+  --br-surface: #242527;
+  --br-surface-2: #2b2d30;
+  --br-accent: #54c0e8;
+  --br-link: #7ecfee;
+  --br-pill-bg: #1d4560;
+  --br-pill-text: #a9dcf3;
+  --br-tab-active-bg: #1d4560;
+  --br-tab-active-text: #7ecfee;
+  --br-button-bg: #7ecfee;
+  --br-button-text: #0b1622;
+  --br-code-bg: #111214;
+  --br-inline-code-bg: #2b2d30;
+  --br-inline-code-text: #f38fc7;
+  --br-quote-bg: #1f2a36;
+  --br-shadow: none;
+}
+
+/* The site sets Poppins on every element (`html *`), so the theme has to set
+   its own family with a class selector. Icons (<i>) keep the icon font. */
+.theme,
+.theme *:not(i) {
+  font-family: var(--br-font);
+}
+
+.theme pre,
+.theme pre *,
+.theme code,
+.theme code * {
+  font-family: var(--br-mono) !important;
+}
+
+.theme a {
+  color: var(--br-link);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.muted {
+  color: var(--br-muted);
+}

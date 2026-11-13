@@ -1,0 +1,154 @@
+/*
+ * Notification button and its menu. Colors come from the tokens in
+ * theme.module.css.
+ */
+
+.wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--br-border);
+  border-radius: 999px;
+  background: var(--br-surface);
+  color: var(--br-text-strong);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.button:hover:not(:disabled) {
+  border-color: var(--br-accent);
+  background: var(--br-surface-2);
+}
+
+.button:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+.subscribed {
+  border-color: var(--br-tab-active-bg);
+  background: var(--br-tab-active-bg);
+  color: var(--br-tab-active-text);
+}
+
+.chevron {
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.small {
+  min-height: 32px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+
+/* For a colored background, for example a hero banner. */
+.inverse {
+  min-height: 48px;
+  padding: 0 20px;
+  border-color: #ffffff;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #0033a1;
+  font-size: 15px;
+}
+
+.inverse:hover:not(:disabled) {
+  border-color: #e3eefb;
+  background: #e3eefb;
+}
+
+.inverse.subscribed {
+  border-color: rgb(255 255 255 / 60%);
+  background: rgb(255 255 255 / 14%);
+  color: #ffffff;
+}
+
+/* Menu */
+
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 300;
+  width: 300px;
+  padding: 6px;
+  border: 1px solid var(--br-border);
+  border-radius: 12px;
+  background: var(--br-bg);
+  box-shadow: 0 12px 32px rgb(0 0 0 / 22%);
+}
+
+.menuEnd {
+  right: 0;
+  left: auto;
+}
+
+.menuTitle {
+  margin: 6px 10px 8px;
+  color: var(--br-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--br-text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.option:hover,
+.option:focus-visible {
+  background: var(--br-surface-2);
+}
+
+.check {
+  width: 14px;
+  margin-top: 3px;
+  color: var(--br-accent);
+  font-size: 13px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.optionLabel {
+  display: block;
+  color: var(--br-text-strong);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.optionDescription {
+  display: block;
+  margin-top: 2px;
+  color: var(--br-muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .menu {
+    width: min(300px, calc(100vw - 32px));
+  }
+}

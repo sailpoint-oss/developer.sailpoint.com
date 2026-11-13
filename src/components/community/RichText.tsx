@@ -2,9 +2,9 @@ import React, {useCallback, useContext, useEffect, useState} from 'react';
 import CodeBlock from '@theme/CodeBlock';
 import Mermaid from '@theme/Mermaid';
 import type {BodyNode} from './types';
-import type {BlogLinks} from './links';
-import {authorPath, BlogLinksContext, resolveLink} from './links';
-import styles from './styles.module.css';
+import type {CommunityLinks} from './links';
+import {CommunityLinksContext} from './links';
+import styles from './richtext.module.css';
 
 const VOID_TAGS = new Set(['br', 'hr', 'img', 'input', 'col', 'source', 'wbr']);
 
@@ -39,7 +39,7 @@ function parseStyle(value: string): React.CSSProperties {
   return style as React.CSSProperties;
 }
 
-function toProps(attrs: Record<string, string | undefined> = {}, key: React.Key, postPaths: Record<number, string>) {
+function toProps(attrs: Record<string, string | undefined> = {}, key: React.Key, links: CommunityLinks) {
   const props: Record<string, unknown> = {key};
   for (const [name, value] of Object.entries(attrs)) {
     if (value === undefined) continue;
@@ -47,7 +47,7 @@ function toProps(attrs: Record<string, string | undefined> = {}, key: React.Key,
     else props[ATTR_NAMES[name] ?? name] = value;
   }
   if (typeof props.href === 'string') {
-    const link = resolveLink(props.href, postPaths);
+    const link = links.resolveHref(props.href);
     props.href = link.href;
     // Links that leave developer.sailpoint.com open in a new tab.
     if (link.external) {
@@ -65,7 +65,7 @@ interface LightboxImage {
 
 interface RenderContext {
   openImage: (img: LightboxImage) => void;
-  links: BlogLinks;
+  links: CommunityLinks;
 }
 
 function renderNodes(nodes: BodyNode[] | undefined, ctx: RenderContext, keyPrefix = ''): React.ReactNode[] {
@@ -128,13 +128,14 @@ function renderNodes(nodes: BodyNode[] | undefined, ctx: RenderContext, keyPrefi
       );
     }
 
-    // @mentions point at forum profiles. Link authors to their author page.
-    // Other members have no page on the blog, so show the name without a link.
+    // @mentions point at forum profiles. Link members who have a page on this
+    // section of the site. Show the others as a name without a link.
     if (tag === 'a' && (a.class ?? '').split(' ').includes('mention')) {
       const username = decodeURIComponent(a.href?.match(/\/u\/([^/?#]+)/)?.[1] ?? '');
-      if (ctx.links.authors.has(username)) {
+      const profile = ctx.links.profileHref(username);
+      if (profile) {
         return (
-          <a key={key} className="mention" href={authorPath(username)}>
+          <a key={key} className="mention" href={profile}>
             {renderNodes(c, ctx, `${key}-`)}
           </a>
         );
@@ -147,12 +148,12 @@ function renderNodes(nodes: BodyNode[] | undefined, ctx: RenderContext, keyPrefi
     }
 
     if (tag === 'img') {
-      return React.createElement('img', {...toProps(a, key, ctx.links.postPaths), loading: 'lazy'});
+      return React.createElement('img', {...toProps(a, key, ctx.links), loading: 'lazy'});
     }
 
-    if (VOID_TAGS.has(tag)) return React.createElement(tag, toProps(a, key, ctx.links.postPaths));
+    if (VOID_TAGS.has(tag)) return React.createElement(tag, toProps(a, key, ctx.links));
 
-    return React.createElement(tag, toProps(a, key, ctx.links.postPaths), ...renderNodes(c, ctx, `${key}-`));
+    return React.createElement(tag, toProps(a, key, ctx.links), ...renderNodes(c, ctx, `${key}-`));
   });
 }
 
@@ -185,15 +186,19 @@ function ImageViewer({image, onClose}: {image: LightboxImage; onClose: () => voi
   );
 }
 
-interface PostBodyProps {
+interface RichTextProps {
   body: BodyNode[];
   variant?: 'article' | 'comment';
 }
 
-export default function PostBody({body, variant = 'article'}: PostBodyProps) {
+/**
+ * Renders the body of a forum post (a snapshot tree from BodyNode). Use the
+ * `comment` variant for comments and short text such as author bios.
+ */
+export default function RichText({body, variant = 'article'}: RichTextProps) {
   const [image, setImage] = useState<LightboxImage | null>(null);
   const close = useCallback(() => setImage(null), []);
-  const links = useContext(BlogLinksContext);
+  const links = useContext(CommunityLinksContext);
 
   return (
     <div className={variant === 'article' ? styles.prose : `${styles.prose} ${styles.proseComment}`}>

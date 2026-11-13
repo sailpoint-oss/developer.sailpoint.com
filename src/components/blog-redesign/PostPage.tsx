@@ -1,14 +1,17 @@
 import React, {useMemo, useRef} from 'react';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
-import PostBody from './PostBody';
+import CommunityTheme from '../community/CommunityTheme';
+import RichText from '../community/RichText';
+import Comments from '../community/Comments';
+import NotificationButton from '../community/NotificationButton';
+import {CommunityLinksContext} from '../community/links';
 import TableOfContents from './TableOfContents';
-import Discussion from './Discussion';
 import CompactHeader from './CompactHeader';
 import ShareButton from './ShareButton';
 import type {PostSummary, Topic} from './types';
-import {formatLongDate} from './types';
-import {authorPath, blogLinks, BlogLinksContext, tagPath} from './links';
+import {BLOG_CATEGORY_ID, formatLongDate} from './types';
+import {authorPath, blogLinks, tagPath} from './links';
 import styles from './styles.module.css';
 
 /**
@@ -33,8 +36,8 @@ export default function PostPage({
     <Layout
       title={topic.title}
       description="Community blog post on the SailPoint Developer Community.">
-      <BlogLinksContext.Provider value={links}>
-        <div className={styles.root}>
+      <CommunityLinksContext.Provider value={links}>
+        <CommunityTheme className={styles.root}>
           <CompactHeader
             watch={titleRef}
             title={topic.title}
@@ -86,10 +89,10 @@ export default function PostPage({
                   />
                 )}
 
-                <PostBody body={article.body} />
+                <RichText body={article.body} />
 
-                {/* Readers decide to share after they finish, so the end of
-                    the article repeats the tags and the share button. */}
+                {/* Readers decide to share or subscribe after they finish, so
+                    the end of the article repeats the tags and the actions. */}
                 <footer className={styles.articleFooter}>
                   <span className={styles.tags}>
                     {topic.tags.map((tag) => (
@@ -98,10 +101,19 @@ export default function PostPage({
                       </Link>
                     ))}
                   </span>
-                  <ShareButton />
+                  <span className={styles.footerActions}>
+                    <NotificationButton
+                      target={{type: 'category', id: BLOG_CATEGORY_ID}}
+                      label="Subscribe to the blog"
+                      size="small"
+                      align="end"
+                      description="New posts on the Community Blog"
+                    />
+                    <ShareButton />
+                  </span>
                 </footer>
 
-                <Discussion topic={topic} />
+                <Comments topicId={topic.id} comments={topic.posts.slice(1)} />
               </div>
 
               <aside className={styles.aside}>
@@ -109,8 +121,8 @@ export default function PostPage({
               </aside>
             </div>
           </div>
-        </div>
-      </BlogLinksContext.Provider>
+        </CommunityTheme>
+      </CommunityLinksContext.Provider>
     </Layout>
   );
 }

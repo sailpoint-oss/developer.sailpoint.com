@@ -15,49 +15,58 @@ SailPoint provides more than one MCP server. Each server has its own set of tool
 
 | Server | Tools |
 |---|---|
-| [Access Requests](#access-requests-server) | [list-requestable](#list-requestable)<br />[create-access-request](#create-access-request)<br />[view-access-requests](#view-access-requests)<br />[cancel-access-request](#cancel-access-request) |
+| [Access Requests](#access-requests-server) | [list-requestable](#list-requestable)<br />[list-request-identities](#list-request-identities)<br />[submit-access-request](#submit-access-request)<br />[view-access-requests](#view-access-requests)<br />[cancel-access-request](#cancel-access-request) |
 | [Identity Intelligence](#identity-intelligence-server) | [get-identity-intelligence](#get-identity-intelligence)<br />[get-identity-resource](#get-identity-resource) |
 
 ---
 
 ## Access Requests Server
 
-The Access Requests server provides integration with SailPoint's Request Center, enabling automated access management through four core tools.
+The Access Requests server connects AI clients to the SailPoint Request Center. It has five tools.
 
 This server supports the following operations:
 - Search for requestable access items
-- Create access requests
+- Search for identities that you can request access for
+- Submit access requests, for yourself or for another identity
 - View access request status
 - Cancel pending access requests
 
+:::note Renamed tool
+The `create-access-request` tool is now `submit-access-request`. Update your prompts and integrations to use the new name.
+:::
+
 ### list-requestable
 
-Search for requestable objects (roles, entitlements, access profiles) in the SailPoint Request Center and list the available accounts for each.
+Search for requestable objects (roles, entitlements, and access profiles) in the SailPoint Request Center. For each item, the tool also lists the accounts that the item can be requested for.
 
 :::warning Limitations
-Tool results are limited to 25 items per call, but a total count is provided so that the tool can be re-tried with a more refined query.
+The tool returns at most 25 items per call. The response also gives a total count, so you can try again with a more specific query.
 :::
 
 #### Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `query` | string | No | Search term to filter by name and description |
+| `query` | string | No | Name of a specific item, for example `Data Scientist`. The tool looks for an exact match on name and description. Do not use type labels such as `role` or `entitlement`. If empty, the tool returns the first page of the catalog. |
+| `type` | string | No | Type of item to return: `ROLE`, `ENTITLEMENT`, or `ACCESS_PROFILE`. If empty, the tool searches all types. |
+| `requestedForId` | string | No | ID of the identity that the access is for. Get this ID from [list-request-identities](#list-request-identities). The tool finds the accounts of this identity for each item. If empty, the tool finds the accounts of the authenticated user. |
 
 #### Response
 
 ```json
 {
-  "results": [
+  "requestableObjects": [
     {
       "id": "string",
-      "type": "string", 
+      "type": "string",
       "name": "string",
+      "description": "string",
+      "requestCommentsRequired": "boolean",
       "accountSelectionRequired": "boolean",
       "accounts": [
         {
           "sourceId": "string",
-          "sourceName": "string", 
+          "sourceName": "string",
           "accountsOnSource": [
             {
               "nativeIdentity": "string",
@@ -65,7 +74,18 @@ Tool results are limited to 25 items per call, but a total count is provided so 
             }
           ]
         }
-      ]
+      ],
+      "timeBoundRequirement": {
+        "required": "boolean",
+        "maxDuration": {
+          "value": "number",
+          "timeUnit": "DAYS|HOURS|WEEKS|MONTHS"
+        }
+      },
+      "formRequirement": {
+        "formRequired": "boolean",
+        "formDefinitionId": "string"
+      }
     }
   ],
   "accessItemsWithError": [
@@ -81,81 +101,69 @@ Tool results are limited to 25 items per call, but a total count is provided so 
 
 #### Response Fields
 
-- **id**: Unique identifier of the requestable object
-- **type**: Type of the requestable object  
-- **name**: Name of the requestable object
-- **accountSelectionRequired**: Whether account selection is required
-- **accounts**: List of accounts grouped by source system
-  - **sourceId**: Unique identifier of the source system
-  - **sourceName**: Name of the source system  
-  - **accountsOnSource**: Accounts associated with the source
-    - **nativeIdentity**: Native identity in the source system
-    - **accountName**: Name of the account
-- **accessItemsWithError**: Items that couldn't be resolved due to misconfiguration
-- **resultsCount**: Count of results returned (max 25)
-- **totalCount**: Total count matching the search query
+- **requestableObjects**: List of requestable objects that match the search
+  - **id**: Unique identifier of the requestable object
+  - **type**: Type of the requestable object
+  - **name**: Name of the requestable object
+  - **description**: Description of the requestable object
+  - **requestCommentsRequired**: If `true`, you must give a `comment` when you submit a request for this item
+  - **accountSelectionRequired**: If `true`, a source has more than one account, and you must select one account for that source
+  - **accounts**: List of accounts, grouped by source
+    - **sourceId**: Unique identifier of the source
+    - **sourceName**: Name of the source
+    - **accountsOnSource**: Accounts on the source
+      - **nativeIdentity**: Native identity of the account on the source
+      - **accountName**: Name of the account
+  - **timeBoundRequirement**: Time-bound access configuration of the item. If the item has no such configuration, this field is not present.
+    - **required**: If `true`, you must give a `removeDate` when you submit a request for this item
+    - **maxDuration**: Longest time that the access can last
+  - **formRequirement**: Form configuration of the item. If form detection is not active for the item, this field is not present.
+    - **formRequired**: If `true`, the user must complete a form before you submit the request
+    - **formDefinitionId**: ID of the form definition. If `formRequired` is `false`, this field is not present.
+- **accessItemsWithError**: Items that the tool could not resolve because of a misconfiguration
+- **resultsCount**: Number of results returned (maximum 25)
+- **totalCount**: Total number of items that match the search
 
 ---
 
-### create-access-request
+### list-request-identities
 
-Create a new access request in the SailPoint Request Center for a single requestable item.
+Search for identities that the authenticated user can request access for. Use this tool to get the identity ID for a request on behalf of another person. Then pass that ID as `requestedForId` to [list-requestable](#list-requestable) and [submit-access-request](#submit-access-request).
 
-#### Parameters
-
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `id` | string | Yes | ID of the item to request access for |
-| `type` | string | Yes | Type of access request item (`ROLE`, `ENTITLEMENT`, or `ACCESS_PROFILE`) |
-| `accounts` | array | Conditional | A mapping of sourceId to nativeIdentifier to select accounts to use when creating the access request. If account selection is required, a single, valid nativeIdentifier must be specified for each sourceId. If no nativeIdentifier is found for the source, pass only the sourceId. |
-
-##### accounts Array Structure
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `sourceID` | string | Yes | Unique identifier of the source system |
-| `nativeIdentifier` | string | No | Native identity of the user in the target system |
-
-#### Response
-
-```json
-{
-  "status": "success|error",
-  "accessRequestId": "string",
-  "errorMessage": "string"
-}
-```
-
----
-
-### view-access-requests
-
-Retrieve the status of access requests in the SailPoint Request Center.
+:::note Request for others
+Use this tool on tenants that let users request access for others. The search returns only the identities that the authenticated user can request access for.
+:::
 
 :::warning Limitations
-Search is limited to 100 access requests, sorted by most recent first.
+The tool returns at most 25 identities, sorted by name. If `totalCount` is larger than `count`, more identities match. To narrow the search, add filters.
 :::
 
 #### Parameters
 
+All parameters are optional. If you give more than one filter, the tool returns only the identities that match all filters.
+
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `accessRequestId` | string | No | Access request ID to filter by |
+| `firstname` | string | No | First name of the identity. Partial match, not case-sensitive. |
+| `lastname` | string | No | Last name of the identity. Partial match, not case-sensitive. |
+| `email` | string | No | Email address of the identity. Partial match, not case-sensitive. |
+| `managerId` | string | No | Identity ID of a manager. The tool returns only the direct reports of this manager. Exact match. |
 
 #### Response
 
 ```json
 {
-  "requests": [
+  "count": "number",
+  "totalCount": "number",
+  "identities": [
     {
-      "accessRequestId": "string",
+      "id": "string",
       "name": "string",
-      "type": "string", 
-      "description": "string",
-      "state": "string",
-      "modified": "timestamp",
-      "created": "timestamp",
-      "status": "string"
+      "email": "string",
+      "manager": {
+        "id": "string",
+        "name": "string"
+      }
     }
   ]
 }
@@ -163,59 +171,205 @@ Search is limited to 100 access requests, sorted by most recent first.
 
 #### Response Fields
 
-- **accessRequestId**: Unique identifier of the access request
-- **name**: Name of the requestable object
-- **type**: Type of the requestable object
-- **description**: Description of the requestable object  
-- **state**: Current state of the access request
-- **modified**: Timestamp of last modification
-- **created**: Timestamp of creation
-- **status**: Current status of the access request
+- **count**: Number of identities returned (maximum 25)
+- **totalCount**: Total number of identities that match the filters
+- **identities**: List of identities that match the filters
+  - **id**: Identity ID. Use this value as `requestedForId`.
+  - **name**: Name of the identity
+  - **email**: Email address of the identity
+  - **manager**: Manager of the identity. If the identity has no manager, this field is not present.
+    - **id**: Identity ID of the manager
+    - **name**: Name of the manager
 
 ---
 
-### cancel-access-request
+### submit-access-request
 
-Cancel a specific access request by ID.
+Submit a new access request in the SailPoint Request Center for one requestable item. This tool changes data in your tenant.
+
+Each call requests one item for one identity. To request access for more than one person, use the Request Center.
 
 #### Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `accessRequestId` | string | Yes | ID of the access request to cancel |
-| `comment` | string | No | Optional comment for the cancellation |
+| `id` | string | Yes | ID of the item to request. Get this ID from a [list-requestable](#list-requestable) result. |
+| `type` | string | Yes | Type of the item: `ROLE`, `ENTITLEMENT`, or `ACCESS_PROFILE` |
+| `accounts` | array | Conditional | Account selection for each source of the item. Use the `accounts` list from the same `list-requestable` item. Refer to [accounts array structure](#accounts-array-structure). |
+| `requestedForId` | string | No | ID of the identity that the access is for. Get this ID from [list-request-identities](#list-request-identities). If empty, the request is for the authenticated user. |
+| `comment` | string | Conditional | Reason for the request, from 1 to 500 characters. If `list-requestable` returns `requestCommentsRequired: true`, this parameter is required. Refer to [comments](#comments). |
+| `startDate` | string | No | Date and time when the access starts. Use ISO-8601 format with a time zone offset, for example `2026-05-01T09:00:00-07:00`. |
+| `removeDate` | string | Conditional | Date and time when the access ends, in the same format as `startDate`. If `list-requestable` returns `timeBoundRequirement.required: true`, this parameter is required. The access cannot last longer than `timeBoundRequirement.maxDuration`. |
+| `formInstanceId` | string | Conditional | ID of the completed form instance. If `list-requestable` returns `formRequirement.formRequired: true`, this parameter is required. |
+
+##### accounts Array Structure
+
+Include one entry for each source in the `accounts` list of the `list-requestable` item.
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `sourceId` | string | Yes | Unique identifier of the source |
+| `nativeIdentifier` | string | Conditional | Native identity of the selected account on the source |
+
+Use these rules to fill in each entry:
+- If `accountSelectionRequired` is `false`, pass only `sourceId`. Do not pass `nativeIdentifier`, even if the source lists accounts.
+- If `accountSelectionRequired` is `true`, pass `sourceId` and one `nativeIdentifier` for each source that has more than one account.
+- If a source has no accounts, pass only `sourceId`.
+
+##### Comments
+
+SailPoint adds an attribution text to the comment of each request that the tool submits:
+
+| You give a comment | Comment on the access request |
+|---|---|
+| Yes | `<your comment> (Requested via External Agent using access request MCP tools).` |
+| No | `Requested via External Agent using access request MCP tools.` |
+
+#### Response
+
+```json
+{
+  "status": "string",
+  "message": "string",
+  "id": "string",
+  "type": "string",
+  "accessRequestId": "string",
+  "existingAccessRequestId": "string"
+}
+```
+
+#### Response Fields
+
+- **status**: Result of the call:
+  - `success`: The tool submitted the request. `accessRequestId` contains the ID of the new request.
+  - `already_has_access`: The identity already has the item. The tool did not submit a request.
+  - `already_pending`: A request for the item is already in progress. The tool did not submit a request.
+  - `form_required`: The item requires a form, but the call did not include `formInstanceId`.
+- **message**: Information about the result
+- **id**: ID of the requested item
+- **type**: Type of the requested item
+- **accessRequestId**: ID of the new access request
+- **existingAccessRequestId**: ID of the request that is already in progress
+
+---
+
+### view-access-requests
+
+Get the status of the access requests of the authenticated user.
+
+:::warning Limitations
+The search returns at most 100 access requests, sorted from the most recent.
+:::
+
+#### Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `accessRequestId` | string | No | ID of one access request. If empty, the tool returns all requests. |
+| `requestState` | string | No | To return only the requests that are still in progress, set to `EXECUTING`. If empty, the tool returns requests in all states. |
+
+#### Response
+
+```json
+{
+  "resultsCount": "number",
+  "totalCount": "number",
+  "accessRequests": [
+    {
+      "accessRequestId": "string",
+      "name": "string",
+      "type": "string",
+      "description": "string",
+      "state": "string",
+      "modified": "timestamp",
+      "created": "timestamp",
+      "status": "string",
+      "comment": "string",
+      "requester": {
+        "type": "string",
+        "id": "string",
+        "name": "string"
+      },
+      "requestedFor": {
+        "type": "string",
+        "id": "string",
+        "name": "string"
+      }
+    }
+  ]
+}
+```
+
+#### Response Fields
+
+- **resultsCount**: Number of requests returned
+- **totalCount**: Total number of requests
+- **accessRequests**: List of access requests
+  - **accessRequestId**: Unique identifier of the access request
+  - **name**: Name of the requested item
+  - **type**: Type of the requested item
+  - **description**: Description of the requested item
+  - **state**: Current state of the access request
+  - **modified**: Time of the last change
+  - **created**: Time of creation
+  - **status**: Current status of the access request: `PENDING`, `EXECUTING`, `APPROVED`, `COMPLETED`, `REJECTED`, `CANCELLED`, `PROVISIONING_FAILED`, `TERMINATED`, `ERROR`, or `PARTIALLY_PROVISIONED`
+  - **comment**: Information about the request, for example the approval step that the request waits for
+  - **requester**: Identity that submitted the request
+  - **requestedFor**: Identity that the access is for
+
+---
+
+### cancel-access-request
+
+Cancel one access request by ID. This tool changes data in your tenant.
+
+You can cancel a request only during the approval step. A `success` response means that the cancellation started. It does not guarantee that the request is canceled.
+
+#### Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `accessRequestId` | string | Yes | ID of the access request to cancel. Get this ID from a [view-access-requests](#view-access-requests) result. |
+| `comment` | string | Yes | Reason for the cancellation, from 1 to 500 characters. A confirmation such as "yes" or "cancel it" is not a reason. |
 
 :::note Auto-generated Comments
-The system automatically adds "Canceled by AI on behalf of the user adam.archer" as a comment, either standalone or appended to any provided comment.
+SailPoint adds an attribution text to the comment: `<your comment> (Cancelled via External Agent using access request MCP tools).`
 :::
 
 #### Response
 
 ```json
 {
-  "status": "success|error",
-  "errorMessage": "string"
+  "status": "string",
+  "message": "string",
+  "accessRequestId": "string",
+  "likelyReasons": ["string"],
+  "suggestedNextStep": "string"
 }
 ```
+
+#### Response Fields
+
+- **status**: Result of the call:
+  - `success`: The cancellation started.
+  - `cancel_not_possible`: The request cannot be canceled. `likelyReasons` lists possible causes.
+  - `comment_required`: The call did not include a valid reason.
+- **message**: Information about the result
+- **accessRequestId**: ID of the access request
+- **likelyReasons**: Possible causes of a `cancel_not_possible` status, for example the request is already complete
+- **suggestedNextStep**: What to do next
 
 ---
 
 ### Error Handling
 
-All Access Requests tools return a consistent error structure when operations fail:
+If a call to an Access Requests tool fails, the tool result has `isError` set to `true`. The text content of the result describes the error.
 
-```json
-{
-  "status": "error",
-  "errorMessage": "Description of the error"
-}
-```
-
-Common error scenarios include:
-- Invalid or missing required parameters
-- Access denied to requested resources
-- Network connectivity issues
-- Misconfigured requestable objects
+Common causes of errors:
+- Required parameters are missing or not valid
+- The user does not have access to the requested resources
+- Network connection problems
+- Requestable objects are not configured correctly
 
 ---
 

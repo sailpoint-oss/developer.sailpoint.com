@@ -262,6 +262,15 @@
   background: var(--br-surface-2);
 }
 
+.articleFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  /* The Discussion section below draws the divider line. */
+  margin-top: 40px;
+}
+
 .hero {
   display: block;
   width: 100%;
@@ -663,6 +672,7 @@
 }
 
 .root .prose :global(.mention) {
+  text-decoration: none !important; /* beats the site rule `p a:link` */
   padding: 1px 6px;
   border-radius: 6px;
   background: var(--br-surface-2);

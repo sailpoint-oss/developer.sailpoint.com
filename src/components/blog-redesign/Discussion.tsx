@@ -1,4 +1,5 @@
-import React, {forwardRef, useEffect, useImperativeHandle, useRef, useState} from 'react';
+import React, {forwardRef, useContext, useEffect, useImperativeHandle, useRef, useState} from 'react';
+import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import ReactMarkdown from 'react-markdown';
 import PostBody from './PostBody';
@@ -6,6 +7,7 @@ import type {Post, Topic} from './types';
 import {formatShortDate} from './types';
 import type {ForumUser, NewReply} from './forum';
 import {createReply, likedPostIds, likePost, logIn, unlikePost, useForumUser} from './forum';
+import {authorPath, BlogLinksContext} from './links';
 import styles from './styles.module.css';
 
 // ---------------------------------------------------------------------------
@@ -37,6 +39,7 @@ function useFlash(): [Flash | null, (flash: Flash) => void] {
 
 interface CommentProps {
   number: number;
+  username: string;
   name: string;
   avatar: string;
   createdAt: string;
@@ -47,13 +50,21 @@ interface CommentProps {
   actions?: React.ReactNode;
 }
 
-function Comment({number, name, avatar, createdAt, isAuthor, userTitle, flair, children, actions}: CommentProps) {
+function Comment({number, username, name, avatar, createdAt, isAuthor, userTitle, flair, children, actions}: CommentProps) {
+  // Members who wrote a blog post have an author page. Others have no page on the blog.
+  const hasPage = useContext(BlogLinksContext).authors.has(username);
   return (
     <article className={styles.comment} id={`post-${number}`}>
       <img className={styles.avatar} src={avatar} alt="" width={32} height={32} loading="lazy" />
       <div className={styles.commentMain}>
         <header className={styles.commentHeader}>
-          <span className={styles.commentName}>{name}</span>
+          {hasPage ? (
+            <Link className={styles.commentName} to={authorPath(username)}>
+              {name}
+            </Link>
+          ) : (
+            <span className={styles.commentName}>{name}</span>
+          )}
           {isAuthor && <span className={styles.authorBadge}>Author</span>}
           {userTitle && <span className={styles.userTitle}>{userTitle}</span>}
           {flair && <img className={styles.flair} src={flair.url} alt={flair.name} title={flair.name} />}
@@ -266,6 +277,7 @@ export default function Discussion({topic}: {topic: Topic}) {
           <Comment
             key={post.id}
             number={post.number}
+            username={post.username}
             name={post.name}
             avatar={post.avatar}
             createdAt={post.createdAt}
@@ -300,6 +312,7 @@ export default function Discussion({topic}: {topic: Topic}) {
         <Comment
           key={reply.id}
           number={reply.number}
+          username={reply.username}
           name={reply.name}
           avatar={reply.avatar}
           createdAt={reply.createdAt}>

@@ -7,11 +7,23 @@ import {createContext} from 'react';
 
 export const BLOG_PATH = '/blog-redesign';
 
-/** Topic id -> blog path, for every post that has a blog page. */
-export const PostPathsContext = createContext<Record<number, string>>({});
+export interface BlogLinks {
+  /** Topic id -> blog path, for every post that has a blog page. */
+  postPaths: Record<number, string>;
+  /** Usernames that have an author page. */
+  authors: Set<string>;
+}
+
+export const BlogLinksContext = createContext<BlogLinks>({postPaths: {}, authors: new Set()});
+
+/** Builds the link data from the list of saved posts. */
+export const blogLinks = (posts: {id: number; path: string; author: {username: string}}[]): BlogLinks => ({
+  postPaths: Object.fromEntries(posts.map((p) => [p.id, p.path])),
+  authors: new Set(posts.map((p) => p.author.username)),
+});
 
 export const tagPath = (tag: string) => `${BLOG_PATH}?tag=${encodeURIComponent(tag)}`;
-export const authorPath = (username: string) => `${BLOG_PATH}?author=${encodeURIComponent(username)}`;
+export const authorPath = (username: string) => `${BLOG_PATH}/author/${encodeURIComponent(username)}`;
 
 const SITE = /^https?:\/\/developer\.sailpoint\.com(?=\/|$)/;
 const TOPIC = /^\/discuss\/t\/(?:[^/]+\/)?(\d+)(?:\/(\d+))?\/?(?:[?#].*)?$/;

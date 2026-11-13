@@ -1,0 +1,24 @@
+{
+ "fetchedAt": "2026-11-13T12:55:50.552Z",
+ "username": "mpotti",
+ "name": "Mark Potter",
+ "jobTitle": null,
+ "title": "Ambassador",
+ "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/mpotti/288/2916_2.png",
+ "cover": "https://cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/sailpoint/original/2X/5/5a4ae54409e50412cbd4720e33823f276d3f41bc.png",
+ "bio": [
+  {
+   "t": "p",
+   "c": [
+    "Information Security Analyst Senior with SSM Health. Primary role for SSM Health is maintain and develop processes around the Identity Now Platform. Passionate about .Net, PowerShell, and Python development."
+   ]
+  }
+ ],
+ "website": null,
+ "location": "Wisconsin",
+ "joinedAt": "2022-04-18T16:32:01.297Z",
+ "flair": {
+  "url": "https://global.discourse-cdn.com/sailpoint/original/2X/1/1aa5dad2d8398ae0eb24a4ac86a3b612c39d4ff9.png",
+  "name": "Ambassador"
+ }
+}

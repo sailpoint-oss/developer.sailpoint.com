@@ -12,8 +12,8 @@ import landing from './landing.module.css';
  * The blog landing page at /blog-redesign. The blog-redesign plugin passes
  * every saved post as `posts`, newest first.
  *
- * The tag and author filters live in the URL (?tag=forms, ?author=username),
- * so post pages can link to a filtered list and readers can share it.
+ * The tag filter lives in the URL (?tag=forms), so post pages can link to a
+ * filtered list and readers can share it.
  */
 
 const MAX_TAG_FILTERS = 10;
@@ -35,15 +35,8 @@ function groupTags(posts: PostSummary[]): {common: Set<string>; popular: string[
   return {common, popular};
 }
 
-interface Filters {
-  query: string;
-  tag: string | null;
-  author: string | null;
-}
-
-function matches(post: PostSummary, {query, tag, author}: Filters): boolean {
+function matches(post: PostSummary, query: string, tag: string | null): boolean {
   if (tag && !post.tags.includes(tag)) return false;
-  if (author && post.author.username !== author) return false;
   if (!query) return true;
   const haystack = [post.title, post.excerpt, post.author.name, ...post.tags].join(' ').toLowerCase();
   return query
@@ -134,17 +127,14 @@ export default function LandingPage({posts}: {posts: PostSummary[]}): JSX.Elemen
   useEffect(() => setSearch(location.search), [location.search]);
   const params = new URLSearchParams(search);
   const tag = params.get('tag');
-  const author = params.get('author');
-  const authorName = posts.find((p) => p.author.username === author)?.author.name ?? author;
 
-  const setParam = (name: 'tag' | 'author', value: string | null) => {
+  const setTag = (value: string | null) => {
     const next = new URLSearchParams(search);
-    if (value) next.set(name, value);
-    else next.delete(name);
+    if (value) next.set('tag', value);
+    else next.delete('tag');
     const text = next.toString();
     history.replace({search: text ? `?${text}` : ''});
   };
-  const setTag = (value: string | null) => setParam('tag', value);
   const clearFilters = () => {
     setQuery('');
     history.replace({search: ''});
@@ -153,8 +143,8 @@ export default function LandingPage({posts}: {posts: PostSummary[]}): JSX.Elemen
   // A tag from a post page can be one that the chips do not show.
   const tags = tag && !popular.includes(tag) ? [tag, ...popular] : popular;
 
-  const filtering = Boolean(query.trim() || tag || author);
-  const results = posts.filter((post) => matches(post, {query: query.trim(), tag, author}));
+  const filtering = Boolean(query.trim() || tag);
+  const results = posts.filter((post) => matches(post, query.trim(), tag));
   // Without a filter, the newest post is the large card and the grid shows the rest.
   const [featured, ...rest] = posts;
   const grid = filtering ? results : rest;
@@ -189,19 +179,9 @@ export default function LandingPage({posts}: {posts: PostSummary[]}): JSX.Elemen
           {!filtering && featured && <FeaturedCard post={featured} />}
 
           <div className={landing.toolbar}>
-            <h2 className={landing.sectionTitle}>
-              {author ? `Posts by ${authorName}` : filtering ? 'Results' : 'Recent posts'}
-            </h2>
+            <h2 className={landing.sectionTitle}>{filtering ? 'Results' : 'Recent posts'}</h2>
             <div className={landing.filters} role="group" aria-label="Filter by tag">
-              {author && (
-                <button
-                  type="button"
-                  className={clsx(landing.filter, landing.filterActive)}
-                  onClick={() => setParam('author', null)}
-                  aria-label={`Remove filter: posts by ${authorName}`}>
-                  {authorName} <i className="fa-solid fa-xmark" aria-hidden="true" />
-                </button>
-              )}
+
               <button
                 type="button"
                 className={clsx(landing.filter, !tag && landing.filterActive)}

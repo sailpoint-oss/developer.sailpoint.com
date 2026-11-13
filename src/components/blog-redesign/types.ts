@@ -60,6 +60,24 @@ export interface Topic {
   posts: Post[];
 }
 
+/** A post author. scripts/fetch-blog-redesign-topic.mjs saves one per author. */
+export interface AuthorProfile {
+  fetchedAt: string;
+  username: string;
+  name: string;
+  /** The job title the member gave on the forum profile. */
+  jobTitle: string | null;
+  /** The community title, for example "Expert Ambassador". */
+  title: string | null;
+  avatar: string;
+  cover: string | null;
+  bio: BodyNode[];
+  website: {url: string; name: string} | null;
+  location: string | null;
+  joinedAt: string;
+  flair: {url: string; name: string} | null;
+}
+
 /** One card on the landing page. The blog-redesign plugin builds these. */
 export interface PostSummary {
   id: number;
@@ -86,6 +104,10 @@ export const formatLongDate = (iso: string) =>
     day: 'numeric',
     year: 'numeric',
   });
+
+/** "November 2024". */
+export const formatMonthYear = (iso: string) =>
+  new Date(iso).toLocaleDateString('en-US', {month: 'long', year: 'numeric'});
 
 /** "Jul 15" in the current year, "Jul 15, 2025" in other years. */
 export const formatShortDate = (iso: string) => {

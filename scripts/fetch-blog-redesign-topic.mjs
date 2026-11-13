@@ -3,6 +3,7 @@
  * Fetches Discourse topics and writes render-ready snapshots for the
  * /blog-redesign pages. Each snapshot becomes one post page at
  * /blog-redesign/<topic slug>, and a card on the /blog-redesign landing page.
+ * The script also saves the profile of each post author for the author page.
  *
  * Usage:
  *   node scripts/fetch-blog-redesign-topic.mjs              latest 12 Community Blog posts
@@ -14,7 +15,7 @@
  * so the static build contains the full article and code blocks get the
  * normal Docusaurus syntax highlighting.
  */
-import {writeFileSync, mkdirSync} from 'node:fs';
+import {mkdirSync, readFileSync, readdirSync, writeFileSync} from 'node:fs';
 import {dirname, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {parseFragment} from 'parse5';
@@ -27,6 +28,7 @@ const WORDS_PER_MINUTE = 230;
 
 const here = dirname(fileURLToPath(import.meta.url));
 const OUT_DIR = resolve(here, '../src/components/blog-redesign/data');
+const AUTHOR_DIR = resolve(OUT_DIR, 'authors');
 
 async function getJson(path) {
   const res = await fetch(`${BASE}${path}`, {
@@ -303,7 +305,43 @@ const topicIds =
     ? args.map(Number)
     : await latestBlogTopics(Number(args[latestFlag + 1] ?? DEFAULT_LATEST));
 
+/**
+ * Writes a profile for every author of a saved post. The blog shows it on the
+ * author page (/blog-redesign/author/<username>).
+ */
+async function snapshotAuthors() {
+  const usernames = new Set(
+    readdirSync(OUT_DIR)
+      .filter((name) => /^topic-\d+\.json$/.test(name))
+      .map((name) => JSON.parse(readFileSync(resolve(OUT_DIR, name), 'utf8')).posts[0].username),
+  );
+  mkdirSync(AUTHOR_DIR, {recursive: true});
+  for (const username of usernames) {
+    const {user: u} = await getJson(`/u/${encodeURIComponent(username)}.json`);
+    const profile = {
+      fetchedAt: new Date().toISOString(),
+      username: u.username,
+      name: u.name || u.username,
+      // The "Job Title" field that members fill in on their profile.
+      jobTitle: u.user_fields?.['3'] || null,
+      // The community title, for example "Expert Ambassador".
+      title: u.title || null,
+      avatar: avatar(u.avatar_template, 288),
+      cover: absUrl(u.card_background_upload_url || u.profile_background_upload_url) || null,
+      bio: u.bio_cooked ? cookedToTree(u.bio_cooked) : [],
+      website: u.website ? {url: u.website, name: u.website_name || u.website} : null,
+      location: u.location || null,
+      joinedAt: u.created_at,
+      flair: u.flair_url ? {url: absUrl(u.flair_url), name: u.flair_group_name || u.title || ''} : null,
+    };
+    const out = resolve(AUTHOR_DIR, `${u.username}.json`);
+    writeFileSync(out, JSON.stringify(profile, null, 1) + '\n');
+    console.log(`Wrote ${out}`);
+  }
+}
+
 mkdirSync(OUT_DIR, {recursive: true});
 for (const id of topicIds) {
   await snapshotTopic(id);
 }
+await snapshotAuthors();

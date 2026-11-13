@@ -2,7 +2,8 @@ import React, {useCallback, useContext, useEffect, useState} from 'react';
 import CodeBlock from '@theme/CodeBlock';
 import Mermaid from '@theme/Mermaid';
 import type {BodyNode} from './types';
-import {PostPathsContext, resolveLink} from './links';
+import type {BlogLinks} from './links';
+import {authorPath, BlogLinksContext, resolveLink} from './links';
 import styles from './styles.module.css';
 
 const VOID_TAGS = new Set(['br', 'hr', 'img', 'input', 'col', 'source', 'wbr']);
@@ -64,7 +65,7 @@ interface LightboxImage {
 
 interface RenderContext {
   openImage: (img: LightboxImage) => void;
-  postPaths: Record<number, string>;
+  links: BlogLinks;
 }
 
 function renderNodes(nodes: BodyNode[] | undefined, ctx: RenderContext, keyPrefix = ''): React.ReactNode[] {
@@ -127,9 +128,17 @@ function renderNodes(nodes: BodyNode[] | undefined, ctx: RenderContext, keyPrefi
       );
     }
 
-    // @mentions point at forum profiles. The blog has no profile pages, so
-    // show the name without a link.
+    // @mentions point at forum profiles. Link authors to their author page.
+    // Other members have no page on the blog, so show the name without a link.
     if (tag === 'a' && (a.class ?? '').split(' ').includes('mention')) {
+      const username = decodeURIComponent(a.href?.match(/\/u\/([^/?#]+)/)?.[1] ?? '');
+      if (ctx.links.authors.has(username)) {
+        return (
+          <a key={key} className="mention" href={authorPath(username)}>
+            {renderNodes(c, ctx, `${key}-`)}
+          </a>
+        );
+      }
       return (
         <span key={key} className="mention">
           {renderNodes(c, ctx, `${key}-`)}
@@ -138,12 +147,12 @@ function renderNodes(nodes: BodyNode[] | undefined, ctx: RenderContext, keyPrefi
     }
 
     if (tag === 'img') {
-      return React.createElement('img', {...toProps(a, key, ctx.postPaths), loading: 'lazy'});
+      return React.createElement('img', {...toProps(a, key, ctx.links.postPaths), loading: 'lazy'});
     }
 
-    if (VOID_TAGS.has(tag)) return React.createElement(tag, toProps(a, key, ctx.postPaths));
+    if (VOID_TAGS.has(tag)) return React.createElement(tag, toProps(a, key, ctx.links.postPaths));
 
-    return React.createElement(tag, toProps(a, key, ctx.postPaths), ...renderNodes(c, ctx, `${key}-`));
+    return React.createElement(tag, toProps(a, key, ctx.links.postPaths), ...renderNodes(c, ctx, `${key}-`));
   });
 }
 
@@ -184,11 +193,11 @@ interface PostBodyProps {
 export default function PostBody({body, variant = 'article'}: PostBodyProps) {
   const [image, setImage] = useState<LightboxImage | null>(null);
   const close = useCallback(() => setImage(null), []);
-  const postPaths = useContext(PostPathsContext);
+  const links = useContext(BlogLinksContext);
 
   return (
     <div className={variant === 'article' ? styles.prose : `${styles.prose} ${styles.proseComment}`}>
-      {renderNodes(body, {openImage: setImage, postPaths})}
+      {renderNodes(body, {openImage: setImage, links})}
       {image && <ImageViewer image={image} onClose={close} />}
     </div>
   );

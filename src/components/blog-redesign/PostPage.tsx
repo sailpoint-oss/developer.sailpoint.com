@@ -8,7 +8,7 @@ import CompactHeader from './CompactHeader';
 import ShareButton from './ShareButton';
 import type {PostSummary, Topic} from './types';
 import {formatLongDate} from './types';
-import {authorPath, PostPathsContext, tagPath} from './links';
+import {authorPath, blogLinks, BlogLinksContext, tagPath} from './links';
 import styles from './styles.module.css';
 
 /**
@@ -26,17 +26,14 @@ export default function PostPage({
   const titleRef = useRef<HTMLHeadingElement>(null);
   const article = topic.posts[0];
   const comments = topic.posts.length - 1;
-  const postPaths = useMemo(
-    () => Object.fromEntries(posts.map((p) => [p.id, p.path])),
-    [posts],
-  );
+  const links = useMemo(() => blogLinks(posts), [posts]);
   const toc = [...topic.toc, {id: 'discussion', title: 'Discussion'}];
 
   return (
     <Layout
       title={topic.title}
       description="Community blog post on the SailPoint Developer Community.">
-      <PostPathsContext.Provider value={postPaths}>
+      <BlogLinksContext.Provider value={links}>
         <div className={styles.root}>
           <CompactHeader
             watch={titleRef}
@@ -91,6 +88,19 @@ export default function PostPage({
 
                 <PostBody body={article.body} />
 
+                {/* Readers decide to share after they finish, so the end of
+                    the article repeats the tags and the share button. */}
+                <footer className={styles.articleFooter}>
+                  <span className={styles.tags}>
+                    {topic.tags.map((tag) => (
+                      <Link key={tag} className={styles.tag} to={tagPath(tag)}>
+                        {tag}
+                      </Link>
+                    ))}
+                  </span>
+                  <ShareButton />
+                </footer>
+
                 <Discussion topic={topic} />
               </div>
 
@@ -100,7 +110,7 @@ export default function PostPage({
             </div>
           </div>
         </div>
-      </PostPathsContext.Provider>
+      </BlogLinksContext.Provider>
     </Layout>
   );
 }

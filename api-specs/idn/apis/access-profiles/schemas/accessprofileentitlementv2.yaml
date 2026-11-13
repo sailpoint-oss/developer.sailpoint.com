@@ -1,0 +1,24 @@
+allOf:
+- $ref: ../../shared/schemas/entitlement.yaml
+- type: object
+  title: Access Profile Entitlement
+  description: >-
+    Entitlement returned by the access profile entitlements endpoint. Superset of the standard entitlement, adding the
+    entitlement's tags and calculated privilege level.
+  properties:
+    tags:
+      type: array
+      description: List of tags assigned to the entitlement
+      items:
+        type: string
+      example:
+      - tag1
+      - tag2
+      nullable: true
+    privilegeLevel:
+      allOf:
+      - $ref: ./entitlementprivilegelevel.yaml
+      - type: object
+        description: Privilege level of the entitlement
+        nullable: true
+        readOnly: true

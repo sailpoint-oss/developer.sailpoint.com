@@ -1,0 +1,45 @@
+type: object
+description: |
+  Current tracked status of a response action. Target fields from the create request
+  (identityType, identityId, accountIds, context) are not echoed here; they travel on the
+  action event used to start the workflow(s).
+required:
+  - requestId
+  - actionType
+  - status
+  - submittedAt
+  - updatedAt
+properties:
+  requestId:
+    type: string
+    description: Tracking handle and correlation id for the response action.
+    example: 3f1e6c9a-8b2d-4e5f-9a1b-2c3d4e5f6a7b
+  actionType:
+    type: string
+    description: The action that was requested.
+    enum:
+      - DISABLE_IDENTITY
+      - DISABLE_ACCOUNT
+    example: DISABLE_ACCOUNT
+  status:
+    type: string
+    description: |
+      Aggregate status across the correlated workflow execution(s):
+      SUBMITTED (registered, no execution yet), IN_PROGRESS (any still non-terminal),
+      COMPLETED (all terminal and at least one succeeded), or FAILED (all terminal and none succeeded).
+    enum:
+      - SUBMITTED
+      - IN_PROGRESS
+      - COMPLETED
+      - FAILED
+    example: SUBMITTED
+  submittedAt:
+    type: string
+    format: date-time
+    description: When the response action was accepted.
+    example: '2026-08-07T10:15:30Z'
+  updatedAt:
+    type: string
+    format: date-time
+    description: When the response action status last changed.
+    example: '2026-08-07T10:18:02Z'

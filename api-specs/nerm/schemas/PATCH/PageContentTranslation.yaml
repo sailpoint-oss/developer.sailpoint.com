@@ -1,0 +1,24 @@
+type: object
+properties:
+  uid:
+    type: string
+    description: The user-specified identifier for the record
+    example: page_content_translation_spanish_great
+  page_content_uid:
+    type: string
+    format: uuid
+    description: The user-specified identifier of the page content record this translation applies to; one of page_content_id or page_content_uid must be present.
+    example: some_page_content
+  page_content_id:
+    type: string
+    format: uuid
+    description: The id of the page content record this translation applies to; one of page_content_id or page_content_uid must be present.
+    example: ef5d413f-ba18-49e6-9a72-bb115aa133ff
+  locale:
+    type: string
+    description: The language locale this translation contains.
+    example: es-ES
+  value:
+    type: string
+    description: The translated string to present in the user interface.
+    example: Es stupendo!

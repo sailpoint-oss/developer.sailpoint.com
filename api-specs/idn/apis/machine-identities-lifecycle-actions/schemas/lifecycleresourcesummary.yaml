@@ -1,0 +1,29 @@
+type: object
+title: Lifecycle Resource Summary
+description: Details of the machine identity at the time the request was submitted.
+properties:
+  id:
+    type: string
+    format: uuid
+    description: ID of the machine identity.
+    example: 1c9c8e1f-2f5f-4f77-9f7e-5d37e4fb3ef0
+  resourceId:
+    type: string
+    description: ID of the machine identity in its source system.
+    example: aws:bedrock:agent-42
+  name:
+    type: string
+    description: Name of the machine identity.
+    example: Support Agent
+  sourceId:
+    type: string
+    description: ID of the source the machine identity belongs to.
+    example: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa
+  sourceName:
+    type: string
+    description: Name of the source the machine identity belongs to.
+    example: AWS Bedrock
+  subtype:
+    type: string
+    description: Type of machine identity.
+    example: AI_AGENT

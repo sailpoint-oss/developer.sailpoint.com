@@ -1,0 +1,10 @@
+type: object
+title: AccountV2PrivilegeLevel
+nullable: true
+description: Effective privilege level of the account.
+properties:
+  effective:
+    type: string
+    description: The effective privilege level of the account.
+    example: High
+    nullable: true

@@ -1,0 +1,123 @@
+get:
+  operationId: getCertificationEntitlementParentsDetailsV1
+  tags:
+    - Next Generation Certification Campaigns
+  summary: Entitlement Parents in a Certification
+  description: >-
+    Returns a list of parent entitlements for the provided entitlement, as long as the logged-in user is a
+    reviewer of the specified certification, and the certification contains either the specified entitlement, or an
+    access profile that contains the specified entitlement. ORG_ADMIN or CERT_ADMIN can also call this API.
+  security:
+    - userAuth: [ idn:campaign:read, idn:campaign:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+    - in: path
+      name: certificationId
+      schema:
+        type: string
+        format: uuid
+      required: true
+      description: The certification ID
+      example: ef38f943-47e9-4562-b5bb-8424a56397d8
+      x-sailpoint-resource-operation-id: listCertificationsV1
+    - in: path
+      name: reviewItemId
+      schema:
+        type: string
+        format: uuid
+      required: true
+      description: The certification item ID
+      example: 2478b87b-f0d2-4585-b42d-45e4d580c5cf
+      x-sailpoint-resource-operation-id: listReviewItemsV1
+    - in: path
+      name: entitlementId
+      schema:
+        type: string
+      required: true
+      description: The entitlement ID
+      example: ef38f94347e94562b5bb8424a56397d8
+      x-sailpoint-resource-operation-id: listEntitlementsV1
+    - $ref: '../../shared/parameters/limit.yaml'
+    - $ref: '../../shared/parameters/offset.yaml'
+    - $ref: '../../shared/parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **id**: *eq, in*
+
+
+        **name**: *eq, in, sw*
+
+
+        **type**: *eq, in*
+
+
+        **attribute**: *eq, in*
+
+
+        **value**: *eq, in, sw*
+
+
+        **source.id**: *eq, in*
+
+
+        **requestable**: *eq*
+
+
+        **created**: *gt, lt, ge, le*
+
+
+        **modified**: *gt, lt, ge, le*
+
+
+      example: attribute eq 'role'
+      required: false
+    - in: query
+      name: sorters
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+      example: name
+      required: false
+  responses:
+    '200':
+      description: Entitlement parents detail corresponding to the given entitlement ID
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/passthrough/PassThroughEntitlementParents.yaml'
+    '400':
+      $ref: '../../shared/responses/400.yaml'
+    '401':
+      $ref: '../../shared/responses/401.yaml'
+    '403':
+      $ref: '../../shared/responses/403.yaml'
+    '404':
+      $ref: '../../shared/responses/404.yaml'
+    '429':
+      $ref: '../../shared/responses/429.yaml'
+    '500':
+      $ref: '../../shared/responses/500.yaml'

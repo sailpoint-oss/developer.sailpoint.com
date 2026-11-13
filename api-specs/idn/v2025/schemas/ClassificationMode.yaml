@@ -1,0 +1,18 @@
+      in: query
+      name: classificationMode
+      schema:
+        type: string
+        enum:
+          - default
+          - ignoreManual
+          - forceMachine
+          - forceHuman
+        default: default
+      description: >-
+        Specifies how the accounts should be classified. 
+              default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.
+              ignoreManual - like default, but includes accounts that were manually classified.
+              forceMachine - forces account to be classified as machine.
+              forceHuman - forces account to be classified as human.
+      required: false
+      example: forceMachine

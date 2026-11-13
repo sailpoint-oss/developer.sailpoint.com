@@ -1,0 +1,22 @@
+type: object
+description: >-
+  A source that has at least one orphan entitlement included in the campaign, as reported at staging time.
+required:
+  - type
+  - id
+  - name
+properties:
+  type:
+    type: string
+    description: Kind of reference; currently only SOURCE is used.
+    enum:
+      - SOURCE
+    example: SOURCE
+  id:
+    type: string
+    description: Identifier of the source.
+    example: 30e6435e60bf47b0bc11622c31dfdbfd
+  name:
+    type: string
+    description: Display name of the source.
+    example: Active Directory

@@ -1,0 +1,92 @@
+type: object
+title: Transform
+description: The representation of an internally- or customer-defined transform.
+required:
+  - name
+  - type
+  - attributes
+properties:
+  name:
+    type: string
+    description: Unique name of this transform
+    example: Timestamp To Date
+    minLength: 1
+    maxLength: 50
+  type:
+    type: string
+    description: The type of transform operation
+    enum:
+      - accountAttribute
+      - base64Decode
+      - base64Encode
+      - concat
+      - conditional
+      - dateCompare
+      - dateFormat
+      - dateMath
+      - decomposeDiacriticalMarks
+      - e164phone
+      - firstValid
+      - rule
+      - identityAttribute
+      - indexOf
+      - iso3166
+      - lastIndexOf
+      - leftPad
+      - lookup
+      - lower
+      - normalizeNames
+      - randomAlphaNumeric
+      - randomNumeric
+      - reference
+      - replaceAll
+      - replace
+      - rightPad
+      - split
+      - static
+      - substring
+      - trim
+      - upper
+      - usernameGenerator
+      - uuid
+      - displayName
+      - rfc5646
+    example: dateFormat
+    externalDocs:
+      description: Transform Operations
+      url: https://developer.sailpoint.com/docs/extensibility/transforms/operations
+  attributes:
+    nullable: true
+    description: Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
+    oneOf:
+      - $ref: ./accountattribute.yaml
+      - $ref: ./base64decode.yaml
+      - $ref: ./base64encode.yaml
+      - $ref: ./concatenation.yaml
+      - $ref: ./conditional.yaml
+      - $ref: ./datecompare.yaml
+      - $ref: ./dateformat.yaml
+      - $ref: ./datemath.yaml
+      - $ref: ./decomposediacriticalmarks.yaml
+      - $ref: ./e164phone.yaml
+      - $ref: ./firstvalid.yaml
+      - $ref: ./rule.yaml
+      - $ref: ./identityattribute.yaml
+      - $ref: ./indexof.yaml
+      - $ref: ./iso3166.yaml
+      - $ref: ./leftpad.yaml
+      - $ref: ./lookup.yaml
+      - $ref: ./lower.yaml
+      - $ref: ./namenormalizer.yaml
+      - $ref: ./randomalphanumeric.yaml
+      - $ref: ./randomnumeric.yaml
+      - $ref: ./reference-2.yaml
+      - $ref: ./replaceall.yaml
+      - $ref: ./replace.yaml
+      - $ref: ./rightpad.yaml
+      - $ref: ./split.yaml
+      - $ref: ./static.yaml
+      - $ref: ./substring.yaml
+      - $ref: ./trim.yaml
+      - $ref: ./upper.yaml
+      - $ref: ./uuidgenerator.yaml

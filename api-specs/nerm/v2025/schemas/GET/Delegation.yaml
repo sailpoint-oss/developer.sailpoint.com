@@ -1,0 +1,40 @@
+---
+type: object
+properties:
+  id:
+    type: string
+    description: The id of the delegation
+    example: ac4aae0b-4140-49a4-a84c-126762fd0c8f
+  delegator_id:
+    description: The id of the delegator user
+    example: 12345678-1234-5678-1234-123456789012
+  delegate_id:
+    description: The id of the delegate user
+    example: 87654321-4321-6789-4321-210987654321
+  delegator:
+    description: The delegator user object
+    $ref: '../GET/DelegatorUser.yaml'
+  delegate:
+    description: The delegate user object
+    $ref: '../GET/DelegateUser.yaml'
+  expiration:
+    type: string
+    format: date-time
+    description: The expiration date of the delegation
+    example: 2023-10-01T12:00:00Z
+  expired:
+    type: boolean
+    description: Indicates if the delegation is expired
+    example: false
+  created_at:
+    type: string
+    format: date-time
+    readOnly: true
+    description: The date-time the record created.
+    example: 2022-12-27 08:26:49.219717
+  updated_at:
+    type: string
+    format: date-time
+    readOnly: true
+    description: The date-time the record was last updated.
+    example: 2022-12-27 08:26:49.219717

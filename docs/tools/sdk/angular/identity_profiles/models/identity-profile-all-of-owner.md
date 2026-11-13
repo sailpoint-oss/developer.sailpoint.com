@@ -1,0 +1,18 @@
+# IdentityProfileAllOfOwner
+
+# IdentityProfileAllOfOwner
+
+Import this model from the entry point of its package:
+
+```typescript
+import { IdentityProfileAllOfOwner } from '@sailpoint/angular-sdk/identity_profiles';
+```
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**type** | **(optional)** `string` | Owner\'s object type. | [default to undefined]
+**id** | **(optional)** `string` | Owner\'s ID. | [default to undefined]
+**name** | **(optional)** `string` | Owner\'s name. | [default to undefined]
+

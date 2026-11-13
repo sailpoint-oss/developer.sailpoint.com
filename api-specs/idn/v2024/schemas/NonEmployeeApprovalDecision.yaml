@@ -1,0 +1,7 @@
+type: object
+title: Non Employee Approval Decision
+properties:
+  comment:
+    type: string
+    description: Comment on the approval item.
+    maxLength: 4000

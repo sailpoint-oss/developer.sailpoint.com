@@ -1,0 +1,18 @@
+type: object
+properties:
+  comments:
+    type: array
+    items:
+      $ref: ./approvalcomment-2.yaml
+  modified:
+    $ref: ../../shared/schemas/datetime.yaml
+  owner:
+    $ref: ./activityidentity.yaml
+  result:
+    type: string
+    description: The result of the approval
+    example: Finished
+  attributeRequest:
+    $ref: ./attributerequest.yaml
+  source:
+    $ref: ./accountsource.yaml

@@ -1,0 +1,6 @@
+allOf:
+  - $ref: './NonEmployeeApprovalItemBase.yaml'
+  - type: object
+    properties:
+      nonEmployeeRequest:
+        $ref: './NonEmployeeRequestLite.yaml'

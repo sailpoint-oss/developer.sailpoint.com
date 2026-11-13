@@ -1,0 +1,43 @@
+openapi: 3.0.1
+info:
+  title: SailPoint Identity Security API - Reminder Escalations
+  description: >-
+    Use these APIs to interact with the SailPoint Identity Security platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+  x-audience: external-public
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Reminder Escalations
+    description: |
+      Use this API to manage the tenant-default reminder and escalation ruleset for a domain object type.
+      With this functionality in place, organization administrators can create, view, update, and delete the default rules applied when a reminder and escalation workflow is started without its own ruleset.
+      The tenant is taken from the authenticated request. It is not part of the URL or request body.
+paths:
+  /reminder-escalations/v1/config/tenants:
+    $ref: ./paths/reminder-escalations-v1-config-tenant.yaml
+  /reminder-escalations/v1/config/tenants/{domainObjectType}:
+    $ref: ./paths/reminder-escalations-v1-config-tenant-by-domainobjecttype.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

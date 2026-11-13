@@ -1,0 +1,6 @@
+type: string
+enum:
+  - QUEUED
+  - IN_PROGRESS
+  - SUCCESS
+  - ERROR

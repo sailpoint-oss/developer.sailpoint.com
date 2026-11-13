@@ -1,0 +1,37 @@
+type: object
+properties:
+  description:
+    type: string
+    description: The description for this requested item
+    example: 'An access profile for the admins'
+  accountsSelectionBlocked:
+    type: boolean
+    default: false
+    description: |
+      This field indicates if account selections are not allowed for this requested item.
+      * If true, this field indicates that account selections will not be available for this item and user combination. In this case, no account selections should be provided in the access request for this item and user combination, irrespective of whether the user has single or multiple accounts on a source.
+      * An example is where a user is requesting an access profile that is already assigned to one of their accounts.
+    example: false
+  accountsSelectionBlockedReason:
+    type: string
+    description: If account selections are not allowed for an item, this field will denote the reason.
+    nullable: true
+    example: 'ACCESS_PROFILE_ALREADY_ASSIGNED_TO_AN_ACCOUNT'
+  type:
+    type: string
+    enum: [ ACCESS_PROFILE, ROLE, ENTITLEMENT ]
+    description: The type of the item being requested.
+    example: ACCESS_PROFILE
+  id:
+    type: string
+    description: The id of the requested item
+    example: '720fd239701344aea76c93ba91376aec'
+  name:
+    type: string
+    description: The name of the requested item
+    example: 'Test Access Profile'
+  sources:
+    description: The details for the sources and accounts for the requested item and identity combination
+    type: array
+    items:
+      $ref: 'SourceAccountSelections.yaml'

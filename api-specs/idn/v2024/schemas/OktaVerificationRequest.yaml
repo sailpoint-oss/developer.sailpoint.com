@@ -1,0 +1,10 @@
+type: object
+title: Okta Verification Request
+properties:
+  userId:
+    type: string
+    nullable: false
+    description: User identifier for Verification request. The value of the user's attribute.
+    example: example@mail.com
+required:
+  - userId

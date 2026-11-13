@@ -1,0 +1,35 @@
+post:
+  operationId: deleteCampaignsV1
+  tags:
+  - Certification Campaigns
+  summary: Delete campaigns
+  description: |
+    Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.
+  security:
+  - userAuth:
+    - idn:campaign:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - CERT_ADMIN
+  requestBody:
+    description: IDs of the campaigns to delete.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/campaignsdeleterequest.yaml
+  responses:
+    '202':
+      $ref: ../../shared/responses/202.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

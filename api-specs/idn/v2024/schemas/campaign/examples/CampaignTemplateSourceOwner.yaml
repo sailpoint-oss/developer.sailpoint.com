@@ -1,0 +1,41 @@
+value:
+  id: b9f41bc69e7a4291b9de0630396d030d
+  name: AD Source Review
+  created: 2022-08-02T13:40:36.857Z
+  modified: null
+  description: A review of our AD source.
+  deadlineDuration: P1M
+  ownerRef:
+    email: support@testmail.identitysoon.com
+    type: IDENTITY
+    id: 7ec252acbd4245548bc25df22348cb75
+    name: SailPoint Support
+  scheduled: false
+  campaign:
+    created: null
+    modified: null
+    filter:
+      type: CAMPAIGN_FILTER
+      id: e0adaae69852e8fe8b8a3d48e5ce757c
+      name: Test Source Owner Filter
+    sunsetCommentsRequired: true
+    sourceOwnerCampaignInfo:
+      sourceIds:
+        - 2c918084707deba501709d45ce4e5569
+    searchCampaignInfo: null
+    roleCompositionCampaignInfo: null
+    alerts: null
+    totalCertifications: null
+    completedCertifications: null
+    sourcesWithOrphanEntitlements: null
+    id: null
+    name: AD Source Review
+    description: Review everyone's access.
+    deadline: null
+    type: SOURCE_OWNER
+    status: null
+    emailNotificationEnabled: true
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    correlatedStatus: CORRELATED
+    mandatoryCommentRequirement: NO_DECISIONS

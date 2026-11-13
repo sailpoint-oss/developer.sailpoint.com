@@ -1,0 +1,63 @@
+get:
+  operationId: getDecisionSummaryV1
+  tags:
+    - Next Generation Certification Campaigns
+  summary: Summary of Certification Decisions
+  description: >-
+    This API returns a summary of the decisions made on a certification. Required roles are ORG_ADMIN or CERT_ADMIN. Reviewers for this certification can also call this API.
+  security:
+    - userAuth: [ idn:campaign:read, idn:campaign:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+    - in: path
+      name: certificationId
+      schema:
+        type: string
+        format: uuid
+      required: true
+      description: The certification ID
+      example: ef38f943-47e9-4562-b5bb-8424a56397d8
+      x-sailpoint-resource-operation-id: listCertificationsV1
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **certificationSubjectSummary.id**: *eq, in*
+      example: certificationSubjectSummary.id in ('2c918085-71bc-fcf8-0171-c23e4b4221fc','2c918085-71bc-fcf8-0171-c23e4b4221fd')
+      required: false
+  responses:
+    '200':
+      description: Summary of the decisions made
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/DetailedDecisionSummary.yaml'
+    '400':
+      $ref: '../../shared/responses/400.yaml'
+    '401':
+      $ref: '../../shared/responses/401.yaml'
+    '403':
+      $ref: '../../shared/responses/403.yaml'
+    '404':
+      $ref: '../../shared/responses/404.yaml'
+    '429':
+      $ref: '../../shared/responses/429.yaml'
+    '500':
+      $ref: '../../shared/responses/500.yaml'

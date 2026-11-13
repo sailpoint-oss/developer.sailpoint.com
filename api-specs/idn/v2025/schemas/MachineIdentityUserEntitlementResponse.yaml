@@ -1,0 +1,38 @@
+# The Machine Identity User Entitlement DTO returned by the API
+type: object
+title: Machine Identity User Entitlement Response
+properties:
+  id:
+    type: string
+    description: System-generated unique ID of the Object
+    example: "8886e5e3-63d0-462f-a195-d98da885b8dc"
+  machineIdentityId:
+    type: string
+    description: System-generated unique ID of the Machine Identity
+    example: "8886e5e3-63d0-462f-a195-d98da885b8dc"
+  source:
+    type: object
+    description: The source of the user entitlement
+    allOf:
+      - $ref: "./BaseReferenceDto.yaml"
+      - type: object
+        example:
+          id: "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
+          name: "Active Directory"
+          type: "SOURCE"
+  entitlement:
+    type: object
+    description: The user entitlement
+    allOf:
+      - $ref: "./BaseReferenceDto.yaml"
+      - type: object
+        example:
+          id: "4b0c7106-a6c7-4380-86f3-024993664fc3"
+          name: "Entitlement DISPLAY NAME"
+          type: "ENTITLEMENT"
+  created:
+    description: Creation date of the Object
+    type: string
+    format: date-time
+    example: "2015-05-28T14:07:17Z"
+    readOnly: true

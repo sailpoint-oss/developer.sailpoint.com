@@ -1,0 +1,58 @@
+type: object
+title: Public Identities Search Request
+description: >-
+  COMPOSITE search request for public identities. Root querySet must use
+  matchAny false (AND). The first entries item must be the ACTIVE identityState
+  TEXT gate; identityState may not appear elsewhere in the query tree.
+additionalProperties: false
+required:
+- queryType
+- indices
+- includeNested
+- querySet
+properties:
+  queryType:
+    type: string
+    enum:
+    - COMPOSITE
+    description: Search query type. Must be COMPOSITE.
+    example: COMPOSITE
+  indices:
+    type: array
+    minItems: 1
+    maxItems: 1
+    items:
+      type: string
+      enum:
+      - identities
+    description: Search indices. Must be exactly ["identities"].
+    example:
+    - identities
+  includeNested:
+    type: boolean
+    enum:
+    - false
+    description: Must be false for public identities search.
+    example: false
+  sort:
+    type: array
+    minItems: 1
+    items:
+      type: string
+    description: >-
+      Optional attribute keys to sort by. Base keys must match those returned by
+      GET /public-identities/v2/visible-attributes (defaultAttributes +
+      configuredAttributes). Optional "attributes." prefix and/or ".exact"
+      suffix.
+    example:
+    - name
+  querySet:
+    allOf:
+    - $ref: ./publicidentitiesqueryset.yaml
+    - type: object
+      description: >-
+        Root querySet must use matchAny false (AND). The first entries item must
+        be exactly this TEXT gate; identityState may not appear elsewhere in the
+        tree:
+        {"queryType":"TEXT","textQuery":{"fields":["attributes.identityState.exact"],
+        "terms":["ACTIVE"],"matchAny":false,"contains":false,"strict":true}}

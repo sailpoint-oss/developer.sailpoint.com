@@ -1,0 +1,25 @@
+value:
+  id: 5594f43b-7680-4a69-80ec-e5fdccf74be7
+  name: Manager Review
+  description: A review of everyone's access by their manager.
+  deadline: '2020-12-25'
+  deadlineTimezone: -06:00
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  autoActivate: false
+  recommendationsEnabled: false
+  sunsetCommentsRequired: true
+  type: IDENTITY
+  status: PENDING
+  reviewer:
+    type: MANAGER
+  searchBasedParams:
+    searchType: IDENTITY
+    identityIds:
+      - 2c9180888380236101838062001f00b6
+  mandatoryCommentRequirement: NO_DECISIONS
+  ownerId: 4030ca72bdfb4980b51b8fcee948be50
+  created: '2022-08-02T20:21:18.421Z'
+  modified: '2022-08-02T20:21:18.421Z'
+  totalCertifications: 0
+  completedCertifications: 0

@@ -1,0 +1,117 @@
+patch:
+  operationId: updateGenericRequestApprovalConfigV1
+  tags:
+    - Generic Request Approval Config
+  summary: Patch generic request approval config
+  description: |
+    Use this API to update the approval configuration of one scope using a JSON Patch payload. Use the `id` returned
+    by the get API.
+
+
+    Patchable paths are `/approvalConfig`, which replaces every action at once, and `/approvalConfig/{ACTION}` for each
+    action the scope's target type supports. One request can update several actions. `id`, `targetType`, and
+    `targetId` identify the scope and can't be patched; a patch that targets any other path returns `400`.
+
+
+    To return an action to the organization-level approval configuration, `remove` it or `replace` it with `{}`.
+
+
+    Each configured action uses one scheme:
+
+
+    **APPROVAL**: requires `approvers` and `comments`. `approvers` is a comma-separated list of approver tokens:
+    `sourceOwner`, `manager`, `machineIdentityPrimaryOwner`, `machineIdentitySecondaryOwners`,
+    `machineIdentityAllOwners`, `workgroup:{governanceGroupId}`, and `identity:{identityId}`. For the
+    **SUBTYPE** **DELETE** action, `accountOwner` is also allowed. Tokens without an ID can appear at most once, and
+    IDs must be unique and must exist. `comments` is one of `ALL`, `APPROVAL`, `REJECTION`, or `OFF`.
+
+
+    **WORKFLOW**: requires `workflowId`, the UUID of a workflow. The same workflow can't be used for more than one
+    action. When workflow approvals are enabled for the tenant, the workflow must exist, be enabled, and use the
+    trigger for its action (`idn:machine-identity-activate` for ACTIVATE, `idn:machine-identity-deactivate` for
+    DEACTIVATE).
+
+
+    The **GLOBAL** scope only accepts the **WORKFLOW** scheme.
+
+
+    The ID must be a UUID; any other value returns `400`. When no approval configuration exists for the ID, this API
+    returns `404`.
+
+
+    When agentic identity provisioning is not enabled for the tenant, this API returns `404`. When this API is not
+    enabled for the tenant, it returns `403`.
+  security:
+    - userAuth:
+        - idn:generic-request-approval-config:manage
+    - applicationAuth:
+        - idn:generic-request-approval-config:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: getGenericRequestApprovalConfigV1
+      description: Approval configuration ID.
+      example: 0f2c7a9e-3b4d-4e5f-8a6b-7c8d9e0f1a2b
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  requestBody:
+    required: true
+    description: A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../shared/schemas/jsonpatchoperation.yaml
+        examples:
+          Require approval to activate:
+            value:
+              - op: replace
+                path: /approvalConfig/ACTIVATE
+                value:
+                  scheme: APPROVAL
+                  approvers: machineIdentityPrimaryOwner,workgroup:8d3e0094-8a5e-4c6f-9a0b-2e5a1c7d4f10
+                  comments: REJECTION
+          Use a workflow to approve deactivation:
+            value:
+              - op: replace
+                path: /approvalConfig/DEACTIVATE
+                value:
+                  scheme: WORKFLOW
+                  workflowId: 5a7c9e1b-2d4f-4a6c-8e0b-1d3f5a7c9e2b
+          Inherit the organization setting for activation:
+            value:
+              - op: remove
+                path: /approvalConfig/ACTIVATE
+  responses:
+    '200':
+      description: Updated approval configuration for the scope.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/genericrequestapprovalconfig.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

@@ -1,0 +1,55 @@
+get:
+  summary: get Portals
+  operationId: getPortals
+  description: This endpoint can retrieve p[ortals from Lifecycle or you can search for portals using parameters
+  tags:
+    - portals
+  parameters:
+    - $ref: "../parameters/body/uid.yaml"
+    - $ref: "../parameters/body/inactivity_timeout.yaml"
+    - $ref: "../parameters/body/jit_provisioning.yaml"
+    - $ref: "../parameters/body/login_workflow_id.yaml"
+    - $ref: "../parameters/body/password_reset_workflow_id.yaml"
+    - $ref: "../parameters/body/profile_attribute_id.yaml"
+    - $ref: "../parameters/body/profile_type_id.yaml"
+    - $ref: "../parameters/body/retries.yaml"
+    - $ref: "../parameters/body/name.yaml"
+    - $ref: "../parameters/body/url.yaml"
+    - $ref: "../parameters/body/saml_configuration.yaml"
+  responses:
+    "200":
+      $ref: "../responses/Portals_Meta.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
+post:
+  summary: create Portal
+  operationId: createPortals
+  description: creates a new Portal
+  tags:
+    - portals
+  requestBody:
+    $ref: "../requestBodies/POST/Portal.yaml"
+  responses:
+    "200":
+      $ref: "../responses/Portal.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "500":
+      $ref: "../responses/500.yaml"
+patch:
+  summary: update Portal
+  operationId: updatePortal
+  description: updates Portal attributes
+  tags:
+    - portals
+  requestBody:
+    $ref: "../requestBodies/PATCH/Portal.yaml"
+  responses:
+    "200":
+      $ref: "../responses/Portal.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

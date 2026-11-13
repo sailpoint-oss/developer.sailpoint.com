@@ -1,0 +1,25 @@
+# The Full version of the Account DTO which contains data stored on the DB objects
+# other than just the Account object
+type: object
+title: Full Account
+allOf:
+  - $ref: './SlimAccount.yaml'
+  - type: object
+    properties:
+      authoritative:
+        type: boolean
+        description: Whether this account belongs to an authoritative source
+        example: false
+      systemAccount:
+        type: boolean
+        description: Whether this account is for the IdentityNow source
+        example: false
+      uncorrelated:
+        type: boolean
+        description: True if this account is not correlated to an identity
+        example: false
+      features:
+        type: string
+        nullable: true
+        description: A string list containing the owning source's features
+        example: 'ENABLE'

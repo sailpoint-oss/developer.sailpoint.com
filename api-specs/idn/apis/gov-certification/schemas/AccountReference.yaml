@@ -1,0 +1,41 @@
+type: object
+description: Information about the status of the entitlement
+properties:
+  nativeIdentity:
+    type: string
+    description: The native identity for this account
+    example: 'CN=Alison Ferguson'
+  disabled:
+    type: boolean
+    default: false
+    example: false
+    description: Indicates whether this account is currently disabled
+  locked:
+    type: boolean
+    default: false
+    example: false
+    description: Indicates whether this account is currently locked
+  type:
+    type: string
+    description: The type of the Account Reference
+    enum:
+      - ACCOUNT
+    example: ACCOUNT
+  id:
+    type: string
+    description: The id associated with the account
+    example: 2c9180857182305e0171993737eb29e6
+  name:
+    type: string
+    description: The account name
+    example: Alison Ferguso
+  created:
+    type: string
+    format: date-time
+    description: When the account was created
+    example: '2020-04-20T20:11:05.067Z'
+  modified:
+    type: string
+    format: date-time
+    description: When the account was last modified
+    example: '2020-05-20T18:57:16.987Z'

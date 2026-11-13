@@ -1,0 +1,87 @@
+type: object
+title: Campaign Create
+properties:
+  name:
+    description: >-
+      Name of the campaign.
+    type: string
+    example: Manager Campaign
+  description:
+    type: string
+    description: >-
+      Description of the campaign.
+    example: Everyone needs to be reviewed by their manager
+  deadline:
+    type: string
+    format: date
+    description: >-
+      The campaign's completion deadline date. While creating campaign, If deadline is passed as empty then
+      automatically it will be set for two weeks later from current time.
+    example: '2020-03-15'
+  deadlineTimezone:
+    type: string
+    description:
+      The timezone must be in a valid ISO 8601 format. Timezones in ISO 8601 are represented as UTC (represented as 'Z')
+      or as an offset from UTC. The offset format can be +/-hh:mm, +/-hhmm, or +/-hh.
+    example: -05:00
+  emailNotificationEnabled:
+    type: boolean
+    description: Enables email notification for this campaign
+    default: false
+    example: false
+  autoRevokeAllowed:
+    type: boolean
+    description: Allows auto revoke for this campaign
+    default: false
+    example: false
+  recommendationsEnabled:
+    type: boolean
+    description: >-
+      Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off
+      then campaigns generated from this template will indicate false. The real value will then be returned if
+      IAI is ever enabled for the org in the future.
+    default: false
+    example: true
+  sunsetCommentsRequired:
+    type: boolean
+    description: >-
+      Determines if comments on sunset date changes are required.
+    default: true
+    example: true
+  sourceIds:
+    type: array
+    description: A direct list of sourceIds to include in this campaign.
+    items:
+      type: string
+    example: [ 0fbe863c063c4c88a35fd7f17e8a3df5 ]
+  autoActivate:
+    type: boolean
+    description: >-
+      If autoActivate is true, the campaign will be activated automatically after generation completes.
+      In this case, a deadline must be provided; otherwise, campaign creation will fail.
+    default: false
+    example: true
+  type:
+    $ref: 'CampaignType.yaml'
+  reviewer:
+    $ref: 'Reviewer.yaml'
+  filterRef:
+    $ref: 'CampaignFilterIdRef.yaml'
+  inlineFilter:
+    $ref: 'CampaignFilterInline.yaml'
+  searchBasedParams:
+    $ref: 'CampaignSearchBasedParams.yaml'
+  remediatorRef:
+    $ref: 'CampaignRemediatorRef.yaml'
+  mandatoryCommentRequirement:
+    $ref: './CampaignMandatoryCommentRequirement.yaml'
+required:
+  - name
+  - description
+  - type
+  - reviewer
+  - autoActivate
+  - emailNotificationEnabled
+  - autoRevokeAllowed
+  - recommendationsEnabled
+  - sunsetCommentsRequired

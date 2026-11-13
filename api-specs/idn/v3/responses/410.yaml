@@ -1,0 +1,17 @@
+description: >-
+  Gone - Returned if the requested operation is not yet available for your tenant because the underlying capability
+  is still being rolled out.
+content:
+  application/json:
+    schema:
+      $ref: '../../v3/schemas/ErrorResponseDto.yaml'
+    examples:
+      "410":
+        summary: An example of a 410 response object
+        value:
+          detailCode: "410 Gone"
+          trackingId: "b21b1f7ce4da4d639f2c62a57171b427"
+          messages:
+            - locale: "en-US"
+              localeOrigin: "DEFAULT"
+              text: "The requested operation is not yet available for your tenant."

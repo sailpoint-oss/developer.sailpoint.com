@@ -1,0 +1,107 @@
+get:
+  operationId: getGenericRequestApprovalConfigV1
+  tags:
+    - Generic Request Approval Config
+  summary: Get generic request approval config
+  description: |
+    This API returns the approval configuration for one scope. The scope is identified by `targetType` and, depending
+    on the target type, `targetId` and `sourceId`.
+
+
+    The response holds one entry per action that the target type supports. An action with no stored setting is
+    returned as `{}`, which means it inherits the organization-level approval configuration. A scope that has never
+    been configured returns `200` with every action set to `{}`, and the response always carries the `id` to use with
+    the update API.
+
+
+    Actions by target type:
+
+
+    **RESOURCE**: *ACTIVATE, DEACTIVATE*
+
+
+    **SUBTYPE**: *CREATE, DELETE*
+
+
+    **SOURCE**: *DELETE*
+
+
+    **GLOBAL**: *ACTIVATE, DEACTIVATE*
+
+
+    Only resources of the AI agent type support resource-level approval settings; any other resource returns `400`.
+    An unknown source, resource, or subtype returns `400`.
+
+
+    When agentic identity provisioning is not enabled for the tenant, this API returns `404`. When this API is not
+    enabled for the tenant, it returns `403`.
+  security:
+    - userAuth:
+        - idn:generic-request-approval-config:read
+        - idn:generic-request-approval-config:manage
+    - applicationAuth:
+        - idn:generic-request-approval-config:read
+        - idn:generic-request-approval-config:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - in: query
+      name: targetType
+      required: true
+      schema:
+        type: string
+        enum:
+          - RESOURCE
+          - SUBTYPE
+          - SOURCE
+          - GLOBAL
+      example: RESOURCE
+      description: The kind of scope to read.
+    - in: query
+      name: targetId
+      required: false
+      schema:
+        type: string
+      example: aws:bedrock-agent-alias-version
+      description: >-
+        The scope target. Required for **RESOURCE** (the source resource ID) and **SUBTYPE** (the subtype ID). For
+        **SOURCE** the target is the `sourceId`, and for **GLOBAL** it is the tenant; when you supply it for those
+        target types, it must match that value or the request returns `400`.
+    - in: query
+      name: sourceId
+      required: false
+      schema:
+        type: string
+      example: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa
+      description: >-
+        The source that owns the scope. Required for **RESOURCE**, **SUBTYPE**, and **SOURCE**. Must be omitted for
+        **GLOBAL**.
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  responses:
+    '200':
+      description: Approval configuration for the scope.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/genericrequestapprovalconfig.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

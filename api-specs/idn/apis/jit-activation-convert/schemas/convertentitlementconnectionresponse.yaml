@@ -1,0 +1,23 @@
+type: object
+title: Convert Entitlement Connection Response
+required:
+  - connectionId
+  - type
+  - state
+properties:
+  connectionId:
+    type: string
+    format: uuid
+    description: The ID of the converted entitlement connection.
+    example: 757fb803-9024-5861-e510-83a56e4c5bd3
+  type:
+    type: string
+    enum:
+      - JIT
+      - STANDING
+    description: The current assignment type of the entitlement connection, not the target type.
+    example: JIT
+  state:
+    type: string
+    description: The current state of the entitlement connection. Conversion starts as PENDING.
+    example: PENDING

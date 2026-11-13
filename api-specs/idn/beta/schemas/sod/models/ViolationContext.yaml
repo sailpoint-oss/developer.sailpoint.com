@@ -1,0 +1,23 @@
+type: object
+properties:
+  policy:
+    allOf:
+    - $ref: './SodPolicyDto.yaml'
+    - type: object
+      properties:
+        type:
+          type: string
+          example: 'SOD_POLICY'
+        name:
+          type: string
+          example: 'A very cool policy name'
+    description: The types of objects supported for SOD policy violations.
+    properties:
+      type:
+        enum:
+        - "ENTITLEMENT"
+        example: "ENTITLEMENT"
+        description: The type of object supported for SOD policy violations. 
+  conflictingAccessCriteria:
+    $ref: './ExceptionAccessCriteria.yaml'
+    nullable: false

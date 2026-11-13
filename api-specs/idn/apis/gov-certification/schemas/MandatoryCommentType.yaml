@@ -1,0 +1,7 @@
+type: string
+description: Type of the mandatory comment.
+enum:
+  - ALL_DECISIONS
+  - REVOKE_ONLY_DECISIONS
+  - NO_DECISIONS
+example: ALL_DECISIONS

@@ -1,0 +1,9 @@
+type: object
+properties:
+  types:
+    type: array
+    description: Built-in source attribute names grouped by identity collector type.
+    items:
+      $ref: './identitycollectorbuiltinpropertiesbytype.yaml'
+required:
+- types

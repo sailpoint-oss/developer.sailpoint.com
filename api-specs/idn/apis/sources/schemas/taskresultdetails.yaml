@@ -1,0 +1,62 @@
+type: object
+title: Task Result Details
+description: Details of an asynchronous task started by a source dataset operation.
+properties:
+  id:
+    type: string
+    description: System-generated unique ID of the task.
+    example: ef38f94347e94562b5bb8424a56397d8
+  type:
+    type: string
+    description: Type of task this result represents.
+    example: QUARTZ
+  name:
+    type: string
+    description: The name of the task.
+    example: Dataset Aggregation
+  description:
+    type: string
+    description: The description of the task.
+    example: Aggregate from the specified dataset
+  launcher:
+    type: string
+    description: The user who initiated the task.
+    example: John Doe
+  created:
+    type: string
+    format: date-time
+    description: The task creation date.
+    example: '2020-09-07T12:14:00.364Z'
+  launched:
+    type: string
+    format: date-time
+    nullable: true
+    description: The task start date.
+    example: '2020-09-07T12:14:00.521Z'
+  completed:
+    type: string
+    format: date-time
+    nullable: true
+    description: The task completion date.
+    example: '2020-09-07T12:14:01.137Z'
+  completionStatus:
+    type: string
+    nullable: true
+    enum:
+      - SUCCESS
+      - WARNING
+      - ERROR
+      - TERMINATED
+      - TEMP_ERROR
+    description: Task completion status.
+    example: SUCCESS
+  parentName:
+    type: string
+    nullable: true
+    description: Name of the parent task if one exists.
+    example: Audit Report
+  progress:
+    type: string
+    nullable: true
+    description: Current task state.
+    example: Initializing...

@@ -1,0 +1,286 @@
+{
+  "info": {
+    "_postman_id": "c8ba3692-1d77-410e-b908-7eded1822fa7",
+    "name": "SaaS Connectivity",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19269819"
+  },
+  "item": [
+    {
+      "name": "Test local stdTestConnection",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"type\": \"std:test-connection\",\r\n  \"input\": {},\r\n  \"config\": {\r\n    \"token\": \"apikey\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Test local stdAccountList",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"type\": \"std:account:list\",\r\n  \"input\": {},\r\n  \"config\": {\r\n    \"token\": \"apikey\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Test local stdAccountRead",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"type\": \"std:account:read\",\r\n  \"input\": {\r\n    \"key\": {\"simple\": { \"id\": \"john.doe\"}},\r\n    \"identity\": \"john.doe\"\r\n  },\r\n  \"config\": {\r\n    \"token\": \"apikey\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Test local stdAccountCreate",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"type\": \"std:account:create\",\r\n    \"input\": {\r\n        \"attributes\": {\r\n            \"id\": \"suzie.baker\",\r\n            \"email\": \"suzie.baker@domain.com\",\r\n            \"department\": \"external\",\r\n            \"displayName\": \"Suzie Baker\",\r\n            \"password\": \"test\",\r\n            \"entitlements\": [\r\n                \"user\",\r\n                \"administrator\"\r\n            ]\r\n        }\r\n    },\r\n  \"config\": {\r\n    \"token\": \"apikey\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Test local stdAccountUpdate",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"type\": \"std:account:update\",\r\n    \"input\": {\r\n        \"key\": {\"simple\": { \"id\": \"john.doe\"}},\r\n        \"identity\": \"john.doe\",\r\n        \"changes\": [\r\n            {\r\n                \"op\": \"Remove\",\r\n                \"attribute\": \"entitlements\",\r\n                \"value\": \"user\"\r\n            }\r\n        ]\r\n    },\r\n  \"config\": {\r\n    \"token\": \"apikey\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Test local stdAccountDelete",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"type\": \"std:account:delete\",\r\n    \"input\": {\r\n        \"key\": {\"simple\": { \"id\": \"john.doe\"}},\r\n        \"identity\": \"john.doe\"\r\n    },\r\n  \"config\": {\r\n    \"token\": \"apikey\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Test local stdEntitlementList",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"type\": \"std:entitlement:list\",\r\n    \"input\": {\r\n        \"type\": \"group\"\r\n    },\r\n  \"config\": {\r\n    \"token\": \"apikey\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Test local stdEntitlementRead",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"type\": \"std:entitlement:read\",\r\n    \"input\": {\r\n        \"key\": {\"simple\": { \"id\": \"john.doe\"}},\r\n        \"identity\": \"john.doe\",\r\n        \"type\": \"group\"\r\n    },\r\n  \"config\": {\r\n    \"token\": \"apikey\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Test local stdAccountDisable",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"type\": \"std:account:disable\",\r\n    \"input\": {\r\n        \"key\": {\"simple\": { \"id\": \"john.doe\"}},\r\n        \"identity\": \"john.doe\"\r\n    },\r\n  \"config\": {\r\n    \"token\": \"apikey\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Test local stdAccountEnable",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"type\": \"std:account:enable\",\r\n    \"input\": {\r\n        \"key\": {\"simple\": { \"id\": \"john.doe\"}},\r\n        \"identity\": \"john.doe\"\r\n    },\r\n  \"config\": {\r\n    \"token\": \"apikey\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Test local stdAccountUnlock",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"type\": \"std:account:unlock\",\r\n    \"input\": {\r\n        \"key\": {\"simple\": { \"id\": \"john.doe\"}},\r\n        \"identity\": \"john.doe\"\r\n    },\r\n  \"config\": {\r\n    \"token\": \"apikey\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Test local stdAccountDiscoverSchema",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"type\": \"std:account:discover-schema\",\r\n    \"input\": {},\r\n    \"config\": {\r\n        \"token\": \"apikey\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000"
+        }
+      },
+      "response": []
+    }
+  ]
+}

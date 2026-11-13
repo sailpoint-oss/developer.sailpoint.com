@@ -1,0 +1,22 @@
+type: object
+title: MCP Server Counts
+description: Tenant-wide MCP server totals. All values are `0` when the tenant has no MCP servers.
+properties:
+  registryEntries:
+    type: integer
+    format: int64
+    description: Total number of MCP servers in the tenant.
+    example: 12
+  remote:
+    type: integer
+    format: int64
+    description: Number of MCP servers that have at least one remote endpoint.
+    example: 4
+  connectedAgentCount:
+    type: integer
+    format: int64
+    description: >-
+      Number of distinct AI agents connected to at least one MCP server. An agent connected to several
+      MCP servers is counted once, so this can be less than the sum of each server's
+      `connectedAgentCount`.
+    example: 7

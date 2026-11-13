@@ -1,0 +1,17 @@
+type: object
+description: The data type of the value field
+properties:
+  name:
+    type: string
+    enum: 
+      - INTEGER
+      - FLOAT
+    description: The data type of the value field
+    example: INTEGER
+  ordinal:
+    description: The position of the value type
+    type: integer
+    format: int32
+    minimum: 0
+    maximum: 1
+    example: 0

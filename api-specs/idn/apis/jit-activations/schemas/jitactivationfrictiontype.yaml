@@ -1,0 +1,8 @@
+type: string
+title: JIT Activation Friction Type
+description: Kind of friction step.
+enum:
+  - TICKET
+  - JUSTIFICATION
+  - REAUTHENTICATION
+example: JUSTIFICATION

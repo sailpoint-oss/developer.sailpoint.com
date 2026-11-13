@@ -1,0 +1,18 @@
+in: path
+name: index
+description: |
+  The index from which to fetch the specified document.
+
+  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, *roles*, and *workflowsummaries*.
+schema:
+  type: string
+  enum:
+    - accessprofiles
+    - accountactivities
+    - entitlements
+    - events
+    - identities
+    - roles
+    - workflowsummaries
+required: true
+example: identities

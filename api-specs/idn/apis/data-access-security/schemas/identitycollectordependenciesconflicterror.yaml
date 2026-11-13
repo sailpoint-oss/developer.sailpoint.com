@@ -1,0 +1,39 @@
+type: object
+description: Conflict response returned when an identity collector cannot be deleted because it is in use.
+properties:
+  detailCode:
+    type: string
+    description: Fine-grained error code providing more detail of the error.
+    example: 409 Conflict
+  trackingId:
+    type: string
+    description: Unique tracking id for the error.
+    example: e7eab60924f64aa284175b9fa3309599
+  messages:
+    type: array
+    description: Generic localized reason for error.
+    items:
+      type: object
+      properties:
+        locale:
+          type: string
+          description: The locale for the message text, a BCP 47 language tag.
+          example: en-US
+        localeOrigin:
+          type: string
+          description: An indicator of how the locale was selected.
+          example: DEFAULT
+        text:
+          type: string
+          description: Actual text of the error message in the indicated locale.
+          example: Identity collector is in use and cannot be deleted.
+  dependencies:
+    type: array
+    description: Dependent objects blocking deletion. At most three items are returned.
+    items:
+      $ref: identitycollectordependency.yaml
+  extendedDependenciesCount:
+    type: integer
+    format: int32
+    description: Number of additional dependent objects not included in `dependencies`.
+    example: 2

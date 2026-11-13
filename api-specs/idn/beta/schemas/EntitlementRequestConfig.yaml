@@ -1,0 +1,7 @@
+type: object
+title: Entitlement Request Config
+properties:
+  accessRequestConfig:
+    $ref: './EntitlementAccessRequestConfig.yaml'
+  revocationRequestConfig:
+    $ref: './EntitlementRevocationRequestConfig.yaml'

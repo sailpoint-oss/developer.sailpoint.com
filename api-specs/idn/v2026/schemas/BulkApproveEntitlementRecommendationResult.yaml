@@ -1,0 +1,21 @@
+description: The result for a single item in a bulk entitlement recommendation approval response.
+type: object
+title: Bulk Approve Entitlement Recommendation Result
+properties:
+  id:
+    description: The unique identifier of the processed recommendation record.
+    type: string
+    format: uuid
+    example: "79db50d4-723c-4aa0-a824-83c2205d82d1"
+  status:
+    description: The outcome of the approval for this item.
+    type: string
+    enum:
+      - SUCCESS
+      - FAILURE
+    example: SUCCESS
+  failedReason:
+    description: The reason for failure if status is FAILURE; null on success.
+    type: string
+    nullable: true
+    example: null

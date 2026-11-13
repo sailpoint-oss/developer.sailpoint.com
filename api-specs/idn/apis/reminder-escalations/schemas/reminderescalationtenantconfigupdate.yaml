@@ -1,0 +1,16 @@
+type: object
+description: |
+  Body for replacing a tenant-default ruleset.
+  `domainObjectType` comes from the path. `revision` must match the current stored value.
+required:
+- rules
+- revision
+properties:
+  rules:
+    $ref: './reminderescalationruleset.yaml'
+  revision:
+    type: integer
+    format: int32
+    minimum: 1
+    description: Revision from a prior read of this ruleset.
+    example: 1

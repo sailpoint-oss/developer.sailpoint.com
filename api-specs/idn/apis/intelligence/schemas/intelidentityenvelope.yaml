@@ -1,0 +1,8 @@
+discriminator:
+  propertyName: type
+  mapping:
+    Human: './intelidentityaggregate.yaml'
+    NHI: './intelidentitymachineaggregate.yaml'
+oneOf:
+- $ref: ./intelidentityaggregate.yaml
+- $ref: ./intelidentitymachineaggregate.yaml

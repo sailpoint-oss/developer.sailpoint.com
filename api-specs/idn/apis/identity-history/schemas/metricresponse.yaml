@@ -1,0 +1,12 @@
+type: object
+title: Metric Response
+properties:
+  name:
+    type: string
+    description: the name of metric
+  value:
+    type: number
+    description: the value associated to the metric
+example:
+  name: '2021-04-01T00:00:00.000Z'
+  value: 2

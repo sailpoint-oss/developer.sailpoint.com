@@ -1,0 +1,8 @@
+name: uid
+in: path
+description: UID of the object to retrieve, update, or delete.  A UID or "specified identifier" is a string typically in "snake_case" format that provides a human-readable description of the record.  They are commonly used to ensure sandbox, qa, staging and production tenants have the identical configuration items loaded.  Every record has a UID assigned when persisted. When not specified the system assigns one by default.  A default value looks like a 32 character string of random hexadecimal characters.
+required: false
+schema:
+  type: string
+  format: snake_case
+  example: middle_initial_attribute

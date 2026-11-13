@@ -1,0 +1,37 @@
+get:
+  operationId: getDeleteBulkEntitlementsStatus
+  tags:
+    - Entitlements
+  summary: Get entitlement bulk deletion status
+  description: >-
+    This endpoint obtains the status of a bulk delete operation of one or more entitlements.
+  security:
+    - userAuth: [idn:entitlement:delete]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The task ID of the bulk delete operation to check the status of.
+      example: 2c91808874ff91550175097daaec161c
+      x-sailpoint-resource-operation-id: getTaskStatusList
+  responses:
+    '200':
+      description: Returns the status of the bulk delete operation.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/gov-entitlement/EntitlementBulkDeleteResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

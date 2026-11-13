@@ -1,0 +1,9 @@
+required: true
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        form_attribute:
+          type: object
+          $ref: "../../schemas/POST/FormAttributes.yaml"

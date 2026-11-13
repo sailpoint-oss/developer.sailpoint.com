@@ -1,0 +1,14 @@
+type: object
+title: Machine Identity Discovered Counts
+description: Number of machine identities discovered within a recent time window.
+properties:
+  count:
+    type: integer
+    format: int64
+    description: Number of machine identities created within the window.
+    example: 8
+  windowDays:
+    type: integer
+    format: int32
+    description: Length of the window, in days.
+    example: 30

@@ -1,0 +1,23 @@
+value:
+  id: e7dbec99-d493-49c8-951b-d84f58a05120
+  name: Manager Review
+  description: A review of everyone's access by their manager.
+  campaignName: Manager Review
+  campaignDescription: Review everyone's access.
+  deadlineDuration: P14D
+  type: IDENTITY
+  ownerId: 7ec252ac-bd42-4554-8bc2-5df22348cb75
+  emailNotificationEnabled: true
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  sunsetCommentsRequired: true
+  reviewer:
+    type: MANAGER
+  searchBasedParams:
+    searchType: IDENTITY
+    identityIds:
+      - 2c9180888380236101838062001f00b6
+  mandatoryCommentRequirement: NO_DECISIONS
+  scheduleStatus: NOT_SCHEDULED
+  created: '2022-08-02T19:16:42.632Z'
+  modified: '2022-08-02T19:16:42.632Z'

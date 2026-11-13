@@ -1,0 +1,18 @@
+# MachineIdentityOwnersV2Primary
+
+# MachineIdentityOwnersV2Primary
+
+Import this model from the entry point of its package:
+
+```typescript
+import { MachineIdentityOwnersV2Primary } from '@sailpoint/angular-sdk/machine_identities';
+```
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**type** | **(optional)** `DtoType` |  | [default to undefined]
+**id** | **(optional)** `string` | ID of the object to which this reference applies | [default to undefined]
+**name** | **(optional)** `string` | Human-readable display name of the object to which this reference applies | [default to undefined]
+

@@ -1,0 +1,58 @@
+get:
+  operationId: getMachineIdentityLifecycleActionV1
+  tags:
+  - Machine Identity Lifecycle Actions
+  summary: Get machine identity lifecycle action
+  description: |
+    Returns a single lifecycle action request, including its current status, approval details, and
+    provisioning progress. Use it to follow a request after you submit or cancel it.
+
+    You can always view requests that you submitted. To view a request that someone else submitted, you
+    need the `idn:machine-identity:lifecycle-action` right **and** admin or owner access to the machine
+    identity. Admin or owner access means you're an org admin, a source admin, a source sub-admin for the
+    machine identity's source, or the machine identity's owner.
+  security:
+  - userAuth:
+    - idn:mis-identity:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  - USER
+  parameters:
+  - in: path
+    name: requestId
+    schema:
+      type: string
+      format: uuid
+    required: true
+    x-sailpoint-resource-operation-id: listMachineIdentityLifecycleActionsV1
+    description: Lifecycle request identifier.
+    example: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: 'true'
+    schema:
+      type: string
+      default: 'true'
+    required: true
+  responses:
+    '200':
+      description: The lifecycle action request.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/lifecycleactionrequest.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

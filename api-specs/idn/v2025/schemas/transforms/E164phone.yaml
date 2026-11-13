@@ -1,0 +1,18 @@
+title: e164phone
+type: object
+properties:
+  defaultRegion:
+    type: string
+    description: |
+      This is an optional attribute that can be used to define the region of the phone number to format into.
+      
+      
+      If defaultRegion is not provided, it will take US as the default country.
+      
+      
+      The format of the country code should be in [ISO 3166-1 alpha-2 format](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+    example: 'US'
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml'
+  input:
+    $ref: './input.yaml'

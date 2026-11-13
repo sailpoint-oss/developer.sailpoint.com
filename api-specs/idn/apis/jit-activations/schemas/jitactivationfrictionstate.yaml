@@ -1,0 +1,10 @@
+type: string
+title: JIT Activation Friction State
+description: Aggregate friction state of an activation.
+enum:
+  - PENDING
+  - IN_PROGRESS
+  - TIMED_OUT
+  - COMPLETE
+  - NOT_APPLICABLE
+example: IN_PROGRESS

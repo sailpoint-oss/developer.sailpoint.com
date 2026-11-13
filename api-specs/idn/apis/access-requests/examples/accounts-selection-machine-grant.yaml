@@ -1,0 +1,10 @@
+description: >-
+  Accounts-selection for a machine identity using requestedForWithRequestedItems.
+value:
+  requestType: GRANT_ACCESS
+  requestedForWithRequestedItems:
+    - identityId: a1111111-bc6d-4ff3-8365-c2d44f2c68d6
+      identityType: MACHINE
+      requestedItems:
+        - id: 2c9180835d2e5168015d32f890ca1581
+          type: ENTITLEMENT

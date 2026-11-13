@@ -1,0 +1,79 @@
+post:
+  tags:
+  - Reminder Escalations
+  operationId: createReminderEscalationTenantConfigV1
+  summary: Create Reminder Escalation Tenant Config
+  description: |-
+    Creates the default reminder and escalation ruleset for a domain object type in the authenticated tenant.
+    A tenant has one default per domain object type. Creating the same type again returns 409.
+  security:
+  - userAuth:
+    - idn:reminder-escalation-config:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: "true"
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/reminderescalationtenantconfigcreate.yaml
+        examples:
+          certificationDefault:
+            summary: Tenant default for certifications
+            value:
+              domainObjectType: CERTIFICATION
+              rules:
+                reminders:
+                - cron: "0 9 * * 1"
+                  beforeDeadLine: P30D
+                  template: cert-reminder-weekly
+                - cron: "0 9 * * *"
+                  beforeDeadLine: P7D
+                  template: cert-reminder-daily
+                escalations:
+                - trigger:
+                    triggerType: AFTER_REMINDER_COUNT
+                    count: 3
+                    delay: PT12H
+                  targets:
+                  - targetType: MANAGER_OF
+                  template: cert-escalation-mgr
+                fallback:
+                  targets:
+                  - targetType: IDENTITY
+                    identityId: id-admin-99
+                  template: cert-escalation-fallback-admin
+  responses:
+    '201':
+      description: Tenant default created.
+      headers:
+        location:
+          description: URL of the created tenant default.
+          schema:
+            type: string
+          example: /reminder-escalations/v1/config/tenants/CERTIFICATION
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/reminderescalationtenantconfig.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '409':
+      $ref: ../responses/409.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

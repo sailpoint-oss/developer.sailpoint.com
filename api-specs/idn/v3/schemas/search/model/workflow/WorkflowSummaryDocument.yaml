@@ -1,0 +1,98 @@
+type: object
+description: >-
+  Workflow summary. Each workflow summary document represents one event in the execution history of a workflow.
+properties:
+  id:
+    type: string
+    example: b393f4e2-4785-4d7f-ab27-3a6b8ded4c81-3
+    description: >-
+      ID of the workflow summary. The ID is the workflow execution ID, followed by a hyphen and the event ID.
+  workflowExecutionId:
+    type: string
+    example: b393f4e2-4785-4d7f-ab27-3a6b8ded4c81
+    description: ID of the workflow execution that the event belongs to.
+  eventId:
+    type: integer
+    format: int64
+    example: 3
+    description: Position of the event in the execution history of the workflow execution.
+  workflowName:
+    type: string
+    example: Send Email
+    description: Name of the workflow.
+  workflowId:
+    type: string
+    example: d201c5d9-d37b-4a2f-af14-66414f39d568
+    description: ID of the workflow.
+  status:
+    type: string
+    description: >-
+      Status of the workflow execution at the time of the event. Possible values include `Completed`, `Failed`,
+      `Canceled`, `Running`, and `Queued`.
+    example: Completed
+  workflowTest:
+    type: boolean
+    description: Indicates whether the workflow execution was a test execution.
+    example: false
+    default: false
+  owner:
+    type: object
+    nullable: true
+    description: Owner of the workflow.
+    properties:
+      type:
+        type: string
+        description: Type of the owner.
+        example: IDENTITY
+      id:
+        type: string
+        description: ID of the owner.
+        example: 2c9180844d5c0ab5014d5fb5bc6c0bc8
+      name:
+        type: string
+        description: Name of the owner.
+        example: William Wilson
+  requestId:
+    type: string
+    description: >-
+      Backend ID that tracks a workflow request in the system. Provide this ID in a customer support ticket for
+      debugging purposes.
+    example: 41e12a74fa7b4a6a98ae47887b64acdb
+  created:
+    type: string
+    description: ISO-8601 date-time referring to the time when the event occurred.
+    nullable: true
+    format: date-time
+    example: '2022-02-07T20:13:31.640618296Z'
+  synced:
+    type: string
+    description: >-
+      ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in
+      the search API.
+
+      This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent
+      to the search database.
+
+      There may be some delay between the `synced` time and the time when the updated data is actually available in the
+      search API.
+    example: '2022-02-07T20:13:32.104Z'
+  type:
+    type: string
+    description: >-
+      Type of the execution history event. Examples include `WorkflowExecutionStarted`, `WorkflowExecutionCompleted`,
+      `WorkflowExecutionFailed`, `ActivityTaskScheduled`, `ActivityTaskCompleted`, and `ActivityTaskFailed`.
+    example: ActivityTaskCompleted
+  attributes:
+    type: object
+    nullable: true
+    description: >-
+      Attributes of the event. The available attributes depend on the event type. For example, an
+      `ActivityTaskCompleted` event can include `task`, `stepName`, `displayName`, `technicalName`, and `result`.
+      Values that are not strings or integers are serialized as JSON strings.
+    additionalProperties: true
+    example:
+      task: sp:send-email
+      stepName: sendEmail
+      displayName: Send Email
+      technicalName: sendEmail
+      result: '{"status":"sent"}'

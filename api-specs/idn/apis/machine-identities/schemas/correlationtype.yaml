@@ -1,0 +1,9 @@
+type: string
+title: Correlation Type
+description: |-
+  Whether the Business Application reference was manually assigned or automatically correlated.
+  On write (create/patch), omit or send `MANUAL` (default). `AUTOMATIC` is rejected with `400 Bad Request`.
+enum:
+  - MANUAL
+  - AUTOMATIC
+example: MANUAL

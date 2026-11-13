@@ -1,0 +1,20 @@
+type: object
+properties:
+  displayName:
+    type: boolean
+    default: false
+    description: >-
+      True if the entitlements name was updated manually via entitlement import csv or patch endpoint.
+      False means that property value has not been change after first entitlement aggregation.
+
+      Field refers to [Entitlement response schema](https://developer.sailpoint.com/docs/api/get-entitlement-v-1) > `name` property.
+    example: true
+  description:
+    type: boolean
+    default: false
+    description: >-
+      True if the entitlement description was updated manually via entitlement import csv or patch endpoint.
+      False means that property value has not been change after first entitlement aggregation.
+
+      Field refers to [Entitlement response schema](https://developer.sailpoint.com/docs/api/get-entitlement-v-1) > `description` property.
+    example: true

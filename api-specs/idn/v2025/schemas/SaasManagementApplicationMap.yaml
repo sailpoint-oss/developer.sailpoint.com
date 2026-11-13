@@ -1,0 +1,17 @@
+type: object
+title: SaaS Management Application to IdentityNow Source Mapping
+properties:
+  saasManagementId:
+    type: string
+    nullable: true
+    description: >-
+      SaaS Management application ID, or null to remove mapping for specified identityNowSourceId.
+      Both saasManagementId and identityNowSourceId cannot be null.
+    example: "2345bcd"
+  identityNowSourceId:
+    type: string
+    nullable: true
+    description: >-
+      IdentityNow source ID, or null to remove mapping for specified saasManagementId.
+      Both saasManagementId and identityNowSourceId cannot be null.
+    example: "2c9180866166b5b0016167c32ef31a66"

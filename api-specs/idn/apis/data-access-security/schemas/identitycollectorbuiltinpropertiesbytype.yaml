@@ -1,0 +1,28 @@
+type: object
+properties:
+  type:
+    type: string
+    description: Identity collector type display name.
+    example: Azure Active Directory
+  users:
+    type: array
+    description: Built-in user source attribute names that can be used in field mappings for the identity collector type.
+    items:
+      type: string
+    example:
+      - userPrincipalName
+      - displayName
+      - department
+  groups:
+    type: array
+    description: Built-in group source attribute names that can be used in field mappings for the identity collector type.
+    items:
+      type: string
+    example:
+      - displayName
+      - mailEnabled
+      - objectId
+required:
+- type
+- users
+- groups

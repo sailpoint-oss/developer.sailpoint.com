@@ -1,0 +1,54 @@
+# The Machine Identity
+allOf:
+  - $ref: './BaseCommonDto.yaml'
+  - type: object
+    title: MachineIdentityDto
+    required:
+      - businessApplication
+      - subtype
+    properties:
+      businessApplication:
+        type: string
+        description: The business application that the identity represents
+        example: 'ADService'
+      description:
+        type: string
+        description: Description of machine identity
+        example: ''
+      attributes:
+        type: object
+        description: A map of custom machine identity attributes
+        example: '{"Region":"EU"}'
+      subtype:
+        type: string
+        description: The subtype value associated to the machine identity
+        example: 'Application'
+      owners:
+        type: object
+        description: The owner configuration associated to the machine identity
+        required:
+            - primaryIdentity
+            - secondaryIdentities
+        properties:
+          primaryIdentity:
+            type: object
+            description: Defines the identity which is selected as the primary owner
+            allOf:
+              - $ref: './BaseReferenceDto.yaml'
+          secondaryIdentities:
+            type: array
+            items:
+              $ref: './BaseReferenceDto.yaml'
+            description: Defines the identities which are selected as secondary owners
+      sourceId:
+        type: string
+        description: The source id associated to the machine identity
+        example: '6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa'
+      uuid:
+        type: string
+        description: The UUID associated to the machine identity directly aggregated from a source
+        example: 'f5dd23fe-3414-42b7-bb1c-869400ad7a10'
+      nativeIdentity:
+        type: string
+        description: The native identity associated to the machine identity directly aggregated from a source
+        example: 'abc:123:dddd'

@@ -1,0 +1,30 @@
+type: object
+title: Machine Identity Bulk Update Request
+description: Machine identities to update and the JSON Patch operations to apply to each of them.
+required:
+  - ids
+  - jsonPatch
+properties:
+  ids:
+    type: array
+    description: IDs of the machine identities to update. Provide between 1 and 100 IDs.
+    minItems: 1
+    maxItems: 100
+    items:
+      type: string
+      maxLength: 128
+    example:
+      - ef38f94347e94562b5bb8424a56397d8
+      - 2c9180858082150f0180893dbaf44201
+  jsonPatch:
+    type: array
+    description: >-
+      [JSON Patch](https://tools.ietf.org/html/rfc6902) operations applied to every machine identity in `ids`. Only
+      these paths can be patched: `/description`, `/userEntitlements`, `/owners`, `/owners/primary`, and
+      `/owners/secondary`.
+    items:
+      $ref: ../../shared/schemas/jsonpatchoperation.yaml
+    example:
+      - op: replace
+        path: /description
+        value: Agent used by the finance team

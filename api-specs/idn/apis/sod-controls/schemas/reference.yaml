@@ -1,0 +1,22 @@
+type: object
+description: Reference to an identity or governance group returned in a response.
+required:
+  - id
+  - type
+properties:
+  id:
+    type: string
+    description: >
+      Opaque identifier in the exact form required by the owning service (case, dashes, etc. must be preserved).
+    example: "943a7c57da334d07ba2454bf7fcf144f"
+  type:
+    type: string
+    description: The type of object being referenced.
+    example: "IDENTITY"
+  name:
+    type: string
+    nullable: true
+    description: >
+      Human-readable name for the referenced identity or governance group when known.
+      Omitted when unknown; null is allowed in the schema when clients send or receive explicit nulls.
+    example: "John Doe"

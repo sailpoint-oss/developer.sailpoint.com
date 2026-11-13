@@ -1,0 +1,30 @@
+type: object
+title: Cancel Lifecycle Action Response
+required:
+  - requestId
+  - status
+  - action
+  - targetId
+properties:
+  requestId:
+    type: string
+    format: uuid
+    description: Lifecycle request identifier.
+    example: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+  status:
+    type: string
+    description: Status of the request after the cancel is accepted. Always `CANCELING`.
+    enum:
+      - CANCELING
+    example: CANCELING
+  action:
+    $ref: ./lifecycleaction.yaml
+  targetId:
+    type: string
+    format: uuid
+    description: ID of the machine identity the request applies to.
+    example: 1c9c8e1f-2f5f-4f77-9f7e-5d37e4fb3ef0
+  resourceId:
+    type: string
+    description: ID of the machine identity in its source system, when available.
+    example: aws:bedrock:agent-42

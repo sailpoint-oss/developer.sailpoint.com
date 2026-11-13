@@ -1,0 +1,8 @@
+type: string
+enum:
+  - APPROVED
+  - REJECTED
+  - FORWARDED
+description: >-
+  Enum represents action that is being processed on an approval.
+example: APPROVED

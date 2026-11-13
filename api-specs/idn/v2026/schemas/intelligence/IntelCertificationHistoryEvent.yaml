@@ -1,0 +1,30 @@
+type: object
+required:
+  - eventType
+description: Certification history event. Supported eventType is IdentityCertified.
+additionalProperties: true
+properties:
+  eventType:
+    type: string
+    enum:
+      - IdentityCertified
+    description: Type of certification history event.
+    example: IdentityCertified
+  dateTime:
+    type: string
+    format: date-time
+    description: Event timestamp.
+    example: "2019-03-08T22:37:33.901Z"
+  certificationId:
+    type: string
+    description: Identifier of the certification.
+    example: 2c91808a77ff216301782327a50f09bf
+  certificationName:
+    type: string
+    description: Display name of the certification.
+    example: Example certification
+  signedDate:
+    type: string
+    format: date-time
+    description: Timestamp when the certification was signed.
+    example: "2019-03-08T22:37:33.901Z"

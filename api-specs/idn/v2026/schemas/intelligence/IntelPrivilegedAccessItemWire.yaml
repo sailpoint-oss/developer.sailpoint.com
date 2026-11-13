@@ -1,0 +1,46 @@
+type: object
+required:
+  - privileged
+  - id
+  - type
+properties:
+  privileged:
+    type: boolean
+    description: True when this item is classified as privileged access for the identity.
+    example: true
+  id:
+    type: string
+    description: Identifier of the privileged access item.
+    example: ent-1
+  type:
+    type: string
+    description: Type of privileged access object.
+    example: entitlement
+  displayName:
+    type: string
+    description: Display label for the privileged access item in administrative experiences.
+    example: Example_Admin_Access
+  name:
+    type: string
+    description: Technical name of the privileged access item.
+    example: Example_Admin_Access
+  source:
+    type: object
+    description: Source metadata associated with the privileged access item when present.
+    properties:
+      name:
+        type: string
+        description: Human-readable source name for the privileged access item.
+        example: Example HR Source
+      id:
+        type: string
+        description: Source identifier for the privileged access item.
+        example: src-2
+  attribute:
+    type: string
+    description: Source attribute name that carries the privileged value when applicable.
+    example: EXAMPLE_PERMISSION_GROUPS
+  value:
+    type: string
+    description: Privileged value on the source attribute when applicable.
+    example: Example_Admin_Access

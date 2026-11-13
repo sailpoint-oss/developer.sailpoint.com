@@ -1,0 +1,8 @@
+enum:
+  - 0
+  - 1
+  - 2
+type: integer
+description: 'SSL option for FPolicy: 0 - NoAuth, 1 - ServerAuth, 2 - MutualAuth'
+format: int32
+example: 1

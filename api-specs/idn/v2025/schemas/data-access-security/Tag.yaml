@@ -1,0 +1,12 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+    description: The unique identifier for the tag.
+    example: 101
+  name:
+    type: string
+    nullable: true
+    description: The display name or label for the tag.
+    example: "Confidential"

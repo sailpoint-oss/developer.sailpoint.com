@@ -1,0 +1,12 @@
+# CampaignOrphanEntitlementSource
+
+# CampaignOrphanEntitlementSource
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**type** | `string` | Kind of reference; currently only SOURCE is used. | [default to undefined]
+**id** | `string` | Identifier of the source. | [default to undefined]
+**name** | `string` | Display name of the source. | [default to undefined]
+

@@ -1,0 +1,52 @@
+type: object
+description: |
+  Persisted tenant-default reminder and escalation rules for one domain object type.
+  The key is the authenticated tenant plus `domainObjectType`.
+required:
+- tenantId
+- domainObjectType
+- rules
+- schemaVersion
+- revision
+- createdAt
+- updatedAt
+properties:
+  tenantId:
+    type: string
+    format: uuid
+    readOnly: true
+    description: Tenant id taken from the authenticated request.
+    example: 2c918085-7d3a-4c3a-9f1e-0b6c8a1d2e3f
+  domainObjectType:
+    type: string
+    enum:
+    - PERSONAL_ACCESS_TOKEN
+    - CERTIFICATION
+    description: Domain object type this default applies to.
+    example: CERTIFICATION
+  rules:
+    $ref: './reminderescalationruleset.yaml'
+  schemaVersion:
+    type: integer
+    format: int32
+    readOnly: true
+    description: Schema version assigned by the service. Clients do not set this field.
+    example: 1
+  revision:
+    type: integer
+    format: int32
+    minimum: 1
+    description: Optimistic-lock counter. Echo this value on update.
+    example: 1
+  createdAt:
+    type: string
+    format: date-time
+    readOnly: true
+    description: When this tenant default was created.
+    example: "2026-10-28T17:00:00Z"
+  updatedAt:
+    type: string
+    format: date-time
+    readOnly: true
+    description: When this tenant default was last updated.
+    example: "2026-10-28T17:30:00Z"

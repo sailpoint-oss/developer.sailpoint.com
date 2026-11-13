@@ -1,0 +1,30 @@
+type: object
+title: MCP Package
+description: >-
+  A package an MCP server can be installed or launched from. Every property is always present in the
+  response and is `null` when the registry does not supply it.
+properties:
+  registryType:
+    type: string
+    nullable: true
+    description: Package registry that hosts the package.
+    example: npm
+  identifier:
+    type: string
+    nullable: true
+    description: Package identifier within the registry.
+    example: '@modelcontextprotocol/server-github'
+  command:
+    type: string
+    nullable: true
+    description: Command used to launch the package.
+    example: npx
+  args:
+    type: array
+    nullable: true
+    description: Arguments passed to the launch command, in the order they are applied.
+    items:
+      type: string
+    example:
+      - '-y'
+      - '@modelcontextprotocol/server-github'

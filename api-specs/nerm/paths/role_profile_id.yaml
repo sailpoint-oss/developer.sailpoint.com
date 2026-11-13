@@ -1,0 +1,19 @@
+delete:
+  summary: Delete a role profile assignment
+  operationId: deleteRoleProfile
+  description: Delete a role profile assignment
+  tags:
+    - role profiles
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      description: "Role profile was destroyed"
+      content:
+        application/json:
+          schema:
+            type: object
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

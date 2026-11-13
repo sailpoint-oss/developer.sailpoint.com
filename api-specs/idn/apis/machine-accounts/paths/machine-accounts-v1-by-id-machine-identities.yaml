@@ -1,0 +1,59 @@
+get:
+  operationId: listMachineAccountMachineIdentitiesV1
+  tags:
+  - Machine Accounts
+  summary: List linked machine identities
+  description: |
+    Use this API to list the machine identities that are linked to a machine account through source resource links. The response is an empty list when no machine identities are linked.
+
+    This API returns `400` when the machine account has no native identity or source.
+
+    A caller who owns the machine account can list its machine identities. Other callers need the **idn:mis-account:read** right.
+
+    When this capability is not enabled for the tenant, this API returns `403`.
+  security:
+  - userAuth:
+    - idn:mis-account:read
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  - HELPDESK
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    x-sailpoint-resource-operation-id: listMachineAccountsV1
+    description: Machine Account ID.
+    example: ef38f94347e94562b5bb8424a56397d8
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: List of machine identities linked to the machine account.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/machineaccountlinkedmachineidentity.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

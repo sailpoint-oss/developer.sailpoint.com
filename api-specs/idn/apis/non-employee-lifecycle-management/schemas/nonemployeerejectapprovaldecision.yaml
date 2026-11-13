@@ -1,0 +1,9 @@
+type: object
+properties:
+  comment:
+    type: string
+    description: Comment on the approval item.
+    maxLength: 4000
+    example: approved
+required:
+  - comment

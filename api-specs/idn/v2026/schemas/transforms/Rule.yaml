@@ -1,0 +1,5 @@
+title: rule
+oneOf:
+  - $ref: './rules/TransformRule.yaml'
+  - $ref: './rules/GenerateRandomString.yaml'
+  - $ref: './rules/GetReferenceIdentityAttribute.yaml'

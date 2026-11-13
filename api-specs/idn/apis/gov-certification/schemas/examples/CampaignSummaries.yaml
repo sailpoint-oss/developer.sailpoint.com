@@ -1,0 +1,65 @@
+value:
+  - id: 2c918086-719e-ec07-0171-a7e3355a360a
+    name: Manager Review
+    description: A review of everyone's access by their manager.
+    deadline: '2020-12-25'
+    type: IDENTITY
+    status: ACTIVE
+    emailNotificationEnabled: false
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    sunsetCommentsRequired: true
+    reviewer:
+      type: MANAGER
+    generationType: SEARCH
+    created: '2022-08-02T19:00:27.731Z'
+    totalCertifications: 10
+    completedCertifications: 3
+  - id: 7e1a731e-3fb8-45cf-be58-112ba4673ee4
+    name: Search Campaign
+    description: A review of access returned by a search.
+    deadline: '2022-07-26'
+    type: IDENTITY
+    status: ACTIVE
+    emailNotificationEnabled: false
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    sunsetCommentsRequired: true
+    reviewer:
+      type: MANAGER
+    generationType: SEARCH
+    created: '2022-07-25T15:42:18.276Z'
+    totalCertifications: 5
+    completedCertifications: 3
+  - id: 2c918086-719e-ec07-0171-a7e3355a412b
+    name: AD Source Review
+    description: A review of the Active Directory source.
+    deadline: '2020-12-25'
+    type: IDENTITY
+    status: STAGED
+    emailNotificationEnabled: true
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    sunsetCommentsRequired: true
+    reviewer:
+      type: SOURCE_OWNER
+    generationType: CAMPAIGN_FILTER
+    created: '2022-07-27T17:04:19.027Z'
+    totalCertifications: 7
+    completedCertifications: 3
+  - id: 3b2e2e58-21e8-4127-b6d6-93d41c40623b
+    name: Machine Accounts Campaign
+    description: A review of machine accounts.
+    deadline: '2020-12-25'
+    type: MACHINE_ACCOUNT
+    status: ACTIVE
+    emailNotificationEnabled: false
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    sunsetCommentsRequired: true
+    reviewer:
+      type: ACCOUNT_OWNER
+    generationType: CAMPAIGN_FILTER
+    created: '2022-08-02T20:29:51.065Z'
+    totalCertifications: 4
+    completedCertifications: 1

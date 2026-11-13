@@ -1,0 +1,12 @@
+type: object
+properties:
+  isEnabled:
+    type: boolean
+    description: Indicates whether the feature or configuration is enabled.
+    example: true
+    default: false
+  clusterId:
+    type: string
+    nullable: true
+    description: The identifier of the cluster associated with this configuration, if applicable.
+    example: "cluster-001"

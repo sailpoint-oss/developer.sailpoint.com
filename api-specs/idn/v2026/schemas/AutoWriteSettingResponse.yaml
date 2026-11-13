@@ -1,0 +1,16 @@
+description: Auto-Write Setting response with timestamps
+title: Auto-Write Setting Response
+allOf:
+  - $ref: ./AutoWriteSetting.yaml
+  - type: object
+    properties:
+      createdAt:
+        description: When settings were first created
+        type: string
+        format: date-time
+        example: "2026-02-15T10:30:00Z"
+      updatedAt:
+        description: When settings were last modified
+        type: string
+        format: date-time
+        example: "2026-03-09T14:22:00Z"

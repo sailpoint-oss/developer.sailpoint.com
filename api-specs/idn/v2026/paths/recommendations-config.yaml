@@ -1,0 +1,78 @@
+get:
+  operationId: getRecommendationsConfig
+  summary: Get certification recommendation config values
+  tags:
+  - IAI Recommendations
+  description: Retrieves configuration attributes used by certification recommendations.
+  responses:
+    '200':
+      description: Cert recommendation configuration attributes
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/RecommendationConfigDto.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth: [ iai:configuration:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+put:
+  operationId: updateRecommendationsConfig
+  summary: Update certification recommendation config values
+  tags:
+  - IAI Recommendations
+  description: Updates configuration attributes used by certification recommendations.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/RecommendationConfigDto.yaml
+  responses:
+    '200':
+      description: Cert recommendation configuration attributes after update
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/RecommendationConfigDto.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth: [ iai:configuration:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true

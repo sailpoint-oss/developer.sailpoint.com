@@ -1,0 +1,23 @@
+type: object
+required:
+  - isOrphaned
+  - authorizedHumanIdentities
+  - blastRadiusSummary
+description: Derived SOC triage signals for non-human identity risk assessment.
+properties:
+  isOrphaned:
+    type: boolean
+    description: Flags NHIs without a valid active owner for prioritization.
+    example: false
+  authorizedHumanIdentities:
+    type: array
+    description: Humans who can invoke or access this NHI agent.
+    items:
+      $ref: ./intelmachineentityref.yaml
+    example:
+      - type: IDENTITY
+        id: ef38f94347e94562b5bb8424a56397d8
+        name: Example User
+        email: user@example.com
+  blastRadiusSummary:
+    $ref: ./intel-blast-radius-summary.yaml

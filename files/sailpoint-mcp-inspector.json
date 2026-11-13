@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "sailpoint-access-requests": {
+      "type": "streamable-http",
+      "url": "https://mcp.sailpoint.com/latest/access-requests/mcp",
+      "oauth": {
+        "clientId": "YOUR_CLIENT_ID",
+        "scopes": "idn:access-request:manage"
+      }
+    },
+    "sailpoint-identity-intelligence": {
+      "type": "streamable-http",
+      "url": "https://mcp.sailpoint.com/latest/intelligence/mcp",
+      "oauth": {
+        "clientId": "YOUR_CLIENT_ID",
+        "scopes": "sp:identity-sec-intel:read"
+      }
+    }
+  }
+}

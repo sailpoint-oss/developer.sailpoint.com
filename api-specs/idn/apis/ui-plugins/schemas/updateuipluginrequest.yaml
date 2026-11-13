@@ -1,0 +1,46 @@
+type: object
+title: Update UI Plugin Request
+x-sailpoint-lint-ignore:
+  schema-optional-properties-must-have-default: This is a partial update. The service does not change a property that the request leaves out, so a default value is not correct.
+description: All fields optional; only supplied fields are updated.
+properties:
+  alias:
+    type: string
+    minLength: 3
+    maxLength: 63
+    pattern: '^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$'
+    description: Replacement alias, unique per tenant and normalized to lowercase
+    example: my-custom-plugin
+  name:
+    $ref: ./localizedstringmap.yaml
+  description:
+    $ref: ./localizedstringmap.yaml
+  apiScopes:
+    type: array
+    maxItems: 20
+    description: Replaces the existing list entirely when provided
+    items:
+      type: string
+      maxLength: 128
+    example:
+      - idn:account:read
+  slots:
+    type: array
+    maxItems: 10
+    description: Replaces the existing list when provided
+    items:
+      $ref: ./pluginslot.yaml
+  contentSecurityPolicies:
+    $ref: ./directivepolicymap.yaml
+  permissionPolicy:
+    $ref: ./directivepolicymap.yaml
+  iframeAllow:
+    $ref: ./directivepolicymap.yaml
+  iframeSandbox:
+    allOf:
+      - $ref: ./iframesandbox.yaml
+    description: >-
+      Opt-in iframe `sandbox` grants. Replaces the existing list entirely when
+      provided; send `[]` to clear all grants. Omit to leave unchanged.
+  state:
+    $ref: ./plugininstancestate.yaml

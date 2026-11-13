@@ -1,0 +1,20 @@
+value:
+  name: Object Owner Campaign
+  description: Object Owner Campaign
+  type: IDENTITY
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  sunsetCommentsRequired: true
+  autoActivate: false
+  mandatoryCommentRequirement: NO_DECISIONS
+  reviewer:
+    type: OBJECT_OWNER
+  searchBasedParams:
+    searchType: ACCESS
+    query: Admin
+    accessConstraints:
+      - type: ACCESS_PROFILE
+        ids:
+          - 2c918086837cc4c80183806307541aa9
+        operator: SELECTED

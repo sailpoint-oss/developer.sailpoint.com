@@ -1,0 +1,20 @@
+type: object
+properties:
+  attributes:
+    type: array
+    nullable: true
+    items:
+      $ref: ./attributedto.yaml
+    example:
+      - key: iscPrivacy
+        name: Privacy
+        multiselect: false
+        status: active
+        type: governance
+        objectTypes:
+          - all
+        description: Specifies the level of privacy associated with an access item.
+        values:
+          - value: public
+            name: Public
+            status: active

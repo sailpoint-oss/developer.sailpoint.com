@@ -1,0 +1,54 @@
+openapi: 3.0.1
+info:
+  title: SailPoint Identity Security API - Machine Account Subtypes
+  description: >-
+    Use these APIs to interact with the SailPoint Identity Security platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Machine Account Subtypes
+    description: |
+      Use this API to get, update, and delete machine account subtype for sources.
+paths:
+  /source-subtypes/v1/bulk-retrieve:
+    $ref: ./paths/source-subtypes-v1-bulk-retrieve.yaml
+  /source-subtypes/v1:
+    $ref: ./paths/source-subtypes-v1.yaml
+  /source-subtypes/v1/{subtypeId}:
+    $ref: ./paths/source-subtypes-v1-by-subtypeid.yaml
+  /source-subtypes/v1/{subtypeId}/machine-config:
+    $ref: ./paths/source-subtypes-v1-by-subtypeid-machine-config.yaml
+  /source-subtypes/v2:
+    $ref: ./paths/source-subtypes-v2.yaml
+  /source-subtypes/v2/targets:
+    $ref: ./paths/source-subtypes-v2-targets.yaml
+  /source-subtypes/v2/{id}:
+    $ref: ./paths/source-subtypes-v2-by-id.yaml
+  /source-subtypes/v2/{id}/overrides:
+    $ref: ./paths/source-subtypes-v2-by-id-overrides.yaml
+  /source-subtypes/v2/{id}/provisioning-policy:
+    $ref: ./paths/source-subtypes-v2-by-id-provisioning-policy.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

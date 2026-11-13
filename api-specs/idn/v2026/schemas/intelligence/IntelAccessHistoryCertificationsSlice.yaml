@@ -1,0 +1,15 @@
+type: object
+required:
+  - items
+description: Certification history slice embedded in the aggregate identity response.
+properties:
+  items:
+    type: array
+    description: First page of certification history events for the identity.
+    items:
+      $ref: ./IntelCertificationHistoryEvent.yaml
+  next:
+    type: string
+    format: uri
+    description: Absolute URL to the next certifications page; present only when more results exist.
+    example: https://tenant.example.api.cloud.sailpoint.com/v2026/intelligence/identities/ef38f94347e94562b5bb8424a56397d8/access-history/certifications?limit=10&offset=10

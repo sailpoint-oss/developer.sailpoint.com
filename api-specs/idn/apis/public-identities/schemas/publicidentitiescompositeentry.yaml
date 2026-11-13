@@ -1,0 +1,10 @@
+title: Public Identities Composite Entry
+description: A querySet entry that is either a TEXT clause or a nested COMPOSITE querySet.
+discriminator:
+  propertyName: queryType
+  mapping:
+    TEXT: ./publicidentitiestextentry.yaml
+    COMPOSITE: ./publicidentitiesnestedcompositeentry.yaml
+oneOf:
+- $ref: ./publicidentitiestextentry.yaml
+- $ref: ./publicidentitiesnestedcompositeentry.yaml

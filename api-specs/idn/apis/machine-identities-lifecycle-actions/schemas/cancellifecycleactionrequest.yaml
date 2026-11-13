@@ -1,0 +1,13 @@
+type: object
+title: Cancel Lifecycle Action Request
+description: >-
+  Optional details for the cancel request. The request to cancel is identified by the `requestId` in
+  the path.
+properties:
+  comment:
+    x-sailpoint-lint-ignore:
+      schema-optional-properties-must-have-default: There is no default comment. When comment is omitted, no comment is added.
+    type: string
+    description: Optional cancel comment appended to the lifecycle request comment thread.
+    maxLength: 1000
+    example: Cancelling - will resubmit after maintenance window

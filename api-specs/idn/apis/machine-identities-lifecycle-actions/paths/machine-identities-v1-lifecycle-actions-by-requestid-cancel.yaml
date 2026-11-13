@@ -1,0 +1,76 @@
+post:
+  operationId: cancelMachineIdentityLifecycleActionV1
+  tags:
+  - Machine Identity Lifecycle Actions
+  summary: Cancel machine identity lifecycle action
+  description: |
+    Cancels a lifecycle action request that hasn't started provisioning yet. When the cancel is
+    accepted, the request moves to `CANCELING` status.
+
+    A request can't be canceled once provisioning has started, after it has finished, or while a cancel
+    is already in progress.
+
+    The request body is optional. Use it to add a comment explaining why the request was canceled.
+
+    You can always cancel requests that you submitted. To cancel a request that someone else submitted,
+    you need the `idn:machine-identity:lifecycle-action` right **and** admin or owner access to the
+    machine identity. Admin or owner access means you're an org admin, a source admin, a source sub-admin
+    for the machine identity's source, or the machine identity's owner.
+
+    If the cancel can't be completed, the API returns an error and the request stays in `CANCELING`
+    status.
+  security:
+  - userAuth:
+    - idn:mis-identity:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  - USER
+  parameters:
+  - in: path
+    name: requestId
+    schema:
+      type: string
+      format: uuid
+    required: true
+    x-sailpoint-resource-operation-id: listMachineIdentityLifecycleActionsV1
+    description: Lifecycle request identifier.
+    example: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: 'true'
+    schema:
+      type: string
+      default: 'true'
+    required: true
+  requestBody:
+    required: false
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/cancellifecycleactionrequest.yaml
+        examples:
+          Cancel with comment:
+            value:
+              comment: Cancelling - will resubmit after maintenance window
+  responses:
+    '202':
+      description: Accepted. The lifecycle request cancel was accepted.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/cancellifecycleactionresponse.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

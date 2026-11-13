@@ -1,0 +1,21 @@
+type: object
+properties:
+  query:
+    type: string
+    description: Search query that selects the access included in the insight.
+    example: admin
+  identityIdFilter:
+    type: array
+    description: Identity IDs used to limit the insight to specific identities.
+    items:
+      type: string
+    example:
+      - 2c918085718230600171993742c63558
+  type:
+    $ref: 'ScopedAccessType.yaml'
+  campaignType:
+    type: string
+    description: The type of search campaign. Can only be IDENTITY
+    enum:
+      - IDENTITY
+    example: IDENTITY

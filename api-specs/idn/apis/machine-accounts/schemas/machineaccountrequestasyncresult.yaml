@@ -1,0 +1,10 @@
+type: object
+title: Machine Account Request Async Result
+description: Response for a machine account request that is processed asynchronously.
+required:
+- accountRequestId
+properties:
+  accountRequestId:
+    type: string
+    description: ID of the task that tracks the account request.
+    example: 2d81808474683da6017468693c260196

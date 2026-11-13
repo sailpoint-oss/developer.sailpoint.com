@@ -1,0 +1,15 @@
+post:
+  summary: Create a permission
+  description: This endpoint can create permissions for Lifecycle, Consolidation, and Collaboration
+  operationId: createPermission
+  tags:
+    - permissions
+  requestBody:
+    $ref: "../requestBodies/POST/Permissions.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Permission.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

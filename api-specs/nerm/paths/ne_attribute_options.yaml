@@ -1,0 +1,50 @@
+get:
+  summary: Get option based attribute values
+  operationId: getAttributeOptions
+  description: Get option based attribute values
+  tags:
+    - attribute options
+  parameters:
+    - $ref: "../parameters/query/limit.yaml"
+    - $ref: "../parameters/query/offset.yaml"
+    - $ref: "../parameters/query/order.yaml"
+    - $ref: "../parameters/query/ne_attribute_id.yaml"
+#   - $ref: "../parameters/query/option.yaml" - Not implemented as of 4.16.2
+    - $ref: "../parameters/query/metadata.yaml"
+  responses:
+    '200':
+      $ref: "../responses/AttributeOptions_Meta.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Create multiple option values
+  operationId: submitAttributeOptions
+  description: Create multiple new option based attribute values
+  tags:
+    - attribute options
+  requestBody:
+    $ref: "../requestBodies/POST/AttributeOptions.yaml"
+  responses:
+    '200':
+      $ref: "../responses/AttributeOptionsJob.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update multiple option values
+  operationId: patchAttributeOptions
+  description: Update multiple option based attribute values
+  tags:
+    - attribute options
+  requestBody:
+    $ref: "../requestBodies/PATCH/AttributeOptions.yaml"
+  responses:
+    '200':
+      $ref: "../responses/AttributeOptionsJob.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

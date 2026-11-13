@@ -1,0 +1,14 @@
+type: object
+title: Machine Identity Daily Counts Day
+description: Counts recorded for a single calendar day.
+properties:
+  day:
+    type: string
+    format: date
+    description: Calendar day (UTC) the counts were recorded for.
+    example: '2026-06-25'
+  metrics:
+    type: array
+    description: Counts for each entity type and subtype. The array is empty when no counts were recorded for the day.
+    items:
+      $ref: ./machineidentitydailycountmetric.yaml

@@ -1,0 +1,70 @@
+post:
+  operationId: createSourceSubtypeOverrideV2
+  tags:
+  - Machine Account Subtypes
+  summary: Override source connector subtype
+  description: |-
+    Create a source subtype that overrides a connector subtype on one source. The new source subtype copies the
+    connector subtype's machine account configuration and provisioning policy at the time of the request. Later
+    changes to the connector subtype are not applied to the override.
+
+    The subtype identified by `id` must be a `CONNECTOR` subtype (otherwise `400`) that is in the source's effective
+    subtypes. An unknown subtype or source returns `404`. The request is rejected if the tenant's subtype
+    configuration cannot be changed this way.
+
+    The caller needs the `idn:source-subtypes:create` right, held by org admins, source admins and source sub-admins.
+    A caller without it receives `404`, not `403`. A malformed ID returns `400`.
+
+    This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+  security:
+  - userAuth:
+    - idn:sources:manage
+  - applicationAuth:
+    - idn:sources:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+      format: uuid
+    description: The ID of the connector subtype to override.
+    example: 43bdd144-4b17-4fce-a744-17c7fd3e717b
+    x-sailpoint-resource-operation-id: listSourceSubtypesV2
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/sourcesubtypeoverriderequest.yaml
+  responses:
+    '201':
+      description: Created source subtype that overrides the connector subtype.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/sourcesubtypev2.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

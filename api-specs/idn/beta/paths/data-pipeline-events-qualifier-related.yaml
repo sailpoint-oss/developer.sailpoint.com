@@ -1,0 +1,31 @@
+get:
+  operationId: getRelatedQualifiers
+  tags:
+    - IAI Data Pipeline Events
+  summary: Get related qualifiers of a given qualifier
+  description: >-
+    Given a qualifier, this will return a list of related qualifiers 
+
+    Requires security scope of 'iai:data-pipeline:read'
+  parameters:
+    - in: path
+      name: qualifier
+      schema:
+        type: string
+      required: true
+      description: >-
+        Filter results based on the specified qualifier.
+      example: "20210205164448"
+  responses:
+    '200':
+      description: Data pipeline qualifier and related qualifiers
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/DataPipelineRelatedQualifiers.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'

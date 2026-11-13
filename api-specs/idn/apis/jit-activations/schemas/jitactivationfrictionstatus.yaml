@@ -1,0 +1,12 @@
+type: string
+title: JIT Activation Friction Status
+description: Lifecycle of one friction step.
+enum:
+  - PENDING
+  - ACTIVE
+  - TIMED_OUT
+  - COMPLETE
+  - NOT_APPLICABLE
+  - CANCELLED
+  - FAILED
+example: ACTIVE

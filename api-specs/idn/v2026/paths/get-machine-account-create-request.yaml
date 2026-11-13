@@ -1,0 +1,48 @@
+get:
+  operationId: getCreateMachineAccountRequest
+  tags:
+    - Machine Account Creation Request
+  summary: Get Machine Account Creation Request
+  description: Retrieves a account request details for machine account creation. This allows the user to view all details for given account request.
+  security:
+    - userAuth: [ ]
+  x-sailpoint-userLevels:
+    - USER
+  parameters:
+    - in: header
+      name: X-SailPoint-Experimental
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+    - in: path
+      name: accountRequestId
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: createMachineAccountRequest
+      description: Account Request ID
+      example: gt38f94347e94562b5bb8424a56498d8
+  responses:
+    '200':
+      description: Account Request Details object
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/AccountRequestDetailsDto.yaml
+          example:
+            $ref: ../schemas/examples/machine-account-creation-request-details.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

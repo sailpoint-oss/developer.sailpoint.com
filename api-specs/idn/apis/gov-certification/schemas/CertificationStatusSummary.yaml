@@ -1,0 +1,33 @@
+type: object
+description: Status summary of active certifications
+properties:
+  activeCertifications:
+    description: The number of active certifications
+    type: integer
+    example: 20
+    format: int32
+  overdueCertifications:
+    description: The number of certifications passed the due date
+    type: integer
+    example: 20
+    format: int32
+  maximumDaysOverdue:
+    description: The maximum number of days past due the most overdue certification is
+    type: integer
+    example: 20
+    format: int32
+  minimumDaysLeftToComplete:
+    description: The closest number of days to completion
+    type: integer
+    example: 20
+    format: int32
+  completedDecisionsForActiveCerts:
+    description: The number of of decisions that have been made
+    type: integer
+    example: 20
+    format: int32
+  pendingDecisionsForActiveCerts:
+    description: The number of decisions that are pending
+    type: integer
+    example: 20
+    format: int32

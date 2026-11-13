@@ -1,0 +1,18 @@
+# IdentityV2Manager
+
+# IdentityV2Manager
+
+Import this model from the entry point of its package:
+
+```typescript
+import { IdentityV2Manager } from '@sailpoint/angular-sdk/identities';
+```
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **(optional)** `string` | ID of the identity\'s manager. | [default to undefined]
+**name** | **(optional)** `string` | Display name of the identity\'s manager. | [default to undefined]
+**type** | **(optional)** `string` | DTO type of the identity\'s manager. | [default to undefined]
+

@@ -1,0 +1,14 @@
+type: object
+properties:
+  identityId:
+    type: string
+    nullable: false
+    description: The identity id for which the access is requested
+    example: 'cb89bc2f1ee6445fbea12224c526ba3a'
+  requestedItems:
+    description: the details for the access items that are requested for the identity
+    type: array
+    items:
+      $ref: 'RequestedItemDtoRef.yaml'
+    nullable: false
+required : ["identityId", "requestedItems"]

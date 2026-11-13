@@ -1,0 +1,13 @@
+title: Create UI Plugin Response
+description: >-
+  A plugin instance plus the ephemeral `devDocumentHeaders` returned only when
+  the instance is created. These headers are not returned when listing or
+  fetching plugin instances.
+allOf:
+  - $ref: ./uiplugin.yaml
+  - type: object
+    required:
+      - devDocumentHeaders
+    properties:
+      devDocumentHeaders:
+        $ref: ./plugindocumentheaders.yaml

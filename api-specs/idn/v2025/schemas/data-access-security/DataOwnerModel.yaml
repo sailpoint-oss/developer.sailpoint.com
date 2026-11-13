@@ -1,0 +1,17 @@
+type: object
+properties:
+  identityId:
+    type: string
+    format: uuid
+    description: The unique identifier (UUID) of the identity assigned as the owner of the resource.
+    example: "c1a2b3d4-e5f6-7890-abcd-1234567890ab"
+  resourceId:
+    type: integer
+    format: int64
+    description: The unique identifier of the resource owned by the identity.
+    example: 1001
+  fullPath:
+    type: string
+    nullable: true
+    description: The full path to the resource within the system or application.
+    example: "/departments/finance/shared"

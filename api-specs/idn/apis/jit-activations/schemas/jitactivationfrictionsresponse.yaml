@@ -1,0 +1,42 @@
+type: object
+title: JIT Activation Frictions Response
+description: Friction state for an activation.
+required:
+  - activationId
+  - frictionState
+  - connectionId
+  - activationInitTime
+  - expiryMins
+  - frictions
+properties:
+  activationId:
+    type: string
+    format: uuid
+    nullable: true
+    description: Identifier of the activation.
+    example: 857fb802-1034-786a-151e-d3a56e4c5bd9
+  frictionState:
+    allOf:
+      - $ref: ./jitactivationfrictionstate.yaml
+    nullable: true
+    description: Aggregate friction state of the activation.
+  connectionId:
+    type: string
+    nullable: true
+    description: Identifier of the entitlement connection.
+    example: 757fb803-9024-5861-e510-83a56e4c5bd3
+  activationInitTime:
+    type: string
+    format: date-time
+    nullable: true
+    description: Time the activation started.
+    example: '2026-05-08T18:33:52.029Z'
+  expiryMins:
+    type: string
+    description: Minutes allowed to complete all frictions.
+    example: '5'
+  frictions:
+    type: array
+    description: Friction steps for the activation.
+    items:
+      $ref: ./jitactivationfrictionresponse.yaml

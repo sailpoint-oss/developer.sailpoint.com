@@ -1,0 +1,71 @@
+type: object
+title: UI Plugin
+description: API response for a plugin instance (tenantId and internal fields omitted)
+required:
+  - pluginInstanceId
+  - alias
+  - name
+  - description
+  - apiScopes
+  - contentSecurityPolicies
+  - permissionPolicy
+  - iframeAllow
+  - iframeSandbox
+  - slots
+  - state
+  - created
+  - modified
+properties:
+  pluginInstanceId:
+    type: string
+    format: uuid
+    description: Unique identifier of the plugin instance
+    example: 2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c
+  alias:
+    type: string
+    description: Tenant-unique alias for the plugin instance, normalized to lowercase
+    example: my-custom-plugin
+  name:
+    $ref: ./localizedstringmap.yaml
+  description:
+    $ref: ./localizedstringmap.yaml
+  apiScopes:
+    type: array
+    description: OAuth scopes the plugin requests at registration
+    items:
+      type: string
+    example:
+      - idn:account:read
+  contentSecurityPolicies:
+    $ref: ./directivepolicymap.yaml
+  permissionPolicy:
+    $ref: ./directivepolicymap.yaml
+  iframeAllow:
+    $ref: ./directivepolicymap.yaml
+  iframeSandbox:
+    allOf:
+      - $ref: ./iframesandbox.yaml
+    description: >-
+      Opt-in iframe `sandbox` grants, de-duplicated and sorted. Empty when the
+      plugin has none, including instances created before this field existed.
+  activeAssetBundleId:
+    type: string
+    format: uuid
+    nullable: true
+    description: Currently active asset bundle, or null/omitted if none uploaded yet
+  slots:
+    type: array
+    items:
+      $ref: ./pluginslot.yaml
+  state:
+    $ref: ./plugininstancestate.yaml
+  created:
+    type: string
+    format: date-time
+    description: ISO 8601 creation timestamp
+    example: '2024-08-16T14:16:58.389Z'
+  modified:
+    type: string
+    format: date-time
+    description: ISO 8601 last-modified timestamp
+    example: '2024-08-16T14:16:58.389Z'

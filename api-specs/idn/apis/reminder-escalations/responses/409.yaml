@@ -1,0 +1,5 @@
+description: Conflict - Indicates that the request could not be processed because of conflict in the current state of the resource.
+content:
+  application/json:
+    schema:
+      $ref: ../../shared/schemas/errorresponsedto.yaml

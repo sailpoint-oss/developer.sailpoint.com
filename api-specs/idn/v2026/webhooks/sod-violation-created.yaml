@@ -1,0 +1,16 @@
+post:
+  summary: SOD Violation Created
+  operationId: sodViolationCreatedEvent
+  x-displayName: SODViolationCreated
+  description: >-
+    This event trigger fires once the new violation gets created. This is a `FIRE_AND_FORGET` event trigger. You can have a maximum of 50 subscriptions for this trigger.
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/webhooks/SODViolationCreatedPayload.yaml

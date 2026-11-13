@@ -1,0 +1,69 @@
+get:
+  operationId: testUiPluginAliasV1
+  x-sailpoint-lint-ignore:
+    path-response-codes-must-be-standard: The service returns 409 when the alias is already in use.
+  tags:
+    - UI Plugins
+  summary: Test plugin alias availability
+  description: >-
+    Checks whether the given alias is available within the caller's tenant.
+    Alias is normalized (trim + lowercase) server-side.
+
+
+    Success returns an empty body (HTTP 200). Conflict when the alias is taken.
+    UUID-shaped aliases are rejected as invalid.
+
+
+    Requires product license `idn:ui-plugins` or `idn:ui-plugins-author`
+    (404 if neither is present). Returns 400 `User context is invalid` when
+    the caller has no tenant id. The alias is evaluated only within that
+    tenant.
+  security:
+    - userAuth:
+        - idn:plugins-ui:read
+    - applicationAuth:
+        - idn:plugins-ui:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - name: alias
+      in: query
+      required: true
+      description: >-
+        Alias to validate (3-63 chars; letters, numbers, dashes; no
+        leading/trailing/consecutive dashes)
+      schema:
+        type: string
+        minLength: 3
+        maxLength: 63
+        pattern: '^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$'
+      example: my-custom-plugin
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+  responses:
+    '200':
+      description: Alias is available
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '409':
+      description: Alias already in use (message references conflicting plugin instance id)
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

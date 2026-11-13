@@ -1,0 +1,17 @@
+value:
+  name: Identity Campaign Template With Governance Group
+  description: Identity Campaign Template With Governance Group
+  campaignName: Identity Campaign With Governance Group
+  campaignDescription: Identity Campaign With Governance Group
+  type: IDENTITY
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  sunsetCommentsRequired: true
+  mandatoryCommentRequirement: NO_DECISIONS
+  reviewer:
+    type: GOVERNANCE_GROUP
+    id: 2c9180888380236101838062000c00ae
+    name: Admin Governance Group
+  filterRef:
+    id: d5e2cb8b-0779-4732-9190-ba8784dbcbb9

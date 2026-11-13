@@ -1,0 +1,7 @@
+type: object
+title: Get Mfa Token Request
+properties:
+  requestedFor:
+    type: string
+    description: The target for whom an MFA token is being created. Should either be an external id when called for a user or "me" when called by a user.
+    example: 'me'

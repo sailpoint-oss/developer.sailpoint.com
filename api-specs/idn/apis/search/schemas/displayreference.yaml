@@ -1,0 +1,7 @@
+allOf:
+  - $ref: ./reference.yaml
+  - type: object
+    properties:
+      displayName:
+        type: string
+        example: John Q. Doe

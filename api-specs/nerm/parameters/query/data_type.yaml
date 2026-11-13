@@ -1,0 +1,8 @@
+name: data_type
+in: query
+description: The attribute data type to filter by
+required: false
+schema:
+  type: string
+  enum: [text field, text area, drop-down, radio buttons, check boxes, date, tags, attachment, profile select, profile search, owner select, owner search, contributor select, contributor search]
+  example: text field

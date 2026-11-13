@@ -1,0 +1,8 @@
+allOf:
+  - $ref: './NonEmployeeSource.yaml'
+  - type: object
+    properties:
+      cloudExternalId:
+        type: string
+        description: Legacy ID used for sources from the V1 API. This attribute will be removed from a future version of the API and will not be considered a breaking change. No clients should rely on this ID always being present.
+        example: '99999'

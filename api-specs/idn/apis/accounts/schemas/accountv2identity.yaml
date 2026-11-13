@@ -1,0 +1,27 @@
+type: object
+title: AccountV2Identity
+nullable: true
+description: An identity reference associated with this account.
+properties:
+  id:
+    type: string
+    description: The unique ID of the identity.
+    example: 2c918084660f45d6016617daa9210584
+    nullable: true
+  type:
+    type: string
+    description: The DTO type of the identity.
+    enum:
+    - IDENTITY
+    example: IDENTITY
+    nullable: true
+  name:
+    type: string
+    description: The display name of the identity.
+    example: John Doe
+    nullable: true
+  state:
+    type: string
+    description: The identity state.
+    example: ACTIVE
+    nullable: true

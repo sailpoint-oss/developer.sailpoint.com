@@ -1,0 +1,55 @@
+type: object
+title: Create UI Plugin Request
+required:
+  - alias
+  - name
+  - description
+  - slots
+  - contentSecurityPolicies
+  - permissionPolicy
+  - iframeAllow
+properties:
+  alias:
+    type: string
+    minLength: 3
+    maxLength: 63
+    pattern: '^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$'
+    description: >-
+      Human-readable deterministic alias unique per tenant. Letters, numbers,
+      dashes only; no leading/trailing/consecutive dashes. Normalized to
+      lowercase on write.
+    example: my-custom-plugin
+  name:
+    $ref: ./localizedstringmap.yaml
+  description:
+    $ref: ./localizedstringmap.yaml
+  apiScopes:
+    type: array
+    maxItems: 20
+    description: OAuth scopes the plugin requests at registration. Defaults to `[]`.
+    items:
+      type: string
+      maxLength: 128
+    default: []
+    example:
+      - idn:account:read
+  slots:
+    type: array
+    minItems: 1
+    maxItems: 10
+    description: UI extension point declarations (at least one required)
+    items:
+      $ref: ./pluginslot.yaml
+  contentSecurityPolicies:
+    $ref: ./directivepolicymap.yaml
+  permissionPolicy:
+    $ref: ./directivepolicymap.yaml
+  iframeAllow:
+    $ref: ./directivepolicymap.yaml
+  iframeSandbox:
+    allOf:
+      - $ref: ./iframesandbox.yaml
+    description: >-
+      Opt-in iframe `sandbox` grants. Optional; omitted or empty means no
+      grants. Defaults to `[]`.
+    default: []

@@ -1,0 +1,57 @@
+title: Source Account Deleted
+type: object
+required:
+- uuid
+- id
+- nativeIdentifier
+- sourceId
+- sourceName
+- identityId
+- identityName
+- attributes
+properties:
+  uuid:
+    type: string
+    description: Identity's universal unique identifier (UUID) on the source. The source system generates the UUID.
+    example: b7264868-7201-415f-9118-b581d431c688
+  id:
+    type: string
+    description: SailPoint generated unique identifier.
+    example: ee769173319b41d19ccec35ba52f237b
+  nativeIdentifier:
+    type: string
+    description: Account's unique ID on the source. 
+    example: E009
+  sourceId:
+    type: string
+    description: Source ID.
+    example: 2c918082814e693601816e09471b29b6
+  sourceName:
+    type: string
+    description: Source name.
+    example: Active Directory
+  identityId:
+    type: string
+    description: ID of the identity correlated with the account.
+    example: ee769173319b41d19ccec6c235423237b
+  identityName:
+    type: string
+    description: Name of the identity correlated with the account.
+    example: john.doe
+  attributes:
+    type: object
+    additionalProperties: true
+    description: Account attributes. The attributes' contents depend on the source's account schema.
+    example: {
+      "firstname": "John",
+      "lastname": "Doe",
+      "email": "john.doe@gmail.com",
+      "department": "Sales",
+      "displayName": "John Doe",
+      "created": "2020-04-27T16:48:33.597Z",
+      "employeeNumber": "E009",
+      "uid": "E009",
+      "inactive": "true",
+      "phone": null,
+      "identificationNumber": "E009"
+    }

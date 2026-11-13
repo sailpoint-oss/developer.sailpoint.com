@@ -1,0 +1,24 @@
+type: object
+title: Plugin Document Headers
+x-sailpoint-lint-ignore:
+  schema-property-names-must-be-camel-case: The property names are HTTP header names, which the platform sends as written.
+description: >-
+  Ephemeral plugin-document security headers, for example to give a local dev
+  server the same CSP as the deployed plugin.
+required:
+  - Content-Security-Policy
+  - Permissions-Policy
+properties:
+  Content-Security-Policy:
+    type: string
+    description: >-
+      Effective `Content-Security-Policy` header value for plugin documents.
+    example: >-
+      default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline';
+      img-src 'self'; font-src 'self'; connect-src 'self'
+  Permissions-Policy:
+    type: string
+    description: >-
+      Effective `Permissions-Policy` header value for plugin documents.
+      Features are denied by default unless the plugin opts in.
+    example: accelerometer=(), camera=(), geolocation=(), microphone=()

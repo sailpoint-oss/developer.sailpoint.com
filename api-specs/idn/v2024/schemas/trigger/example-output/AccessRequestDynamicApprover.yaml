@@ -1,0 +1,22 @@
+title: Access Request Dynamic Approver
+type: object
+nullable: true
+required:
+- id
+- name
+- type
+properties:
+  id:
+    type: string
+    description: The unique ID of the identity to add to the approver list for the access request.
+    example: 2c91808b6ef1d43e016efba0ce470906
+  name:
+    type: string
+    description: The name of the identity to add to the approver list for the access request.
+    example: Adam Adams
+  type:
+    enum:
+    - IDENTITY
+    - GOVERNANCE_GROUP
+    description: The type of object being referenced.
+    example: IDENTITY

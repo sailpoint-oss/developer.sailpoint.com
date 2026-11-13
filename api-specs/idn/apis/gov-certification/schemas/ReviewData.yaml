@@ -1,0 +1,11 @@
+description: An object holding the entity that is being reviewed
+type: object
+properties:
+  targetReference:
+    $ref: './TargetReference.yaml'
+  entitlement:
+    $ref: './Entitlement.yaml'
+  accessProfile:
+    $ref: './AccessProfile.yaml'
+  role:
+    $ref: './Role.yaml'

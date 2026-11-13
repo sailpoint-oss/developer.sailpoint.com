@@ -1,0 +1,11 @@
+type: object
+properties:
+  accessItemAdded:
+    type: number
+    description: the count of access item added
+  accessItemAdded:
+    type: number
+    description: the count of access item removed
+example:
+  accessAdded: 3
+  accessRemoved: 2

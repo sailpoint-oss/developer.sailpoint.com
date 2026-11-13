@@ -1,0 +1,10 @@
+type: object
+title: Localized String Map
+description: >-
+  Localized string keyed by locale code. At least one non-empty locale entry is
+  required on create/update. Conventionally includes `en`.
+additionalProperties:
+  type: string
+example:
+  en: Example text
+  fr: Texte d'exemple

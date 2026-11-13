@@ -1,0 +1,16 @@
+description: Method Not Allowed - indicates that the server knows the request method, but the target resource doesn't support this method.
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        errorName:
+          description: A message describing the error
+          example: "NotSupportedException"
+        errorMessage:
+          description: Description of the error
+          example: Cannot consume content type
+        trackingId:
+          type: string
+          description: Unique tracking id for the error.
+          example: e7eab60924f64aa284175b9fa3309599

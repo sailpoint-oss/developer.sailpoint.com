@@ -1,0 +1,257 @@
+get:
+  operationId: listAccountsV2
+  tags:
+  - Accounts
+  summary: List accounts (search)
+  description: >-
+    List accounts from the accounts search index.
+
+
+    Use standard collection parameters for paging (`limit`, `offset`, `count`). Default page size is 25 when no
+    collection parameters are sent. Maximum `limit` is 250. Requests that specify a larger `limit` are capped at 250.
+    `offset + limit` cannot exceed 10,000. To page beyond that window, use `searchAfter` instead of a large offset.
+    `searchAfter` cannot be combined with `offset`. Always include `id` in `sorters` when using `searchAfter`. Refer
+    to [Paginating Search
+    Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more
+    information.
+  security:
+  - userAuth:
+    - idn:account-list:read
+    - idn:mis-account-list:read
+    - idn:account-self:read
+  - applicationAuth:
+    - idn:account-list:read
+    - idn:mis-account-list:read
+    - idn:account-self:read
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  - HELPDESK
+  parameters:
+  - $ref: ../../shared/parameters/limit.yaml
+  - $ref: ../../shared/parameters/offset.yaml
+  - $ref: ../../shared/parameters/count.yaml
+  - $ref: ../parameters/searchafter.yaml
+  - in: query
+    name: filters
+    required: false
+    schema:
+      type: string
+    example: name sw "test"
+    description: >-
+      Filter results using the standard syntax described in [API Standard Collection
+      Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **id**: *eq, in, sw*
+
+
+      **name**: *eq, in, sw, isnull, pr*
+
+
+      **uuid**: *eq, in, sw, isnull, pr*
+
+
+      **nativeIdentity**: *eq, in, sw, isnull, pr*
+
+
+      **description**: *eq, in, sw, isnull, pr*
+
+
+      **type**: *eq, ne*
+
+
+      **recommendation.type**: *eq, in, sw, isnull, pr*
+
+
+      **recommendation.method**: *eq, in, sw, isnull, pr*
+
+
+      **locked**: *eq*
+
+
+      **disabled**: *eq*
+
+
+      **hasEntitlements**: *eq*
+
+
+      **manuallyCorrelated**: *eq*
+
+
+      **privilegeLevel.effective**: *eq, in, isnull, pr*
+
+
+      **correlated**: *eq*
+
+
+      **classificationMethod**: *eq, ne, in, sw, isnull, pr*
+
+
+      **subType**: *eq, ne, in, sw, isnull, pr*
+
+
+      **created**: *eq, ge, gt, le, lt*
+
+
+      **modified**: *eq, ge, gt, le, lt*
+
+
+      **synced**: *eq, ge, gt, le, lt*
+
+
+      **owner.id**: *eq, in, sw*
+
+
+      **owner.name**: *eq, in, sw, isnull, pr*
+
+
+      **owner.state**: *eq, in, sw, isnull, pr*
+
+
+      **correlatedIdentity.id**: *eq, in, sw*
+
+
+      **correlatedIdentity.name**: *eq, in, sw, isnull, pr*
+
+
+      **correlatedIdentity.state**: *eq, in, sw, isnull, pr*
+
+
+      **source.id**: *eq, in, sw*
+
+
+      **source.name**: *eq, in, sw*
+
+
+      **source.authoritative**: *eq*
+
+
+      **source.connectionType**: *eq, in, isnull, pr*
+
+
+      **origin**: *eq, in*
+
+
+      Filter values are case-insensitive for **name, description, type, origin, source.name, source.connectionType,
+      owner.name, correlatedIdentity.name, correlatedIdentity.state, privilegeLevel.effective, recommendation.type,
+      recommendation.method, classificationMethod, subType**.
+
+
+      Filter values remain case-sensitive for the identifier fields **id, uuid, nativeIdentity, source.id, owner.id,
+      correlatedIdentity.id**.
+  - in: query
+    name: sorters
+    required: false
+    schema:
+      type: string
+      format: comma-separated
+    example: name,id
+    description: >-
+      Sort results using the standard syntax described in [API Standard Collection
+      Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)
+
+
+      Sorting is supported for the following fields: **id, name, uuid, nativeIdentity, created, modified,
+      manuallyCorrelated, description, type, recommendation.type, recommendation.method, locked, disabled, correlated,
+      hasEntitlements, origin, privilegeLevel.effective, classificationMethod, subType, owner.id, owner.name,
+      owner.state, correlatedIdentity.id, correlatedIdentity.name, correlatedIdentity.state, source.id, source.name,
+      source.authoritative, source.connectionType, synced**
+
+
+      Sorting on the following fields is case-insensitive: **name, description, type, origin, source.name,
+      source.connectionType, owner.name, correlatedIdentity.name, correlatedIdentity.state, privilegeLevel.effective,
+      recommendation.type, recommendation.method, classificationMethod, subType**. Identifier fields such as **id,
+      uuid, nativeIdentity, source.id, owner.id,** and **correlatedIdentity.id** remain case-sensitive.
+
+
+      Default sort is **created** when no collection parameters are sent.
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: 'true'
+    schema:
+      type: string
+      default: 'true'
+    required: true
+  responses:
+    '200':
+      description: List of account objects.
+      headers:
+        x-total-count:
+          description: The total result count (returned when count=true is passed).
+          schema:
+            type: integer
+            format: int32
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/accountv2.yaml
+          example:
+          - id: 2c9180835d2e5168015d32f890ca1581
+            name: John.Doe
+            uuid: '{b0dce506-d6d4-44d2-8a32-d9a5b21fb175}'
+            nativeIdentity: '552775'
+            description: Corporate Active Directory account
+            type: HUMAN
+            disabled: false
+            locked: false
+            hasEntitlements: true
+            manuallyCorrelated: false
+            correlated: true
+            created: '2022-04-19T18:34:01.677Z'
+            modified: '2022-04-19T18:34:02.268Z'
+            synced: '2022-04-19T18:34:02.268Z'
+            source:
+              id: 2c9180835d2e5168015d32f890ca1581
+              type: SOURCE
+              name: Employees
+              authoritative: false
+              connectionType: direct
+            owner:
+              id: 2c918084660f45d6016617daa9210584
+              type: IDENTITY
+              name: John Doe
+              state: ACTIVE
+            correlatedIdentity:
+              id: 2c918084660f45d6016617daa9210584
+              type: IDENTITY
+              name: John Doe
+              state: ACTIVE
+            owners: []
+            correlatedEntities:
+            - type: IDENTITY
+              id: 2c918084660f45d6016617daa9210584
+              name: John Doe
+              state: ACTIVE
+            recommendation:
+              type: MACHINE
+              method: DISCOVERY
+              explanation: []
+            privilegeLevel:
+              effective: High
+            attributes:
+              firstName: John
+              lastName: Doe
+              displayName: John Doe
+            origin: AGGREGATED
+            classificationMethod: SOURCE
+            features:
+            - ENABLE
+            - PROVISIONING
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

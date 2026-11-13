@@ -1,0 +1,15 @@
+post:
+  summary: Create a system role permission
+  description: This endpoint can create system role permissions for Lifecycle System Roles
+  operationId: createSystemRolePermission
+  tags:
+    - system role permissions
+  requestBody:
+    $ref: "../requestBodies/POST/SystemRolePermissions.yaml"
+  responses:
+    '200':
+      $ref: "../responses/SystemRolePermission.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

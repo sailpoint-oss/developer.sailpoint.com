@@ -1,0 +1,44 @@
+# Aggregations
+
+# Aggregations
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**nested** | [**NestedAggregation**](nested-aggregation) |  | [optional] 
+**metric** | [**MetricAggregation**](metric-aggregation) |  | [optional] 
+**filter** | [**FilterAggregation**](filter-aggregation) |  | [optional] 
+**bucket** | [**BucketAggregation**](bucket-aggregation) |  | [optional] 
+\}
+
+## Example
+
+```python
+from sailpoint.search.models.aggregations import Aggregations
+
+aggregations = Aggregations(
+nested=sailpoint.search.models.nested_aggregation.NestedAggregation(
+                    name = 'id', 
+                    type = 'access', ),
+metric=sailpoint.search.models.metric_aggregation.MetricAggregation(
+                    name = 'Access Name Count', 
+                    type = 'UNIQUE_COUNT', 
+                    field = '@access.name', ),
+filter=sailpoint.search.models.filter_aggregation.FilterAggregation(
+                    name = 'Entitlements', 
+                    type = 'TERM', 
+                    field = 'access.type', 
+                    value = 'ENTITLEMENT', ),
+bucket=sailpoint.search.models.bucket_aggregation.BucketAggregation(
+                    name = 'Identity Locations', 
+                    type = 'TERMS', 
+                    field = 'attributes.city', 
+                    size = 100, 
+                    min_doc_count = 2, )
+)
+
+```
+[[Back to top]](#) 
+

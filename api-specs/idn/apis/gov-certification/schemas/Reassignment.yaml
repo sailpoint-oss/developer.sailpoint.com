@@ -1,0 +1,13 @@
+type: object
+properties:
+  reassignedFrom:
+    $ref: './CertificationReference.yaml'
+  comment:
+    type: string
+    description: Comments from the previous reviewer.
+    example: Please review
+  reassignmentTrails:
+    type: array
+    description: The reassignmentTrail
+    items:
+      $ref: './ReassignmentTrail.yaml'

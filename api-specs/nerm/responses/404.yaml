@@ -1,0 +1,10 @@
+---
+description: Record Not Found
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        error:
+          description: The requested record, either ID or UID, was not found
+          example: "The requested Profile was not found"

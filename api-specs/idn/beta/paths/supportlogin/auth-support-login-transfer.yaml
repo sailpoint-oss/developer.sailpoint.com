@@ -1,0 +1,4 @@
+get:
+  $ref: './auth-support-login-transfer-get.yaml'
+post:
+  $ref: './auth-support-login-transfer-post.yaml'

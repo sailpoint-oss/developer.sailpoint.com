@@ -1,0 +1,18 @@
+type: object
+title: Public Identities Text Entry
+description: A COMPOSITE query entry that contains a TEXT query.
+additionalProperties: false
+required:
+- queryType
+- textQuery
+properties:
+  queryType:
+    type: string
+    enum:
+    - TEXT
+    description: Entry type discriminator. Must be TEXT for text query entries.
+    example: TEXT
+  textQuery:
+    description: Text query clause for this TEXT entry.
+    allOf:
+    - $ref: ./publicidentitiestextquery.yaml

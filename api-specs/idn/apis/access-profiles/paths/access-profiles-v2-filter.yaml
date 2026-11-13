@@ -1,0 +1,167 @@
+post:
+  operationId: searchAccessProfilesByFilterV2
+  tags:
+  - Access Profiles
+  summary: List access profiles by filter
+  description: >-
+    Get a list of access profiles, supplying the filter criteria and access model metadata key/values in the request
+    body rather than as query parameters.
+
+
+    Use this endpoint when you need to filter by access model metadata, or when your filter expression is too long to
+    pass as a query parameter. Pagination, sorting, subadmin scoping, and segment scoping behave the same as [List
+    Access Profiles V2](https://developer.sailpoint.com/docs/api/list-access-profiles-v-2), including opaque cursor
+    pagination through the `cursor` parameter and `X-Next-Cursor` response header.
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  - in: query
+    name: for-subadmin
+    schema:
+      type: string
+    description: >-
+      Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN
+      identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand
+      for the calling identity's ID.
+
+
+      If you specify an identity that isn't a subadmin, the API returns a 400 Bad Request error.
+    example: 8c190e6787aa4ed9a90bd9d5344523fb
+    required: false
+  - in: query
+    name: limit
+    description: >-
+      Max number of results to return.
+
+      See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters)
+      for more information.
+    required: false
+    example: 50
+    schema:
+      type: integer
+      format: int32
+      minimum: 0
+      maximum: 250
+      default: 50
+  - in: query
+    name: offset
+    description: >-
+      Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 when
+      you supply a `cursor`, and `offset` plus `limit` must not exceed 10000.
+
+
+      See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters)
+      for more information.
+    required: false
+    example: 0
+    schema:
+      type: integer
+      format: int32
+      minimum: 0
+      default: 0
+  - $ref: ../../shared/parameters/count.yaml
+  - in: query
+    name: sorters
+    schema:
+      type: string
+      format: comma-separated
+    description: >-
+      Sort results using the standard syntax described in [API Standard Collection
+      Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)
+
+
+      Sorting is supported for the following fields: **name, created, modified, id, privilegeLevel.effective**
+
+
+      Defaults to **created** ascending when omitted.
+    example: name,-id
+    required: false
+  - in: query
+    name: for-segment-ids
+    schema:
+      type: string
+      format: comma-separated
+    description: |-
+      Filters access profiles to only those assigned to the segment(s) with the specified IDs.
+      If segmentation is currently unavailable, specifying this parameter results in an error.
+    example: 0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d
+    required: false
+  - in: query
+    name: include-unsegmented
+    schema:
+      type: boolean
+      default: true
+    description: >-
+      Indicates whether the response list should contain unsegmented access profiles. If `for-segment-ids` is absent
+      or empty, specifying *include-unsegmented* as `false` results in an error.
+    example: false
+    required: false
+  - in: query
+    name: cursor
+    schema:
+      type: string
+    description: >-
+      Opaque cursor taken from the `X-Next-Cursor` header of a previous response, used to retrieve the next page of
+      results. When you supply a cursor, `offset` must be 0.
+    example: W3sic29ydCI6ImNyZWF0ZWQiLCJ2YWx1ZSI6IjIwMjEtMDMtMDFUMjI6MzI6NTguMTA0WiJ9LHsic29ydCI6ImlkIiwidmFsdWUiOiIyYzkxODA4YTcxOTBkMDZlMDE3MTk5MzhmY2QyMDc5MiJ9XQ
+    required: false
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/accessprofilelistfilterdtov2.yaml
+        example:
+          filters: privilegeLevel.effective eq "HIGH"
+          ammKeyValues:
+          - attribute: iscFederalClassifications
+            values:
+            - secret
+  responses:
+    '200':
+      description: List of access profiles.
+      headers:
+        X-Total-Count:
+          description: The total result count, returned when *count* is **true**.
+          schema:
+            type: integer
+            format: int32
+          example: 137
+        X-Next-Cursor:
+          description: Opaque cursor for the next page of results, returned when more results exist.
+          schema:
+            type: string
+          example: W3sic29ydCI6ImNyZWF0ZWQiLCJ2YWx1ZSI6IjIwMjEtMDMtMDFUMjI6MzI6NTguMTA0WiJ9LHsic29ydCI6ImlkIiwidmFsdWUiOiIyYzkxODA4YTcxOTBkMDZlMDE3MTk5MzhmY2QyMDc5MiJ9XQ
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/accessprofilev2.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:access-profile:read
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - ROLE_ADMIN
+  - ROLE_SUBADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN

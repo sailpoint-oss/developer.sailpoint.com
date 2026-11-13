@@ -1,0 +1,16 @@
+type: object
+description: Simplified DTO for the Permission objects stored in SailPoint's database. The data is aggregated from
+  customer systems and is free-form, so its appearance can vary largely between different clients/customers.
+properties:
+  rights:
+    type: array
+    description: All the rights (e.g. actions) that this permission allows on the target
+    readOnly: true
+    items:
+      type: string
+      example: SELECT
+  target:
+    type: string
+    description: The target the permission would grants rights on.
+    readOnly: true
+    example: SYS.GV_$TRANSACTION

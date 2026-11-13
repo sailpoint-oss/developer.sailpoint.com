@@ -1,0 +1,70 @@
+get:
+  operationId: getPublicIdentitiesVisibleAttributesV2
+  tags:
+  - Public Identities
+  summary: Get public identity visible attributes
+  description: >-
+    Returns the default and configured identity attribute keys (with display names) that are allowed
+    for public-identity search and projection. Call this before POST /public-identities/v2/search to
+    learn which field keys are valid in query fields and sort.
+
+
+    Any authenticated user with the default scope can call this endpoint.
+  security:
+  - userAuth:
+    - sp:scopes:default
+  x-sailpoint-userLevels:
+  - USER
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Request succeeded.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/publicidentityvisibleattributes.yaml
+          example:
+            defaultAttributes:
+            - key: id
+              name: id
+            - key: displayName
+              name: name
+            - key: name
+              name: alias
+            - key: email
+              name: email
+            - key: cloudLifecycleState
+              name: status
+            - key: identityState
+              name: identity state
+            - key: manager.id
+              name: manager id
+            - key: manager.displayName
+              name: manager name
+            - key: manager.name
+              name: manager alias
+            configuredAttributes:
+            - key: displayName
+              name: Display Name
+            - key: lastSyncDate
+              name: Last Sync Date
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

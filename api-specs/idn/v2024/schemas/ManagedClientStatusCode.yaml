@@ -1,0 +1,12 @@
+type: string
+description: Status of a Managed Client
+enum:
+  - NORMAL
+  - UNDEFINED
+  - NOT_CONFIGURED
+  - CONFIGURING
+  - WARNING
+  - ERROR
+  - FAILED
+example:
+  NORMAL

@@ -1,0 +1,66 @@
+type: object
+title: Machine Account Subtype Approval Config
+description: >-
+  Contains comprehensive configuration details for machine account subtype approval, including creation and deletion
+  approval requirements, approver lists, form and entitlement references, and approval status options.
+properties:
+  subtypeId:
+    type: string
+    description: >-
+      Unique identifier representing the specific subtype of the machine account, used to distinguish between different
+      machine account categories.
+    example: 1419fc28-a8ed-4a07-9f5c-0cb5dfad6311
+  machineAccountCreate:
+    type: object
+    description: >-
+      Configuration options for machine account creation, including whether creation is enabled, if approval is
+      required, associated form and entitlement IDs, and detailed approval settings such as approvers and allowed
+      comment types.
+    properties:
+      accountCreateEnabled:
+        type: boolean
+        default: false
+        example: true
+        description: Specifies if the creation of machine accounts is allowed for this subtype.
+      approvalRequired:
+        type: boolean
+        default: false
+        example: true
+        description: Specifies if approval is required for machine account creation requests for this subtype.
+      formId:
+        type: string
+        example: 4f1bb61b-a0ab-4c0a-b9fb-20f44407b75a
+        description: Id of the form linked to subtype.
+      entitlementId:
+        type: string
+        example: 858d2151-ff19-464b-ae0d-6938b3af2baf
+        description: Id of the system created entitlement entitlement upon enabling account creation for this subtype.
+      passwordSetting:
+        type: string
+        enum:
+          - DO_NOT_SET_PASSWORD
+          - SET_TO_EXISTING_ATTRIBUTE
+          - SET_TO_NEW_ATTRIBUTE
+        example: SET_TO_EXISTING_ATTRIBUTE
+        description: This is required before enabling the account creation to true. Default value will be null.
+      passwordAttribute:
+        type: string
+        example: accountName
+        description: >-
+          Name of the account attribute from the source's schema or new custom attribute to use when password settings
+          is enabled.
+      approvalConfig:
+        $ref: ./machinesubtypeapprovalconfig.yaml
+  machineAccountDelete:
+    type: object
+    description: >-
+      Configuration options for machine account deletion, including whether approval is required, the list of authorized
+      approvers, and the types of comments permitted during the approval workflow.
+    properties:
+      approvalRequired:
+        type: boolean
+        default: false
+        example: true
+        description: Indicates whether approval is required for an account deletion request.
+      approvalConfig:
+        $ref: ./machinesubtypeapprovalconfig.yaml

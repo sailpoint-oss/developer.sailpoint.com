@@ -1,0 +1,9 @@
+name: page
+in: query
+description: Pagination page number
+required: false
+schema:
+  type: integer
+  format: int32
+  minimum: 1
+  example: 5

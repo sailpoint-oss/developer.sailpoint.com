@@ -1,0 +1,76 @@
+type: object
+title: Correlation Reprocess Status
+description: Progress of a correlation reprocess run for one resource on a source.
+properties:
+  sourceId:
+    type: string
+    description: ID of the source the run applies to.
+    example: 2c9180835d191a86015d28455b4a2329
+  resourceId:
+    type: string
+    description: ID of the source resource the run applies to.
+    example: account
+  type:
+    type: string
+    description: Kind of correlation the run reprocesses.
+    enum:
+      - OWNER_CORRELATION
+    example: OWNER_CORRELATION
+  status:
+    type: string
+    description: >-
+      Status of the run. `STARTED` means the run is planning or processing. `COMPLETED` means every object was
+      evaluated. `COMPLETED_WITH_ERRORS` means the run finished but part of the work could not be processed. `FAILED`
+      means the run could not be planned. `ABORTED_AGGREGATION_STARTED` means the run stopped because an aggregation
+      started on the same resource.
+    enum:
+      - STARTED
+      - COMPLETED
+      - COMPLETED_WITH_ERRORS
+      - FAILED
+      - ABORTED_AGGREGATION_STARTED
+    example: STARTED
+  total:
+    type: integer
+    format: int64
+    nullable: true
+    description: >-
+      Number of objects in scope for the run. `null` until planning finishes; after that it does not change, so you
+      can compute progress as `processed` divided by `total`.
+    example: 1200
+  processed:
+    type: integer
+    format: int64
+    description: Number of objects evaluated so far.
+    example: 450
+  updated:
+    type: integer
+    format: int64
+    description: Number of evaluated objects whose owner changed.
+    example: 37
+  errored:
+    type: integer
+    format: int64
+    description: Number of objects that could not be processed. Individual errors do not fail the run.
+    example: 2
+  startedAt:
+    type: string
+    format: date-time
+    description: Date and time when the run was accepted.
+    example: '2026-10-22T14:03:11.512Z'
+  finishedAt:
+    type: string
+    format: date-time
+    nullable: true
+    description: Date and time when the run reached a final status. `null` while the run is in progress.
+    example: '2026-10-22T14:09:47.120Z'
+  startedBy:
+    description: Identity that started the run. `null` when the run was not started by an identity.
+    nullable: true
+    allOf:
+      - $ref: ../../shared/schemas/basereferencedto.yaml
+      - type: object
+        example:
+          type: IDENTITY
+          id: 2c91808568c529c60168cca6f90c1313
+          name: William Wilson

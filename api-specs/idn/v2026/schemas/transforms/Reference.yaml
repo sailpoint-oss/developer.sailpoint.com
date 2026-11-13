@@ -1,0 +1,13 @@
+title: reference
+type: object
+required:
+- id
+properties:
+  id:
+    type: string
+    description: This ID specifies the name of the pre-existing transform which you want to use within your current transform
+    example: "Existing Transform"
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml'
+  input:
+    $ref: './input.yaml'

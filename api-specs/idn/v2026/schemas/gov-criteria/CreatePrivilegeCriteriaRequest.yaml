@@ -1,0 +1,82 @@
+type: object
+properties:
+  sourceId:
+    type: string
+    description: The Id of the source that the criteria is applied to.
+    minLength: 32
+    maxLength: 32
+    example: c42c45d8d7c04d2da64d215cd8c32f21
+  type:
+    type: string
+    enum:
+      - CUSTOM
+    description: The type of criteria being created. Expects "CUSTOM".
+    example: CUSTOM
+  operator:
+    type: string
+    description: The logical operator to apply between groups.
+    enum:
+      - AND
+      - OR
+    example: AND
+  groups:
+    type: array
+    items:
+      type: object
+      properties:
+        operator:
+          type: string
+          enum:
+            - AND
+            - OR
+          example: AND
+          description: The logical operator to apply between criteria items in the group.
+        criteriaItems:
+          type: array
+          items:
+            type: object
+            properties:
+              targetType:
+                type: string
+                enum:
+                  - group
+                example: group
+                description: The target type of the criteria item.
+              operator:
+                type: string
+                enum:
+                  - IN
+                  - EQUALS
+                  - NOT_EQUALS
+                  - CONTAINS
+                  - DOES_NOT_CONTAIN
+                  - STARTS_WITH
+                  - ENDS_WITH
+                oneOf:
+                - enum:
+                    - displayName
+                    - description
+                    - value
+                - pattern: '^attributes\..*'
+              values:
+                type: array
+                minItems: 1
+                maxItems: 50
+                items:
+                  type: string
+                  maxLength: 450
+                example: ["admin","superuser"]
+                description: The values to evaluate the property against.
+              ignoreCase:
+                type: boolean
+                default: false
+                example: true
+                description: Whether to ignore case when evaluating the property against the values.
+  privilegeLevel:
+    type: string
+    enum:
+      - HIGH
+      - MEDIUM
+      - LOW
+    example: HIGH
+    description: The privilege level assigned by this criteria.

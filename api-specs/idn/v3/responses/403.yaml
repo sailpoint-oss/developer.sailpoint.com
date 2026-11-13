@@ -1,0 +1,15 @@
+description: Forbidden - Returned if the user you are running as, doesn't have access to this end-point.
+content:
+  application/json:
+    schema:
+      $ref: '../../v3/schemas/ErrorResponseDto.yaml'
+    examples:
+      "403":
+        summary: An example of a 403 response object
+        value:
+          detailCode: "403 Forbidden"
+          trackingId: "b21b1f7ce4da4d639f2c62a57171b427"
+          messages:
+            - locale: "en-US"
+              localeOrigin: "DEFAULT"
+              text: "The server understood the request but refuses to authorize it."

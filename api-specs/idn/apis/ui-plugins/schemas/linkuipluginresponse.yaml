@@ -1,0 +1,18 @@
+type: object
+title: Link UI Plugin Response
+required:
+  - devOverrides
+  - devDocumentHeaders
+properties:
+  devOverrides:
+    type: object
+    description: >-
+      Updated `devOverrides` map of `identityId` to
+      `https://localhost:{port}`.
+    additionalProperties:
+      type: string
+      format: uri
+    example:
+      '2c9180867bexampleidentity000001': 'https://localhost:4200'
+  devDocumentHeaders:
+    $ref: plugindocumentheaders.yaml

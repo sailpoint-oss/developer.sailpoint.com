@@ -1,0 +1,10 @@
+description: Machine account async response containing the id of the started task.
+required:
+  - id
+type: object
+title: Machine Accounts Async Result
+properties:
+  id:
+    description: ID of the task.
+    type: string
+    example: 2c91808474683da6017468693c260195

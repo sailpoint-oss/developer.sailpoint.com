@@ -1,0 +1,68 @@
+type: object
+title: Public Identity V2
+description: >-
+  Projected public identity returned by POST /public-identities/v2/search. Root
+  fields are always present (null when unavailable). attributes contains only
+  keys from GET /public-identities/v2/visible-attributes configuredAttributes.
+required:
+- id
+- name
+- displayName
+- email
+- identityState
+- cloudLifecycleState
+- manager
+- attributes
+properties:
+  id:
+    nullable: true
+    type: string
+    description: Identity id
+    example: '2c9180857182305e0171993735622948'
+  name:
+    nullable: true
+    type: string
+    description: Alternate unique identifier for the identity (alias / search field name).
+    example: 'alison.ferguso'
+  displayName:
+    nullable: true
+    type: string
+    description: Human-readable display name of the identity.
+    example: 'Alison Ferguso'
+  email:
+    nullable: true
+    type: string
+    description: Email address of identity.
+    example: 'alison.ferguso@acme-solar.com'
+  identityState:
+    nullable: true
+    type: string
+    enum:
+    - ACTIVE
+    - INACTIVE_SHORT_TERM
+    - INACTIVE_LONG_TERM
+    -
+    example: ACTIVE
+    description: >-
+      The current state of the identity, which determines how SailPoint Identity Security interacts with the identity.
+  cloudLifecycleState:
+    nullable: true
+    type: string
+    description: The lifecycle status for the identity
+    example: 'Active'
+  manager:
+    nullable: true
+    allOf:
+    - $ref: ./publicidentityv2manager.yaml
+    description: Manager of this identity, or null when none
+  attributes:
+    type: object
+    additionalProperties:
+      nullable: true
+      type: string
+    description: >-
+      Configured public identity attributes only (from visible-attributes
+      configuredAttributes). Missing keys are omitted; present null values are
+      returned as null.
+    example:
+      country: US

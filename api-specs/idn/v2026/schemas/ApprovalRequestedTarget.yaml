@@ -1,0 +1,100 @@
+type: object
+description: Specifies the actual object or target the approval request is for.
+properties:
+  id:
+    type: string
+    description: Target ID (for example a role ID or access profile ID).
+    example: "string"
+  ids:
+    type: array
+    example:
+      - 2c9180835d191a86015d28455b4a2329
+    items:
+      type: string
+      example: 2c9180835d191a86015d28455b4a2329
+    description: Target IDs when the approval request applies to multiple targets.
+  name:
+    type: string
+    description: Target name (for example a role name or access profile name).
+    example: "string"
+  names:
+    type: array
+    example:
+      - Engineering Role
+    items:
+      type: string
+      example: Engineering Role
+    description: Target names when the approval request applies to multiple targets.
+  targetType:
+    type: string
+    description: Target type (for example Role or Access Profile).
+    example: "string"
+  targetTypes:
+    type: array
+    example:
+      - ROLE
+      - ACCESS_PROFILE
+    items:
+      type: string
+      example: ROLE
+    description: Target types when the approval request applies to multiple targets.
+  description:
+    type: string
+    description: Optional description for the requested target.
+    example: "string"
+  epLevelAtCreation:
+    type: string
+    description: Effective privilege (EP) level at approval creation.
+    enum:
+      - HIGH
+      - MEDIUM
+      - LOW
+      - NONE
+    example: HIGH
+  currentEPLevel:
+    type: string
+    description: Current effective privilege (EP) level for the requested target.
+    enum:
+      - HIGH
+      - MEDIUM
+      - LOW
+      - NONE
+    example: HIGH
+  currentEPModifiedDate:
+    type: string
+    format: date-time
+    description: Date and time when the current effective privilege level was last modified.
+    example: "2025-07-07T18:10:13.687Z"
+  requestType:
+    type: string
+    description: Access request type (for example GRANT_ACCESS or REVOKE_ACCESS).
+    example: GRANT_ACCESS
+  forcedAuthSignature:
+    type: string
+    description: Signature required for forced authentication.
+    example: "string"
+  reauthRequired:
+    type: boolean
+    description: Indicates whether forced reauthentication is required upon approval.
+    default: false
+    example: true
+  startDate:
+    type: string
+    format: date-time
+    description: When temporary access will be granted, if applicable.
+    example: "2025-07-07T18:10:13.687Z"
+  removalDate:
+    type: string
+    format: date-time
+    description: When temporary access will be removed, if applicable.
+    example: "2025-07-07T18:10:13.687Z"
+  modifiedStartDate:
+    type: string
+    format: date-time
+    description: Updated start date when startDate is edited during the approval request.
+    example: "2025-07-07T18:10:13.687Z"
+  modifiedRemovalDate:
+    type: string
+    format: date-time
+    description: Updated removal date when removalDate is edited during the approval request.
+    example: "2025-07-07T18:10:13.687Z"

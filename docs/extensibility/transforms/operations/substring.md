@@ -1,0 +1,124 @@
+# Substring
+
+## Overview
+
+Use the substring transform to get the inner portion of a string passed into the transform. You can use the substring transform to get the first n characters or get a set number of characters within the middle of a string.
+
+:::note Other Considerations
+
+- The substring transform does not currently provide an easy way to get the last n characters of a string. To do so, use the [Get End of String](./get-end-of-string.md) transform.
+
+:::
+
+## Transform structure
+
+In addition to the standard `type` and `name` attributes, the substring transform requires you to provide the beginning location of the input, which indicates the start of the desired substring output:
+
+```json
+{
+  "attributes": {
+    "begin": 4
+  },
+  "type": "substring",
+  "name": "Substring Transform"
+}
+```
+
+## Top-level properties (required)
+
+- **type** `string` _(required)_  
+  Must be set to `substring`.
+
+- **name** `string` _(required)_  
+  The name of the transform as it will appear in the UI's dropdown menus.
+
+- **requiresPeriodicRefresh** `boolean` _(optional)_  
+  Whether the transform logic should be reevaluated every evening as part of the identity refresh process. Default is `false`.
+
+## Attributes
+
+The substring transform uses the following structure:
+
+```json
+{
+  "type": "substring",
+  "name": "Transform Name",
+  "attributes": {
+    "begin": 0,
+    "end": 5
+  }
+}
+```
+
+---
+
+### `attributes` (required)
+
+The `attributes` object contains the substring configuration.
+
+#### Required
+
+- **begin** `integer` _(required)_  
+  The index location within the input data that contains the first character of the substring to return. If set to `-1`, the transform begins at character 0.
+
+#### Optional
+
+- **beginOffset** `integer` _(optional)_  
+  The number of characters to add to the `begin` attribute. Only used if `begin` is not `-1`.
+
+- **end** `integer` _(optional)_  
+  The index location within the input data where the substring ends (exclusive). If `-1` or not provided, the transform returns everything up to the end of the input string.
+
+- **endOffset** `integer` _(optional)_  
+  The number of characters to add to the `end` attribute. Only used if `end` is provided and is not `-1`.
+
+- **input** `object` _(optional)_  
+  Explicitly defines the input data passed into the transform. If not provided, the transform uses input from the source and attribute combination configured in the UI.
+
+## Examples
+
+This transform uses a zero-based array to determine that the letter "c" is the begin index of the substring it will return because "c" is in index location 2. Index location 4 contains the letter "e," so the transform will return a substring consisting of anything between the letters "c" and "e," including "c" but excluding "e".
+
+```bash
+Input: "abcdef"
+Output: "cd"
+```
+
+**Transform request body**:
+
+```json
+{
+  "attributes": {
+    "begin": 2,
+    "end": 4
+  },
+  "type": "substring",
+  "name": "Substring Transform"
+}
+```
+
+---
+
+<p>&nbsp;</p>
+
+This transform uses a zero-based array to determine that the substring transform must begin with the letter "c" because even though the letter "b' is in index location 1, the beginOffset value indicates one additional character must be skipped. Index location 3 contains the letter "d," so the transform would normally end at the character preceding "d." However, with the endOffset value set to 2, the transform must include an additional two characters, "d" and "e". Thus, the transform returns "cde".
+
+```bash
+Input: "abcdef"
+Output: "cde"
+```
+
+**Transform request body**:
+
+```json
+{
+  "attributes": {
+    "begin": 1,
+    "end": 3,
+    "beginOffset": 1,
+    "endOffset": 2
+  },
+  "type": "substring",
+  "name": "Substring Transform"
+}
+```

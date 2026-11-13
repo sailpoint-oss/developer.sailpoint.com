@@ -1,0 +1,16 @@
+type: object
+title: Access Profile Privilege Level
+description: Effective privilege level calculated for the access profile.
+properties:
+  effective:
+    type: string
+    description: >-
+      Effective privilege level of the access profile, derived from the highest privilege level of the entitlements it
+      contains. `UNDETERMINED` indicates the level could not be calculated.
+    example: MEDIUM
+    enum:
+    - NONE
+    - LOW
+    - MEDIUM
+    - HIGH
+    - UNDETERMINED

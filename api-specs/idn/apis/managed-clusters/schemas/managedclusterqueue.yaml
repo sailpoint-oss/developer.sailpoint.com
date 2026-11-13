@@ -1,0 +1,12 @@
+description: Managed Cluster key pair for Cluster
+type: object
+title: Managed Cluster Queue
+properties:
+  name:
+    description: ManagedCluster queue name
+    type: string
+    example: megapod-useast1-denali-lwt-cluster-1533
+  region:
+    description: ManagedCluster queue aws region
+    type: string
+    example: us-east-1

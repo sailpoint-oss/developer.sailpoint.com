@@ -1,0 +1,20 @@
+type: object
+title: Machine Account Bulk Result
+description: The outcome of a bulk operation for one machine account.
+properties:
+  id:
+    type: string
+    maxLength: 128
+    description: ID of the machine account this result applies to.
+    example: ef38f94347e94562b5bb8424a56397d8
+  status:
+    type: integer
+    format: int32
+    description: >-
+      HTTP-style status code for this machine account. `200` means the operation succeeded or was queued.
+      Other values, such as `400`, `404` or `500`, describe why it failed.
+    example: 200
+  message:
+    type: string
+    description: A message that describes the outcome for this machine account.
+    example: Success

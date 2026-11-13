@@ -410,6 +410,10 @@ Contains certification item data sourced from **Certs 2.0**.
 | ENTITLEMENT_ID | text |  | Unique Id for the Entitlement |
 | ROLE_ID | text |  | Unique Id for the Role |
 | PROVISIONING_ENGINE | text |  | Source or connector used to provision |
+| PROVISIONING_RESULT_ERRORS | variant |  | List of errors encountered while provisioning the item |
+| PROVISIONING_RESULT_WARNINGS | variant |  | List of warnings encountered while provisioning the item |
+| EXTERNAL_REQUEST_ID | text |  | External system request Id associated with the provisioning action |
+| WORK_ITEM_ID | text |  | Id of the manual work item if manual provisioning was required |
 | SYNC_DATE | datetime |  | When the row is last synced |
 
 

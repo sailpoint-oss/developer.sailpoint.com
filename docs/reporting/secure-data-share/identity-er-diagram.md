@@ -279,6 +279,10 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         text ENTITLEMENT_ID "Unique Id for the Entitlement"
         text ROLE_ID "Unique Id for the Role"
         text PROVISIONING_ENGINE "Source or connector used to provision"
+        variant PROVISIONING_RESULT_ERRORS "List of errors encountered while provisioning the item"
+        variant PROVISIONING_RESULT_WARNINGS "List of warnings encountered while provisioning the item"
+        text EXTERNAL_REQUEST_ID "External system request Id associated with the provisioning action"
+        text WORK_ITEM_ID "Id of the manual work item if manual provisioning was required"
         datetime SYNC_DATE "When the row is last synced"
     }
     SOURCE {

@@ -1,0 +1,772 @@
+{
+ "fetchedAt": "2026-11-12T19:37:50.247Z",
+ "id": 218153,
+ "slug": "bypassing-access-item-index-delays-in-sailpoint-identity-security-cloud",
+ "title": "Bypassing Access Item Index Delays in SailPoint Identity Security Cloud",
+ "url": "https://developer.sailpoint.com/discuss/t/bypassing-access-item-index-delays-in-sailpoint-identity-security-cloud/218153",
+ "createdAt": "2026-08-05T02:37:57.765Z",
+ "views": 116,
+ "likeCount": 1,
+ "tags": [
+  "sailpoint-identity-security",
+  "apis",
+  "access-requests"
+ ],
+ "category": {
+  "id": 125,
+  "name": "Community Blog",
+  "slug": "community-blog",
+  "color": "#652D90",
+  "readRestricted": false,
+  "parent": {
+   "id": 69,
+   "name": "Content",
+   "slug": "content",
+   "color": "#652D90",
+   "readRestricted": false,
+   "parent": null
+  }
+ },
+ "readMinutes": 5,
+ "hero": {
+  "src": "https://global.discourse-cdn.com/sailpoint/original/3X/4/e/4e00ab67cdb2180f4d6c76b5f374f916e47dafbc.jpeg",
+  "alt": "blog title card"
+ },
+ "toc": [
+  {
+   "id": "prerequisites",
+   "title": "Prerequisites"
+  },
+  {
+   "id": "access-request-api",
+   "title": "Access Request API"
+  },
+  {
+   "id": "validating-the-request",
+   "title": "Validating the Request"
+  },
+  {
+   "id": "fitting-this-into-a-pipeline",
+   "title": "Fitting This Into a Pipeline"
+  },
+  {
+   "id": "summary",
+   "title": "Summary"
+  }
+ ],
+ "posts": [
+  {
+   "id": 396104,
+   "number": 1,
+   "username": "Pratyush27",
+   "name": "Pratyush Mishra",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/pratyush27/96/36795_2.png",
+   "userTitle": "Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/1/1aa5dad2d8398ae0eb24a4ac86a3b612c39d4ff9.png",
+    "name": "ambassadors"
+   },
+   "createdAt": "2026-08-05T02:37:58.040Z",
+   "replyTo": null,
+   "likes": 1,
+   "url": "https://developer.sailpoint.com/discuss/t/bypassing-access-item-index-delays-in-sailpoint-identity-security-cloud/218153/1",
+   "words": 1074,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      "If you’ve just created a requestable role in ISC and tried to test it immediately, you’ve probably noticed something annoying. It doesn’t show up in the Request Center."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Wait a bit. Still nothing. Eventually it will appear. This isn’t a configuration issue. It’s indexing. Roles and access profiles need to be indexed before they show up in the UI. The time this takes varies. It’s often quick, but depending on tenant load it can run long enough to block you. That delay is fine for end users, but it gets in the way when you’re actively building and validating."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "In our case, this came up during pipeline deployments. We needed to validate roles immediately after deployment before handing off to UAT. Waiting for the UI to catch up wasn’t workable, so instead of waiting, we stopped using the UI for this step."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "prerequisites"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Prerequisites"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Before using the API-based approach, make sure the following are in place:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "You have a Personal Access Token (PAT) with sufficient permissions to submit access requests. See the ",
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "a",
+           "a": {
+            "href": "https://developer.sailpoint.com/docs/api/authentication"
+           },
+           "c": [
+            "Authentication"
+           ]
+          }
+         ]
+        },
+        {
+         "t": "a",
+         "a": {
+          "href": "https://developer.sailpoint.com/docs/api/authentication"
+         },
+         "c": [
+          " section of the ISC API documentation"
+         ]
+        },
+        " for how to generate one."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "The role or access profile you want to test already exists in ISC and has been saved."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "The role or access profile must be enabled and marked as requestable."
+         ]
+        },
+        " If it is not, the API will return a misleading “does not exist” error even though the item is visible in the UI."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "You know the name of the test identity you want to request access for (or have a way to look it up)."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "You have a REST client available — curl, Postman, or a scripting language of your choice."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "access-request-api"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Access Request API"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The Access Request API doesn’t depend on indexing. If you already know the IDs, you can trigger the request directly. The same steps work for both ",
+      {
+       "t": "strong",
+       "c": [
+        "roles"
+       ]
+      },
+      " and ",
+      {
+       "t": "strong",
+       "c": [
+        "access profiles"
+       ]
+      },
+      "; the only difference is the endpoint you use to retrieve the item ID and the ",
+      {
+       "t": "code",
+       "c": [
+        "type"
+       ]
+      },
+      " field in the request payload."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "step-1-get-the-identity-id"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Step 1: Get the identity ID"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Look up the identity you want to request access for by name:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "GET https://<tenant>.api.identitynow.com/v2026/identities?filters=name eq \"test.user\"\n"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "The ",
+      {
+       "t": "code",
+       "c": [
+        "filters"
+       ]
+      },
+      " value is shown unencoded for readability. In an actual request, the spaces and quotes need to be URL-encoded (",
+      {
+       "t": "code",
+       "c": [
+        "name%20eq%20%22test.user%22"
+       ]
+      },
+      "). Clients like Postman and curl handle this for you, but if you’re building the URL by hand, encode it."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Response:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "{\n  \"id\": \"<IdentityID>\",\n  \"name\": \"test.user\"\n}\n"
+     }
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "step-2-get-the-role-or-access-profile-id"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Step 2: Get the role or access profile ID"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "For a role:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "GET https://<tenant>.api.identitynow.com/v2026/roles?filters=name eq \"Test_Role_Read\"\n"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Response:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "{\n  \"id\": \"<RoleID>\",\n  \"name\": \"Test_Role_Read\"\n}\n"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "For an access profile, use the same pattern with the ",
+      {
+       "t": "code",
+       "c": [
+        "/access-profiles"
+       ]
+      },
+      " endpoint:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "GET https://<tenant>.api.identitynow.com/v2026/access-profiles?filters=name eq \"Test_AP_Read\"\n"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Response:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "{\n  \"id\": \"<AccessProfileID>\",\n  \"name\": \"Test_AP_Read\"\n}\n"
+     }
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "step-3-submit-the-access-request"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Step 3: Submit the access request"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Once you have both IDs, submit the request. Set ",
+      {
+       "t": "code",
+       "c": [
+        "\"type\""
+       ]
+      },
+      " to ",
+      {
+       "t": "code",
+       "c": [
+        "\"ROLE\""
+       ]
+      },
+      " or ",
+      {
+       "t": "code",
+       "c": [
+        "\"ACCESS_PROFILE\""
+       ]
+      },
+      " depending on the item type:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "POST https://<tenant>.api.identitynow.com/v2026/access-requests\n"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Payload:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "{\n  \"requestedFor\": [\n    \"<IdentityID_1>\",\n    \"<IdentityID_2>\"\n  ],\n  \"requestedItems\": [\n    {\n      \"id\": \"<RoleID>\",\n      \"type\": \"ROLE\",\n      \"comment\": \"Pipeline validation request\"\n    }\n  ],\n  \"requestType\": \"GRANT_ACCESS\"\n}\n"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Or via curl:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "curl --request POST 'https://<tenant>.api.identitynow.com/v2026/access-requests' \\\n  --header 'Authorization: Bearer <PAT_TOKEN>' \\\n  --header 'Content-Type: application/json' \\\n  --data-raw '{\n    \"requestedFor\": [\"<IdentityID_1>\", \"<IdentityID_2>\"],\n    \"requestedItems\": [{ \"id\": \"<RoleID>\", \"type\": \"ROLE\" }],\n    \"requestType\": \"GRANT_ACCESS\"\n  }'\n"
+     }
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "step-4-check-the-response"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Step 4: Check the response"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "A successful submission returns ",
+      {
+       "t": "code",
+       "c": [
+        "202 Accepted"
+       ]
+      },
+      ". The body contains one request object per identity, each with the ",
+      {
+       "t": "code",
+       "c": [
+        "accessRequestIds"
+       ]
+      },
+      " you’ll use to track status:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "{\n  \"newRequests\": [\n    {\n      \"requestedFor\": \"<IdentityID_1>\",\n      \"accessRequestIds\": [\"<AccessRequestID_1>\"]\n    },\n    {\n      \"requestedFor\": \"<IdentityID_2>\",\n      \"accessRequestIds\": [\"<AccessRequestID_2>\"]\n    }\n  ]\n}\n"
+     }
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "validating-the-request"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Validating the Request"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "A submitted request and delivered access aren’t the same thing. Access requests are processed asynchronously, so a ",
+      {
+       "t": "code",
+       "c": [
+        "202"
+       ]
+      },
+      " on submission only means the request was queued, but it doesn’t confirm anything provisioned. Validation is two checks: confirm the request reached a terminal state, then confirm the access actually landed on the identity."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "1. Check the request status."
+       ]
+      },
+      " Using an ",
+      {
+       "t": "code",
+       "c": [
+        "accessRequestId"
+       ]
+      },
+      " from Step 4, poll the status endpoint. There’s no top-level ",
+      {
+       "t": "code",
+       "c": [
+        "accessRequestId"
+       ]
+      },
+      " query parameter. You will need to filter for it through the ",
+      {
+       "t": "code",
+       "c": [
+        "filters"
+       ]
+      },
+      " parameter instead:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "GET https://<tenant>.api.identitynow.com/v2026/access-request-status?filters=accessRequestId eq \"<AccessRequestID>\"\n"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "This returns ",
+      {
+       "t": "code",
+       "c": [
+        "200 OK"
+       ]
+      },
+      ". Look at the ",
+      {
+       "t": "code",
+       "c": [
+        "\"state\""
+       ]
+      },
+      " field. While the request is still in progress it reports ",
+      {
+       "t": "code",
+       "c": [
+        "\"EXECUTING\""
+       ]
+      },
+      ", and if approval workflows are configured it stays there until approved. Once it reaches a terminal state the request has finished."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "2. Confirm the assigned access."
+       ]
+      },
+      " To verify the role or access profile actually landed on the identity, query the identities search index, which returns an ",
+      {
+       "t": "code",
+       "c": [
+        "access[]"
+       ]
+      },
+      " array with roles and access profiles as first-class items:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "POST https://<tenant>.api.identitynow.com/v2026/search\n"
+     }
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "{\n  \"indices\": [\"identities\"],\n  \"query\": { \"query\": \"id:\\\"<IdentityID>\\\"\" }\n}\n"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "In the response, look in ",
+      {
+       "t": "code",
+       "c": [
+        "access[]"
+       ]
+      },
+      " for an entry whose ",
+      {
+       "t": "code",
+       "c": [
+        "type"
+       ]
+      },
+      " is ",
+      {
+       "t": "code",
+       "c": [
+        "ROLE"
+       ]
+      },
+      " (or ",
+      {
+       "t": "code",
+       "c": [
+        "ACCESS_PROFILE"
+       ]
+      },
+      ") and whose name or id matches what you requested. This confirms the access is assigned, not just that the request closed."
+     ]
+    },
+    {
+     "t": "blockquote",
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Note:"
+         ]
+        },
+        " If the role or access profile is not enabled, the API returns ",
+        {
+         "t": "code",
+         "c": [
+          "Role with id <RoleID> does not exist"
+         ]
+        },
+        ". This error is misleading — the item may be visible in the UI and retrievable via GET, but the access request engine treats disabled or non-requestable items as non-existent. If you hit this, confirm the item is set to Enabled and marked as Requestable before testing."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "fitting-this-into-a-pipeline"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Fitting This Into a Pipeline"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Once you start using this approach, testing becomes cleaner and more predictable. Instead of waiting on indexing:"
+     ]
+    },
+    {
+     "t": "ol",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Deploy the role or access profile."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Trigger the request via API using the steps above."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Poll the request status until it reaches a terminal state."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Confirm the access on the identity via the search index."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This fits naturally into CI/CD pipelines, letting you validate access end-to-end as part of deployment rather than treating it as a separate manual step."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "It’s also worth noting that this approach does not bypass governance. Approval flows, policies, and audit trails behave exactly the same way as they would through the Request Center."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "One caveat worth revisiting periodically: this is a workaround for a current gap in how quickly the GUI reflects newly created access items. ISC’s interface continues to evolve, so it’s worth checking whether indexing latency has improved enough that the UI path is workable again before assuming the API approach is still necessary."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "summary"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Summary"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The Access Request API accepts item IDs directly, so UI indexing is not a prerequisite for testing. By retrieving the identity ID and role or access profile ID immediately after creation, you can submit and validate access requests without any indexing delay making it a practical fit for both ad hoc validation and automated deployment pipelines."
+     ]
+    }
+   ]
+  }
+ ]
+}

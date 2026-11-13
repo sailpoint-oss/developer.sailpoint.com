@@ -1,0 +1,3066 @@
+{
+ "fetchedAt": "2026-11-13T12:55:49.443Z",
+ "id": 216502,
+ "slug": "designing-beyond-default-the-ultimate-guide-to-sailpoint-form-ui-customization",
+ "title": "Designing Beyond Default: The Ultimate Guide to SailPoint Form UI Customization",
+ "url": "https://developer.sailpoint.com/discuss/t/designing-beyond-default-the-ultimate-guide-to-sailpoint-form-ui-customization/216502",
+ "createdAt": "2026-07-15T01:58:43.267Z",
+ "views": 762,
+ "likeCount": 10,
+ "tags": [
+  "sailpoint-identity-security",
+  "workflows",
+  "forms"
+ ],
+ "category": {
+  "id": 125,
+  "name": "Community Blog",
+  "slug": "community-blog",
+  "color": "#652D90",
+  "readRestricted": false,
+  "parent": {
+   "id": 69,
+   "name": "Content",
+   "slug": "content",
+   "color": "#652D90",
+   "readRestricted": false,
+   "parent": null
+  }
+ },
+ "readMinutes": 21,
+ "hero": {
+  "src": "https://global.discourse-cdn.com/sailpoint/original/3X/2/9/2971126146f4de2d7105d7a3aa76142ecd7bf77f.jpeg",
+  "alt": "blog title card"
+ },
+ "toc": [
+  {
+   "id": "form-adoption-vs-form-function",
+   "title": "Form Adoption vs. Form Function"
+  },
+  {
+   "id": "form-body-based-customization-the-basics",
+   "title": "Form Body Based Customization: The Basics"
+  },
+  {
+   "id": "intermediate-layouts-spacing-tables",
+   "title": "Intermediate Layouts, Spacing & Tables"
+  },
+  {
+   "id": "advanced-css-visual-polish-interactive-elements",
+   "title": "Advanced CSS, Visual Polish & Interactive Elements"
+  },
+  {
+   "id": "showcase-advanced-layout-designs-complex-custom-dashboards",
+   "title": "Showcase: Advanced Layout Designs (Complex Custom Dashboards)"
+  },
+  {
+   "id": "form-title-customization-unicode-emojis-pseudo-fonts",
+   "title": "Form Title Customization (Unicode, Emojis & Pseudo-Fonts)"
+  },
+  {
+   "id": "the-masterclass-dynamic-html-compilation-via-serial-loops",
+   "title": "The Masterclass: Dynamic HTML Compilation via Serial Loops"
+  },
+  {
+   "id": "security-supportability-and-best-practices",
+   "title": "Security, Supportability, and Best Practices"
+  },
+  {
+   "id": "conclusion-call-to-action",
+   "title": "Conclusion & Call to Action"
+  }
+ ],
+ "posts": [
+  {
+   "id": 391943,
+   "number": 1,
+   "username": "trettkowski",
+   "name": "Tyler Rettkowski",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/trettkowski/96/36103_2.png",
+   "userTitle": "Expert Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/e/eb064076112b6705f2406f9119ef84ce300e416a.png",
+    "name": "expert_ambassadors"
+   },
+   "createdAt": "2026-07-15T01:58:43.688Z",
+   "replyTo": null,
+   "likes": 10,
+   "url": "https://developer.sailpoint.com/discuss/t/designing-beyond-default-the-ultimate-guide-to-sailpoint-form-ui-customization/216502/1",
+   "words": 3673,
+   "body": [
+    {
+     "t": "h2",
+     "a": {
+      "id": "form-adoption-vs-form-function"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Form Adoption vs. Form Function"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "As IAM professionals, we spend weeks designing robust joiner mover leaver processes, automated workflows, and complex approvals. When it’s time to roll them out to the business, we deploy them using out of the box, plain text forms. We tell ourselves that as long as the form is functional and the backend APIs provision access correctly, our job is done."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "But then the complaints roll in. Business managers find the forms confusing. End users request access for the wrong systems because the forms don’t provide clear context. The business doesn’t want to use our carefully crafted IAM portal, they tolerate it."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "What if you could design forms that users actually enjoy using? Forms that carry your organization’s branding, feature rich dashboard style summaries, collapse technical logs behind interactive dropdowns, and dynamically format complex details?"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This blog post fixes the form adoption gap. We will walk you through the advanced and underutilized capabilities of the ISC Forms engine, starting from basic HTML elements and progressing all the way to advanced layouts, custom Unicode title formatting, and dynamic variable compilation via serial workflow loops."
+     ]
+    },
+    {
+     "t": "blockquote",
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Always Test Outside of Production"
+         ]
+        },
+        {
+         "t": "br"
+        },
+        "\nWhile the Forms engine is incredibly flexible, the HTML and CSS customizations demonstrated here should be thoroughly tested in a sandbox or non-production environment before rolling out to end users to ensure they render correctly across your organization’s specific devices and browsers."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "form-body-based-customization-the-basics"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Form Body Based Customization: The Basics"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "When designing forms within SailPoint ISC, the section descriptions, field descriptions, and injected workflow variables are not restricted to plain text. The Form UI rendering engine features a robust Document Object Model (DOM) pipeline that parses standard HTML tags and basic inline CSS."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "To see what you can edit out of the box in the standard Forms designer interface:"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/8/c/8c682aebf63bd8ed1c2bfc39a1500dd3fa40bd6e.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/original/3X/8/c/8c682aebf63bd8ed1c2bfc39a1500dd3fa40bd6e.png",
+        "alt": "Example-Of-UI-Editing-Options",
+        "width": "690",
+        "height": "99"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "If you need to structure a standard request block or highlight a policy warning, you can use these core HTML elements natively in your form body configurations:"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-1-typography-structure-tags"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "1. ",
+        {
+         "t": "strong",
+         "c": [
+          "Typography & Structure Tags"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "<div>"
+           ]
+          },
+          " (Block Container):"
+         ]
+        },
+        " Isolates custom styled text blocks.",
+        {
+         "t": "codeblock",
+         "a": {
+          "lang": "html",
+          "value": "<div style='background-color: gray; padding: 10px;'>This is text inside an isolated div block.</div>"
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "<span>"
+           ]
+          },
+          " (Inline Wrapper):"
+         ]
+        },
+        " Applies inline styles to specific words without breaking the line flow.",
+        {
+         "t": "codeblock",
+         "a": {
+          "lang": "html",
+          "value": "Text before the span <span style='color: blue;'>this text is inside an isolated span</span> text after."
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "<p>"
+           ]
+          },
+          " (Paragraph):"
+         ]
+        },
+        " Groups text sentences with default spacing.",
+        {
+         "t": "codeblock",
+         "a": {
+          "lang": "html",
+          "value": "<p>This is paragraph number one.</p><p>This is paragraph number two.</p>"
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "<br>"
+           ]
+          },
+          " (Line Break):"
+         ]
+        },
+        " Inserts a line break to split strings vertically.",
+        {
+         "t": "codeblock",
+         "a": {
+          "lang": "html",
+          "value": "Line number one text.<br>Line number two text right below it."
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "<hr>"
+           ]
+          },
+          " (Horizontal Rule):"
+         ]
+        },
+        " Draws a clean divider line to separate sections.",
+        {
+         "t": "codeblock",
+         "a": {
+          "lang": "html",
+          "value": "Text above the line.\n<hr>\nText below the line."
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-2-text-formatting-semantics"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "2. ",
+        {
+         "t": "strong",
+         "c": [
+          "Text Formatting & Semantics"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "You can call out important variables, system names, or policy warnings using standard inline semantic elements:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "<strong>"
+           ]
+          },
+          " or ",
+          {
+           "t": "code",
+           "c": [
+            "<b>"
+           ]
+          },
+          " (Bold):"
+         ]
+        },
+        " Emphasizes critical words.",
+        {
+         "t": "codeblock",
+         "a": {
+          "lang": "html",
+          "value": "This is standard text and <strong>this text should be strictly bolded</strong>."
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "<em>"
+           ]
+          },
+          " or ",
+          {
+           "t": "code",
+           "c": [
+            "<i>"
+           ]
+          },
+          " (Italics):"
+         ]
+        },
+        " Denotes emphasis or subtext.",
+        {
+         "t": "codeblock",
+         "a": {
+          "lang": "html",
+          "value": "This is standard text and <em>this text is italicized via emphasis</em>."
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "<code>"
+           ]
+          },
+          " (Inline Code Block):"
+         ]
+        },
+        " Formats account identifiers, APIs, or configuration parameters in monospace text.",
+        {
+         "t": "codeblock",
+         "a": {
+          "lang": "html",
+          "value": "The target account identifier is <code>xyz_employee_123</code>."
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "<pre>"
+           ]
+          },
+          " (Preformatted Text):"
+         ]
+        },
+        " Preserves text formatting, including spaces and indentation, directly in the UI.",
+        {
+         "t": "codeblock",
+         "a": {
+          "lang": "html",
+          "value": "<pre>\nLine 1: Preserving spaces\nLine 2:    and indentation\nLine 3: exactly like this.\n</pre>"
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "intermediate-layouts-spacing-tables"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Intermediate Layouts, Spacing & Tables"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Forms often need to present lists of entitlements or tabular summaries of requested roles. Instead of relying on long, hard-to-read paragraphs, you can structure your forms using tables, bulleted lists, and inline CSS box alignment properties."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-1-list-tags"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "1. List Tags"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "<ul>"
+           ]
+          },
+          " & ",
+          {
+           "t": "code",
+           "c": [
+            "<li>"
+           ]
+          },
+          " (Unordered List):"
+         ]
+        },
+        " Creates standard bulleted lists for summarizing requirements or roles.",
+        {
+         "t": "codeblock",
+         "a": {
+          "lang": "html",
+          "value": "<ul>\n  <li>First unordered item</li>\n  <li>Second unordered item</li>\n</ul>"
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "img",
+         "a": {
+          "src": "https://global.discourse-cdn.com/sailpoint/original/3X/f/7/f74a72c49b0ed5261df65897aacf211636f465c1.png",
+          "alt": "image",
+          "width": "215",
+          "height": "65"
+         }
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "<ol>"
+           ]
+          },
+          " & ",
+          {
+           "t": "code",
+           "c": [
+            "<li>"
+           ]
+          },
+          " (Ordered List):"
+         ]
+        },
+        " Creates numbered lists to guide users through multi-step instructions.",
+        {
+         "t": "codeblock",
+         "a": {
+          "lang": "html",
+          "value": "<ol>\n  <li>First numbered item</li>\n  <li>Second numbered item</li>\n</ol>"
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "img",
+         "a": {
+          "src": "https://global.discourse-cdn.com/sailpoint/original/3X/d/8/d88c6c5c235933836affdff6c26828f8cbcb5f80.png",
+          "alt": "image",
+          "width": "190",
+          "height": "57"
+         }
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-2-tabular-data-tags"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "2. Tabular Data Tags"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "To present clean attribute maps, use the standard ",
+      {
+       "t": "code",
+       "c": [
+        "<table>"
+       ]
+      },
+      " structure:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "html",
+      "value": "<table style='width: 100%; border-collapse: collapse;'>\n  <tr style='background-color: #1a1a1a; color: white;'>\n    <th style='padding: 6px; width: 30%; text-align: left;'>Permission</th>\n    <th style='padding: 6px; width: 70%; text-align: left;'>Risk Level</th>\n  </tr>\n  <tr style='border-bottom: 1px solid #eee;'>\n    <td style='padding: 6px;'>Domain Admin</td>\n    <td style='padding: 6px; color: red; font-weight: bold;'>CRITICAL</td>\n  </tr>\n</table>"
+     }
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/e/4/e4e42d59d05245adebbcadc4f7c30f10bf69306d.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/original/3X/e/4/e4e42d59d05245adebbcadc4f7c30f10bf69306d.png",
+        "alt": "image",
+        "width": "690",
+        "height": "94"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-3-inline-css-layout-properties"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "3. Inline CSS Layout Properties"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Modern layouts are built on Flexbox and CSS Grid. You can use these inline properties in your containers to structure elements side-by-side:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "display: flex;"
+           ]
+          }
+         ]
+        },
+        " aligns elements horizontally or vertically.",
+        {
+         "t": "codeblock",
+         "a": {
+          "lang": "html",
+          "value": "<div style='display: flex;'><div style='padding: 5px;'>Left Item</div><div style='padding: 5px;'>Right Item</div></div>"
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "img",
+         "a": {
+          "src": "https://global.discourse-cdn.com/sailpoint/original/3X/8/7/873e43815a2689dc3b29924898c8dd1ea7760363.png",
+          "alt": "image",
+          "width": "162",
+          "height": "41"
+         }
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "display: grid;"
+           ]
+          }
+         ]
+        },
+        " creates complex multi-column grids.",
+        {
+         "t": "codeblock",
+         "a": {
+          "lang": "html",
+          "value": "<div style='display: grid; grid-template-columns: auto auto;'><div style='padding: 5px;'>Cell 1</div><div style='padding: 5px;'>Cell 2</div></div>"
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "img",
+         "a": {
+          "src": "https://global.discourse-cdn.com/sailpoint/original/3X/d/f/df0c8b3d09e1a28d50588c462e48c4338ae10693.png",
+          "alt": "image",
+          "width": "450",
+          "height": "63"
+         }
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "justify-content: space-between;"
+           ]
+          }
+         ]
+        },
+        " pushes items to opposite sides.",
+        {
+         "t": "codeblock",
+         "a": {
+          "lang": "html",
+          "value": "<div style='display: flex; justify-content: space-between;'><span>Left Aligned</span><span>Right Aligned</span></div>"
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "img",
+         "a": {
+          "src": "https://global.discourse-cdn.com/sailpoint/original/3X/a/6/a67557bd413abd307211b4b7f1e745e8f55087d6.png",
+          "alt": "image",
+          "width": "690",
+          "height": "39"
+         }
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "align-items: center;"
+           ]
+          }
+         ]
+        },
+        " centers items vertically.",
+        {
+         "t": "codeblock",
+         "a": {
+          "lang": "html",
+          "value": "<div style='display: flex; align-items: center; height: 50px;'><span>Vertically Centered Text</span></div>"
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-4-css-box-model-spacing"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "4. CSS Box Model & Spacing"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Control the spacing and width of your custom widgets using properties like ",
+      {
+       "t": "code",
+       "c": [
+        "padding"
+       ]
+      },
+      ", ",
+      {
+       "t": "code",
+       "c": [
+        "margin-bottom"
+       ]
+      },
+      ", ",
+      {
+       "t": "code",
+       "c": [
+        "width"
+       ]
+      },
+      ", and ",
+      {
+       "t": "code",
+       "c": [
+        "max-width"
+       ]
+      },
+      " to prevent form fields from shifting:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "html",
+      "value": "<div style='padding: 25px; margin-bottom: 30px; max-width: 500px; background-color: lightgray;'>\n  Testing spacing, margins, and constrained max-width.\n</div>"
+     }
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/4/f/4fdd0a38fe8d92640ded9f7325d7c5fa1e2569e6.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/original/3X/4/f/4fdd0a38fe8d92640ded9f7325d7c5fa1e2569e6.png",
+        "alt": "image",
+        "width": "528",
+        "height": "105"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "advanced-css-visual-polish-interactive-elements"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Advanced CSS, Visual Polish & Interactive Elements"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "If you want to take your forms from basic HTML layouts to premium, enterprise-grade dashboards, you can leverage advanced CSS techniques like border accents, box shadows, text rendering overrides, and native interactive components."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-1-borders-backgrounds-shadows"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "1. Borders, Backgrounds & Shadows"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "border-left"
+           ]
+          },
+          " (Left Accent Border):"
+         ]
+        },
+        " Perfect for making warnings or notices stand out."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "border-radius"
+           ]
+          },
+          ":"
+         ]
+        },
+        " Creates soft, modern curved borders."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "box-shadow"
+           ]
+          },
+          ":"
+         ]
+        },
+        " Adds visual depth and lift.",
+        {
+         "t": "codeblock",
+         "a": {
+          "lang": "html",
+          "value": "<div style='box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #ddd; border-left: 5px solid #3498db; border-radius: 6px; padding: 15px; background-color: #fff;'>\n  Testing elevated card shadow with left accent border.\n</div>"
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "img",
+         "a": {
+          "src": "https://global.discourse-cdn.com/sailpoint/original/3X/1/d/1deaedf97ac00eff69296cce754bfd763497f214.png",
+          "alt": "image",
+          "width": "690",
+          "height": "66"
+         }
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-2-advanced-typography-overrides"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "2. Advanced Typography Overrides"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "white-space: pre-wrap;"
+           ]
+          },
+          ":"
+         ]
+        },
+        " Ensures long, multi-line logs preserve their line breaks and indentations natively without needing the bulky layout constraints of the ",
+        {
+         "t": "code",
+         "c": [
+          "<pre>"
+         ]
+        },
+        " tag."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "word-break: break-all;"
+           ]
+          },
+          ":"
+         ]
+        },
+        " Essential when displaying long Active Directory DNs (",
+        {
+         "t": "code",
+         "c": [
+          "CN=Tyler Rettkowski,OU=Consultants,OU=Glendale,DC=identityexe,DC=com"
+         ]
+        },
+        ") or work emails, preventing them from overflowing and clipping the edges of the form container."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "text-shadow"
+           ]
+          },
+          ":"
+         ]
+        },
+        " Adds a subtle shadow behind titles to make them pop."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "opacity"
+           ]
+          },
+          " & ",
+          {
+           "t": "code",
+           "c": [
+            "text-transform"
+           ]
+          },
+          ":"
+         ]
+        },
+        " Modulates emphasis and casing.",
+        {
+         "t": "codeblock",
+         "a": {
+          "lang": "html",
+          "value": "<span style='font-weight: bold; font-size: 16px; color: #2c3e50; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); text-transform: uppercase;'>\n  Secured Lifecycle Operation Summary\n</span>"
+         }
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "img",
+         "a": {
+          "src": "https://global.discourse-cdn.com/sailpoint/original/3X/d/1/d1d264219f997c5862cad23cf07840edcd4bad48.png",
+          "alt": "image",
+          "width": "321",
+          "height": "33"
+         }
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-3-interactive-accordion-dropdowns-details-summary"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "3. Interactive Accordion Dropdowns"
+       ]
+      },
+      " ",
+      {
+       "t": "strong",
+       "c": [
+        "(",
+        {
+         "t": "code",
+         "c": [
+          "<details>"
+         ]
+        },
+        " & ",
+        {
+         "t": "code",
+         "c": [
+          "<summary>"
+         ]
+        },
+        ")"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "When audit requirements demand that you display raw data logs or metadata on a form, displaying it all by default can clutter the user experience. You can use the native browser accordion to hide this data behind an interactive toggle:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "html",
+      "value": "<details style='cursor: pointer; background: #222; padding: 8px; border-radius: 4px; color: #fff;'>\n  <summary style='font-weight: bold; color: #3498db;'>🔍 View Raw Identity Target Attributes</summary>\n  <div style='margin-top: 8px; font-family: monospace; font-size: 11px; color: #00ff00; border-top: 1px solid #2d2d35; padding-top: 8px;'>\n    costCenter: CC-9942<br>\n    location: Phoenix-HQS<br>\n    status: Pre-Hire\n  </div>\n</details>"
+     }
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/a/8/a820b487f39cd3d25809f9ac6d1fcd9bb0040e43.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/original/3X/a/8/a820b487f39cd3d25809f9ac6d1fcd9bb0040e43.png",
+        "alt": "image",
+        "width": "690",
+        "height": "115"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-4-custom-ui-component-examples"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "4. Custom UI Component Examples"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "By putting these elements together, you can build pre-styled components:"
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "a-the-standard-info-alert-banner"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "A. The Standard Info Alert Banner"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Mimics an official platform notification notice, ideal for displaying policy rules right above a form input:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "html",
+      "value": "<div style='background-color: #e3f2fd; border: 1px solid #90caf9; border-left: 5px solid #2196f3; padding: 12px; border-radius: 4px; color: #0d47a1; font-size: 13px;'>\n  <strong>ℹ️ Notice:</strong> Requesting privileged group access automatically routes this item to the Information Security oversight queue.\n</div>"
+     }
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "img",
+         "a": {
+          "src": "https://global.discourse-cdn.com/sailpoint/original/3X/c/f/cf0e31d13dbec0255f961b90a8e3f09323901ed4.png",
+          "alt": "image",
+          "width": "690",
+          "height": "53"
+         }
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "b-the-mini-identity-profile-badge"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "B. The Mini Identity Profile Badge"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "A clean way to present multiple target attributes side by side:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "html",
+      "value": "<div style='display: flex; gap: 8px;'>\n  <span style='background-color: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: bold;'>👤 Status: Pre-Hire</span>\n  <span style='background-color: #fff3e0; color: #e65100; border: 1px solid #ffe0b2; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: bold;'>🔑 Type: Contractor</span>\n</div>"
+     }
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "img",
+         "a": {
+          "src": "https://global.discourse-cdn.com/sailpoint/original/3X/7/d/7d92ada686b594067bee13ffc0581d752ff81088.png",
+          "alt": "image",
+          "width": "256",
+          "height": "44"
+         }
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "c-clean-key-value-row-item"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "C. Clean Key Value Row Item"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Subtle summary rows that separate information cleanly:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "html",
+      "value": "<div style='padding: 8px 0; border-bottom: 1px dashed #ccc; font-size: 13px;'>\n  <span style='color: #666; font-weight: bold;'>Target System:</span> \n  <code style='float: right; color: #333;'>Active_Directory_Production</code>\n</div>"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "img",
+       "a": {
+        "src": "https://global.discourse-cdn.com/sailpoint/original/3X/2/c/2cb4debc81bf931c010ea296aeb607dd655f196c.png",
+        "alt": "image",
+        "width": "690",
+        "height": "42"
+       }
+      }
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "showcase-advanced-layout-designs-complex-custom-dashboards"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Showcase: Advanced Layout Designs (Complex Custom Dashboards)"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "To show you just how far you can push this styling engine, let’s look at three complex, enterprise ready dashboard components. These widgets combine borders, flexbox grid spacing, custom table alignments, and color coded status pills to convey high density parameters cleanly:"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-1-the-high-risk-access-escalation-summary"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "1. The High-Risk Access Escalation Summary"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This configuration builds a complete security warning block. It combines a bold status bar, side by side flex layout info boxes, a clean data table with custom cell widths, and an inline policy justification notice. It is a perfect mock up for a Request Center step where an approver needs to see the exact blast radius of a critical permission assignment:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "html",
+      "value": "<div style='background: #fff; border: 1px solid #d32f2f; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); max-width: 650px; font-family: sans-serif; overflow: hidden;'>\n  <div style='background: #d32f2f; color: #fff; padding: 12px 16px; font-weight: bold; font-size: 14px; display: flex; justify-content: space-between; align-items: center;'>\n    <span>🚨 High-Risk Governance Override Detected</span>\n    <span style='background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 12px; font-size: 11px; text-transform: uppercase;'>SOD Violation</span>\n  </div>\n  <div style='padding: 16px;'>\n    <p style='margin: 0 0 14px 0; font-size: 13px; color: #333; line-height: 1.5;'>The identity lifecycle modification requested requires administrative authorization due to an automatic policy match against the **Global Core Infrastructure Guardrail** matrix.</p>\n    <div style='display: flex; gap: 12px; margin-bottom: 14px;'>\n      <div style='flex: 1; background: #fafafa; border: 1px solid #e0e0e0; padding: 10px; border-radius: 4px;'>\n        <span style='font-size: 11px; color: #666; text-transform: uppercase; font-weight: 600;'>Target Object</span><br>\n        <code style='font-size: 12px; color: #1e88e5; font-weight: bold;'>AWS-Prod-IAM-Admin</code>\n      </div>\n      <div style='flex: 1; background: #fafafa; border: 1px solid #e0e0e0; padding: 10px; border-radius: 4px;'>\n        <span style='font-size: 11px; color: #666; text-transform: uppercase; font-weight: 600;'>Risk Score Impact</span><br>\n        <span style='font-size: 13px; color: #e53935; font-weight: bold;'>Critical (820 / 1000)</span>\n      </div>\n    </div>\n    <table style='width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 14px;'>\n      <tr style='background: #f5f5f5; border-bottom: 2px solid #e0e0e0; text-align: left;'>\n        <th style='padding: 6px 8px; color: #555;'>Entitlement Context Attribute</th>\n        <th style='padding: 6px 8px; color: #555;'>Assignment Rule Value</th>\n      </tr>\n      <tr style='border-bottom: 1px solid #eee;'>\n        <td style='padding: 6px 8px; font-weight: bold; color: #333;'>Entitlement ID</td>\n        <td style='padding: 6px 8px; font-family: monospace; color: #555;'>ent_991_aws_master_super</td>\n      </tr>\n      <tr style='border-bottom: 1px solid #eee;'>\n        <td style='padding: 6px 8px; font-weight: bold; color: #333;'>Provisioning Path</td>\n        <td style='padding: 6px 8px; color: #555;'>Direct Connected API (No Remediation Queue)</td>\n      </tr>\n    </table>\n    <div style='background: #fff8e1; border: 1px solid #ffe082; border-left: 4px solid #ffb300; padding: 10px; border-radius: 4px; color: #b78103; font-size: 12px; line-height: 1.4;'>\n      <strong>⚠️ Audit Notice:</strong> Proceeding with this operation logs a dynamic exception token to the corporate logging pipeline for the Q3 external system alignment review.\n    </div>\n  </div>\n</div>"
+     }
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/1/f/1ff76e9180e51f33e982cfa3ae85b674bb7f257e.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/original/3X/1/f/1ff76e9180e51f33e982cfa3ae85b674bb7f257e.png",
+        "alt": "image",
+        "width": "674",
+        "height": "407"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-2-the-comprehensive-identity-profile-dashboard-block"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "2. The Comprehensive Identity Profile Dashboard Block"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This configuration completely redesigns the standard field display, arranging identity metadata into a clean, floating management console card. It builds a profile header, stacks metadata items horizontally via custom widths inside a flex row layout, and embeds a togglable ",
+      {
+       "t": "code",
+       "c": [
+        "<details>"
+       ]
+      },
+      " log summary directly inside the widget base:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "html",
+      "value": "<div style='background: #1e1e24; color: #fff; border: 1px solid #2d2d35; border-radius: 8px; box-shadow: 0 6px 16px rgba(0,0,0,0.15); max-width: 650px; font-family: sans-serif; padding: 16px;'>\n  <div style='display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #2d2d35; padding-bottom: 12px; margin-bottom: 14px;'>\n    <div>\n      <span style='font-size: 16px; font-weight: bold; color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);'>👤 Core Identity Context Card</span><br>\n      <span style='font-size: 11px; color: #8a8a93;'>Data Source: Active HR Authority Sync</span>\n    </div>\n    <div style='background: #2e7d32; color: #fff; border: 1px solid #4caf50; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; text-transform: uppercase;'>Match Validated</div>\n  </div>\n  <div style='display: flex; gap: 10px; margin-bottom: 14px;'>\n    <div style='width: 33%; background: #25252d; padding: 8px; border-radius: 4px; text-align: center;'>\n      <span style='font-size: 10px; color: #8a8a93; text-transform: uppercase;'>Work Email</span><br>\n      <span style='font-size: 11px; font-weight: bold; color: #3498db; word-break: break-all;'>t.rett@identityexe.com</span>\n    </div>\n    <div style='width: 33%; background: #25252d; padding: 8px; border-radius: 4px; text-align: center;'>\n      <span style='font-size: 10px; color: #8a8a93; text-transform: uppercase;'>Cost Center</span><br>\n      <code style='font-size: 11px; color: #e67e22; font-weight: bold;'>CC-AZ-PHX-991</code>\n    </div>\n    <div style='width: 34%; background: #25252d; padding: 8px; border-radius: 4px; text-align: center;'>\n      <span style='font-size: 10px; color: #8a8a93; text-transform: uppercase;'>Management Anchor</span><br>\n      <span style='font-size: 11px; font-weight: bold; color: #fff;'>Marcus Vance (VP)</span>\n    </div>\n  </div>\n  <div style='white-space: pre-wrap; font-family: monospace; font-size: 12px; background: #151518; padding: 10px; border-radius: 4px; border: 1px solid #25252d; color: #aaa; margin-bottom: 14px;'>\n    Target Directory BaseDN String Verification:<br>`CN=Tyler Rettkowski,OU=Consultants,OU=Glendale,DC=identityexe,DC=com`\n  </div>\n  <details style='cursor: pointer; background: #25252d; padding: 8px; border-radius: 4px; border: 1px solid #2d2d35;'>\n    <summary style='font-weight: bold; font-size: 12px; color: #3498db;'>🔍 View Active Multi-Tenant Operational Parameters</summary>\n    <div style='margin-top: 10px; font-family: monospace; font-size: 11px; color: #2ecc71; border-top: 1px solid #2d2d35; padding-top: 8px;'>\n      sailpointWorkgroupMembership: [Mgt-Override-Tier3, Sec-Ops-Approver]<br>\n      identityLifecycleState: authorizedContractorExtension<br>\n      associatedAccountsCount: 7 Source Connectors Linked\n    </div>\n  </details>\n</div>"
+     }
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/1/c/1cd0ff1c490ed989ab17b42213c3b145f7388179.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/original/3X/1/c/1cd0ff1c490ed989ab17b42213c3b145f7388179.png",
+      "alt": "image",
+      "width": "665",
+      "height": "377"
+     }
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-3-the-interactive-access-verification-checksheet"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "3. The Interactive Access Verification Checksheet"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This component models an inline compliance overview dashboard sheet. It leverages detailed status rows with border separation accents, floating status badges, and an accent informational callout box. This configuration shows off how text alignment, borders, and flex structures can generate enterprise grade UI designs natively inside SailPoint descriptions:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "html",
+      "value": "<div style='background: #fff; border: 1px solid #cfd8dc; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); max-width: 650px; font-family: sans-serif; padding: 16px;'>\n  <div style='font-size: 15px; font-weight: bold; color: #37474f; margin-bottom: 4px;'>📋 Pre-Provisioning Compliance Verification Checksheet</div>\n  <p style='margin: 0 0 16px 0; font-size: 12px; color: #78909c;'>Verify downstream target platform state criteria prior to authorizing transaction execution.</p>\n  <div style='padding: 10px 0; border-bottom: 1px dashed #cfd8dc; display: flex; justify-content: space-between; align-items: center; font-size: 13px;'>\n    <span style='color: #455a64; font-weight: bold;'>1. Downstream Target Core System Connectivity State</span>\n    <span style='background: #e8f5e9; color: #2e7d32; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; text-transform: uppercase;'>Online / Available</span>\n  </div>\n  <div style='padding: 10px 0; border-bottom: 1px dashed #cfd8dc; display: flex; justify-content: space-between; align-items: center; font-size: 13px;'>\n    <span style='color: #455a64; font-weight: bold;'>2. Identity Correlated Account Link Check</span>\n    <span style='background: #fff3e0; color: #e65100; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; text-transform: uppercase;'>Link Unmatched (Will Create)</span>\n  </div>\n  <div style='padding: 10px 0; border-bottom: 1px dashed #cfd8dc; display: flex; justify-content: space-between; align-items: center; font-size: 13px;'>\n    <span style='color: #455a64; font-weight: bold;'>3. Licensing Availability Pool Threshold Validation</span>\n    <span style='background: #e8f5e9; color: #2e7d32; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; text-transform: uppercase;'>Seats Allocated OK</span>\n  </div>\n  <div style='margin-top: 14px; background: #eceff1; padding: 10px; border-radius: 4px; border-left: 4px solid #607d8b; font-size: 12px; color: #37474f; line-height: 1.45;'>\n    <strong>💡 Implementation Note:</strong> Downstream account correlation calculations will use the primary identity anchor matching formula on the next scheduled engine aggregation run cycle.\n  </div>\n</div>"
+     }
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/2/b/2b3aae31d398ab2a327bd97552a2b93be517b201.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/original/3X/2/b/2b3aae31d398ab2a327bd97552a2b93be517b201.png",
+      "alt": "image",
+      "width": "668",
+      "height": "302"
+     }
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "form-title-customization-unicode-emojis-pseudo-fonts"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Form Title Customization (Unicode, Emojis & Pseudo-Fonts)"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "While the form body is highly customizable via HTML and CSS, the form title is handled differently. The title is processed as a strict plain text."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "If you attempt to inject tags like ",
+      {
+       "t": "code",
+       "c": [
+        "<span>"
+       ]
+      },
+      " or ",
+      {
+       "t": "code",
+       "c": [
+        "<strong>"
+       ]
+      },
+      " into a form title, they will either render literally (",
+      {
+       "t": "code",
+       "c": [
+        "<span>Title</span>"
+       ]
+      },
+      ") or be completely stripped by the cross-site scripting (XSS) sanitizer."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "However, you can still customize form titles by bypassing the HTML renderer entirely and leveraging Unicode glyphs, emojis, and mathematical alphanumeric pseudo fonts."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Here are five layout patterns that successfully customize the header:"
+     ]
+    },
+    {
+     "t": "ol",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "The Multi-Segment Governance Breadcrumb:"
+         ]
+        },
+        {
+         "t": "br"
+        },
+        "\n",
+        {
+         "t": "code",
+         "c": [
+          "🌐 GOVERNANCE ┃ Account Provisioning Engine ➔ AD_Target_Console"
+         ]
+        }
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "The High-Contrast Security Callout Banner:"
+         ]
+        },
+        {
+         "t": "br"
+        },
+        "\n",
+        {
+         "t": "code",
+         "c": [
+          "║ ⛔ SECURITY EXCEPTION ║ 𝖫𝖨𝖥𝖤𝖢𝖸𝖢𝖫𝖤_𝖲𝖳A𝖳𝖤_𝖬𝖮𝖣𝖨𝖥𝖨𝖢𝖠𝖳𝖨𝖮𝖭"
+         ]
+        }
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "The Minimalist Technical Audit Header:"
+         ]
+        },
+        {
+         "t": "br"
+        },
+        "\n",
+        {
+         "t": "code",
+         "c": [
+          "▍ [AUDIT LOG SUMMARY] Identity Lifecycle Parameters : 𝖢𝖮𝖱𝖤_𝖧𝖱_𝖠𝖴𝖳𝖧𝖮𝖱𝖨𝖳𝖸"
+         ]
+        }
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "The Tokenized Action & Target Panel Header:"
+         ]
+        },
+        {
+         "t": "br"
+        },
+        "\n",
+        {
+         "t": "code",
+         "c": [
+          "📋 𝐃𝐚𝐬𝐡𝐛𝐨𝐚𝐫𝐝 𝐕𝐞𝐫𝐢𝐟𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐂𝐨𝐧𝐬𝐨𝐥𝐞 ▪ Target Object Reference Matrix ▪ [Active]"
+         ]
+        }
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "The Alert-Level Status Matrix Block:"
+         ]
+        },
+        {
+         "t": "br"
+        },
+        "\n",
+        {
+         "t": "code",
+         "c": [
+          "⚠️ 🟥 [CRITICAL OVERRIDE ALERT] 🟥 𝖦𝖫𝖮𝖡𝖠𝖫_𝖨𝖭𝖥𝖱𝖠_𝖦𝖴𝖠𝖱𝖣𝖱𝖠𝖨𝖫"
+         ]
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "the-masterclass-dynamic-html-compilation-via-serial-loops"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "The Masterclass: Dynamic HTML Compilation via Serial Loops"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Now that we understand the visual thresholds of the Form body, let’s explore how to dynamically inject customized HTML widgets into your forms using SailPoint Workflows."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Instead of writing static text, you can initialize a workflow string variable, run a ",
+      {
+       "t": "strong",
+       "c": [
+        "serial loop"
+       ]
+      },
+      " to iterate over a collection of objects, and concatenate stylized HTML fragments. This compiled variable is then passed directly into a form’s input block."
+     ]
+    },
+    {
+     "t": "mermaid",
+     "a": {
+      "value": "graph TD\n    A[Start Workflow] --> B[Initialize Variable: html_output]\n    B --> C[\"Fetch Collection (e.g., Active Campaigns)\"]\n    C --> D[Start Serial Loop]\n    D --> E[Concatenate Stylized HTML Card to html_output]\n    E --> F{Next Item?}\n    F -- Yes --> D\n    F -- No --> G[Inject html_output into Form Description Block]\n    G --> H[Render Customized Dashboard Form]"
+     }
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "setup-walkthrough-the-form-customization-tester-workflow"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Setup Walkthrough: The Form Customization Tester Workflow"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Let’s build a real world example. We’ll construct a workflow that grabs a list of identities from the SailPoint tenant, loops through them to build an identity context block featuring a profile summary, an identity state badge, and an accordion detail wrapper, and presents it in a custom form layout."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Here is how the workflow is defined:"
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "step-1-initialize-the-loop-variable"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Step 1: Initialize the Loop Variable"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Add a ",
+      {
+       "t": "strong",
+       "c": [
+        "Define Variable"
+       ]
+      },
+      " step at the start of your workflow. Create a string variable called ",
+      {
+       "t": "code",
+       "c": [
+        "inputloopbuilder"
+       ]
+      },
+      " and leave it empty (or initialize it with an outer wrapping CSS layout tag)."
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "\"Define Variable\": {\n  \"actionId\": \"sp:define-variable\",\n  \"attributes\": {\n    \"id\": \"sp:define-variable\",\n    \"variables\": [\n      {\n        \"description\": \"\",\n        \"name\": \"inputloopbuilder\",\n        \"transforms\": []\n      }\n    ]\n  },\n  \"nextStep\": \"HTTP Request\",\n  \"type\": \"Mutation\"\n}"
+     }
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "step-2-fetch-the-core-identities"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Step 2: Fetch the Core Identities"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Use an ",
+      {
+       "t": "strong",
+       "c": [
+        "HTTP Request"
+       ]
+      },
+      " step to query your target identities list from the API:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Endpoint:"
+         ]
+        },
+        " ",
+        {
+         "t": "code",
+         "c": [
+          "GET /v2026/identities"
+         ]
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "\"HTTP Request\": {\n  \"actionId\": \"sp:http\",\n  \"attributes\": {\n    \"method\": \"get\",\n    \"param_authenticationRef\": \"oauth\",\n    \"requestContentType\": \"json\",\n    \"url\": \"https://{{your-tenant}}.api.identitynow.com/v2026/identities\"\n  },\n  \"nextStep\": \"Serial Loop\",\n  \"type\": \"action\",\n  \"versionNumber\": 3\n}"
+     }
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "step-3-run-the-serial-loop-iteration"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Step 3: Run the Serial Loop Iteration"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Add a ",
+      {
+       "t": "strong",
+       "c": [
+        "Serial Loop"
+       ]
+      },
+      " step to iterate over the HTTP response body:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Input Array:"
+         ]
+        },
+        " ",
+        {
+         "t": "code",
+         "c": [
+          "$.hTTPRequest.body"
+         ]
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "\"Serial Loop\": {\n  \"actionId\": \"sp:serial:iterator\",\n  \"attributes\": {\n    \"input.$\": \"$.hTTPRequest.body\",\n    \"loopType\": \"forLoop\",\n    \"start\": \"Update Variable\",\n    \"steps\": {\n      ...\n    }\n  },\n  \"nextStep\": \"Interactive Form\",\n  \"type\": \"action\",\n  \"versionNumber\": 1\n}"
+     }
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "step-4-concatenate-the-custom-html-block"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Step 4: Concatenate the Custom HTML block"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Inside the serial loop, add an ",
+      {
+       "t": "strong",
+       "c": [
+        "Update Variable"
+       ]
+      },
+      " step. Use the ",
+      {
+       "t": "code",
+       "c": [
+        "sp:transform:concatenate:string"
+       ]
+      },
+      " transform to append the stylized HTML table structure for the current identity to ",
+      {
+       "t": "code",
+       "c": [
+        "$.defineVariable.inputloopbuilder"
+       ]
+      },
+      ":"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "\"Update Variable\": {\n  \"actionId\": \"sp:update-variable\",\n  \"attributes\": {\n    \"id\": \"sp:update-variable\",\n    \"variables\": [\n      {\n        \"name\": \"$.defineVariable.inputloopbuilder\",\n        \"variableA.$\": \"$.defineVariable.inputloopbuilder\",\n        \"transforms\": [\n          {\n            \"id\": \"sp:transform:concatenate:string\",\n            \"input\": {\n              \"variableB\": \"<table style='width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #cfd8dc; border-left: 5px solid #3498db; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.04); font-family: sans-serif; margin-bottom: 12px;'><tr><td style='padding: 12px; width: 35%;'><span style='font-weight: bold; font-size: 14px; color: #1e293b;'>👤 {{$.loop.loopInput.attributes.displayName}}</span><br><span style='font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase;'>{{$.loop.loopInput.attributes.title}}</span><br><span style='font-size: 11px; color: #94a3b8;'>UID: <code style='font-family: monospace; color: #d63384;'>{{$.loop.loopInput.attributes.uid}}</code></span></td><td style='padding: 12px; width: 40%; font-size: 12px; color: #334155; vertical-align: top;'>📧 <span style='font-family: monospace; color: #e11d48;'>{{$.loop.loopInput.emailAddress}}</span><br>📍 Location: <strong style='color: #475569;'>{{$.loop.loopInput.attributes.location}}</strong><br>👔 Manager: <span style='font-size: 11px; opacity: 0.85; font-weight: bold;'>{{$.loop.loopInput.managerRef.name}}</span></td><td style='padding: 12px; width: 25%; text-align: right; vertical-align: top;'><span style='background: #e8f5e9; border: 1px solid #c8e6c9; color: #2e7d32; padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; text-transform: uppercase;'>{{$.loop.loopInput.attributes.identityState}}</span></td></tr><tr><td colspan='3' style='padding: 0 12px 12px 12px;'><details style='cursor: pointer; background: #f8fafc; padding: 8px; border-radius: 4px; border: 1px solid #e2e8f0;'><summary style='font-weight: bold; font-size: 11px; color: #475569;'>🔍 View Lifecycle & Sync Parameters</summary><div style='margin-top: 8px; font-family: monospace; font-size: 11px; color: #334155; border-top: 1px dashed #cbd5e1; padding-top: 6px; white-space: pre-wrap; word-break: break-all;'>Internal ID: {{$.loop.loopInput.id}}\\nCreated: {{$.loop.loopInput.created}}\\nModified: {{$.loop.loopInput.modified}}\\nLast Sync Signature: {{$.loop.loopInput.attributes.lastSyncDate}}</div></details></td></tr></table>\"\n            }\n          }\n        ]\n      }\n    ]\n  },\n  \"nextStep\": \"End Step - Success 1\",\n  \"type\": \"Mutation\"\n}"
+     }
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "step-5-render-the-compiled-html-output-in-the-form"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Step 5: Render the Compiled HTML Output in the Form"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "After the loop completes, send the accumulated variable directly into an ",
+      {
+       "t": "strong",
+       "c": [
+        "Interactive Form"
+       ]
+      },
+      " step:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "\"Interactive Form\": {\n  \"actionId\": \"sp:interactive-form\",\n  \"attributes\": {\n    \"formDefinitionId\": \"c27dbd2a-dd5c-45c7-bfbe-0c3d518c3f6e\",\n    \"inputForForm_input.$\": \"$.defineVariable.inputloopbuilder\",\n    \"title\": \"Form Customization Tester\"\n  },\n  \"nextStep\": \"End Step - Success\",\n  \"type\": \"action\",\n  \"versionNumber\": 1\n}"
+     }
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "the-rendered-result"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "The Rendered Result"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "When the interactive process is launched, the engine loops through your active identities, constructs the table elements, and displays a beautifully structured directory block natively inside the user form:"
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/c/7/c70df05370c1b01c18d914ed02cf00578357f7a0.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/original/3X/c/7/c70df05370c1b01c18d914ed02cf00578357f7a0.png",
+      "alt": "Loop-Variable-Builder-Customized-Form-1",
+      "width": "664",
+      "height": "500"
+     }
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "workflow-json-download"
+     },
+     "c": [
+      "Workflow JSON Download:"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/uLIEEIRz6NUkkyGzLsC7RILclDv.json"
+       },
+       "c": [
+        "FormCustomizationTester20260609.json"
+       ]
+      },
+      " (5.5 KB)"
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "security-supportability-and-best-practices"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Security, Supportability, and Best Practices"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "When pushing the limits of Form UI customization, you must stay within SailPoint’s platform boundaries. Breaking these rules will result in either broken layouts or deployment errors. Always keep supportability, accessibility, security, and performance in mind."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-1-supportability-upgrades"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "1. Supportability & Upgrades"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "While standard form features are officially supported by SailPoint, deeply customized HTML/CSS DOM injections are considered community-driven implementations. If a future UI platform update changes the underlying CSS classes or container widths, your custom layouts may shift or break. Always maintain clear documentation of your custom forms and re-validate them during major platform updates."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-2-accessibility"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "2. Accessibility"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Standard forms are built to be screen-reader friendly. When you build custom UI widgets, you are responsible for their accessibility."
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Avoid relying exclusively on color to convey meaning (e.g., a red box for “denied”). Always pair colors with text labels."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Pseudo-fonts (like the mathematical bold characters in custom titles) often cannot be read by screen readers, use them sparingly."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Ensure your custom text maintains a high contrast ratio against its background."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-3-performance-load-times"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "3. Performance & Load Times"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "When using Workflow serial loops to build dynamic HTML (like compiling large lists of identities or entitlements), be mindful of payload sizes. Attempting to render hundreds of custom HTML rows in a single form description block can lead to browser lag, slow rendering, or form load timeouts. Keep loops constrained or use pagination strategies."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-4-active-cross-site-scripting-xss-sanitization"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "4. Active Cross-Site Scripting (XSS) Sanitization"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "SailPoint aggressively sanitizes interactive elements to maintain a secure environment."
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Direct Script Tags:"
+         ]
+        },
+        " Any ",
+        {
+         "t": "code",
+         "c": [
+          "<script>"
+         ]
+        },
+        " tag will be stripped from the DOM."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Event Handlers:"
+         ]
+        },
+        " Inline attributes like ",
+        {
+         "t": "code",
+         "c": [
+          "onclick"
+         ]
+        },
+        ", ",
+        {
+         "t": "code",
+         "c": [
+          "onmouseover"
+         ]
+        },
+        ", or HTML handlers are filtered out."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Malicious URLs:"
+         ]
+        },
+        " Links using ",
+        {
+         "t": "code",
+         "c": [
+          "javascript:alert('XSS')"
+         ]
+        },
+        " protocols will be blocked."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-5-contrast-safety-light-vs-dark-mode"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "5. Contrast Safety: Light vs. Dark Mode"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "SailPoint ISC defaults to a dark gray font color inside native description blocks."
+     ]
+    },
+    {
+     "t": "blockquote",
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "CAUTION"
+         ]
+        },
+        {
+         "t": "br"
+        },
+        "\nIf you create a custom widget with a dark background shade (like ",
+        {
+         "t": "code",
+         "c": [
+          "background-color: #222;"
+         ]
+        },
+        ") and do not explicitly define an interior text color (like ",
+        {
+         "t": "code",
+         "c": [
+          "color: #fff;"
+         ]
+        },
+        "), the text will merge with the background on light-theme systems, rendering it completely invisible. Always pair dark background-colors with explicit text colors."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-6-json-configuration-schema-boundaries"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "6. JSON Configuration Schema Boundaries"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "When importing form definitions, the JSON parser expects strict compliance."
+     ]
+    },
+    {
+     "t": "blockquote",
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "WARNING"
+         ]
+        },
+        {
+         "t": "br"
+        },
+        "\nIf your custom HTML block contains raw unescaped double quotes (",
+        {
+         "t": "code",
+         "c": [
+          "\""
+         ]
+        },
+        ") or unescaped line breaks, the Form JSON schema validation will fail and reject your import payload. You must use single quotes (",
+        {
+         "t": "code",
+         "c": [
+          "'"
+         ]
+        },
+        ") for HTML attributes inside your JSON, and ensure all multiline structures are kept flat or escaped using explicit newline tokens (",
+        {
+         "t": "code",
+         "c": [
+          "\\n"
+         ]
+        },
+        ")."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-7-automatic-error-resiliency"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "7. Automatic Error Resiliency"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "If a developer accidentally leaves an HTML tag open (e.g., a missing ",
+      {
+       "t": "code",
+       "c": [
+        "</div>"
+       ]
+      },
+      "), the Form rendering engine will isolate the node and close it automatically. While this prevents the rest of the SailPoint page from breaking, it can distort your intended layout, so always validate your closing tags."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "conclusion-call-to-action"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Conclusion & Call to Action"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Form design is often treated as an afterthought in Identity Governance, but it has a massive impact on adoption, accuracy, and operational overhead. By leveraging basic HTML, advanced Flexbox alignments, interactive ",
+      {
+       "t": "code",
+       "c": [
+        "<details>"
+       ]
+      },
+      " dropdowns, and dynamic serial loop variables, you can elevate your SailPoint Form UI from a simple input collector to a powerful dashboard experience."
+     ]
+    }
+   ]
+  },
+  {
+   "id": 392098,
+   "number": 2,
+   "username": "zachm117",
+   "name": "Zach Mullins",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/zachm117/96/3883_2.png",
+   "userTitle": "Ambassador",
+   "isAuthor": false,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/1/1aa5dad2d8398ae0eb24a4ac86a3b612c39d4ff9.png",
+    "name": "ambassadors"
+   },
+   "createdAt": "2026-07-15T17:24:37.888Z",
+   "replyTo": null,
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/designing-beyond-default-the-ultimate-guide-to-sailpoint-form-ui-customization/216502/2",
+   "words": 78,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      "Hey ",
+      {
+       "t": "a",
+       "a": {
+        "class": "mention",
+        "href": "https://developer.sailpoint.com/discuss/u/trettkowski"
+       },
+       "c": [
+        "@trettkowski"
+       ]
+      },
+      " !"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This is an awesome post to showcase the extensibility of forms. Thanks for putting this together and with this level of detail!"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "I was wondering if you would be able to share an example form with some of the different elements you showcased? I tried recreating some of them in my sandbox tenant, but I can’t really seem to get them to work right. Taking a look at the JSON might help."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Thank you,"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Zach"
+       ]
+      },
+      "\n"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 392128,
+   "number": 3,
+   "username": "trettkowski",
+   "name": "Tyler Rettkowski",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/trettkowski/96/36103_2.png",
+   "userTitle": "Expert Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/e/eb064076112b6705f2406f9119ef84ce300e416a.png",
+    "name": "expert_ambassadors"
+   },
+   "createdAt": "2026-07-15T18:17:21.242Z",
+   "replyTo": "zachm117",
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/designing-beyond-default-the-ultimate-guide-to-sailpoint-form-ui-customization/216502/3",
+   "words": 61,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      "Hey ",
+      {
+       "t": "a",
+       "a": {
+        "class": "mention",
+        "href": "https://developer.sailpoint.com/discuss/u/zachm117"
+       },
+       "c": [
+        "@zachm117"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Glad you liked it!"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Unfortunately, I’ve only had the form render properly when I use form inputs. Go ahead and try to upload this form below:"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/8sfsJ2pwdSNL9MuWHhCMaC6CdXW.json"
+       },
+       "c": [
+        "Form For Zach-20260715-181411.json"
+       ]
+      },
+      " (1.5 KB)"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Once uploaded, you can use the “Preview” option and paste in any of my examples into the ",
+      {
+       "t": "code",
+       "c": [
+        "Values"
+       ]
+      },
+      " field and it should render like so:",
+      {
+       "t": "br"
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/b/4/b4db4ceeb7c323545a2af2dfec632340db0cb3be.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/b/4/b4db4ceeb7c323545a2af2dfec632340db0cb3be_2_690x330.png",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/b/4/b4db4ceeb7c323545a2af2dfec632340db0cb3be_2_690x330.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/b/4/b4db4ceeb7c323545a2af2dfec632340db0cb3be_2_1035x495.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/b/4/b4db4ceeb7c323545a2af2dfec632340db0cb3be_2_1380x660.png 2x",
+      "alt": "image",
+      "width": "690",
+      "height": "330"
+     }
+    }
+   ]
+  },
+  {
+   "id": 392132,
+   "number": 4,
+   "username": "IAMKhalid",
+   "name": "Khalid  Hussain",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/iamkhalid/96/39097_2.png",
+   "userTitle": null,
+   "isAuthor": false,
+   "staff": false,
+   "flair": null,
+   "createdAt": "2026-07-15T19:45:07.088Z",
+   "replyTo": null,
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/designing-beyond-default-the-ultimate-guide-to-sailpoint-form-ui-customization/216502/4",
+   "words": 22,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "a",
+       "a": {
+        "class": "mention",
+        "href": "https://developer.sailpoint.com/discuss/u/trettkowski"
+       },
+       "c": [
+        "@trettkowski"
+       ]
+      },
+      " , Great post, you explained SailPoint form customization in a practical way and made complex UI ideas feel easy to apply."
+     ]
+    }
+   ]
+  },
+  {
+   "id": 392133,
+   "number": 5,
+   "username": "trettkowski",
+   "name": "Tyler Rettkowski",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/trettkowski/96/36103_2.png",
+   "userTitle": "Expert Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/e/eb064076112b6705f2406f9119ef84ce300e416a.png",
+    "name": "expert_ambassadors"
+   },
+   "createdAt": "2026-07-15T19:59:52.380Z",
+   "replyTo": "IAMKhalid",
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/designing-beyond-default-the-ultimate-guide-to-sailpoint-form-ui-customization/216502/5",
+   "words": 6,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      "Thank you for the kind words!"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 392244,
+   "number": 6,
+   "username": "Pratyush27",
+   "name": "Pratyush Mishra",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/pratyush27/96/36795_2.png",
+   "userTitle": "Ambassador",
+   "isAuthor": false,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/1/1aa5dad2d8398ae0eb24a4ac86a3b612c39d4ff9.png",
+    "name": "ambassadors"
+   },
+   "createdAt": "2026-07-16T13:02:48.410Z",
+   "replyTo": null,
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/designing-beyond-default-the-ultimate-guide-to-sailpoint-form-ui-customization/216502/6",
+   "words": 31,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "a",
+       "a": {
+        "class": "mention",
+        "href": "https://developer.sailpoint.com/discuss/u/trettkowski"
+       },
+       "c": [
+        "@trettkowski"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\nThis is an EXCELLENT post!"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Moreover, it inspired me to use better HTML for the email templates as well. They now look extremely chic and im sure it increases engagement!"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 392247,
+   "number": 7,
+   "username": "trettkowski",
+   "name": "Tyler Rettkowski",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/trettkowski/96/36103_2.png",
+   "userTitle": "Expert Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/e/eb064076112b6705f2406f9119ef84ce300e416a.png",
+    "name": "expert_ambassadors"
+   },
+   "createdAt": "2026-07-16T13:09:25.471Z",
+   "replyTo": "Pratyush27",
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/designing-beyond-default-the-ultimate-guide-to-sailpoint-form-ui-customization/216502/7",
+   "words": 16,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      "Appreciate it Pratyush!"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Great point, this guide can also be used for designing emails as well!"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 392303,
+   "number": 8,
+   "username": "zachm117",
+   "name": "Zach Mullins",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/zachm117/96/3883_2.png",
+   "userTitle": "Ambassador",
+   "isAuthor": false,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/1/1aa5dad2d8398ae0eb24a4ac86a3b612c39d4ff9.png",
+    "name": "ambassadors"
+   },
+   "createdAt": "2026-07-16T16:14:37.289Z",
+   "replyTo": "trettkowski",
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/designing-beyond-default-the-ultimate-guide-to-sailpoint-form-ui-customization/216502/8",
+   "words": 46,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      "Ah okay, I was trying to use your examples in the description fields instead of the form inputs. Thanks for this example form, I see it working now with the form inputs! Now to figure out how to make certain dynamic inputs based off a workflow."
+     ]
+    }
+   ]
+  },
+  {
+   "id": 392304,
+   "number": 9,
+   "username": "trettkowski",
+   "name": "Tyler Rettkowski",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/trettkowski/96/36103_2.png",
+   "userTitle": "Expert Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/e/eb064076112b6705f2406f9119ef84ce300e416a.png",
+    "name": "expert_ambassadors"
+   },
+   "createdAt": "2026-07-16T16:19:32.494Z",
+   "replyTo": "zachm117",
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/designing-beyond-default-the-ultimate-guide-to-sailpoint-form-ui-customization/216502/9",
+   "words": 22,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      "Glad to hear it worked!"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "If you need any help with dynamic inputs, feel free to reach out here or DM me ",
+      {
+       "t": "img",
+       "a": {
+        "src": "https://emoji.discourse-cdn.com/apple/slight_smile.png?v=15",
+        "title": ":slight_smile:",
+        "class": "emoji",
+        "alt": ":slight_smile:",
+        "loading": "lazy",
+        "width": "20",
+        "height": "20"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 397561,
+   "number": 10,
+   "username": "waddenbrooke",
+   "name": "William Addenbrooke",
+   "avatar": "https://avatars.discourse-cdn.com/v4/letter/w/34f0e0/96.png",
+   "userTitle": "SailPoint Employee",
+   "isAuthor": false,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/c/c1c09cb5f47af2124008b081b2e383c0d87302fc.png",
+    "name": "sailpoint_employees"
+   },
+   "createdAt": "2026-08-12T13:33:27.729Z",
+   "replyTo": null,
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/designing-beyond-default-the-ultimate-guide-to-sailpoint-form-ui-customization/216502/10",
+   "words": 5,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      "This is awesome stuff Tyler!"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 397565,
+   "number": 11,
+   "username": "trettkowski",
+   "name": "Tyler Rettkowski",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/trettkowski/96/36103_2.png",
+   "userTitle": "Expert Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/e/eb064076112b6705f2406f9119ef84ce300e416a.png",
+    "name": "expert_ambassadors"
+   },
+   "createdAt": "2026-08-12T13:55:19.301Z",
+   "replyTo": "waddenbrooke",
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/designing-beyond-default-the-ultimate-guide-to-sailpoint-form-ui-customization/216502/11",
+   "words": 3,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      "Appreciate it William!"
+     ]
+    }
+   ]
+  }
+ ]
+}

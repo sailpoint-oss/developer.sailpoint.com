@@ -1,0 +1,2828 @@
+{
+ "fetchedAt": "2026-11-12T19:37:49.715Z",
+ "id": 219547,
+ "slug": "integrating-beyondtrust-password-safe-as-a-credential-provider-in-sailpoint-identity-security-cloud",
+ "title": "Integrating BeyondTrust Password Safe as a Credential Provider in SailPoint Identity Security Cloud",
+ "url": "https://developer.sailpoint.com/discuss/t/integrating-beyondtrust-password-safe-as-a-credential-provider-in-sailpoint-identity-security-cloud/219547",
+ "createdAt": "2026-08-18T20:36:18.300Z",
+ "views": 95,
+ "likeCount": 1,
+ "tags": [
+  "sailpoint-identity-security"
+ ],
+ "category": {
+  "id": 125,
+  "name": "Community Blog",
+  "slug": "community-blog",
+  "color": "#652D90",
+  "readRestricted": false,
+  "parent": {
+   "id": 69,
+   "name": "Content",
+   "slug": "content",
+   "color": "#652D90",
+   "readRestricted": false,
+   "parent": null
+  }
+ },
+ "readMinutes": 8,
+ "hero": {
+  "src": "https://global.discourse-cdn.com/sailpoint/original/3X/c/2/c27faee453fce1d2455db2b2bb06edfdbafcf721.jpeg",
+  "alt": "blog title card"
+ },
+ "toc": [
+  {
+   "id": "security-considerations",
+   "title": "Security Considerations"
+  },
+  {
+   "id": "architecture-overview",
+   "title": "Architecture Overview"
+  },
+  {
+   "id": "requirements",
+   "title": "Requirements"
+  },
+  {
+   "id": "beyondtrust-password-safe-configuration",
+   "title": "BeyondTrust Password Safe Configuration"
+  },
+  {
+   "id": "isc-credential-provider-configuration",
+   "title": "ISC Credential Provider Configuration"
+  },
+  {
+   "id": "active-directory-source-configuration",
+   "title": "Active Directory Source Configuration"
+  },
+  {
+   "id": "secret-path-format",
+   "title": "Secret Path Format"
+  },
+  {
+   "id": "conclusion",
+   "title": "Conclusion"
+  }
+ ],
+ "posts": [
+  {
+   "id": 399013,
+   "number": 1,
+   "username": "mpotti",
+   "name": "Mark Potter",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/mpotti/96/2916_2.png",
+   "userTitle": "Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/1/1aa5dad2d8398ae0eb24a4ac86a3b612c39d4ff9.png",
+    "name": "ambassadors"
+   },
+   "createdAt": "2026-08-18T20:36:18.655Z",
+   "replyTo": null,
+   "likes": 1,
+   "url": "https://developer.sailpoint.com/discuss/t/integrating-beyondtrust-password-safe-as-a-credential-provider-in-sailpoint-identity-security-cloud/219547/1",
+   "words": 1433,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "overview"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Overview"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This article outlines how to integrate ",
+      {
+       "t": "strong",
+       "c": [
+        "BeyondTrust Password Safe"
+       ]
+      },
+      " as a Credential Provider in ",
+      {
+       "t": "strong",
+       "c": [
+        "SailPoint Identity Security Cloud (ISC)"
+       ]
+      },
+      " to support secure credential usage within source configurations and workflows."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This approach enables ",
+      {
+       "t": "strong",
+       "c": [
+        "dynamic credential retrieval"
+       ]
+      },
+      " while eliminating hardcoded secrets and preserving existing provisioning logic."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "By externalizing credential management to BeyondTrust Password Safe, organizations can centralize privileged credential management, improve security, and enable scalable automation through SailPoint Identity Security Cloud."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "documentation-links"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Documentation Links"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "aside",
+     "a": {
+      "class": "onebox allowlistedgeneric"
+     },
+     "c": [
+      "\n  ",
+      {
+       "t": "header",
+       "a": {
+        "class": "source"
+       },
+       "c": [
+        "\n      ",
+        {
+         "t": "img",
+         "a": {
+          "src": "https://global.discourse-cdn.com/sailpoint/original/3X/4/d/4def3e1c48494299974186197462806e882b8aa6.png",
+          "class": "site-icon",
+          "alt": "",
+          "width": "256",
+          "height": "251"
+         }
+        },
+        "\n\n      ",
+        {
+         "t": "a",
+         "a": {
+          "href": "https://documentation.sailpoint.com/connectors/cred_providers/beyondtrust_pw_cloud/help/credential_providers/beyondtrust_password_safe_cloud/configure_secret_path.html",
+          "target": "_blank",
+          "rel": "noopener"
+         },
+         "c": [
+          "documentation.sailpoint.com"
+         ]
+        },
+        "\n  "
+       ]
+      },
+      "\n\n  ",
+      {
+       "t": "article",
+       "a": {
+        "class": "onebox-body"
+       },
+       "c": [
+        "\n    \n\n",
+        {
+         "t": "h3",
+         "a": {
+          "id": "beyondtrust-password-safe-secrets-management-secret-path-expressions"
+         },
+         "c": [
+          {
+           "t": "a",
+           "a": {
+            "href": "https://documentation.sailpoint.com/connectors/cred_providers/beyondtrust_pw_cloud/help/credential_providers/beyondtrust_password_safe_cloud/configure_secret_path.html",
+            "target": "_blank",
+            "rel": "noopener"
+           },
+           "c": [
+            "BeyondTrust Password Safe (Secrets Management) Secret Path Expressions"
+           ]
+          }
+         ]
+        },
+        "\n\n  ",
+        {
+         "t": "p",
+         "c": [
+          "SailPoint Connectors Documentation"
+         ]
+        },
+        "\n\n\n  "
+       ]
+      },
+      "\n\n  ",
+      {
+       "t": "div",
+       "a": {
+        "class": "onebox-metadata"
+       },
+       "c": [
+        "\n    \n    \n  "
+       ]
+      },
+      "\n\n  ",
+      {
+       "t": "div",
+       "a": {
+        "style": "clear: both"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "aside",
+     "a": {
+      "class": "onebox allowlistedgeneric"
+     },
+     "c": [
+      "\n  ",
+      {
+       "t": "header",
+       "a": {
+        "class": "source"
+       },
+       "c": [
+        "\n      ",
+        {
+         "t": "img",
+         "a": {
+          "src": "https://global.discourse-cdn.com/sailpoint/original/3X/7/6/760a9f15b5a7646ce1d8bd5bbb3617fa61c0e3ce.png",
+          "class": "site-icon",
+          "alt": "",
+          "width": "423",
+          "height": "419"
+         }
+        },
+        "\n\n      ",
+        {
+         "t": "a",
+         "a": {
+          "href": "https://documentation.sailpoint.com/saas/help/workflows/define-variable.html",
+          "target": "_blank",
+          "rel": "noopener"
+         },
+         "c": [
+          "documentation.sailpoint.com"
+         ]
+        },
+        "\n  "
+       ]
+      },
+      "\n\n  ",
+      {
+       "t": "article",
+       "a": {
+        "class": "onebox-body"
+       },
+       "c": [
+        "\n    \n\n",
+        {
+         "t": "h3",
+         "a": {
+          "id": "define-variable-operator-sailpoint-identity-services"
+         },
+         "c": [
+          {
+           "t": "a",
+           "a": {
+            "href": "https://documentation.sailpoint.com/saas/help/workflows/define-variable.html",
+            "target": "_blank",
+            "rel": "noopener"
+           },
+           "c": [
+            "Define Variable Operator - SailPoint Identity Services"
+           ]
+          }
+         ]
+        },
+        "\n\n  ",
+        {
+         "t": "p",
+         "c": [
+          "SailPoint Identity Services Documentation"
+         ]
+        },
+        "\n\n\n  "
+       ]
+      },
+      "\n\n  ",
+      {
+       "t": "div",
+       "a": {
+        "class": "onebox-metadata"
+       },
+       "c": [
+        "\n    \n    \n  "
+       ]
+      },
+      "\n\n  ",
+      {
+       "t": "div",
+       "a": {
+        "style": "clear: both"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "aside",
+     "a": {
+      "class": "onebox allowlistedgeneric"
+     },
+     "c": [
+      "\n  ",
+      {
+       "t": "header",
+       "a": {
+        "class": "source"
+       },
+       "c": [
+        "\n      ",
+        {
+         "t": "img",
+         "a": {
+          "src": "https://global.discourse-cdn.com/sailpoint/original/3X/7/6/760a9f15b5a7646ce1d8bd5bbb3617fa61c0e3ce.png",
+          "class": "site-icon",
+          "alt": "",
+          "width": "423",
+          "height": "419"
+         }
+        },
+        "\n\n      ",
+        {
+         "t": "a",
+         "a": {
+          "href": "https://documentation.sailpoint.com/saas/help/privilege/privileged_task_automation.html",
+          "target": "_blank",
+          "rel": "noopener"
+         },
+         "c": [
+          "documentation.sailpoint.com"
+         ]
+        },
+        "\n  "
+       ]
+      },
+      "\n\n  ",
+      {
+       "t": "article",
+       "a": {
+        "class": "onebox-body"
+       },
+       "c": [
+        "\n    \n\n",
+        {
+         "t": "h3",
+         "a": {
+          "id": "privileged-task-automation-sailpoint-identity-services"
+         },
+         "c": [
+          {
+           "t": "a",
+           "a": {
+            "href": "https://documentation.sailpoint.com/saas/help/privilege/privileged_task_automation.html",
+            "target": "_blank",
+            "rel": "noopener"
+           },
+           "c": [
+            "Privileged Task Automation - SailPoint Identity Services"
+           ]
+          }
+         ]
+        },
+        "\n\n  ",
+        {
+         "t": "p",
+         "c": [
+          "SailPoint Identity Services Documentation"
+         ]
+        },
+        "\n\n\n  "
+       ]
+      },
+      "\n\n  ",
+      {
+       "t": "div",
+       "a": {
+        "class": "onebox-metadata"
+       },
+       "c": [
+        "\n    \n    \n  "
+       ]
+      },
+      "\n\n  ",
+      {
+       "t": "div",
+       "a": {
+        "style": "clear: both"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "aside",
+     "a": {
+      "class": "onebox allowlistedgeneric"
+     },
+     "c": [
+      "\n  ",
+      {
+       "t": "header",
+       "a": {
+        "class": "source"
+       },
+       "c": [
+        "\n      ",
+        {
+         "t": "img",
+         "a": {
+          "src": "https://global.discourse-cdn.com/sailpoint/original/3X/1/e/1ecdf8353d73e07ac66c0a1f9eb9d36d131bcbd4.png",
+          "class": "site-icon",
+          "alt": "",
+          "width": "31",
+          "height": "32"
+         }
+        },
+        "\n\n      ",
+        {
+         "t": "a",
+         "a": {
+          "href": "https://docs.beyondtrust.com/bips/v25.2/docs/password-safe-apis",
+          "target": "_blank",
+          "rel": "noopener nofollow ugc"
+         },
+         "c": [
+          "Password Safe"
+         ]
+        },
+        "\n  "
+       ]
+      },
+      "\n\n  ",
+      {
+       "t": "article",
+       "a": {
+        "class": "onebox-body"
+       },
+       "c": [
+        "\n    ",
+        {
+         "t": "div",
+         "a": {
+          "class": "aspect-image",
+          "style": "--aspect-ratio:690/361;"
+         },
+         "c": [
+          {
+           "t": "img",
+           "a": {
+            "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/c/1/c1a47e163594f7215567bb93335b0036a5380ecf_2_690x362.jpeg",
+            "class": "thumbnail",
+            "alt": "",
+            "width": "690",
+            "height": "362"
+           }
+          }
+         ]
+        },
+        "\n\n",
+        {
+         "t": "h3",
+         "a": {
+          "id": "password-safe-apis"
+         },
+         "c": [
+          {
+           "t": "a",
+           "a": {
+            "href": "https://docs.beyondtrust.com/bips/v25.2/docs/password-safe-apis",
+            "target": "_blank",
+            "rel": "noopener nofollow ugc"
+           },
+           "c": [
+            "Password Safe APIs"
+           ]
+          }
+         ]
+        },
+        "\n\n  ",
+        {
+         "t": "p",
+         "c": [
+          "What is a REST API? A Representational State Transfer Application Programming Interface (REST API) follows the design principles of the REST architectural style. It is a way to integrate a portion of the BeyondInsight and Password Safe functionality..."
+         ]
+        },
+        "\n\n\n  "
+       ]
+      },
+      "\n\n  ",
+      {
+       "t": "div",
+       "a": {
+        "class": "onebox-metadata"
+       },
+       "c": [
+        "\n    \n    \n  "
+       ]
+      },
+      "\n\n  ",
+      {
+       "t": "div",
+       "a": {
+        "style": "clear: both"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "aside",
+     "a": {
+      "class": "quote quote-modified"
+     },
+     "c": [
+      "\n  ",
+      {
+       "t": "div",
+       "a": {
+        "class": "title"
+       },
+       "c": [
+        "\n    ",
+        {
+         "t": "div",
+         "a": {
+          "class": "quote-controls"
+         }
+        },
+        "\n    ",
+        {
+         "t": "img",
+         "a": {
+          "alt": "",
+          "width": "24",
+          "height": "24",
+          "src": "https://sea1.discourse-cdn.com/sailpoint/discuss/user_avatar/developer.sailpoint.com/mpotti/48/2916_2.png",
+          "class": "avatar"
+         }
+        },
+        "\n    ",
+        {
+         "t": "div",
+         "a": {
+          "class": "quote-title__text-content"
+         },
+         "c": [
+          "\n      ",
+          {
+           "t": "a",
+           "a": {
+            "href": "https://developer.sailpoint.com/discuss/t/workflow-pta-update-dn-on-cube-when-account-moved/188287"
+           },
+           "c": [
+            "Workflow - PTA - Update DN on Cube when account moved"
+           ]
+          },
+          " ",
+          {
+           "t": "a",
+           "a": {
+            "class": "badge-category__wrapper ",
+            "href": "https://developer.sailpoint.com/discuss/c/identity-security-cloud/discussion-and-questions/37"
+           },
+           "c": [
+            {
+             "t": "span",
+             "a": {
+              "style": "--category-badge-color: #0033a1; --category-badge-text-color: #FFFFFF; --parent-category-badge-color: #0033a1;",
+              "class": "badge-category --style-square --has-parent"
+             },
+             "c": [
+              {
+               "t": "span",
+               "a": {
+                "class": "badge-category__name"
+               },
+               "c": [
+                "ISC Discussion and Questions"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          "\n    "
+         ]
+        },
+        "\n  "
+       ]
+      },
+      "\n  ",
+      {
+       "t": "blockquote",
+       "c": [
+        "\n    Hello Everyone, \nI have been tasked with creating a workflow to move users OU when the attribute standardOu changed. I have the workflow built out and am able to successfully move the AD account. The new challenge I am running into is that the Cube is not reflecting the OU move.  I am looking for ideas on how I can update the DN on the cube and AD account without having to run a full aggregation on the AD Source. With the number of movers we have this could cause issues. \nLook at a cloud rule is…\n  "
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "aside",
+     "a": {
+      "class": "quote quote-modified"
+     },
+     "c": [
+      "\n  ",
+      {
+       "t": "div",
+       "a": {
+        "class": "title"
+       },
+       "c": [
+        "\n    ",
+        {
+         "t": "div",
+         "a": {
+          "class": "quote-controls"
+         }
+        },
+        "\n    ",
+        {
+         "t": "img",
+         "a": {
+          "alt": "",
+          "width": "24",
+          "height": "24",
+          "src": "https://avatars.discourse-cdn.com/v4/letter/d/a5b964/48.png",
+          "class": "avatar"
+         }
+        },
+        "\n    ",
+        {
+         "t": "div",
+         "a": {
+          "class": "quote-title__text-content"
+         },
+         "c": [
+          "\n      ",
+          {
+           "t": "a",
+           "a": {
+            "href": "https://developer.sailpoint.com/discuss/t/enhancement-credential-provider-integration-beyondtrust-password-safe-cloud-secrets-management/143822"
+           },
+           "c": [
+            "Enhancement: Credential Provider Integration - BeyondTrust Password Safe Cloud (Secrets Management)"
+           ]
+          },
+          " ",
+          {
+           "t": "a",
+           "a": {
+            "class": "badge-category__wrapper ",
+            "href": "https://developer.sailpoint.com/discuss/c/announcements/product-news/65"
+           },
+           "c": [
+            {
+             "t": "span",
+             "a": {
+              "style": "--category-badge-color: #CC27B0; --category-badge-text-color: #000000; --parent-category-badge-color: #ec008c;",
+              "class": "badge-category --style-square --has-parent"
+             },
+             "c": [
+              {
+               "t": "span",
+               "a": {
+                "class": "badge-category__name"
+               },
+               "c": [
+                "Product News"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          "\n    "
+         ]
+        },
+        "\n  "
+       ]
+      },
+      "\n  ",
+      {
+       "t": "blockquote",
+       "c": [
+        "\n    ",
+        "Description\nWe’re excited to announce the Credential Provider integration for BeyondTrust Password Safe Cloud (Secrets Management)! This new integration helps facilitate credential cycling, making your secrets management smoother and more secure. \n",
+        "Problem\nCredential rotation is the practice of regularly changing and updating credentials to reduce the risk of unauthorized access. By rotating credentials on a regular basis, organizations can limit the window of opportunity for attackers to exploit…\n  "
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "aside",
+     "a": {
+      "class": "onebox allowlistedgeneric"
+     },
+     "c": [
+      "\n  ",
+      {
+       "t": "header",
+       "a": {
+        "class": "source"
+       },
+       "c": [
+        "\n      ",
+        {
+         "t": "img",
+         "a": {
+          "src": "https://global.discourse-cdn.com/sailpoint/original/3X/4/d/4def3e1c48494299974186197462806e882b8aa6.png",
+          "class": "site-icon",
+          "alt": "",
+          "width": "256",
+          "height": "251"
+         }
+        },
+        "\n\n      ",
+        {
+         "t": "a",
+         "a": {
+          "href": "https://documentation.sailpoint.com/connectors/cred_providers/beyondtrust_pw_cloud/help/credential_providers/beyondtrust_password_safe_cloud/configure_secret_path.html",
+          "target": "_blank",
+          "rel": "noopener"
+         },
+         "c": [
+          "documentation.sailpoint.com"
+         ]
+        },
+        "\n  "
+       ]
+      },
+      "\n\n  ",
+      {
+       "t": "article",
+       "a": {
+        "class": "onebox-body"
+       },
+       "c": [
+        "\n    \n\n",
+        {
+         "t": "h3",
+         "a": {
+          "id": "beyondtrust-password-safe-secrets-management-secret-path-expressions"
+         },
+         "c": [
+          {
+           "t": "a",
+           "a": {
+            "href": "https://documentation.sailpoint.com/connectors/cred_providers/beyondtrust_pw_cloud/help/credential_providers/beyondtrust_password_safe_cloud/configure_secret_path.html",
+            "target": "_blank",
+            "rel": "noopener"
+           },
+           "c": [
+            "BeyondTrust Password Safe (Secrets Management) Secret Path Expressions"
+           ]
+          }
+         ]
+        },
+        "\n\n  ",
+        {
+         "t": "p",
+         "c": [
+          "SailPoint Connectors Documentation"
+         ]
+        },
+        "\n\n\n  "
+       ]
+      },
+      "\n\n  ",
+      {
+       "t": "div",
+       "a": {
+        "class": "onebox-metadata"
+       },
+       "c": [
+        "\n    \n    \n  "
+       ]
+      },
+      "\n\n  ",
+      {
+       "t": "div",
+       "a": {
+        "style": "clear: both"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "important-distinction"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Important Distinction"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "blockquote",
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Important:"
+         ]
+        },
+        " This integration uses ",
+        {
+         "t": "strong",
+         "c": [
+          "BeyondTrust Password Safe"
+         ]
+        },
+        " and not"
+       ]
+      },
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "BeyondTrust Secrets Safe"
+         ]
+        },
+        "."
+       ]
+      },
+      "\n",
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        "The credential provider implementation described in this article relies on"
+       ]
+      },
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Password Safe Managed Systems"
+         ]
+        },
+        " and ",
+        {
+         "t": "strong",
+         "c": [
+          "Managed Accounts"
+         ]
+        },
+        "."
+       ]
+      },
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        "The secret path syntax uses managed system and managed account values from Password Safe and is not applicable to Secrets Safe."
+       ]
+      },
+      "\n",
+      "\n"
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "key-benefits"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Key Benefits"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Centralized and secure credential management"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Elimination of hardcoded secrets in workflows and source configurations"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Reduced operational risk through preservation of existing provisioning logic"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Reusable and scalable automation patterns"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Improved credential auditing and lifecycle management"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Support for Privileged Task Automation (PTA) use cases"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "business-use-case"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Business Use Case"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "In our environment, we needed to move Active Directory users between Organizational Units (OUs) using SailPoint workflows."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "An existing ",
+      {
+       "t": "strong",
+       "c": [
+        "Before Provisioning Rule"
+       ]
+      },
+      " already handled production provisioning and had proven stable over time."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Modifying this rule would have introduced unnecessary risk to end users and patient-facing systems."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "To mitigate this risk, we:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Leveraged ISC Workflows"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Utilized Privileged Task Automation (PTA)"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Introduced BeyondTrust Password Safe as a secure credential source"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Avoided changes to existing production provisioning logic"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This allowed us to deliver the new functionality while minimizing the impact to existing processes."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "disclaimer"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Disclaimer"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This document provides guidance based on lessons learned during implementation. All examples use redacted or sample values."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "\n",
+      {
+       "t": "strong",
+       "c": [
+        "\n"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "This article was reviewed and refined with the assistance of AI to improve clarity, grammar, spelling, and overall organization. All technical content, configurations, and implementation details are based on real-world experience within the author’s environment."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "strong",
+     "c": [
+      "\n"
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h1",
+     "a": {
+      "id": "security-considerations"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Security Considerations"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "When implementing BeyondTrust Password Safe as a Credential Provider, follow these security best practices:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Store all API credentials and secrets in a secure vault"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Never expose Client IDs or Client Secrets in source control repositories"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Apply least-privilege access principles"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Restrict API access by IP address ranges whenever possible"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Enable credential caching only when required"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Regularly rotate API credentials and service account passwords"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Audit credential usage through BeyondTrust Password Safe logging"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Review ISC activity logs for credential-related operations"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Limit managed account access to only the required systems and workflows"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This approach helps maintain centralized, auditable, and compliant credential management."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h1",
+     "a": {
+      "id": "architecture-overview"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Architecture Overview"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Understanding the components involved can simplify troubleshooting and implementation."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "credential-provider-flow"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Credential Provider Flow"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "Identity Security Cloud\n\n |\n\n V\n\nVirtual Appliance Cluster\n\n |\n\n V\n\nBeyondTrust Password Safe\n\n |\n\n V\n\nCredential Retrieval\n"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "The configured ",
+      {
+       "t": "strong",
+       "c": [
+        "Virtual Appliance (VA) Cluster"
+       ]
+      },
+      " is responsible for connectivity between ISC and BeyondTrust Password Safe."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "When a credential is requested, ISC uses the Credential Provider configuration to retrieve the secret through the VA cluster."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "privileged-task-automation-flow"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Privileged Task Automation Flow"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "Workflow\n\n |\n\n V\n\nPrivileged Action Gateway (PAG)\n\n |\n\n V\n\nCredential Provider\n\n |\n\n V\n\nTarget System\n\n(Active Directory)\n"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "When executing a PTA action, the ",
+      {
+       "t": "strong",
+       "c": [
+        "Privileged Action Gateway (PAG)"
+       ]
+      },
+      " retrieves the required credentials from the configured credential provider and performs the requested operation against the target system."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h1",
+     "a": {
+      "id": "requirements"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Requirements"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "beyondtrust-password-safe"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        " BeyondTrust Password Safe "
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Password Safe deployed and in Production state"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "API access configured"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Managed systems configured"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Managed accounts configured"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "sailpoint-identity-security-cloud"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "SailPoint Identity Security Cloud"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Credential Provider capability enabled"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Workflow capability enabled"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Privileged Task Automation configured"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Virtual Appliance cluster deployed and healthy"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Privileged Action Gateway configured (for PTA use cases)"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h1",
+     "a": {
+      "id": "beyondtrust-password-safe-configuration"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "BeyondTrust Password Safe Configuration"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "1-create-api-registration"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "1. Create API Registration"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Navigate to:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "Configuration → API Registrations"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Click:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "Create API Registration"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Configure:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "API Access Policy"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Allowed IP ranges"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Other organizational requirements"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/2/a/2a4eb5bf7f6cb7b8374f2e85305f83500e0f0e78.jpeg",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/2/a/2a4eb5bf7f6cb7b8374f2e85305f83500e0f0e78_2_663x500.jpeg",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/2/a/2a4eb5bf7f6cb7b8374f2e85305f83500e0f0e78_2_663x500.jpeg, https://global.discourse-cdn.com/sailpoint/original/3X/2/a/2a4eb5bf7f6cb7b8374f2e85305f83500e0f0e78.jpeg 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/2/a/2a4eb5bf7f6cb7b8374f2e85305f83500e0f0e78.jpeg 2x",
+      "alt": "image",
+      "width": "663",
+      "height": "500"
+     }
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "2-create-an-application-user"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "2. Create an Application User"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Navigate to:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "Role Based Access → User Management → Users"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Click:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "Create New User → Add an Application User"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Record and securely store:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Client ID"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Client Secret"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "blockquote",
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        "The Client Secret is only displayed during creation and should be stored securely."
+       ]
+      },
+      "\n",
+      "\n"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "The Client Secret can be reset if needed."
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Store the Client Secret in your organization's approved secrets management solution."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/c/f/cf47162002fb3b07c61e365081bfeab3bb58d858.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/c/f/cf47162002fb3b07c61e365081bfeab3bb58d858_2_690x292.png",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/c/f/cf47162002fb3b07c61e365081bfeab3bb58d858_2_690x292.png, https://global.discourse-cdn.com/sailpoint/original/3X/c/f/cf47162002fb3b07c61e365081bfeab3bb58d858.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/c/f/cf47162002fb3b07c61e365081bfeab3bb58d858.png 2x",
+      "alt": "image",
+      "width": "690",
+      "height": "292"
+     }
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/6/6/66063b72f504fa577a02325e46cf6e159f7e55a0.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/6/6/66063b72f504fa577a02325e46cf6e159f7e55a0_2_690x290.png",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/6/6/66063b72f504fa577a02325e46cf6e159f7e55a0_2_690x290.png, https://global.discourse-cdn.com/sailpoint/original/3X/6/6/66063b72f504fa577a02325e46cf6e159f7e55a0.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/6/6/66063b72f504fa577a02325e46cf6e159f7e55a0.png 2x",
+      "alt": "image",
+      "width": "690",
+      "height": "290"
+     }
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "3-configure-group-access"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "3. Configure Group Access"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Navigate to:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "Role Based Access → User Management → Groups"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Create a new group and assign the Application User."
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/b/8/b85f6c1e3e1454ba129d2ea632e434b7eed9603f.jpeg",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/b/8/b85f6c1e3e1454ba129d2ea632e434b7eed9603f_2_685x500.jpeg",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/b/8/b85f6c1e3e1454ba129d2ea632e434b7eed9603f_2_685x500.jpeg, https://global.discourse-cdn.com/sailpoint/original/3X/b/8/b85f6c1e3e1454ba129d2ea632e434b7eed9603f.jpeg 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/b/8/b85f6c1e3e1454ba129d2ea632e434b7eed9603f.jpeg 2x",
+      "alt": "image",
+      "width": "685",
+      "height": "500"
+     }
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/6/8/68be26839875a1f0a434a4196eba17afa1b62057.jpeg",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/6/8/68be26839875a1f0a434a4196eba17afa1b62057_2_548x500.jpeg",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/6/8/68be26839875a1f0a434a4196eba17afa1b62057_2_548x500.jpeg, https://global.discourse-cdn.com/sailpoint/original/3X/6/8/68be26839875a1f0a434a4196eba17afa1b62057.jpeg 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/6/8/68be26839875a1f0a434a4196eba17afa1b62057.jpeg 2x",
+      "alt": "image",
+      "width": "548",
+      "height": "500"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "required-feature-permissions"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Required Feature Permissions"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Grant the group the following minimum permissions:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "Credential Management → Read\n\n\n\nPassword Safe Account Management → Read\n\n\n\nPassword Safe System Management → Read\n"
+     }
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/0/d/0dbf2778174867bf6e8bb6d6cae2c1699bae81df.jpeg",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/0/d/0dbf2778174867bf6e8bb6d6cae2c1699bae81df_2_690x186.jpeg",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/0/d/0dbf2778174867bf6e8bb6d6cae2c1699bae81df_2_690x186.jpeg, https://global.discourse-cdn.com/sailpoint/original/3X/0/d/0dbf2778174867bf6e8bb6d6cae2c1699bae81df.jpeg 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/0/d/0dbf2778174867bf6e8bb6d6cae2c1699bae81df.jpeg 2x",
+      "alt": "image",
+      "width": "690",
+      "height": "186"
+     }
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/3/e/3ed0ba4dd9e207c192ded9bac2ccb00de3909f80.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/3/e/3ed0ba4dd9e207c192ded9bac2ccb00de3909f80_2_690x128.png",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/3/e/3ed0ba4dd9e207c192ded9bac2ccb00de3909f80_2_690x128.png, https://global.discourse-cdn.com/sailpoint/original/3X/3/e/3ed0ba4dd9e207c192ded9bac2ccb00de3909f80.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/3/e/3ed0ba4dd9e207c192ded9bac2ccb00de3909f80.png 2x",
+      "alt": "image",
+      "width": "690",
+      "height": "128"
+     }
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "managed-account-access-requirements"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Managed Account Access Requirements"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "In addition to feature permissions, the managed account referenced by the secret path must:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Be onboarded into Password Safe"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Be associated with a managed system"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Be accessible through the assigned Application User group"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Be included in one or more Smart Groups assigned to that group"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Support API retrieval"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Be configured according to organizational requestability requirements"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Failure to meet these requirements may prevent credential retrieval even when API authentication succeeds."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h1",
+     "a": {
+      "id": "isc-credential-provider-configuration"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "ISC Credential Provider Configuration"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "1-create-credential-provider"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "1. Create Credential Provider"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Navigate to:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "Admin → Connections → Credential Providers"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Click:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "New"
+     }
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/5/7/578d5b41895f919f98cd394d46646e70e051f0c8.jpeg",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/5/7/578d5b41895f919f98cd394d46646e70e051f0c8_2_690x309.jpeg",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/5/7/578d5b41895f919f98cd394d46646e70e051f0c8_2_690x309.jpeg, https://global.discourse-cdn.com/sailpoint/original/3X/5/7/578d5b41895f919f98cd394d46646e70e051f0c8.jpeg 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/5/7/578d5b41895f919f98cd394d46646e70e051f0c8.jpeg 2x",
+      "alt": "image",
+      "width": "690",
+      "height": "309"
+     }
+    },
+    {
+     "t": "br"
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/7/8/78c9db9e7da5f349529a30b41a0314d5d0e67af9.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/7/8/78c9db9e7da5f349529a30b41a0314d5d0e67af9_2_690x80.png",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/7/8/78c9db9e7da5f349529a30b41a0314d5d0e67af9_2_690x80.png, https://global.discourse-cdn.com/sailpoint/original/3X/7/8/78c9db9e7da5f349529a30b41a0314d5d0e67af9.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/7/8/78c9db9e7da5f349529a30b41a0314d5d0e67af9.png 2x",
+      "alt": "image",
+      "width": "690",
+      "height": "80"
+     }
+    },
+    {
+     "t": "br"
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/0/b/0b661bf7642e9006119a3581c414872e87e084f6.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/0/b/0b661bf7642e9006119a3581c414872e87e084f6_2_690x111.png",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/0/b/0b661bf7642e9006119a3581c414872e87e084f6_2_690x111.png, https://global.discourse-cdn.com/sailpoint/original/3X/0/b/0b661bf7642e9006119a3581c414872e87e084f6.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/0/b/0b661bf7642e9006119a3581c414872e87e084f6.png 2x",
+      "alt": "image",
+      "width": "690",
+      "height": "111"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Configure:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Name"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Description"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Owner"
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Virtual Appliance Cluster"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Click Save."
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/6/1/61147e32b0582ab123d9840db4f889757ce5fda0.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/6/1/61147e32b0582ab123d9840db4f889757ce5fda0_2_333x500.png",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/6/1/61147e32b0582ab123d9840db4f889757ce5fda0_2_333x500.png, https://global.discourse-cdn.com/sailpoint/original/3X/6/1/61147e32b0582ab123d9840db4f889757ce5fda0.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/6/1/61147e32b0582ab123d9840db4f889757ce5fda0.png 2x",
+      "alt": "image",
+      "width": "333",
+      "height": "500"
+     }
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "2-configure-connection-settings"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "2. Configure Connection Settings"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Provide:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "Host URL:\n\nhttps://<Tenant>.ps.beyondtrustcloud.com\n\n\n\nClient ID\n\n\n\nClient Secret\n"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Enable:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "Credential Caching"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Save the configuration."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h1",
+     "a": {
+      "id": "active-directory-source-configuration"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Active Directory Source Configuration"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Navigate to:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "Admin → Connections → Sources"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Open the desired Active Directory source."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Navigate to:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "Domain Settings"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Change the password configuration from:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "Static Value"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "to:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "Credential Path"
+     }
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/c/6/c607a939d90d7d6aaece71dd9264c14b713ea228.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/c/6/c607a939d90d7d6aaece71dd9264c14b713ea228_2_690x251.png",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/c/6/c607a939d90d7d6aaece71dd9264c14b713ea228_2_690x251.png, https://global.discourse-cdn.com/sailpoint/original/3X/c/6/c607a939d90d7d6aaece71dd9264c14b713ea228.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/c/6/c607a939d90d7d6aaece71dd9264c14b713ea228.png 2x",
+      "alt": "image",
+      "width": "690",
+      "height": "251"
+     }
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h1",
+     "a": {
+      "id": "secret-path-format"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Secret Path Format"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "secrets://<CredentialProviderName>/<SecretURL>\n"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Where:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "SecretURL =\n\nsystemName=<SystemName>&accountName=<AccountName>\n"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "url-encoding-requirements"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "URL Encoding Requirements"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "blockquote",
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Important:"
+         ]
+        },
+        " Both the Credential Provider Name and SecretURL must be URL-encoded independently before constructing the final secret path."
+       ]
+      },
+      "\n",
+      "\n"
+     ]
+    },
+    {
+     "t": "table",
+     "c": [
+      "\n",
+      {
+       "t": "thead",
+       "c": [
+        "\n",
+        {
+         "t": "tr",
+         "c": [
+          "\n",
+          {
+           "t": "th",
+           "c": [
+            "Character"
+           ]
+          },
+          "\n",
+          {
+           "t": "th",
+           "c": [
+            "Encoded Value"
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "tbody",
+       "c": [
+        "\n",
+        {
+         "t": "tr",
+         "c": [
+          {
+           "t": "td",
+           "c": [
+            "Space"
+           ]
+          },
+          {
+           "t": "td",
+           "c": [
+            "%20"
+           ]
+          }
+         ]
+        },
+        "\n",
+        {
+         "t": "tr",
+         "c": [
+          {
+           "t": "td",
+           "c": [
+            "@"
+           ]
+          },
+          {
+           "t": "td",
+           "c": [
+            "%40"
+           ]
+          }
+         ]
+        },
+        "\n",
+        {
+         "t": "tr",
+         "c": [
+          {
+           "t": "td",
+           "c": [
+            "="
+           ]
+          },
+          {
+           "t": "td",
+           "c": [
+            "%3D"
+           ]
+          }
+         ]
+        },
+        "\n",
+        {
+         "t": "tr",
+         "c": [
+          {
+           "t": "td",
+           "c": [
+            "&"
+           ]
+          },
+          {
+           "t": "td",
+           "c": [
+            "%26"
+           ]
+          }
+         ]
+        },
+        "\n",
+        {
+         "t": "tr",
+         "c": [
+          {
+           "t": "td",
+           "c": [
+            "#"
+           ]
+          },
+          {
+           "t": "td",
+           "c": [
+            "%23"
+           ]
+          }
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Additionally:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "The Credential Provider name must exactly match the configured ISC Credential Provider name."
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "code",
+         "c": [
+          "systemName"
+         ]
+        },
+        " and ",
+        {
+         "t": "code",
+         "c": [
+          "accountName"
+         ]
+        },
+        " are reserved keywords."
+       ]
+      },
+      "\n ",
+      {
+       "t": "li",
+       "c": [
+        "Special characters should always be URL encoded before constructing the final secret path."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "example"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Example"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Credential Provider:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "BeyondTrust Password Safe"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Managed System:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "Microsoft Entra ID"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Managed Account:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "svc-admin@company.onmicrosoft.com"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Construct:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "systemName=Microsoft Entra ID&accountName=svc-admin@company.onmicrosoft.com\n"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "URL Encode:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "systemName%3DMicrosoft%20Entra%20ID%26accountName%3Dsvc-admin%40company.onmicrosoft.com\n"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Final Secret Path:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "secrets://BeyondTrust%20Password%20Safe/systemName%3DMicrosoft%20Entra%20ID%26accountName%3Dsvc-admin%40company.onmicrosoft.com\n"
+     }
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/4/6/463664f6d86e384a6731b2590e70ddc6d0a61db6.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/4/6/463664f6d86e384a6731b2590e70ddc6d0a61db6_2_690x403.png",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/4/6/463664f6d86e384a6731b2590e70ddc6d0a61db6_2_690x403.png, https://global.discourse-cdn.com/sailpoint/original/3X/4/6/463664f6d86e384a6731b2590e70ddc6d0a61db6.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/4/6/463664f6d86e384a6731b2590e70ddc6d0a61db6.png 2x",
+      "alt": "image",
+      "width": "690",
+      "height": "403"
+     }
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/9/3/93d49b02d3dfb96c7c30b2868e1657f0688f8589.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/9/3/93d49b02d3dfb96c7c30b2868e1657f0688f8589_2_690x416.png",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/9/3/93d49b02d3dfb96c7c30b2868e1657f0688f8589_2_690x416.png, https://global.discourse-cdn.com/sailpoint/original/3X/9/3/93d49b02d3dfb96c7c30b2868e1657f0688f8589.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/9/3/93d49b02d3dfb96c7c30b2868e1657f0688f8589.png 2x",
+      "alt": "image",
+      "width": "690",
+      "height": "416"
+     }
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/4/c/4c34144c8f268611a49bf82b9ea1015f3239c544.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/4/c/4c34144c8f268611a49bf82b9ea1015f3239c544_2_347x500.png",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/4/c/4c34144c8f268611a49bf82b9ea1015f3239c544_2_347x500.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/4/c/4c34144c8f268611a49bf82b9ea1015f3239c544_2_520x750.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/4/c/4c34144c8f268611a49bf82b9ea1015f3239c544.png 2x",
+      "alt": "image",
+      "width": "347",
+      "height": "500"
+     }
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong"
+      }
+     ]
+    },
+    {
+     "t": "h1",
+     "a": {
+      "id": "conclusion"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Conclusion"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Integrating BeyondTrust Password Safe as a Credential Provider in SailPoint Identity Security Cloud enables secure, centralized credential management while supporting dynamic credential retrieval within workflows and source configurations."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "By externalizing privileged credentials from workflow definitions and source configurations, organizations can strengthen their security posture, reduce operational risk, and improve maintainability."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This approach allows teams to introduce new automation capabilities without modifying existing provisioning logic, preserving the stability of production systems while enabling scalable automation."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Although implementation requires coordination across ISC, BeyondTrust Password Safe, Virtual Appliance infrastructure, and Privileged Task Automation components, the resulting architecture provides a flexible and reusable framework for secure credential management."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This guide is based on lessons learned during implementation and is intended to serve as an end-to-end reference for teams implementing BeyondTrust Password Safe Credential Providers within SailPoint Identity Security Cloud."
+     ]
+    }
+   ]
+  }
+ ]
+}

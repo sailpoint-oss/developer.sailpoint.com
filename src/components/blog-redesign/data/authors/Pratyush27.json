@@ -1,0 +1,27 @@
+{
+ "fetchedAt": "2026-11-13T12:55:50.371Z",
+ "username": "Pratyush27",
+ "name": "Pratyush Mishra",
+ "jobTitle": null,
+ "title": "Ambassador",
+ "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/pratyush27/288/36795_2.png",
+ "cover": "https://cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/sailpoint/original/3X/5/9/59a85e079b12c12c5465ad7aacf2f0cb1fc562b8.png",
+ "bio": [
+  {
+   "t": "p",
+   "c": [
+    "Senior IAM engineer, currently building out SailPoint Identity Security Cloud alongside a migration off IdentityIQ. Day to day that means connectors, workflows, certification campaigns, and a governance model that has to survive an audit. I post about the problems that cost me a full afternoon, on the theory that they cost someone else one too."
+   ]
+  }
+ ],
+ "website": {
+  "url": "https://linkedin.com/in/pratyush27",
+  "name": "linkedin.com/in/pratyush27"
+ },
+ "location": null,
+ "joinedAt": "2026-04-28T13:42:04.379Z",
+ "flair": {
+  "url": "https://global.discourse-cdn.com/sailpoint/original/2X/1/1aa5dad2d8398ae0eb24a4ac86a3b612c39d4ff9.png",
+  "name": "Ambassador"
+ }
+}

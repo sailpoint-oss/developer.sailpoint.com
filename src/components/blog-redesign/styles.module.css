@@ -1,0 +1,1028 @@
+/*
+ * Blog redesign prototype (/blog-redesign and /blog-redesign/<slug>).
+ * Light and dark tokens live on .root. The site loads only Poppins Regular, so
+ * the other weights are registered here under a separate family name. That
+ * keeps this page from changing bold text on the rest of the site.
+ */
+
+@font-face {
+  font-family: 'Poppins BR';
+  src: url('../../../static/fonts/poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins BR';
+  src: url('../../../static/fonts/poppins/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins BR';
+  src: url('../../../static/fonts/poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins BR';
+  src: url('../../../static/fonts/poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins BR';
+  src: url('../../../static/fonts/poppins/Poppins-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Tokens                                                                    */
+/* ------------------------------------------------------------------------ */
+
+.root {
+  --br-bg: #ffffff;
+  --br-text: #1d2b39;
+  --br-text-strong: #0b1622;
+  --br-muted: #5b6b7b;
+  --br-border: #e1e5ea;
+  --br-surface: #f5f7fa;
+  --br-surface-2: #eef2f6;
+  --br-accent: #0033a1;
+  --br-link: #0071ce;
+  --br-pill-bg: #e3eefb;
+  --br-pill-text: #0033a1;
+  --br-tab-active-bg: #e3eefb;
+  --br-tab-active-text: #0033a1;
+  --br-button-bg: #0033a1;
+  --br-button-text: #ffffff;
+  --br-code-bg: #f6f8fa;
+  --br-inline-code-bg: #eef1f5;
+  --br-inline-code-text: #b4237a;
+  --br-quote-bg: #f1f6fd;
+  --br-shadow: 0 1px 2px rgb(16 24 40 / 6%), 0 4px 16px rgb(16 24 40 / 6%);
+  --br-font: 'Poppins BR', 'Poppins', system-ui, sans-serif;
+  --br-mono: var(--ifm-font-family-monospace, ui-monospace, SFMono-Regular, Menlo, monospace);
+
+  background: var(--br-bg);
+  color: var(--br-text);
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+:global(html[data-theme='dark']) .root {
+  --br-bg: #1b1b1d;
+  --br-text: #e6eaee;
+  --br-text-strong: #ffffff;
+  --br-muted: #a3adb8;
+  --br-border: #303236;
+  --br-surface: #242527;
+  --br-surface-2: #2b2d30;
+  --br-accent: #54c0e8;
+  --br-link: #7ecfee;
+  --br-pill-bg: #1d4560;
+  --br-pill-text: #a9dcf3;
+  --br-tab-active-bg: #1d4560;
+  --br-tab-active-text: #7ecfee;
+  --br-button-bg: #7ecfee;
+  --br-button-text: #0b1622;
+  --br-code-bg: #111214;
+  --br-inline-code-bg: #2b2d30;
+  --br-inline-code-text: #f38fc7;
+  --br-quote-bg: #1f2a36;
+  --br-shadow: none;
+}
+
+/* The site sets Poppins on every element (`html *`), so this page has to set
+   its own family with a class selector. Icons (<i>) keep the icon font. */
+.root,
+.root *:not(i) {
+  font-family: var(--br-font);
+}
+
+.root pre,
+.root pre *,
+.root code,
+.root code * {
+  font-family: var(--br-mono) !important;
+}
+
+.root a {
+  color: var(--br-link);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.muted {
+  color: var(--br-muted);
+}
+
+/* ------------------------------------------------------------------------ */
+/* Page frame                                                                */
+/* ------------------------------------------------------------------------ */
+
+.gradientBar {
+  height: 34px;
+  background: linear-gradient(90deg, #0033a1 0%, #2f6fd6 55%, #54c0e8 100%);
+}
+
+/* 75% of the page on wide screens. Smaller screens use the full width. */
+.container {
+  width: 75%;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    width: 100%;
+  }
+}
+
+/* The title block takes the first row, so the table of contents in the
+   second row always starts level with the hero image. */
+.layout {
+  display: grid;
+  margin-top: 40px;
+  grid-template-columns: minmax(0, 1fr) 224px;
+  grid-template-areas:
+    'header .'
+    'main aside';
+  column-gap: 56px;
+  align-items: start;
+}
+
+.main {
+  grid-area: main;
+  min-width: 0;
+}
+
+.aside {
+  grid-area: aside;
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 24px);
+}
+
+/* ------------------------------------------------------------------------ */
+/* Post header                                                               */
+/* ------------------------------------------------------------------------ */
+
+.header {
+  grid-area: header;
+  min-width: 0;
+  margin-bottom: 32px;
+}
+
+/* The site styles every h1 with !important, so this selector has to be
+   more specific and also use !important. */
+.root h1.title {
+  margin: 0 0 22px;
+  color: var(--br-text-strong) !important;
+  font-family: var(--br-font) !important;
+  font-size: clamp(30px, 3vw, 46px);
+  font-weight: 800 !important;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  font-size: 14px;
+  color: var(--br-muted);
+}
+
+.root .byline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--br-text);
+  font-weight: 500;
+}
+
+.byline img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.root .tag {
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--br-pill-bg);
+  color: var(--br-pill-text);
+  font-size: 11px;
+  line-height: 18px;
+}
+
+.root .tag:hover {
+  text-decoration: none;
+  filter: brightness(1.1);
+}
+
+.root .commentCount {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--br-muted);
+}
+
+.root .shareButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  padding: 4px 12px;
+  border: 1px solid var(--br-border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--br-text);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.root .shareButton:hover {
+  background: var(--br-surface-2);
+}
+
+.articleFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  /* The Discussion section below draws the divider line. */
+  margin-top: 40px;
+}
+
+.hero {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 40px;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Article body                                                              */
+/* ------------------------------------------------------------------------ */
+
+.prose {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--br-text);
+  overflow-wrap: anywhere;
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.prose p,
+.prose :global(.para) {
+  margin: 0 0 18px;
+}
+
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: var(--br-text-strong);
+  font-family: var(--br-font) !important;
+  line-height: 1.3;
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 24px);
+}
+
+.prose h2 {
+  margin: 48px 0 16px;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.prose h3 {
+  margin: 36px 0 14px;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.prose h4 {
+  margin: 28px 0 12px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.prose strong {
+  font-weight: 700;
+}
+
+.prose h2 strong,
+.prose h3 strong,
+.prose h4 strong {
+  font-weight: inherit;
+}
+
+.heading {
+  position: relative;
+}
+
+.root .headingAnchor {
+  margin-left: 8px;
+  color: var(--br-muted);
+  font-weight: 400;
+  opacity: 0;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.heading:hover .headingAnchor,
+.headingAnchor:focus-visible {
+  opacity: 1;
+}
+
+.prose ul,
+.prose ol {
+  margin: 0 0 18px;
+  padding-left: 26px;
+}
+
+.prose li {
+  margin: 6px 0;
+}
+
+.prose li > .codeBlock {
+  margin-top: 12px;
+}
+
+.prose hr {
+  margin: 40px 0;
+  border: 0;
+  border-top: 1px solid var(--br-border);
+}
+
+.prose :not(pre) > code {
+  padding: 2px 6px;
+  border: 0;
+  border-radius: 5px;
+  background: var(--br-inline-code-bg);
+  color: var(--br-inline-code-text);
+  font-size: 0.86em;
+  vertical-align: baseline;
+}
+
+.prose strong > code {
+  color: inherit;
+  background: transparent;
+  padding: 0;
+}
+
+.prose blockquote {
+  margin: 0 0 22px;
+  padding: 16px 20px;
+  border: 0;
+  border-left: 4px solid var(--br-accent);
+  border-radius: 8px;
+  background: var(--br-quote-bg);
+  color: var(--br-text);
+}
+
+.prose blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.prose table {
+  display: table;
+  width: 100%;
+  margin: 0 0 22px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.prose th,
+.prose td {
+  padding: 8px 12px;
+  border: 1px solid var(--br-border);
+  text-align: left;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+}
+
+.prose :global(.emoji) {
+  width: 20px;
+  height: 20px;
+  vertical-align: text-bottom;
+}
+
+/* Discourse "wrap" blocks: [wrap=center] */
+.prose :global([data-wrap='center']) {
+  text-align: center;
+}
+
+.codeBlock {
+  margin: 0 0 20px;
+}
+
+.codeBlock :global(.theme-code-block) {
+  margin: 0;
+  border: 1px solid var(--br-border);
+  border-radius: 10px;
+  box-shadow: none;
+  text-align: left;
+}
+
+:global(html[data-theme='dark']) .codeBlock :global(.theme-code-block) {
+  --prism-background-color: var(--br-code-bg);
+}
+
+.codeBlock pre {
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.mermaid {
+  margin: 0 0 22px;
+  padding: 16px;
+  border: 1px solid var(--br-border);
+  border-radius: 10px;
+  background: var(--br-surface);
+  overflow-x: auto;
+}
+
+.lightbox {
+  display: block;
+  max-width: 100%;
+  margin: 8px auto 22px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.lightbox img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.lightbox:focus-visible {
+  outline: 2px solid var(--br-accent);
+  outline-offset: 3px;
+}
+
+.viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  background: rgb(0 0 0 / 85%);
+  cursor: zoom-out;
+}
+
+.viewer > img {
+  max-width: 100%;
+  max-height: calc(100vh - 100px);
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+.viewerBar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #e6eaee;
+  font-size: 14px;
+  cursor: default;
+}
+
+.root .viewerBar a {
+  color: #7ecfee;
+}
+
+.viewerBar button {
+  border: 0;
+  background: none;
+  color: #e6eaee;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Table of contents                                                         */
+/* ------------------------------------------------------------------------ */
+
+.toc {
+  padding: 18px 16px 16px;
+  border: 1px solid var(--br-border);
+  border-radius: 10px;
+  background: var(--br-surface);
+  box-shadow: var(--br-shadow);
+  max-height: calc(100vh - var(--ifm-navbar-height) - 48px);
+  overflow-y: auto;
+}
+
+.tocTitle {
+  margin-bottom: 14px;
+  color: var(--br-text-strong);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.toc ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.toc li + li {
+  margin-top: 9px;
+}
+
+.root .tocLink {
+  display: block;
+  color: var(--br-muted);
+  font-size: 14px;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.root .tocLink:hover {
+  color: var(--br-text-strong);
+}
+
+.root .tocLinkActive,
+.root .tocLinkActive:hover {
+  color: var(--br-accent);
+}
+
+/* ------------------------------------------------------------------------ */
+/* Discussion                                                                */
+/* ------------------------------------------------------------------------ */
+
+.discussion {
+  margin-top: 56px;
+  padding-top: 36px;
+  border-top: 1px solid var(--br-border);
+}
+
+.root .sectionTitle {
+  margin: 0 0 24px;
+  color: var(--br-text-strong);
+  font-size: 24px;
+  font-weight: 800;
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 24px);
+}
+
+.comment {
+  display: flex;
+  gap: 16px;
+  padding: 0 0 20px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--br-border);
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 24px);
+}
+
+.avatar {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.commentMain {
+  flex: 1;
+  min-width: 0;
+}
+
+.commentHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+
+.root .commentName {
+  color: var(--br-text-strong);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.authorBadge {
+  padding: 1px 7px;
+  border-radius: 4px;
+  background: var(--br-pill-bg);
+  color: var(--br-pill-text);
+  font-size: 11px;
+}
+
+.userTitle {
+  color: var(--br-muted);
+  font-size: 11px;
+}
+
+.flair {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.root .commentDate {
+  margin-left: auto;
+  color: var(--br-muted);
+  font-size: 13px;
+}
+
+.proseComment {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.proseComment p {
+  margin-bottom: 14px;
+}
+
+.root .prose :global(.mention) {
+  text-decoration: none !important; /* beats the site rule `p a:link` */
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--br-surface-2);
+  color: var(--br-text-strong);
+}
+
+.proseComment .lightbox {
+  margin-left: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin-left: -8px;
+}
+
+.root .action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--br-muted);
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.root .action:hover {
+  background: var(--br-surface-2);
+  color: var(--br-text-strong);
+}
+
+.root .actionLiked,
+.root .actionLiked:hover {
+  color: #e5484d;
+}
+
+/* Composer */
+
+.composer {
+  margin-top: 32px;
+  border: 1px solid var(--br-border);
+  border-radius: 10px;
+  background: var(--br-surface);
+  overflow: hidden;
+}
+
+.composerTabs {
+  display: flex;
+  gap: 4px;
+  padding: 8px 10px 0;
+  border-bottom: 1px solid var(--br-border);
+}
+
+.composerTab {
+  padding: 6px 6px 10px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--br-muted);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.composerTabActive {
+  color: var(--br-text-strong);
+  font-weight: 700;
+  border-bottom-color: var(--br-accent);
+}
+
+.composerInput {
+  display: block;
+  width: 100%;
+  min-height: 80px;
+  padding: 20px 16px;
+  border: 0;
+  background: transparent;
+  color: var(--br-text);
+  font-size: 14px;
+  resize: vertical;
+}
+
+.root .composerInput {
+  font-family: var(--br-mono);
+}
+
+.composerInput:focus {
+  outline: none;
+}
+
+.composer:focus-within {
+  border-color: var(--br-accent);
+}
+
+.composerPreview {
+  min-height: 80px;
+  padding: 16px;
+}
+
+.composerFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px 10px 16px;
+  border-top: 1px solid var(--br-border);
+  font-size: 14px;
+}
+
+.composerFooter strong {
+  color: var(--br-text-strong);
+}
+
+.primaryButton {
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--br-button-bg);
+  color: var(--br-button-text);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.15s, opacity 0.15s;
+}
+
+.primaryButton:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.primaryButton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  z-index: 500;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #0b1622;
+  color: #ffffff;
+  font-size: 14px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 25%);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 12px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.toastVisible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.toastAction {
+  margin-left: 12px;
+  padding: 2px 10px;
+  border: 1px solid rgb(255 255 255 / 40%);
+  border-radius: 6px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toastAction:hover {
+  background: rgb(255 255 255 / 12%);
+}
+
+/* ------------------------------------------------------------------------ */
+/* Compact header in the navbar                                              */
+/* ------------------------------------------------------------------------ */
+
+.compactHost {
+  display: none;
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+:global(html.blog-redesign-compact) .compactHost {
+  display: flex;
+}
+
+:global(html.blog-redesign-compact) :global(.navbar__brand) {
+  display: none;
+}
+
+.compact {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  margin-right: 24px;
+  animation: compactIn 0.2s ease-out;
+}
+
+@keyframes compactIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Show only the sail mark of the full logo. */
+.compactLogo {
+  flex: none;
+  width: 24px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.compactLogo img {
+  display: block;
+  height: 32px;
+  max-width: none;
+}
+
+.logoDark {
+  display: none !important;
+}
+
+:global(html[data-theme='dark']) .logoLight {
+  display: none !important;
+}
+
+:global(html[data-theme='dark']) .logoDark {
+  display: block !important;
+}
+
+.compactText {
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.compactTitle {
+  overflow: hidden;
+  color: var(--ifm-navbar-link-color);
+  font-family: 'Poppins BR', 'Poppins', sans-serif !important;
+  font-size: 22px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.compactMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.compactMeta a,
+.compactMeta a:hover {
+  text-decoration: none;
+}
+
+.categoryBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-right: 4px;
+  color: var(--ifm-navbar-link-color) !important;
+}
+
+.categorySwatch {
+  width: 9px;
+  height: 9px;
+  background: #652d90; /* Community Blog color on the forum */
+}
+
+.tagSmall {
+  padding: 0 8px;
+  border-radius: 999px;
+  background: #e3eefb;
+  color: #0033a1 !important;
+  font-size: 11px;
+  line-height: 18px;
+}
+
+:global(html[data-theme='dark']) .tagSmall {
+  background: #1d4560;
+  color: #a9dcf3 !important;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Responsive                                                                */
+/* ------------------------------------------------------------------------ */
+
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'header'
+      'main';
+  }
+
+  .aside {
+    display: none;
+  }
+}
+
+/* The navbar collapses to a menu on small screens. Keep the normal logo. */
+@media (max-width: 996px) {
+  :global(html.blog-redesign-compact) .compactHost {
+    display: none;
+  }
+
+  :global(html.blog-redesign-compact) :global(.navbar__brand) {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    border-radius: 8px;
+    margin-bottom: 28px;
+  }
+
+  .prose h2 {
+    font-size: 22px;
+  }
+
+  .commentDate {
+    margin-left: 0;
+  }
+}
+
+/* The code theme sets its background inline. Match the darker design. */
+:global(html[data-theme='dark']) .codeBlock pre {
+  background-color: var(--br-code-bg) !important;
+}

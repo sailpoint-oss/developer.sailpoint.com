@@ -152,7 +152,7 @@ Example results:
 }
 ```
 
-### create-access-request
+### submit-access-request
 We will make a request for the first item returned in the `list-requestable` tool.
 ```
     {
@@ -176,7 +176,7 @@ Example tool call:
 {
   "method": "tools/call",
   "params": {
-    "name": "create-access-request",
+    "name": "submit-access-request",
     "arguments": {
       "accounts": [],
       "id": "313391df970a4d04abee5f0aac7827b5",
@@ -203,7 +203,7 @@ Example results:
 
 ## Intermediate: access request, account selection required, single source
 Some identities might have multiple accounts configured for a single identity. If so, the output of the `list-requestable` tool
-will tell us that account selection is required. We will need the results of the `list-requestable` tool output to use the `create-access-request` tool and make the appropriate account selections.
+will tell us that account selection is required. We will need the results of the `list-requestable` tool output to use the `submit-access-request` tool and make the appropriate account selections.
 
 
 ### list-requestable output, account selection required
@@ -244,8 +244,8 @@ with a source `Docusign SaaS` and a list of accounts on the source `accountsOnSo
 one of those accounts when requesting access. The account provided will be granted access when the
 request is processed or approved.
 
-### create-access-request with account selection on a single source
-Here we provide the `account` argument with the `sourceID` found from the `list-requestable` output and a `nativeIdentifier`
+### submit-access-request with account selection on a single source
+Here we provide the `account` argument with the `sourceId` found from the `list-requestable` output and a `nativeIdentifier`
 from the selected account. Names are provided in the `list-requestable` output for readability, but only
 IDs are needed when creating the access request.
 
@@ -253,12 +253,12 @@ IDs are needed when creating the access request.
 {
   "method": "tools/call",
   "params": {
-    "name": "create-access-request",
+    "name": "submit-access-request",
     "arguments": {
       "accounts": [
         {
           "nativeIdentifier": "4a5c3db6-93d6-4e60-aeb8-6b619b39d2a2",
-          "sourceID": "d557aca6b2b34d8bafcb967bad2eb362"
+          "sourceId": "d557aca6b2b34d8bafcb967bad2eb362"
         }
       ],
       "id": "1e60f364c6a7488c9da58767b99d9f91",
@@ -273,7 +273,7 @@ IDs are needed when creating the access request.
 
 ## Advanced: access request, account selection required, multiple sources
 This applies only when requesting access to a `ROLE`. Other types, `ENTITLEMENTS` or `ACCESS_PROFILES` will never have
-multiple sources. If a `ROLE` has multiple sources, but account selection is NOT required, then the `create-access-request`
+multiple sources. If a `ROLE` has multiple sources, but account selection is NOT required, then the `submit-access-request`
 tool can be called like in the [basic example](#basic-access-request-no-account-selection-required).
 
 ### list requestable output, account selection required, multiple sources
@@ -334,20 +334,20 @@ tool can be called like in the [basic example](#basic-access-request-no-account-
 Here we can see that the `accounts` object contains two sources: `multi_source_3` and `multi_source_4` and that the identity
 has multiple accounts on each of those sources.
 
-### create-access-request with account selection on multiple sources
+### submit-access-request with account selection on multiple sources
 ```
 {
   "method": "tools/call",
   "params": {
-    "name": "create-access-request",
+    "name": "submit-access-request",
     "arguments": {
       "accounts": [
         {
           "nativeIdentifier": "adam33.archer33",
-          "sourceID": "1f0b717b629c4f68acad1dddbdc37636"
+          "sourceId": "1f0b717b629c4f68acad1dddbdc37636"
         },
         {
-          "sourceID": "0526a35ae98840a5b8b81942cd2042ec",
+          "sourceId": "0526a35ae98840a5b8b81942cd2042ec",
           "nativeIdentifier": "adam34.archer34"
         }
       ],
@@ -424,23 +424,23 @@ Here we can see that the role, `multi-role`, has three sources: `multi_source_1`
 The identity does not yet have an account on `multi_source_1`. The user has exactly one account on `multi_source_2`. The
 user has three accounts on `multi_source_3`.
 
-### create-access-request with account selection on multiple sources, 0 to many accounts
+### submit-access-request with account selection on multiple sources, 0 to many accounts
 ```
 {
   "method": "tools/call",
   "params": {
-    "name": "create-access-request",
+    "name": "submit-access-request",
     "arguments": {
       "accounts": [
         {
           "nativeIdentifier": "adam33.archer33",
-          "sourceID": "1f0b717b629c4f68acad1dddbdc37636"
+          "sourceId": "1f0b717b629c4f68acad1dddbdc37636"
         },
         {
-          "sourceID": "c6443c52141e4878aff5c0507e3db09b"
+          "sourceId": "c6443c52141e4878aff5c0507e3db09b"
         },
         {
-          "sourceID": "cf49453f8b184c6dacfd9acfe621e1ff",
+          "sourceId": "cf49453f8b184c6dacfd9acfe621e1ff",
           "nativeIdentifier": "adam2.archer2"
         }
       ],
@@ -456,3 +456,82 @@ user has three accounts on `multi_source_3`.
 Here we have selected the `adam33.archer33` account for `multi_source_3`. We have provided no account native identifier for `multi_source_2`
 because the identity doesn't have an account created yet. We have provided the only account native identifier for source
 `multi_source_2` because the identity had only one account.
+
+## Advanced: access request on behalf of another identity
+
+Use these steps to request access for another person. Your tenant must let users request access for others.
+
+### list-request-identities - find the identity
+
+Search by first name, last name, email, or manager ID. This example finds the direct reports of a manager:
+```
+{
+  "method": "tools/call",
+  "params": {
+    "name": "list-request-identities",
+    "arguments": {
+      "managerId": "2c9180835d2e5168015d32f890ca1581"
+    }
+  }
+}
+```
+
+Example results:
+```
+{
+  "count": 1,
+  "totalCount": 1,
+  "identities": [
+    {
+      "id": "2c91808568c529c60168cca6f90c1313",
+      "name": "Aaron Nichols",
+      "email": "aaron.nichols@example.com",
+      "manager": {
+        "id": "2c9180835d2e5168015d32f890ca1581",
+        "name": "Adam Archer"
+      }
+    }
+  ]
+}
+```
+
+### list-requestable - find items for the identity
+
+Pass the identity `id` as `requestedForId`. The tool then returns the accounts of that identity, not your accounts:
+```
+{
+  "method": "tools/call",
+  "params": {
+    "name": "list-requestable",
+    "arguments": {
+      "query": "docusign",
+      "requestedForId": "2c91808568c529c60168cca6f90c1313"
+    }
+  }
+}
+```
+
+### submit-access-request - submit the request
+
+Pass the same `requestedForId`. Add a `comment` to give the reason for the request:
+```
+{
+  "method": "tools/call",
+  "params": {
+    "name": "submit-access-request",
+    "arguments": {
+      "id": "313391df970a4d04abee5f0aac7827b5",
+      "type": "ACCESS_PROFILE",
+      "accounts": [
+        {
+          "sourceId": "c988514fe00348d293187e98de19924b"
+        }
+      ],
+      "requestedForId": "2c91808568c529c60168cca6f90c1313",
+      "comment": "Aaron needs DocuSign access for the Q4 contract review."
+    }
+  }
+}
+```
+
+The comment on the access request is `Aaron needs DocuSign access for the Q4 contract review. (Requested via External Agent using access request MCP tools).`

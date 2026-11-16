@@ -643,6 +643,7 @@ The following table describes the relationships between the tables in the identi
 | ACCESS_REQUEST | IDENTITY | One to One | contains - requested by and for |
 | ACCESS_REQUEST | ACCESS_REQUEST_PHASES | One to One-or-More | has phases |
 | ACCESS_REQUEST | APPROVAL | One to Zero-or-More | has approval steps |
+| APPROVAL | IDENTITY_REQUEST_ITEM | One to Zero-or-One | associated with |
 | CERTIFICATION | IDENTITY | One to One-or-More | contains |
 | CERTIFICATION_ITEM | IDENTITY | One to One | contains |
 | CERTIFICATION_ITEM | ROLE | One to Zero-or-One | contains |

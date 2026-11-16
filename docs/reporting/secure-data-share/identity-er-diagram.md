@@ -443,6 +443,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     ACCESS_REQUEST ||--|| IDENTITY: "contains - requested by and for"
     ACCESS_REQUEST ||--|{ ACCESS_REQUEST_PHASES: "has phases"
     ACCESS_REQUEST ||--o{ APPROVAL: "has approval steps"
+    APPROVAL ||--o| IDENTITY_REQUEST_ITEM: "associated with"
     CERTIFICATION ||--|{ IDENTITY: "contains"
     CERTIFICATION_ITEM ||--|| IDENTITY: "contains"
     CERTIFICATION_ITEM ||--o| ROLE: "contains"

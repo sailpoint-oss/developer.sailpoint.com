@@ -5,9 +5,9 @@ import {useHistory, useLocation} from '@docusaurus/router';
 import Layout from '@theme/Layout';
 import CommunityTheme from '../community/CommunityTheme';
 import NotificationButton from '../community/NotificationButton';
-import theme from '../community/theme.module.css';
 import type {PostSummary} from './types';
 import {BLOG_CATEGORY_ID, formatLongDate} from './types';
+import TagCover from './TagCover';
 import styles from './styles.module.css';
 import landing from './landing.module.css';
 
@@ -15,8 +15,8 @@ import landing from './landing.module.css';
  * The blog landing page at /blog-redesign. The blog-redesign plugin passes
  * every saved post as `posts`, newest first.
  *
- * The tag filter lives in the URL (?tag=forms), so post pages can link to a
- * filtered list and readers can share it.
+ * The tag filter and the search live in the URL (?tag=forms&q=api), so post
+ * pages can link to a filtered list and readers can share it.
  */
 
 const MAX_TAG_FILTERS = 10;
@@ -46,30 +46,48 @@ function groupTags(posts: PostSummary[]): {
   return {common, popular};
 }
 
+/** The words of a search, lowercase. */
+function searchWords(query: string): string[] {
+  return query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+}
+
+/** Wraps the parts of `text` that match a search word in <mark>. */
+function Highlight({text, words}: {text: string; words: string[]}) {
+  if (words.length === 0) return <>{text}</>;
+  const escaped = words.map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  const parts = text.split(new RegExp(`(${escaped.join('|')})`, 'gi'));
+  return (
+    <>
+      {parts.map((part, i) =>
+        // split() with a capture group puts the matches at the odd indexes.
+        i % 2 === 1 ? (
+          <mark key={i} className={landing.match}>
+            {part}
+          </mark>
+        ) : (
+          part
+        ),
+      )}
+    </>
+  );
+}
+
 function matches(
   post: PostSummary,
   query: string,
   tag: string | null,
 ): boolean {
   if (tag && !post.tags.includes(tag)) return false;
-  if (!query) return true;
+  const words = searchWords(query);
+  if (words.length === 0) return true;
   const haystack = [post.title, post.excerpt, post.author.name, ...post.tags]
     .join(' ')
     .toLowerCase();
-  return query
-    .toLowerCase()
-    .split(/\s+/)
-    .every((word) => haystack.includes(word));
+  return words.every((word) => haystack.includes(word));
 }
 
 function Cover({post, className}: {post: PostSummary; className: string}) {
-  return post.hero ? (
-    <img className={className} src={post.hero.src} alt="" loading="lazy" />
-  ) : (
-    <div className={clsx(className, landing.coverFallback)} aria-hidden="true">
-      <i className="fa-solid fa-feather-pointed" />
-    </div>
-  );
+  return <TagCover tags={post.tags} className={className} />;
 }
 
 function Byline({post}: {post: PostSummary}) {
@@ -108,9 +126,6 @@ function FeaturedCard({post}: {post: PostSummary}) {
     <Link to={post.path} className={landing.featured}>
       <Cover post={post} className={landing.featuredCover} />
       <div className={landing.featuredBody}>
-        <span className={landing.label}>
-          <i className="fa-solid fa-star" aria-hidden="true" /> Latest post
-        </span>
         <h2 className={landing.featuredTitle}>{post.title}</h2>
         <p className={landing.featuredExcerpt}>{post.excerpt}</p>
         <Byline post={post} />
@@ -122,9 +137,11 @@ function FeaturedCard({post}: {post: PostSummary}) {
 function PostCard({
   post,
   hiddenTags,
+  words,
 }: {
   post: PostSummary;
   hiddenTags: Set<string>;
+  words: string[];
 }) {
   const tags = post.tags.filter((tag) => !hiddenTags.has(tag)).slice(0, 2);
   return (
@@ -140,9 +157,11 @@ function PostCard({
             ))}
           </div>
         )}
-        <h3 className={landing.cardTitle}>{post.title}</h3>
+        <h3 className={landing.cardTitle}>
+          <Highlight text={post.title} words={words} />
+        </h3>
         <p className={clsx(landing.excerpt, landing.cardExcerpt)}>
-          {post.excerpt}
+          <Highlight text={post.excerpt} words={words} />
         </p>
         <Byline post={post} />
       </div>
@@ -167,6 +186,25 @@ export default function LandingPage({
   const params = new URLSearchParams(search);
   const tag = params.get('tag');
 
+  // Read the search from the URL once, when the page opens. After that the
+  // input is the source, and the effect below copies it to the URL. Reading
+  // the URL on every change would undo keystrokes made during the delay.
+  useEffect(() => {
+    setQuery(new URLSearchParams(window.location.search).get('q') ?? '');
+  }, []);
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      const next = new URLSearchParams(window.location.search);
+      const value = query.trim();
+      if ((next.get('q') ?? '') === value) return;
+      if (value) next.set('q', value);
+      else next.delete('q');
+      const text = next.toString();
+      history.replace({search: text ? `?${text}` : ''});
+    }, 300);
+    return () => window.clearTimeout(timer);
+  }, [query, history]);
+
   const setTag = (value: string | null) => {
     const next = new URLSearchParams(search);
     if (value) next.set('tag', value);
@@ -182,7 +220,8 @@ export default function LandingPage({
   // A tag from a post page can be one that the chips do not show.
   const tags = tag && !popular.includes(tag) ? [tag, ...popular] : popular;
 
-  const filtering = Boolean(query.trim() || tag);
+  const words = searchWords(query);
+  const filtering = Boolean(words.length || tag);
   const results = posts.filter((post) => matches(post, query.trim(), tag));
   // Without a filter, the newest post is the large card and the grid shows the rest.
   const [featured, ...rest] = posts;
@@ -205,19 +244,6 @@ export default function LandingPage({
                 identity professionals in the SailPoint community.
               </p>
               <div className={landing.heroActions}>
-                <label className={landing.search}>
-                  <i
-                    className="fa-solid fa-magnifying-glass"
-                    aria-hidden="true"
-                  />
-                  <input
-                    type="search"
-                    placeholder="Search posts"
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    aria-label="Search posts"
-                  />
-                </label>
                 <NotificationButton
                   target={{type: 'category', id: BLOG_CATEGORY_ID}}
                   appearance="inverse"
@@ -230,10 +256,33 @@ export default function LandingPage({
         </section>
 
         <div className={styles.container}>
+          <h2 className={landing.sectionTitle}>
+            {filtering ? 'Results' : 'Recent posts'}
+          </h2>
+
+          {/* Sticks under the navbar, so the filters stay next to the posts
+              they change. */}
           <div className={landing.toolbar}>
-            <h2 className={landing.sectionTitle}>
-              {filtering ? 'Results' : 'Recent posts'}
-            </h2>
+            <label className={landing.search}>
+              <i className="fa-solid fa-magnifying-glass" aria-hidden="true" />
+              <input
+                type="search"
+                placeholder="Search posts"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={(e) => e.key === 'Escape' && setQuery('')}
+                aria-label="Search posts"
+              />
+              {query && (
+                <button
+                  type="button"
+                  className={landing.searchClear}
+                  onClick={() => setQuery('')}
+                  aria-label="Clear search">
+                  <i className="fa-solid fa-xmark" aria-hidden="true" />
+                </button>
+              )}
+            </label>
             <div
               className={landing.filters}
               role="group"
@@ -263,14 +312,27 @@ export default function LandingPage({
 
           {filtering && (
             <div className={landing.resultBar}>
-              <p className={theme.muted} aria-live="polite">
-                {results.length} {results.length === 1 ? 'post' : 'posts'}
+              <p className={landing.resultText} aria-live="polite">
+                <strong>{results.length}</strong>{' '}
+                {results.length === 1 ? 'post' : 'posts'}
+                {words.length > 0 && (
+                  <>
+                    {' '}
+                    matching <strong>“{query.trim()}”</strong>
+                  </>
+                )}
                 {tag && (
                   <>
                     {' '}
                     tagged <strong>{tag}</strong>
                   </>
                 )}
+                <button
+                  type="button"
+                  className={landing.clearLink}
+                  onClick={clearFilters}>
+                  Clear
+                </button>
               </p>
               {tag && (
                 <NotificationButton
@@ -288,7 +350,12 @@ export default function LandingPage({
           {grid.length > 0 ? (
             <div className={landing.grid}>
               {grid.map((post) => (
-                <PostCard key={post.id} post={post} hiddenTags={common} />
+                <PostCard
+                  key={post.id}
+                  post={post}
+                  hiddenTags={common}
+                  words={words}
+                />
               ))}
             </div>
           ) : (

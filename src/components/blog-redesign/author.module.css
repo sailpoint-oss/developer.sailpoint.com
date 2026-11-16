@@ -249,26 +249,12 @@
   aspect-ratio: 16 / 9;
 }
 
-.rowCover img,
-.coverFallback {
-  display: block;
-  width: 100%;
+.cover {
   height: 100%;
-  object-fit: cover;
-  transition: transform 0.2s;
 }
 
 .rowCover:hover img {
-  transform: scale(1.03);
-}
-
-.coverFallback {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #0033a1, #54c0e8);
-  color: rgb(255 255 255 / 70%);
-  font-size: 32px;
+  transform: scale(1.06);
 }
 
 .rowBody {

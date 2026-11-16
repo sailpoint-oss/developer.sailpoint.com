@@ -1,0 +1,20 @@
+/* The gradient of the SailPoint blog title cards: deep blue at the top left to
+   bright blue at the bottom right. */
+.cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background:
+    radial-gradient(ellipse at 100% 100%, rgb(0 113 206 / 60%), transparent 60%),
+    linear-gradient(135deg, #0a2a9a 0%, #0039b0 45%, #0062cc 80%, #0071d6 100%);
+}
+
+.icon {
+  display: block;
+  width: auto;
+  height: 42%;
+  opacity: 0.95;
+  transition: transform 0.2s;
+}

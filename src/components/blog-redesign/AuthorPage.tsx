@@ -9,6 +9,7 @@ import theme from '../community/theme.module.css';
 import type {AuthorProfile, PostSummary} from './types';
 import {formatLongDate, formatMonthYear} from './types';
 import {BLOG_PATH, blogLinks, tagPath} from './links';
+import TagCover from './TagCover';
 import styles from './styles.module.css';
 import author from './author.module.css';
 
@@ -47,13 +48,7 @@ function PostRow({post}: {post: PostSummary}) {
   return (
     <article className={author.row}>
       <Link to={post.path} className={author.rowCover} tabIndex={-1} aria-hidden="true">
-        {post.hero ? (
-          <img src={post.hero.src} alt="" loading="lazy" />
-        ) : (
-          <span className={author.coverFallback}>
-            <i className="fa-solid fa-feather-pointed" />
-          </span>
-        )}
+        <TagCover tags={post.tags} className={author.cover} />
       </Link>
       <div className={author.rowBody}>
         <div className={author.rowMeta}>

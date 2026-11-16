@@ -192,7 +192,7 @@
   padding: 0.5rem 0.75rem;
   border: 1px solid var(--ett-border);
   border-radius: 6px;
-  background: var(--ifm-background-color);
+  background: var(--ett-surface);
   color: var(--ifm-font-color-base);
   font: inherit;
   font-size: 0.9375rem;
@@ -785,7 +785,7 @@
   padding: 0.5rem 0.75rem;
   border: 1px solid var(--ett-border);
   border-radius: 6px;
-  background: var(--ifm-background-color);
+  background: var(--ett-surface);
   box-shadow: var(--ifm-global-shadow-md);
   font-size: 0.75rem;
   pointer-events: none;
@@ -804,6 +804,84 @@
 
 .chartTooltipNote {
   color: var(--ifm-color-primary);
+}
+
+/* --- time window slider ------------------------------------------------ */
+
+.chartWrap {
+  width: 100%;
+}
+
+.slider {
+  display: block;
+  margin-top: 0.25rem;
+  touch-action: none;
+  user-select: none;
+}
+
+.sliderTrack {
+  fill: var(--ett-subtle);
+  stroke: var(--ett-border);
+  cursor: crosshair;
+}
+
+.sliderDot {
+  fill: var(--ett-series);
+  pointer-events: none;
+}
+
+.sliderDotMissing {
+  fill: var(--ifm-color-emphasis-500);
+}
+
+.sliderShade {
+  fill: var(--ett-surface);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.sliderWindow {
+  fill: color-mix(in srgb, var(--ett-series) 12%, transparent);
+  stroke: var(--ett-series);
+  stroke-width: 1;
+  cursor: grab;
+}
+
+.sliderWindow:active {
+  cursor: grabbing;
+}
+
+.sliderHandle {
+  cursor: ew-resize;
+  outline: none;
+}
+
+.sliderHandle rect:not(.sliderHit) {
+  fill: var(--ett-series);
+}
+
+.sliderHandle:focus-visible rect:not(.sliderHit) {
+  stroke: var(--ifm-font-color-base);
+  stroke-width: 2;
+}
+
+.sliderHit {
+  fill: transparent;
+}
+
+.sliderControls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 600px) {
+  .sliderControls {
+    padding-left: 0 !important;
+  }
 }
 
 /* --- settings ---------------------------------------------------------- */

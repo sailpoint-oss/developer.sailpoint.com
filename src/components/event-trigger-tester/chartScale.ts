@@ -5,7 +5,14 @@ const MINUTE = 60 * SECOND;
 const HOUR = 60 * MINUTE;
 const DAY = 24 * HOUR;
 
+/** Sub-second steps let a zoomed window separate a burst of deliveries. */
 const TIME_STEPS = [
+  10,
+  20,
+  50,
+  100,
+  200,
+  500,
   SECOND,
   5 * SECOND,
   15 * SECOND,
@@ -53,10 +60,20 @@ export function timeTicks(
   const offset = -new Date(min).getTimezoneOffset() * MINUTE;
   const first = Math.ceil((min + offset) / step) * step - offset;
 
+  // Enough fraction digits to tell neighboring sub-second ticks apart.
+  const fractionDigits =
+    step >= SECOND ? 0 : step % 100 === 0 ? 1 : step % 10 === 0 ? 2 : 3;
   const timeFormat = new Intl.DateTimeFormat(undefined, {
     hour: '2-digit',
     minute: '2-digit',
     ...(step < MINUTE ? {second: '2-digit'} : {}),
+    // A 24-hour clock keeps sub-second labels narrow enough to fit apart.
+    ...(fractionDigits
+      ? ({
+          fractionalSecondDigits: fractionDigits,
+          hour12: false,
+        } as Intl.DateTimeFormatOptions)
+      : {}),
   });
   const dateFormat = new Intl.DateTimeFormat(undefined, {
     month: 'short',

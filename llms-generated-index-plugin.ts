@@ -2,13 +2,6 @@ import fs from 'fs/promises';
 import path from 'path';
 import type {LoadContext, Plugin} from '@docusaurus/types';
 
-// @writechoice/docusaurus-plugin-llms-txt writes `<permalink>.md` only for real
-// docs, so "View as Markdown" 404s on sidebar `generated-index` pages such as
-// /docs/api. This writes a Markdown version of each of those pages: the title,
-// the description, and a link to each card on the page.
-
-// The doc a sidebar card links to: its own doc, its category's doc, or the
-// first doc inside it (the same target DocCardList uses).
 function firstDocId(item: any): string | undefined {
   if (item.type === 'doc') return item.id;
   if (item.link?.type === 'doc') return item.link.id;

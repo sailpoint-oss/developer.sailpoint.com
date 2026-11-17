@@ -203,7 +203,7 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | SUMMARY | variant |  | Per-item outcomes for this phase (e.g. approvals with actionedBy, approvalId, itemId, status) |
 | DETAILS | text |  | Additional details about the phase |
 | RESULT | text |  | Result of the phase |
-| DELETED_DATE | datetime |  | date when the phase was deleted |
+| DELETED_DATE | datetime |  | Date when the phase was deleted |
 | SYNC_DATE | datetime |  | When the row is last synced |
 
 
@@ -213,7 +213,7 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | --- | --- | --- | --- |
 | TENANT_ID | text |  | Unique Id for an Organization tenant |
 | ID | text | PK | Unique Id for the approval step |
-| TYPE | text |  | Type of approval step. Only `ACCESS_REQUEST_APPROVAL` and `CUSTOM_ACCESS_REQUEST_APPROVAL` types are included |
+| TYPE | text |  | Type of approval step |
 | ACCESS_REQUEST_ID | text |  | Unique Id of the access request this approval belongs to |
 | IDENTITY_REQUEST_ITEM_ID | text |  | Unique Id of the identity request item this approval is associated with |
 | TARGET_ID | text |  | Id of the item being approved |
@@ -234,11 +234,11 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | REJECTED_BY | variant |  | Identity that rejected the request |
 | COMMENTS | variant |  | Comments added by approvers |
 | REASSIGNMENT_HISTORY | variant |  | History of approval reassignments |
-| CREATED_DATE | datetime |  | date when the approval was created |
-| UPDATED_DATE | datetime |  | date when the approval was modified |
-| DUE_DATE | datetime |  | date by which the approval should be actioned |
-| COMPLETED_DATE | datetime |  | date when the approval was completed |
-| DELETED_DATE | datetime |  | date when the approval was deleted |
+| CREATED_DATE | datetime |  | Date when the approval was created |
+| UPDATED_DATE | datetime |  | Date when the approval was modified |
+| DUE_DATE | datetime |  | Date by which the approval should be actioned |
+| COMPLETED_DATE | datetime |  | Date when the approval was completed |
+| DELETED_DATE | datetime |  | Date when the approval was deleted |
 | SYNC_DATE | datetime |  | When the row is last synced |
 
 

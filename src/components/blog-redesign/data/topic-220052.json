@@ -1,0 +1,2417 @@
+{
+ "fetchedAt": "2026-11-12T19:37:49.401Z",
+ "id": 220052,
+ "slug": "ccg-not-installed-after-virtual-appliance-pairing-deployment-behavior-and-resolution",
+ "title": "CCG Not Installed After Virtual Appliance Pairing: Deployment Behavior and Resolution",
+ "url": "https://developer.sailpoint.com/discuss/t/ccg-not-installed-after-virtual-appliance-pairing-deployment-behavior-and-resolution/220052",
+ "createdAt": "2026-08-20T23:18:04.346Z",
+ "views": 164,
+ "likeCount": 1,
+ "tags": [
+  "sailpoint-identity-security",
+  "virtual-appliance"
+ ],
+ "category": {
+  "id": 125,
+  "name": "Community Blog",
+  "slug": "community-blog",
+  "color": "#652D90",
+  "readRestricted": false,
+  "parent": {
+   "id": 69,
+   "name": "Content",
+   "slug": "content",
+   "color": "#652D90",
+   "readRestricted": false,
+   "parent": null
+  }
+ },
+ "readMinutes": 15,
+ "hero": {
+  "src": "https://global.discourse-cdn.com/sailpoint/original/3X/d/9/d97ae8ae89848decc0933698962f81f5b0413e0a.jpeg",
+  "alt": "blog title card"
+ },
+ "toc": [
+  {
+   "id": "span-langen-usintroductionspanspan-langen-usspan",
+   "title": "Introduction"
+  },
+  {
+   "id": "span-langen-usprerequisitesspanspan-langen-us-span",
+   "title": "Prerequisites"
+  },
+  {
+   "id": "span-langen-usproblem-statement-spanspan-langen-usspan",
+   "title": "Problem Statement"
+  },
+  {
+   "id": "span-langen-usroot-cause-automatic-reboot-interrupting-the-image-downloadspanspan-langen-usspan",
+   "title": "Root Cause: Automatic Reboot Interrupting the Image Download"
+  },
+  {
+   "id": "span-langen-usidentifying-the-state-of-the-vaspanspan-langen-usspan",
+   "title": "Identifying the State of the VA"
+  },
+  {
+   "id": "span-langen-usrecommended-deployment-sequencespanspan-langen-usspan",
+   "title": "Recommended Deployment Sequence"
+  },
+  {
+   "id": "span-langen-usvalidation-after-successful-setupspanspan-langen-usspan",
+   "title": "Validation After Successful Setup"
+  },
+  {
+   "id": "additional-troubleshooting-checks",
+   "title": "Additional Troubleshooting Checks"
+  },
+  {
+   "id": "span-langen-usconclusionspanspan-langen-usspan",
+   "title": "Conclusion"
+  }
+ ],
+ "posts": [
+  {
+   "id": 399865,
+   "number": 1,
+   "username": "Siddharth60",
+   "name": "SIDDHARTHA GOUD PALUSA",
+   "avatar": "https://avatars.discourse-cdn.com/v4/letter/s/b782af/96.png",
+   "userTitle": null,
+   "isAuthor": true,
+   "staff": false,
+   "flair": null,
+   "createdAt": "2026-08-20T23:18:04.711Z",
+   "replyTo": null,
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/ccg-not-installed-after-virtual-appliance-pairing-deployment-behavior-and-resolution/220052/1",
+   "words": 2551,
+   "body": [
+    {
+     "t": "h1",
+     "a": {
+      "id": "span-langen-usintroductionspanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Introduction"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The Cloud Connector Gateway (CCG) is the component responsible for processing source communication requests routed through the SailPoint Virtual Appliance (VA). If CCG is unavailable, source operations such as Test Connection, aggregation, and provisioning may fail."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "During a SailPoint Virtual Appliance (VA) deployment, I encountered a scenario where the VA appeared Connected in Identity Security Cloud (ISC), but the CCG version was not visible and the CCG service was not present on the VA."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "After performing multiple deployments during troubleshooting and closely observing the behavior, I identified that automatic reboots occurring during the post-pairing image download phase were interrupting the CCG image pull."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "em",
+       "c": [
+        "This post describes the prerequisites, the observed behavior, the recommended deployment sequence, validation steps, and additional troubleshooting checks for cases where CCG does not install as expected."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "h1",
+     "a": {
+      "id": "span-langen-usprerequisitesspanspan-langen-us-span"
+     },
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Prerequisites"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "        "
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "Before deploying a VA, confirm the following are in place:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "A SailPoint ISC tenant with administrator access."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Access to the ISC Admin Console with sufficient permissions to pair a Virtual Appliance."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "A supported virtualization platform."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "SailPoint currently recommends a minimum of 4 vCPUs, 16 GB RAM, and 128 GB of allocated virtual disk space for a standard VA deployment."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "A static network configuration prepared: IP address, subnet mask, gateway, and DNS servers. This is applied via the static.network file on the VA."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Stable outbound internet connectivity from the VA. The VA must be able to reach SailPoint’s container registry to pull Docker images after pairing."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "The VA OVA file downloaded from SailPoint and deployed on your virtualization platform."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h1",
+     "a": {
+      "id": "span-langen-usproblem-statement-spanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Problem Statement"
+         ]
+        },
+        "        "
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "In a fresh VA deployment, the following behavior was observed:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "The VA successfully paired with the ISC tenant."
+         ]
+        }
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "The VA status showed Connected in ISC."
+         ]
+        }
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "The CCG version did not appear in the ISC console."
+         ]
+        }
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "The CCG service was not present on the VA."
+         ]
+        }
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "In the deployments performed during troubleshooting, redeploying the VA from scratch was the most reliable recovery method."
+         ]
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "This behavior was reproducible across multiple deployments performed during troubleshooting. The screenshot below shows the VA in a Connected state with a Warning badge and the CCG Version reported as Not Available. While the warning status is expected for a single-VA in a cluster, the unavailable CCG version indicates that CCG deployment has not completed successfully."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/c/f/cfb0bc236e7bfd95de7aacabb9995928b2e43c79.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/c/f/cfb0bc236e7bfd95de7aacabb9995928b2e43c79_2_690x246.png",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/c/f/cfb0bc236e7bfd95de7aacabb9995928b2e43c79_2_690x246.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/c/f/cfb0bc236e7bfd95de7aacabb9995928b2e43c79_2_1035x369.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/c/f/cfb0bc236e7bfd95de7aacabb9995928b2e43c79.png 2x",
+      "alt": "Figure 1: ISC VA cluster view — VA shows ‘Connected’ but CCG Version is ‘Not Available’",
+      "width": "690",
+      "height": "246"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "em",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         }
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "h1",
+     "a": {
+      "id": "span-langen-usroot-cause-automatic-reboot-interrupting-the-image-downloadspanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Root Cause: Automatic Reboot Interrupting the Image"
+         ]
+        },
+        " ",
+        {
+         "t": "strong",
+         "c": [
+          "Download"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "After creating the static.network file on the VA, the standard instruction is to run:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "bash",
+      "value": "sudo reboot"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "What is not immediately obvious is that the VA may also perform an additional automatic reboot, initiated by the ",
+      {
+       "t": "code",
+       "c": [
+        "locksmithd"
+       ]
+      },
+      " service (which handles OS-level update reboots). This reboot is not part of SailPoint’s documented deployment steps — it is behavior I observed during deployment — and it is separate from the manual ",
+      {
+       "t": "code",
+       "c": [
+        "sudo reboot"
+       ]
+      },
+      ". It is preceded by a system notification similar to:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "bash",
+      "value": "Broadcast message from locksmithd\nSystem reboot in 5 minutes!"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "After the reboots complete and the VA comes back online, the deployment process continues with cluster passphrase configuration and pairing of the VA with ISC. Once pairing is successful, the VA begins downloading and preparing the container images required for CCG and supporting services."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The charon.log file shows this process starting shortly after pairing, with images being checked, identified as out of sync, and pull commands being executed to download the required container images."
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/c/8/c86b4b34d4f91c0679b6d945d899472a803f0e49.jpeg",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/c/8/c86b4b34d4f91c0679b6d945d899472a803f0e49_2_690x347.jpeg",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/c/8/c86b4b34d4f91c0679b6d945d899472a803f0e49_2_690x347.jpeg, https://global.discourse-cdn.com/sailpoint/original/3X/c/8/c86b4b34d4f91c0679b6d945d899472a803f0e49.jpeg 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/c/8/c86b4b34d4f91c0679b6d945d899472a803f0e49.jpeg 2x",
+      "alt": "Figure 2: charon.log immediately after pairing, image pull operations started",
+      "width": "690",
+      "height": "347"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "If the automatic reboot occurs while image retrieval is still in progress, the deployment process can be interrupted before all required images have been fully downloaded."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "The screenshot below shows the reboot warning appearing while image retrieval is still active, followed by the system reboot: "
+       ]
+      }
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/6/0/600023624686774f36fde00a5d231a8e48bf8465.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/original/3X/6/0/600023624686774f36fde00a5d231a8e48bf8465.png",
+      "alt": "Figure 3: The locksmithd 'System reboot in 5 minutes!' broadcast appearing during active image downloads, followed by 'The system will reboot now!' — image downloads are interrupted before completion",
+      "width": "689",
+      "height": "353"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "After the reboot:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "The VA comes back online and reconnects to ISC, showing Connected."
+         ]
+        }
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "In the deployments tested, the interrupted image downloads did not resume automatically."
+         ]
+        }
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "Required container images may not be present if their downloads were not completed before the reboot, including the CCG image."
+         ]
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "This creates a misleading state: the VA appears healthy in ISC while CCG is unavailable and unable to process source communication requests."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "h1",
+     "a": {
+      "id": "span-langen-usidentifying-the-state-of-the-vaspanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Identifying the State of the VA"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "Run the following three commands on the VA to determine whether CCG has been successfully installed. "
+       ]
+      }
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "span-langen-us1-check-running-containersspanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "1. Check"
+         ]
+        },
+        " ",
+        {
+         "t": "strong",
+         "c": [
+          "Running Containers"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "bash",
+      "value": "sudo docker ps "
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "In the failed state, only the charon and va_agent containers are running. The CCG container is absent:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/c/0/c0a50e542b4b2ddd4d2fdeeeffb82d79ce75095e.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/original/3X/c/0/c0a50e542b4b2ddd4d2fdeeeffb82d79ce75095e.png",
+      "alt": "Figure 4: Failed state — docker ps shows only charon and va_agent containers, no ccg container present",
+      "width": "690",
+      "height": "68"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "In a healthy deployment, the ccg container runs alongside charon, va_agent, vector, and otel_agent:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/b/6/b6c0834676c750f4edeae9d5d0355e40a0d00f67.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/original/3X/b/6/b6c0834676c750f4edeae9d5d0355e40a0d00f67.png",
+      "alt": "Figure 5: Healthy state — docker ps shows the ccg container running alongside all supporting containers, all reporting healthy status",
+      "width": "690",
+      "height": "117"
+     }
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "span-langen-us2-check-docker-imagesspanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "2. Check Docker Images"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "bash",
+      "value": "sudo docker images "
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "In the failed state, the sailpoint/ccg image is absent from the image list — only images that completed downloading before the reboot will be present."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/4/5/4570b0e6d6648b6de1f30cfbcdca3935a32c286f.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/original/3X/4/5/4570b0e6d6648b6de1f30cfbcdca3935a32c286f.png",
+      "alt": "Figure 6: Failed state — docker images shows no ccg image",
+      "width": "690",
+      "height": "204"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "In a healthy deployment, the sailpoint/ccg image is present with a valid tag and size:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/1/9/19a82b85a3793b6db0a3aa071fb0ee36b50f440f.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/original/3X/1/9/19a82b85a3793b6db0a3aa071fb0ee36b50f440f.png",
+      "alt": "Figure 7: Healthy state — docker images shows sailpoint/ccg image with a valid version tag",
+      "width": "690",
+      "height": "354"
+     }
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "span-langen-us3-check-log-filesspanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "3. Check Log Files"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "bash",
+      "value": "ls ~/log "
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "In the failed state, ccg.log is not present. Only charon.log, va_agent.log, and worker.log are visible:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/8/1/81ff0f5dacf87d58e0ee8e958a6ebbd2008dc84f.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/8/1/81ff0f5dacf87d58e0ee8e958a6ebbd2008dc84f_2_690x176.png",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/8/1/81ff0f5dacf87d58e0ee8e958a6ebbd2008dc84f_2_690x176.png, https://global.discourse-cdn.com/sailpoint/original/3X/8/1/81ff0f5dacf87d58e0ee8e958a6ebbd2008dc84f.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/8/1/81ff0f5dacf87d58e0ee8e958a6ebbd2008dc84f.png 2x",
+      "alt": "Figure 8: Failed state — ls ~/log shows no ccg.log",
+      "width": "690",
+      "height": "176"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "In a healthy deployment, ccg.log and ccg-start.log are present alongside all other service logs:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/3/b/3b17e7a4eed49ded5ffdfb15e1973b047ae4ea45.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/original/3X/3/b/3b17e7a4eed49ded5ffdfb15e1973b047ae4ea45.png",
+      "alt": "Figure 9: Healthy state — ls ~/log shows ccg.log and other service log files present.",
+      "width": "500",
+      "height": "211"
+     }
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "monitoring-image-downloads-in-charonlog"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Monitoring Image Downloads in charon.log"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "To observe the image pull process in real time during deployment, monitor the charon.log:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "bash",
+      "value": "tail -f ~/log/charon.log "
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "The logs will show Docker images being checked against the registry, identified as out of sync, and pull operations being initiated. The screenshot below is from a successful deployment and shows the CCG image specifically — identified as not present locally, confirmed as out of sync, and queued for download. This is what healthy pull activity looks like for the CCG image in charon.log:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/c/1/c18ffa18b7817a87d5fc8687824eb5570a95e38c.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/original/3X/c/1/c18ffa18b7817a87d5fc8687824eb5570a95e38c.png",
+      "alt": "Figure 10: charon.log from a successful deployment — sailpoint/ccg image identified as 'No such image' locally, confirmed out of sync, and queued for download. This is the pull activity that gets interrupted when the reboot fires too early",
+      "width": "690",
+      "height": "103"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "Once the CCG image has been fully downloaded, charon.log records a “Ran pull command” confirmation entry. The screenshot below shows this success message from a deployment where CCG downloaded completely. This is what a successful CCG pull looks like in charon.log:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/6/f/6fcc6885cde643884c5e667ed2c072b642ae927e.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/original/3X/6/f/6fcc6885cde643884c5e667ed2c072b642ae927e.png",
+      "alt": "Figure 11: charon.log ‘Ran pull command’ confirmation for the ccg image — this entry confirms the CCG image was downloaded completely and is ready for deployment",
+      "width": "690",
+      "height": "355"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "In the failed deployment, image pull activity was still in progress when the automatic reboot occurred. The screenshot below captures the reboot warning appearing during active image retrieval, followed by the system rebooting before the download process completed."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/0/b/0b812e0a9ac567620c105bb14862091497de31d5.jpeg",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/0/b/0b812e0a9ac567620c105bb14862091497de31d5_2_690x353.jpeg",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/0/b/0b812e0a9ac567620c105bb14862091497de31d5_2_690x353.jpeg, https://global.discourse-cdn.com/sailpoint/original/3X/0/b/0b812e0a9ac567620c105bb14862091497de31d5.jpeg 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/0/b/0b812e0a9ac567620c105bb14862091497de31d5.jpeg 2x",
+      "alt": "Figure 12: charon.log showing image pull activity interrupted by the locksmithd automatic reboot — downloads do not resume after restart",
+      "width": "690",
+      "height": "353"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "After the automatic reboot completes, monitoring charon.log shows that the VA reconnects and cycles through its regular polling loop but does not attempt to resume the interrupted image downloads:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/a/8/a85cbfbd7edba7a373d6f773602c6e1b38781b4c.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/original/3X/a/8/a85cbfbd7edba7a373d6f773602c6e1b38781b4c.png",
+      "alt": "Figure 13: charon.log after restart — only 'The cycle is finished' messages repeating, no image pull activity resumed",
+      "width": "689",
+      "height": "200"
+     }
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "span-langen-usimpact-on-source-test-connectionspanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Impact on Source Test Connection"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "When a source is configured to use a VA where CCG is missing, Test Connection fails with the following error:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "bash",
+      "value": "Timeout waiting for response to message 0 from client <id> after 15 seconds."
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "This occurs because:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "The request is routed to the VA."
+         ]
+        }
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "The CCG service is not available to process it."
+         ]
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/7/8/78b4c6dff5dcfc719f360d512887a4c38802c2bf.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/7/8/78b4c6dff5dcfc719f360d512887a4c38802c2bf_2_690x300.png",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/7/8/78b4c6dff5dcfc719f360d512887a4c38802c2bf_2_690x300.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/7/8/78b4c6dff5dcfc719f360d512887a4c38802c2bf_2_1035x450.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/7/8/78b4c6dff5dcfc719f360d512887a4c38802c2bf.png 2x",
+      "alt": "Figure 14: ISC Test Connection Failed — 15-second timeout error when the CCG service is absent from the VA",
+      "width": "690",
+      "height": "300"
+     }
+    },
+    {
+     "t": "h1",
+     "a": {
+      "id": "span-langen-usrecommended-deployment-sequencespanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Recommended Deployment Sequence"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "The following sequence avoids the interrupted download issue."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "span-langen-usstep-1-configure-the-staticnetwork-filespanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "Step 1 ",
+          {
+           "t": "strong",
+           "c": [
+            "—"
+           ]
+          },
+          " Configure the static.network file"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "Create and save the static.network file on the VA with the appropriate network configuration for your environment."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Refer to the ",
+      {
+       "t": "a",
+       "a": {
+        "href": "https://documentation.sailpoint.com/saas/help/va/deploy_va.html"
+       },
+       "c": [
+        "SailPoint Virtual Appliance documentation"
+       ]
+      },
+      " for complete static network configuration requirements."
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "span-langen-usstep-2-apply-static-networking-and-allow-the-va-to-finish-any-rebootspanspan-langen-us-span"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "Step 2 ",
+          {
+           "t": "strong",
+           "c": [
+            "—"
+           ]
+          },
+          " Apply static networking and allow the VA to finish any reboot"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        " "
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "Following ",
+        {
+         "t": "a",
+         "a": {
+          "href": "https://documentation.sailpoint.com/saas/help/va/deploy_va.html"
+         },
+         "c": [
+          "SailPoint’s Virtual Appliance deployment"
+         ]
+        },
+        " guidance, apply the static network configuration and reboot the VA as documented (",
+        {
+         "t": "code",
+         "c": [
+          "sudo reboot"
+         ]
+        },
+        "). Separately, the VA may also perform an additional automatic reboot, triggered by the ",
+        {
+         "t": "code",
+         "c": [
+          "locksmithd"
+         ]
+        },
+        " service to apply a pending OS update. This automatic reboot is not part of SailPoint’s documented steps — it is behavior I observed during deployment — and it is preceded by a “System reboot in 5 minutes!” broadcast. It can fire on its own (as in the screenshot below) or after your manual ",
+        {
+         "t": "code",
+         "c": [
+          "sudo reboot"
+         ]
+        },
+        ". Allow both the documented reboot and this automatic reboot to complete fully before you continue to pairing."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "The screenshot below shows this timing. After saving the file (Time: 15:11:44), "
+       ]
+      },
+      "the locksmithd “System reboot in 5 minutes!” broadcast fires at 15:14:39, and the system reboots at 15:19:39 ",
+      {
+       "t": "strong",
+       "c": [
+        "—"
+       ]
+      },
+      " approximately 8 minutes after the file was created:"
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/b/9/b985e76f0ab091b18d94b4d67a388b4a0834d56c.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/original/3X/b/9/b985e76f0ab091b18d94b4d67a388b4a0834d56c.png",
+      "alt": "Figure 15: Automatic locksmithd reboot triggered after creation of the static.network file",
+      "width": "690",
+      "height": "249"
+     }
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "span-langen-usstep-3-verify-the-va-is-stable-before-pairingspan"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "Step 3 ",
+          {
+           "t": "strong",
+           "c": [
+            "—"
+           ]
+          },
+          " Verify the VA is stable before pairing"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "Before pairing, make sure the VA has fully settled: both the documented ",
+          {
+           "t": "code",
+           "c": [
+            "sudo reboot"
+           ]
+          },
+          " and the automatic ",
+          {
+           "t": "code",
+           "c": [
+            "locksmithd"
+           ]
+          },
+          " reboot have completed, with no pending “System reboot in 5 minutes!” broadcast and a normal console prompt."
+         ]
+        }
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "If a reboot broadcast is still pending, wait for it to finish. Allow roughly 10 to 15 minutes after the last reboot for the VA to complete its restart cycle, and proceed to pairing only once it is back online and stable."
+         ]
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "span-langen-usstep-4-set-the-va-passphrasespanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "Step 4 ",
+          {
+           "t": "strong",
+           "c": [
+            "—"
+           ]
+          },
+          " Set the VA passphrase"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "When the VA is back online, set the cluster passphrase at the VA console."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "span-langen-usstep-5-pair-the-va-with-iscspan"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "Step 5 ",
+          {
+           "t": "strong",
+           "c": [
+            "—"
+           ]
+          },
+          " Pair the VA with ISC"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "after-setting-the-passphrase-the-va-generates-and-displays-a-pairing-code-in-isc-navigate-to-admin-virtual-appliances-select-your-va-cluster-click-add-va-and-enter-the-pairing-code-valid-for-four-hours-to-complete-the-pairing-process"
+     },
+     "c": [
+      "After setting the passphrase, the VA generates and displays a pairing code. In ISC, navigate to Admin > Virtual Appliances, select your VA cluster, click Add VA, and enter the pairing code (valid for four hours) to complete the pairing process."
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "important-the-cluster-passphrase-you-set-here-must-be-identical-for-every-va-that-joins-the-same-cluster-if-you-add-additional-vas-to-this-cluster-later-use-the-same-passphrase-when-prompted-during-their-setup-refer-to-the-sailpoint-virtual-appliance-documentationhttpsdocumentationsailpointcomsaashelpvadeploy_vahtml-for-details-on-cluster-passphrase-management"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Important:"
+       ]
+      },
+      " The cluster passphrase you set here must be identical for every VA that joins the same cluster. If you add additional VAs to this cluster later, use the same passphrase when prompted during their setup. Refer to the ",
+      {
+       "t": "a",
+       "a": {
+        "href": "https://documentation.sailpoint.com/saas/help/va/deploy_va.html"
+       },
+       "c": [
+        "SailPoint Virtual Appliance documentation"
+       ]
+      },
+      " for details on cluster passphrase management."
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "span-langen-usstep-6-do-not-reboot-after-pairingspanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "Step 6 — Do not reboot after pairing"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "Once pairing is complete, the VA immediately begins downloading the required Docker images and setting up CCG and its supporting services. Do not reboot the VA while this service or image setup is still running. Any reboot at this stage risks interrupting the image download process before CCG and supporting services have been fully installed.   "
+       ]
+      }
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "span-langen-usstep-7-allow-time-for-image-downloads-to-completespanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "Step 7 — Allow time for image downloads to complete"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "The VA will begin pulling several Docker images including CCG and its supporting services. Depending on your network speed and connectivity to SailPoint’s container registry, this process typically takes 30 to 40 minutes but can take an hour or more on slower connections. Ensure stable internet connectivity throughout this period."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "span-langen-ustip-monitor-image-download-progress-using-charonlogspanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "Tip — Monitor image download progress using charon.log"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "To monitor post-pairing image downloads in real time:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "bash",
+      "value": "tail -f ~/log/charon.log"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "While downloads are in progress, you should see image pull activity, including out-of-sync checks and pull operations. Once pull activity stops and the log returns to its normal polling cycle, proceed to the validation steps below."
+     ]
+    },
+    {
+     "t": "h1",
+     "a": {
+      "id": "span-langen-usvalidation-after-successful-setupspanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Validation After Successful Setup"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "Once the download period has passed, confirm CCG is fully installed by running all three diagnostic commands:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "bash",
+      "value": "sudo docker images    # CCG image should be present\nsudo docker ps        # CCG container should be running\nls ~/log              # ccg.log should be present"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "Refer to the healthy state screenshots in the Identifying the State section above to compare your output. Additionally, verify in ISC by navigating to Admin > Virtual Appliances, selecting your VA cluster, and confirming that:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "The VA status shows Connected"
+         ]
+        },
+        "."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "The CCG Version field displays a version number rather than “Not Available”."
+         ]
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/8/7/87505e372f95044a902c3a375e3f0b9f0a55e769.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/8/7/87505e372f95044a902c3a375e3f0b9f0a55e769_2_690x287.png",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/8/7/87505e372f95044a902c3a375e3f0b9f0a55e769_2_690x287.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/8/7/87505e372f95044a902c3a375e3f0b9f0a55e769_2_1035x430.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/8/7/87505e372f95044a902c3a375e3f0b9f0a55e769.png 2x",
+      "alt": "Figure 16: Healthy ISC VA cluster view — VA status 'Connected' with CCG Version field populated.",
+      "width": "690",
+      "height": "287"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "With CCG installed and running, Test Connection on a source configured to use this VA should succeed:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/f/1/f1f31f9d142dfedeaf55ab84e21991430e1484bc.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/f/1/f1f31f9d142dfedeaf55ab84e21991430e1484bc_2_690x301.png",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/f/1/f1f31f9d142dfedeaf55ab84e21991430e1484bc_2_690x301.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/f/1/f1f31f9d142dfedeaf55ab84e21991430e1484bc_2_1035x451.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/f/1/f1f31f9d142dfedeaf55ab84e21991430e1484bc.png 2x",
+      "alt": "Figure 17: Test Connection successful after correct deployment — confirms CCG is functional and processing requests",
+      "width": "690",
+      "height": "301"
+     }
+    },
+    {
+     "t": "h1",
+     "a": {
+      "id": "additional-troubleshooting-checks"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Additional Troubleshooting Checks"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "If CCG is still missing after following the deployment sequence above, work through the following steps:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "span-langen-us1-run-the-three-diagnostic-commandsspanspan-langen-us-span"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "1. Run the three diagnostic commands"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        " "
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "Run `sudo docker ps`, `sudo docker images`, and `ls ~/log` to confirm exactly which components are absent. Compare against the healthy state screenshots in this post."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "span-langen-us2-check-charonlog-for-signs-of-an-interrupted-pullspanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "2. Check charon.log for signs of an interrupted pull"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "bash",
+      "value": "tail -200 ~/log/charon.log"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "Look for image pull activity — out of sync messages followed by pull operations — that stops abruptly. If the locksmithd broadcast message appears mid-download in the log, the reboot interrupted the process before CCG could be pulled. "
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "The charon.log state described above matches the post-reboot behavior discussed in the ",
+        {
+         "t": "strong",
+         "c": [
+          "Monitoring Image Downloads in charon.log"
+         ]
+        },
+        " section. If your log only shows repeating “The cycle is finished” and “Awaken” messages with no image pull activity, the interrupted downloads did not resume."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "span-langen-us3-confirm-no-reboot-occurred-post-pairingspanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "3. Confirm no reboot occurred post-pairing"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "If a reboot occurred after pairing — whether manual or automatic — the image downloads would have been interrupted. Review your deployment steps to confirm the sequence was followed correctly, particularly that no reboot was triggered after the pairing step. "
+       ]
+      }
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "span-langen-us4-redeploy-following-the-correct-sequencespan-span-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "4. Redeploy following the correct sequence"
+         ]
+        }
+       ]
+      },
+      " ",
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "If the above checks confirm the image pull was interrupted, redeploy a fresh VA following the deployment sequence in this post. Pay particular attention to the reboot timing in Steps 2 and 3 — ensure all reboots complete and the VA is stable before you begin pairing."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "span-langen-us5-verify-outbound-internet-connectivityspanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "5. Verify outbound internet connectivity"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "Intermittent connectivity during the image download window can also cause partial image pulls. Ensure the VA has stable access to SailPoint’s container registry throughout the entire post-pairing period."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "h1",
+     "a": {
+      "id": "span-langen-usconclusionspanspan-langen-usspan"
+     },
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Conclusion"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "A VA can appear Connected in ISC even when critical components such as CCG have not been fully installed. This happens when an automatic reboot interrupts the Docker image pull that begins immediately after pairing. "
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "By applying static networking per SailPoint’s guidance, allowing any OS or update reboot to fully complete and verifying the VA is stable before pairing, then avoiding reboots after pairing while image and service setup is still running, and allowing sufficient time for image downloads to finish (typically 30 to 40 minutes, though this may take longer on slower connections), this issue can be avoided."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       },
+       "c": [
+        "If a VA appears Connected but the CCG Version remains Not Available, always validate the Docker containers, Docker images, and log files before assuming the deployment completed successfully. The three diagnostic commands in this post will quickly confirm the state of each component."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "Note: "
+         ]
+        }
+       ]
+      },
+      {
+       "t": "em",
+       "c": [
+        {
+         "t": "span",
+         "a": {
+          "lang": "EN-US"
+         },
+         "c": [
+          "This post covers the standard VA/CCG deployment type. Behavior on IAI Harvester Cluster types has not been independently verified, though the underlying mechanism — Docker image download interruption — could potentially affect those deployments as well."
+         ]
+        }
+       ]
+      },
+      {
+       "t": "span",
+       "a": {
+        "lang": "EN-US"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 399866,
+   "number": 2,
+   "username": "vikaspawar0303",
+   "name": "vikas pawar",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/vikaspawar0303/96/34710_2.png",
+   "userTitle": null,
+   "isAuthor": false,
+   "staff": false,
+   "flair": null,
+   "createdAt": "2026-08-20T23:24:13.929Z",
+   "replyTo": null,
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/ccg-not-installed-after-virtual-appliance-pairing-deployment-behavior-and-resolution/220052/2",
+   "words": 46,
+   "body": [
+    {
+     "t": "aside",
+     "a": {
+      "class": "quote no-group"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "div",
+       "a": {
+        "class": "title"
+       },
+       "c": [
+        "\n",
+        {
+         "t": "div",
+         "a": {
+          "class": "quote-controls"
+         }
+        },
+        "\n",
+        {
+         "t": "img",
+         "a": {
+          "alt": "",
+          "width": "24",
+          "height": "24",
+          "src": "https://avatars.discourse-cdn.com/v4/letter/s/b782af/48.png",
+          "class": "avatar"
+         }
+        },
+        " SIDDHARTHA GOUD PALUSA:"
+       ]
+      },
+      "\n",
+      {
+       "t": "blockquote",
+       "c": [
+        "\n",
+        {
+         "t": "p",
+         "c": [
+          "he charon.log file shows this process starting shortly after pairing, with images being checked, identified as out of sync, and pull commands being executed to download the required container images"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Thanks for sharing also please share the static.network sample file information if possible."
+     ]
+    }
+   ]
+  },
+  {
+   "id": 399908,
+   "number": 3,
+   "username": "Siddharth60",
+   "name": "SIDDHARTHA GOUD PALUSA",
+   "avatar": "https://avatars.discourse-cdn.com/v4/letter/s/b782af/96.png",
+   "userTitle": null,
+   "isAuthor": true,
+   "staff": false,
+   "flair": null,
+   "createdAt": "2026-08-21T07:22:36.087Z",
+   "replyTo": "vikaspawar0303",
+   "likes": 1,
+   "url": "https://developer.sailpoint.com/discuss/t/ccg-not-installed-after-virtual-appliance-pairing-deployment-behavior-and-resolution/220052/3",
+   "words": 51,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      "Thanks Vikas! Happy to share."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "A sample ",
+      {
+       "t": "code",
+       "c": [
+        "static.network"
+       ]
+      },
+      " file:"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "[Match]\nName=ens160\n\n[Network]\nAddress=192.168.1.50/24\nGateway=192.168.1.1\nDNS=192.168.1.10\nDNS=8.8.8.8\n"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "The file should be created at ",
+      {
+       "t": "code",
+       "c": [
+        "/etc/systemd/network/static.network"
+       ]
+      },
+      ". Replace the interface name and network values according to your environment."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "For the official format and configuration details, please refer to SailPoint’s documentation:"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "a",
+       "a": {
+        "href": "https://documentation.sailpoint.com/saas/help/va/deploy_va.html"
+       },
+       "c": [
+        "SailPoint — Deploying Virtual Appliances"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

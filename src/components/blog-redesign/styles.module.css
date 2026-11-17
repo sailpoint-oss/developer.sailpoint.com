@@ -1,0 +1,388 @@
+/*
+ * Blog redesign prototype (/blog-redesign and the pages under it): page frame,
+ * post header, table of contents and the compact navbar header.
+ *
+ * Colors and fonts come from the community theme
+ * (src/components/community/theme.module.css). Pages put both classes on the
+ * outer element: <CommunityTheme className={styles.root}>.
+ */
+
+.root {
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Page frame                                                                */
+/* ------------------------------------------------------------------------ */
+
+.gradientBar {
+  height: 34px;
+  background: linear-gradient(90deg, #0033a1 0%, #2f6fd6 55%, #54c0e8 100%);
+}
+
+/* 75% of the page on wide screens. Smaller screens use the full width. */
+.container {
+  width: 75%;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    width: 100%;
+  }
+}
+
+/* The title block takes the first row, so the table of contents in the
+   second row always starts level with the hero image. */
+.layout {
+  display: grid;
+  margin-top: 40px;
+  grid-template-columns: minmax(0, 1fr) 224px;
+  grid-template-areas:
+    'header .'
+    'main aside';
+  column-gap: 56px;
+  align-items: start;
+}
+
+.main {
+  grid-area: main;
+  min-width: 0;
+}
+
+.aside {
+  grid-area: aside;
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 24px);
+}
+
+/* ------------------------------------------------------------------------ */
+/* Post header                                                               */
+/* ------------------------------------------------------------------------ */
+
+.header {
+  grid-area: header;
+  min-width: 0;
+  margin-bottom: 32px;
+}
+
+/* The site styles every h1 with !important, so this selector has to be
+   more specific and also use !important. */
+.root h1.title {
+  margin: 0 0 22px;
+  color: var(--br-text-strong) !important;
+  font-family: var(--br-font) !important;
+  font-size: clamp(30px, 3vw, 46px);
+  font-weight: 800 !important;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  font-size: 14px;
+  color: var(--br-muted);
+}
+
+.root .byline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--br-text);
+  font-weight: 500;
+}
+
+.byline img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.root .tag {
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--br-pill-bg);
+  color: var(--br-pill-text);
+  font-size: 11px;
+  line-height: 18px;
+}
+
+.root .tag:hover {
+  text-decoration: none;
+  filter: brightness(1.1);
+}
+
+.root .commentCount {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--br-muted);
+}
+
+.root .shareButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  padding: 4px 12px;
+  border: 1px solid var(--br-border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--br-text);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.root .shareButton:hover {
+  background: var(--br-surface-2);
+}
+
+.footerActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.articleFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  /* The Discussion section below draws the divider line. */
+  margin-top: 40px;
+}
+
+.hero {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 40px;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Table of contents                                                         */
+/* ------------------------------------------------------------------------ */
+
+.toc {
+  padding: 18px 16px 16px;
+  border: 1px solid var(--br-border);
+  border-radius: 10px;
+  background: var(--br-surface);
+  box-shadow: var(--br-shadow);
+  max-height: calc(100vh - var(--ifm-navbar-height) - 48px);
+  overflow-y: auto;
+}
+
+.tocTitle {
+  margin-bottom: 14px;
+  color: var(--br-text-strong);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.toc ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.toc li + li {
+  margin-top: 9px;
+}
+
+.root .tocLink {
+  display: block;
+  color: var(--br-muted);
+  font-size: 14px;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.root .tocLink:hover {
+  color: var(--br-text-strong);
+}
+
+.root .tocLinkActive,
+.root .tocLinkActive:hover {
+  color: var(--br-accent);
+}
+
+/* ------------------------------------------------------------------------ */
+/* Compact header in the navbar                                              */
+/* ------------------------------------------------------------------------ */
+
+.compactHost {
+  display: none;
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+:global(html.blog-redesign-compact) .compactHost {
+  display: flex;
+}
+
+:global(html.blog-redesign-compact) :global(.navbar__brand) {
+  display: none;
+}
+
+.compact {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  margin-right: 24px;
+  animation: compactIn 0.2s ease-out;
+}
+
+@keyframes compactIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Show only the sail mark of the full logo. */
+.compactLogo {
+  flex: none;
+  width: 24px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.compactLogo img {
+  display: block;
+  height: 32px;
+  max-width: none;
+}
+
+.logoDark {
+  display: none !important;
+}
+
+:global(html[data-theme='dark']) .logoLight {
+  display: none !important;
+}
+
+:global(html[data-theme='dark']) .logoDark {
+  display: block !important;
+}
+
+.compactText {
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.compactTitle {
+  overflow: hidden;
+  color: var(--ifm-navbar-link-color);
+  font-family: 'Poppins BR', 'Poppins', sans-serif !important;
+  font-size: 22px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.compactMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.compactMeta a,
+.compactMeta a:hover {
+  text-decoration: none;
+}
+
+.categoryBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-right: 4px;
+  color: var(--ifm-navbar-link-color) !important;
+}
+
+.categorySwatch {
+  width: 9px;
+  height: 9px;
+  background: #652d90; /* Community Blog color on the forum */
+}
+
+.tagSmall {
+  padding: 0 8px;
+  border-radius: 999px;
+  background: #e3eefb;
+  color: #0033a1 !important;
+  font-size: 11px;
+  line-height: 18px;
+}
+
+:global(html[data-theme='dark']) .tagSmall {
+  background: #1d4560;
+  color: #a9dcf3 !important;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Responsive                                                                */
+/* ------------------------------------------------------------------------ */
+
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'header'
+      'main';
+  }
+
+  .aside {
+    display: none;
+  }
+}
+
+/* The navbar collapses to a menu on small screens. Keep the normal logo. */
+@media (max-width: 996px) {
+  :global(html.blog-redesign-compact) .compactHost {
+    display: none;
+  }
+
+  :global(html.blog-redesign-compact) :global(.navbar__brand) {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    border-radius: 8px;
+    margin-bottom: 28px;
+  }
+
+}

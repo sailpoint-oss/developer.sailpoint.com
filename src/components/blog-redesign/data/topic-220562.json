@@ -1,0 +1,862 @@
+{
+ "fetchedAt": "2026-11-12T19:37:49.118Z",
+ "id": 220562,
+ "slug": "targeted-role-refreshes-building-a-paginated-workflow-solution-in-isc",
+ "title": "Targeted Role Refreshes: Building a Paginated Workflow Solution in ISC",
+ "url": "https://developer.sailpoint.com/discuss/t/targeted-role-refreshes-building-a-paginated-workflow-solution-in-isc/220562",
+ "createdAt": "2026-08-24T20:28:29.038Z",
+ "views": 112,
+ "likeCount": 1,
+ "tags": [
+  "sailpoint-identity-security",
+  "workflows",
+  "apis"
+ ],
+ "category": {
+  "id": 125,
+  "name": "Community Blog",
+  "slug": "community-blog",
+  "color": "#652D90",
+  "readRestricted": false,
+  "parent": {
+   "id": 69,
+   "name": "Content",
+   "slug": "content",
+   "color": "#652D90",
+   "readRestricted": false,
+   "parent": null
+  }
+ },
+ "readMinutes": 4,
+ "hero": {
+  "src": "https://global.discourse-cdn.com/sailpoint/original/3X/9/0/901381ed34fb9ec4c59b1282a286108a067e03a7.jpeg",
+  "alt": "blog title card"
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Introduction"
+  },
+  {
+   "id": "solution-overview",
+   "title": "Solution Overview"
+  },
+  {
+   "id": "what-it-can-and-cannot-do",
+   "title": "What It Can and Cannot Do"
+  },
+  {
+   "id": "user-interface-forms",
+   "title": "User Interface (Forms)"
+  },
+  {
+   "id": "the-workflows-api-calls",
+   "title": "The Workflows & API Calls"
+  },
+  {
+   "id": "considerations-best-practices",
+   "title": "Considerations & Best Practices"
+  },
+  {
+   "id": "conclusion",
+   "title": "Conclusion"
+  }
+ ],
+ "posts": [
+  {
+   "id": 400691,
+   "number": 1,
+   "username": "trettkowski",
+   "name": "Tyler Rettkowski",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/trettkowski/96/36103_2.png",
+   "userTitle": "Expert Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/e/eb064076112b6705f2406f9119ef84ce300e416a.png",
+    "name": "expert_ambassadors"
+   },
+   "createdAt": "2026-08-24T20:28:29.252Z",
+   "replyTo": null,
+   "likes": 1,
+   "url": "https://developer.sailpoint.com/discuss/t/targeted-role-refreshes-building-a-paginated-workflow-solution-in-isc/220562/1",
+   "words": 920,
+   "body": [
+    {
+     "t": "h3",
+     "a": {
+      "id": "introduction"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Introduction"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Why:"
+         ]
+        },
+        " Sometimes you just need to refresh a single role in SailPoint Identity Security Cloud without triggering an “Apply Changes” for the entire tenant."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Problem:"
+         ]
+        },
+        " Currently, the UI does not offer a simple way to refresh just one role. Clicking “Apply Changes” impacts all users and can take a significant amount of time."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Who Is This For?"
+         ]
+        },
+        " This solution is primarily designed for large organizations (100k+ identities) where global role refreshes can take significant amounts of time and system resources. For smaller organizations (under 5k identities), you are likely better off simply using the out-of-the-box “Apply Changes” button, as the performance impact is minimal."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Goal:"
+         ]
+        },
+        " A streamlined solution allowing administrators to select an individual role and refresh only the identities associated with that role."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "solution-overview"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Solution Overview"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Tech Stack:"
+         ]
+        },
+        " 1 Form + 2 Workflows (Launcher & Paginated Worker)"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "High-Level Flow:"
+         ]
+        },
+        " Using a custom interactive form, an administrator can select the specific role they wish to refresh. A primary workflow takes this input and sends the role data to a dedicated “Paginated Worker” external trigger workflow. This worker handles the pagination and identity refresh API calls in chunks of 250, avoiding timeouts and efficiently processing the users."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/d/d/dd5149b3f20e0251db7a7de61b6215ecdcb3a9ee.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/d/d/dd5149b3f20e0251db7a7de61b6215ecdcb3a9ee_2_690x322.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/d/d/dd5149b3f20e0251db7a7de61b6215ecdcb3a9ee_2_690x322.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/d/d/dd5149b3f20e0251db7a7de61b6215ecdcb3a9ee_2_1035x483.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/d/d/dd5149b3f20e0251db7a7de61b6215ecdcb3a9ee_2_1380x644.png 2x",
+        "alt": "UI_Form_Execution",
+        "width": "690",
+        "height": "322"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "what-it-can-and-cannot-do"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "What It Can and Cannot Do"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Before implementing, it is important to understand the boundaries of this solution."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "What It Can Do:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ol",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Update Entitlement/Access Profile membership when a new item is added to the role membership."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Update when a user is added to the role via the identity list. It adds the role to their cube along with the assigned Entitlements/APs."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Update when a user is removed via the identity list. It removes the role and the associated Entitlements/APs."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Update when membership criteria are removed, causing an identity to fall out of the role. The workflow will remove the user from the role and strip the assigned Entitlements/APs."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "What It Cannot Do:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ol",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Refresh Newly Added Role Membership Criteria:"
+         ]
+        },
+        " For this scenario, you still need to use the native “Apply Changes” button."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "When Removing Entitlements From Roles:"
+         ]
+        },
+        " This workflow does not automatically remove the access from the user. You must remove them from the membership of the role for the access to be completely removed from the user."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "user-interface-forms"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "User Interface (Forms)"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "We start with an interactive form. Since we cannot build this directly into the role management UI, the form provides a simple drop-down to pick the role and a toggle for ",
+      {
+       "t": "strong",
+       "c": [
+        "“Identity List Refresh Needed?”"
+       ]
+      },
+      " This option is crucial because roles can have members assigned via criteria or specifically via an identity list, and they require different API approaches to refresh."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Form Definition Code:"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/9NhFax46FvbbcwQkOnHVJYZTmx5.json"
+       },
+       "c": [
+        "Form-Role-Selector.json"
+       ]
+      },
+      " (3.1 KB)"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "the-workflows-api-calls"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "The Workflows & API Calls"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This solution relies on two workflows working together."
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-1-the-launcher-workflow-role-refresher"
+     },
+     "c": [
+      "1. The Launcher Workflow (Role Refresher)"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This workflow uses an ",
+      {
+       "t": "code",
+       "c": [
+        "Interactive Trigger"
+       ]
+      },
+      ". When launched, it presents the form to the user. Once submitted, a loop iterates through the selected roles and makes an HTTP request to our secondary worker workflow, passing along the role ID and the user’s choice for the identity list refresh."
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/d/1/d19c79fac05f125f5f224a471829183b497d56e2.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/d/1/d19c79fac05f125f5f224a471829183b497d56e2_2_363x500.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/d/1/d19c79fac05f125f5f224a471829183b497d56e2_2_363x500.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/d/1/d19c79fac05f125f5f224a471829183b497d56e2_2_544x750.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/d/1/d19c79fac05f125f5f224a471829183b497d56e2_2_726x1000.png 2x",
+        "alt": "DIAGRAM_RoleRefresher20260630",
+        "width": "363",
+        "height": "500"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Launcher Workflow Code:"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/ipPeMkxo8aMnaITPO1tzRXFMOC4.json"
+       },
+       "c": [
+        "Workflow-RoleRefresher.json"
+       ]
+      },
+      " (4.3 KB)"
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-2-the-paginated-worker-workflow"
+     },
+     "c": [
+      "2. The Paginated Worker Workflow"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This is an ",
+      {
+       "t": "code",
+       "c": [
+        "External Trigger"
+       ]
+      },
+      " workflow where the heavy lifting and API calls occur. Based on the form input, it branches into two different paths:"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Path A: Standard Assigned Identities (Pagination)"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\nIf the user selected “No” for the identity list refresh, the workflow uses the ",
+      {
+       "t": "code",
+       "c": [
+        "/roles/v1/{roleId}/assigned-identities"
+       ]
+      },
+      " endpoint."
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "It fetches the assigned identities in chunks of 250."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "JSONPath Conversion:"
+         ]
+        },
+        " The API returns an array of objects, but the process endpoint expects a simple array of strings (Identity IDs). We use a custom Define Variable step with the JSONPath expression ",
+        {
+         "t": "code",
+         "c": [
+          "$.hTTPRequest.body[*].id"
+         ]
+        },
+        " to cleanly extract just the IDs into a new array."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "It then submits this array to the ",
+        {
+         "t": "code",
+         "c": [
+          "/identities/v1/process"
+         ]
+        },
+        " API. If exactly 250 identities are returned, the workflow recursively calls itself with the offset increased by 250, paginating through all members."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Path B: Identity List Refresh (No Pagination)"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\nIf the user selected “Yes” for the identity list refresh, the workflow takes a different route because fetching the identity list requires a direct GET to the ",
+      {
+       "t": "code",
+       "c": [
+        "/roles/v1/{roleId}"
+       ]
+      },
+      " endpoint."
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "The Limitation:"
+         ]
+        },
+        " Role objects currently limit the returned identity list membership array to a maximum of 500 users. Because of this, this path ",
+        {
+         "t": "strong",
+         "c": [
+          "does not"
+         ]
+        },
+        " perform recursive pagination."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "The Workaround:"
+         ]
+        },
+        " To process up to the 500 maximum, we use Define Variable steps with JSONPath slicing. We grab the first 250 users (",
+        {
+         "t": "code",
+         "c": [
+          "$.hTTPRequest4.body.membership.identities[0:250].id"
+         ]
+        },
+        ") and the next 250 users (",
+        {
+         "t": "code",
+         "c": [
+          "$.hTTPRequest4.body.membership.identities[250:].id"
+         ]
+        },
+        ") to avoid reprocessing identities already captured in the first slice. We then execute the ",
+        {
+         "t": "code",
+         "c": [
+          "/identities/v1/process"
+         ]
+        },
+        " API calls sequentially for both slices."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/3/5/35ce9affd9aad317ef1f9a05e238565ec0011b32.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/3/5/35ce9affd9aad317ef1f9a05e238565ec0011b32_2_213x499.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/3/5/35ce9affd9aad317ef1f9a05e238565ec0011b32_2_213x499.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/3/5/35ce9affd9aad317ef1f9a05e238565ec0011b32_2_319x748.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/3/5/35ce9affd9aad317ef1f9a05e238565ec0011b32_2_426x998.png 2x",
+        "alt": "DIAGRAM_PaginatedIdentityRefresher20260630",
+        "width": "213",
+        "height": "499"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Worker Workflow Code:"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/vKP0gFfoDpB27XcK8ZlUJO3Zu1a.json"
+       },
+       "c": [
+        "Workflow-PaginatedIdentityRefresher.json"
+       ]
+      },
+      " (10.8 KB)"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "considerations-best-practices"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Considerations & Best Practices"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Permissions:"
+         ]
+        },
+        " Restrict access to this form to administrators who understand the impact of manual identity processing."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "API Limits & Versioning"
+         ]
+        },
+        ": The ",
+        {
+         "t": "code",
+         "c": [
+          "/identities/v1/process"
+         ]
+        },
+        " endpoint is powerful. Paginating at 250 ensures we stay within acceptable processing limits and timeouts. ",
+        {
+         "t": "strong",
+         "c": [
+          "Note"
+         ]
+        },
+        ": ",
+        {
+         "t": "em",
+         "c": [
+          "The identity processing endpoint used in this solution is currently a v1 API. Please verify the endpoint version and review the logic if a newer endpoint becomes available in the future."
+         ]
+        }
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Testing:"
+         ]
+        },
+        " Always validate the form and workflows in a sandbox or non-production tenant before deploying."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "conclusion"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Conclusion"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Summary:"
+         ]
+        },
+        " This solution provides a targeted approach to role refreshing, saving time and system resources compared to a global tenant refresh."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Call to Action:"
+         ]
+        },
+        " Have you built any interesting workflows using interactive forms or pagination? Let me know in the comments below, and feel free to reach out if you have questions about extending this functionality!"
+       ]
+      },
+      "\n"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 403861,
+   "number": 2,
+   "username": "ROHPU",
+   "name": "Pucha Rohan",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/rohpu/96/36109_2.png",
+   "userTitle": "Ambassador",
+   "isAuthor": false,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/1/1aa5dad2d8398ae0eb24a4ac86a3b612c39d4ff9.png",
+    "name": "ambassadors"
+   },
+   "createdAt": "2026-09-09T10:33:37.092Z",
+   "replyTo": null,
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/targeted-role-refreshes-building-a-paginated-workflow-solution-in-isc/220562/2",
+   "words": 14,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "a",
+       "a": {
+        "class": "mention",
+        "href": "https://developer.sailpoint.com/discuss/u/trettkowski"
+       },
+       "c": [
+        "@trettkowski"
+       ]
+      },
+      " Nice use case and a great workflow for large environments. Thanks for sharing."
+     ]
+    }
+   ]
+  }
+ ]
+}

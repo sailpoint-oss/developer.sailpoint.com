@@ -1,0 +1,1175 @@
+{
+ "fetchedAt": "2026-11-12T19:37:48.874Z",
+ "id": 220655,
+ "slug": "delegating-role-management-in-isc-using-interactive-forms-and-workflows",
+ "title": "Delegating Role Management in ISC Using Interactive Forms and Workflows",
+ "url": "https://developer.sailpoint.com/discuss/t/delegating-role-management-in-isc-using-interactive-forms-and-workflows/220655",
+ "createdAt": "2026-08-25T17:46:13.069Z",
+ "views": 131,
+ "likeCount": 3,
+ "tags": [
+  "sailpoint-identity-security",
+  "workflows",
+  "apis",
+  "entitlements",
+  "roles",
+  "forms"
+ ],
+ "category": {
+  "id": 125,
+  "name": "Community Blog",
+  "slug": "community-blog",
+  "color": "#652D90",
+  "readRestricted": false,
+  "parent": {
+   "id": 69,
+   "name": "Content",
+   "slug": "content",
+   "color": "#652D90",
+   "readRestricted": false,
+   "parent": null
+  }
+ },
+ "readMinutes": 6,
+ "hero": {
+  "src": "https://global.discourse-cdn.com/sailpoint/original/3X/8/8/88d1bfe73cfb2dae8d034526df9e16255d1ca497.jpeg",
+  "alt": "blog title card"
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Introduction"
+  },
+  {
+   "id": "solution-overview",
+   "title": "Solution Overview"
+  },
+  {
+   "id": "user-interface",
+   "title": "User Interface"
+  },
+  {
+   "id": "back-end",
+   "title": "Back End"
+  },
+  {
+   "id": "safety-and-governance-guardrails",
+   "title": "Safety and Governance Guardrails"
+  },
+  {
+   "id": "conclusion",
+   "title": "Conclusion"
+  }
+ ],
+ "posts": [
+  {
+   "id": 400957,
+   "number": 1,
+   "username": "trettkowski",
+   "name": "Tyler Rettkowski",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/trettkowski/96/36103_2.png",
+   "userTitle": "Expert Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/e/eb064076112b6705f2406f9119ef84ce300e416a.png",
+    "name": "expert_ambassadors"
+   },
+   "createdAt": "2026-08-25T17:46:13.323Z",
+   "replyTo": null,
+   "likes": 3,
+   "url": "https://developer.sailpoint.com/discuss/t/delegating-role-management-in-isc-using-interactive-forms-and-workflows/220655/1",
+   "words": 1302,
+   "body": [
+    {
+     "t": "h3",
+     "a": {
+      "id": "introduction"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Introduction"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Why:"
+         ]
+        },
+        " Empowering role owners to manage their own roles reduces the administrative burden on the core IAM team. By delegating this responsibility, business owners can maintain their roles efficiently and securely without needing backend access."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Problem:"
+         ]
+        },
+        " Out-of-the-box, Identity Security Cloud (ISC) requires an administrator to modify role configurations, such as adding or removing entitlements, updating descriptions, or changing owners."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Goal:"
+         ]
+        },
+        " A custom form and workflow solution that allows role owners to seamlessly manage their assigned roles directly through an interactive launcher."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "blockquote",
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "CAUTION!"
+         ]
+        },
+        {
+         "t": "br"
+        },
+        "\n",
+        {
+         "t": "strong",
+         "c": [
+          "Important Security Warning:"
+         ]
+        },
+        " This form and workflow solution can make role and access-related changes. Please ensure you read the Safety and Governance Guardrails section below to understand the recommended security measures before deploying this solution."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "solution-overview"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Solution Overview"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Tech Stack:"
+         ]
+        },
+        " 2 Forms + 3 Workflows"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "High-Level Flow:"
+         ]
+        },
+        " The solution uses two interactive forms. The first form allows the user to select a role they own. The second form displays the role’s current details and presents the available management actions. Based on the selected action, the backend workflows execute the necessary API calls to modify the role."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The available actions in this solution include the following API calls (all utilizing ",
+      {
+       "t": "code",
+       "c": [
+        "PATCH /roles/v1/{roleid}"
+       ]
+      },
+      "):"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Modify Name"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Body: ",
+            {
+             "t": "code",
+             "c": [
+              "[{\"op\": \"replace\", \"path\": \"/name\", \"value\": \"{{newName}}\"}]"
+             ]
+            }
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Modify Description"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Body: ",
+            {
+             "t": "code",
+             "c": [
+              "[{\"op\": \"replace\", \"path\": \"/description\", \"value\": \"{{newDescription}}\"}]"
+             ]
+            }
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Modify Requestable Status"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Body: ",
+            {
+             "t": "code",
+             "c": [
+              "[{\"op\": \"replace\", \"path\": \"/requestable\", \"value\": {{true/false}}}]"
+             ]
+            }
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Change Primary Owner"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Body: ",
+            {
+             "t": "code",
+             "c": [
+              "[{\"op\": \"replace\", \"path\": \"/owner\", \"value\": {\"type\": \"IDENTITY\", \"id\": \"{{newOwnerId}}\"}}]"
+             ]
+            }
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Add Entitlement"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Body: ",
+            {
+             "t": "code",
+             "c": [
+              "[{\"op\": \"add\", \"path\": \"/entitlements/-\", \"value\": {\"id\": \"{{entitlementId}}\", \"type\": \"ENTITLEMENT\"}}]"
+             ]
+            }
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Remove Entitlement"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Body: ",
+            {
+             "t": "code",
+             "c": [
+              "[{\"op\": \"remove\", \"path\": \"/entitlements/{{index}}\"}]"
+             ]
+            }
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "user-interface"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "User Interface"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The user experience is split into two distinct forms to ensure clarity and provide dynamic context."
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-1-role-selector-form"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "1. Role Selector Form"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The first step is selecting the role to manage."
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Implementation Details:"
+         ]
+        },
+        " This form utilizes an advanced search and form input filter on the owner UID to display only the roles available to the current user. In the main role management workflow, we use ",
+        {
+         "t": "code",
+         "c": [
+          "trigger.launchedby.id"
+         ]
+        },
+        " to retrieve this ID and pass it to the form."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/b/c/bc298e7111e2abdfaedbcf35054838d918ef7c15.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/original/3X/b/c/bc298e7111e2abdfaedbcf35054838d918ef7c15.png",
+        "alt": "Sample_Execution_Select_Role_Form",
+        "width": "690",
+        "height": "443"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Form Code:"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/zrOVBCb7P9gNiHiEwfT71r2JSq3.json"
+       },
+       "c": [
+        "RoleSelectorForm_cleansed.json"
+       ]
+      },
+      " (2.4 KB)"
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-2-role-management-form"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "2. Role Management Form"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Once a role is selected, the second form displays the role’s current state and available actions."
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Dynamic Summary:"
+         ]
+        },
+        " We use a form input to pull a summary from a ",
+        {
+         "t": "code",
+         "c": [
+          "roles/v1/"
+         ]
+        },
+        " HTTP call, displaying all relevant details to the user. A “Define Variable” step maps this data and sets the relevant CSS/HTML tags for a clean display."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Conditional Fields:"
+         ]
+        },
+        " The form employs heavy conditional logic. When the user selects an action from the “Select Field to Modify” dropdown, the form dynamically adjusts which input fields are visible."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Smart Entitlement Selection:"
+         ]
+        },
+        " For the “Remove Entitlement” action, the form uses the entitlements field from the ",
+        {
+         "t": "code",
+         "c": [
+          "roles/v1/"
+         ]
+        },
+        " API call as an input. This ensures the user can only select entitlements that are actually assigned to the role, preventing errors."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/2/1/2114500073cefbd84721d71a9424da19f504a587.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/2/1/2114500073cefbd84721d71a9424da19f504a587_2_394x500.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/2/1/2114500073cefbd84721d71a9424da19f504a587_2_394x500.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/2/1/2114500073cefbd84721d71a9424da19f504a587_2_591x750.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/2/1/2114500073cefbd84721d71a9424da19f504a587.png 2x",
+        "alt": "Sample_Execution_Modify_Role_Form",
+        "width": "394",
+        "height": "500"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Form Code:"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/aDBrwAGvWgQ5JBBCFQS4EJvj9Xn.json"
+       },
+       "c": [
+        "RoleManagementForm_cleansed.json"
+       ]
+      },
+      " (11.4 KB)"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "back-end"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Back End"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The backend consists of three workflows to handle the logic. The primary workflow manages standard modifications, while two external trigger workflows handle the complexities of adding and removing entitlements."
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-1-main-role-management-workflow"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "1. Main Role Management Workflow"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This workflow handles the initial form interactions and standard role updates."
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Conditional Logic Web:"
+         ]
+        },
+        " The workflow uses a web of “Define Comparison” calls to route the execution based on the chosen action."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Handling Arrays vs. Strings:"
+         ]
+        },
+        " A key challenge is that adding or removing entitlements can involve a single item (output as a string) or multiple items (output as an array). Passing this directly into a JSON body can break the API call if it expects one format over the other. To resolve this, the workflow branches to handle single and multiple selections distinctly."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Workflow Code:"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/iZ39WkvcmVRLGzGQWzKzeEWLAQd.json"
+       },
+       "c": [
+        "RoleManagement_cleansed.json"
+       ]
+      },
+      " (20.3 KB)"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/f/e/feae60f6916204ef8f48f842355c0d67c245a6f8.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/f/e/feae60f6916204ef8f48f842355c0d67c245a6f8_2_690x442.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/f/e/feae60f6916204ef8f48f842355c0d67c245a6f8_2_690x442.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/f/e/feae60f6916204ef8f48f842355c0d67c245a6f8_2_1035x663.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/f/e/feae60f6916204ef8f48f842355c0d67c245a6f8_2_1380x884.png 2x",
+        "alt": "RoleManagement20260712",
+        "width": "690",
+        "height": "442"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-2-add-entitlement-workflow"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "2. Add Entitlement Workflow"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Adding an entitlement is relatively straightforward using a PATCH call, but there is a specific nuance when adding multiple entitlements at once."
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Wait Time Workaround:"
+         ]
+        },
+        " When sending multiple ADD patch requests simultaneously, they can potentially overwrite each other, causing some entitlements to be missed. Standard parallel loops do not work reliably for this scenario. To fix this, a ",
+        {
+         "t": "code",
+         "c": [
+          "waittime"
+         ]
+        },
+        " variable (e.g., 5 seconds) is added between iterations in the serial loop to ensure each patch is processed successfully."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Workflow Code:"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/9QMsmrYqY3YjHLTsVQHnQTz5l9K.json"
+       },
+       "c": [
+        "AddEntitlementFromRole_cleansed.json"
+       ]
+      },
+      " (4.7 KB)"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/3/a/3af6e1fe9ae6a5c84079dd1d6ede43ab408ba3b5.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/3/a/3af6e1fe9ae6a5c84079dd1d6ede43ab408ba3b5_2_340x500.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/3/a/3af6e1fe9ae6a5c84079dd1d6ede43ab408ba3b5_2_340x500.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/3/a/3af6e1fe9ae6a5c84079dd1d6ede43ab408ba3b5_2_510x750.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/3/a/3af6e1fe9ae6a5c84079dd1d6ede43ab408ba3b5_2_680x1000.png 2x",
+        "alt": "AddEntitlementFromRole20260712",
+        "width": "340",
+        "height": "500"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-3-remove-entitlement-workflow"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "3. Remove Entitlement Workflow"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Removing entitlements is the most complex part of this solution due to the mechanics of JSON Patch."
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Index Shifting Challenge:"
+         ]
+        },
+        " JSON Patch only allows removals by index. When you remove one entitlement, the index shifts for all subsequent entitlements. To handle this safely, we perform only ",
+        {
+         "t": "strong",
+         "c": [
+          "one removal per execution"
+         ]
+        },
+        ". We pull the role details fresh every run to ensure we are targeting the correct index."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Dynamic Re-looping:"
+         ]
+        },
+        " The workflow has two paths depending on if it receives a string (single item) or an array (multiple items) in the ",
+        {
+         "t": "code",
+         "c": [
+          "entitlementstoremove"
+         ]
+        },
+        " trigger. The single path signifies the last entitlement, allowing the workflow to exit. The array path processes the first item, and then makes an HTTP call to re-trigger the workflow with the remaining array items."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "mermaid",
+     "a": {
+      "value": "flowchart TD\n    Start([Workflow Trigger]) --> InputCheck{\"entitlementstoremove\\ntype?\"}\n    \n    InputCheck -- \"Array (Multiple Items)\" --> ExtractFirst[\"Extract 1st Item\"]\n    ExtractFirst --> SliceArray[\"Store Remaining Items\\nin nextlist\"]\n    SliceArray --> FindIndex[\"GET Role -> Find Index of 1st Item\"]\n    FindIndex --> RemoveEntitlement[\"PATCH: Remove Entitlement by Index\"]\n    RemoveEntitlement --> RecallWorkflow[\"POST: Re-Trigger Workflow\\nwith nextlist\"]\n    RecallWorkflow --> EndMultiple([End Current Execution])\n\n    InputCheck -- \"String (Single Item)\" --> FindIndexSingle[\"GET Role -> Find Index of Item\"]\n    FindIndexSingle --> RemoveSingle[\"PATCH: Remove Entitlement by Index\"]\n    RemoveSingle --> EndSingle([End Current Execution])\n\n    RecallWorkflow -.-> |\"New Trigger Event\\n(until all removed)\"| Start"
+     }
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Counter Initialization Bug:"
+         ]
+        },
+        " Inside the loops, there is a specific quirk with the set counter variable. If you do not initialize the counter inside the “Define Variable” step before referencing it, it will not output properly in the REMOVE patch call."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Workflow Code:"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/MTErZAE0OwsODk2sfdBORxKrwc.json"
+       },
+       "c": [
+        "RemoveEntitlementFromRole_cleansed.json"
+       ]
+      },
+      " (13.0 KB)"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/f/6/f686a96e74ea3c82649f531e61af735d0975a4c5.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/f/6/f686a96e74ea3c82649f531e61af735d0975a4c5_2_537x499.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/f/6/f686a96e74ea3c82649f531e61af735d0975a4c5_2_537x499.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/f/6/f686a96e74ea3c82649f531e61af735d0975a4c5_2_805x748.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/f/6/f686a96e74ea3c82649f531e61af735d0975a4c5_2_1074x998.png 2x",
+        "alt": "RemoveEntitlementFromRole20260712",
+        "width": "537",
+        "height": "499"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "safety-and-governance-guardrails"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Safety and Governance Guardrails"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "While delegating role management empowers business owners and reduces IAM overhead, this workflow modifies roles and access related configurations. It is crucial to implement the following guardrails before deploying this solution to production:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Ownership Validation:"
+         ]
+        },
+        " Ensure the Role Selector Form strictly filters roles by the current user’s ID (",
+        {
+         "t": "code",
+         "c": [
+          "trigger.launchedby.id"
+         ]
+        },
+        "). This prevents users from selecting and modifying roles they do not own."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Approvals and Review Steps:"
+         ]
+        },
+        " The current implementation lacks an approval schema. It is highly recommended to add an approval step within the workflow (routing modifications to the IAM team or a secondary owner for review) before the API calls are executed, particularly when adding high risk entitlements."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Entitlement Restrictions:"
+         ]
+        },
+        " To prevent owners from adding highly privileged or restricted entitlements to their roles, implement a filter or allowlist in the form’s entitlement selection field. Alternatively, add logic in the workflow to check for restricted entitlements and require additional approvals."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "External Workflow Protection:"
+         ]
+        },
+        " Ensure the external trigger workflows (Add/Remove Entitlement) are securely configured. Treat the Client ID and Secret generated for these workflows like highly sensitive passwords to ensure they cannot be triggered by unauthorized external sources."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Audit and Rollback Considerations:"
+         ]
+        },
+        " Log all modifications made through this form (using a webhook to a ticketing system like ServiceNow, or sending an email notification to an audit group). Because role changes can impact access for many users, maintaining a clear audit trail ensures changes can be tracked and manually rolled back if an error occurs."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "conclusion"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Conclusion"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Summary:"
+         ]
+        },
+        " This solution demonstrates how to leverage interactive forms and advanced workflow logic to build a self-service delegated role management tool. While the entitlement removal process requires some creative engineering with JSON Patch indexing, the end result is a seamless experience for role owners."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Call to Action:"
+         ]
+        },
+        " If you have questions about setting up these API calls or want to expand this form to include an approval process, feel free to post below! I’d love to hear how you are using forms to delegate tasks in your organization."
+       ]
+      },
+      "\n"
+     ]
+    }
+   ]
+  }
+ ]
+}

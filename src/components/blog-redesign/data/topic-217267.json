@@ -1,0 +1,1003 @@
+{
+ "fetchedAt": "2026-11-12T19:37:50.780Z",
+ "id": 217267,
+ "slug": "implementing-dynamic-retry-workflows-in-identity-security-cloud",
+ "title": "Implementing Dynamic Retry Workflows in Identity Security Cloud",
+ "url": "https://developer.sailpoint.com/discuss/t/implementing-dynamic-retry-workflows-in-identity-security-cloud/217267",
+ "createdAt": "2026-07-24T22:26:00.190Z",
+ "views": 149,
+ "likeCount": 0,
+ "tags": [
+  "sailpoint-identity-security",
+  "workflows",
+  "apis"
+ ],
+ "category": {
+  "id": 125,
+  "name": "Community Blog",
+  "slug": "community-blog",
+  "color": "#652D90",
+  "readRestricted": false,
+  "parent": {
+   "id": 69,
+   "name": "Content",
+   "slug": "content",
+   "color": "#652D90",
+   "readRestricted": false,
+   "parent": null
+  }
+ },
+ "readMinutes": 6,
+ "hero": {
+  "src": "https://global.discourse-cdn.com/sailpoint/original/3X/7/8/78ee91a9ea96ab817804468e978215072ac39d04.jpeg",
+  "alt": "blog title card"
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Introduction"
+  },
+  {
+   "id": "solution-overview",
+   "title": "Solution Overview"
+  },
+  {
+   "id": "key-concepts",
+   "title": "Key Concepts"
+  },
+  {
+   "id": "json-payload-structures",
+   "title": "JSON Payload Structures"
+  },
+  {
+   "id": "the-workflows",
+   "title": "The Workflows"
+  },
+  {
+   "id": "considerations-best-practices",
+   "title": "Considerations & Best Practices"
+  },
+  {
+   "id": "conclusion",
+   "title": "Conclusion"
+  }
+ ],
+ "posts": [
+  {
+   "id": 393840,
+   "number": 1,
+   "username": "trettkowski",
+   "name": "Tyler Rettkowski",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/trettkowski/96/36103_2.png",
+   "userTitle": "Expert Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/e/eb064076112b6705f2406f9119ef84ce300e416a.png",
+    "name": "expert_ambassadors"
+   },
+   "createdAt": "2026-07-24T22:26:00.432Z",
+   "replyTo": null,
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/implementing-dynamic-retry-workflows-in-identity-security-cloud/217267/1",
+   "words": 1185,
+   "body": [
+    {
+     "t": "h3",
+     "a": {
+      "id": "introduction"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Introduction"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Why:"
+         ]
+        },
+        " In Identity Security Cloud (ISC), we often interact with APIs or external scripts that might occasionally fail or require a bit of extra time. Launching a certification campaign and waiting for it to be generated before activating it is a common example. Instead of putting arbitrary “Wait” actions randomly into a workflow, you can dynamically try again, check the status, and proceed when the task is ready."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Problem:"
+         ]
+        },
+        " Calling another workflow or execution where you have no knowledge of the status makes error handling and success tracking difficult. Putting all of these actions in a single workflow can also cause you to hit size or step limitations."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Goal:"
+         ]
+        },
+        " A modular solution where an external “Retry Workflow” handles HTTP POSTs or Windows Server PowerShell script executions. It can retry, handle errors, and provide a polling capability from the original workflow to check the status."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "solution-overview"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Solution Overview"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Tech Stack:"
+         ]
+        },
+        " 4 Workflows (2 Core Retry Workflows + 2 Starting Workflows)"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "High-Level Flow:"
+         ]
+        },
+        " Instead of executing a complex POST or PowerShell task right in your main workflow, you hand off the execution to a dedicated Retry Workflow via an HTTP Request using an External trigger. The initial workflow then polls the Retry Workflow to check its status. If the external task succeeds, the polling loop breaks and the original workflow marks as successful. If the retry workflow exhausts its retries and fails, the original workflow is marked as failed. This prevents confusion when debugging."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "key-concepts"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Key Concepts"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "There are several key concepts happening in this build:"
+     ]
+    },
+    {
+     "t": "ol",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Serial Loops with a Counter Variable:"
+         ]
+        },
+        " By using a ",
+        {
+         "t": "code",
+         "c": [
+          "counter"
+         ]
+        },
+        " variable that increments (using “Update Variable”) and a ",
+        {
+         "t": "code",
+         "c": [
+          "retrycount"
+         ]
+        },
+        " variable that is passed in, you can dynamically set how many retries should happen in your Serial Loop."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Input Validation:"
+         ]
+        },
+        " A “Check Input Is Complete” comparison step ensures that the caller passes the correct expected variables before proceeding."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Break Loops:"
+         ]
+        },
+        " When the task is successful, a “Break Loop” operator halts the serial loop immediately and allows the workflow to close as successful."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Checking Succeeded Loop Counts:"
+         ]
+        },
+        " When you use an “Update Variable” inside a loop, it doesn’t always keep the value once you exit the loop. To get around this, we use a comparison check using the Serial Loop’s “succeeded” count and compare that against the ",
+        {
+         "t": "code",
+         "c": [
+          "retrycount"
+         ]
+        },
+        ". This accurately determines the outcome."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Two Primary Use Cases:"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Certification Launch & Poll:"
+             ]
+            },
+            " It takes time for a campaign to generate before you can run the ",
+            {
+             "t": "code",
+             "c": [
+              "/activate"
+             ]
+            },
+            " API call. The polling solution allows you to continuously try to activate it without hardcoding massive “Wait” actions."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "PowerShell Execution:"
+             ]
+            },
+            " Pass down the parameters for a Windows Server NTLM script execution and retry it safely on the target server."
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Bypassing the 1-Minute Minimum Wait Time:"
+         ]
+        },
+        " The UI makes you believe you can only input wait times in 1-minute increments. However, if you use a variable (e.g., ",
+        {
+         "t": "code",
+         "c": [
+          "waittime"
+         ]
+        },
+        ") with the value ",
+        {
+         "t": "code",
+         "c": [
+          "\"20s\""
+         ]
+        },
+        ", you can bypass that minimum and wait the actual amount of seconds you need. This gets passed to the retry workflow as well."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Modular Retry Workflows:"
+         ]
+        },
+        " We provided two common use cases, but you can build these for HTTP PATCH/PUT operations or Kerberos-based script executions. Since they are called externally, these retry workflows can be used from a variety of different initial workflows inside your tenant."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Sample JSON Payloads:"
+         ]
+        },
+        " The starting workflows provide you with exactly the right JSON payloads needed to call the HTTP POST and PowerShell Retry workflows."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Visibility & Debugging:"
+         ]
+        },
+        " By polling from the original workflow and returning an execution ID, any failure correctly bubbles up. Successful triggers will not mask failed back-end work."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "json-payload-structures"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "JSON Payload Structures"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "When calling these retry workflows, you must pass the exact expected JSON format. If you do not have the correct structure and naming, the workflow will fail to parameterize into the correct API or PowerShell calls."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "HTTP POST Request Payload"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "{\n  \"retrycount\": 5,\n  \"waittime\": \"20s\",\n  \"originalworkflow\": \"Test Launch Certification Campaign\",\n  \"httprequest\": {\n    \"url\": \"https://your-tenant.api.identitynow.com/v2026/campaigns/{{$.hTTPRequest.body.id}}/activate\",\n    \"body\": \"\"\n  }\n}"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "NTLM PowerShell Script Payload"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "json",
+      "value": "{\n  \"retrycount\": 5,\n  \"waittime\": \"20s\",\n  \"originalworkflow\": \"Test PowerShell Script Execution\",\n  \"windowsserver\": {\n    \"connectionaddress\": \"10.0.0.100\",\n    \"scriptpath\": \"C:\\\\Scripts\\\\TestScript.ps1\",\n    \"scriptarguments\": {},\n    \"outputformat\": \"text\",\n    \"scriptsha512checksum\": \"\",\n    \"powershellconfigurationname\": \"Microsoft.PowerShell\",\n    \"scriptexecutiontimeout\": 3600\n  }\n}"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Note on ",
+        {
+         "t": "code",
+         "c": [
+          "originalworkflow"
+         ]
+        },
+        ":"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\nThe ",
+      {
+       "t": "code",
+       "c": [
+        "originalworkflow"
+       ]
+      },
+      " parameter is used strictly for debugging purposes. If your retry workflow is being executed from multiple different parent workflows across your tenant, this parameter makes it immediately evident where the execution originated when you look at the execution logs."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "the-workflows"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "The Workflows"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Below are the 4 workflow JSON files and their corresponding screenshots to help you visualize and implement the logic."
+     ]
+    },
+    {
+     "t": "blockquote",
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Note:"
+         ]
+        },
+        " Be sure to update your Client ID, Secrets, and Tenant URLs before testing these in your environment."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-1-dynamic-retry-workflow-http-post-request"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "1. Dynamic Retry Workflow - HTTP POST Request"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This is the core Retry Workflow for POST requests."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/szCKjp6J8bdeXwPjmEyVUucOi3G.json"
+       },
+       "c": [
+        "DynamicRetryWorkflowHTTPPOSTRequest20260620.json"
+       ]
+      },
+      " (5.7 KB)"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/2/d/2d95f17f3ed9e0635eec078986cda58de470368f.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/2/d/2d95f17f3ed9e0635eec078986cda58de470368f_2_429x500.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/2/d/2d95f17f3ed9e0635eec078986cda58de470368f_2_429x500.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/2/d/2d95f17f3ed9e0635eec078986cda58de470368f_2_643x750.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/2/d/2d95f17f3ed9e0635eec078986cda58de470368f_2_858x1000.png 2x",
+        "alt": "DynamicRetryWorkflowHTTPPOSTRequest20260620",
+        "width": "429",
+        "height": "500"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-2-dynamic-retry-workflow-ntlm-powershell-script"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "2. Dynamic Retry Workflow - NTLM PowerShell Script"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This core Retry Workflow executes a PowerShell script on your Windows Server.",
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/yyLDB3972PfRydEHvaPxYRTkhpX.json"
+       },
+       "c": [
+        "DynamicRetryWorkflowNTLMPowerShellScript20260620.json"
+       ]
+      },
+      " (7.5 KB)"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/4/3/431e4bc7a12770a680297fd51cd533695f456cf8.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/4/3/431e4bc7a12770a680297fd51cd533695f456cf8_2_384x500.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/4/3/431e4bc7a12770a680297fd51cd533695f456cf8_2_384x500.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/4/3/431e4bc7a12770a680297fd51cd533695f456cf8_2_576x750.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/4/3/431e4bc7a12770a680297fd51cd533695f456cf8_2_768x1000.png 2x",
+        "alt": "DynamicRetryWorkflowNTLMPowerShellScript20260620",
+        "width": "384",
+        "height": "500"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-3-test-launch-certification-campaign"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "3. Test - Launch Certification Campaign"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The initial testing workflow that creates a campaign and calls the POST Retry Workflow to activate it."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/kye6sGFkxa50WHbrSOnL06kNXw1.json"
+       },
+       "c": [
+        "TestLaunchCertificationCampaign20260620.json"
+       ]
+      },
+      " (8.3 KB)"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/f/5/f553771893bcbb16008581c8c27223eae86894a7.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/f/5/f553771893bcbb16008581c8c27223eae86894a7_2_272x500.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/f/5/f553771893bcbb16008581c8c27223eae86894a7_2_272x500.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/f/5/f553771893bcbb16008581c8c27223eae86894a7_2_408x750.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/f/5/f553771893bcbb16008581c8c27223eae86894a7_2_544x1000.png 2x",
+        "alt": "TestLaunchCertificationCampaign20260620",
+        "width": "272",
+        "height": "500"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h4",
+     "a": {
+      "id": "h-4-test-powershell-script-execution"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "4. Test - PowerShell Script Execution"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The initial testing workflow that passes variables down to the NTLM PowerShell Retry Workflow.",
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/s9UfaxpIVjuTVWOCwMK55VXm1Cb.json"
+       },
+       "c": [
+        "TestPowerShellScriptExecution20260620.json"
+       ]
+      },
+      " (7.0 KB)"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/3/d/3da812f3fcc04337fbbd188a8cb129e738411b97.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/3/d/3da812f3fcc04337fbbd188a8cb129e738411b97_2_290x500.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/3/d/3da812f3fcc04337fbbd188a8cb129e738411b97_2_290x500.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/3/d/3da812f3fcc04337fbbd188a8cb129e738411b97_2_435x750.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/3/d/3da812f3fcc04337fbbd188a8cb129e738411b97_2_580x1000.png 2x",
+        "alt": "TestPowerShellScriptExecution20260620",
+        "width": "290",
+        "height": "500"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "considerations-best-practices"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Considerations & Best Practices"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "blockquote",
+     "c": [
+      "\n",
+      {
+       "t": "p",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Important:"
+         ]
+        },
+        " Always test this pattern thoroughly in a sandbox tenant before promoting it to your production environment to ensure it behaves exactly as expected."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Permissions & Credential Handling:"
+         ]
+        },
+        " Ensure your service account or Personal Access Token (PAT) used to execute these external workflows follows the principle of least privilege, granting only the necessary authorization scopes (e.g., ",
+        {
+         "t": "code",
+         "c": [
+          "idn:campaigns:manage"
+         ]
+        },
+        "). Avoid hardcoding credentials in plain text."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "External Trigger Security:"
+         ]
+        },
+        " When exposing workflows via external triggers, securely manage the generated Client ID and Secret. Treat them as sensitive credentials, rotate them periodically, and restrict their usage to authorized internal callers."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Safe Retry Behavior for POST Requests:"
+         ]
+        },
+        " Be cautious when retrying HTTP POST operations. Ensure the target endpoint is idempotent or that you are properly handling potential duplicate resource creations if a request times out but was actually processed by the destination server."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "PowerShell Execution Safeguards:"
+         ]
+        },
+        " For Windows Server script executions, strictly validate any arguments passed into the script from the workflow to prevent injection attacks. Always enforce script execution timeouts (as demonstrated in the payload) to avoid hung processes on your target server."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Error Handling:"
+         ]
+        },
+        " Many of the HTTP Request steps inside the retry loop will intentionally log as failures until they finally succeed. Use the execution ID and status check in your polling workflow to understand the final result."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Payload Variables:"
+         ]
+        },
+        " The variables configured in ",
+        {
+         "t": "code",
+         "c": [
+          "waittime"
+         ]
+        },
+        " (such as ",
+        {
+         "t": "code",
+         "c": [
+          "\"20s\""
+         ]
+        },
+        ") must be strictly formatted if you are trying to bypass the 1-minute limitation."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "conclusion"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Conclusion"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Summary:"
+         ]
+        },
+        " Using a parent/child workflow model via external triggers allows you to create modular retry functionality. By passing parameters in and polling for an execution ID, you achieve better error handling without cluttering your workflows."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Call to Action:"
+         ]
+        },
+        " If you have any questions or try this out for other use cases like PATCH requests or Kerberos scripts, please leave a comment below."
+       ]
+      },
+      "\n"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 394750,
+   "number": 2,
+   "username": "ROHPU",
+   "name": "Pucha Rohan",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/rohpu/96/36109_2.png",
+   "userTitle": "Ambassador",
+   "isAuthor": false,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/1/1aa5dad2d8398ae0eb24a4ac86a3b612c39d4ff9.png",
+    "name": "ambassadors"
+   },
+   "createdAt": "2026-07-29T12:25:06.113Z",
+   "replyTo": null,
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/implementing-dynamic-retry-workflows-in-identity-security-cloud/217267/2",
+   "words": 19,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      "Looks really useful. I’ll give it a try in our sandbox and see how it works. Thanks for sharing."
+     ]
+    }
+   ]
+  },
+  {
+   "id": 394751,
+   "number": 3,
+   "username": "trettkowski",
+   "name": "Tyler Rettkowski",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/trettkowski/96/36103_2.png",
+   "userTitle": "Expert Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/e/eb064076112b6705f2406f9119ef84ce300e416a.png",
+    "name": "expert_ambassadors"
+   },
+   "createdAt": "2026-07-29T12:43:19.920Z",
+   "replyTo": "ROHPU",
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/implementing-dynamic-retry-workflows-in-identity-security-cloud/217267/3",
+   "words": 15,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      "Thank you Pucha! Let me know if there’s any questions or concerns on the solution!"
+     ]
+    }
+   ]
+  }
+ ]
+}

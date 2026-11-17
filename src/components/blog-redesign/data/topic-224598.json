@@ -1,0 +1,1135 @@
+{
+ "fetchedAt": "2026-11-12T19:37:47.720Z",
+ "id": 224598,
+ "slug": "extending-isc-building-a-custom-campaign-email-reminder-system",
+ "title": "Extending ISC: Building a Custom Campaign Email Reminder System",
+ "url": "https://developer.sailpoint.com/discuss/t/extending-isc-building-a-custom-campaign-email-reminder-system/224598",
+ "createdAt": "2026-10-02T21:53:50.843Z",
+ "views": 111,
+ "likeCount": 0,
+ "tags": [
+  "sailpoint-identity-security",
+  "workflows",
+  "apis",
+  "certifications"
+ ],
+ "category": {
+  "id": 125,
+  "name": "Community Blog",
+  "slug": "community-blog",
+  "color": "#652D90",
+  "readRestricted": false,
+  "parent": {
+   "id": 69,
+   "name": "Content",
+   "slug": "content",
+   "color": "#652D90",
+   "readRestricted": false,
+   "parent": null
+  }
+ },
+ "readMinutes": 7,
+ "hero": {
+  "src": "https://global.discourse-cdn.com/sailpoint/original/3X/0/4/0450f802b4e6db45c55b68525c8ff652ff288d07.jpeg",
+  "alt": "blog title card"
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Introduction"
+  },
+  {
+   "id": "solution-overview",
+   "title": "Solution Overview"
+  },
+  {
+   "id": "user-interface",
+   "title": "User Interface"
+  },
+  {
+   "id": "back-end-workflow",
+   "title": "Back End Workflow"
+  },
+  {
+   "id": "powershell-scripts-email-template",
+   "title": "PowerShell Scripts & Email Template"
+  },
+  {
+   "id": "considerations-best-practices",
+   "title": "Considerations & Best Practices"
+  },
+  {
+   "id": "conclusion",
+   "title": "Conclusion"
+  }
+ ],
+ "posts": [
+  {
+   "id": 409754,
+   "number": 1,
+   "username": "trettkowski",
+   "name": "Tyler Rettkowski",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/trettkowski/96/36103_2.png",
+   "userTitle": "Expert Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/e/eb064076112b6705f2406f9119ef84ce300e416a.png",
+    "name": "expert_ambassadors"
+   },
+   "createdAt": "2026-10-02T21:53:51.130Z",
+   "replyTo": null,
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/extending-isc-building-a-custom-campaign-email-reminder-system/224598/1",
+   "words": 1433,
+   "body": [
+    {
+     "t": "h3",
+     "a": {
+      "id": "introduction"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Introduction"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Why:"
+         ]
+        },
+        " A frequently requested feature on the SailPoint Ideas Portal (GOV-I-799) is the ability to configure the frequency of campaign email reminders. By default, SailPoint Identity Security Cloud (ISC) sends automated reminder emails once a week throughout the campaign lifecycle. However, out-of-the-box (OOTB) functionality does not currently support adjusting this interval or automatically stopping reminders once a campaign passes its deadline."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "When to Use This Approach:"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Native ISC Reminders:"
+             ]
+            },
+            " Best suited for standard, recurring certifications where a predictable, weekly follow-up schedule meets business requirements."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Custom Reminder Workflow:"
+             ]
+            },
+            " Recommended for high-priority compliance cycles (such as SOX or executive entitlement reviews) with strict, compressed deadlines requiring follow-ups every 1 to 3 days, daily reminders as deadlines approach, or consolidated notifications across multiple active campaigns."
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Problem:"
+         ]
+        },
+        " The fixed weekly reminder schedule offers limited flexibility. When campaigns require an accelerated follow-up cadence, or when administrators need notifications to cease strictly at the campaign deadline, native configuration options cannot accommodate those requirements."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Goal:"
+         ]
+        },
+        " The solution presented in this article provides end-to-end control over certification campaign email follow-ups. By combining an interactive form, a SailPoint workflow, and PowerShell scripts executed through Privileged Task Automation (PTA) via the Privileged Access Gateway (PAG), administrators can fully customize reminder intervals and consolidate multiple campaign notifications into a single reviewer email."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "solution-overview"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Solution Overview"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Tech Stack:"
+         ]
+        },
+        " 1 Form + 1 Workflow + 2 PowerShell Scripts + 1 HTML Email Template."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "High-Level Flow:"
+         ]
+        },
+        " Through an interactive form, administrators can select active campaigns, determine if they want to send an immediate reminder, configure the time frequency (in days), and decide if reminders should stop once the end date is reached. The workflow calculates the necessary iterations using an inline PowerShell script and uses a serial loop to pause (Wait step) and execute the reminder emails via a second PowerShell script running via PTA."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "user-interface"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "User Interface"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "\n",
+        {
+         "t": "p",
+         "c": [
+          {
+           "t": "strong",
+           "c": [
+            "Input Fields:"
+           ]
+          }
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Select All Active Campaigns Or Individual Campaigns - Toggle Field"
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Campaign Selector - Dropdown Field (Only appears if the toggle above is set to false)"
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Send Reminder Now? - Toggle Field (Controls whether to send an immediate reminder or wait until the first frequency interval hits)"
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Stop on End Date? - Toggle Field (Controls whether notifications should stop if the campaign due date has passed)"
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Select Time Frequency - Dropdown Field (1-15 Days)"
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "\n",
+        {
+         "t": "p",
+         "c": [
+          {
+           "t": "strong",
+           "c": [
+            "User Experience:"
+           ]
+          },
+          " We use an interactive form to act as a launcher for the workflow. This allows administrators to quickly select the target campaigns and define the frequency parameters without hardcoding anything. The form utilizes dynamic showing/hiding so the campaign selector only appears if you opt not to select all active campaigns."
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/9/6/969b974da46c04e6befacf1c3ecff228fac01ede.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/original/3X/9/6/969b974da46c04e6befacf1c3ecff228fac01ede.png",
+        "alt": "sample_form_run",
+        "width": "418",
+        "height": "500"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Form Definition Code:"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/yrKscpTmqzwyUjkVbIdDSICDHLU.json"
+       },
+       "c": [
+        "Form-CertificationCampaignFrequencySelector.json"
+       ]
+      },
+      " (8.1 KB)"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "back-end-workflow"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Back End Workflow"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Here is a visual representation of the workflow architecture:"
+     ]
+    },
+    {
+     "t": "mermaid",
+     "a": {
+      "value": "flowchart TD\n    A[\"Interactive Trigger\"] --> B[\"Get Active Campaigns\"]\n    B --> C[\"Interactive Form Launcher\"]\n    C --> D[\"Set Variables and Format Time\"]\n    D --> E[\"Calculate-Iterations.ps1 via PTA\"]\n    E --> F[\"Serial Loop: Check Counter vs Iterations\"]\n    F -->|\"True\"| G{\"Send Reminder Now and First Loop?\"}\n    F -->|\"False\"| Z[\"Workflow Complete\"]\n    G -->|\"Yes\"| H[\"Send-ReminderEmails.ps1 via PTA\"]\n    G -->|\"No\"| I[\"Wait Step Duration\"]\n    I --> J[\"Send-ReminderEmails.ps1 via PTA\"]\n    H --> K[\"Increment Counter\"]\n    J --> K\n    K --> F"
+     }
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/4/e/4e00fd4a5dcd7c42947f1abd9fe8dec956412927.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/4/e/4e00fd4a5dcd7c42947f1abd9fe8dec956412927_2_303x499.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/4/e/4e00fd4a5dcd7c42947f1abd9fe8dec956412927_2_303x499.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/4/e/4e00fd4a5dcd7c42947f1abd9fe8dec956412927_2_454x748.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/4/e/4e00fd4a5dcd7c42947f1abd9fe8dec956412927_2_606x998.png 2x",
+        "alt": "CertificationReminderFrequency20260801",
+        "width": "303",
+        "height": "499"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Trigger & Setup:"
+         ]
+        },
+        " The workflow utilizes the ",
+        {
+         "t": "code",
+         "c": [
+          "Interactive Trigger"
+         ]
+        },
+        " so the form can be presented to the user. It first queries for active campaigns to populate the form dynamically."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Time Conversion (Define Variable):"
+         ]
+        },
+        " The “Select Time Frequency” form input returns a string like “1 Day” or “3 Days”. However, the workflow’s ",
+        {
+         "t": "code",
+         "c": [
+          "Wait"
+         ]
+        },
+        " step requires standard duration formats like “1d” or “3d”. The workflow handles this using a “Define Variable” step with string replacement transforms to convert the dropdown text into a usable workflow duration format."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Calculate Iterations:"
+         ]
+        },
+        " A crucial step is calculating how many loop iterations are required. We execute a PowerShell script (",
+        {
+         "t": "code",
+         "c": [
+          "Calculate-Iterations.ps1"
+         ]
+        },
+        ") via the Windows Server PTA integration. It returns a JSON object with the ",
+        {
+         "t": "code",
+         "c": [
+          "iterations"
+         ]
+        },
+        " count."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Serial Loop:"
+         ]
+        },
+        " A counter variable is initialized at 0. A “While” Serial Loop runs as long as the counter is less than the ",
+        {
+         "t": "code",
+         "c": [
+          "iterations"
+         ]
+        },
+        " returned from the calculation script. Inside the loop, a Choice step evaluates the “Send Reminder Now?” flag. If it’s the first iteration and the flag is true, it immediately executes the reminder script. Otherwise, it pauses using a Wait step for the converted frequency (e.g., “3d”), triggers the ",
+        {
+         "t": "code",
+         "c": [
+          "Send-ReminderEmails.ps1"
+         ]
+        },
+        " script, and finally increments the counter."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Workflow Code:"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/d2PrPsh6SSmX45kIURdAOmwa5nF.json"
+       },
+       "c": [
+        "Workflow-CertificationReminderFrequency.json"
+       ]
+      },
+      " (12.7 KB)"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "powershell-scripts-email-template"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "PowerShell Scripts & Email Template"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Because there is no native workflow action to trigger ad-hoc campaign reminders, this solution manages email generation and dispatch using PowerShell executed via PTA/PAG."
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Calculate-Iterations.ps1"
+         ]
+        },
+        ": Connects to the ISC API to determine the furthest deadline among the selected campaigns and calculates the time difference in days from the current date. Because SailPoint workflows enforce a 30-day maximum execution ceiling, the script caps the iteration window at 30 days. It then divides the total duration by the selected frequency to return the exact iteration count needed for the workflow loop."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Send-ReminderEmails.ps1"
+         ]
+        },
+        ": Orchestrates the core logic for reviewer aggregation and email delivery:\n",
+        {
+         "t": "ol",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Queries ",
+            {
+             "t": "code",
+             "c": [
+              "/certifications/v1"
+             ]
+            },
+            " for the target campaign IDs."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Filters out completed or signed-off items to isolate pending decisions."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Groups pending certifications by ",
+            {
+             "t": "code",
+             "c": [
+              "reviewer.id"
+             ]
+            },
+            "."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Dynamically populates an HTML table for each reviewer and replaces the placeholders within the email template."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Dispatches a single, consolidated SMTP email to each reviewer. (A significant advantage of this approach is that a reviewer assigned to three active campaigns receives ",
+            {
+             "t": "strong",
+             "c": [
+              "one"
+             ]
+            },
+            " consolidated email listing all pending items, rather than multiple fragmented notifications.)"
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Email-Template.html"
+         ]
+        },
+        ": Referenced by ",
+        {
+         "t": "code",
+         "c": [
+          "Send-ReminderEmails.ps1"
+         ]
+        },
+        " to structure the outgoing message. This template can be customized to align with your organization’s branding or styled to mirror standard SailPoint notifications."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/4/7/479d96252c59049f0c60b5e15582adbfb0c9281a.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/4/7/479d96252c59049f0c60b5e15582adbfb0c9281a_2_690x186.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/4/7/479d96252c59049f0c60b5e15582adbfb0c9281a_2_690x186.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/4/7/479d96252c59049f0c60b5e15582adbfb0c9281a_2_1035x279.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/4/7/479d96252c59049f0c60b5e15582adbfb0c9281a_2_1380x372.png 2x",
+        "alt": "sample_email_reminder",
+        "width": "690",
+        "height": "186"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Script Downloads:"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/3sAQln0ZY7We5PdqnKCUEKKo0PG.ps1"
+       },
+       "c": [
+        "Calculate-Iterations.ps1"
+       ]
+      },
+      " (5.4 KB)"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/b3jjhu1Qd4q3zJN3M1xO0EzZUMX.ps1"
+       },
+       "c": [
+        "Send-ReminderEmails.ps1"
+       ]
+      },
+      " (9.5 KB)"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/vU38F9T36Rknva2M4So7coi8DOj.html"
+       },
+       "c": [
+        "Email-Template.html"
+       ]
+      },
+      " (1.5 KB)"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "em",
+       "c": [
+        "Note: Both PowerShell scripts generate a ",
+        {
+         "t": "code",
+         "c": [
+          "logs.txt"
+         ]
+        },
+        " file in their resident directory to help you debug the inputs passed, recipients emailed, and any potential errors."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "considerations-best-practices"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Considerations & Best Practices"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Avoiding Duplicate Reminders:"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Coordinate with Native ISC Reminders:"
+             ]
+            },
+            " Before launching this custom workflow, review your campaign definition or campaign template settings in ISC. To prevent reviewers from receiving redundant notifications, consider disabling or adjusting the built-in reminder schedule when relying on this workflow for notifications."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Prevent Overlapping Workflow Runs:"
+             ]
+            },
+            " Ensure only one workflow instance runs for a given set of campaigns at a time. Launching multiple concurrent workflow instances targeting the same campaigns will cause reviewers to receive duplicate emails on overlapping schedules."
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Credential Security & Least Privilege:"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Avoid Plaintext Credentials:"
+             ]
+            },
+            " The sample scripts include placeholder variables for demonstration purposes. In production environments, never hardcode client secrets or SMTP passwords. Instead, retrieve credentials securely using Windows Credential Manager, system environment variables on the PAG/PTA host, or an enterprise secret store (such as CyberArk or HashiCorp Vault)."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Principle of Least Privilege:"
+             ]
+            },
+            " Ensure the API Personal Access Token (PAT) or OAuth Client used by the scripts is restricted to read-only campaign and certification scopes (e.g., ",
+            {
+             "t": "code",
+             "c": [
+              "idn:campaigns:read"
+             ]
+            },
+            ", ",
+            {
+             "t": "code",
+             "c": [
+              "idn:certifications:read"
+             ]
+            },
+            ") rather than full administrative privileges (",
+            {
+             "t": "code",
+             "c": [
+              "ORG_ADMIN"
+             ]
+            },
+            ")."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Secure SMTP Communication:"
+             ]
+            },
+            " Always transmit outbound email traffic over TLS (port 587) or appropriate authenticated internal relay endpoints."
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Workflow Monitoring & Failure Handling:"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Monitoring Execution Progress:"
+             ]
+            },
+            " Monitor active executions directly within the ",
+            {
+             "t": "strong",
+             "c": [
+              "Workflows > Execution History"
+             ]
+            },
+            " tab in ISC. You can inspect step execution statuses, input/output payloads, and confirm loop progress."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Host-Level Script Logging:"
+             ]
+            },
+            " Both PowerShell scripts generate a timestamped ",
+            {
+             "t": "code",
+             "c": [
+              "logs.txt"
+             ]
+            },
+            " file in their resident execution directory on the PTA host. This log details parsed campaign inputs, identified reviewers, API response codes, and email dispatch status."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Error Handling & Resilience:"
+             ]
+            },
+            " Both scripts implement robust ",
+            {
+             "t": "code",
+             "c": [
+              "try/catch"
+             ]
+            },
+            " error trapping. If an API call fails (for instance, due to an expired token or network blip), the script terminates with an explicit error message logged to ",
+            {
+             "t": "code",
+             "c": [
+              "logs.txt"
+             ]
+            },
+            ", preventing partial or erroneous email deliveries."
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Workflow Duration Limits:"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Because workflow executions in ISC have a 30-day maximum lifecycle, ",
+            {
+             "t": "code",
+             "c": [
+              "Calculate-Iterations.ps1"
+             ]
+            },
+            " caps the iteration count to 30 days. If your certification campaign remains active past 30 days, simply relaunch the interactive form to initiate a new reminder cycle."
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Canceling or Modifying Reminders:"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "If a campaign concludes early, or if administrators wish to alter the reminder frequency mid-campaign, navigate to the ISC Workflows dashboard and cancel the in-flight execution. A new workflow run can then be launched with updated parameters."
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "conclusion"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Conclusion"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Summary:"
+         ]
+        },
+        " This solution addresses a common requirement in identity governance by giving administrators full autonomy over certification reminder frequency. By combining interactive forms, workflows, and Privileged Task Automation (PTA), organizations can implement flexible, consolidated reminder schedules tailored to their governance requirements."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Call to Action:"
+         ]
+        },
+        " If you have questions, feedback on the PowerShell implementation, or alternative approaches for managing reminder cadences, please share your thoughts in the comments below!"
+       ]
+      },
+      "\n"
+     ]
+    }
+   ]
+  }
+ ]
+}

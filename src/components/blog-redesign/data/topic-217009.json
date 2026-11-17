@@ -1,0 +1,2332 @@
+{
+ "fetchedAt": "2026-11-12T19:37:51.066Z",
+ "id": 217009,
+ "slug": "tackling-nested-ad-group-certifications-in-sailpoint-isc-using-role-composition",
+ "title": "Tackling Nested AD Group Certifications in SailPoint ISC Using Role Composition",
+ "url": "https://developer.sailpoint.com/discuss/t/tackling-nested-ad-group-certifications-in-sailpoint-isc-using-role-composition/217009",
+ "createdAt": "2026-07-22T00:55:17.075Z",
+ "views": 293,
+ "likeCount": 2,
+ "tags": [
+  "sailpoint-identity-security"
+ ],
+ "category": {
+  "id": 125,
+  "name": "Community Blog",
+  "slug": "community-blog",
+  "color": "#652D90",
+  "readRestricted": false,
+  "parent": {
+   "id": 69,
+   "name": "Content",
+   "slug": "content",
+   "color": "#652D90",
+   "readRestricted": false,
+   "parent": null
+  }
+ },
+ "readMinutes": 23,
+ "hero": {
+  "src": "https://global.discourse-cdn.com/sailpoint/original/3X/9/e/9e6c773958ffd6bddc74c8de199d851de12ec055.jpeg",
+  "alt": "blog title card"
+ },
+ "toc": [
+  {
+   "id": "the-input-file-scope-as-data-not-code",
+   "title": "The Input File: Scope as Data, Not Code"
+  },
+  {
+   "id": "the-intermediate-files-every-phase-leaves-a-paper-trail",
+   "title": "The Intermediate Files: Every Phase Leaves a Paper Trail"
+  },
+  {
+   "id": "the-24-hour-rule-search-indexing-latency",
+   "title": "The 24-Hour Rule: Search Indexing Latency"
+  },
+  {
+   "id": "running-it",
+   "title": "Running It"
+  },
+  {
+   "id": "lessons-learned",
+   "title": "Lessons Learned"
+  }
+ ],
+ "posts": [
+  {
+   "id": 393155,
+   "number": 1,
+   "username": "ajmerasunny1",
+   "name": "Sunny Ajmera",
+   "avatar": "https://avatars.discourse-cdn.com/v4/letter/a/3be4f8/96.png",
+   "userTitle": "Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": null,
+   "createdAt": "2026-07-22T00:55:17.407Z",
+   "replyTo": null,
+   "likes": 2,
+   "url": "https://developer.sailpoint.com/discuss/t/tackling-nested-ad-group-certifications-in-sailpoint-isc-using-role-composition/217009/1",
+   "words": 3956,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "The Problem: Nested Groups Are a Certification Blind Spot"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Reviewing nested Active Directory groups and their memberships is one of the most common and challenging problems organizations face during access certifications. Despite the industry’s steady move toward cloud-based identity platforms, many enterprises still rely heavily on deeply nested Active Directory group structures that have evolved over years, often without a clear ownership model."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "When a user is a member of IT-AllAdmins, and IT-AllAdmins contains SQL-Admins, Server-Admins, and Network-Admins as child groups, a standard certification shows the reviewer only the parent group. The reviewer certifies IT-AllAdmins without ever seeing—or understanding—the three privileged child groups underneath it. The effective access being approved is far broader than what’s on the screen."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "In SailPoint Identity Security Cloud (ISC), certifications do not support nested group expansion. Child groups do not appear directly in campaigns—a limitation that also existed historically in IdentityIQ. This behavior is intentional, as nested memberships can introduce complexity, performance overhead, and ambiguity into the review process."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "There’s a second, quieter problem: in most organizations, the set of groups that ",
+      {
+       "t": "em",
+       "c": [
+        "must"
+       ]
+      },
+      " be reviewed each cycle isn’t “every group in the tenant.” It’s a curated list—privileged groups, regulated-application groups, groups flagged by audit. Tenant-wide crawls waste hours analyzing groups nobody needs to certify, and they make campaign scope a moving target every quarter."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "For one of our customers, this limitation became a critical challenge. They were in the middle of migrating access reviews from a legacy IGA platform—one that ",
+      {
+       "t": "em",
+       "c": [
+        "did"
+       ]
+      },
+      " support nested group reviews—to SailPoint ISC. At the same time, they were not in a position to immediately unnest or redesign their Active Directory group model, as their focus was already stretched across the broader migration effort. Naturally, they expected comparable certification coverage in ISC and began looking for viable alternatives."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This blog post walks through how I addressed that gap with a PowerShell script using role composition certifications to surface nested group access for review. It covers the approach we took to represent child group memberships, the challenges encountered along the way, and the additional considerations introduced for both SailPoint administrators and reviewers. The goal here is not to claim that this is the best substitute for native nested group support, but to share experience and get feedback."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "At a high level, the script:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Takes an input file listing the groups in scope for the current campaign cycle — nested or not, the script figures that out."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Queries Active Directory directly to discover each group’s child groups — no dependency on entitlement hierarchy aggregation in ISC."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Resolves every parent and child to its ISC entitlement, auto-discovering all Active Directory sources in the tenant along the way."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Creates (or patches) a role per nested parent group, containing only its child entitlements — flagging any group whose owner can’t be determined."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Builds the campaign payloads as reviewable JSON files — role composition certifications for the nested groups (the ",
+        {
+         "t": "em",
+         "c": [
+          "structure"
+         ]
+        },
+        " review) and identity certifications for the groups in the input list (the ",
+        {
+         "t": "em",
+         "c": [
+          "access"
+         ]
+        },
+        " review) and optionally POSTs them to ISC."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "One input list, two certification lenses: ",
+      {
+       "t": "em",
+       "c": [
+        "Who has this access?"
+       ]
+      },
+      " and ",
+      {
+       "t": "em",
+       "c": [
+        "What does this access actually contain?"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This post walks through the full script, section by section. By the end, you’ll be able to run it against your own tenant or adapt the patterns for other entitlement-hierarchy use cases."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Why roles for the nested groups? ISC’s ",
+      {
+       "t": "strong",
+       "c": [
+        "role composition certification"
+       ]
+      },
+      " is the cleanest native construct for asking an owner “should these things be grouped together?” By materializing each nested parent group as a role whose membership is exactly its child entitlements, the composition review becomes a direct review of the nesting itself. Flat groups do not need this treatment — for them, the identity certification already tells the whole story."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Prerequisites"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Before running the script, you’ll need:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "PowerShell 5.1+"
+         ]
+        },
+        " (works on Windows PowerShell and PowerShell 7)"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "An ",
+        {
+         "t": "strong",
+         "c": [
+          "ISC OAuth client"
+         ]
+        },
+        " (Personal Access Token or client credentials) with API scopes covering sources, entitlements, roles, and campaigns — sp:scopes:all for simplicity in a sandbox, or scoped-down for production"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Entitlement hierarchy enabled on your Active Directory sources if you intend to validate nested relationships through ISC APIs. The script itself discovers child groups directly from Active Directory."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "A recent ",
+        {
+         "t": "strong",
+         "c": [
+          "entitlement aggregation"
+         ]
+        },
+        " completed on each Active Directory source"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "An ",
+        {
+         "t": "strong",
+         "c": [
+          "input CSV"
+         ]
+        },
+        " of the groups in scope for this cycle (format below)"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "How It Works: Five Phases"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The script runs as a sequence of five phases, each controlled by an execution flag and each producing its own output files. This design lets you run discovery and role creation one day, then come back the next day (more on why below) and flip on the campaign phases — re-running only what you need."
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "md-table"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "table",
+       "c": [
+        "\n",
+        {
+         "t": "thead",
+         "c": [
+          "\n",
+          {
+           "t": "tr",
+           "c": [
+            "\n",
+            {
+             "t": "th",
+             "c": [
+              "Phase"
+             ]
+            },
+            "\n",
+            {
+             "t": "th",
+             "c": [
+              "What it does"
+             ]
+            },
+            "\n",
+            {
+             "t": "th",
+             "c": [
+              "Output files"
+             ]
+            },
+            "\n"
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n",
+        {
+         "t": "tbody",
+         "c": [
+          "\n",
+          {
+           "t": "tr",
+           "c": [
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              {
+               "t": "strong",
+               "c": [
+                "1 — AD Discovery"
+               ]
+              }
+             ]
+            },
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              "Reads the input CSV; queries Active Directory for each parent group’s child groups"
+             ]
+            },
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              {
+               "t": "code",
+               "c": [
+                "ADDiscovery_<OutputTag>.csv"
+               ]
+              },
+              ", ",
+              {
+               "t": "code",
+               "c": [
+                "ADNotFound_<OutputTag>.csv"
+               ]
+              },
+              ", ",
+              {
+               "t": "code",
+               "c": [
+                "ADNoChildren_<OutputTag>.csv"
+               ]
+              }
+             ]
+            },
+            "\n"
+           ]
+          },
+          "\n",
+          {
+           "t": "tr",
+           "c": [
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              {
+               "t": "strong",
+               "c": [
+                "2 — ISC Resolution"
+               ]
+              }
+             ]
+            },
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              "Looks up each parent and child group in ISC across all auto-discovered AD sources (by name or DN)"
+             ]
+            },
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              {
+               "t": "code",
+               "c": [
+                "NestedGroups_<OutputTag>_<Source>.csv"
+               ]
+              },
+              ", ",
+              {
+               "t": "code",
+               "c": [
+                "ParentNotInISC_<OutputTag>.csv"
+               ]
+              },
+              ", ",
+              {
+               "t": "code",
+               "c": [
+                "ChildNotInISC_<OutputTag>.csv"
+               ]
+              }
+             ]
+            },
+            "\n"
+           ]
+          },
+          "\n",
+          {
+           "t": "tr",
+           "c": [
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              {
+               "t": "strong",
+               "c": [
+                "3 — Role Creation"
+               ]
+              }
+             ]
+            },
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              "Creates or PATCHes one role per nested parent group; no-op if already correct; reports groups with no resolvable owner"
+             ]
+            },
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              {
+               "t": "code",
+               "c": [
+                "NestedGroupRoles_<OutputTag>_<Source>.csv"
+               ]
+              },
+              ", ",
+              {
+               "t": "code",
+               "c": [
+                "MissingOwners_<OutputTag>.csv"
+               ]
+              }
+             ]
+            },
+            "\n"
+           ]
+          },
+          "\n",
+          {
+           "t": "tr",
+           "c": [
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              {
+               "t": "strong",
+               "c": [
+                "4 — Role Composition Campaigns"
+               ]
+              }
+             ]
+            },
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              "Builds ROLE_COMPOSITION campaign payloads; optionally POSTs them to ISC"
+             ]
+            },
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              {
+               "t": "code",
+               "c": [
+                "CampaignPayloads_<OutputTag>_<timestamp>.json"
+               ]
+              }
+             ]
+            },
+            "\n"
+           ]
+          },
+          "\n",
+          {
+           "t": "tr",
+           "c": [
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              {
+               "t": "strong",
+               "c": [
+                "5 — Identity Certifications"
+               ]
+              }
+             ]
+            },
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              "Builds search-type identity certification campaign payloads per group, with the entitlement owner as certifier; optionally POSTs them"
+             ]
+            },
+            "\n",
+            {
+             "t": "td"
+            },
+            "\n"
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "the-input-file-scope-as-data-not-code"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "The Input File: Scope as Data, Not Code"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The single most useful design decision in this script: ",
+      {
+       "t": "strong",
+       "c": [
+        "campaign scope lives in a CSV, not in the script"
+       ]
+      },
+      ". Each quarter, the security team updates the list; the script doesn’t change."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Sample Input File"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "App Key,AD Group Name\nSAPP01RO,NYC-Accounts-Payable-RO\nSAPP01RW,NYC-Accounts-Payable-RW\nSA3X9TQ2LM,ERP_TEAM-ADMINISTRATORS\nSB7Y4WN8RD,APP-I-BI ADMINISTRATORS\nSC1K5VM3JP,SRVAPPCTX001_ADMINISTRATORS\nSD8Q2HX6FT,LON-AV-HRAPP1P_ADMINISTRATORS\nSE4N7BL9GW,LON-AV-HRAPP2U_ADMINISTRATORS\nSF6T3RC5KY,CHI-TV-FINMGR1_ADMINISTRATORS\nSG9M1DZ4QX,DAL-AV-PAYSVC1P_ADMINISTRATORS\nSH2P8JF7VN,SEA-RV-RPTSRV1_ADMINISTRATORS\nSGCRMMGT,\"CN=AGGS-VDAV-DA-CRAMMGT,OU=Provisioning,OU=AD_Groups,DC=AD,DC=CORP,DC=GLOBAL\""
+     }
+    },
+    {
+     "t": "ol",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "AD Group Name"
+           ]
+          }
+         ]
+        },
+        " accepts either the friendly display name or the full Distinguished Name. Real-world input lists are messy — some teams hand you ",
+        {
+         "t": "code",
+         "c": [
+          "SQL-Admins"
+         ]
+        },
+        ", others hand you ",
+        {
+         "t": "code",
+         "c": [
+          "CN=SQL-Admins,OU=Groups,DC=corp,DC=acme,DC=com"
+         ]
+        },
+        ". The script handles both."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "App Key"
+           ]
+          }
+         ]
+        },
+        " is the application identifier from the customer’s catalog; it passes through to the output files and campaign descriptions untouched, which keeps the certification evidence traceable back to the application inventory."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This also defines the script’s contract honestly: it certifies ",
+      {
+       "t": "em",
+       "c": [
+        "what you asked for"
+       ]
+      },
+      ". Groups that can’t be resolved to an ISC entitlement land in an ",
+      {
+       "t": "code",
+       "c": [
+        "_Errors"
+       ]
+      },
+      " CSV with a reason (",
+      {
+       "t": "code",
+       "c": [
+        "NOT_FOUND"
+       ]
+      },
+      ", ",
+      {
+       "t": "code",
+       "c": [
+        "AMBIGUOUS_MATCH"
+       ]
+      },
+      "), and the run continues with the resolved set. Nothing silently disappears from scope."
+     ]
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "the-intermediate-files-every-phase-leaves-a-paper-trail"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "The Intermediate Files: Every Phase Leaves a Paper Trail"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Before we get into the code, it’s worth dwelling on the output files, because they turned out to be as valuable as the campaigns themselves. Every phase writes its findings to CSV (or JSON) before the next phase consumes them — which means every run is fully inspectable, resumable, and auditable. All files share an ",
+      {
+       "t": "code",
+       "c": [
+        "<OutputTag>"
+       ]
+      },
+      " you set per cycle (e.g., ",
+      {
+       "t": "code",
+       "c": [
+        "Q3-2026"
+       ]
+      },
+      "), so consecutive cycles never overwrite each other."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "phase-1-outputs-what-ad-actually-says"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Phase 1 outputs — what AD actually says"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "code",
+         "c": [
+          "ADDiscovery_<OutputTag>.csv"
+         ]
+        }
+       ]
+      },
+      " is the master discovery file: one row per parent/child pair found in AD."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "text"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "\"ParentGroupName\",\"ParentGroupCN\",\"ChildGroupName\",\"ChildGroupCN\"\n\"DEMOBNSDW01_Administrators\",\"DEMOBNSDW01_Administrators\",\"FTSDEMO_Admins\",\"FTSDEMO_Admins\"\n\"DEMOBNSDW01_Administrators\",\"DEMOBNSDW01_Administrators\",\"CINCOMDEMO_APP_SUPPORT\",\"CINCOMDEMO_APP_SUPPORT\"\n\"DEMO-CV-APWRXP1_Administrators\",\"DEMO-CV-APWRXP1_Administrators\",\"Contractor_Support_Admin\",\"Contractor_Support_Admin\"\n\"DEMO-AS-CAX1_Administrators\",\"DEMO-AS-CAX1_Administrators\",\"a-demoeitadmins\",\"a-demoeitadmins\""
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "code",
+         "c": [
+          "ADNotFound_<OutputTag>.csv"
+         ]
+        }
+       ]
+      },
+      " captures input rows that don’t exist in AD at all — typos, decommissioned groups, or groups that live in a different forest:"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "text"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "\"GroupName\",\"Reason\"\n\"ux_aws_finapp_adm_dev\",\"Group not found in AD\"\n\"ux_aws_finapp_adm_prd\",\"Group not found in AD\"\n\"ux_legacy_agent01\",\"Group not found in AD\"\n\"CN=APP-SVC-DA-MGMT01,OU=Provisioning,OU=Groups,DC=corp,DC=acme,DC=com\",\"Group not found in AD\""
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "In practice this file is gold for the security team: it’s an instant data-quality report on their own scope list. In our first cycle, a meaningful chunk of the input turned out to be groups that had been deleted years earlier but never removed from the review scope."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "code",
+         "c": [
+          "ADNoChildren_<OutputTag>.csv"
+         ]
+        }
+       ]
+      },
+      " lists the groups that exist but are ",
+      {
+       "t": "em",
+       "c": [
+        "flat"
+       ]
+      },
+      " — no nested children. These groups skip role creation entirely and flow only into the Phase 5 identity certifications. The split between this file and ",
+      {
+       "t": "code",
+       "c": [
+        "ADDiscovery"
+       ]
+      },
+      " is effectively the script’s NESTED/FLAT classification, stated as data."
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "\"GroupName\",\"MemberCount\",\"Reason\"\n\"DUB-Accounts-Payable-RO\",\"20\",\"Members exist but none are groups\"\n\"DUB-Accounts-Payable-RW\",\"27\",\"Members exist but none are groups\"\n\"EXA_TEAM-ADMINISTRATORS\",\"8\",\"Members exist but none are groups\"\n\"GGS-I-BI ADMINISTRATORS\",\"11\",\"Members exist but none are groups\"\n\"IGRAWSCTX703_ADMINISTRATORS\",\"2\",\"Members exist but none are groups\"\n\"IRE-AV-HRMS2P_ADMINISTRATORS\",\"2\",\"Members exist but none are groups\""
+     }
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "phase-2-outputs-what-isc-knows-about"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Phase 2 outputs — what ISC knows about"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "code",
+         "c": [
+          "NestedGroups_<OutputTag>_<Source>.csv"
+         ]
+        }
+       ]
+      },
+      " — one file per ISC source — maps each AD parent/child pair to its ISC entitlement IDs. This is the bridge file: AD names on the left, ISC object IDs on the right."
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "\"OriginalInputName\",\"ParentEntitlementId\",\"ParentEntitlementName\",\"ChildEntitlementId\",\"ChildEntitlementName\",\"SourceId\",\"SourceName\"\n\"DEMO-AV-CMSAP1P_Administrators\",\"26b788cccd473f37ba0be60631701d50\",\"CN=DEMO-AV-CMSAP1P_Administrators,OU=Rackspace,OU=AD_Groups,DC=AD,DC=CORP,DC=GLOBAL\",\"2c9180858120b44b018124aa83a0424a\",\"CN=CCMSSQLDBA,OU=Administration,OU=AD_Groups,DC=AD,DC=CORP,DC=GLOBAL\",\"2c91808477a6b0c60177b5b01c8c7a7b\",\"Active Directory Administrators\"\n\"DEMO-AV-CRMAPP1P_Administrators\",\"075b1dd5732339018907b3a030422972\",\"CN=DEMO-AV-CRMAPP1P_administrators,OU=Rackspace,OU=AD_Groups,DC=AD,DC=CORP,DC=GLOBAL\",\"2c9180867e2626e3017e2c90c8f20895\",\"Enterprise Siebel Support Team\",\"2c91808477a6b0c60177b5b01c8c7a7b\",\"Active Directory Administrators\"\n\"DEMOSNWH803-N_Administrators\",\"157f52ce49c13f0fa4c8fff1e9c8bf15\",\"CN=DEMOSNWH803-N_Administrators,OU=NVA,OU=Rackspace,OU=AD_Groups,DC=AD,DC=CORP,DC=GLOBAL\",\"2c9180867e262763017e2c907cce40f6\",\"EBizEngineers\",\"2c91808477a6b0c60177b5b01c8c7a7b\",\"Active Directory Administrators\"\n\"DEMOSNWH803-N_Administrators\",\"157f52ce49c13f0fa4c8fff1e9c8bf15\",\"CN=DEMOSNWH803-N_Administrators,OU=NVA,OU=Rackspace,OU=AD_Groups,DC=AD,DC=CORP,DC=GLOBAL\",\"2c9180858120b44b018124aa83a0424a\",\"CN=CCMSSQLDBA,OU=Administration,OU=AD_Groups,DC=AD,DC=CORP,DC=GLOBAL\",\"2c91808477a6b0c60177b5b01c8c7a7b\",\"Active Directory Administrators\"\n\"IRE-AV-RDPPL6P_Administrators\",\"65b543288c2039a6be41c63cde855403\",\"CN=IRE-AV-RDPPL6P_Administrators,OU=IRE,OU=Rackspace,OU=AD_Groups,DC=AD,DC=CORP,DC=GLOBAL\",\"2c9180847e2626ec017e2c8e7aab34b5\",\"GGS-E-ICS-AWS-FARM\",\"2c91808477a6b0c60177b5b01c8c7a7b\",\"Active Directory Administrators\""
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "code",
+         "c": [
+          "ParentNotInISC_<OutputTag>.csv"
+         ]
+        }
+       ]
+      },
+      " and ",
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "code",
+         "c": [
+          "ChildNotInISC_<OutputTag>.csv"
+         ]
+        }
+       ]
+      },
+      " capture the gaps. A group existing in AD but not in ISC usually means one of three things: the group is outside the connector’s search scope, the last entitlement aggregation predates the group, or the group lives in an AD source that isn’t onboarded. The child variant matters more than you’d expect — a parent can be perfectly certifiable while one of its children is invisible to ISC, and the reviewer needs to know the composition review they’re seeing is incomplete."
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "\"ParentGroupName\",\"ParentGroupCN\",\"Reason\"\n\"ASB-AW-EITGIT_Administrators\",\"ASB-AW-EITGIT_Administrators\",\"Parent not found in any configured ISC source\"\n\"CBJ-AV-CMSDB1P_Administrators\",\"CBJ-AV-CMSDB1P_Administrators\",\"Parent not found in any configured ISC source\"\n\"DEMO-TEST-LCOAPP1P_Administrators\",\"DEMO-TEST-LCOAPP1P_Administrators\",\"Parent not found in any configured ISC source\"\n\"DEMO-TEST-LCOWEB1P_Administrators\",\"DEMO-TEST-LCOWEB1P_Administrators\",\"Parent not found in any configured ISC source\"\n\"DEMO-TEST-LCOWEB2P_Administrators\",\"DEMO-TEST-LCOWEB2P_Administrators\",\"Parent not found in any configured ISC source\"\n\"DEMO-TEST-LCOWEB3P_Administrators\",\"DEMO-TEST-LCOWEB3P_Administrators\",\"Parent not found in any configured ISC source\""
+     }
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "\"ParentGroupName\",\"ChildGroupName\",\"ChildGroupCN\",\"Reason\"\n\"CLR-TV-FS2_Administrators\",\"ServiceAccount-FileMgmt-DO_NOT_USE\",\"ServiceAccount-FileMgmt-DO_NOT_USE\",\"Child not found in any configured ISC source\""
+     }
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "phase-3-outputs-what-changed-in-the-access-model"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Phase 3 outputs — what changed in the access model"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "code",
+         "c": [
+          "NestedGroupRoles_<OutputTag>_<Source>.csv"
+         ]
+        }
+       ]
+      },
+      " is the role manifest: parent group, role name, role ID, owner, child count, and whether the role was ",
+      {
+       "t": "code",
+       "c": [
+        "Created"
+       ]
+      },
+      ", ",
+      {
+       "t": "code",
+       "c": [
+        "Patched"
+       ]
+      },
+      ", or ",
+      {
+       "t": "code",
+       "c": [
+        "Unchanged"
+       ]
+      },
+      ". This file is both the input for Phase 4 and the evidence artifact for “what did this automation change in production.”"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "\"RoleName\",\"RoleId\",\"Status\",\"ParentGroupName\",\"ParentGroupId\",\"SourceName\",\"ChildCount\",\"ChildGroupNames\",\"ErrorMessage\"\n\"DEMO-TEST-AV-CMSAP1P_Administrators\",\"9cb3256dcce74da3bfd4c608089fd192\",\"AlreadyCorrect\",\"CN=DEMO-TEST-AV-CMSAP1P_Administrators,OU=Rackspace,OU=AD_Groups,DC=AD,DC=CORP,DC=GLOBAL\",\"26b788cccd473f37ba0be60631701d50\",\"Active Directory Administrators\",\"1\",\"CN=CCMSSQLDBA,OU=Administration,OU=AD_Groups,DC=AD,DC=CORP,DC=GLOBAL\",\"\"\n\"DEMO-TEST-AV-CRMAPP1P_administrators\",\"(dry-run)\",\"DryRun-WouldCreate\",\"CN=DEMO-TEST-AV-CRMAPP1P_administrators,OU=Rackspace,OU=AD_Groups,DC=AD,DC=CORP,DC=GLOBAL\",\"075b1dd5732339018907b3a030422972\",\"Active Directory Administrators\",\"1\",\"Enterprise Siebel Support Team\",\"\"\n\"IGRDBSNWH803-N_Administrators\",\"(dry-run)\",\"DryRun-WouldCreate\",\"CN=IGRDBSNWH803-N_Administrators,OU=NVA,OU=Rackspace,OU=AD_Groups,DC=AD,DC=CORP,DC=GLOBAL\",\"157f52ce49c13f0fa4c8fff1e9c8bf15\",\"Active Directory Administrators\",\"2\",\"EBizEngineers; CN=CCMSSQLDBA,OU=Administration,OU=AD_Groups,DC=AD,DC=CORP,DC=GLOBAL\",\"\"\n\"DEMO-TEST-AV-RDPPL6P_Administrators\",\"14bef1bbd5bd43e6a0f6f67591cdd4fe\",\"AlreadyCorrect\",\"CN=DEMO-TEST-AV-RDPPL6P_Administrators,OU=DEMO-TEST,OU=Rackspace,OU=AD_Groups,DC=AD,DC=CORP,DC=GLOBAL\",\"65b543288c2039a6be41c63cde855403\",\"Active Directory Administrators\",\"1\",\"GGS-E-ICS-AWS-FARM\",\"\""
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "code",
+         "c": [
+          "MissingOwners_<OutputTag>.csv"
+         ]
+        }
+       ]
+      },
+      " deserves special mention. For each nested parent group, the script tries to resolve an owner — the ISC entitlement owner first, falling back to a configured default. Every group that fell back is recorded here:"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "text"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "\"DisplayName\",\"EntitlementId\",\"EntitlementName\",\"SourceName\",\"OriginalInputName\",\"Reason\"\n\"EBIZ_Admins\",\"2c91808382b1baa00182b63cb7d84e9f\",\"CN=EBIZ_Admins,OU=Global,OU=Administration,OU=Server_Automation,OU=AD_Groups,DC=AD,DC=CORP,DC=GLOBAL\",\"Active Directory Security Groups\",\"EBIZ_Admins\",\"Entitlement has no owner set in ISC\"\n\"Infoblox-READ\",\"2c9180847e2626ec017e2c8d3d7a317e\",\"CN=Infoblox-READ,OU=Quest,DC=AD,DC=CORP,DC=GLOBAL\",\"Active Directory Security Groups\",\"Infoblox-READ\",\"Entitlement has no owner set in ISC\"\n"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Don’t treat this file as noise. It’s a ready-made worklist for an entitlement ownership campaign — and a preview of exactly which reviews will land on your fallback owner’s desk. In our experience, the percentage of privileged AD groups with no assigned owner surprises every stakeholder who sees this file for the first time."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "phase-4-5-outputs-the-json-payload-files"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Phase 4 & 5 outputs — the JSON payload files"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "This is the part of the design I’d defend most strongly: ",
+      {
+       "t": "strong",
+       "c": [
+        "the script writes every campaign request body to a JSON file before sending it—or, in dry-run mode, instead of sending it."
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "code",
+         "c": [
+          "CampaignPayloads_<OutputTag>_<timestamp>.json"
+         ]
+        }
+       ]
+      },
+      " contains the full ROLE_COMPOSITION campaign payloads, exactly as they would be POSTed to ",
+      {
+       "t": "code",
+       "c": [
+        "/v2025/campaigns"
+       ]
+      },
+      ":"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "json"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "[\n  {\n    \"name\": \"Nested Group Composition Review - ERP_TEAM-ADMINISTRATORS - Q3-2026\",\n    \"description\": \"Role composition certification for nested AD group ERP_TEAM-ADMINISTRATORS (App Key: SA3X9TQ2LM). Reviews 2 child group(s).\",\n    \"type\": \"ROLE_COMPOSITION\",\n    \"roleCompositionCampaignInfo\": {\n      \"roleIds\": [\"2c91808a7f3e4b1c017f4a2d9e8b0042\"],\n      \"reviewerId\": \"2c91808a7f3e4b1c017f4a2d9e8b1101\",\n      \"remediatorRef\": { \"type\": \"IDENTITY\", \"id\": \"2c91808a7f3e4b1c017f4a2d9e8b1101\" }\n    },\n    \"deadline\": \"2026-07-15T00:00:00Z\",\n    \"emailNotificationEnabled\": true,\n    \"autoRevokeAllowed\": false\n  }\n]"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        {
+         "t": "code",
+         "c": [
+          "CertificationPayloads_<OutputTag>_<timestamp>.json"
+         ]
+        }
+       ]
+      },
+      " contains the search-type identity certification payloads — one per group in the input file, with the ",
+      {
+       "t": "strong",
+       "c": [
+        "entitlement owner as the certifier"
+       ]
+      },
+      " rather than a generic manager review. Each owner reviews the membership of their own group:"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "json"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "[\n  {\n    \"name\": \"Group Membership Review - NYC-Accounts-Payable-RW - Q3-2026\",\n    \"description\": \"Identity certification for AD group NYC-Accounts-Payable-RW (App Key: SAPP01RW).\",\n    \"type\": \"SEARCH\",\n    \"searchCampaignInfo\": {\n      \"type\": \"ACCESS\",\n      \"query\": \"@access(id:2c91808a7f3e4b1c017f4a2d9e8b0077)\",\n      \"reviewer\": { \"type\": \"IDENTITY\", \"id\": \"2c91808a7f3e4b1c017f4a2d9e8b1144\" }\n    },\n    \"deadline\": \"2026-07-15T00:00:00Z\",\n    \"emailNotificationEnabled\": true,\n    \"autoRevokeAllowed\": false\n  }\n]"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Why files instead of straight-to-API? Three reasons:"
+     ]
+    },
+    {
+     "t": "ol",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Review-before-fire."
+         ]
+        },
+        " A campaign launch sends emails to real reviewers. The JSON file is the last checkpoint where a human can diff, sanity-check counts, and confirm reviewer assignments before anything goes out."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Dry-run becomes meaningful."
+         ]
+        },
+        " In dry-run mode the payload files are the ",
+        {
+         "t": "em",
+         "c": [
+          "entire"
+         ]
+        },
+        " output of Phases 4–5 — you see precisely what would have been created, not just a log line saying “would create 27 campaigns.”"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Audit evidence."
+         ]
+        },
+        " The timestamped payload file ",
+        {
+         "t": "em",
+         "c": [
+          "is"
+         ]
+        },
+        " the record of what was submitted, in a form an auditor can read without ISC access."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The Script, Section by Section"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "1. Parameters and Dry-Run by Default"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "powershell",
+      "value": "param(\n[string]$TenantUrl,          # e.g. acme.api.identitynow.com (no https://)\n[string]$ClientId,\n[string]$ClientSecret,\n[string]$InputFile,          # CSV of groups in scope this cycle\n[switch]$DryRun,             # simulate everything, change nothing\n[switch]$CreateIdentityCampaigns,  # also launch identity certs for ALL input groups\n[string]$LogPath    = \".\\Logs\",\n[string]$OutputPath = \".\\Output\",\n[string]$DefaultOwnerName = \"REPLACE_WITH_FALLBACK_OWNER\"\n)\n\n# Phase execution flags - run only what you need\n$Execute_Phase1 = $true    # AD discovery\n$Execute_Phase2 = $true    # ISC resolution\n$Execute_Phase3 = $true    # Role creation\n$Execute_Phase4 = $false   # Role composition campaigns (flip on after ~24h)\n$Execute_Phase5 = $true    # Identity certifications (no wait needed)"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "A few things worth calling out:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "-DryRun"
+           ]
+          },
+          " is a first-class citizen."
+         ]
+        },
+        " Every mutating operation in the script is guarded by it. You should be able to run this against production at 2 PM on a Tuesday and have it touch nothing."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Phase flags decouple the workflow from a single sitting."
+         ]
+        },
+        " Day one you run Phases 1–3 and 5; day two you flip ",
+        {
+         "t": "code",
+         "c": [
+          "$Execute_Phase4 = $true"
+         ]
+        },
+        " and run again. Phases 1–3 are no-ops on re-run if nothing changed (roles are PATCHed only when their entitlement list differs)."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "-PostCampaigns"
+           ]
+          },
+          " / ",
+          {
+           "t": "code",
+           "c": [
+            "-PostCertifications"
+           ]
+          }
+         ]
+        },
+        " separate ",
+        {
+         "t": "em",
+         "c": [
+          "building"
+         ]
+        },
+        " payloads from ",
+        {
+         "t": "em",
+         "c": [
+          "sending"
+         ]
+        },
+        " them. Without these switches, Phases 4 and 5 only write the JSON files."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          {
+           "t": "code",
+           "c": [
+            "$DefaultOwnerName"
+           ]
+          }
+         ]
+        },
+        " is the fallback owner when a group has no entitlement owner in ISC — every fallback is recorded in ",
+        {
+         "t": "code",
+         "c": [
+          "MissingOwners_<OutputTag>.csv"
+         ]
+        }
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-2-phase-1-querying-ad-directly-for-child-groups"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "2. Phase 1 — Querying AD Directly for Child Groups"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Child discovery happens against Active Directory itself, not ISC. This keeps the script independent of whether entitlement hierarchy is aggregated, and it sees nesting changes the moment they happen in AD rather than after the next aggregation:"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "powershell"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "function Get-ADChildGroups {\n    param([string]$GroupIdentity)   # accepts name or DN\n\n    try {\n        $parent = Get-ADGroup -Identity $GroupIdentity -Properties member -ErrorAction Stop\n    } catch {\n        return @{ Found = $false; Children = @() }\n    }\n\n    # Children = members that are themselves groups\n    $children = foreach ($dn in $parent.member) {\n        $obj = Get-ADObject -Identity $dn -Properties objectClass\n        if ($obj.objectClass -eq 'group') {\n            Get-ADGroup -Identity $dn | Select-Object Name, DistinguishedName\n        }\n    }\n    return @{ Found = $true; Parent = $parent; Children = @($children) }\n}"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Every input row exits this phase in exactly one of three buckets — found with children (",
+      {
+       "t": "code",
+       "c": [
+        "ADDiscovery"
+       ]
+      },
+      "), found without (",
+      {
+       "t": "code",
+       "c": [
+        "ADNoChildren"
+       ]
+      },
+      "), or not found (",
+      {
+       "t": "code",
+       "c": [
+        "ADNotFound"
+       ]
+      },
+      ") — and that classification drives everything downstream."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-3-phase-2-resolving-groups-in-isc-across-auto-discovered-sources"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "3. Phase 2 — Resolving Groups in ISC Across Auto-Discovered Sources"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The input file tells us ",
+      {
+       "t": "em",
+       "c": [
+        "which groups"
+       ]
+      },
+      "; auto-discovery tells us ",
+      {
+       "t": "em",
+       "c": [
+        "where to look in ISC"
+       ]
+      },
+      ". Earlier iterations required a hardcoded source list — which works until someone adds a fourth AD source to the tenant and nobody updates the script. This version queries the sources API and filters for Active Directory connectors itself:"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "powershell"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "function Get-ADSources {\n    param([hashtable]$Headers)\n    Write-Log \"Discovering Active Directory sources in tenant...\" \"INFO\"\n\n    $sources   = Invoke-ISCPagedGet -Endpoint \"/v2025/sources\" -Headers $Headers\n    $adSources = $sources | Where-Object {\n        $_.type -like \"*Active Directory*\" -or\n        $_.connectorName -like \"*Active Directory*\"\n    }\n\n    foreach ($src in $adSources) {\n        Write-Log \"  Found AD source: $($src.name) (ID: $($src.id))\" \"INFO\"\n    }\n    return $adSources\n}"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "The script then builds a multi-key lookup of each source’s entitlements so every parent and child from Phase 1 can be matched by ",
+      {
+       "t": "strong",
+       "c": [
+        "display name"
+       ]
+      },
+      " or ",
+      {
+       "t": "strong",
+       "c": [
+        "full DN"
+       ]
+      },
+      ", case-insensitively. Anything unmatched lands in ",
+      {
+       "t": "code",
+       "c": [
+        "ParentNotInISC"
+       ]
+      },
+      " or ",
+      {
+       "t": "code",
+       "c": [
+        "ChildNotInISC"
+       ]
+      },
+      " with the source coverage it ",
+      {
+       "t": "em",
+       "c": [
+        "was"
+       ]
+      },
+      " checked against — resolved loudly, never guessed. The same group name appearing in multiple AD sources is treated as an exception to disambiguate, not a coin flip: certifying the wrong forest’s admin group is worse than certifying nothing."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-4-phase-3-creating-roles-idempotently-with-owner-resolution"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "4. Phase 3 — Creating Roles, Idempotently, with Owner Resolution"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "For each nested parent group, the script creates a role whose entitlement membership is exactly the parent’s children. Owner resolution runs first:"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "powershell"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "function Resolve-RoleOwner {\n    param([object]$ParentEntitlement, [hashtable]$Headers)\n\n    if ($ParentEntitlement.owner -and $ParentEntitlement.owner.id) {\n        return @{ Id = $ParentEntitlement.owner.id; Name = $ParentEntitlement.owner.name; Fallback = $false }\n    }\n\n    # No owner on the entitlement - fall back and record it\n    $fallback = Get-ISCIdentityByName -Name $DefaultOwnerName -Headers $Headers\n    $script:MissingOwners += [pscustomobject]@{\n        ParentGroup   = $ParentEntitlement.name\n        Source        = $ParentEntitlement.sourceName\n        ResolvedOwner = \"Fallback: $($fallback.name)\"\n        Reason        = \"No entitlement owner in ISC\"\n    }\n    Write-Log \"No owner for '$($ParentEntitlement.name)' - using fallback '$($fallback.name)'\" \"WARN\"\n    return @{ Id = $fallback.id; Name = $fallback.name; Fallback = $true }\n}"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Then create-or-patch, guarded by dry-run:"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "powershell"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "$rolePayload = @{\n    name         = \"NGR - $($parent.name)\"\n    description  = \"Auto-generated role representing children of nested AD group '$($parent.name)' for composition certification.\"\n    owner        = @{ id = $owner.Id; type = \"IDENTITY\" }\n    entitlements = @($children | ForEach-Object { @{ id = $_.id; type = \"ENTITLEMENT\" } })\n}\n\n$existing = Get-ISCRoleByName -Name $rolePayload.name -Headers $headers\nif ($existing) {\n    if (Compare-EntitlementLists $existing.entitlements $rolePayload.entitlements) {\n        Write-Log \"Role '$($rolePayload.name)' already correct - no-op\" \"INFO\"\n        $counts.Unchanged++\n    } elseif ($DryRun) {\n        Write-Log \"DRYRUN: Would PATCH role '$($rolePayload.name)'\" \"DRYRUN\"; $counts.Simulated++\n    } else {\n        Invoke-ISCSafe -Uri \"https://$TenantUrl/v2025/roles/$($existing.id)\" -Method PATCH -Headers $headers -Body $patchBody | Out-Null\n        Write-Log \"Patched role: $($rolePayload.name)\" \"AUDIT\"; $counts.Patched++\n    }\n} elseif ($DryRun) {\n    Write-Log \"DRYRUN: Would POST role '$($rolePayload.name)' with $($children.Count) children\" \"DRYRUN\"; $counts.Simulated++\n} else {\n    $role = Invoke-ISCSafe -Uri \"https://$TenantUrl/v2025/roles\" -Method POST -Headers $headers -Body $rolePayload\n    Write-Log \"Created role: $($role.name) (ID: $($role.id))\" \"AUDIT\"; $counts.RolesCreated++\n}"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "A consistent naming prefix (",
+      {
+       "t": "code",
+       "c": [
+        "NGR -"
+       ]
+      },
+      " for “Nested Group Role”) matters more than it looks: it lets later phases — and future cleanup scripts — target these roles unambiguously, and it makes them instantly recognizable to admins browsing the Roles page. The create-or-patch logic makes the whole phase ",
+      {
+       "t": "strong",
+       "c": [
+        "idempotent"
+       ]
+      },
+      ": re-running for Q2 after Q1 just refreshes the picture, including nesting changes since last cycle."
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "h-5-phases-4-5-building-and-optionally-posting-the-campaigns"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "5. Phases 4 & 5 — Building (and Optionally Posting) the Campaigns"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Both campaign phases follow the same pattern: build every payload in memory, write the JSON file, and only then — if the corresponding switch is present and dry-run is off — POST each payload:"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "powershell"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "# Phase 4 example: ROLE_COMPOSITION campaigns from the role manifest\n$payloads | ConvertTo-Json -Depth 10 |\n    Set-Content -Path (Join-Path $OutputPath \"CampaignPayloads_${OutputTag}_$ts.json\")\nWrite-Log \"Wrote $($payloads.Count) campaign payload(s) to file\" \"INFO\"\n\nif ($PostCampaigns -and -not $DryRun) {\n    foreach ($p in $payloads) {\n        $campaign = Invoke-ISCSafe -Uri \"https://$TenantUrl/v2025/campaigns\" -Method POST -Headers $headers -Body $p\n        Write-Log \"Created campaign: $($p.name) (ID: $($campaign.id))\" \"AUDIT\"\n        $counts.CampaignsCreated++\n    }\n} else {\n    Write-Log \"PostCampaigns not set (or DryRun) - payloads written to file only\" \"INFO\"\n}"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Phase 5 builds one identity certification campaign per group in the input file — nested and flat alike — with the ",
+      {
+       "t": "strong",
+       "c": [
+        "entitlement owner as the certifier"
+       ]
+      },
+      " (falling back to the default owner, consistent with Phase 3). Owner-based review was a deliberate choice over one big manager-review campaign: the group owner is the person who can actually answer “should this account be in my group?”, and per-group campaigns keep each owner’s queue focused instead of burying accountability in a single thousand-line review."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Together, the two campaign types cover the full picture for every group on your list:"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "md-table"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "table",
+       "c": [
+        "\n",
+        {
+         "t": "thead",
+         "c": [
+          "\n",
+          {
+           "t": "tr",
+           "c": [
+            "\n",
+            {
+             "t": "th",
+             "c": [
+              "Review"
+             ]
+            },
+            "\n",
+            {
+             "t": "th",
+             "c": [
+              "Question it answers"
+             ]
+            },
+            "\n",
+            {
+             "t": "th",
+             "c": [
+              "Groups covered"
+             ]
+            },
+            "\n",
+            {
+             "t": "th",
+             "c": [
+              "Certifier"
+             ]
+            },
+            "\n",
+            {
+             "t": "th",
+             "c": [
+              "When it can launch"
+             ]
+            },
+            "\n"
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n",
+        {
+         "t": "tbody",
+         "c": [
+          "\n",
+          {
+           "t": "tr",
+           "c": [
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              "Identity certification (Phase 5)"
+             ]
+            },
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              {
+               "t": "em",
+               "c": [
+                "Who has this access — and should they?"
+               ]
+              }
+             ]
+            },
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              "All input groups (nested + flat)"
+             ]
+            },
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              "Entitlement owner"
+             ]
+            },
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              "Same day as Phases 1–3"
+             ]
+            },
+            "\n"
+           ]
+          },
+          "\n",
+          {
+           "t": "tr",
+           "c": [
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              "Role composition certification (Phase 4)"
+             ]
+            },
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              {
+               "t": "em",
+               "c": [
+                "What is nested inside this group — and should it be?"
+               ]
+              }
+             ]
+            },
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              "Nested groups only"
+             ]
+            },
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              "Role (group) owner"
+             ]
+            },
+            "\n",
+            {
+             "t": "td",
+             "c": [
+              "After ~24h indexing wait"
+             ]
+            },
+            "\n"
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "the-24-hour-rule-search-indexing-latency"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "The 24-Hour Rule: Search Indexing Latency"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Roles created via the API are ",
+      {
+       "t": "strong",
+       "c": [
+        "not immediately visible to ISC search"
+       ]
+      },
+      " — and role composition campaigns resolve their roles through search. If you create roles in Phase 3 and immediately run Phase 4, the campaigns come up empty or fail to resolve the roles."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The fix is simply patience: wait for search indexing to catch up (in practice, up to ~24 hours) before flipping ",
+      {
+       "t": "code",
+       "c": [
+        "$Execute_Phase4"
+       ]
+      },
+      " on. This is exactly why the script is phased with files in between rather than one straight-through pass — and why Phase 5, which has no such dependency (the group entitlements have existed in search since their aggregation), can launch the same day. Build the waiting period into your runbook: Phases 1–3 and 5 on Monday, Phase 4 on Tuesday."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "running-it"
+     },
+     "c": [
+      "Running It"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Always dry-run first:"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "powershell"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": ".\\Create-NestedGroupAndGroupMembershipCampaigns.ps1 `\n    -TenantUrl \"acme.api.identitynow.com\" `\n    -ClientId $env:ISC_CLIENT_ID `\n    -ClientSecret $env:ISC_CLIENT_SECRET `\n    -InputFile \".\\InputNestedParentADGroups.csv\" `\n    -OutputTag \"Q3-2026\" `\n    -DryRun"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "Review the log — every would-be change appears as a ",
+      {
+       "t": "code",
+       "c": [
+        "[DRYRUN]"
+       ]
+      },
+      " line — plus the discovery, exception, and payload files. Fix any ",
+      {
+       "t": "code",
+       "c": [
+        "ADNotFound"
+       ]
+      },
+      " / ",
+      {
+       "t": "code",
+       "c": [
+        "ParentNotInISC"
+       ]
+      },
+      " rows in the input file, re-run the dry run clean, then run it live:"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "powershell"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "# Day 1: discovery, roles, identity certifications\n.\\Create-NestedGroupAndGroupMembershipCampaigns.ps1 `\n    -TenantUrl \"acme.api.identitynow.com\" -ClientId $env:ISC_CLIENT_ID -ClientSecret $env:ISC_CLIENT_SECRET `\n    -InputFile \".\\InputNestedParentADGroups.csv\" -OutputTag \"Q3-2026\" -PostCertifications\n\n# Day 2: flip $Execute_Phase4 = $true, then launch role composition campaigns\n.\\Create-NestedGroupAndGroupMembershipCampaigns.ps1 `\n    -TenantUrl \"acme.api.identitynow.com\" -ClientId $env:ISC_CLIENT_ID -ClientSecret $env:ISC_CLIENT_SECRET `\n    -InputFile \".\\InputNestedParentADGroups.csv\" -OutputTag \"Q3-2026\" -PostCampaigns"
+     }
+    },
+    {
+     "t": "p",
+     "c": [
+      "The execution summary tells you exactly what happened:"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "text"
+     ]
+    },
+    {
+     "t": "codeblock",
+     "a": {
+      "lang": "text",
+      "value": "========== EXECUTION SUMMARY ==========\n  Input groups in scope     : 142\n  Found in AD               : 131\n  Not found in AD           : 11\n  Nested (with children)    : 27\n  Flat (no children)        : 104\n  Resolved in ISC           : 128\n  Parent/child gaps in ISC  : 3\n  Roles created             : 25\n  Roles patched             : 2\n  Roles unchanged           : 0\n  Owners missing (fallback) : 9\n  Campaign payloads built   : 27\n  Cert payloads built       : 128\n  Campaigns POSTed          : 0   (Phase 4 deferred)\n  Certifications POSTed     : 128\n  Failed                    : 0\n======================================="
+     }
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "h2",
+     "a": {
+      "id": "lessons-learned"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Lessons Learned"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "A few things I’d want anyone adapting this to know up front:"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Scope-as-input changes the conversation with stakeholders."
+       ]
+      },
+      " When the certification scope is a CSV the security team owns, “what’s in this quarter’s review” becomes a business decision with a paper trail — not a script change request. It also makes cycle-over-cycle comparisons trivial: diff the input files."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "The exception files are a product, not a byproduct."
+       ]
+      },
+      " ",
+      {
+       "t": "code",
+       "c": [
+        "ADNotFound"
+       ]
+      },
+      " exposed stale entries in the customer’s review scope; ",
+      {
+       "t": "code",
+       "c": [
+        "MissingOwners"
+       ]
+      },
+      " quantified the ownership gap on privileged groups; ",
+      {
+       "t": "code",
+       "c": [
+        "ChildNotInISC"
+       ]
+      },
+      " revealed aggregation scope issues nobody had noticed. Budget time in your cycle to act on these files — they’re where the program-level findings live."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Resolve ambiguity loudly, never silently."
+       ]
+      },
+      " The same group name appearing in multiple AD sources is common (prod/non-prod forests, migration leftovers). Failing those rows into an exception file — instead of picking one — saved us from certifying the wrong forest’s admin group."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Ownership is the hard part, not the API."
+       ]
+      },
+      " Discovering nested groups took an afternoon; deciding who certifies groups with no owner took meetings. Resolve your fallback-owner policy before you run this live, because that person will receive every orphaned review — and ",
+      {
+       "t": "code",
+       "c": [
+        "MissingOwners_<OutputTag>.csv"
+       ]
+      },
+      " tells you exactly how many that will be, before any reviewer gets an email."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Payload files beat straight-to-API."
+       ]
+      },
+      " Twice during testing, a review of the JSON payload file caught a problem (a wrong deadline, a misassigned reviewer) that would otherwise have emailed dozens of reviewers. Build the checkpoint in."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Name everything for the cleanup you haven’t written yet."
+       ]
+      },
+      " The ",
+      {
+       "t": "code",
+       "c": [
+        "NGR -"
+       ]
+      },
+      " prefix made it trivial to later write a teardown script that removes the roles after a certification cycle completes. Your future self will thank you."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Deleted groups leave dangling references."
+       ]
+      },
+      " If a child group is deleted in AD between role creation and campaign launch, the role carries a stale reference. Re-running Phases 1–3 (idempotent) right before Phase 4 keeps the picture fresh."
+     ]
+    },
+    {
+     "t": "hr"
+    },
+    {
+     "t": "p",
+     "c": [
+      "The same pattern — input-driven scope, Active Directory-side discovery, ISC resolution, payload-file checkpoint — generalizes beyond Active Directory to any source where group structure lives outside ISC."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The full script and a sample input CSV are attached below. If you adapt this approach for your own tenant, I’d love to hear how it works for you, especially if you’ve solved the nested-certification challenge in a different way. Drop a comment and share your experience."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Resources:",
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/wuoWkozDXovSjKinaZ2HoYqz2ff.ps1"
+       },
+       "c": [
+        "Create-NestedGroupAndGroupMembershipCampaigns.ps1"
+       ]
+      },
+      " (107.7 KB)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 393774,
+   "number": 2,
+   "username": "shiva_Idm19",
+   "name": "Shivaprasad Sankuri",
+   "avatar": "https://avatars.discourse-cdn.com/v4/letter/s/51bf81/96.png",
+   "userTitle": null,
+   "isAuthor": false,
+   "staff": false,
+   "flair": null,
+   "createdAt": "2026-07-24T16:19:12.664Z",
+   "replyTo": null,
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/tackling-nested-ad-group-certifications-in-sailpoint-isc-using-role-composition/217009/2",
+   "words": 122,
+   "body": [
+    {
+     "t": "p",
+     "c": [
+      "Hi ",
+      {
+       "t": "a",
+       "a": {
+        "class": "mention",
+        "href": "https://developer.sailpoint.com/discuss/u/ajmerasunny1"
+       },
+       "c": [
+        "@ajmerasunny1"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\nFew questions on the approach?"
+     ]
+    },
+    {
+     "t": "ol",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Are  we bundling the parent and child groups into a role and let the certifier take a call at the role level and SailPoint will remove both the groups from the user?"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "As SailPoint ISC doesn’t show the child groups in certification, so bundling it in the role will be a work around."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Sorry for a basic question, When a user has parent group in AD, AD automatically assign the child group too and SailPoint will pull the as independent groups to their AD account link?"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "How are we handling the members only part of Child group? Is it through Manager certification?"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Did we use any AI to create business descriptions for this role ?"
+       ]
+      },
+      "\n"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 393826,
+   "number": 3,
+   "username": "ajmerasunny1",
+   "name": "Sunny Ajmera",
+   "avatar": "https://avatars.discourse-cdn.com/v4/letter/a/3be4f8/96.png",
+   "userTitle": "Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": null,
+   "createdAt": "2026-07-24T19:24:42.050Z",
+   "replyTo": null,
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/tackling-nested-ad-group-certifications-in-sailpoint-isc-using-role-composition/217009/3",
+   "words": 483,
+   "body": [
+    {
+     "t": "ol",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Are we bundling parent and child into a role and letting the certifier decide at role level — does SailPoint remove both groups from the user?"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Not quite — the role is named after the parent group but contains only the child group entitlements. The parent itself isn’t in the role; it’s covered separately by the identity certification."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "More importantly, the role is created with requestable = false and no identity members. It’s a synthetic construct that exists purely to give role composition certification something to review. So a revoke decision in the composition campaign removes the entitlement from the role definition — it does not deprovision anything from any user, because no user holds the role."
+     ]
+    },
+    {
+     "t": "ol",
+     "a": {
+      "start": "2"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "When a user has the parent group in AD, does AD auto-assign the child group, and does SailPoint pull them as independent groups on the AD link?"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "AD nesting is a group-to-group membership — the child group object is a member of the parent group. Membership flows upward: a user who is a direct member of the child inherits the parent’s effective access. A user placed directly in the parent does not get the child’s access."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "AD never writes anything extra to the user. The user’s memberOf still lists only their direct memberships, and that’s what the ISC AD connector aggregates onto the account link. Inherited access is computed at authorization time (SID chain in the token), not materialized as a membership record — which is exactly why it never shows up in a standard certification."
+     ]
+    },
+    {
+     "t": "ol",
+     "a": {
+      "start": "3"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "How are we handling the members-only part of the child group? Manager certification?"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Manager cert works as a backstop, but it breaks the ownership model — it puts the user’s manager in the reviewer seat instead of the parent group owner, which is the thing the customer was trying to preserve."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "The cleaner answer is the input file. The script takes one list of in-scope groups and produces both campaign types from it. If you want the child group’s own direct members reviewed, put the child groups in the input list too — they get their own identity certification, still routed to the group owner.",
+      {
+       "t": "br"
+      },
+      "\nSo: input file for anything with a known owner, manager certification only as the fallback for orphaned or unowned child groups. I’d flag those in the script output rather than let them silently fall through."
+     ]
+    },
+    {
+     "t": "ol",
+     "a": {
+      "start": "4"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "Did we use any AI to create business descriptions for this role?"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "No — the role descriptions are deterministic, built from a template string using the parent group name, source name, and child group count. Nothing generated using AI."
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "That’s a deliberate choice for an audit artifact: the description has to be reproducible and traceable to the AD object. If you want richer business-language descriptions, that’s a separate exercise — and I’d want owner sign-off on anything generated before it lands in a certification a reviewer is making decisions from."
+     ]
+    }
+   ]
+  }
+ ]
+}

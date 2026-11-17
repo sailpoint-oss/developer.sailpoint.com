@@ -1,0 +1,24 @@
+{
+ "fetchedAt": "2026-11-13T12:55:50.181Z",
+ "username": "ajmerasunny1",
+ "name": "Sunny Ajmera",
+ "jobTitle": "Technical Director",
+ "title": "Ambassador",
+ "avatar": "https://avatars.discourse-cdn.com/v4/letter/a/3be4f8/288.png",
+ "cover": null,
+ "bio": [
+  {
+   "t": "p",
+   "c": [
+    "With 15 years of experience in IAM, IGA, and IDM, I am a seasoned expert in designing and implementing secure identity and access management solutions that enable organizations to protect their critical assets while meeting regulatory compliance requirements"
+   ]
+  }
+ ],
+ "website": {
+  "url": "https://www.linkedin.com/in/sunnyajmera/",
+  "name": "linkedin.com/in/sunnyajmera/"
+ },
+ "location": "Sammamish",
+ "joinedAt": "2022-05-05T17:58:32.910Z",
+ "flair": null
+}

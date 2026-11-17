@@ -1,0 +1,2086 @@
+{
+ "fetchedAt": "2026-11-12T19:37:48.336Z",
+ "id": 224321,
+ "slug": "taking-control-of-aggregation-schedules-with-workflows-and-pag",
+ "title": "Taking Control of Aggregation Schedules with Workflows and PAG",
+ "url": "https://developer.sailpoint.com/discuss/t/taking-control-of-aggregation-schedules-with-workflows-and-pag/224321",
+ "createdAt": "2026-09-29T20:55:16.157Z",
+ "views": 79,
+ "likeCount": 0,
+ "tags": [
+  "sailpoint-identity-security",
+  "workflows",
+  "apis",
+  "aggregation"
+ ],
+ "category": {
+  "id": 125,
+  "name": "Community Blog",
+  "slug": "community-blog",
+  "color": "#652D90",
+  "readRestricted": false,
+  "parent": {
+   "id": 69,
+   "name": "Content",
+   "slug": "content",
+   "color": "#652D90",
+   "readRestricted": false,
+   "parent": null
+  }
+ },
+ "readMinutes": 9,
+ "hero": {
+  "src": "https://global.discourse-cdn.com/sailpoint/original/3X/d/1/d158df0c87e9ec2929861081cac32a039552f3c8.jpeg",
+  "alt": "blog title card"
+ },
+ "toc": [
+  {
+   "id": "introduction",
+   "title": "Introduction"
+  },
+  {
+   "id": "solution-overview",
+   "title": "Solution Overview"
+  },
+  {
+   "id": "architectural-decision-why-pag-powershell-vs-native-workflows",
+   "title": "Architectural Decision: Why PAG & PowerShell vs. Native Workflows?"
+  },
+  {
+   "id": "prerequisites",
+   "title": "Prerequisites"
+  },
+  {
+   "id": "safe-use-testing-backup-validation",
+   "title": "Safe Use, Testing & Backup Validation"
+  },
+  {
+   "id": "user-interface",
+   "title": "User Interface"
+  },
+  {
+   "id": "back-end-workflow",
+   "title": "Back End Workflow"
+  },
+  {
+   "id": "powershell-execution-api-highlights",
+   "title": "PowerShell Execution & API Highlights"
+  },
+  {
+   "id": "considerations-best-practices",
+   "title": "Considerations & Best Practices"
+  },
+  {
+   "id": "conclusion",
+   "title": "Conclusion"
+  }
+ ],
+ "posts": [
+  {
+   "id": 408960,
+   "number": 1,
+   "username": "trettkowski",
+   "name": "Tyler Rettkowski",
+   "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/trettkowski/96/36103_2.png",
+   "userTitle": "Expert Ambassador",
+   "isAuthor": true,
+   "staff": false,
+   "flair": {
+    "url": "https://global.discourse-cdn.com/sailpoint/original/2X/e/eb064076112b6705f2406f9119ef84ce300e416a.png",
+    "name": "expert_ambassadors"
+   },
+   "createdAt": "2026-09-29T20:55:16.538Z",
+   "replyTo": null,
+   "likes": 0,
+   "url": "https://developer.sailpoint.com/discuss/t/taking-control-of-aggregation-schedules-with-workflows-and-pag/224321/1",
+   "words": 1919,
+   "body": [
+    {
+     "t": "h3",
+     "a": {
+      "id": "introduction"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Introduction"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Why:"
+         ]
+        },
+        " Managing, backing up, and manipulating aggregation schedules at scale in SailPoint Identity Security Cloud (ISC) can be a common operational headache. Native functionality does not provide a single-click mechanism to “pause” all aggregations during major maintenance windows, nor an out-of-the-box way to export and import schedule configurations across environments or during disaster recovery scenarios."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Problem:"
+         ]
+        },
+        " Performing bulk modifications across dozens or hundreds of sources traditionally requires repetitive manual UI navigation or running custom, ad-hoc API scripts without an audit trail. Administrators lack a centralized, self-service interface to safely pause tenant-wide aggregations and restore them with confidence."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Goal:"
+         ]
+        },
+        " Deliver an automated, enterprise-ready toolkit utilizing SailPoint Workflows and the Privileged Action Gateway (PAG) that gives administrators push-button control over aggregation schedules—incorporating safety checks, automated backups, and audit logging."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "solution-overview"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Solution Overview"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Tech Stack:"
+         ]
+        },
+        " 1 Form + 1 Workflow + 2 PowerShell Reporting Scripts executed via PAG."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "High-Level Flow:"
+         ]
+        },
+        " The solution centers around a Workflow Form that allows administrators to select from several powerful Actions:\n",
+        {
+         "t": "ol",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "\n",
+            {
+             "t": "p",
+             "c": [
+              {
+               "t": "strong",
+               "c": [
+                "Export:"
+               ]
+              },
+              " Scans all sources in the tenant in parallel, captures their Account and Group aggregation schedules, and writes them to a local CSV file on the PAG server (",
+              {
+               "t": "code",
+               "c": [
+                "C:\\Scripts\\Aggregation Exports"
+               ]
+              },
+              ")."
+             ]
+            },
+            "\n",
+            {
+             "t": "p",
+             "c": [
+              "Additionally, the CSV file is automatically emailed to the individual who ran the launcher. This is achieved by passing the launcher’s email address to the PowerShell script using the ",
+              {
+               "t": "code",
+               "c": [
+                "$.getIdentity.attributes.email"
+               ]
+              },
+              " variable, which is fetched dynamically via the ",
+              {
+               "t": "code",
+               "c": [
+                "Get Identity"
+               ]
+              },
+              " action using the ",
+              {
+               "t": "code",
+               "c": [
+                "$.trigger.launchedBy.id"
+               ]
+              },
+              " expression from the trigger payload."
+             ]
+            },
+            "\n"
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/e/c/ec1d606dd6eb6511bc48cef0410ad4eddb735646.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/e/c/ec1d606dd6eb6511bc48cef0410ad4eddb735646_2_690x292.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/e/c/ec1d606dd6eb6511bc48cef0410ad4eddb735646_2_690x292.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/e/c/ec1d606dd6eb6511bc48cef0410ad4eddb735646_2_1035x438.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/e/c/ec1d606dd6eb6511bc48cef0410ad4eddb735646_2_1380x584.png 2x",
+        "alt": "Screenshot_Export_Form_Execution",
+        "width": "690",
+        "height": "292"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Email Output Example:"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "lightbox",
+     "a": {
+      "full": "https://global.discourse-cdn.com/sailpoint/original/3X/6/d/6db76c0b5a31bafd4c9966a2000275294b528b22.png",
+      "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/6/d/6db76c0b5a31bafd4c9966a2000275294b528b22_2_690x165.png",
+      "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/6/d/6db76c0b5a31bafd4c9966a2000275294b528b22_2_690x165.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/6/d/6db76c0b5a31bafd4c9966a2000275294b528b22_2_1035x247.png 1.5x, https://global.discourse-cdn.com/sailpoint/original/3X/6/d/6db76c0b5a31bafd4c9966a2000275294b528b22.png 2x",
+      "alt": "Screenshot_Export_Email",
+      "width": "690",
+      "height": "165"
+     }
+    },
+    {
+     "t": "ol",
+     "a": {
+      "start": "2"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "\n",
+        {
+         "t": "p",
+         "c": [
+          {
+           "t": "strong",
+           "c": [
+            "Import:"
+           ]
+          },
+          " Reads a previously exported CSV file and restores the schedules back into SailPoint."
+         ]
+        },
+        "\n",
+        {
+         "t": "p",
+         "c": [
+          {
+           "t": "strong",
+           "c": [
+            "How it captures options:"
+           ]
+          },
+          " When the Workflow triggers, it first runs ",
+          {
+           "t": "code",
+           "c": [
+            "Get-AggregationScheduleFiles.ps1"
+           ]
+          },
+          " via PAG. This script scans the local ",
+          {
+           "t": "code",
+           "c": [
+            "C:\\Scripts\\Aggregation Exports"
+           ]
+          },
+          " directory for all ",
+          {
+           "t": "code",
+           "c": [
+            ".csv"
+           ]
+          },
+          " files and returns them as a JSON array of label/value pairs. This array is seamlessly mapped into the ",
+          {
+           "t": "code",
+           "c": [
+            "inputForForm_array_importoptions"
+           ]
+          },
+          " attribute of the Interactive Form, providing the user with a dynamic dropdown of all available export files."
+         ]
+        },
+        "\n",
+        {
+         "t": "p",
+         "c": [
+          {
+           "t": "strong",
+           "c": [
+            "How updates are executed:"
+           ]
+          },
+          " Once a file is selected, the ",
+          {
+           "t": "code",
+           "c": [
+            "Manage-AggregationSchedules.ps1"
+           ]
+          },
+          " script is launched with the chosen filename. It imports the selected CSV, iterates through each row, and uses the API endpoint ",
+          {
+           "t": "code",
+           "c": [
+            "/sources/v1/:id/schedules"
+           ]
+          },
+          " to systematically ",
+          {
+           "t": "code",
+           "c": [
+            "DELETE"
+           ]
+          },
+          " any existing schedule and ",
+          {
+           "t": "code",
+           "c": [
+            "POST"
+           ]
+          },
+          " the restored CRON expressions back to each source."
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/6/c/6c1bbfe26254d930f26e0bef59501c24b963bf74.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/6/c/6c1bbfe26254d930f26e0bef59501c24b963bf74_2_690x302.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/6/c/6c1bbfe26254d930f26e0bef59501c24b963bf74_2_690x302.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/6/c/6c1bbfe26254d930f26e0bef59501c24b963bf74_2_1035x453.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/6/c/6c1bbfe26254d930f26e0bef59501c24b963bf74_2_1380x604.png 2x",
+        "alt": "Screenshot_Import_Form_Execution",
+        "width": "690",
+        "height": "302"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "ol",
+     "a": {
+      "start": "3"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "\n",
+        {
+         "t": "p",
+         "c": [
+          {
+           "t": "strong",
+           "c": [
+            "Back Up And Remove All:"
+           ]
+          },
+          " A highly useful feature for maintenance windows. This action reads current schedules, securely backs them up directly into the Source object’s ",
+          {
+           "t": "code",
+           "c": [
+            "connectorAttributes"
+           ]
+          },
+          ", and then deletes the active schedules, effectively “pausing” all aggregations tenant-wide."
+         ]
+        },
+        "\n",
+        {
+         "t": "p",
+         "c": [
+          {
+           "t": "strong",
+           "c": [
+            "How the backup works:"
+           ]
+          },
+          " The script executes a ",
+          {
+           "t": "code",
+           "c": [
+            "PATCH"
+           ]
+          },
+          " request to the ",
+          {
+           "t": "code",
+           "c": [
+            "/sources/v1/:id"
+           ]
+          },
+          " endpoint (using the ",
+          {
+           "t": "code",
+           "c": [
+            "application/json-patch+json"
+           ]
+          },
+          " content type) to inject custom keys directly into the source’s configuration. Specifically, it saves the current CRON strings into two new variables: ",
+          {
+           "t": "code",
+           "c": [
+            "BackUpAccountAggregationCRON"
+           ]
+          },
+          " and ",
+          {
+           "t": "code",
+           "c": [
+            "BackUpGroupAggregationCRON"
+           ]
+          },
+          ". By utilizing ",
+          {
+           "t": "code",
+           "c": [
+            "connectorAttributes"
+           ]
+          },
+          ", the data stays safely attached to the source itself within SailPoint, preventing the need to manage external backup files during a maintenance window."
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/d/a/dab502f69d774177f8ef779d368e4d73e0da45ed.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/d/a/dab502f69d774177f8ef779d368e4d73e0da45ed_2_690x295.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/d/a/dab502f69d774177f8ef779d368e4d73e0da45ed_2_690x295.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/d/a/dab502f69d774177f8ef779d368e4d73e0da45ed_2_1035x442.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/d/a/dab502f69d774177f8ef779d368e4d73e0da45ed_2_1380x590.png 2x",
+        "alt": "Screenshot_BackUpAndRemoveAll_Form_Execution",
+        "width": "690",
+        "height": "295"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "ol",
+     "a": {
+      "start": "4"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "\n",
+        {
+         "t": "p",
+         "c": [
+          {
+           "t": "strong",
+           "c": [
+            "Restore All:"
+           ]
+          },
+          " Reads the backed-up CRON strings from the Source objects and re-activates all schedules, returning the tenant to normal operation."
+         ]
+        },
+        "\n",
+        {
+         "t": "p",
+         "c": [
+          {
+           "t": "strong",
+           "c": [
+            "How the restore works:"
+           ]
+          },
+          " The script queries all sources and checks their ",
+          {
+           "t": "code",
+           "c": [
+            "connectorAttributes"
+           ]
+          },
+          " specifically for the ",
+          {
+           "t": "code",
+           "c": [
+            "BackUpAccountAggregationCRON"
+           ]
+          },
+          " and ",
+          {
+           "t": "code",
+           "c": [
+            "BackUpGroupAggregationCRON"
+           ]
+          },
+          " variables. If a source does not have these variables (meaning it had no active schedule when the backup was taken), the script safely skips it and moves to the next source. If it does find the backup variables, it issues a ",
+          {
+           "t": "code",
+           "c": [
+            "POST"
+           ]
+          },
+          " request to recreate the schedule, followed by a final ",
+          {
+           "t": "code",
+           "c": [
+            "PATCH"
+           ]
+          },
+          " request (",
+          {
+           "t": "code",
+           "c": [
+            "op: \"remove\""
+           ]
+          },
+          ") to clean up the backup variables from the source configuration so no stale data is left behind."
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/2/0/20af5660de57e8cad0576875125bffa2a8a23d73.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/2/0/20af5660de57e8cad0576875125bffa2a8a23d73_2_690x295.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/2/0/20af5660de57e8cad0576875125bffa2a8a23d73_2_690x295.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/2/0/20af5660de57e8cad0576875125bffa2a8a23d73_2_1035x442.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/2/0/20af5660de57e8cad0576875125bffa2a8a23d73_2_1380x590.png 2x",
+        "alt": "Screenshot_RestoreAll_Form_Execution",
+        "width": "690",
+        "height": "295"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "architectural-decision-why-pag-powershell-vs-native-workflows"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Architectural Decision: Why PAG & PowerShell vs. Native Workflows?"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "A common question when designing workflow automations in SailPoint is whether to rely strictly on native workflow actions or extend capabilities using the Privileged Action Gateway (PAG):"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Why PAG + PowerShell for this solution:"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "High-Throughput Parallel Processing:"
+             ]
+            },
+            " Large enterprise tenants often manage 100+ sources. Iterating through hundreds of sources sequentially via native Workflow HTTP Request loops is constrained by execution timeouts and API pagination overhead. PowerShell Runspace pools allow multi-threaded concurrency (10–15 parallel threads), reducing execution from 20+ minutes down to seconds."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Dynamic File System & Dropdown Population:"
+             ]
+            },
+            " Native workflow forms cannot dynamically read local directories. The helper script (",
+            {
+             "t": "code",
+             "c": [
+              "Get-AggregationScheduleFiles.ps1"
+             ]
+            },
+            ") reads the export directory on disk and injects the filenames into the interactive form dropdown in real time."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Local File Archiving & Transport:"
+             ]
+            },
+            " Exporting schedules directly into timestamped CSV artifacts on the PAG server and automatically dispatching them via SMTP provides an off-platform backup trail that survives tenant configuration changes."
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "When a Native Workflow-Only Approach Suffices:"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "If your tenant has a small footprint (e.g., fewer than 10–15 sources) or if you only need to pause/resume specific, targeted sources, you can build a 100% native Workflow. Using the native ",
+            {
+             "t": "strong",
+             "c": [
+              "HTTP Request"
+             ]
+            },
+            " action against ",
+            {
+             "t": "code",
+             "c": [
+              "/sources/v1/:id/schedules"
+             ]
+            },
+            " inside a simple loop avoids the requirement for an on-premises PAG server or local Windows host."
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "prerequisites"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Prerequisites"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "To successfully implement this solution, your environment will need the following in place:"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Privileged Action Gateway (PAG):"
+         ]
+        },
+        " A configured PAG instance to bridge SailPoint Workflows with your local scripts."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Local Windows Server:"
+         ]
+        },
+        " A server to host the PowerShell scripts and provide a directory (e.g., ",
+        {
+         "t": "code",
+         "c": [
+          "C:\\Scripts\\Aggregation Exports"
+         ]
+        },
+        ") to write and read the CSV backup files."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "SMTP Setup:"
+         ]
+        },
+        " Valid SMTP credentials and server details for the main script to dispatch the exported ",
+        {
+         "t": "code",
+         "c": [
+          ".csv"
+         ]
+        },
+        " files to your email."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "API Credentials:"
+         ]
+        },
+        " A SailPoint Personal Access Token (Client ID & Secret) with the appropriate scopes (",
+        {
+         "t": "code",
+         "c": [
+          "idn:sources:manage"
+         ]
+        },
+        " and ",
+        {
+         "t": "code",
+         "c": [
+          "idn:sources:read"
+         ]
+        },
+        ") for the script to execute the API calls."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "safe-use-testing-backup-validation"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Safe Use, Testing & Backup Validation"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      "Because actions like ",
+      {
+       "t": "strong",
+       "c": [
+        "Back Up And Remove All"
+       ]
+      },
+      " and bulk ",
+      {
+       "t": "strong",
+       "c": [
+        "Import"
+       ]
+      },
+      " operate tenant-wide, operational discipline and safety controls are essential before running them in production:"
+     ]
+    },
+    {
+     "t": "ol",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Pre-Flight Testing in Sandbox:"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Always deploy and validate the Form, Workflow, and PowerShell scripts in your sandbox or staging tenant first."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "Run the ",
+            {
+             "t": "strong",
+             "c": [
+              "Export"
+             ]
+            },
+            " action and verify that the generated CSV contains the expected source IDs, names, and non-null CRON expressions."
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Backup Validation Before Deletion:"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "When using ",
+            {
+             "t": "strong",
+             "c": [
+              "Export"
+             ]
+            },
+            ", inspect the generated CSV file in ",
+            {
+             "t": "code",
+             "c": [
+              "C:\\Scripts\\Aggregation Exports"
+             ]
+            },
+            " (or your received email) to ensure the row count matches your total scheduled sources."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "When using ",
+            {
+             "t": "strong",
+             "c": [
+              "Back Up And Remove All"
+             ]
+            },
+            ", spot-check 2–3 active sources via the SailPoint Admin UI or the ",
+            {
+             "t": "code",
+             "c": [
+              "/sources/v1/:id"
+             ]
+            },
+            " API to verify that ",
+            {
+             "t": "code",
+             "c": [
+              "BackUpAccountAggregationCRON"
+             ]
+            },
+            " and/or ",
+            {
+             "t": "code",
+             "c": [
+              "BackUpGroupAggregationCRON"
+             ]
+            },
+            " have been successfully written to ",
+            {
+             "t": "code",
+             "c": [
+              "connectorAttributes"
+             ]
+            },
+            " ",
+            {
+             "t": "em",
+             "c": [
+              "before"
+             ]
+            },
+            " assuming the backup succeeded."
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Safety Confirmations in the Form:"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            "The Workflow Form includes required confirmation toggles for destructive actions. Administrators must explicitly acknowledge and toggle the confirmation checkbox before the workflow triggers a tenant-wide pause or overwrite."
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Post-Execution Verification:"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "After Pausing:"
+             ]
+            },
+            " Navigate to a source in the ISC Admin UI and check the schedule is turned off."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "After Restoring:"
+             ]
+            },
+            " Run a fresh ",
+            {
+             "t": "strong",
+             "c": [
+              "Export"
+             ]
+            },
+            " action and compare the new CSV against your original baseline backup using a diff tool to confirm 100% parity."
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "user-interface"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "User Interface"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "\n",
+        {
+         "t": "p",
+         "c": [
+          {
+           "t": "strong",
+           "c": [
+            "Input Fields:"
+           ]
+          }
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Options:"
+             ]
+            },
+            " Export, Import, Back Up And Remove All, Restore All."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Import Options:"
+             ]
+            },
+            " A dynamic dropdown populated with the available CSV files on the server (using a helper PowerShell script)."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Warnings:"
+             ]
+            },
+            " Toggle confirmations for the tenant-wide Pause/Restore actions."
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "\n",
+        {
+         "t": "p",
+         "c": [
+          {
+           "t": "strong",
+           "c": [
+            "User Experience:"
+           ]
+          },
+          " By using a dynamic workflow form, we ensure admins don’t need to manually type file paths or rely on hardcoded variables. The helper script (",
+          {
+           "t": "code",
+           "c": [
+            "Get-AggregationScheduleFiles.ps1"
+           ]
+          },
+          ") fetches the available export files directly from the server for easy selection."
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Form Definition Code:"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/yybLPjXFGMg7LIbw9oN4abFMopW.json"
+       },
+       "c": [
+        "Form-AggregationScheduleManager.json"
+       ]
+      },
+      " (7.2 KB)"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "back-end-workflow"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Back End Workflow"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "div",
+     "a": {
+      "class": "d-wrap",
+      "data-wrap": "center"
+     },
+     "c": [
+      "\n",
+      {
+       "t": "lightbox",
+       "a": {
+        "full": "https://global.discourse-cdn.com/sailpoint/original/3X/c/6/c6f433d94f0cb8ff20a480b6761027db5256f690.png",
+        "src": "https://global.discourse-cdn.com/sailpoint/optimized/3X/c/6/c6f433d94f0cb8ff20a480b6761027db5256f690_2_383x500.png",
+        "srcSet": "https://global.discourse-cdn.com/sailpoint/optimized/3X/c/6/c6f433d94f0cb8ff20a480b6761027db5256f690_2_383x500.png, https://global.discourse-cdn.com/sailpoint/optimized/3X/c/6/c6f433d94f0cb8ff20a480b6761027db5256f690_2_574x750.png 1.5x, https://global.discourse-cdn.com/sailpoint/optimized/3X/c/6/c6f433d94f0cb8ff20a480b6761027db5256f690_2_766x1000.png 2x",
+        "alt": "AggregationScheduleManager20260809",
+        "width": "383",
+        "height": "500"
+       }
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Trigger:"
+         ]
+        },
+        " This solution utilizes an ",
+        {
+         "t": "code",
+         "c": [
+          "Interactive Trigger"
+         ]
+        },
+        " so we can launch it directly from the Launchers UI."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Helper Script via PAG:"
+         ]
+        },
+        " The first step runs the ",
+        {
+         "t": "code",
+         "c": [
+          "Get-AggregationScheduleFiles.ps1"
+         ]
+        },
+        " script to load the available CSVs from the server and populate the interactive form dropdown."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Interactive Form:"
+         ]
+        },
+        " The user is presented with the dynamic form to select their desired action."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Main Script Execution:"
+         ]
+        },
+        " Based on the form selection, the workflow passes the arguments to the ",
+        {
+         "t": "code",
+         "c": [
+          "Manage-AggregationSchedules.ps1"
+         ]
+        },
+        " script which does the heavy lifting via APIs."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Workflow Code:"
+       ]
+      },
+      {
+       "t": "br"
+      },
+      "\n",
+      {
+       "t": "a",
+       "a": {
+        "class": "attachment",
+        "href": "https://developer.sailpoint.com/discuss/uploads/short-url/8QxiawwsAaHWMVkBPWeYMletG4x.json"
+       },
+       "c": [
+        "Workflow-AggregationScheduleManager.json"
+       ]
+      },
+      " (9.3 KB)"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "powershell-execution-api-highlights"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "PowerShell Execution & API Highlights"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "High Performance (Parallel Processing):"
+         ]
+        },
+        " Iterating through hundreds of sources sequentially via REST APIs is incredibly slow. The main script (",
+        {
+         "t": "code",
+         "c": [
+          "Manage-AggregationSchedules.ps1"
+         ]
+        },
+        ") utilizes PowerShell Runspace Pools (multi-threading) to process 10-15 sources concurrently, drastically reducing execution time from minutes to seconds."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "API Adherence:"
+         ]
+        },
+        " The scripts adhere to SailPoint’s newest API structures, specifically utilizing the ",
+        {
+         "t": "code",
+         "c": [
+          "sources/v1"
+         ]
+        },
+        " endpoint for patching source attributes, and the ",
+        {
+         "t": "code",
+         "c": [
+          "sources/v1/:id/schedules"
+         ]
+        },
+        " endpoint."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Complete Audit Trail:"
+         ]
+        },
+        " Implements a comprehensive, timestamped logging framework. Every action, parameter, and API exception is logged to a ",
+        {
+         "t": "code",
+         "c": [
+          "logs.txt"
+         ]
+        },
+        " file in the script directory, providing perfect visibility for troubleshooting PAG executions."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Error Handling, Rate Limiting & Mid-Flight Recovery:"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "API Resilience & Throttling:"
+             ]
+            },
+            " All API requests incorporate error trapping for HTTP 429 (Rate Limit Exceeded) and transient network timeouts. If a rate limit is encountered, the script backs off exponentially before retrying."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Per-Source Graceful Degradation:"
+             ]
+            },
+            " The script encapsulates each source update in individual ",
+            {
+             "t": "code",
+             "c": [
+              "try...catch"
+             ]
+            },
+            " blocks. If one source encounters an issue (e.g., locked source or invalid CRON syntax), the failure is logged as a ",
+            {
+             "t": "code",
+             "c": [
+              "[WARN]"
+             ]
+            },
+            " to ",
+            {
+             "t": "code",
+             "c": [
+              "logs.txt"
+             ]
+            },
+            ", and the runspace continues processing all remaining sources rather than crashing midway."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Partial Failure Recovery:"
+             ]
+            },
+            " In the event of a partial run, the administrator can inspect ",
+            {
+             "t": "code",
+             "c": [
+              "logs.txt"
+             ]
+            },
+            " to identify the skipped source IDs. Because the backup data is stored directly in ",
+            {
+             "t": "code",
+             "c": [
+              "connectorAttributes"
+             ]
+            },
+            ", running ",
+            {
+             "t": "strong",
+             "c": [
+              "Restore All"
+             ]
+            },
+            " again is idempotent, it will safely re-process any source that still has the backup attributes present."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Fatal Failures:"
+             ]
+            },
+            " A custom ",
+            {
+             "t": "code",
+             "c": [
+              "Throw-Error"
+             ]
+            },
+            " function catches fundamental system faults (e.g., failed OAuth authentication, unreadable CSV file, or unavailable network gateway) to immediately halt the script and return an explicit error code to the SailPoint Workflow engine."
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "p",
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "PowerShell Scripts:"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "\n",
+        {
+         "t": "p",
+         "c": [
+          {
+           "t": "strong",
+           "c": [
+            "Helper Script:"
+           ]
+          },
+          "  ",
+          {
+           "t": "a",
+           "a": {
+            "class": "attachment",
+            "href": "https://developer.sailpoint.com/discuss/uploads/short-url/gDp099njYu51jG0X6Gvc6GO1Jy8.ps1"
+           },
+           "c": [
+            "Get-AggregationScheduleFiles.ps1"
+           ]
+          },
+          " (1.5 KB)"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        "\n",
+        {
+         "t": "p",
+         "c": [
+          {
+           "t": "strong",
+           "c": [
+            "Main Script:"
+           ]
+          },
+          " ",
+          {
+           "t": "a",
+           "a": {
+            "class": "attachment",
+            "href": "https://developer.sailpoint.com/discuss/uploads/short-url/AqwlXjcIqsplb0siKoHS1pTN7cO.ps1"
+           },
+           "c": [
+            "Manage-AggregationSchedules.ps1"
+           ]
+          },
+          " (12.4 KB)"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "considerations-best-practices"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Considerations & Best Practices"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "PAG Compatibility:"
+         ]
+        },
+        " The scripts are written to ensure compatibility with Windows Server PowerShell 5.1 (using ",
+        {
+         "t": "code",
+         "c": [
+          "-UseBasicParsing"
+         ]
+        },
+        " for ",
+        {
+         "t": "code",
+         "c": [
+          "Invoke-RestMethod"
+         ]
+        },
+        ") and enforce TLS 1.2 for secure API authentication."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Permissioning:"
+         ]
+        },
+        " The launcher should only be granted to admins, as this provides the ability to enable/disable aggregations completely across the tenant."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Token Security:"
+         ]
+        },
+        " The main script uses standard OAuth Client Credentials. Ensure the client ID and secret have the necessary ",
+        {
+         "t": "code",
+         "c": [
+          "idn:sources:manage"
+         ]
+        },
+        " and ",
+        {
+         "t": "code",
+         "c": [
+          "idn:sources:read"
+         ]
+        },
+        " scopes."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Credential & Secret Protection:"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Never Hardcode Secrets:"
+             ]
+            },
+            " While the example script displays placeholder variables (",
+            {
+             "t": "code",
+             "c": [
+              "YOUR_CLIENT_ID"
+             ]
+            },
+            ", ",
+            {
+             "t": "code",
+             "c": [
+              "YOUR_CLIENT_SECRET"
+             ]
+            },
+            "), production deployments should ",
+            {
+             "t": "strong",
+             "c": [
+              "never"
+             ]
+            },
+            " store plaintext API secrets in ",
+            {
+             "t": "code",
+             "c": [
+              ".ps1"
+             ]
+            },
+            " files."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Recommended Storage:"
+             ]
+            },
+            " Store your Client ID and Secret in ",
+            {
+             "t": "strong",
+             "c": [
+              "Windows Credential Manager"
+             ]
+            },
+            ", read them from system environment variables, retrieve them via Azure Key Vault / HashiCorp Vault, or pass them as secure workflow inputs through the PAG."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Least Privilege:"
+             ]
+            },
+            " Ensure the API Personal Access Token or OAuth Client uses only the minimum scopes required: ",
+            {
+             "t": "code",
+             "c": [
+              "idn:sources:read"
+             ]
+            },
+            " and ",
+            {
+             "t": "code",
+             "c": [
+              "idn:sources:manage"
+             ]
+            },
+            "."
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Log Sanitization & Access Control:"
+         ]
+        },
+        "\n",
+        {
+         "t": "ul",
+         "c": [
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Token Masking:"
+             ]
+            },
+            " Bearer tokens and HTTP Authorization headers are stripped and excluded from all ",
+            {
+             "t": "code",
+             "c": [
+              "Write-Log"
+             ]
+            },
+            " operations to prevent sensitive credentials from ever landing in ",
+            {
+             "t": "code",
+             "c": [
+              "logs.txt"
+             ]
+            },
+            "."
+           ]
+          },
+          "\n",
+          {
+           "t": "li",
+           "c": [
+            {
+             "t": "strong",
+             "c": [
+              "Directory Permissions (ACLs):"
+             ]
+            },
+            " Restrict NTFS file permissions on ",
+            {
+             "t": "code",
+             "c": [
+              "C:\\Scripts\\Aggregation Exports"
+             ]
+            },
+            " and ",
+            {
+             "t": "code",
+             "c": [
+              "logs.txt"
+             ]
+            },
+            ". Only the PAG service account and authorized server administrators should have read/write access to these paths."
+           ]
+          },
+          "\n"
+         ]
+        },
+        "\n"
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "PAG & Headless Compatibility:"
+         ]
+        },
+        " The scripts enforce TLS 1.2 (",
+        {
+         "t": "code",
+         "c": [
+          "[Net.SecurityProtocolType]::Tls12"
+         ]
+        },
+        ") and use ",
+        {
+         "t": "code",
+         "c": [
+          "-UseBasicParsing"
+         ]
+        },
+        " with ",
+        {
+         "t": "code",
+         "c": [
+          "Invoke-WebRequest"
+         ]
+        },
+        " to guarantee reliable operation in headless Windows Server PowerShell 5.1 environments."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Administrative Governance:"
+         ]
+        },
+        " Access to launch this interactive workflow form should be restricted via SailPoint role permissions exclusively to trusted Administrators."
+       ]
+      },
+      "\n"
+     ]
+    },
+    {
+     "t": "h3",
+     "a": {
+      "id": "conclusion"
+     },
+     "c": [
+      {
+       "t": "strong",
+       "c": [
+        "Conclusion"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ul",
+     "c": [
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Summary:"
+         ]
+        },
+        " By using this solution, administrators can confidently execute bulk updates, perform safe maintenance pauses, and maintain strict version control of their aggregation schedules without writing a single line of ad-hoc API code."
+       ]
+      },
+      "\n",
+      {
+       "t": "li",
+       "c": [
+        {
+         "t": "strong",
+         "c": [
+          "Call to Action:"
+         ]
+        },
+        " If you have any questions or ideas to expand on this exporter/importer, feel free to post below!"
+       ]
+      },
+      "\n"
+     ]
+    }
+   ]
+  }
+ ]
+}

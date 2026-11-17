@@ -1,0 +1,39 @@
+{
+ "fetchedAt": "2026-11-13T12:55:49.994Z",
+ "username": "trettkowski",
+ "name": "Tyler Rettkowski",
+ "jobTitle": null,
+ "title": "Expert Ambassador",
+ "avatar": "https://developer.sailpoint.com/discuss/user_avatar/developer.sailpoint.com/trettkowski/288/36103_2.png",
+ "cover": "https://cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/sailpoint/original/3X/b/9/b91f8e491ecaad906960a2baa21aeb025d9be50c.jpeg",
+ "bio": [
+  {
+   "t": "p",
+   "c": [
+    "Identity Security Architect with over 7 years of experience engineering SailPoint IdentityIQ and Identity Security Cloud environments."
+   ]
+  },
+  {
+   "t": "p",
+   "c": [
+    "My work focuses on solving complex architectural challenges through custom API integrations and advanced automation workflows. Through IdentityEXE, I provide independent identity governance consulting and advisory services to enterprise organizations."
+   ]
+  },
+  {
+   "t": "p",
+   "c": [
+    "Always down to talk pure architecture, undocumented API workflows, or advanced governance strategies."
+   ]
+  }
+ ],
+ "website": {
+  "url": "https://identityexe.com",
+  "name": "identityexe.com"
+ },
+ "location": "United States",
+ "joinedAt": "2024-11-05T17:59:06.657Z",
+ "flair": {
+  "url": "https://global.discourse-cdn.com/sailpoint/original/2X/e/eb064076112b6705f2406f9119ef84ce300e416a.png",
+  "name": "Expert Ambassador"
+ }
+}

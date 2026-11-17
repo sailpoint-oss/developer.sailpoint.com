@@ -1,6 +1,7 @@
 const {createApiPageMD} = require('./createApiPageMD');
 import clsx from 'clsx';
 import apiRedirectsPlugin from './api-redirects-plugin';
+import llmsGeneratedIndexPlugin from './llms-generated-index-plugin';
 
 const pluginConfig = [
   [apiRedirectsPlugin, {}],
@@ -34,6 +35,7 @@ const pluginConfig = [
         'Documentation, API references, SDKs, and guides for building on SailPoint Identity Security, IdentityIQ, and Non-Employee Risk Management.',
     },
   ],
+  [llmsGeneratedIndexPlugin, {}],
   [
     '@docusaurus/plugin-google-tag-manager',
     {

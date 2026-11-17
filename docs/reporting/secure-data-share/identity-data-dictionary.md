@@ -187,6 +187,7 @@ Use the table of contents on the right-hand side of the page to jump directly to
 | COMPLETION_STATUS | text |  | Completion status Ex: Success, Failure etc. |
 | PRIORITY | text |  | one of low, Normal and high |
 | TYPE | text |  | type of access item or Identity items requested |
+| STATE | text |  | Current state of the access request |
 | SYNC_DATE | datetime |  | When the row is last synced |
 
 

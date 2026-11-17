@@ -35,3 +35,6 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         timestamp_ntz SYNC_DATE "Date Audit Event Synced"
         variant ATTRIBUTES "Full attributes object associated with the Audit Event"
     }'></MermaidViewer>
+
+    Audit events are retained for 7 years
+

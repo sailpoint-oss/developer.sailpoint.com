@@ -53,7 +53,6 @@ Token
   Identity ID:  2c9180857182305e0171993735622948
   Client ID:    ****8f2a
   Tenant:       acme
-  Tenant ID:    3fa85f64-5717-4562-b3fc-2c963f66afa6
   Pod:          prd01-useast1
   Strong auth:  true
   Expires:      2026-11-20T01:14:37Z  (expires in 11h59m59s)
@@ -75,6 +74,12 @@ The output has these sections:
 - **Environment variables**: Every `SAIL_*` environment variable that is set. These override your config file and keychain. Secrets are hidden, and client IDs only show their last four characters.
 - **Token**: What your access token contains. The client ID only shows its last four characters.
 - **Personal access token**: The PAT record from your tenant. This section only appears for PAT authentication.
+
+Use the `--debug` flag to show full client IDs instead:
+
+```shell
+sail whoami --debug
+```
 
 This command uses the [List personal access tokens endpoint](https://developer.sailpoint.com/docs/api/list-personal-access-tokens-v-1) to look up your PAT.
 
@@ -109,8 +114,6 @@ The `whoami` command can show these warnings:
 | `... is overriding the ... saved for environment` | An environment variable replaces a different value you saved for the environment. Unset the variable if you meant to use the saved value. |
 | `The keychain has a cached token ... issued to a different PAT` | The CLI cached a token for another PAT. Other commands keep using that token until it expires, even though different credentials are configured now. |
 | `Login failed with PAT credentials from environment variables` | The tenant rejected the PAT credentials from `SAIL_CLIENT_ID` and `SAIL_CLIENT_SECRET`. Check or unset them. |
-| `The PAT in use ... was created ..., over a year ago` | The PAT is more than a year old. Make sure it's the one you meant to use. |
-| `The PAT in use ... expires on` or `expired on` | The PAT expires within 30 days, or has already expired. |
 
 When your PAT credentials come from environment variables, the command always logs in with them to check that they work. It doesn't cache that token, so it doesn't change the session that other commands use.
 

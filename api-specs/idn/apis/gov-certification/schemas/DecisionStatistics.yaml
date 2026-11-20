@@ -1,0 +1,28 @@
+type: object
+title: Decision statistics
+properties:
+  approved:
+    description: Count of approval decisions for this item type.
+    type: integer
+    format: int32
+    example: 42
+  revoked:
+    description: Count of revoke decisions for this item type.
+    type: integer
+    format: int32
+    example: 7
+  acknowledged:
+    description: Count of acknowledge decisions for this item type.
+    type: integer
+    format: int32
+    example: 15
+  decisionsMade:
+    description: Count of decisions made so far for this item type.
+    type: integer
+    format: int32
+    example: 64
+  decisionsTotal:
+    description: Count of all decisions for this item type, both made and yet-to-be-made.
+    type: integer
+    format: int32
+    example: 100

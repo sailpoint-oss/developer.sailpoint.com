@@ -1,0 +1,15 @@
+type: object
+description: Body for creating a tenant-default ruleset. The tenant comes from the authenticated request.
+required:
+- domainObjectType
+- rules
+properties:
+  domainObjectType:
+    type: string
+    enum:
+    - PERSONAL_ACCESS_TOKEN
+    - CERTIFICATION
+    description: Domain object type to create a default for.
+    example: CERTIFICATION
+  rules:
+    $ref: './reminderescalationruleset.yaml'

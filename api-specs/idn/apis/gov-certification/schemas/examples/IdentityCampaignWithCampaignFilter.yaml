@@ -1,0 +1,16 @@
+value:
+  name: Identity Campaign With Campaign Filter
+  description: Identity Campaign With Campaign Filter
+  type: IDENTITY
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  sunsetCommentsRequired: true
+  autoActivate: false
+  mandatoryCommentRequirement: NO_DECISIONS
+  reviewer:
+    type: IDENTITY
+    id: 2c9180888380236101838062000c00ae
+    name: Adell 3b2858eddb71
+  filterRef:
+    id: d5e2cb8b-0779-4732-9190-ba8784dbcbb9

@@ -1,0 +1,31 @@
+# ConnectorCustomizerCreateResponse
+
+# ConnectorCustomizerCreateResponse
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **String** | the ID of connector customizer. | [optional] 
+**Name** | **String** | name of the connector customizer. | [optional] 
+**TenantID** | **String** | Connector customizer tenant id. | [optional] 
+**Created** | **System.DateTime** | Date-time when the connector customizer was created. | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$ConnectorCustomizerCreateResponse = Initialize-ConnectorCustomizerCreateResponse  -Id b07dc46a-1498-4de8-bfbb-259a68e70c8a `
+ -Name connector-customizer-name `
+ -TenantID 2c91808568c529c60168cca6f90c1324 `
+ -Created null
+```
+
+- Convert the resource to JSON
+```powershell
+$ConnectorCustomizerCreateResponse | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

@@ -1,0 +1,216 @@
+title: Machine Identity Updated
+type: object
+required:
+  - eventType
+  - machineIdentity
+  - machineIdentityChangeTypes
+  - userEntitlementChanges
+  - ownerChanges
+  - singleValueAttributeChanges
+properties:
+  eventType:
+    type: string
+    description: Type of the event.
+    enum:
+      - MACHINE_IDENTITY_UPDATED
+    example: MACHINE_IDENTITY_UPDATED
+  machineIdentity:
+    type: object
+    description: Details of the updated machine identity.
+    required:
+      - id
+      - created
+      - modified
+      - subtype
+      - manuallyEdited
+    properties:
+      id:
+        type: string
+        description: Unique identifier for the machine identity.
+        example: 8cd6c945-0057-4a6e-ad65-9cbf3b3c71b6
+      name:
+        type: string
+        description: Name of the machine identity.
+        example: test
+      created:
+        type: string
+        format: date-time
+        description: Creation timestamp.
+        example: 2025-08-08T12:42:21.491666Z
+      modified:
+        type: string
+        format: date-time
+        description: Last modified timestamp.
+        example: 2025-09-01T06:36:54.401476Z
+      businessApplication:
+        type: string
+        description: Associated business application.
+        example: MyBusinessApplication2
+      description:
+        type: string
+        description: Description of the machine identity.
+        example: test description event
+      attributes:
+        type: object
+        description: The attributes assigned to the identity.
+        example: {
+          botUserId: 005KV00000BLoMCYA1
+        }
+        additionalProperties: true
+      subtype:
+        type: string
+        enum:
+          - AI Agent
+          - Application
+        description: Subtype of the machine identity.
+        example: AI Agent
+      owners:
+        type: array
+        description: List of owners.
+        items:
+          $ref: './MachineIdentityOwnerReference.yaml'
+      sourceId:
+        type: string
+        description: Source identifier.
+        example: c0201251a6ce4d268aba536cdd60a7f2
+      uuid:
+        type: string
+        description: UUID of the machine identity.
+        example: f5dd23fe-3414-42b7-bb1c-869400ad7a10
+      nativeIdentity:
+        type: string
+        description: Native identity value.
+        example: abc:123:dddd1
+      manuallyEdited:
+        type: boolean
+        default: false
+        description: Indicates if manually edited.
+        example: true
+      manuallyCreated:
+        type: boolean
+        default: false
+        description: Indicates if manually created.
+        example: true
+      datasetId:
+        type: string
+        description: Dataset identifier.
+        example: agentforce:agents
+      source:
+        $ref: './MachineIdentitySourceReference.yaml'
+      userEntitlements:
+        type: array
+        description: List of user entitlements.
+        items:
+          $ref: './MachineIdentityUserEntitlements.yaml'
+      existsOnSource:
+        type: string
+        description: Existence status on source.
+        example: NOT_APPLICABLE
+  machineIdentityChangeTypes:
+    type: array
+    description: Types of changes that occurred to the machine identity.
+    items:
+      type: string
+      enum:
+        - ATTRIBUTES_CHANGED
+        - USER_ENTITLEMENTS_ADDED
+        - USER_ENTITLEMENTS_REMOVED
+        - OWNERS_ADDED
+        - OWNERS_REMOVED
+    example:
+      - ATTRIBUTES_CHANGED
+      - USER_ENTITLEMENTS_ADDED
+      - USER_ENTITLEMENTS_REMOVED
+      - OWNERS_ADDED
+      - OWNERS_REMOVED
+  userEntitlementChanges:
+    type: object
+    description: Changes to user entitlements.
+    properties:
+      attributeName:
+        type: string
+        description: Name of the attribute that changed.
+        example: userEntitlements
+      added:
+        type: array
+        description: User entitlements that were added.
+        items:
+            $ref: './MachineIdentityUserEntitlements.yaml'
+      removed:
+        type: array
+        description: User entitlements that were removed.
+        items:
+            $ref: './MachineIdentityUserEntitlements.yaml'
+  ownerChanges:
+    type: object
+    description: Changes to owners.
+    properties:
+      attributeName:
+        type: string
+        description: Name of the attribute that changed.
+        example: owners
+      added:
+        type: array
+        description: Owners that were added.
+        items:
+            $ref: './MachineIdentityOwnerReference.yaml'
+      removed:
+        type: array
+        description: Owners that were removed.
+        items:
+            $ref: './MachineIdentityOwnerReference.yaml'
+  singleValueAttributeChanges:
+    type: array
+    description: Details about the single-value attribute changes that occurred.
+    nullable: true
+    items:
+      type: object
+      required:
+        - name
+        - oldValue
+        - newValue
+      properties:
+        name:
+            type: string
+            description: The name of the attribute that was changed.
+            example: displayName
+        oldValue:
+            description: The old value of the attribute before the change.
+            nullable: true
+            oneOf:
+              - type: string
+                example: "Sample Old Value"
+                title: string
+              - type: boolean
+                example: true
+                title: boolean
+              - type: number
+                example: 123456789
+                title: number
+              - type: array
+                title: array
+                items:
+                  type: string
+                  example: ["001","002","003"]
+                nullable: true
+            example: John Doe
+        newValue:
+            description: The new value of the attribute after the change.
+            nullable: true
+            oneOf:
+              - type: string
+                example: "Sample New Value"
+                title: string
+              - type: boolean
+                example: true
+                title: boolean
+              - type: number
+                example: 123456789
+                title: number
+              - type: array
+                title: array
+                items:
+                  type: string
+                  example: ["001","002","003"]
+                nullable: true
+            example: John A. Doe

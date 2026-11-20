@@ -1,0 +1,15 @@
+post:
+  summary: Create ask security question action
+  operationId: createAskSecurityQuestionAction
+  description: Create an ask security question action
+  tags:
+    - workflow actions
+  requestBody:
+    $ref: "../../requestBodies/POST/WorkflowActions/AskSecurityQuestionAction.yaml"
+  responses:
+    '200':
+      $ref: "../../responses/WorkflowAction.yaml"
+    '400':
+      $ref: "../../responses/400.yaml"
+    '500':
+      $ref: "../../responses/500.yaml"

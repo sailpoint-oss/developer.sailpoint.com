@@ -1,0 +1,147 @@
+get:
+  operationId: getGovCertificationCampaignV1
+  tags:
+    - Next Generation Certification Campaigns
+  summary: Get a campaign
+  description: >-
+    Retrieves information for an existing campaign using the campaign's ID. Required roles are ORG_ADMIN or CERT_ADMIN.
+    Reviewers for the certifications under this campaign can also call this API.
+  security:
+    - userAuth: [ idn:campaign:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+    - REPORT_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+    - in: path
+      name: id
+      schema:
+        type: string
+        format: uuid
+      required: true
+      description: The ID of the campaign to be retrieved
+      example: 2c918085-71bc-4cf8-a171-c23e4b4221fc
+      x-sailpoint-resource-operation-id: listCampaignsV1
+  responses:
+    '200':
+      description: A campaign object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignGet.yaml'
+          examples:
+            Manager Review:
+              $ref: '../schemas/examples/FullCampaignManager.yaml'
+            Search Campaign:
+              $ref: '../schemas/examples/FullCampaignSearch.yaml'
+            Source Owner Campaign:
+              $ref: '../schemas/examples/FullCampaignSourceOwner.yaml'
+            Machine Accounts Campaign:
+              $ref: '../schemas/examples/FullCampaignMachineAccount.yaml'
+    '400':
+      $ref: '../../shared/responses/400.yaml'
+    '401':
+      $ref: '../../shared/responses/401.yaml'
+    '403':
+      $ref: '../../shared/responses/403.yaml'
+    '404':
+      $ref: '../../shared/responses/404.yaml'
+    '429':
+      $ref: '../../shared/responses/429.yaml'
+    '500':
+      $ref: '../../shared/responses/500.yaml'
+patch:
+  operationId: patchCampaignV1
+  tags:
+    - Next Generation Certification Campaigns
+  summary: Update a campaign
+  description: Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Required roles are ORG_ADMIN or CERT_ADMIN.
+  security:
+    - userAuth: [ idn:campaign:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+    - in: path
+      name: id
+      schema:
+        type: string
+        format: uuid
+      required: true
+      description: ID of the campaign being modified.
+      example: ef38f943-47e9-4562-b5bb-8424a56397d8
+      x-sailpoint-resource-operation-id: listCampaignsV1
+  requestBody:
+    required: true
+    description: |
+      A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+      The fields that can be patched differ based on the status of the campaign.
+
+      When the campaign is in the *STAGED* status, you can patch these fields:
+      * name
+      * description
+      * recommendationsEnabled
+      * deadline
+      * emailNotificationEnabled
+      * autoRevokeAllowed
+
+      When the campaign is in the *ACTIVE* status, you can patch these fields:
+      * deadline
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: "../../shared/schemas/jsonpatchoperation.yaml"
+        example:
+          - op: "replace"
+            path: "/name"
+            value: "This field has been updated!"
+          - op: "copy"
+            from: "/name"
+            path: "/description"
+  responses:
+    '200':
+      description: >-
+        This response indicates that the PATCH operation succeeded, and the API returns the campaign's new representation.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignGet.yaml'
+          examples:
+            Manager Review:
+              $ref: '../schemas/examples/FullCampaignManager.yaml'
+            Search Campaign:
+              $ref: '../schemas/examples/FullCampaignSearch.yaml'
+            Source Owner Campaign:
+              $ref: '../schemas/examples/FullCampaignSourceOwner.yaml'
+            Machine Accounts Campaign:
+              $ref: '../schemas/examples/FullCampaignMachineAccount.yaml'
+    '400':
+      $ref: '../../shared/responses/400.yaml'
+    '401':
+      $ref: '../../shared/responses/401.yaml'
+    '403':
+      $ref: '../../shared/responses/403.yaml'
+    '404':
+      $ref: '../../shared/responses/404.yaml'
+    '429':
+      $ref: '../../shared/responses/429.yaml'
+    '500':
+      $ref: '../../shared/responses/500.yaml'

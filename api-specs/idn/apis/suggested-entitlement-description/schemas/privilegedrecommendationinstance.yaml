@@ -1,0 +1,48 @@
+description: An individual entitlement instance within a privileged recommendation group.
+type: object
+title: Privileged Recommendation Instance
+properties:
+  id:
+    description: The unique identifier for this entitlement instance.
+    type: string
+    format: uuid
+    example: d6127d2c-bd62-4217-b187-e4b28f328080
+  attribute:
+    description: The entitlement attribute name.
+    type: string
+    example: memberOf
+  sourceId:
+    description: The ID of the source that owns this entitlement.
+    type: string
+    example: 2c9180877a7c8e88017a7d1234567890
+  sourceName:
+    description: The display name of the source.
+    type: string
+    example: AD Corp
+  type:
+    description: The entitlement type.
+    type: string
+    example: group
+  value:
+    description: The entitlement value or distinguished name.
+    type: string
+    example: CN=Domain Admins,CN=Users,DC=corp,DC=example,DC=com
+  status:
+    description: The current review status of this instance.
+    type: string
+    example: suggested
+  privilegeLevel:
+    description: The currently assigned privilege level, if any.
+    type: string
+    nullable: true
+    example: high
+  description:
+    description: The current description of the entitlement, if one exists.
+    type: string
+    nullable: true
+    example: Grants full administrative access to the domain.
+  recommendedAt:
+    description: The timestamp when this instance was recommended.
+    type: string
+    format: date-time
+    example: '2026-03-01T00:00:00Z'

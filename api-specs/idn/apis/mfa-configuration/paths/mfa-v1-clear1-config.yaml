@@ -1,0 +1,132 @@
+get:
+  operationId: getMFAClear1ConfigV1
+  tags:
+  - MFA Configuration
+  summary: Configuration of CLEAR1 mfa method
+  description: This API returns the configuration of a CLEAR1 MFA method.
+  security:
+  - userAuth:
+    - idn:mfa-configuration:read
+    - idn:mfa-configuration:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  responses:
+    '200':
+      description: The configuration of a CLEAR1 MFA method.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/mfaclear1config.yaml
+          example:
+            mfaMethod: clear1
+            enabled: true
+            apiKey: s******O
+            knownUserKeyFlowConfig:
+              enabled: true
+              projectId: known-user-key-project-id
+              identityAttribute: clearUserId
+            establishedIdentityFlowConfig:
+              enabled: true
+              projectId: established-identity-project-id
+              userProfileMatchingAttributes:
+                first_name: firstname
+                last_name: lastname
+                dob: dob
+                email: email
+                phone: phone
+                line1: line1
+                line2: line2
+                city: city
+                state: state
+                postal_code: postalcode
+                country: country
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+put:
+  operationId: setMFAClear1ConfigV1
+  tags:
+  - MFA Configuration
+  summary: Set CLEAR1 mfa configuration
+  description: This API sets the configuration of a CLEAR1 MFA method.
+  security:
+  - userAuth:
+    - idn:mfa-configuration:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/mfaclear1config.yaml
+        example:
+          mfaMethod: clear1
+          enabled: true
+          apiKey: sk123Y3QlA5UqocYpdU3rEkzrK2D497O
+          knownUserKeyFlowConfig:
+            enabled: true
+            projectId: known-user-key-project-id
+            identityAttribute: clearUserId
+          establishedIdentityFlowConfig:
+            enabled: true
+            projectId: established-identity-project-id
+            userProfileMatchingAttributes:
+              first_name: firstname
+              last_name: lastname
+              dob: dob
+              email: email
+              phone: phone
+              line1: line1
+              line2: line2
+              city: city
+              state: state
+              postal_code: postalcode
+              country: country
+  responses:
+    '200':
+      description: MFA configuration of a CLEAR1 MFA method.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/mfaclear1config.yaml
+          example:
+            mfaMethod: clear1
+            enabled: true
+            apiKey: s******O
+            knownUserKeyFlowConfig:
+              enabled: true
+              projectId: known-user-key-project-id
+              identityAttribute: clearUserId
+            establishedIdentityFlowConfig:
+              enabled: true
+              projectId: established-identity-project-id
+              userProfileMatchingAttributes:
+                first_name: firstname
+                last_name: lastname
+                dob: dob
+                email: email
+                phone: phone
+                line1: line1
+                line2: line2
+                city: city
+                state: state
+                postal_code: postalcode
+                country: country
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

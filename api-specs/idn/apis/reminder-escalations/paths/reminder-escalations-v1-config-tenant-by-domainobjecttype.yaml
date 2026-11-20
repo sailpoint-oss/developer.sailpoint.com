@@ -1,0 +1,173 @@
+get:
+  tags:
+  - Reminder Escalations
+  operationId: getReminderEscalationTenantConfigV1
+  summary: Get Reminder Escalation Tenant Config
+  description: |-
+    Returns the tenant-default reminder and escalation ruleset for a domain object type in the authenticated tenant.
+  security:
+  - userAuth:
+    - idn:reminder-escalation-config:read
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  parameters:
+  - in: path
+    name: domainObjectType
+    required: true
+    schema:
+      type: string
+      enum:
+      - PERSONAL_ACCESS_TOKEN
+      - CERTIFICATION
+    description: Domain object type key.
+    example: CERTIFICATION
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: "true"
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Tenant default.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/reminderescalationtenantconfig.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+put:
+  tags:
+  - Reminder Escalations
+  operationId: putReminderEscalationTenantConfigV1
+  summary: Update Reminder Escalation Tenant Config
+  description: |-
+    Replaces the tenant-default ruleset for a domain object type.
+    Send the `revision` from the latest read. A stale revision returns 409.
+  security:
+  - userAuth:
+    - idn:reminder-escalation-config:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  parameters:
+  - in: path
+    name: domainObjectType
+    required: true
+    schema:
+      type: string
+      enum:
+      - PERSONAL_ACCESS_TOKEN
+      - CERTIFICATION
+    description: Domain object type key.
+    example: CERTIFICATION
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: "true"
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/reminderescalationtenantconfigupdate.yaml
+        examples:
+          bumpReminders:
+            summary: Replace rules using the current revision
+            value:
+              revision: 1
+              rules:
+                reminders:
+                - cron: "0 9 * * *"
+                  beforeDeadLine: P7D
+                  template: cert-reminder-daily
+                escalations:
+                - trigger:
+                    triggerType: AFTER_REMINDER_COUNT
+                    count: 2
+                    delay: PT4H
+                  targets:
+                  - targetType: MANAGER_OF
+                  template: cert-escalation-mgr
+  responses:
+    '200':
+      description: Tenant default updated.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/reminderescalationtenantconfig.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '409':
+      $ref: ../responses/409.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+delete:
+  tags:
+  - Reminder Escalations
+  operationId: deleteReminderEscalationTenantConfigV1
+  summary: Delete Reminder Escalation Tenant Config
+  description: |-
+    Deletes the tenant-default ruleset for a domain object type in the authenticated tenant.
+  security:
+  - userAuth:
+    - idn:reminder-escalation-config:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  parameters:
+  - in: path
+    name: domainObjectType
+    required: true
+    schema:
+      type: string
+      enum:
+      - PERSONAL_ACCESS_TOKEN
+      - CERTIFICATION
+    description: Domain object type key.
+    example: CERTIFICATION
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: "true"
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '204':
+      $ref: ../../shared/responses/204.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

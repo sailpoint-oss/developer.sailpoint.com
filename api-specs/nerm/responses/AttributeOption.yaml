@@ -1,0 +1,8 @@
+description: Expected response to a valid request
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        ne_attribute_option:
+          $ref: '../schemas/GET/AttributeOption.yaml'

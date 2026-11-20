@@ -1,0 +1,18 @@
+type: object
+description: Type of Reassignment Configuration.
+properties:
+  priority:
+    type: integer
+    example: 1
+  internalName:
+    $ref: 'ConfigTypeEnumCamel.yaml'
+  internalNameCamel:
+    $ref: 'ConfigTypeEnum.yaml'
+  displayName:
+    type: string
+    description: Human readable display name of the type to be shown on UI
+    example: Access Requests
+  description:
+    type: string
+    description: Description of the type of work to be reassigned, displayed by the UI.
+    example: Reassign Access Request Work Items for an identity

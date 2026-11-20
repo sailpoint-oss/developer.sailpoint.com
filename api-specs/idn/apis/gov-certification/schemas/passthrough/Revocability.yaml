@@ -1,0 +1,8 @@
+type: object
+description: Revocation request configuration for this object.
+properties:
+  approvalSchemes:
+    type: array
+    description: List describing the steps in approving the revocation request
+    items:
+      $ref: './AccessProfileApprovalScheme.yaml'

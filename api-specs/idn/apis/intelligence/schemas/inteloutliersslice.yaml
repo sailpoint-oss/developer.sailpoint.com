@@ -1,0 +1,9 @@
+type: object
+required:
+  - rareAccess
+description: Outlier slices embedded in the aggregate identity response.
+properties:
+  rareAccess:
+    description: First page of rare access items for the identity.
+    allOf:
+    - $ref: ./intelrareaccessslice.yaml

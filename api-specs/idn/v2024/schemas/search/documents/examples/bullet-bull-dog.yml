@@ -1,0 +1,5 @@
+summary : "A sample dog"
+value: 
+  id: 1
+  name: "bullet"
+  _type: "dog"

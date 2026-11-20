@@ -1,0 +1,86 @@
+post:
+  operationId: createMachineAccountV2
+  x-sailpoint-lint-ignore:
+    path-create-operations-must-return-201: Accepts the request and returns 202. Callers poll the v1 status path for the result.
+  tags:
+  - Machine Account Creation Request
+  summary: Create Machine Account (v2)
+  security:
+  - userAuth:
+    - sp:scopes:default
+  x-sailpoint-userLevels:
+  - USER
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: "true"
+    schema:
+      type: string
+      default: "true"
+    required: true
+  description: >
+    Submits a machine account creation request. New integrations should use this operation.
+
+    This operation accepts the same request and runs the same creation process as
+    [Submit Machine Account Creation Request](https://developer.sailpoint.com/docs/api/create-machine-account-request-v-2).
+    That operation stays on the account-requests API for integrations that already call it.
+    When version 1 cannot create the account because the subtype is not tied to a single source, the error directs the caller here.
+
+    This method validates the input data, processes the machine account creation request,
+    and returns an asynchronous result containing a tracking ID.
+
+
+    Compared with v1, this version:
+
+    - Accepts a `sourceId` so you can choose the source to create the account on. `sourceId` is required while tiered
+    subtype configuration is enabled, and the subtype must be in that source's effective set. When that flag is off,
+    `sourceId` is ignored and the source is the subtype's own source.
+
+    - Accepts `entitlements` (comment, start date, and remove date) while per-entitlement request details are enabled.
+    `entitlementIds` is honored while that flag is off. A non-empty list of the other kind returns `400`.
+
+    - Supports subtypes that are not tied to a single source while tiered subtype configuration is enabled. Version 1
+    rejects those subtypes.
+
+
+    There is no v2 status endpoint. Use the returned `accountRequestId` with
+    [Get Machine Account Creation Request](https://developer.sailpoint.com/docs/api/get-create-machine-account-request-v-1)
+    to track the request.
+
+
+    This API returns `403` when machine identity creation is not included in the tenant's plan.
+    When machine account creation is not enabled for the tenant, this API returns `404`.
+
+
+    This API requires the `sp:scopes:default` scope.
+
+    >**NOTE: You can only request a machine account on a subtype for which you have a create machine account
+    entitlement provisioned. Otherwise, this API returns `403`.**
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/machineaccountcreaterequestinputv2.yaml
+  responses:
+    '202':
+      description: Machine account creation request result.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/accountrequestasyncresult.yaml
+          example:
+            accountRequestId: 2d81808474683da6017468693c260196
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

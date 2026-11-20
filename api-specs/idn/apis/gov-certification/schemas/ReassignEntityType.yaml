@@ -1,0 +1,6 @@
+type: string
+enum:
+  - SUBJECT
+  - ITEM
+description: The type of item or identity being reassigned.
+example: ITEM

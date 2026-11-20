@@ -1,0 +1,9 @@
+description: Expected response to a valid request
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        user_profile:
+          type: object
+          $ref: '../schemas/GET/UserProfile.yaml'

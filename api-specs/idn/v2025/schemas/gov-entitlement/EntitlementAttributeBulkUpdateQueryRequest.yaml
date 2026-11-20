@@ -1,0 +1,21 @@
+type: object
+properties:
+  query:
+    $ref: ../search/Search.yaml
+  operation:
+    type: string
+    description: Operation to perform on the attributes in the bulk update request.
+    enum:
+      - ADD
+      - REMOVE
+      - REPLACE
+    example: add
+  replaceScope:
+    type: string
+    description: The choice of update scope.
+    enum:
+      - ALL
+      - ATTRIBUTE
+    example: attribute
+  values:
+    $ref: BulkUpdateAMMKeyValue.yaml

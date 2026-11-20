@@ -1,0 +1,25 @@
+type: object
+title: Machine Identity Security Bulk Update Request
+description: Request body for applying the same JSON Patch document to multiple machine identities or machine accounts.
+properties:
+  ids:
+    type: array
+    description: Machine identity or machine account IDs to update.
+    maxItems: 100
+    items:
+      type: string
+      maxLength: 128
+    example:
+      - ef38f94347e94562b5bb8424a56397d8
+  jsonPatch:
+    type: array
+    description: JSON Patch operations to apply to each ID in the request (RFC 6902).
+    items:
+      $ref: './JsonPatchOperation.yaml'
+    example:
+      - op: replace
+        path: /description
+        value: Updated description
+required:
+  - ids
+  - jsonPatch

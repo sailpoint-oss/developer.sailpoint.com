@@ -1,0 +1,34 @@
+type: object
+title: Machine Identity Application Counts
+description: Tenant-wide summary counts for application machine identities.
+properties:
+  applicationCount:
+    type: integer
+    format: int64
+    description: Total number of applications.
+    example: 120
+  unsanctionedApplicationCount:
+    type: integer
+    format: int64
+    description: Number of applications that are not sanctioned.
+    example: 9
+  discovered:
+    description: Applications discovered in the last 30 days.
+    $ref: ./machineidentitydiscoveredcounts.yaml
+  riskSeverity:
+    description: Applications grouped by risk severity.
+    $ref: ./machineidentityriskseveritycounts.yaml
+  ownership:
+    type: object
+    description: Ownership coverage of applications.
+    properties:
+      ownedApplications:
+        type: integer
+        format: int64
+        description: Number of applications that have at least one owner.
+        example: 95
+      ownedPercent:
+        type: integer
+        format: int32
+        description: Percentage of applications that have at least one owner.
+        example: 79

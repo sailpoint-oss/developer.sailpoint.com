@@ -1,0 +1,13 @@
+type: string
+description: Status of the lifecycle action request.
+enum:
+  - RECEIVED
+  - PENDING_APPROVAL
+  - APPROVED
+  - REJECTED
+  - PROVISIONING
+  - COMPLETED
+  - FAILED
+  - CANCELING
+  - CANCELED
+example: RECEIVED

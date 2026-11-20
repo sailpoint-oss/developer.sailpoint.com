@@ -1,0 +1,15 @@
+allOf:
+  - type: object
+    properties:
+      definition:
+        type: object
+        description: The workflow definition for the workflow execution
+        $ref: './WorkflowDefinition.yaml'
+      history:
+        type: object
+        description: List of workflow execution events for the given workflow execution
+        $ref: './WorkflowExecutionEvent.yaml'
+      trigger:
+        type: object
+        description: The trigger that initiated the workflow execution
+        $ref: './WorkflowTrigger.yaml'

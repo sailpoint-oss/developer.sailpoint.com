@@ -1,0 +1,8 @@
+summary: Query for workflow summaries
+value:
+  indices:
+    - workflowsummaries
+  query:
+    query: workflowId:"61c90819-2922-421a-bdfc-384cae2e4606"
+  sort:
+    - -created

@@ -1,0 +1,23 @@
+summary: Workflow summary
+value:
+  id: b393f4e2-4785-4d7f-ab27-3a6b8ded4c81-3
+  workflowExecutionId: b393f4e2-4785-4d7f-ab27-3a6b8ded4c81
+  eventId: 3
+  workflowName: Send Email
+  workflowId: d201c5d9-d37b-4a2f-af14-66414f39d568
+  status: Completed
+  workflowTest: false
+  owner:
+    type: IDENTITY
+    id: 2c9180844d5c0ab5014d5fb5bc6c0bc8
+    name: William Wilson
+  requestId: 41e12a74fa7b4a6a98ae47887b64acdb
+  created: '2022-02-07T20:13:31.640618296Z'
+  synced: '2022-02-07T20:13:32.104Z'
+  type: ActivityTaskCompleted
+  attributes:
+    task: sp:send-email
+    stepName: sendEmail
+    displayName: Send Email
+    technicalName: sendEmail
+    result: '{"status":"sent"}'

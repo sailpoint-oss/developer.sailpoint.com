@@ -1,0 +1,36 @@
+type: object
+title: Config Import Response Body
+description: Response Body for Config Import command.
+properties:
+  results:
+    type: object
+    additionalProperties:
+      $ref: '../../beta/schemas/ObjectImportResult.yaml'
+    description: The results of an object configuration import job.
+    example: {
+          "results": {
+            "TRIGGER_SUBSCRIPTION": {
+              "infos": [
+              {
+                "key": "IMPORT_PREVIEW",
+                "text": "Object to be imported: [c953134c-2224-42f2-a84e-fa5cbb395904, Test 2]",
+                "detail": null
+              },
+              {
+                "key": "IMPORT_PREVIEW",
+                "text": "Object to be imported: [be9e116d-08e1-49fc-ab7f-fa585e96c9e4, Test 1]",
+                "detail": null
+              }
+              ],
+              "warnings": [],
+              "errors": [],
+              "importedObjects": []
+            }
+          }
+        }
+  exportJobId:
+    type: string
+    description: If a backup was performed before the import, this will contain the jobId of the backup job. This id can be used to retrieve the json file of the backup export.
+    example: "be9e116d-08e1-49fc-ab7f-fa585e96c9e4"
+required:
+  - results

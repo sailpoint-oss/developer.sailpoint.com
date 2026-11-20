@@ -1,0 +1,260 @@
+title: Account Updated
+type: object
+required:
+- event
+- source
+- account
+- identity
+- accountChangeTypes
+- singleValueAttributeChanges
+- multiValueAttributeChanges
+- entitlementChanges
+properties:
+  event:
+    type: object
+    description: Details about the event.
+    required:
+      - type
+      - cause
+    properties:
+      type:
+        type: string
+        description: The type of event.
+        enum:
+          - ACCOUNT_UPDATED_V2
+        example: ACCOUNT_UPDATED_V2
+      cause:
+        type: string
+        description: The cause of the event.
+        enum:
+          - AGGREGATION
+          - PROVISIONING
+          - PASSWORD_CHANGE
+        example: AGGREGATION
+  source:
+    $ref: './AccountSourceReference.yaml'
+  account:
+    $ref: './AccountV2.yaml'
+  identity:
+    $ref: './IdentityReference.yaml'
+  accountChangeTypes:
+    type: array
+    description: The types of changes that occurred to the account.
+    items:
+      type: string
+      enum:
+        - ATTRIBUTES_CHANGED
+        - ENTITLEMENTS_ADDED
+        - ENTITLEMENTS_REMOVED
+      example: ATTRIBUTES_CHANGED
+  singleValueAttributeChanges:
+    type: array
+    description: Details about the single-value attribute changes that occurred to the account.
+    nullable: true
+    items:
+      type: object
+      required:
+        - name
+        - oldValue
+        - newValue
+      properties:
+        name:
+            type: string
+            description: The name of the attribute that was changed.
+            example: displayName
+        oldValue:
+            description: The old value of the attribute before the change.
+            nullable: true
+            oneOf:
+              - type: string
+              - type: boolean
+              - type: number
+              - type: array
+                items:
+                  type: string
+                nullable: true
+            example: John Doe
+        newValue:
+            description: The new value of the attribute after the change.
+            nullable: true
+            oneOf:
+              - type: string
+              - type: boolean
+              - type: number
+              - type: array
+                items:
+                  type: string
+                nullable: true
+            example: John A. Doe
+  multiValueAttributeChanges:
+    type: array
+    nullable: true
+    description: Details about the multi-value attribute changes that occurred to the account.
+    items:
+      type: object
+      required:
+        - name
+        - addedValues
+        - removedValues
+      properties:
+        name:
+          type: string
+          description: The name of the attribute that was changed.
+          example: memberOf
+        addedValues:
+          type: array
+          description: The values that were added to the attribute.
+          items:
+            oneOf:
+              - type: string
+              - type: boolean
+              - type: number
+              - type: array
+                items:
+                  type: string
+                nullable: true
+          example: [
+              "CN=Sales,OU=Groups,DC=acme,DC=com",
+              "CN=AllEmployees,OU=Groups,DC=acme,DC=com"
+            ]
+        removedValues:
+          type: array
+          description: The values that were removed from the attribute.
+          items:
+            oneOf:
+              - type: string
+              - type: boolean
+              - type: number
+              - type: array
+                items:
+                  type: string
+                nullable: true
+          example: [
+            "CN=AllEmployees,OU=Groups,DC=acme,DC=com",
+            "CN=Contractors,OU=Groups,DC=acme,DC=com"
+          ]
+  entitlementChanges:
+    type: array
+    description: Details about the entitlement changes that occurred to the account.
+    nullable: true
+    items:
+      type: object
+      required:
+        - attributeName
+        - added
+        - removed
+      properties:
+        attributeName:
+          type: string
+          description: The name of the entitlement attribute that was changed.
+          example: roles
+        added:
+          type: array
+          nullable: true
+          description: The entitlements that were added.
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: The unique identifier of the entitlement.
+                nullable: true
+                example: 2c9180835d2e5168015d32f890ca1581
+              name:
+                type: string
+                description: The name of the entitlement.
+                nullable: true
+                example: Admin
+              owner:
+                type: object
+                description: The type of the entitlement.
+                properties:
+                  id:
+                    type: string
+                    description: The unique identifier of the owner.
+                    example: 2c9180835d2e5168015d32f890ca1581
+                  name:
+                    type: string
+                    description: The name of the owner.
+                    nullable: true
+                    example: Owner Name
+                  type:
+                    type: string
+                    description: The type of the owner.
+                    example: Primary
+              value:
+                type: string
+                description: The value of the entitlement.
+                example: Admin
+          example: [
+            {
+              "id": "2c9180835d2e5168015d32f890ca1581",
+              "name": "Admin",
+              "owner": {
+                "id": "2c9180835d2e5168015d32f890ca1581",
+                "name": "Owner Name",
+                "type": "Primary"
+              },
+              "value": "Admin"
+            },
+            {
+              "id": "2c9180835d2e5168015d32f890ca1582",
+              "name": "User",
+              "owner": {
+                "id": "2c9180835d2e5168015d32f890ca1582",
+                "name": "Owner Name 2",
+                "type": "Secondary"
+              },
+              "value": "User"
+            }
+          ]
+        removed:
+          type: array
+          description: The entitlements that were removed.
+          nullable: true
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: The unique identifier of the entitlement.
+                nullable: true
+                example: 2c9180835d2e5168015d32f890ca1581
+              name:
+                type: string
+                description: The name of the entitlement.
+                nullable: true
+                example: Admin
+              owner:
+                type: object
+                description: The type of the entitlement.
+                properties:
+                  id:
+                    type: string
+                    description: The unique identifier of the owner.
+                    example: 2c9180835d2e5168015d32f890ca1581
+                  name:
+                    type: string
+                    description: The name of the owner.
+                    nullable: true
+                    example: Owner Name
+                  type:
+                    type: string
+                    description: The type of the owner.
+                    example: Primary
+              value:
+                type: string
+                description: The value of the entitlement.
+                example: Admin
+          example: [
+            {
+              "id": "2c9180835d2e5168015d32f890ca1583",
+              "name": "Group",
+              "owner": {
+                "id": "2c9180835d2e5168015d32f890ca1583",
+                "name": "Owner Name 3",
+                "type": "Primary"
+              },
+              "value": "Group"
+            }
+          ]

@@ -1,0 +1,12 @@
+title: Target Attributes
+type: object
+description: The attribute names a machine mapping can target.
+properties:
+  attributes:
+    type: array
+    description: The target attribute names.
+    items:
+      type: string
+    example:
+      - name
+      - nativeIdentity

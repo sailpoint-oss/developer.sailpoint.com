@@ -1,0 +1,40 @@
+type: object
+required:
+  - id
+  - name
+  - campaignId
+  - type
+  - format
+  - created
+  - status
+properties:
+  id:
+    type: string
+    format: uuid
+    description: The unique ID of the campaign report.
+    example: e1aeb0b6-0021-4f40-8bc7-5c56533214b3
+  name:
+    type: string
+    description: The human readable report name
+    example: ABC Campaign - Sign Off Report 2024-10-16_13:18UTC
+  campaignId:
+    type: string
+    format: uuid
+    description: The unique ID of the campaign.
+    example: 4e1aeef7-3742-40ea-920b-deeb8d20d7ee
+  type:
+    $ref: "./CampaignReportType.yaml"
+  format:
+    $ref: "./CampaignReportFormat.yaml"
+  created:
+    type: string
+    format: date-time
+    description: The date the report was created.
+    example: "2018-10-19T13:49:37.385Z"
+  modified:
+    type: string
+    format: date-time
+    description: The date the report was modified.
+    example: "2018-10-19T13:49:37.385Z"
+  status:
+    $ref: "./CampaignReportStatus.yaml"

@@ -1,0 +1,35 @@
+post:
+  security:
+  - userAuth:
+    - sp:approvals:write
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  operationId: cancelApprovalV1
+  tags:
+  - Approvals
+  summary: Post Bulk Cancel Approvals
+  description: |-
+    Bulk cancels specified approval requests on behalf of the caller. 
+    Note: To bulk cancel access request approvals, please use the following:
+    /access-requests/bulk-cancel
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/bulkcancelrequestdto.yaml
+  responses:
+    '202':
+      $ref: ../../shared/responses/202.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

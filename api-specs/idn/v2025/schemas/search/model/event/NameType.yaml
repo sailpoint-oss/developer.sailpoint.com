@@ -1,0 +1,8 @@
+type: object
+properties:
+  name:
+    type: string
+    example: 'John Doe'
+    description: the actor or target name
+  type:
+    $ref: '../../../DtoType.yaml'

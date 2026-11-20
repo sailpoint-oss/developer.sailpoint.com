@@ -1,0 +1,22 @@
+type: object
+description: |
+  Reference to the source system or object (for example the application backing an entitlement).
+  On GET, when the conflicting item type is ENTITLEMENT, hydration may populate these fields from
+  the entitlement service payload's `source` object.
+properties:
+  id:
+    type: string
+    description: Source resource identifier when known.
+    example: 2c9180825a6c1adc015a71c9db2101a1
+  name:
+    type: string
+    description: Display name of the source.
+    example: Active Directory
+  type:
+    type: string
+    description: Source type classification (for example application or connector type).
+    example: DIRECT_CONNECT
+  description:
+    type: string
+    description: Human-readable description of the source.
+    example: Corporate Active Directory source.

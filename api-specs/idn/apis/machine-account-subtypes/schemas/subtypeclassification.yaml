@@ -1,0 +1,6 @@
+type: string
+title: Subtype Classification
+description: Classification of the subtype. Published values are `MACHINE`.
+enum:
+  - MACHINE
+example: MACHINE

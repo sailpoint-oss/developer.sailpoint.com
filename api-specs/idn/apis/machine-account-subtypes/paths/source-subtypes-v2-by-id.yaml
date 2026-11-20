@@ -1,0 +1,234 @@
+get:
+  summary: Get tiered subtype by ID
+  description: |
+    Returns one machine account subtype by id, including whether its target can provision accounts.
+
+    Unknown id returns **404**. A caller without the required right also receives **404**. If
+    provisioning support cannot be determined, the API returns **503**. When the experimental
+    header is missing, or when tiered subtype configuration is not enabled, the endpoint returns
+    **404**.
+  operationId: getSourceSubtypeByIdV2
+  tags:
+  - Machine Account Subtypes
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+      format: uuid
+    required: true
+    x-sailpoint-resource-operation-id: listSourceSubtypesV2
+    description: The ID of the subtype.
+    example: 43bdd144-4b17-4fce-a744-17c7fd3e717b
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: "true"
+    schema:
+      type: string
+      default: "true"
+    required: true
+  responses:
+    '200':
+      description: Tiered machine account subtype, including `target.supportsProvisioning`.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/subtypewithtargetprovisioning.yaml
+          examples:
+            ConnectorSubtype:
+              value:
+                id: 43bdd144-4b17-4fce-a744-17c7fd3e717b
+                technicalName: nonPersonal
+                displayName: Non Personal
+                description: Machine accounts for JDBC connectors
+                type: MACHINE
+                targetType: CONNECTOR
+                targetId: JDBC
+                targetName: JDBC
+                classification: MACHINE
+                origin: null
+                profile: null
+                systemManaged: false
+                created: '2026-08-18T12:00:00.000Z'
+                modified: '2026-08-18T12:00:00.000Z'
+                target:
+                  type: CONNECTOR
+                  id: JDBC
+                  name: JDBC
+                  supportsProvisioning: true
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+    '503':
+      description: >-
+        Connector catalogue timeout, HTTP error, or unparseable payload while resolving
+        `supportsProvisioning` for a CONNECTOR target.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+  security:
+  - userAuth:
+    - idn:source-subtypes:read
+  - applicationAuth:
+    - idn:source-subtypes:read
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+patch:
+  summary: Patch tiered subtype by ID
+  description: |
+    Applies an RFC 6902 JSON Patch to a tiered subtype.
+
+    Patchable fields are `displayName` and `description` only. Tier and identity fields
+    (`technicalName`, `targetType`, `targetId`, `profile`, `classification`, `type`) are immutable;
+    change them by deleting and recreating the subtype.
+
+    SOURCE-tier update requires `idn:source-subtypes:update`. CONNECTOR-tier update requires
+    `idn:connector-subtypes:update`. Unknown id and a denied tier are both returned as **404**. A
+    malformed UUID returns **400**. System-managed rows and a duplicate display name in the same
+    tier scope return **400**.
+
+    When the experimental header is missing, or when the tiered subtype configuration is not enabled
+    for the tenant, the endpoint returns **404**.
+  operationId: patchMachineAccountSubtypeV2
+  tags:
+  - Machine Account Subtypes
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+      format: uuid
+    required: true
+    x-sailpoint-resource-operation-id: listSourceSubtypesV2
+    description: The ID of the subtype.
+    example: 43bdd144-4b17-4fce-a744-17c7fd3e717b
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: "true"
+    schema:
+      type: string
+      default: "true"
+    required: true
+  requestBody:
+    required: true
+    description: A list of subtype update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../shared/schemas/jsonpatchoperation.yaml
+        examples:
+          Update display name and description:
+            value:
+            - op: replace
+              path: /displayName
+              value: Non-personal accounts
+            - op: replace
+              path: /description
+              value: Accounts used by automated services.
+  responses:
+    '200':
+      description: Updated tiered machine account subtype.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/subtypewithtarget.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:source-subtypes:update
+    - idn:connector-subtypes:update
+  - applicationAuth:
+    - idn:source-subtypes:update
+    - idn:connector-subtypes:update
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+delete:
+  summary: Delete tiered subtype by ID
+  description: |
+    Deletes a tiered subtype by id.
+
+    System-managed subtypes return **400**. A subtype that is still assigned to accounts returns
+    **400**. A connector-tier response includes how many accounts and sources still use it.
+
+    SOURCE-tier delete requires `idn:source-subtypes:delete`. CONNECTOR-tier delete requires
+    `idn:connector-subtypes:delete`. Unknown id and a denied tier are both returned as **404**. A
+    malformed UUID returns **400**.
+
+    When the experimental header is missing, or when the tiered subtype configuration is not enabled
+    for the tenant, the endpoint returns **404**.
+  operationId: deleteMachineAccountSubtypeV2
+  tags:
+  - Machine Account Subtypes
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+      format: uuid
+    required: true
+    x-sailpoint-resource-operation-id: listSourceSubtypesV2
+    description: The ID of the subtype.
+    example: 43bdd144-4b17-4fce-a744-17c7fd3e717b
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: "true"
+    schema:
+      type: string
+      default: "true"
+    required: true
+  responses:
+    '204':
+      $ref: ../../shared/responses/204.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:source-subtypes:delete
+    - idn:connector-subtypes:delete
+  - applicationAuth:
+    - idn:source-subtypes:delete
+    - idn:connector-subtypes:delete
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN

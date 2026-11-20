@@ -1,0 +1,11 @@
+description: >-
+  REVOKE_ACCESS for a human identity using the flat requestedFor / requestedItems
+  shape. Comment is required. Human revoke cannot use requestedForWithRequestedItems.
+value:
+  requestType: REVOKE_ACCESS
+  requestedFor:
+    - 2c918084660f45d6016617daa9210584
+  requestedItems:
+    - type: ACCESS_PROFILE
+      id: 2c9180835d2e5168015d32f890ca1581
+      comment: I no longer need this access profile.

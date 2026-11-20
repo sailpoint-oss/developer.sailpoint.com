@@ -1,0 +1,82 @@
+post:
+  operationId: createResponseActionV1
+  security:
+  - userAuth:
+    - sp:identity-sec-intel:write
+  - applicationAuth:
+    - sp:identity-sec-intel:write
+  x-required-right: sp:identity-sec-intel:write
+  x-sailpoint-userLevels:
+  - Any
+  tags:
+  - Intelligence
+  summary: Create a response action
+  description: |
+    Requires tenant license idn:response-and-remediation.
+
+    Creates a response action: the request is validated, a requestId (the correlation id) is
+    minted, the action is recorded as SUBMITTED, and an event is published that triggers the
+    correlated workflow(s).
+
+    Returns HTTP 202 with the requestId, an initial SUBMITTED status, and a statusUrl. Poll
+    GET /intelligence/v1/response-actions/{requestId}/status for progress.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/response-action-create-request.yaml
+        examples:
+          disableIdentity:
+            summary: Disable an identity
+            value:
+              actionType: DISABLE_IDENTITY
+              identityType: HUMAN
+              identityId: 2c918085842e69ae018428c919680149
+              context:
+                source: CROWDSTRIKE
+                externalAlertId: CS-FALCON-12345
+                reason: Malware detected on endpoint DESKTOP-A1B2C3
+                operator: soc-analyst@customer.com
+          disableAccount:
+            summary: Disable one or more accounts
+            value:
+              actionType: DISABLE_ACCOUNT
+              identityType: HUMAN
+              identityId: 2c918085842e69ae018428c919680149
+              accountIds:
+                - 2c918085abc000000000000000000001
+              context:
+                source: CROWDSTRIKE
+                externalAlertId: CS-FALCON-12345
+                reason: Contain compromised account
+                operator: soc-analyst@customer.com
+  responses:
+    '202':
+      description: The response action was accepted and is being processed asynchronously.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/response-action-accepted.yaml
+          example:
+            requestId: 3f1e6c9a-8b2d-4e5f-9a1b-2c3d4e5f6a7b
+            status: SUBMITTED
+            statusUrl: /intelligence/v1/response-actions/3f1e6c9a-8b2d-4e5f-9a1b-2c3d4e5f6a7b/status
+    '400':
+      description: Missing or invalid request body.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      description: Internal or upstream server failure.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml

@@ -1,0 +1,18 @@
+type: object
+title: IdentityV2PrivilegeLevel
+nullable: true
+description: >-
+  Effective privilege level of the identity with no privilege level is returned with effective set to NONE.
+properties:
+  effective:
+    type: string
+    description: >-
+      The effective privilege level of the identity. Returned values are uppercase. Filter and sort comparisons are
+      case-insensitive. An identity with no privilege level is NONE.
+    enum:
+      - HIGH
+      - MEDIUM
+      - LOW
+      - NONE
+    example: HIGH
+    nullable: true

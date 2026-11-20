@@ -1,0 +1,141 @@
+get:
+  x-sailpoint-lint-ignore:
+    path-list-operations-must-return-object: The list response is already released as a top-level array. Wrapping it in an object would break existing callers.
+  operationId: listMachineIdentityLifecycleActionsV1
+  tags:
+  - Machine Identity Lifecycle Actions
+  summary: List machine identity lifecycle actions
+  description: |
+    Returns the lifecycle action requests that you submitted. Requests that other users submitted
+    aren't included, even if you're an admin. If the call isn't made on behalf of an identity, the list
+    is empty.
+
+    When `limit` is omitted, up to 50 results are returned.
+  security:
+  - userAuth:
+    - sp:scopes:all
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+  - USER
+  parameters:
+  - in: query
+    name: filters
+    x-sailpoint-lint-ignore:
+      schema-optional-properties-must-have-default: There is no default filter. When filters is omitted, results aren't filtered.
+    required: false
+    schema:
+      type: string
+    description: >-
+      Filter results using the standard syntax described in [API Standard Collection
+      Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **resourceType**: *eq, in*
+
+
+      **operationType**: *eq, in*
+
+
+      **status**: *eq, in*
+
+
+      **completed**: *eq*
+
+
+      **targetId**: *eq*
+
+
+      **targetName**: *eq, sw*
+
+
+      **sourceId**: *eq*
+
+
+      **created**: *gt, ge, lt, le*
+
+
+      The `resourceType` filter matches the `targetType` field in the response.
+    example: status in ("RECEIVED","COMPLETED")
+  - in: query
+    name: sorters
+    schema:
+      type: string
+      format: comma-separated
+      default: -created
+    required: false
+    description: >-
+      Sort results using the standard syntax described in [API Standard Collection
+      Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)
+
+
+      Sorting is supported for the following fields: **created, modified, status**
+
+
+      Default sort is **-created** (newest first).
+    example: -created
+  - in: query
+    name: limit
+    description: >-
+      Max number of results to return. When omitted, the default limit is 50. The maximum allowed
+      limit is 250.
+
+
+      See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters)
+      for more information.
+    required: false
+    example: 50
+    schema:
+      type: integer
+      format: int32
+      minimum: 0
+      maximum: 250
+      default: 50
+  - $ref: ../../shared/parameters/offset.yaml
+  - $ref: ../../shared/parameters/count.yaml
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: 'true'
+    schema:
+      type: string
+      default: 'true'
+    required: true
+  responses:
+    '200':
+      description: Lifecycle action requests that you submitted.
+      headers:
+        X-Total-Count:
+          x-sailpoint-lint-ignore:
+            path-response-headers-must-be-lowercase-kebab-case: X-Total-Count is the standard header name used across SailPoint APIs. HTTP header names aren't case-sensitive.
+          description: The total result count (returned when count=true is passed).
+          schema:
+            type: integer
+            format: int32
+        Cache-Control:
+          x-sailpoint-lint-ignore:
+            path-response-headers-must-be-lowercase-kebab-case: Cache-Control is a standard HTTP header. HTTP header names aren't case-sensitive.
+          description: How long the client can cache the response.
+          schema:
+            type: string
+            example: private, max-age=5
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/lifecycleactionrequest.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

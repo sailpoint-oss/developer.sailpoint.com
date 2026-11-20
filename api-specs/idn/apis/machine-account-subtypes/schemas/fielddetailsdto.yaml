@@ -1,0 +1,42 @@
+type: object
+title: Field Details Dto
+properties:
+  name:
+    type: string
+    default: ""
+    description: The name of the attribute.
+    example: userName
+  transform:
+    type: object
+    description: The transform to apply to the field.
+    example:
+      type: rule
+      attributes:
+        name: Create Unique LDAP Attribute
+    default: {}
+  attributes:
+    type: object
+    default: {}
+    description: Attributes required for the transform.
+    example:
+      template: firstname.lastname.uniqueCounter
+      cloudMaxUniqueChecks: '50'
+      cloudMaxSize: '20'
+      cloudRequired: 'true'
+  isRequired:
+    type: boolean
+    description: Flag indicating whether or not the attribute is required.
+    default: false
+    example: false
+  type:
+    x-sailpoint-lint-ignore:
+      schema-property-names-must-not-be-type: The service returns this field as type. It is the provisioning attribute type, for example string.
+    type: string
+    default: string
+    description: The type of the attribute.
+    example: string
+  isMultiValued:
+    type: boolean
+    description: Flag indicating whether or not the attribute is multi-valued.
+    default: false
+    example: false

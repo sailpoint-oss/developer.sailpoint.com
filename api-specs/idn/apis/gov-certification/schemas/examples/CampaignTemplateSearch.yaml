@@ -1,0 +1,25 @@
+value:
+  id: 6a1c0c2e-4b77-4d8a-9f31-0c5e8a1b2d44
+  name: Search Campaign Template
+  description: Template for a search-based access review.
+  campaignName: Search Campaign
+  campaignDescription: A review of access returned by a search.
+  deadlineDuration: P14D
+  type: IDENTITY
+  ownerId: 7ec252ac-bd42-4554-8bc2-5df22348cb75
+  emailNotificationEnabled: false
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  sunsetCommentsRequired: true
+  reviewer:
+    type: MANAGER
+  searchBasedParams:
+    searchType: ACCESS
+    query: user
+  filterRef:
+    id: e0adaae6-9852-48fe-8b8a-3d48e5ce757c
+    name: Test Manager Filter
+  mandatoryCommentRequirement: NO_DECISIONS
+  scheduleStatus: NOT_SCHEDULED
+  created: '2022-08-02T19:16:42.632Z'
+  modified: '2022-08-02T19:16:42.632Z'

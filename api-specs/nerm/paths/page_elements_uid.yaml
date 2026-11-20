@@ -1,0 +1,50 @@
+---
+get:
+  summary: Find page element
+  operationId: getPageElementByUid
+  description: Info for a specific page element record by UID (user-specified identifier)
+  tags:
+    - page elements
+  parameters:
+    - $ref: "../parameters/path/uid.yaml"
+  responses:
+    '200':
+      $ref: "../responses/PageElement.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update page element
+  operationId: updatePageElementByUid
+  description: Update info for a specific page element record by UID (user-specified identifier)
+  tags:
+    - page elements
+  parameters:
+    - $ref: "../parameters/path/uid.yaml"
+  requestBody:
+    $ref: "../requestBodies/PATCH/PageElement.yaml"
+  responses:
+    '200':
+      $ref: "../responses/PageElement.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '404':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+delete:
+  summary: Delete page element
+  operationId: deletePageElementByUid
+  description: Delete page element by UID (user-specified identifier)
+  tags:
+    - page elements
+  parameters:
+    - $ref: "../parameters/path/uid.yaml"
+  responses:
+    '200':
+      $ref: "../responses/PageElement.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

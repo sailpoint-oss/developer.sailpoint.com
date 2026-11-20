@@ -1,0 +1,12 @@
+title: IDENTITY_PROFILE_IDENTITY_ERROR
+type: object
+description: >-
+  Arguments for Identity Profile Identity Error report (IDENTITY_PROFILE_IDENTITY_ERROR)
+required:
+  - authoritativeSource
+properties:
+  authoritativeSource:
+    type: string
+    description: >-
+      Source ID.
+    example: 1234sourceId5678902

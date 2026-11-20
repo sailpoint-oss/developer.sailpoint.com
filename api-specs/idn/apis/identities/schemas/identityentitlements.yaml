@@ -1,0 +1,13 @@
+type: object
+title: Identity Entitlements
+properties:
+  objectRef:
+    $ref: ./taggedobjectdto.yaml
+  tags:
+    type: array
+    items:
+      type: string
+    description: Labels to be applied to object.
+    example:
+      - BU_FINANCE
+      - PCI

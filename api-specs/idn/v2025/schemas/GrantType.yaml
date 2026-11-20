@@ -1,0 +1,7 @@
+description: OAuth2 Grant Type
+type: string
+example: CLIENT_CREDENTIALS
+enum:
+  - CLIENT_CREDENTIALS
+  - AUTHORIZATION_CODE
+  - REFRESH_TOKEN

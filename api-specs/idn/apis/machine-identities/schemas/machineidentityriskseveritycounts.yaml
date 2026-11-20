@@ -1,0 +1,35 @@
+type: object
+title: Machine Identity Risk Severity Counts
+nullable: true
+description: >-
+  Number of machine identities in each risk severity. This object is `null` when agentic risk scoring is not enabled
+  for the tenant.
+properties:
+  critical:
+    type: integer
+    format: int64
+    description: Number of machine identities with a CRITICAL risk severity.
+    example: 3
+  high:
+    type: integer
+    format: int64
+    description: Number of machine identities with a HIGH risk severity.
+    example: 12
+  medium:
+    type: integer
+    format: int64
+    description: Number of machine identities with a MEDIUM risk severity.
+    example: 25
+  low:
+    type: integer
+    format: int64
+    description: Number of machine identities with a LOW risk severity.
+    example: 40
+  unknown:
+    type: integer
+    format: int64
+    nullable: true
+    description: >-
+      Number of machine identities that have no risk severity. This value is `null` unless unclassified risk severity
+      counting is enabled for the tenant. Version 1 of the API always returns `null`.
+    example: 5

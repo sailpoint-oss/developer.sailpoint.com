@@ -1,0 +1,9 @@
+type: object
+properties:
+  results:
+    description: Results holds a list of PreDefinedSelectOption items
+    type: array
+    items:
+      $ref: ./predefinedselectoption.yaml
+    x-go-name: Results
+x-go-package: github.com/sailpoint/sp-forms/domain

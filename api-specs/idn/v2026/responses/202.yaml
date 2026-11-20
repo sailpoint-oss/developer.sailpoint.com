@@ -1,0 +1,5 @@
+description: Accepted - Returned if the request was successfully accepted into the system.
+content:
+  application/json:
+    schema:
+      type : object

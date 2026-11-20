@@ -1,0 +1,11 @@
+type: object
+title: License
+properties:
+  licenseId:
+    type: string
+    description: Name of the license
+    example: 'idn:access-request'
+  legacyFeatureName:
+    type: string
+    description: Legacy name of the license
+    example: ACCESS_REQUEST

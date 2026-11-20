@@ -1,0 +1,6 @@
+allOf:
+  - $ref: ./nonemployeeapprovalitembase.yaml
+  - type: object
+    properties:
+      nonEmployeeRequest:
+        $ref: ./nonemployeerequestlite.yaml

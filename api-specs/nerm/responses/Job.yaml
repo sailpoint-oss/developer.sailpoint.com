@@ -1,0 +1,32 @@
+description: Expected response to a valid request
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        uid:
+          type: string
+          format: uuid
+        status:
+          type: string
+          # enum: ["complete", "queued"]
+          example: "complete"
+        job_type:
+          type: string
+          example: import
+        job_data:
+          type: array
+          items:
+            type: object
+            properties:
+              user_id:
+                type: string
+                format: uuid
+              manager_id:
+                type: string
+                format: uuid
+              errors:
+                type: array
+                items:
+                  type: string
+                  example: Validation error for record in job

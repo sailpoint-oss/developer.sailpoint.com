@@ -1,0 +1,10 @@
+type: object
+title: Dataset Aggregation Request
+description: Optional request body for starting a dataset aggregation.
+properties:
+  config:
+    type: object
+    additionalProperties: true
+    description: Connector-specific aggregation configuration.
+    example:
+      region: us-east-1

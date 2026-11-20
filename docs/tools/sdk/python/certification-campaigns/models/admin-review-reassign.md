@@ -1,0 +1,30 @@
+# AdminReviewReassign
+
+# AdminReviewReassign
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**certification_ids** | **[]str** | List of certification IDs to reassign | [optional] 
+**reassign_to** | [**AdminReviewReassignReassignTo**](admin-review-reassign-reassign-to) |  | [optional] 
+**reason** | **str** | Comment to explain why the certification was reassigned | [optional] 
+\}
+
+## Example
+
+```python
+from sailpoint.certification_campaigns.models.admin_review_reassign import AdminReviewReassign
+
+admin_review_reassign = AdminReviewReassign(
+certification_ids=["af3859464779471211bb8424a563abc1","af3859464779471211bb8424a563abc2","af3859464779471211bb8424a563abc3"],
+reassign_to=sailpoint.certification_campaigns.models.admin_review_reassign_reassign_to.AdminReviewReassign_reassignTo(
+                    id = 'ef38f94347e94562b5bb8424a56397d8', 
+                    type = 'IDENTITY', ),
+reason='reassigned for some reason'
+)
+
+```
+[[Back to top]](#) 
+

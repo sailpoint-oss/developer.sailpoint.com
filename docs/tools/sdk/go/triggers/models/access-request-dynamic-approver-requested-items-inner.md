@@ -1,0 +1,211 @@
+# AccessRequestDynamicApproverRequestedItemsInner
+
+# AccessRequestDynamicApproverRequestedItemsInner
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **string** | The unique ID of the access item. | 
+**Name** | **string** | Human friendly name of the access item. | 
+**Description** | Pointer to **NullableString** | Extended description of the access item. | [optional] 
+**Type** | **string** | The type of access item being requested. | 
+**Operation** | **string** | Grant or revoke the access item | 
+**Comment** | Pointer to **NullableString** | A comment from the requestor on why the access is needed. | [optional] 
+**Form** | Pointer to [**AccessRequestDynamicApproverRequestedItemsInnerForm**](access-request-dynamic-approver-requested-items-inner-form) |  | [optional] 
+
+## Methods
+
+### NewAccessRequestDynamicApproverRequestedItemsInner
+
+`func NewAccessRequestDynamicApproverRequestedItemsInner(id string, name string, type_ string, operation string, ) *AccessRequestDynamicApproverRequestedItemsInner`
+
+NewAccessRequestDynamicApproverRequestedItemsInner instantiates a new AccessRequestDynamicApproverRequestedItemsInner object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewAccessRequestDynamicApproverRequestedItemsInnerWithDefaults
+
+`func NewAccessRequestDynamicApproverRequestedItemsInnerWithDefaults() *AccessRequestDynamicApproverRequestedItemsInner`
+
+NewAccessRequestDynamicApproverRequestedItemsInnerWithDefaults instantiates a new AccessRequestDynamicApproverRequestedItemsInner object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) SetId(v string)`
+
+SetId sets Id field to given value.
+
+
+### GetName
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) SetName(v string)`
+
+SetName sets Name field to given value.
+
+
+### GetDescription
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetType
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) SetType(v string)`
+
+SetType sets Type field to given value.
+
+
+### GetOperation
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) GetOperation() string`
+
+GetOperation returns the Operation field if non-nil, zero value otherwise.
+
+### GetOperationOk
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) GetOperationOk() (*string, bool)`
+
+GetOperationOk returns a tuple with the Operation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperation
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) SetOperation(v string)`
+
+SetOperation sets Operation field to given value.
+
+
+### GetComment
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) GetComment() string`
+
+GetComment returns the Comment field if non-nil, zero value otherwise.
+
+### GetCommentOk
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) GetCommentOk() (*string, bool)`
+
+GetCommentOk returns a tuple with the Comment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComment
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) SetComment(v string)`
+
+SetComment sets Comment field to given value.
+
+### HasComment
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) HasComment() bool`
+
+HasComment returns a boolean if a field has been set.
+
+### SetCommentNil
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) SetCommentNil(b bool)`
+
+ SetCommentNil sets the value for Comment to be an explicit nil
+
+### UnsetComment
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) UnsetComment()`
+
+UnsetComment ensures that no value is present for Comment, not even an explicit nil
+### GetForm
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) GetForm() AccessRequestDynamicApproverRequestedItemsInnerForm`
+
+GetForm returns the Form field if non-nil, zero value otherwise.
+
+### GetFormOk
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) GetFormOk() (*AccessRequestDynamicApproverRequestedItemsInnerForm, bool)`
+
+GetFormOk returns a tuple with the Form field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForm
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) SetForm(v AccessRequestDynamicApproverRequestedItemsInnerForm)`
+
+SetForm sets Form field to given value.
+
+### HasForm
+
+`func (o *AccessRequestDynamicApproverRequestedItemsInner) HasForm() bool`
+
+HasForm returns a boolean if a field has been set.
+
+

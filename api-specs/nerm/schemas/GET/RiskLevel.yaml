@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  uid:
+    type: string
+    readOnly: true
+  label:
+    type: string
+  points:
+    type: number
+    multipleOf: 0.01
+  order:
+    type: integer
+    minimum: 0

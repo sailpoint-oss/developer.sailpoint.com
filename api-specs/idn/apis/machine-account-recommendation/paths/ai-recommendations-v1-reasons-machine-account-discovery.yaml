@@ -1,0 +1,69 @@
+get:
+  operationId: listMachineAccountDiscoveryReasonsV1
+  tags:
+    - Machine Account Recommendation
+  summary: List machine account discovery reasons
+  description: |
+    This API returns the reasons that machine account discovery can report for a recommendation. Each reason has an
+    ID and a readable message. Use this list to show a message for each reason in a machine account recommendation.
+
+
+    Messages are localized. Send the `Accept-Language` header to choose a language. When the requested language is not
+    available, messages are returned in the default language.
+
+
+    The reasons are returned in the order defined by the catalog. When the catalog does not define an order, the
+    reasons are sorted by ID.
+
+
+    When machine account discovery is not enabled for the tenant, this API returns `404`.
+  security:
+    - userAuth:
+        - idn:accounts:read
+        - idn:accounts:manage
+    - applicationAuth:
+        - idn:accounts:read
+        - idn:accounts:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - HELPDESK
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+    - name: Accept-Language
+      in: header
+      description: Preferred language for the reason messages.
+      required: false
+      schema:
+        type: string
+        default: en
+      example: en-US
+  responses:
+    '200':
+      description: List of machine account discovery reasons.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/machineaccountdiscoveryreason.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

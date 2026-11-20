@@ -1,0 +1,43 @@
+get:
+  operationId: getSpConfigExport
+  security:
+    - userAuth: [sp:config:read, sp:config:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+  - SP-Config
+  summary: Download export job result.
+  description: 'This endpoint gets the export file resulting from the export job with
+    the requested `id` and downloads it to a file.
+
+    The request will need one of the following security scopes:
+
+    - sp:config:read - sp:config:manage'
+  parameters:
+  - in: path
+    name: id
+    schema:
+      type: string
+    required: true
+    x-sailpoint-resource-operation-id: exportSpConfig
+    description: The ID of the export job whose results will be downloaded.
+    example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      description: Exported JSON objects.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/SpConfigExportResults.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

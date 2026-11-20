@@ -1,0 +1,120 @@
+type: object
+title: IdentityV2
+description: Identity record returned by the search-backed identities v2 API.
+properties:
+  id:
+    type: string
+    description: System-generated unique ID of the identity.
+    example: 01f04e428c484542a241dc89c303b178
+    nullable: true
+  name:
+    type: string
+    description: Display name of the identity.
+    example: John Mathews
+    nullable: true
+  alias:
+    type: string
+    description: Alternate unique identifier of the identity. Equivalent to the account name on the authoritative source.
+    example: john.mathews
+    nullable: true
+  type:
+    type: string
+    description: The identity type.
+    example: HUMAN
+    nullable: true
+  emailAddress:
+    type: string
+    description: Email address of the identity.
+    example: john.mathews@example.com
+    nullable: true
+  identityStatus:
+    type: string
+    description: The identity's status in the system.
+    example: ACTIVE
+    nullable: true
+  processingState:
+    type: string
+    description: The processing state of the identity.
+    example: OK
+    nullable: true
+  protected:
+    type: boolean
+    description: Whether the identity is protected from accidental deletion or modification.
+    default: false
+    example: false
+  correlated:
+    type: boolean
+    description: Whether the identity is correlated to an authoritative account.
+    default: false
+    example: true
+  inactive:
+    type: boolean
+    description: Whether the identity is inactive.
+    default: false
+    example: false
+  isManager:
+    type: boolean
+    description: Whether this identity is a manager of another identity.
+    default: false
+    example: true
+  locked:
+    type: boolean
+    description: Whether the identity is locked.
+    default: false
+    example: false
+  disabled:
+    type: boolean
+    description: Whether the identity is disabled.
+    default: false
+    example: false
+  manager:
+    type: object
+    nullable: true
+    description: The identity's manager.
+    properties:
+      id:
+        type: string
+        description: ID of the identity's manager.
+        example: 2c4180a46faadee4016fb4e018c20626
+        nullable: true
+      name:
+        type: string
+        description: Display name of the identity's manager.
+        example: Robert Robinson
+        nullable: true
+      type:
+        type: string
+        description: DTO type of the identity's manager.
+        example: IDENTITY
+        nullable: true
+  lifecycleState:
+    allOf:
+      - $ref: ./lifecyclestatedto.yaml
+      - nullable: true
+        description: Lifecycle state name and whether that state was set manually.
+  created:
+    type: string
+    format: date-time
+    description: Creation date of the identity.
+    example: '2023-01-03T21:16:22.432Z'
+    nullable: true
+  modified:
+    type: string
+    format: date-time
+    description: Last modification date of the identity.
+    example: '2023-01-03T21:16:22.432Z'
+    nullable: true
+  synced:
+    type: string
+    format: date-time
+    description: Last time the identity was synchronized to search.
+    example: '2023-01-03T21:16:22.432Z'
+    nullable: true
+  lastRefresh:
+    type: string
+    format: date-time
+    description: The last time the identity was refreshed by the system.
+    example: '2020-11-22T15:42:31.123Z'
+    nullable: true
+  privilegeLevel:
+    $ref: ./identityv2privilegelevel.yaml

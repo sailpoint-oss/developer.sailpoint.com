@@ -1,0 +1,16 @@
+type: object
+title: Subtype Target
+description: >-
+  Resolved target of a tiered subtype on get-by-id. Extends the list/create/patch target reference
+  with `supportsProvisioning`. Not accepted on create.
+allOf:
+  - $ref: ./subtypetargetref.yaml
+  - type: object
+    properties:
+      supportsProvisioning:
+        type: boolean
+        default: false
+        description: >-
+          Whether the target can provision accounts. `false` when the target does not support
+          provisioning.
+        example: true

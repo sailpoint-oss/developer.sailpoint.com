@@ -1,0 +1,11 @@
+value:
+  id: 2c918086719eec070171a7e3355a412b
+  name: AD Source Review
+  description: A review of our AD source.
+  deadline: "2020-12-25T06:00:00.123Z"
+  type: SOURCE_OWNER
+  status: STAGED
+  emailNotificationEnabled: true
+  autoRevokeAllowed: false
+  recommendationsEnabled: false
+  correlatedStatus: CORRELATED

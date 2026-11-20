@@ -1,0 +1,53 @@
+get:
+  summary: Get form attribute data
+  operationId: getFormAttributeById
+  description: Gets info for a specific form attribute by ID
+  tags:
+  - form attributes
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/FormAttribute.yaml"
+    '404':
+      $ref: "../responses/404.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update form attribute data
+  operationId: updateFormAttributeById
+  description: Update info for a specific form attribute by ID
+  tags:
+  - form attributes
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  requestBody:
+    $ref: "../requestBodies/PATCH/FormAttribute.yaml"
+  responses:
+    '200':
+      $ref: "../responses/FormAttribute.yaml"
+    '404':
+      $ref: "../responses/404.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+delete:
+  summary: Delete form attribute
+  operationId: deleteFormAttributeById
+  description: Delete form attribute by id
+  tags:
+  - form attributes
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/FormAttribute.yaml"
+    '404':
+      $ref: "../responses/404.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

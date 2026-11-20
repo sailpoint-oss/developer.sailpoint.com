@@ -1,0 +1,13 @@
+type: object
+description: Request body for POST /ssf/streams/verify (receiver verification).
+required:
+  - stream_id
+properties:
+  stream_id:
+    type: string
+    description: Stream ID for verification.
+    example: "550e8400-e29b-41d4-a716-446655440000"
+  state:
+    type: string
+    description: Optional state value for verification challenge.
+    example: "verification-challenge-state-123"

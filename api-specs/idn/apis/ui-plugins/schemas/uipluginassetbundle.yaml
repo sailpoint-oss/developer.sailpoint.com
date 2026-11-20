@@ -1,0 +1,40 @@
+type: object
+title: UI Plugin Asset Bundle
+description: API response for an asset bundle (tenantId omitted)
+required:
+  - assetBundleId
+  - pluginInstanceId
+  - assets
+  - assetBasePath
+  - created
+properties:
+  assetBundleId:
+    type: string
+    format: uuid
+    description: Unique identifier of the asset bundle
+    example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+  pluginInstanceId:
+    type: string
+    format: uuid
+    description: Plugin instance this bundle belongs to
+    example: 2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c
+  assets:
+    type: array
+    items:
+      $ref: ./assetfileentry.yaml
+  assetBasePath:
+    type: string
+    description: S3 key prefix where the bundle's files are stored
+    example: 2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c/3fa85f64-5717-4562-b3fc-2c963f66afa6/
+  cleanupAfter:
+    type: string
+    format: date-time
+    nullable: true
+    description: >-
+      ISO 8601 timestamp after which S3 assets may be cleaned up; null/omitted if
+      active
+  created:
+    type: string
+    format: date-time
+    description: ISO 8601 creation timestamp
+    example: '2024-08-16T14:16:58.389Z'

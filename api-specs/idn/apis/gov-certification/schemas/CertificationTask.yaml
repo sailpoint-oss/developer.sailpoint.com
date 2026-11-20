@@ -1,0 +1,65 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The ID of the task
+    example: ef38f94347e94562b5bb8424a56397d8
+  targetId:
+    type: string
+    format: uuid
+    description: ID of the item for which the task is targeting
+    example: e2e48c27-721c-4eb8-8622-2d7b46d8a6e7
+  type:
+    type: string
+    description: Type of the task
+    enum:
+      - CREATE_CAMPAIGN
+      - SEARCH_CAMPAIGN
+      - GENERATE_CAMPAIGN
+      - ACTIVATE_CAMPAIGN
+      - COMPLETE_CAMPAIGN
+      - COMPLETE_CERTIFICATION
+      - REASSIGN_SUBJECTS_AND_ITEMS
+      - REASSIGN_CERTIFICATIONS
+      - FINISH_CAMPAIGN
+      - FINALIZE_ACTIVATE_CAMPAIGN
+      - DELETE_CAMPAIGN
+      - DELETE_CAMPAIGN_DATA
+      - FINISH_CERTIFICATION
+    example: REASSIGN_CERTIFICATIONS
+  targetType:
+    type: string
+    description: >-
+      Type of the item being targeted by the task
+    enum:
+      - CERTIFICATION
+      - CAMPAIGN
+    example: CERTIFICATION
+  status:
+    type: string
+    description: >-
+      Status of the task
+    enum:
+      - QUEUED
+      - IN_PROGRESS
+      - SUCCESS
+      - ERROR
+    example: SUCCESS
+  errors:
+    type: array
+    description: Generic localized reason for error
+    items:
+      $ref: "./ErrorMessageDto.yaml"
+  reassignmentTrails:
+    type: array
+    description: Reassignment trails that lead to self certification during the reassignment
+    items:
+      $ref: "./ReassignmentTrail.yaml"
+  created:
+    type: string
+    readOnly: true
+    format: date-time
+    description: Created time of the task
+    example: '2020-03-03T22:15:13.611Z'
+required:
+  - id

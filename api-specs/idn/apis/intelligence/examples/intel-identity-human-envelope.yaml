@@ -1,0 +1,120 @@
+description: Human identity envelope returned when filters match a human record (type Human).
+value:
+  id: ef38f94347e94562b5bb8424a56397d8
+  type: Human
+  displayName: Example User
+  subtype: Employee
+  attributes:
+    city: Example City
+    cloudStatus: ACTIVE
+  created: '2026-05-12T08:00:00Z'
+  modified: '2026-05-12T09:15:30Z'
+  alias: example.user
+  email: user@example.com
+  identityStatus: ACTIVE
+  isManager: false
+  identityGraph:
+    href: https://tenant.identitynow.com/ui/identity-graph?entity=human_identity&id=ef38f94347e94562b5bb8424a56397d8
+  nonHumanIdentityOwnership:
+    agents:
+      primaryOwned:
+        items:
+          - id: 2c91808874ff91550175097daaec161e
+            displayName: Example AI Agent
+            source:
+              id: 310a15aa1cf34939a8730cc16b6473da
+              name: Example Source
+              type: DelimitedFile
+        totalCount: 1
+      secondaryOwned:
+        items: []
+    applications:
+      primaryOwned:
+        items:
+          - id: 2c91808874ff91550175097daaec161f
+            displayName: Example Application
+            source:
+              id: 60de165099e649cb828553a5e8510fc4
+              name: Example Directory
+              type: DelimitedFile
+        totalCount: 1
+      secondaryOwned:
+        items: []
+  accounts:
+    items:
+      - id: 2c91808874ff91550175097daaec161c
+        name: example.user
+        source:
+          id: 60de165099e649cb828553a5e8510fc4
+          name: Example Directory
+        disabled: false
+        locked: false
+        authoritative: false
+        systemAccount: false
+        isMachine: false
+        manuallyCorrelated: false
+        nativeIdentity: CN=example.user,OU=users
+        created: '2026-01-01T00:00:00Z'
+        modified: '2026-05-01T00:00:00Z'
+      - id: 2c91808874ff91550175097daaec161d
+        name: example.user.admin
+        source:
+          id: 60de165099e649cb828553a5e8510fc4
+          name: Example Directory
+        disabled: false
+        locked: false
+        authoritative: false
+        systemAccount: false
+        isMachine: false
+        manuallyCorrelated: false
+        nativeIdentity: CN=example.user.admin,OU=users
+        created: '2026-01-01T00:00:00Z'
+        modified: '2026-05-01T00:00:00Z'
+    totalCount: 11
+    next: https://tenant.example.api.cloud.sailpoint.com/intelligence/v1/identities/ef38f94347e94562b5bb8424a56397d8/accounts?limit=10&offset=10&count=true
+  privilegedAccess:
+    items:
+      - privileged: true
+        privilegeLevel:
+          effective: HIGH
+        id: ent-1
+        type: entitlement
+        displayName: Example_Admin_Access
+        name: Example_Admin_Access
+        source:
+          name: Example HR Source
+          id: src-2
+        attribute: EXAMPLE_PERMISSION_GROUPS
+        value: Example_Admin_Access
+  outliers:
+    rareAccess:
+      items:
+        - id: outlier-access-001
+          displayName: Example_Admin_Access
+          description: null
+          accessType: ENTITLEMENT
+          sourceName: Example SaaS Source
+          extremelyRare: false
+      totalCount: 11
+      next: https://tenant.example.api.cloud.sailpoint.com/intelligence/v1/identities/ef38f94347e94562b5bb8424a56397d8/outliers/rare-access?limit=10&offset=10&count=true
+  accessHistory:
+    accessItems:
+      items:
+        - eventType: AccessItemRemoved
+          dateTime: '2026-05-11T09:40:04.496Z'
+          accessItem:
+            id: access-item-001
+            accessType: entitlement
+            displayName: Example Access
+            sourceName: Example Directory
+      totalCount: 11
+      next: https://tenant.example.api.cloud.sailpoint.com/intelligence/v1/identities/ef38f94347e94562b5bb8424a56397d8/access-history/access-items?limit=10&offset=10&count=true
+    certifications:
+      items:
+        - eventType: IdentityCertified
+          dateTime: '2019-03-08T22:37:33.901Z'
+          certificationId: 2c91808a77ff216301782327a50f09bf
+          certificationName: Example certification
+          signedDate: '2019-03-08T22:37:33.901Z'
+      totalCount: 11
+      next: https://tenant.example.api.cloud.sailpoint.com/intelligence/v1/identities/ef38f94347e94562b5bb8424a56397d8/access-history/certifications?limit=10&offset=10&count=true

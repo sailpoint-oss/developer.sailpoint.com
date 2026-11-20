@@ -1,0 +1,105 @@
+put:
+  operationId: setRolePropagationConfig
+  summary: Update Role Change Propagation Configuration
+  tags:
+    - Role Propagation
+  description: >-
+    This endpoint enables or disables the Role Change Propagation Process for the tenant
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/role-change-propagation/role-propagation-config-input.yaml'
+    required: true
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  responses:
+    '200':
+      description: Role Change Propagation configuration for the tenant is successfully updated.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/role-change-propagation/role-propagation-config-response.yaml'
+          example:
+            {
+              "enabled": true,
+              "enabledDate": "2026-01-27T08:07:20Z",
+              "createdDate": "2025-02-18T20:20:36Z",
+              "modifiedDate": "2026-01-27T08:07:20Z"
+            }
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+  security:
+    - userAuth: [idn:role-propagation-config:write]
+    - applicationAuth: [idn:role-propagation-config:write]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - API
+    - HELPDESK
+
+get:
+  operationId: getRolePropagationConfig
+  summary: Get Role Change Propagation Configuration
+  tags:
+    - Role Propagation
+  description: >-
+    This endpoint fetches the Role Change Propagation Configuration for the tenant
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  responses:
+    '200':
+      description: Role Change Propagation configuration for the tenant.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/role-change-propagation/role-propagation-config-response.yaml'
+          example:
+            {
+              "enabled": true,
+              "enabledDate": "2026-01-27T08:07:20Z",
+              "createdDate": "2025-02-18T20:20:36Z",
+              "modifiedDate": "2026-01-27T08:07:20Z"
+            }
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+  security:
+    - userAuth: [idn:role-propagation-config:read]
+    - applicationAuth: [idn:role-propagation-config:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - API
+    - HELPDESK

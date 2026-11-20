@@ -1,0 +1,28 @@
+type: object
+title: Machine Subtype Approval Config Dto
+properties:
+  approvers:
+    type: string
+    example: manager, workgroup:1419fc28-a8ed-4a07-9f5c-0cb5dfad6311
+    description: >-
+      Comma separated string of approvers.
+
+
+      Following are the options for approver types: manager, sourceOwner, accountOwner, workgroup:[workgroupId]
+      (Governance group).
+
+
+      Approval request will be assigned based on the order of the approvers passed.
+
+
+      Multiple workgroups(governance groups) can be selected as an approver.
+
+
+      >**Note:** accountOwner approver type is only for machine account delete approval settings.
+  comments:
+    type: string
+    example: ALL
+    description: |-
+      Comment configurations for the approval request.
+
+      Following are the options for comments: ALL, OFF, APPROVAL, REJECT.

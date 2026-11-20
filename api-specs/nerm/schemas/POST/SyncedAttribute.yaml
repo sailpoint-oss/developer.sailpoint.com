@@ -1,0 +1,7 @@
+type: object
+properties:
+  ne_attribute_id:
+    type: string
+    format: uuid
+    example: 1246d8b3-ac29-4015-8154-dea4434a73fa
+    description: synced attribute's ID

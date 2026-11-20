@@ -1,0 +1,88 @@
+type: object
+title: Source Subtype V2
+required:
+  - targetId
+  - technicalName
+  - displayName
+  - description
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+    default: ""
+    description: Server-generated subtype identifier. Must not be supplied on create.
+    example: 43bdd144-4b17-4fce-a744-17c7fd3e717b
+  technicalName:
+    type: string
+    description: Technical name of the subtype. Unique within the target tier scope.
+    example: nonPersonal
+  displayName:
+    type: string
+    description: Display name of the subtype.
+    example: Non Personal
+  description:
+    type: string
+    description: Description of the subtype.
+    example: Machine accounts for JDBC connectors
+  type:
+    x-sailpoint-lint-ignore:
+      schema-property-names-must-not-be-type: The service returns this field as type. It is the subtype entity type and defaults to MACHINE.
+    type: string
+    default: MACHINE
+    description: Entity type of the subtype. Defaults to `MACHINE` when omitted.
+    example: MACHINE
+  targetType:
+    $ref: ./subtypetargettype.yaml
+  targetId:
+    type: string
+    description: >-
+      Scope key for the subtype. Source id when `targetType` is `SOURCE`. Connector type or connector
+      specification id when `targetType` is `CONNECTOR`.
+    example: JDBC
+  targetName:
+    type: string
+    default: ""
+    description: Human-readable target label. May be omitted on create; the service persists a display name.
+    example: JDBC
+  classification:
+    $ref: ./subtypeclassification.yaml
+  origin:
+    type: string
+    nullable: true
+    readOnly: true
+    default: null
+    description: >-
+      Response-only origin badge. Set on effective-set list reads: `CONNECTOR` when a SOURCE winner
+      overrides a CONNECTOR parent of the same technical name. `null` on connector-only and
+      source-only winners, and on plain CRUD list, create, patch, and get-by-id.
+    enum:
+      - SOURCE
+      - CONNECTOR
+      - CONNECTOR_VARIANT
+      - null
+    example: CONNECTOR
+  profile:
+    $ref: ./connectorvariantprofile.yaml
+  systemManaged:
+    type: boolean
+    readOnly: true
+    description: Server-set flag indicating the subtype is managed by the system. Incoming values are ignored.
+    default: false
+    example: false
+  created:
+    type: string
+    format: date-time
+    readOnly: true
+    nullable: true
+    default: null
+    description: Creation timestamp.
+    example: '2026-08-18T12:00:00.000Z'
+  modified:
+    type: string
+    format: date-time
+    readOnly: true
+    nullable: true
+    default: null
+    description: Last modified timestamp.
+    example: '2026-08-18T12:00:00.000Z'

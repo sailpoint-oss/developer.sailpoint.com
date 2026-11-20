@@ -1,0 +1,26 @@
+value:
+  id: 2c918086-719e-ec07-0171-a7e3355a412b
+  name: AD Source Review
+  description: A review of the Active Directory source.
+  deadline: '2020-12-25'
+  deadlineTimezone: -06:00
+  emailNotificationEnabled: true
+  autoRevokeAllowed: false
+  autoActivate: true
+  recommendationsEnabled: false
+  sunsetCommentsRequired: true
+  type: IDENTITY
+  status: STAGED
+  reviewer:
+    type: SOURCE_OWNER
+  sourceIds:
+    - d88917c32c6f463fa6db291f8d0d6fff
+  filterRef:
+    id: d5e2cb8b-0779-4732-9190-ba8784dbcbb9
+    name: Source Owner Filter
+  mandatoryCommentRequirement: NO_DECISIONS
+  ownerId: 4030ca72bdfb4980b51b8fcee948be50
+  created: '2022-07-27T17:04:19.027Z'
+  modified: '2022-07-27T17:04:19.027Z'
+  totalCertifications: 7
+  completedCertifications: 3

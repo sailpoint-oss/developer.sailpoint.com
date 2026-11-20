@@ -1,0 +1,29 @@
+      in: query
+      name: searchAfter
+      description: >-
+        Used to begin the search window at the values specified.
+
+
+        This parameter consists of the last values of the sorted fields in the current record set.
+
+
+        searchAfter length must match the number of sorters.
+
+
+        This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.
+
+
+        It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don't get duplicate results while paging.
+
+
+        For example, if you are sorting by name you will also want to include ID, for example searchAfter=Account Payable,2c91808375d8e80a0175e1f88a575221&sorters=name,id.
+
+
+        If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is "Account Payable", then using that name and ID will start a new search after this entitlement.
+      required: false
+      example: Account Payable,2c91808375d8e80a0175e1f88a575221
+      schema:
+        type: string
+        format: comma-separated
+      style: form
+      explode: true

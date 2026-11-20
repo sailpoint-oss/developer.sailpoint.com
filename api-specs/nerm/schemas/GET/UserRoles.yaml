@@ -1,0 +1,6 @@
+type: object
+properties:
+  user_roles:
+    type: array
+    items:
+      $ref: '../GET/UserRole.yaml'

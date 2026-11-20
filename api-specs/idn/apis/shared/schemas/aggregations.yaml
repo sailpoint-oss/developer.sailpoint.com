@@ -1,0 +1,10 @@
+type: object
+properties:
+  nested:
+    $ref: ./nestedaggregation.yaml
+  metric:
+    $ref: ./metricaggregation.yaml
+  filter:
+    $ref: ./filteraggregation.yaml
+  bucket:
+    $ref: ./bucketaggregation.yaml

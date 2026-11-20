@@ -1,0 +1,76 @@
+get:
+  operationId: getIntelIdentityRareAccess
+  security:
+    - userAuth:
+        - sp:identity-sec-intel:read
+    - applicationAuth:
+        - sp:identity-sec-intel:read
+  x-required-right: sp:identity-sec-intel:read
+  x-sailpoint-userLevels:
+    - Any
+  tags:
+    - Intelligence
+  summary: List identity rare access
+  description: |
+    Continuation endpoint for the parent response's `outliers.rareAccess.next` link.
+    Resolves the identity's first outlier, then returns one page of rare access
+    items for the supplied limit and offset values. An identity with no outlier
+    returns an empty array. Requires tenant license idn:response-and-remediation
+    and the IDA-outliers license.
+  parameters:
+    - $ref: '../parameters/intelligence-identity-id-path.yaml'
+    - name: limit
+      in: query
+      required: false
+      description: Page size. Defaults to 250; values above 250 are rejected with 400.
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 250
+        default: 250
+      example: 250
+    - name: offset
+      in: query
+      required: false
+      description: Zero-based page offset. Defaults to 0.
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        default: 0
+      example: 0
+  responses:
+    '200':
+      description: One page of rare access items.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/intelligence/IntelOutlierAccessItem.yaml'
+          example:
+            - id: outlier-access-001
+              displayName: Example_Admin_Access
+              description: null
+              accessType: ENTITLEMENT
+              sourceName: Example SaaS Source
+              extremelyRare: false
+    '400':
+      description: Invalid path or query parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/intelligence/ErrorBody.yaml'
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      description: Internal or upstream server failure.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/intelligence/ErrorBody.yaml'

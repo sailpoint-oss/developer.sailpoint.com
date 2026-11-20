@@ -1,0 +1,14 @@
+type: object
+description: |
+  A typed reference to the object.
+properties:
+  type:
+    $ref: ../../../DtoType.yaml
+  id:
+    description: |
+      The id of the object.
+    type: string
+    example: '2c91808568c529c60168cca6f90c1313'
+required:
+- type
+- id

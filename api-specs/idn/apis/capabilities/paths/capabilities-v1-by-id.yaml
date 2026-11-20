@@ -1,0 +1,158 @@
+get:
+  operationId: getCapabilityV1
+  tags:
+    - Capabilities
+  summary: Get capability
+  description: |
+    This API returns a single capability by its ID.
+
+
+    The ID must be a UUID; any other value returns `400`. When no capability exists for the ID, this API returns `404`.
+
+
+    When Machine Identity Security is not enabled for the tenant, this API returns `404`. When the capabilities API is
+    not enabled for the tenant, this API returns `403`.
+  security:
+    - userAuth:
+        - idn:mis-identity:read
+        - idn:mis-identity:manage
+    - applicationAuth:
+        - idn:mis-identity:read
+        - idn:mis-identity:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - HELPDESK
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listCapabilitiesV1
+      description: Capability ID.
+      example: 9b1c2d3e-4f5a-4b6c-8d7e-9f0a1b2c3d4e
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  responses:
+    '200':
+      description: Capability object.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/capability.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+patch:
+  operationId: updateCapabilityV1
+  tags:
+    - Capabilities
+  summary: Partial update of capability
+  description: |
+    Use this API to update a capability using a JSON Patch payload.
+
+
+    Patchable fields are **description**, **environment**, and **owners**. A patch that targets any other field,
+    including the values discovered from the source, returns `400`.
+
+
+    `owners.primary` is a single IDENTITY reference. `owners.secondary` holds either up to ten IDENTITY references or
+    exactly one GOVERNANCE_GROUP reference, not both; any other combination returns `400`.
+
+
+    The ID must be a UUID; any other value returns `400`. When no capability exists for the ID, this API returns `404`.
+
+
+    When Machine Identity Security is not enabled for the tenant, this API returns `404`. When the capabilities API is
+    not enabled for the tenant, this API returns `403`.
+  security:
+    - userAuth:
+        - idn:mis-identity:manage
+    - applicationAuth:
+        - idn:mis-identity:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listCapabilitiesV1
+      description: Capability ID.
+      example: 9b1c2d3e-4f5a-4b6c-8d7e-9f0a1b2c3d4e
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  requestBody:
+    required: true
+    description: A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../shared/schemas/jsonpatchoperation.yaml
+        examples:
+          Replace capability description:
+            value:
+              - op: replace
+                path: /description
+                value: MCP server that exposes the ticketing tools
+          Replace capability environment:
+            value:
+              - op: replace
+                path: /environment
+                value: production
+          Replace capability owners:
+            value:
+              - op: replace
+                path: /owners
+                value:
+                  primary:
+                    type: IDENTITY
+                    id: 2c9180858082150f0180893dbaf44201
+                  secondary:
+                    - type: IDENTITY
+                      id: 2c9180858082150f0180893dbaf44202
+  responses:
+    '200':
+      description: Updated capability object.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/capability.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

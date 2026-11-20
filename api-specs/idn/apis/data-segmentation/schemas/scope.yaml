@@ -1,0 +1,11 @@
+type: object
+description: This defines what access the segment is giving
+properties:
+  scope:
+    $ref: ./scopetype.yaml
+  visibility:
+    $ref: ./scopevisibilitytype.yaml
+  scopeFilter:
+    $ref: ./visibilitycriteria.yaml
+  scopeSelection:
+    $ref: ./selection.yaml

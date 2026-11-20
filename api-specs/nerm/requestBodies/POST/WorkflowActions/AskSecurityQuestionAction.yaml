@@ -1,0 +1,9 @@
+required: true
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        workflow_action:
+          type: object
+          $ref: "../../../schemas/POST/WorkflowActions/AskSecurityQuestionAction.yaml"

@@ -1,0 +1,267 @@
+get:
+  operationId: getJitActivationFrictionsV1
+  tags:
+  - JIT Activations
+  summary: Get JIT activation frictions
+  description: |
+    Returns evaluated frictions for a JIT Privileged (JIT P) activation.
+
+    Requires OAuth scope **idn:jit-activation-workflow:activate** or
+    **idn:jit-activation-workflow:manage**. The JWT identity id must match the
+    activation identity.
+
+    Returns HTTP 403 when **PSPM_JIT_ACCESS_ACTIVATION** or
+    **PSPM_JIT_ACCESS_ACTIVATION_15** is disabled.
+
+    Returns HTTP 404 when the activation does not exist.
+  security:
+  - userAuth:
+    - idn:jit-activation-workflow:activate
+    - idn:jit-activation-workflow:manage
+  x-sailpoint-userLevels:
+  - USER
+  parameters:
+  - in: path
+    name: activationId
+    required: true
+    x-sailpoint-resource-operation-id: startActivateWorkflowV1
+    schema:
+      type: string
+      format: uuid
+    description: Identifier of the activation.
+    example: 857fb802-1034-786a-151e-d3a56e4c5bd9
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Friction state for the activation.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/jitactivationfrictionsresponse.yaml
+          examples:
+            pendingPopulation:
+              summary: Policy still evaluating
+              value:
+                activationId: 857fb802-1034-786a-151e-d3a56e4c5bd9
+                frictionState: PENDING
+                connectionId: 757fb803-9024-5861-e510-83a56e4c5bd3
+                activationInitTime: '2026-05-08T18:33:52.029Z'
+                expiryMins: '5'
+                frictions: []
+            inProgress:
+              summary: Ticket step active
+              value:
+                activationId: 857fb802-1034-786a-151e-d3a56e4c5bd9
+                frictionState: IN_PROGRESS
+                connectionId: 757fb803-9024-5861-e510-83a56e4c5bd3
+                activationInitTime: '2026-05-08T18:33:52.029Z'
+                expiryMins: '5'
+                frictions:
+                  - type: TICKET
+                    status: ACTIVE
+                    bypassAllowed: false
+                    submittedData: null
+                  - type: JUSTIFICATION
+                    status: PENDING
+                    bypassAllowed: false
+                    minWords: 5
+                    submittedData: null
+                  - type: REAUTHENTICATION
+                    status: PENDING
+                    bypassAllowed: false
+                    submittedData: null
+            notApplicable:
+              summary: No frictions required
+              value:
+                activationId: 857fb802-1034-786a-151e-d3a56e4c5bd9
+                frictionState: NOT_APPLICABLE
+                connectionId: 757fb803-9024-5861-e510-83a56e4c5bd3
+                activationInitTime: '2026-05-08T18:33:52.029Z'
+                expiryMins: '5'
+                frictions: []
+            complete:
+              summary: Every friction step complete
+              value:
+                activationId: 857fb802-1034-786a-151e-d3a56e4c5bd9
+                frictionState: COMPLETE
+                connectionId: 757fb803-9024-5861-e510-83a56e4c5bd3
+                activationInitTime: '2026-05-08T18:33:52.029Z'
+                expiryMins: '5'
+                frictions:
+                  - type: TICKET
+                    status: COMPLETE
+                    bypassAllowed: false
+                    submittedData:
+                      ticketId: SN-123
+                      isValidTicket: true
+                      bypass: false
+                  - type: JUSTIFICATION
+                    status: COMPLETE
+                    bypassAllowed: false
+                    minWords: 5
+                    submittedData:
+                      justification: Current P1 requires activation to mitigate
+                      bypass: false
+                  - type: REAUTHENTICATION
+                    status: COMPLETE
+                    bypassAllowed: false
+                    submittedData:
+                      reauthSuccessful: true
+                      reauthDate: '2026-05-08T18:40:00.000Z'
+                      bypass: false
+    '400':
+      description: |
+        Frictions could not be loaded within 30 seconds after activation start, or the activation
+        was denied or failed.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+patch:
+  operationId: patchJitActivationFrictionsV1
+  tags:
+  - JIT Activations
+  summary: Submit JIT activation friction
+  description: |
+    Submits the current friction step for a JIT Privileged (JIT P) activation.
+
+    Requires OAuth scope **idn:jit-activation-workflow:activate** or
+    **idn:jit-activation-workflow:manage**. The JWT identity id must match the
+    activation identity.
+
+    Returns HTTP 403 when **PSPM_JIT_ACCESS_ACTIVATION** or
+    **PSPM_JIT_ACCESS_ACTIVATION_15** is disabled.
+
+    Request bodies larger than 16 KB return HTTP 413.
+  security:
+  - userAuth:
+    - idn:jit-activation-workflow:activate
+    - idn:jit-activation-workflow:manage
+  x-sailpoint-userLevels:
+  - USER
+  parameters:
+  - in: path
+    name: activationId
+    required: true
+    x-sailpoint-resource-operation-id: startActivateWorkflowV1
+    schema:
+      type: string
+      format: uuid
+    description: Identifier of the activation.
+    example: 857fb802-1034-786a-151e-d3a56e4c5bd9
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    required: true
+    description: Submission for the current friction step.
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/jitactivationfrictionpatchrequest.yaml
+        examples:
+          submitJustification:
+            summary: Submit the active justification step
+            value:
+              type: JUSTIFICATION
+              submittedData:
+                justification: Current P1 requires activation to mitigate
+              bypass: false
+          submitTicket:
+            summary: Submit the active ticket step
+            value:
+              type: TICKET
+              submittedData:
+                ticketId: SN-123
+          submitReauthentication:
+            summary: Submit the active reauthentication step
+            value:
+              type: REAUTHENTICATION
+              submittedData:
+                reauthSuccessful: true
+                reauthDate: '2026-05-08T18:40:00.000Z'
+          bypassActiveStep:
+            summary: Bypass the active step
+            value:
+              type: TICKET
+              bypass: true
+  responses:
+    '200':
+      description: Updated friction state for the activation.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/jitactivationfrictionsresponse.yaml
+          examples:
+            ticketSubmitted:
+              summary: Ticket submitted
+              value:
+                activationId: 857fb802-1034-786a-151e-d3a56e4c5bd9
+                frictionState: IN_PROGRESS
+                connectionId: 757fb803-9024-5861-e510-83a56e4c5bd3
+                activationInitTime: '2026-05-08T18:33:52.029Z'
+                expiryMins: '5'
+                frictions:
+                  - type: TICKET
+                    status: COMPLETE
+                    bypassAllowed: false
+                    submittedData:
+                      ticketId: SN-123
+                      isValidTicket: true
+                      bypass: false
+                  - type: JUSTIFICATION
+                    status: ACTIVE
+                    bypassAllowed: false
+                    minWords: 5
+                    submittedData: null
+                  - type: REAUTHENTICATION
+                    status: PENDING
+                    bypassAllowed: false
+                    submittedData: null
+    '400':
+      description: |
+        Invalid friction submission, or the activation is not awaiting frictions. This includes
+        frictions that are not loaded yet, a type that is not the active step, and ticket or
+        justification validation failures.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '413':
+      description: Request body exceeds the 16 KB limit.
+      content:
+        application/json:
+          schema:
+            $ref: ../../shared/schemas/errorresponsedto.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

@@ -1,0 +1,7 @@
+type: string
+description: Generation type of the campaign.
+enum:
+  - SEARCH
+  - CAMPAIGN_FILTER
+  - NO_FILTER
+example: CAMPAIGN_FILTER

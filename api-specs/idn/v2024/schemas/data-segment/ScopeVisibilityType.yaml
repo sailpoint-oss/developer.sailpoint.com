@@ -1,0 +1,8 @@
+type: string
+enum:
+  - ALL
+  - FILTER
+  - SELECTION
+  - UNSEGMENTED
+description: An enumeration of the types of scope visibility choices
+example: ALL

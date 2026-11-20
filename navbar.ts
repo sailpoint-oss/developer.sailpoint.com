@@ -83,6 +83,7 @@ const navbarConfig = {
             description: 'Handy in-browser developer utilities.',
             items: [
               { label: 'Escaping Tool Formatter', to: '/tools/escaping-tool-formatter' },
+              { label: 'Event Trigger Tester', to: '/tools/event-trigger-tester' },
               { label: 'JSON Path Evaluator', to: '/tools/json-path-evaluator' },
               { label: 'Velocity PlayGround', to: '/tools/velocity-playground' },
               { label: 'XPath Evaluator', to: '/tools/xpath-evaluator' },

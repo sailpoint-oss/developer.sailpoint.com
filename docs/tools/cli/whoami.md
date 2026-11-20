@@ -81,6 +81,8 @@ Use the `--debug` flag to show full client IDs instead:
 sail whoami --debug
 ```
 
+The command also shows full client IDs when debug mode is on for the whole CLI. Run `sail set debug disable` to turn it off.
+
 This command uses the [List personal access tokens endpoint](https://developer.sailpoint.com/docs/api/list-personal-access-tokens-v-1) to look up your PAT.
 
 :::note

@@ -26,20 +26,35 @@ const FRAME_HOSTS = ['www.youtube.com', 'play.vidyard.com'];
 // Requests
 //
 // A full build reads several hundred topics. Discourse limits anonymous
-// requests for each IP address and answers HTTP 429 above the limit. So at
-// most MAX_CONCURRENT requests run at once, and a 429 waits and tries again.
+// requests for each IP address (by default 200 a minute and 50 in 10 seconds)
+// and answers HTTP 429 above the limit. So:
+// - at most MAX_CONCURRENT requests run at once,
+// - a new request starts at most every MIN_INTERVAL_MS (about 170 a minute),
+// - after a 429, every request waits for the time that Discourse asks for,
+//   then the failed request tries again.
 
 const MAX_CONCURRENT = 4;
-const MAX_RETRIES = 5;
+const MIN_INTERVAL_MS = 350;
+const MAX_RETRIES = 8;
 let active = 0;
 const waiting = [];
+/** No request starts before this time (ms). A 429 moves it forward. */
+let nextStart = 0;
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function slot() {
-  if (active < MAX_CONCURRENT) {
-    active++;
-    return;
+  if (active < MAX_CONCURRENT) active++;
+  else await new Promise((resolve) => waiting.push(resolve));
+  // Space the requests out, also while they wait after a 429.
+  for (;;) {
+    const now = Date.now();
+    if (now >= nextStart) {
+      nextStart = now + MIN_INTERVAL_MS;
+      return;
+    }
+    await sleep(nextStart - now);
   }
-  await new Promise((resolve) => waiting.push(resolve));
 }
 
 function release() {
@@ -48,7 +63,16 @@ function release() {
   else active--;
 }
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+/** The seconds that a 429 answer asks the client to wait. */
+async function waitSeconds(res, attempt) {
+  const header = Number(res.headers.get('retry-after'));
+  if (header > 0) return header;
+  // Rate limits inside the Discourse app send the time in the JSON body.
+  const body = await res.json().catch(() => null);
+  const fromBody = Number(body?.extras?.wait_seconds);
+  if (fromBody > 0) return fromBody;
+  return 2 ** Math.min(attempt, 5);
+}
 
 export async function getJson(path) {
   for (let attempt = 0; ; attempt++) {
@@ -62,8 +86,10 @@ export async function getJson(path) {
       release();
     }
     if (res.status === 429 && attempt < MAX_RETRIES) {
-      const retryAfter = Number(res.headers.get('retry-after'));
-      await sleep(retryAfter > 0 ? retryAfter * 1000 : 2 ** attempt * 1000);
+      const seconds = await waitSeconds(res, attempt);
+      // Every request waits, not only this one. Otherwise the others keep
+      // hitting the limit and use up their retries.
+      nextStart = Math.max(nextStart, Date.now() + seconds * 1000 + 1000);
       continue;
     }
     if (!res.ok) throw new Error(`${path} -> HTTP ${res.status}`);
@@ -304,21 +330,28 @@ function cleanVideoBody(body) {
 // Main
 // ---------------------------------------------------------------------------
 
+// The cache holds the promise, not the result. Many topics start at once, and
+// they must share one request for the same category.
 const categoryCache = new Map();
-async function category(id) {
-  if (!id) return null;
-  if (categoryCache.has(id)) return categoryCache.get(id);
-  const {category: c} = await getJson(`/c/${id}/show.json`);
-  const result = {
-    id: c.id,
-    name: c.name,
-    slug: c.slug,
-    color: `#${c.color}`,
-    readRestricted: Boolean(c.read_restricted),
-    parent: c.parent_category_id ? await category(c.parent_category_id) : null,
-  };
-  categoryCache.set(id, result);
-  return result;
+function category(id) {
+  if (!id) return Promise.resolve(null);
+  if (!categoryCache.has(id)) {
+    const request = (async () => {
+      const {category: c} = await getJson(`/c/${id}/show.json`);
+      return {
+        id: c.id,
+        name: c.name,
+        slug: c.slug,
+        color: `#${c.color}`,
+        readRestricted: Boolean(c.read_restricted),
+        parent: c.parent_category_id ? await category(c.parent_category_id) : null,
+      };
+    })();
+    // A failed request must not stay in the cache.
+    request.catch(() => categoryCache.delete(id));
+    categoryCache.set(id, request);
+  }
+  return categoryCache.get(id);
 }
 
 /**

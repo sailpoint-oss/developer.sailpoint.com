@@ -31,6 +31,8 @@ import type {
  * If Discourse cannot be reached, the plugin uses everything in the cache.
  * With no cache, a production build fails, so that the site never deploys
  * an empty blog. The dev server starts with empty pages and a warning.
+ * A production build also fails when more than MAX_MISSING_SHARE of the
+ * topics are missing (they failed and the cache has no copy).
  */
 const ROUTE = '/blog';
 const VIDEO_ROUTE = '/videos';
@@ -39,6 +41,11 @@ const EXCERPT_LENGTH = 200;
 const CACHE_VERSION = 3;
 /** Author profiles change rarely. Fetch them again after this time. */
 const AUTHOR_MAX_AGE_MS = 24 * 60 * 60 * 1000;
+/** A production build stops when a larger share of the topics is missing. */
+const MAX_MISSING_SHARE = 0.05;
+
+/** An error that stops the build. The cache does not replace the content. */
+class StopBuild extends Error {}
 
 const textOf = (node: BodyNode): string =>
   typeof node === 'string' ? node : (node.c ?? []).map(textOf).join('');
@@ -132,6 +139,13 @@ async function fromDiscourse(cacheDir: string): Promise<Source> {
     Promise.all(blogList.map((t) => load<Topic>(t, false))).then(present),
     Promise.all(videoList.map((t) => load<VideoTopic>(t, true))).then(present),
   ]);
+  const listed = blogList.length + videoList.length;
+  const missing = listed - posts.length - videos.length;
+  if (missing > 0 && process.env.NODE_ENV === 'production' && missing > listed * MAX_MISSING_SHARE) {
+    throw new StopBuild(
+      `[discourse-content] ${missing} of ${listed} topics are missing, so the build stops. See the warnings above.`,
+    );
+  }
 
   // The first post of each author. It gives a minimal profile when the forum
   // has none (for example a renamed or deleted account), so every byline
@@ -180,7 +194,7 @@ async function fromDiscourse(cacheDir: string): Promise<Source> {
   );
 
   console.log(
-    `[discourse-content] ${posts.length} posts, ${videos.length} videos and ${authors.length} authors from Discourse (${fetched} topics fetched, the rest cached).`,
+    `[discourse-content] ${posts.length} posts, ${videos.length} videos and ${authors.length} authors from Discourse (${fetched} topics fetched, ${missing} missing, the rest cached).`,
   );
   return {posts, videos, authors};
 }
@@ -248,6 +262,7 @@ export default function discourseContentPlugin(context: LoadContext): Plugin<Con
       try {
         source = await fromDiscourse(cacheDir);
       } catch (error) {
+        if (error instanceof StopBuild) throw error;
         const reason = `Cannot read Discourse (${(error as Error).message}).`;
         source = fromCache(cacheDir);
         const empty = source.posts.length === 0 && source.videos.length === 0;

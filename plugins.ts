@@ -67,6 +67,10 @@ const pluginConfig = [
         if (existingPath.startsWith('/docs')) {
           return [existingPath.replace('/docs', '/idn')];
         }
+        // The blog redesign was previewed at /blog-redesign before it replaced /blog.
+        if (existingPath === '/blog' || existingPath.startsWith('/blog/')) {
+          return [existingPath.replace('/blog', '/blog-redesign')];
+        }
         return undefined; // Return a falsy value: no redirect created
       },
     },

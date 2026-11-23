@@ -1,6 +1,5 @@
 import {
   discourseBaseURL,
-  discourseFilterQuery,
   expandProductTags,
 } from '../util/util';
 import { discourseFetch } from './discourseFetch';
@@ -82,146 +81,12 @@ export async function checkImage(url: string): Promise<boolean> {
   }
 }
 
-type Topic = {
-  id: number;
-  title: string;
-  slug: string;
-  posts_count: number;
-  created_at: string;
-  // Add other fields as needed
-};
-
-type User = {
-  id: number;
-  username: string;
-  name?: string;
-  avatar_template: string;
-  // Add other fields as needed
-};
-
-type DiscourseResponse = {
-  users: User[];
-  topic_list: {
-    topics: Topic[];
-  };
-};
-
-export async function getBlogPosts(tags: string | string[]): Promise<DiscourseResponse | []> {
-  let url: string;
-  let allData: DiscourseResponse = {
-    users: [],
-    topic_list: {
-      topics: [],
-    },
-  };
-
-  const tagList = (Array.isArray(tags) ? tags : tags ? [tags] : []).filter(Boolean);
-
-  if (tagList.length === 0) {
-    url = `${discourseBaseURL()}c/content/community-blog/125.json`;
-  } else {
-    // /filter.json is the only listing endpoint that supports OR across tags,
-    // which the product tag now needs. It returns the same shape (topic_list +
-    // users) as the old /tags/c route.
-    url = `${discourseBaseURL()}filter.json?q=${encodeURIComponent(
-      discourseFilterQuery('community-blog', tagList),
-    )}`;
-  }
-
-  try {
-    let page = 0;
-
-    // Page until a short page arrives. The hard cap is a backstop so a change in
-    // Discourse's paging behaviour can never spin this loop forever.
-    while (page < 50) {
-      const separator = url.includes('?') ? '&' : '?';
-      const pageUrl = page === 0 ? url : `${url}${separator}page=${page}`;
-      const response = await fetch(pageUrl);
-      const data: DiscourseResponse = await response.json();
-
-      const topics = data.topic_list?.topics ?? [];
-      allData.topic_list.topics = allData.topic_list.topics.concat(topics);
-      if (Array.isArray(data.users)) {
-        allData.users = allData.users.concat(data.users);
-      }
-
-      if (topics.length < 30) {
-        break;
-      }
-
-      page++;
-    }
-
-    return allData;
-  } catch (error) {
-    console.error('Failed to fetch blog posts:', error);
-    return [];
-  }
-}
-
 export async function getUserTitle(primary_group_name: string): Promise<any> {
   try {
     const response = await fetch(discourseBaseURL() + 'g/' + primary_group_name + '.json');
     return await response.json();
   } catch (error) {
     console.error(error);
-    return [];
-  }
-}
-
-interface VideoPostResponse {
-  users: any[];
-  topic_list: {
-    topics: any[];
-  };
-}
-
-export async function getVideoPosts(tags?: string[]): Promise<VideoPostResponse | []> {
-  let url: string = '';
-  let allData: VideoPostResponse = {
-    users: [],
-    topic_list: {
-      topics: [],
-    },
-  };
-
-  const tagList = (tags ?? []).filter(Boolean);
-
-  if (tagList.length > 0) {
-    // One clause per tag ANDs them, while the product tags collapse into a
-    // single OR clause -- so a product + video-type selection still intersects.
-    // The old code joined every tag with '+', which the /tags/c route does not
-    // parse at all (it returned zero results for any multi-tag selection).
-    url = `${discourseBaseURL()}filter.json?q=${encodeURIComponent(
-      discourseFilterQuery('video-library', tagList),
-    )}`;
-  } else {
-    url = `${discourseBaseURL()}c/content/video-library/l/latest.json`;
-  }
-
-  try {
-    let page = 0;
-    while (page < 50) {
-      const separator = url.includes('?') ? '&' : '?';
-      const pageUrl = page === 0 ? url : `${url}${separator}page=${page}`;
-      const response = await fetch(pageUrl);
-      const data: VideoPostResponse = await response.json();
-
-      const topics = data.topic_list?.topics ?? [];
-      allData.topic_list.topics = [...allData.topic_list.topics, ...topics];
-      if (Array.isArray(data.users)) {
-        allData.users = [...allData.users, ...data.users];
-      }
-
-      if (topics.length < 30) {
-        // Less than 30 topics means it's the last page
-        break;
-      }
-      page++;
-    }
-    return allData;
-  } catch (error) {
-    console.error("Error fetching video posts:", error);
     return [];
   }
 }
@@ -250,15 +115,6 @@ export async function getMarketplacePosts(
 
   try {
     const response = await fetch(url);
-    return await response.json();
-  } catch (error) {
-    return [];
-  }
-}
-
-export async function getTopic(id: number): Promise<any> {
-  try {
-    const response = await fetch(discourseBaseURL() + 't/' + id + '.json');
     return await response.json();
   } catch (error) {
     return [];

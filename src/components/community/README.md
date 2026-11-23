@@ -1,6 +1,6 @@
 # Community components
 
-These components show forum content on developer.sailpoint.com pages. Discourse stores the content, but readers stay on our pages. The blog at `/blog-redesign` uses them now, and the video pages can use them later.
+These components show forum content on developer.sailpoint.com pages. Discourse stores the content, but readers stay on our pages. The blog at `/blog` and the video library at `/videos` use them.
 
 ## Components
 
@@ -47,15 +47,17 @@ Discourse stores the reader's choice and sends the notifications by email and on
 
 The default menu options are in `FEED_OPTIONS` (categories and tags) and `TOPIC_OPTIONS` (topics). To use other options, pass `options`.
 
+For a category or a tag, pass `noun` (for example `{one: 'video', many: 'videos'}`) to get words for that kind of item. The button then says "Subscribe to new videos", or "Subscribe to videos tagged “x”" for a tag, and the menu options say "New videos" and "New videos and comments". `feedWords` builds these words. A `label`, `description` or `options` prop replaces its part of them.
+
 ## Links
 
-Links in forum content point at forum URLs. A page section can change them with `CommunityLinksContext`. For example, the blog links a saved post to its blog page and a member to their author page:
+Links in forum content point at forum URLs. A page section can change them with `CommunityLinksContext`. For example, the blog links a forum post to its blog page and a member to their author page:
 
 ```tsx
 <CommunityLinksContext.Provider value={{resolveHref, profileHref}}>…</CommunityLinksContext.Provider>
 ```
 
-`src/components/blog-redesign/links.ts` (`blogLinks`) contains the rules for the blog.
+`src/components/shared/links.ts` (`blogLinks`) contains the rules for the blog.
 
 ## Forum API
 

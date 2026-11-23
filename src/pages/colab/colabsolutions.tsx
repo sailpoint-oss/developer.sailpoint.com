@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Layout from '@theme/Layout';
 import { useLocation } from '@docusaurus/router';
 import styles from './filter.module.css';
-import BlogSidebar from '../../components/blog/BlogSidebar';
+import TagSidebar from '../../components/marketplace/TagSidebar';
 import MarketplaceCards from '../../components/marketplace/MarketplaceCards';
 import MarketplaceBanner from '../../components/marketplace/MarketplaceBanner';
 import { PRODUCT_TAG } from '../../util/util';
@@ -129,7 +129,7 @@ const CoLabItems: React.FC = () => {
           </div>
           <div className={styles.filterGroup}>
             <h3 className={styles.filterGroupTitle}>Product</h3>
-            <BlogSidebar filterCallback={handleProductClick} />
+            <TagSidebar filterCallback={handleProductClick} />
           </div>
         </section>
         <div className={styles.container}>

@@ -37,6 +37,46 @@ export const FEED_OPTIONS: NotificationOption[] = [
   },
 ];
 
+/** The words for one kind of item in a feed, for example {one: 'blog', many: 'blogs'}. */
+export interface FeedNoun {
+  one: string;
+  many: string;
+}
+
+const capitalize = (text: string) => text.charAt(0).toUpperCase() + text.slice(1);
+
+/**
+ * The words of a button for a category or a tag, built from the item noun.
+ * For example "Subscribe to new videos", or "Subscribe to videos tagged “x”"
+ * for a tag.
+ */
+export function feedWords(
+  target: NotificationTarget,
+  noun: FeedNoun,
+): {label: string; subscribedLabel: string; description: string; options: NotificationOption[]} {
+  const tag = target.type === 'tag' ? target.name : null;
+  const what = tag ? `${noun.many} tagged “${tag}”` : `new ${noun.many}`;
+  const withTag = tag ? ` with the tag “${tag}”` : '';
+  return {
+    label: `Subscribe to ${what}`,
+    subscribedLabel: `Subscribed to ${what}`,
+    description: tag ? `${capitalize(noun.many)} with the tag “${tag}”` : `New ${noun.many}`,
+    options: [
+      {
+        level: NotificationLevel.watchingFirstPost,
+        label: `New ${noun.many}`,
+        description: `Get notified when a new ${noun.one}${withTag} is published.`,
+      },
+      {
+        level: NotificationLevel.watching,
+        label: `New ${noun.many} and comments`,
+        description: `Get notified about new ${noun.many}${withTag} and every new comment on them.`,
+      },
+      FEED_OPTIONS[2],
+    ],
+  };
+}
+
 /** Options for one topic: the comments on a post or a video. */
 export const TOPIC_OPTIONS: NotificationOption[] = [
   {
@@ -71,6 +111,14 @@ function closestOption(options: NotificationOption[], level: NotificationLevelVa
 // The menu renders only in the browser, so a counter gives stable ids.
 let menuCount = 0;
 
+/**
+ * TEMPORARY: lets a logged-out reader open the menu, so the design can be
+ * checked on localhost (where the forum session check always fails). A choice
+ * changes only the button on the page and is not sent to the forum.
+ * Set to false before release.
+ */
+const PREVIEW_WITHOUT_LOGIN = true;
+
 /** Levels at which the button shows as "subscribed". */
 const SUBSCRIBED: NotificationLevelValue[] = [NotificationLevel.watching, NotificationLevel.watchingFirstPost];
 
@@ -89,20 +137,26 @@ export interface NotificationButtonProps {
   align?: 'start' | 'end';
   /** Says what the reader subscribes to, for screen readers and the menu title. */
   description?: string;
+  /**
+   * The item noun of a category or a tag, for example {one: 'video', many: 'videos'}.
+   * It sets the default label, description and options (see `feedWords`).
+   */
+  noun?: FeedNoun;
   className?: string;
 }
 
-export default function NotificationButton({
-  target,
-  label = 'Subscribe',
-  subscribedLabel = 'Subscribed',
-  options = target.type === 'topic' ? TOPIC_OPTIONS : FEED_OPTIONS,
-  appearance = 'default',
-  size = 'default',
-  align = 'start',
-  description,
-  className,
-}: NotificationButtonProps): JSX.Element {
+export default function NotificationButton({target, noun, ...props}: NotificationButtonProps): JSX.Element {
+  const words = noun && target.type !== 'topic' ? feedWords(target, noun) : undefined;
+  const {
+    label = words?.label ?? 'Subscribe',
+    subscribedLabel = words?.subscribedLabel ?? 'Subscribed',
+    options = words?.options ?? (target.type === 'topic' ? TOPIC_OPTIONS : FEED_OPTIONS),
+    appearance = 'default',
+    size = 'default',
+    align = 'start',
+    description = words?.description,
+    className,
+  } = props;
   const user = useForumUser();
   const [level, setLevel] = useState<NotificationLevelValue | null>(null);
   const [open, setOpen] = useState(false);
@@ -114,7 +168,8 @@ export default function NotificationButton({
 
   // Load the reader's level when the target changes (for example a new tag filter).
   useEffect(() => {
-    setLevel(null);
+    // In the preview, start at the level a new reader has.
+    setLevel(PREVIEW_WITHOUT_LOGIN && user === null ? NotificationLevel.regular : null);
     if (!user) return undefined;
     let cancelled = false;
     getNotificationLevel(target)
@@ -143,7 +198,13 @@ export default function NotificationButton({
   const subscribed = level !== null && SUBSCRIBED.includes(level);
   const current = level === null ? null : closestOption(options, level);
 
+  const preview = PREVIEW_WITHOUT_LOGIN && user === null;
+
   const onButton = () => {
+    if (preview) {
+      setOpen(!open);
+      return;
+    }
     if (user === null) {
       showToast({text: 'Log in to get notifications.', logIn: true});
       return;
@@ -156,6 +217,14 @@ export default function NotificationButton({
     if (option.level === level) return;
     const previous = level;
     setLevel(option.level);
+    if (preview) {
+      showToast({
+        text: SUBSCRIBED.includes(option.level)
+          ? `Subscribed: ${option.label.toLowerCase()}. (Preview, not saved)`
+          : 'Notifications are off. (Preview, not saved)',
+      });
+      return;
+    }
     setSaving(true);
     try {
       await setNotificationLevel(target, option.level);
@@ -190,7 +259,7 @@ export default function NotificationButton({
         aria-label={description ? `${subscribed ? subscribedLabel : label}: ${description}` : undefined}>
         <i className={subscribed ? 'fa-solid fa-bell' : 'fa-regular fa-bell'} aria-hidden="true" />
         <span>{subscribed ? subscribedLabel : label}</span>
-        {user && <i className={clsx('fa-solid fa-chevron-down', styles.chevron)} aria-hidden="true" />}
+        {(user || preview) && <i className={clsx('fa-solid fa-chevron-down', styles.chevron)} aria-hidden="true" />}
       </button>
 
       {open && (

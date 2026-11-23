@@ -26,9 +26,9 @@ function getPageType(path: string): string {
   if (path.startsWith('/docs/iiq/')) return 'docs-iiq';
   if (path.startsWith('/docs/reporting/')) return 'docs-reporting';
   if (path.startsWith('/docs/')) return 'documentation';
-  if (path.startsWith('/blog/')) return 'blog';
+  if (path === '/blog' || path.startsWith('/blog/')) return 'blog';
   if (path.startsWith('/colab/')) return 'colab';
-  if (path.startsWith('/videos/')) return 'video';
+  if (path === '/videos' || path.startsWith('/videos/')) return 'video';
   if (path.startsWith('/ambassadors')) return 'ambassadors';
   if (path.startsWith('/sailapps')) return 'sailapps';
   return 'other';

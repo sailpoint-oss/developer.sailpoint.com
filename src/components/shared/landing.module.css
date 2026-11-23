@@ -1,0 +1,674 @@
+/*
+ * Blog landing page (/blog). Colors and fonts come from the tokens
+ * on .root in styles.module.css.
+ *
+ * Links use `.page .x` selectors. The shared `.root a` rule sets the link
+ * color, and these selectors must win over it.
+ */
+
+.page {
+  /* Marker class for the selectors below. */
+}
+
+/* ------------------------------------------------------------------------ */
+/* Hero                                                                      */
+/* ------------------------------------------------------------------------ */
+
+.hero {
+  padding: 72px 0 64px;
+  background: var(
+    --br-hero-bg,
+    radial-gradient(ellipse at 85% 0%, rgb(84 192 232 / 45%), transparent 55%),
+    linear-gradient(120deg, #001a57 0%, #0033a1 55%, #0071ce 100%)
+  );
+  color: #ffffff;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--br-hero-eyebrow, #a9dcf3);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* The site styles every h1 with !important. */
+.hero h1.heroTitle {
+  max-width: 760px;
+  margin: 0 0 16px;
+  color: #ffffff !important;
+  font-family: var(--br-font) !important;
+  font-size: clamp(34px, 4vw, 56px);
+  font-weight: 800 !important;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.heroLead {
+  max-width: 620px;
+  margin: 0 0 32px;
+  color: rgb(255 255 255 / 85%);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Cards                                                                     */
+/* ------------------------------------------------------------------------ */
+
+.excerpt {
+  margin: 0;
+  color: var(--br-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.byline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 4px;
+  color: var(--br-muted);
+  font-size: 13px;
+}
+
+.byline img {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.bylineText {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  line-height: 1.35;
+}
+
+.bylineMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.author {
+  overflow: hidden;
+  color: var(--br-text);
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.comments {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+
+/* Featured post: a card in the hero banner */
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 56px;
+}
+
+.heroText {
+  min-width: 0;
+}
+
+.page .featured {
+  /* The card sits on the blue banner in light and dark mode. */
+  --br-text: #ffffff;
+  --br-text-strong: #ffffff;
+  --br-muted: rgb(255 255 255 / 78%);
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 22%);
+  border-radius: 16px;
+  background: rgb(255 255 255 / 10%);
+  box-shadow: 0 24px 48px rgb(0 10 40 / 35%);
+  color: #ffffff;
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.page .featured:hover {
+  border-color: rgb(255 255 255 / 55%);
+  background: rgb(255 255 255 / 14%);
+  color: #ffffff;
+  text-decoration: none;
+  transform: translateY(-3px);
+}
+
+.featuredCover {
+  aspect-ratio: 16 / 9;
+}
+
+.featuredBody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 24px 22px;
+}
+
+.featuredTitle {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(19px, 1.5vw, 23px);
+  font-weight: 800;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.featuredExcerpt {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: rgb(255 255 255 / 80%);
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* Grid */
+
+.sectionTitle {
+  margin: 48px 0 0;
+  color: var(--br-text-strong);
+  font-size: 26px;
+  font-weight: 800;
+}
+
+/* Search and tag filters. The bar sticks under the navbar, and the margins
+   pull its background out to the page edges so cards do not show beside it. */
+.toolbar {
+  position: sticky;
+  z-index: 10;
+  top: var(--ifm-navbar-height);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 0 -16px 20px;
+  padding: 16px;
+  border-bottom: 1px solid var(--br-border);
+  background: var(--br-bg);
+}
+
+/* The field and the tag list under it. */
+.searchWrap {
+  position: relative;
+  flex: 0 1 440px;
+  min-width: 0;
+}
+
+/* Looks like one input. It holds the tag chips and the real <input>. */
+.search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  min-height: 42px;
+  padding: 5px 6px 5px 14px;
+  border: 1px solid var(--br-border);
+  border-radius: 10px;
+  background: var(--br-surface);
+  color: var(--br-muted);
+  cursor: text;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.search:focus-within {
+  border-color: var(--br-link);
+  box-shadow: 0 0 0 3px var(--br-focus-ring, rgb(0 113 206 / 20%));
+}
+
+.search input {
+  flex: 1 1 120px;
+  min-width: 0;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--br-text-strong);
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+}
+
+.search input::placeholder {
+  color: var(--br-muted);
+}
+
+/* The page shows its own clear button. */
+.search input::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+.searchClear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--br-muted);
+  cursor: pointer;
+}
+
+.searchClear:hover {
+  background: var(--br-surface-2);
+  color: var(--br-text-strong);
+}
+
+/* A selected tag, in the field. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  max-width: 100%;
+  height: 28px;
+  padding: 0 2px 0 10px;
+  border-radius: 999px;
+  background: var(--br-tab-active-bg);
+  color: var(--br-tab-active-text);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.chipRemove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.chipRemove:hover {
+  background: rgb(0 0 0 / 10%);
+}
+
+:global(html[data-theme='dark']) .chipRemove:hover {
+  background: rgb(255 255 255 / 15%);
+}
+
+/* The tags that match the typed text. */
+.suggest {
+  position: absolute;
+  z-index: 1;
+  top: calc(100% + 6px);
+  right: 0;
+  left: 0;
+  padding: 8px;
+  border: 1px solid var(--br-border);
+  border-radius: 12px;
+  background: var(--br-bg);
+  box-shadow: 0 12px 32px rgb(16 24 40 / 16%);
+}
+
+:global(html[data-theme='dark']) .suggest {
+  background: var(--br-surface);
+  box-shadow: 0 12px 32px rgb(0 0 0 / 50%);
+}
+
+.suggestTitle {
+  margin: 4px 8px 6px;
+  color: var(--br-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.suggest ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.suggestItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: var(--br-text);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.suggestItem > i {
+  color: var(--br-muted);
+  font-size: 12px;
+}
+
+.suggestActive {
+  background: var(--br-surface-2);
+  color: var(--br-text-strong);
+}
+
+.suggestName {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.suggestName mark {
+  padding: 0;
+  background: none;
+  color: var(--br-link);
+  font-weight: 700;
+}
+
+.suggestCount {
+  min-width: 24px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--br-pill-bg);
+  color: var(--br-pill-text);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Popular tags: one line that scrolls sideways. The fade shows there is more. */
+.filters {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  overflow-x: auto;
+  padding: 2px 0;
+  scrollbar-width: none;
+  mask-image: linear-gradient(90deg, #000000 calc(100% - 40px), transparent);
+}
+
+.filters::-webkit-scrollbar {
+  display: none;
+}
+
+.filtersLabel {
+  flex: none;
+  color: var(--br-muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .toolbar {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .searchWrap,
+  .filters {
+    flex-basis: auto;
+    align-self: stretch;
+  }
+}
+
+.resultBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.resultText {
+  margin: 0;
+  color: var(--br-muted);
+  font-size: 15px;
+}
+
+.resultText strong {
+  color: var(--br-text-strong);
+}
+
+.clearLink {
+  margin-left: 12px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--br-link);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.clearLink:hover {
+  text-decoration: underline;
+}
+
+/* A search word in a card title or excerpt. */
+.match {
+  padding: 0 1px;
+  border-radius: 3px;
+  background: var(--br-match-bg, rgb(84 192 232 / 35%));
+  color: inherit;
+}
+
+.filter {
+  flex: none;
+  padding: 5px 14px;
+  border: 1px solid var(--br-border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--br-text);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.filter:hover {
+  background: var(--br-surface-2);
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.page .card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--br-border);
+  border-radius: 12px;
+  background: var(--br-surface);
+  color: var(--br-text);
+  text-decoration: none;
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+/* The image of a post or the poster of a video. */
+.thumb {
+  position: relative;
+  overflow: hidden;
+  background: var(--br-cover-bg, linear-gradient(135deg, #0a2a9a, #0071d6));
+}
+
+.thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+
+.play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--br-play-bg, rgb(0 20 70 / 70%));
+  box-shadow: 0 0 0 4px rgb(255 255 255 / 25%);
+  color: #ffffff;
+  font-size: 20px;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.15s;
+}
+
+/* The play icon looks centered when it sits a little right of center. */
+.play i {
+  margin-left: 4px;
+}
+
+.page .featured:hover .play,
+.page .card:hover .play {
+  background: var(--br-play-hover, #0071ce);
+}
+
+.page .featured:hover .featuredCover img,
+.page .card:hover .cardCover img {
+  transform: scale(1.06);
+}
+
+.page .card:hover {
+  border-color: var(--br-accent);
+  color: var(--br-text);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.cardCover {
+  aspect-ratio: 16 / 9;
+}
+
+.cardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cardTitle {
+  margin: 0;
+  color: var(--br-text-strong);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.cardExcerpt {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 14px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 56px 16px;
+  border: 1px dashed var(--br-border);
+  border-radius: 12px;
+  color: var(--br-muted);
+}
+
+.empty p {
+  margin: 0;
+}
+
+/* "Load more" under the grid. */
+.more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+  color: var(--br-muted);
+  font-size: 14px;
+}
+
+.moreButton {
+  padding: 10px 22px;
+  border: 1px solid var(--br-border);
+  border-radius: 10px;
+  background: var(--br-surface);
+  color: var(--br-text-strong);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.moreButton:hover {
+  border-color: var(--br-accent);
+}
+
+/* ------------------------------------------------------------------------ */
+/* Responsive                                                                */
+/* ------------------------------------------------------------------------ */
+
+@media (max-width: 1000px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .page .featured {
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 48px 0 40px;
+  }
+
+  .heroLead {
+    font-size: 16px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

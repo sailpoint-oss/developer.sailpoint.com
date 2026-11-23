@@ -1,5 +1,5 @@
 /**
- * Shape of the topic snapshots that scripts/blog-redesign-discourse.mjs makes.
+ * Shape of the topic snapshots that scripts/discourse-content.mjs makes.
  */
 
 import type {BodyNode, ForumPost} from '../community/types';
@@ -65,7 +65,7 @@ export interface VideoTopic extends Topic {
   video: VideoPlayer | null;
 }
 
-/** A post or video author. scripts/blog-redesign-discourse.mjs makes one per author. */
+/** A post or video author. scripts/discourse-content.mjs makes one per author. */
 export interface AuthorProfile {
   fetchedAt: string;
   username: string;
@@ -88,7 +88,7 @@ export interface AuthorProfile {
   noForumProfile?: boolean;
 }
 
-/** One card on the landing page. The blog-redesign plugin builds these. */
+/** One card on the landing page. The discourse-content plugin builds these. */
 export interface PostSummary {
   id: number;
   /** The route of the post page, for example /blog/my-post-slug. */
@@ -105,7 +105,7 @@ export interface PostSummary {
   author: {name: string; username: string; avatar: string};
 }
 
-/** One card on the videos landing page. The blog-redesign plugin builds these. */
+/** One card on the videos landing page. The discourse-content plugin builds these. */
 export interface VideoSummary {
   id: number;
   /** The route of the video page, for example /videos/my-video-slug. */

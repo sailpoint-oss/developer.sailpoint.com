@@ -1,12 +1,12 @@
 const {createApiPageMD} = require('./createApiPageMD');
 import clsx from 'clsx';
 import apiRedirectsPlugin from './api-redirects-plugin';
-import blogRedesignPlugin from './blog-redesign-plugin';
+import discourseContentPlugin from './discourse-content-plugin';
 import llmsGeneratedIndexPlugin from './llms-generated-index-plugin';
 
 const pluginConfig = [
   [apiRedirectsPlugin, {}],
-  [blogRedesignPlugin, {}],
+  [discourseContentPlugin, {}],
   [
     function disableExpensiveBundlerOptimizationPlugin() {
       return {

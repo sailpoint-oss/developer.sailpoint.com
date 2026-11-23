@@ -1,7 +1,7 @@
 /**
  * Reads Community Blog and Video Library topics from Discourse and turns them
- * into the snapshots that the blog-redesign pages render.
- * blog-redesign-plugin.ts calls it on every build and start.
+ * into the snapshots that the blog and video pages render.
+ * discourse-content-plugin.ts calls it on every build and start.
  *
  * A snapshot turns the "cooked" HTML of every post into a small JSON tree
  * ({t, a, c} nodes and plain strings). The page renders that tree with React,

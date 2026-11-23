@@ -88,7 +88,7 @@ const Composer = forwardRef<ComposerHandle, ComposerProps>(function Composer(
   {topicId, user, onPosted, onFlash},
   ref,
 ) {
-  const draftKey = `blog-redesign-draft-${topicId}`;
+  const draftKey = `discourse-content-draft-${topicId}`;
   const [tab, setTab] = useState<'write' | 'preview'>('write');
   const [text, setText] = useState('');
   const [replyTo, setReplyTo] = useState<number | undefined>();

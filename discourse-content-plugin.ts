@@ -22,7 +22,7 @@ import type {
  *
  * The content comes from Discourse: every topic in the Community Blog and the
  * Video Library, and the profile of each author. The plugin reads it on every
- * build and start (scripts/blog-redesign-discourse.mjs). Topics that did not
+ * build and start (scripts/discourse-content.mjs). Topics that did not
  * change since the last run come from a cache in
  * node_modules/.cache/discourse-content.
  * In the browser, the landing pages also load the newest topics, so a post
@@ -95,7 +95,7 @@ function fromCache(cacheDir: string): Source {
  * cached copy, or leaves it out.
  */
 async function fromDiscourse(cacheDir: string): Promise<Source> {
-  const discourse = await import('./scripts/blog-redesign-discourse.mjs');
+  const discourse = await import('./scripts/discourse-content.mjs');
   fs.mkdirSync(cacheDir, {recursive: true});
   const cached = <T>(name: string): T | null => {
     const file = path.join(cacheDir, name);
@@ -122,7 +122,7 @@ async function fromDiscourse(cacheDir: string): Promise<Source> {
     } catch (error) {
       const fallback = hit?.topic ?? null;
       console.warn(
-        `[blog-redesign] Topic ${listed.id}: ${(error as Error).message}. ${fallback ? 'Using an older copy.' : 'Left out.'}`,
+        `[discourse-content] Topic ${listed.id}: ${(error as Error).message}. ${fallback ? 'Using an older copy.' : 'Left out.'}`,
       );
       return fallback;
     }
@@ -171,7 +171,7 @@ async function fromDiscourse(cacheDir: string): Promise<Source> {
           return profile;
         } catch (error) {
           console.warn(
-            `[blog-redesign] Author ${username}: ${(error as Error).message}. ${hit ? 'Using an older copy.' : 'Using the name and avatar from the post.'}`,
+            `[discourse-content] Author ${username}: ${(error as Error).message}. ${hit ? 'Using an older copy.' : 'Using the name and avatar from the post.'}`,
           );
           return hit ?? minimalProfile(username);
         }
@@ -180,7 +180,7 @@ async function fromDiscourse(cacheDir: string): Promise<Source> {
   );
 
   console.log(
-    `[blog-redesign] ${posts.length} posts, ${videos.length} videos and ${authors.length} authors from Discourse (${fetched} topics fetched, the rest cached).`,
+    `[discourse-content] ${posts.length} posts, ${videos.length} videos and ${authors.length} authors from Discourse (${fetched} topics fetched, the rest cached).`,
   );
   return {posts, videos, authors};
 }
@@ -234,14 +234,14 @@ interface Content {
 const newestFirst = <T extends Topic>(topics: T[]) =>
   [...topics].sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 
-export default function blogRedesignPlugin(context: LoadContext): Plugin<Content> {
+export default function discourseContentPlugin(context: LoadContext): Plugin<Content> {
   const blogPath = normalizeUrl([context.baseUrl, ROUTE]);
   const videosPath = normalizeUrl([context.baseUrl, VIDEO_ROUTE]);
   const siteUrl = context.siteConfig.url.replace(/\/$/, '');
   const cacheDir = path.join(context.siteDir, 'node_modules/.cache/discourse-content');
 
   return {
-    name: 'blog-redesign',
+    name: 'discourse-content',
 
     async loadContent() {
       let source: Source;
@@ -252,10 +252,10 @@ export default function blogRedesignPlugin(context: LoadContext): Plugin<Content
         source = fromCache(cacheDir);
         const empty = source.posts.length === 0 && source.videos.length === 0;
         if (empty && process.env.NODE_ENV === 'production') {
-          throw new Error(`[blog-redesign] ${reason} The cache is empty, so the build stops.`);
+          throw new Error(`[discourse-content] ${reason} The cache is empty, so the build stops.`);
         }
         console.warn(
-          `[blog-redesign] ${reason} ${empty ? 'The cache is empty, so the pages are empty.' : 'Using the cached topics.'}`,
+          `[discourse-content] ${reason} ${empty ? 'The cache is empty, so the pages are empty.' : 'Using the cached topics.'}`,
         );
       }
 
@@ -305,11 +305,11 @@ export default function blogRedesignPlugin(context: LoadContext): Plugin<Content
 
     async contentLoaded({content, actions}) {
       const postsModule = await actions.createData(
-        'blog-redesign-posts.json',
+        'discourse-content-posts.json',
         JSON.stringify(content.posts.map((c) => c.summary)),
       );
       const videosModule = await actions.createData(
-        'blog-redesign-videos.json',
+        'discourse-content-videos.json',
         JSON.stringify(content.videos.map((c) => c.summary)),
       );
       actions.addRoute({

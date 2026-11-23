@@ -6,7 +6,7 @@ import {VIDEO_CATEGORY_ID} from '../shared/types';
 import videoTheme from './videoTheme.module.css';
 
 /**
- * The video landing page at /videos. The blog-redesign plugin passes every
+ * The video landing page at /videos. The discourse-content plugin passes every
  * video from the build as `videos`, newest first. ListingPage adds newer
  * videos from the forum when the page opens.
  */

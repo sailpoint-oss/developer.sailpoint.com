@@ -55,7 +55,7 @@ const config: Config = {
           sidebarPath: require.resolve('./sidebars.js'),
           docItemComponent: '@theme/ApiItem', // Derived from docusaurus-theme-openapi
         },
-        // The site has a fully custom `/blog` (blog-redesign-plugin.ts) backed by
+        // The site has a fully custom `/blog` (discourse-content-plugin.ts) backed by
         // its own components — the built-in blog plugin's content isn't used, and
         // leaving it enabled makes it generate its own empty index page at the same
         // `/blog` route, which collides with the custom page under onDuplicateRoutes: 'throw'.

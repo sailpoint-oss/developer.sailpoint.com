@@ -15,7 +15,7 @@ import {authorPath, blogLinks, tagPath} from '../shared/links';
 import styles from '../shared/styles.module.css';
 
 /**
- * One blog post at /blog/<slug>. The blog-redesign plugin creates a
+ * One blog post at /blog/<slug>. The discourse-content plugin creates a
  * route for every Community Blog topic and passes its snapshot as `topic`,
  * and the list of all posts as `posts`.
  */

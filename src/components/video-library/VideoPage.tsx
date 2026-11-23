@@ -18,7 +18,7 @@ import video from './video.module.css';
 import videoTheme from './videoTheme.module.css';
 
 /**
- * One video at /videos/<slug>. The blog-redesign plugin creates a route for
+ * One video at /videos/<slug>. The discourse-content plugin creates a route for
  * every Video Library topic and passes its snapshot as `topic`, every video
  * as `videos` and every post as `posts`.
  */

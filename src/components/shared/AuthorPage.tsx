@@ -14,7 +14,7 @@ import styles from './styles.module.css';
 import author from './author.module.css';
 
 /**
- * An author page at /blog/author/<username>. The blog-redesign plugin passes
+ * An author page at /blog/author/<username>. The discourse-content plugin passes
  * the forum profile as `author`, every post as `posts` and every video as
  * `videos`. The page lists the author's posts and videos.
  */

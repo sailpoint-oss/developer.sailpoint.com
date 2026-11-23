@@ -6,7 +6,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import {BLOG_PATH, tagPath} from './links';
 import styles from './styles.module.css';
 
-const HTML_CLASS = 'blog-redesign-compact';
+const HTML_CLASS = 'discourse-content-compact';
 
 interface CompactHeaderProps {
   /** The element that, once scrolled out of view, turns the compact header on. */

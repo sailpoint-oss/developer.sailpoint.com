@@ -236,11 +236,11 @@
   flex: 0 1 auto;
 }
 
-:global(html.blog-redesign-compact) .compactHost {
+:global(html.discourse-content-compact) .compactHost {
   display: flex;
 }
 
-:global(html.blog-redesign-compact) :global(.navbar__brand) {
+:global(html.discourse-content-compact) :global(.navbar__brand) {
   display: none;
 }
 
@@ -370,11 +370,11 @@
 
 /* The navbar collapses to a menu on small screens. Keep the normal logo. */
 @media (max-width: 996px) {
-  :global(html.blog-redesign-compact) .compactHost {
+  :global(html.discourse-content-compact) .compactHost {
     display: none;
   }
 
-  :global(html.blog-redesign-compact) :global(.navbar__brand) {
+  :global(html.discourse-content-compact) :global(.navbar__brand) {
     display: flex;
   }
 }

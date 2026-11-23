@@ -5,7 +5,7 @@ import type {PostSummary} from '../shared/types';
 import {BLOG_CATEGORY_ID} from '../shared/types';
 
 /**
- * The blog landing page at /blog. The blog-redesign plugin passes every post
+ * The blog landing page at /blog. The discourse-content plugin passes every post
  * from the build as `posts`, newest first. ListingPage adds newer posts from
  * the forum when the page opens.
  */

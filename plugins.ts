@@ -2,6 +2,7 @@ const {createApiPageMD} = require('./createApiPageMD');
 import clsx from 'clsx';
 import apiRedirectsPlugin from './api-redirects-plugin';
 import blogRedesignPlugin from './blog-redesign-plugin';
+import llmsGeneratedIndexPlugin from './llms-generated-index-plugin';
 
 const pluginConfig = [
   [apiRedirectsPlugin, {}],
@@ -36,6 +37,7 @@ const pluginConfig = [
         'Documentation, API references, SDKs, and guides for building on SailPoint Identity Security, IdentityIQ, and Non-Employee Risk Management.',
     },
   ],
+  [llmsGeneratedIndexPlugin, {}],
   [
     '@docusaurus/plugin-google-tag-manager',
     {
@@ -67,10 +69,7 @@ const pluginConfig = [
         if (existingPath.startsWith('/docs')) {
           return [existingPath.replace('/docs', '/idn')];
         }
-        // The blog redesign was previewed at /blog-redesign before it replaced /blog.
-        if (existingPath === '/blog' || existingPath.startsWith('/blog/')) {
-          return [existingPath.replace('/blog', '/blog-redesign')];
-        }
+
         return undefined; // Return a falsy value: no redirect created
       },
     },

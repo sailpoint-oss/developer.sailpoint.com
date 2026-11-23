@@ -203,11 +203,15 @@ If the CLI cannot find a usable environment, it stops and tells you how to fix t
 | `no PAT client ID is stored for environment "{name}"` or `no PAT client secret is stored ...` | Run `sail set pat` to store your PAT credentials, or set `SAIL_CLIENT_ID` and `SAIL_CLIENT_SECRET`. |
 | `invalid authtype configured` | Run `sail set auth` to choose `oauth` or `pat`. |
 
+To see which environment, auth type, and credentials the CLI is using, and where each one comes from, run `sail whoami`. For more information, refer to the CLI [Whoami guide](/docs/tools/cli/whoami).
+
 ## Environment variable configuration
 
 You can also store your configuration in environment variables. This can be useful when you are using the CLI in an automated environment like a continuous integration and continuous deployment (CI/CD) pipeline. In these types of scenarios, consuming the configuration from environment variables would be easier than creating the configuration file.
 
 When `SAIL_BASE_URL` is set, the CLI does not need a configured environment, so you do not have to run `sail env create`.
+
+Environment variables override the values in your configuration file and the credentials you saved with `sail set pat`. Run `sail whoami` to see which `SAIL_*` variables are set and whether they override your saved configuration.
 
 To export the environment variables on **Linux/Mac**, open your terminal app and run these commands:
 
@@ -249,6 +253,7 @@ These commands are available:
 - `va`: Run this command to access VAs connected to your tenant. For more information about the `va` command, refer to the CLI [VA guide](/docs/tools/cli/va).
 - `cluster`: Run this command to access VA clusters connected to your tenant. For more information about the `cluster` command, refer to the CLI [Clusters guide](/docs/tools/cli/cluster).
 - `workflow`: Run this command to create and manage workflows within the CLI. For more information about the `workflow` command, refer to the CLI [Workflows guide](/docs/tools/cli/workflow).
+- `whoami`: Run this command to see how you're authenticated, which credentials are in use, and what your access token contains. For more information about the `whoami` command, refer to the CLI [Whoami guide](/docs/tools/cli/whoami).
 
 ## Support
 

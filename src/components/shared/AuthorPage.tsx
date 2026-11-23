@@ -30,9 +30,12 @@ function websiteLink(url: string, name: string): {icon: string; label: string} {
       return '';
     }
   })();
-  if (host.endsWith('linkedin.com')) return {icon: 'fa-brands fa-linkedin', label: 'LinkedIn'};
-  if (host.endsWith('github.com')) return {icon: 'fa-brands fa-github', label: 'GitHub'};
-  if (host === 'x.com' || host.endsWith('twitter.com')) return {icon: 'fa-brands fa-x-twitter', label: 'X'};
+  // The host must be the domain or a subdomain of it. A plain endsWith check
+  // also matches hosts such as "evilgithub.com".
+  const isOn = (domain: string) => host === domain || host.endsWith(`.${domain}`);
+  if (isOn('linkedin.com')) return {icon: 'fa-brands fa-linkedin', label: 'LinkedIn'};
+  if (isOn('github.com')) return {icon: 'fa-brands fa-github', label: 'GitHub'};
+  if (isOn('x.com') || isOn('twitter.com')) return {icon: 'fa-brands fa-x-twitter', label: 'X'};
   return {icon: 'fa-solid fa-globe', label: name || host};
 }
 

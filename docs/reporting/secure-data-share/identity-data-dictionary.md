@@ -309,10 +309,13 @@ Contains certification data sourced from **Certs 2.0**.
 | SOURCE_ID | text |  | Unique Id of the source or application |
 | ATTRIBUTE | text |  | Attribute name that defines the entitlement |
 | VALUE | text |  | Value of the attribute |
+| ENTITLEMENT_ATTRIBUTES | variant |  | Full attributes object of the entitlement, as key-value pairs from the source system |
 | TYPE | text |  | Group, customRole, PermissionSet etc. |
 | IS_REQUESTABLE | text |  | To check if the object can be requested by other access items |
 | OWNER_IDENTITY_ID | text |  | Identity that owns the object |
 | PRIVILEGED | boolean |  | Whether the entitlement is privileged |
+| PRIVILEGE_LEVEL | variant |  | Privilege level object with direct, effective, inherited, setBy and setByType fields. NULL when the entitlement has no privilege classification |
+| EFFECTIVE_PRIVILEGE | text |  | Effective privilege level from PRIVILEGE_LEVEL. One of HIGH, MEDIUM, LOW or NONE. NULL when the entitlement has no privilege classification |
 | CLOUD_GOVERNED | boolean |  | Whether the entitlement is cloud governed |
 | HAS_PERMISSIONS | boolean |  | Whether the entitlement has permissions |
 | ACCESS_MODEL_METADATA | variant |  | Access model metadata assignments |

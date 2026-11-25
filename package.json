@@ -8,6 +8,7 @@
     "start-minified": "docusaurus start --config docusaurus.config.minified.ts --port=4202",
     "start-extensibility": "docusaurus start --config docusaurus.config.extensibility.ts --port=4203",
     "build": "docusaurus build",
+    "postbuild": "node scripts/javadoc-to-markdown.js",
     "build-minified": "docusaurus build --config docusaurus.config.minified.ts",
     "build-extensibility": "docusaurus build --config docusaurus.config.extensibility.ts",
     "build:rspack:trace": "DOCUSAURUS_RSPACK_TRACE=true DOCUSAURUS_DISABLE_LAST_UPDATE=true DOCUSAURUS_EXIT_AFTER_BUNDLING=true npm run build",

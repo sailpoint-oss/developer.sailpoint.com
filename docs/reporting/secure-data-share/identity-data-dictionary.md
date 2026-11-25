@@ -393,6 +393,7 @@ Contains certification item data sourced from **Certs 1.0**.
 | BULK | boolean |  | decision made was part of bulk selection |
 | REMEDIATED | boolean |  | True when the decision was remediated |
 | PRIVILEGED | boolean |  | if any of the access items are privileged |
+| PROVISIONING_TYPE | text |  | Provisioning type of the reviewed access. Always STANDING for Certs 1.0 items |
 | REMEDIATION_ACTION | text |  | Associated action on remediation |
 | MITIGATION_EXPIRATION | datetime |  | Time when the decision to mitigate was set to expire |
 | NATIVE_IDENTITY | text |  | Identity from the source |
@@ -432,6 +433,7 @@ Contains certification item data sourced from **Certs 2.0**.
 | DECISION_COMMENT | text |  | Comment provided by the reviewer along with the decision |
 | REMEDIATED | boolean |  | True when the decision was remediated |
 | PRIVILEGED | boolean |  | if any of the access items are privileged |
+| PROVISIONING_TYPE | text |  | Provisioning type of the reviewed access. One of JIT or STANDING |
 | NATIVE_IDENTITY | text |  | Identity from the source |
 | NEW_ACCESS | boolean |  | if the access item is new |
 | SYNC_DATE | datetime |  | When the row is last synced |

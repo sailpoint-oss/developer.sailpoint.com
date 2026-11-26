@@ -1,0 +1,28 @@
+type: object
+description: |
+  First page of risk factors for a non-human identity, strongest first. Either success fields
+  (`items`, optional `totalCount` and `next`) or failure fields (`message`, `reason`), never both.
+  Present on every NHI lookup. When `risk` is null, `items` may be an empty array.
+properties:
+  items:
+    type: array
+    description: First page of risk factors.
+    items:
+      $ref: ./intelnhirisksignalwire.yaml
+  totalCount:
+    type: integer
+    format: int32
+    minimum: 1
+    description: Total number of risk factors. Omitted when `items` is empty.
+    example: 3
+  next:
+    type: string
+    format: uri
+    description: URL for the next page of risk factors. Omitted when everything fits on this page.
+    example: https://tenant.example.api.cloud.sailpoint.com/intelligence/v1/identities/2c91808874ff91550175097daaec161e/risk-signals?limit=10&offset=10&count=true
+  message:
+    type: string
+    description: Set when risk factors could not be loaded. `items`, `totalCount`, and `next` are omitted.
+    example: Data temporarily unavailable. Please try again later.
+  reason:
+    $ref: ./intelenrichmentfailurereason.yaml

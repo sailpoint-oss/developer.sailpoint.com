@@ -1,0 +1,15 @@
+type: object
+title: Machine Account Subtype List Config
+description: >-
+  Slim machine-account-create config embedded on a list item when `includeConfigs` is `true`.
+  Full create, delete, approval, password, and form fields stay on the machine-config API.
+properties:
+  machineAccountCreate:
+    type: object
+    description: Stored create flag for this subtype. Omitted when no create config exists.
+    properties:
+      accountCreateEnabled:
+        type: boolean
+        description: Whether machine account creation is enabled for this subtype.
+        default: false
+        example: true

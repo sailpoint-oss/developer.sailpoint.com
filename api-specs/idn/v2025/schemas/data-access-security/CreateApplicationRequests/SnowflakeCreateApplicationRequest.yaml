@@ -1,0 +1,34 @@
+allOf:
+  - $ref: './BaseCreateApplicationRequest.yaml'
+  - type: object
+    properties:
+      url:
+        type: string
+        nullable: true
+        description: The Snowflake account URL.
+        example: "https://company.snowflakecomputing.com"
+      organization:
+        type: string
+        nullable: true
+        description: The organization name in Snowflake.
+        example: "company"
+      account:
+        type: string
+        nullable: true
+        description: The account name in Snowflake.
+        example: "account1"
+      userName:
+        type: string
+        nullable: true
+        description: The username for Snowflake authentication.
+        example: "snowflakeuser"
+      privateKey:
+        type: string
+        nullable: true
+        description: The private key for Snowflake authentication.
+        example: "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASC..."
+      privateKeyPassphrase:
+        type: string
+        nullable: true
+        description: The passphrase for the private key.
+        example: "privatekeypass"

@@ -1,0 +1,36 @@
+Url:
+  $ref: './Url.yaml'
+User:
+  $ref: './GET/User.yaml'
+UserManager:
+  $ref: './GET/UserManager.yaml'
+UserRole:
+  $ref: './GET/UserRole.yaml'
+Attribute:
+  $ref: './GET/Attribute.yaml'
+AttributeOption:
+  $ref: './GET/AttributeOption.yaml'
+ProfileType:
+  $ref: './GET/ProfileType.yaml'
+Profile:
+  $ref: './GET/Profile.yaml'
+RiskScore:
+  $ref: './GET/RiskScore.yaml'
+RiskLevel:
+  $ref: './GET/RiskLevel.yaml'
+UserProfile:
+  $ref: './GET/UserProfile.yaml'
+RoleProfile:
+  $ref: './GET/RoleProfile.yaml'
+WorkflowSession:
+  $ref: './GET/WorkflowSession.yaml'
+IdentityProofingResult:
+  $ref: './GET/IdentityProofingResult.yaml'
+AdvancedSearch:
+  $ref: './GET/AdvancedSearch.yaml'
+ConditionRulesAttribute-ProfileTypeRule:
+  $ref: './GET/ProfileTypeRule.yaml'
+ConditionRulesAttribute-ProfileStatusRule:
+  $ref: './GET/ProfileStatusRule.yaml'
+ConditionRulesAttribute-ProfileAttributeRule:
+  $ref: './GET/ProfileAttributeRule.yaml'

@@ -1,0 +1,7 @@
+type: string
+enum:
+  - IN_PROGRESS
+  - SUCCESS
+  - FAILED
+description: The status of the report generation.
+example: IN_PROGRESS

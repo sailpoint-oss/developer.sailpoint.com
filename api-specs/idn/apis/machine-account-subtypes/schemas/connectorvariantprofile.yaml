@@ -1,0 +1,24 @@
+type: object
+title: Connector Variant Profile
+nullable: true
+readOnly: true
+description: >-
+  Response-only connector-variant profile. Always `null` for `SOURCE` and `CONNECTOR` tiers in this
+  release. Populated when the connector-variant tier is available.
+properties:
+  id:
+    type: string
+    format: uuid
+    default: ""
+    description: Unique identifier of the connector variant profile.
+    example: 65de7634-d315-482c-aad4-7fdbd1e42056
+  connectorType:
+    type: string
+    default: ""
+    description: Connector type of the variant profile, for example `JDBC`.
+    example: JDBC
+  variant:
+    type: string
+    default: ""
+    description: Variant name within the connector type, for example `MySql`.
+    example: MySql

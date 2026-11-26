@@ -1,0 +1,29 @@
+type: object
+description: A custom data dictionary field used for permission and identity collector mappings.
+properties:
+  name:
+    type: string
+    description: The unique field name.
+    example: Department
+  fieldType:
+    type: string
+    description: The field data type. Custom fields are always String.
+    example: String
+  dataDictionaryType:
+    type: string
+    description: The data dictionary that owns this field.
+    enum:
+      - Users
+      - Roles
+      - Permission Types
+      - Business Resources
+    example: Users
+  required:
+    type: boolean
+    description: Whether the field is required. Custom fields returned by list are always false.
+    example: false
+required:
+  - name
+  - fieldType
+  - dataDictionaryType
+  - required

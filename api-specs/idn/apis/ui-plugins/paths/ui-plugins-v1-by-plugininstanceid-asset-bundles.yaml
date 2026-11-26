@@ -1,0 +1,164 @@
+get:
+  operationId: listUiPluginAssetBundlesV1
+  x-sailpoint-lint-ignore:
+    path-list-operations-must-return-object: The service returns a top-level array and puts the total count in the X-Total-Count header.
+  tags:
+    - UI Plugins
+  summary: List plugin asset bundles
+  description: >-
+    Returns asset bundles for the given plugin instance (newest-first).
+
+
+    Requires product license `idn:ui-plugins` or `idn:ui-plugins-author`
+    (404 if neither is present). Returns 400 `User context is invalid` when
+    the caller has no tenant id. Bundles are listed only when the plugin
+    instance belongs to that tenant; a mismatch is 404.
+  security:
+    - userAuth:
+        - idn:plugins-ui:read
+    - applicationAuth:
+        - idn:plugins-ui:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - name: pluginInstanceId
+      in: path
+      required: true
+      description: UUID of the plugin instance
+      example: 2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c
+      schema:
+        type: string
+        format: uuid
+      x-sailpoint-resource-operation-id: listUiPluginsV1
+    - $ref: ../../shared/parameters/limit.yaml
+    - $ref: ../../shared/parameters/offset.yaml
+    - $ref: ../../shared/parameters/count.yaml
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+  responses:
+    "200":
+      description: Asset bundles for the requested page (or full list)
+      headers:
+        x-total-count:
+          description: Total number of matching items (present when `count=true`)
+          schema:
+            type: integer
+            minimum: 0
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/uipluginassetbundle.yaml
+    "400":
+      $ref: ../../shared/responses/400.yaml
+    "401":
+      $ref: ../../shared/responses/401.yaml
+    "403":
+      $ref: ../../shared/responses/403.yaml
+    "404":
+      $ref: ../../shared/responses/404.yaml
+    "429":
+      $ref: ../../shared/responses/429.yaml
+    "500":
+      $ref: ../../shared/responses/500.yaml
+post:
+  operationId: createUiPluginAssetBundleV1
+  x-sailpoint-lint-ignore:
+    path-201-responses-must-define-location-header: The service returns the new resource in the response body and does not set a Location header.
+  tags:
+    - UI Plugins
+  summary: Create a plugin asset bundle
+  description: >-
+    Accepts `multipart/form-data` with one or more parts named **`file`**. The
+    bundle-relative path for each object is taken from the part's multipart
+    **filename** (`originalname`). Paths are normalized (no `..`, no absolute
+    paths) and stored under `{pluginInstanceId}/{assetBundleId}/...` in S3.
+    Folder structure is preserved, not flattened.
+
+
+    Requirements:
+
+    - Bundle must include root `index.html`
+
+    - Configurable limits on file count, per-file bytes, and total bundle bytes
+
+    - Product license `idn:ui-plugins-author` required (404 if missing)
+
+    - Caller tenant id is present (400 `User context is invalid` otherwise).
+      The plugin instance must belong to that tenant (404 otherwise).
+
+
+    Creates a new immutable bundle record; previous active bundles are
+    tombstoned via `cleanupAfter`. Emits the `UI_PLUGIN_ASSET_BUNDLE_CREATED` audit event.
+  security:
+    - userAuth:
+        - idn:plugins-ui:update
+    - applicationAuth:
+        - idn:plugins-ui:update
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - name: pluginInstanceId
+      in: path
+      required: true
+      description: UUID of the plugin instance
+      example: 2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c
+      schema:
+        type: string
+        format: uuid
+      x-sailpoint-resource-operation-id: listUiPluginsV1
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          required:
+            - file
+          properties:
+            file:
+              type: array
+              description: >-
+                Repeatable form field. Send one part per file; use the part
+                filename for the bundle-relative path (e.g. `assets/app.js`).
+              items:
+                type: string
+                format: binary
+        encoding:
+          file:
+            style: form
+            explode: true
+  responses:
+    "201":
+      description: Asset bundle created
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/uipluginassetbundle.yaml
+    "400":
+      $ref: ../../shared/responses/400.yaml
+    "401":
+      $ref: ../../shared/responses/401.yaml
+    "403":
+      $ref: ../../shared/responses/403.yaml
+    "404":
+      $ref: ../../shared/responses/404.yaml
+    "429":
+      $ref: ../../shared/responses/429.yaml
+    "500":
+      $ref: ../../shared/responses/500.yaml

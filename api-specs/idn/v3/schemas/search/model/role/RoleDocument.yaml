@@ -1,0 +1,133 @@
+description: Role
+allOf:
+- $ref: '../access/BaseAccess.yaml'
+- type: object
+  required: ["id", "name"]
+  properties:
+    id:
+      type: string
+      example: 2c91808375d8e80a0175e1f88a575222
+      description: ID of the role.
+    name:
+      type: string
+      example: Branch Manager Access
+      description: Name of the role.
+    accessProfiles:
+      type: array
+      description: Access profiles included with the role.
+      nullable: true
+      items:
+        $ref: '../base/BaseAccessProfile.yaml'
+    accessProfileCount:
+      type: integer
+      description: Number of access profiles included with the role. 
+      nullable: true
+      format: int32
+      example: 1
+    tags:
+      $ref: '../base/Tags.yaml'
+      nullable: true
+    segments:
+      type: array
+      description: Segments with the role. 
+      nullable: true
+      items:
+        $ref: '../base/BaseSegment.yaml'
+    segmentCount:
+      type: integer
+      description: Number of segments with the role.
+      nullable: true
+      format: int32
+      example: 1
+    entitlements:
+      type: array
+      description: Entitlements included with the role.
+      nullable: true 
+      items:
+        allOf:
+          - $ref: '../entitlement/BaseEntitlement.yaml'
+          - properties:
+              sourceSchemaObjectType:
+                type: string
+                description: Schema objectType.
+                example: group
+              hash:
+                type: string
+                description: Read-only calculated hash value of an entitlement.
+                example: c6fab95235584cca98a454a2f51e5683bc77d6a0
+    entitlementCount:
+      type: integer
+      description: Number of entitlements included with the role.
+      nullable: true
+      format: int32
+      example: 3
+    dimensional:
+      type: boolean
+      example: false
+      default: false
+    dimensionSchemaAttributeCount:
+      type: integer
+      description: Number of dimension attributes included with the role.
+      nullable: true
+      format: int32
+      example: 3
+    dimensionSchemaAttributes:
+      type: array
+      description: Dimension attributes included with the role.
+      nullable: true 
+      items:
+        type: object
+        properties:
+          derived:
+            type: boolean
+            example: true
+            default: true
+          displayName:
+            type: string
+            description: Displayname of the dimension attribute.
+            example: Department
+          name:
+            type: string
+            description: Name of the dimension attribute.
+            example: department
+    dimensions:
+      type: array
+      nullable: true
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+            description: Unique ID of the dimension.
+            example: b3c28992ba964a40a7598978139d1ced
+          name:
+            type: string
+            description: Name of the dimension.
+            example:  Manager Austin Branch
+          description:
+            type: string
+            nullable: true
+            description: Description of the dimension.
+            example: Managers located at the Austin branch
+          entitlements:
+            type: array
+            description: Entitlements included with the role.
+            nullable: true 
+            items:
+              allOf:
+                - $ref: '../entitlement/BaseEntitlement.yaml'
+                - properties:
+                    sourceSchemaObjectType:
+                      type: string
+                      description: Schema objectType.
+                      example: group
+                    hash:
+                      type: string
+                      description: Read-only calculated hash value of an entitlement.
+                      example: c6fab95235584cca98a454a2f51e5683bc77d6a0
+          accessProfiles:
+            type: array
+            nullable: true
+            description: Access profiles included in the dimension.
+            items:
+              $ref: '../base/BaseAccessProfile.yaml'

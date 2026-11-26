@@ -1,0 +1,18 @@
+type: object
+description: Recipients used when an escalation cannot be delivered to its configured targets.
+required:
+- targets
+- template
+properties:
+  targets:
+    type: array
+    minItems: 1
+    description: >-
+      Last-resort recipients for this fallback. Each entry resolves to a manager, identity, governance group,
+      entitlement owner, or source owner. At least one target is required.
+    items:
+      $ref: './reminderescalationtarget.yaml'
+  template:
+    type: string
+    description: Notification template key.
+    example: cert-escalation-fallback-admin

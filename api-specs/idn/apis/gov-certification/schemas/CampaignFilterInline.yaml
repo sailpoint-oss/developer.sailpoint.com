@@ -1,0 +1,19 @@
+type: object
+description: Inline Campaign Filter Details
+properties:
+  mode:
+    $ref: './CampaignFilterType.yaml'
+  criteriaList:
+    type: array
+    description: List of criteria.
+    minItems: 1
+    items:
+      $ref: './Criteria.yaml'
+    example:
+      - criteriaType: IDENTITY
+        criteriaProperty: DISPLAY_NAME
+        criteriaValue: support
+        operation: EQUALS
+required:
+  - mode
+  - criteriaList

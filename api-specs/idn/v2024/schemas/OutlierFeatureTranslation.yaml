@@ -1,0 +1,8 @@
+type: object
+title: Outlier Feature Translation
+nullable: true
+properties:
+  displayName:
+    $ref: ./TranslationMessage.yaml
+  description:
+    $ref: ./TranslationMessage.yaml

@@ -1,0 +1,68 @@
+get:
+  operationId: getIntelIdentityRiskSignalsV1
+  x-sailpoint-lint-ignore:
+    path-list-operations-must-return-object: Intelligence child list endpoints return a bare JSON array; matches the NHI accounts pagination contract.
+    path-429-responses-must-define-rate-limit-headers: Reuses apis/shared/responses/429.yaml; gateway enforces rate-limit response headers.
+  security:
+  - userAuth:
+    - sp:identity-sec-intel:read
+  - applicationAuth:
+    - sp:identity-sec-intel:read
+  x-required-right: sp:identity-sec-intel:read
+  x-sailpoint-userLevels:
+  - Any
+  tags:
+  - Intelligence
+  summary: List non-human identity risk factors
+  description: |
+    Requires tenant license idn:response-and-remediation.
+
+    Lists risk factors for one non-human identity (NHI). Do not send `isNHI`.
+
+    Returns one page of risk factors as a JSON array, ordered strongest factor first. Each element
+    describes a factor (id, name, description, severity, status, and when it was last observed) that
+    contributes to the identity risk posture. An empty array is a valid page.
+
+    Send `count=true` to receive the `x-total-count` response header (including `0` on empty pages).
+
+    Returns **404** when the identity is unknown or risk information is not available for this identity.
+  parameters:
+  - $ref: ../parameters/intelligence-identity-id-path.yaml
+  - $ref: ../../shared/parameters/limit.yaml
+  - $ref: ../../shared/parameters/offset.yaml
+  - $ref: ../../shared/parameters/count.yaml
+  responses:
+    '200':
+      description: One page of risk factors.
+      headers:
+        x-total-count:
+          description: Total number of risk factors. Present when `count=true` was sent (including `0` on empty pages).
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/intelnhirisksignalwire.yaml
+          example:
+          - id: no_human_owner
+            name: No human owner confirmed
+            description: No attributed owner means weak accountability for access and remediation.
+            severityValue: CRITICAL
+            lastReceivedAt: '2026-10-10T16:45:29Z'
+            status: active
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

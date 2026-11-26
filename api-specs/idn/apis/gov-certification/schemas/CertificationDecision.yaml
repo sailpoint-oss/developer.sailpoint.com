@@ -1,0 +1,8 @@
+type: string
+description: The decision to approve or revoke the review item
+enum:
+  - ACKNOWLEDGED
+  - APPROVED
+  - REVOKED
+  - UNDECIDED
+example: APPROVED

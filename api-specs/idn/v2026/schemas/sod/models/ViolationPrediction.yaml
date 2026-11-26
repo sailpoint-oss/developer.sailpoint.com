@@ -1,0 +1,10 @@
+description: An object containing a listing of the SOD violation reasons detected by this check.
+required:
+  - requestId
+type: object
+properties:
+  violationContexts:
+    type: array
+    description: List of Violation Contexts
+    items:
+      $ref: './ViolationContext.yaml'

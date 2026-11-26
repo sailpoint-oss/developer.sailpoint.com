@@ -1,0 +1,92 @@
+post:
+  operationId: createMachineAccountRequestV2
+  x-sailpoint-lint-ignore:
+    path-create-operations-must-return-201: Accepts the request and returns 202. Callers poll the v1 status path for the result.
+  tags:
+  - Machine Account Creation Request
+  summary: Machine Account Creation Request (v2)
+  security:
+  - userAuth:
+    - sp:scopes:default
+  x-sailpoint-userLevels:
+  - USER
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: "true"
+    schema:
+      type: string
+      default: "true"
+    required: true
+  description: >
+    Initiates a machine account creation request. The same body and process are used by
+    `POST /machine-accounts/v2/machine-account-create`.
+
+
+    `sourceId` is required while tiered subtype configuration is enabled, and `subtypeId` must then
+    be in that source's effective set. When that flag is off, `sourceId` is ignored and the source
+    is the subtype's own source. `entitlements` is honored while per-entitlement request details are
+    enabled; `entitlementIds` is honored while that flag is off. A non-empty list of the other kind
+    returns **400**. At most 20 unique entitlement ids are allowed.
+
+
+    The call returns **202** with `accountRequestId`. Poll
+    `GET /account-requests/v1/machine-account-create/{accountRequestId}` for status. There is no v2
+    status route.
+
+
+    Missing `subtypeId` or `ownerIdentityId`, or a missing `sourceId` while tiered subtype
+    configuration is enabled, returns **400**. An unknown owner, source, or subtype returns **404**.
+    A subtype that is not in the source effective set returns **400**. The endpoint returns **404**
+    when both tiered subtype configuration and per-entitlement request details are disabled.
+
+
+    The caller must be authenticated with the `sp:scopes:default` scope. The create machine account
+    entitlement for the subtype is checked when the request is processed. Without that entitlement
+    the API returns **403**.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/machineaccountcreaterequestinputv2.yaml
+        examples:
+          WithEntitlements:
+            value:
+              sourceId: 2c9180907c1e4b3a017c1e5f2a3b0001
+              subtypeId: 1419fc28-a8ed-4a07-9f5c-0cb5dfad6311
+              formId: 4f1bb61b-a0ab-4c0a-b9fb-20f44407b75a
+              ownerIdentityId: 9f2c1b7e4a6d4c8fa1b2c3d4e5f60718
+              machineIdentityId: b1e2c3d4-0a5b-4c6d-8e7f-9a0b1c2d3e4f
+              environment: production
+              description: Nightly reconciliation job
+              userInput:
+                accountName: svc-recon-01
+              entitlements:
+                - id: 858d2151-ff19-464b-ae0d-6938b3af2baf
+                  comment: Needed to read the reconciliation staging tables.
+                  startDate: '2026-09-01T00:00:00.000Z'
+                  removeDate: '2027-03-01T00:00:00.000Z'
+                - id: 0c7a44b9-3e21-4f88-9a10-77bd2c6e5f31
+  responses:
+    '202':
+      description: Machine account creation request accepted.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/accountrequestasyncresult.yaml
+          example:
+            accountRequestId: e5f6a7b8-9c0d-4e1f-a2b3-c4d5e6f7a8b9
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

@@ -1,0 +1,64 @@
+- accountRequestId: 18104e7e499b4e23882d6323344ab6bc
+  requestType: DELETE_ACCOUNT
+  createdAt: 2026-01-14T08:08:27.195Z
+  completedAt: 2026-01-14T08:38:45.932Z
+  overallStatus: SUCCESS
+  requester:
+    type: IDENTITY
+    id: 85131bd73fdc423599e57f40b29f01fe
+    name: SailPoint Support
+  requesterComments: Delete Machine Account with subtype and account owner Happy Path Test#1
+  accountDetails:
+    accountId: 4542bb255921482fb36f6a5550e23a99
+    accountName: machine102,
+    accountNativeIdentity: CN=machine 102,OU=megapod-useast1-vivek-e2e,OU=org-data-service,DC=TestAutomationAD,DC=local
+    accountUuid: bcde4ff4-087a-4af4-b5e4-95c85e386276
+    accountType: MACHINE
+    accountSubtypeId: d7ae9ea3-507f-4d00-9d4f-b4464b344b88
+    accountSubtype: null
+    description: null
+    sourceId: a03caa629a624cee90f94048252034cf
+    sourceName: Active Directory
+    hasEntitlements: false
+    disabled: false
+    locked: false
+    ownerIdentity:
+      type: IDENTITY
+      id: 28ca01acdd3648b4b0890ab2e0af8839
+      name: walter.white
+  correlatedIdentity:
+    id: c2353ef10dd54a8e9725beff360c0be2
+    name: machine102
+    status: null
+    email: machine.102@testmail.identitysoon.com
+  managerReference:
+    id: 117e169acf21f4ae28e8a06198ce7f69
+    name: manager
+    email: manager@testmail.identitysoon.com
+    status: ACTIVE
+  approvalRequestId: 90a7b947-578b-4285-98dc-5d5d01c7b736
+  accountRequestPhases:
+     - name: APPROVAL_PHASE
+       state: APPROVED
+       started: 2026-01-14T08:08:28.644090559Z
+       finished: 2026-01-14T08:38:42.707043142Z
+     - name: PROVISIONING_PHASE
+       state: PASSED
+       started: 2026-01-14T08:38:42.785577841Z
+       finished: 2026-01-14T08:38:45.932606296Z
+  approvalDetails:
+      approverType: SOURCE_OWNER
+      approver:
+        id: 85131bd73fdc423599e57f40b29f01fe
+        type: IDENTITY
+        name: SailPoint Support
+      actionedBy:
+        id: 85131bd73fdc423599e57f40b29f01fe
+        type: IDENTITY
+        name: SailPoint Support
+      comments: Yes this can be deleted.
+      decisionDate: 2026-01-14T08:38:41.733779Z
+      serialOrder: 1
+      status: APPROVED
+  errorDetails: null
+

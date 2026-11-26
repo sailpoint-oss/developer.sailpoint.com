@@ -1,0 +1,24 @@
+type: object
+description: |
+  Linked MCP servers, tools, and skills for a non-human identity. When the list loads successfully,
+  `mcp`, `tool`, and `skill` are present. When it could not be loaded, those properties are omitted
+  and only `message` and `reason` are returned.
+properties:
+  mcp:
+    description: Linked MCP servers for this identity.
+    allOf:
+      - $ref: ./intelnhicapabilitybucket.yaml
+  tool:
+    description: Linked tools for this identity.
+    allOf:
+      - $ref: ./intelnhicapabilitybucket.yaml
+  skill:
+    description: Linked skills for this identity.
+    allOf:
+      - $ref: ./intelnhicapabilitybucket.yaml
+  message:
+    type: string
+    description: Set when linked capabilities could not be loaded. The `mcp`, `tool`, and `skill` properties are omitted; only `message` and `reason` are present.
+    example: Data temporarily unavailable. Please try again later.
+  reason:
+    $ref: ./intelenrichmentfailurereason.yaml

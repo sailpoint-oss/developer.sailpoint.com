@@ -1,0 +1,45 @@
+type: object
+properties:
+  taskId:
+    type: string
+    description: Unique identifier for the bulk delete task.
+    example: "123e4567-e89b-12d3-a456-426614174000"
+  type:
+    type: string
+    description: Type of the task. Only DELETE is supported.
+    enum:
+      - DELETE
+    example: DELETE
+  status:
+    type: string
+    enum:
+      - PENDING
+      - IN_PROGRESS
+      - COMPLETED
+      - ERROR
+    description: Status of the bulk delete task.
+    example: "IN_PROGRESS"
+  error:
+    $ref: "../../../v3/schemas/ErrorMessageDto.yaml"
+  created:
+    type: string
+    format: date-time
+    description: Timestamp when the task was created.
+    example: "2017-07-11T18:45:37.098Z"
+  failedItems:
+    type: array
+    items:
+      type: object
+      properties:
+          id:
+            type: string
+            description: Unique identifier of the entitlement that failed to be deleted.
+            example: "2c9180867817ac4d017817c491119a20"
+          reason:
+            type: string
+            description: Reason for the failure.
+            example: "Entitlement not found"
+    description: List of items that failed to be deleted.
+    example:
+      - id: "2c9180867817ac4d017817c491119a20"
+        reason: "Entitlement not found"

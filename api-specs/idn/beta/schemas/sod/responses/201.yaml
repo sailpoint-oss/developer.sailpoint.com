@@ -1,0 +1,8 @@
+description: SOD exception created
+content:
+  application/json:
+    schema:
+      $ref: '../models/Exception.yaml'
+    examples:
+      SOD Exception:
+        $ref: '../examples/exception-response.yaml'

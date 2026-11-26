@@ -1,0 +1,82 @@
+get:
+  operationId: getIntelIdentityAccounts
+  security:
+    - userAuth:
+        - sp:identity-sec-intel:read
+    - applicationAuth:
+        - sp:identity-sec-intel:read
+  x-required-right: sp:identity-sec-intel:read
+  x-sailpoint-userLevels:
+    - Any
+  tags:
+    - Intelligence
+  summary: List identity accounts
+  description: |
+    Continuation endpoint for the parent response's `accounts.next` link.
+    Returns one page of account rows for the supplied limit and offset values.
+    Requires tenant license idn:response-and-remediation.
+  parameters:
+    - $ref: '../parameters/intelligence-identity-id-path.yaml'
+    - name: limit
+      in: query
+      required: false
+      description: Page size. Defaults to 250; values above 250 are rejected with 400.
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 250
+        default: 250
+      example: 250
+    - name: offset
+      in: query
+      required: false
+      description: Zero-based page offset. Defaults to 0.
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        default: 0
+      example: 0
+  responses:
+    '200':
+      description: One page of accounts.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/intelligence/IntelAccessAccountWire.yaml'
+          example:
+            - id: 2c91808874ff91550175097daaec161c
+              name: example.user
+              source:
+                id: 60de165099e649cb828553a5e8510fc4
+                name: Example Directory
+              disabled: false
+              locked: false
+              authoritative: false
+              systemAccount: false
+              isMachine: false
+              manuallyCorrelated: false
+              nativeIdentity: CN=example.user,OU=users
+              created: "2026-01-01T00:00:00Z"
+              modified: "2026-05-01T00:00:00Z"
+    '400':
+      description: Invalid path or query parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/intelligence/ErrorBody.yaml'
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      description: Internal or upstream server failure.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/intelligence/ErrorBody.yaml'

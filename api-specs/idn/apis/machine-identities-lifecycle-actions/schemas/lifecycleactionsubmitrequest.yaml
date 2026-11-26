@@ -1,0 +1,15 @@
+type: object
+title: Lifecycle Action Submit Request
+required:
+  - action
+properties:
+  action:
+    $ref: ./lifecycleaction.yaml
+  comments:
+    type: array
+    description: >-
+      Optional submit-time comments. At most 10 comments are allowed per request; each comment must
+      be non-empty and at most 1000 characters.
+    maxItems: 10
+    items:
+      $ref: ./lifecycleactionsubmitcomment.yaml

@@ -1,0 +1,43 @@
+title: Machine Account Recommendation
+type: object
+description: Machine account discovery recommendation for an account.
+properties:
+  id:
+    type: string
+    description: Recommendation ID.
+    example: 2c9180835d2e5168015d32f890ca1581
+  accountId:
+    type: string
+    description: ID of the account the recommendation is for.
+    example: 2c9180835d2e5168015d32f890ca1581
+  sourceId:
+    type: string
+    description: ID of the source the account belongs to.
+    example: 2c9180835d2e5168015d32f890ca1581
+  isMachine:
+    type: boolean
+    default: false
+    description: Indicates whether the account is recommended as a machine account.
+    example: true
+  explanation:
+    type: array
+    description: Reasons that contributed to the recommendation.
+    items:
+      $ref: ./machineaccountrecommendationexplanation.yaml
+  created:
+    type: string
+    format: date-time
+    description: Date and time when the recommendation was created.
+    example: '2026-01-15T10:00:00.000Z'
+  recommendation:
+    type: string
+    description: Recommendation result.
+    example: MACHINE
+  recommendationType:
+    type: string
+    description: Type of recommendation.
+    example: MACHINE_ACCOUNT_DISCOVERY
+  algorithm:
+    type: string
+    description: Algorithm that produced the recommendation.
+    example: v1

@@ -1,0 +1,27 @@
+type: object
+description: Must be set only if the campaign is created using SEARCH.
+properties:
+  searchType:
+    type: string
+    description: If the campaign type is `Identity`, then the searchType must be set.
+    enum:
+      - IDENTITY
+      - ACCESS
+    example: ACCESS
+  query:
+    type: string
+    description: The scope for the campaign. If the searchType is `Identity`, then one of `query` or `identityIds` must be set.
+    example: admin
+  identityIds:
+    type: array
+    description: A direct list of identities to include in this campaign. If the searchType is `Identity`, then one of `query` or `identityIds` must be set.
+    items:
+      type: string
+    example: [ 0fbe863c063c4c88a35fd7f17e8a3df5 ]
+  accessConstraints:
+    type: array
+    description: >-
+      Further reduces the scope of the campaign by excluding identities (from `query` or `identityIds`) that do
+      not have this access.
+    items:
+      $ref: './AccessConstraint.yaml'

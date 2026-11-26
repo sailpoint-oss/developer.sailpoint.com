@@ -1,0 +1,28 @@
+get:
+  operationId: getDataPipelines
+  tags:
+    - IAI Data Pipeline
+  summary: Lists all data pipelines for a customer
+  description: >-
+    This gets the list of data pipelines for a customer in context.
+
+    Requires security scope of 'iai:data-pipeline:read'
+  responses:
+    '200':
+      description: List of data pipelines for a customer.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/DataPipeline.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  # security:
+  #   - oauth2: [iai:data-pipeline:read]

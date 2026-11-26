@@ -1,0 +1,39 @@
+type: object
+description: |
+  One reminder schedule. Exactly one of `beforeDeadLine` or `activeAfter` is set.
+  Every reminder in a ruleset must use the same predicate.
+required:
+- cron
+- template
+properties:
+  cron:
+    type: string
+    description: Five-field cron expression, evaluated in UTC.
+    example: "0 9 * * *"
+  beforeDeadLine:
+    type: string
+    default: ""
+    description: |
+      ISO-8601 duration. The reminder is active when `(deadline - now) <= beforeDeadLine`.
+      A negative duration means the reminder starts after the deadline, for example `-P14D`.
+      Mutually exclusive with `activeAfter`.
+    example: P7D
+  activeAfter:
+    type: string
+    default: ""
+    description: |
+      ISO-8601 duration. The reminder is active when `(now - workflowStart) >= activeAfter`.
+      Mutually exclusive with `beforeDeadLine`.
+    example: P14D
+  template:
+    type: string
+    description: Notification template key.
+    example: cert-reminder-daily
+  maxFirings:
+    type: integer
+    format: int32
+    minimum: 1
+    nullable: true
+    default: null
+    description: Maximum number of times this reminder fires before it deactivates. Null means the reminder keeps firing while its predicate is active.
+    example: 5

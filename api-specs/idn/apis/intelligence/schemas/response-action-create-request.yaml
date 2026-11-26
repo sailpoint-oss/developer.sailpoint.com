@@ -1,0 +1,72 @@
+type: object
+x-sailpoint-lint-ignore:
+  schema-optional-properties-must-have-default: accountIds is required only for DISABLE_ACCOUNT; oneOf and not/required exclude it for other action types (Rule 316).
+required:
+  - actionType
+  - identityType
+  - identityId
+  - context
+description: Request body for creating a response action.
+properties:
+  actionType:
+    type: string
+    description: Which response action to run.
+    enum:
+      - DISABLE_IDENTITY
+      - DISABLE_ACCOUNT
+      - DEACTIVATE_AGENT
+    example: DISABLE_ACCOUNT
+  identityType:
+    type: string
+    description: Whether the target is a human identity or a non-human identity (NHI).
+    enum:
+      - HUMAN
+      - NHI
+    example: HUMAN
+  identityId:
+    type: string
+    description: SailPoint Identity Security identity id, resolved by the caller from a prior intelligence query.
+    example: 2c918085842e69ae018428c919680149
+  accountIds:
+    type: array
+    description: |
+      One or more account ids. Required for DISABLE_ACCOUNT (1-50 after trim/dedupe); must be
+      omitted for DISABLE_IDENTITY and DEACTIVATE_AGENT. A single account is sent as a one-element array.
+    minItems: 1
+    maxItems: 50
+    items:
+      type: string
+    example:
+      - 2c918085abc000000000000000000001
+  context:
+    $ref: ./response-action-context.yaml
+oneOf:
+  - properties:
+      actionType:
+        enum:
+          - DISABLE_IDENTITY
+      identityType:
+        enum:
+          - HUMAN
+    not:
+      required:
+        - accountIds
+  - properties:
+      actionType:
+        enum:
+          - DISABLE_ACCOUNT
+      identityType:
+        enum:
+          - HUMAN
+    required:
+      - accountIds
+  - properties:
+      actionType:
+        enum:
+          - DEACTIVATE_AGENT
+      identityType:
+        enum:
+          - NHI
+    not:
+      required:
+        - accountIds

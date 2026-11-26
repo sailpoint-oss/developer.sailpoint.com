@@ -1,0 +1,8 @@
+type: string
+description: Status of provisioning the change to the machine identity's source.
+enum:
+  - NOT_STARTED
+  - IN_PROGRESS
+  - COMPLETED
+  - FAILED
+example: NOT_STARTED

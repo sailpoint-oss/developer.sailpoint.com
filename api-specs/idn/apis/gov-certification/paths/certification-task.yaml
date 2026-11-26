@@ -1,0 +1,48 @@
+get:
+  operationId: getGovCertificationTaskV1
+  tags:
+    - Next Generation Certification Campaigns
+  summary: Task details by ID
+  description: >-
+    This API returns the task for the specified ID. Required roles are ORG_ADMIN or CERT_ADMIN. If the targetType is `CERTIFICATION`, then the reviewers for the specified certification can also call this API.
+  security:
+    - userAuth: [ idn:campaign:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The task ID
+      example: 63b32151-26c0-42f4-9299-8898dc1c9daa
+      x-sailpoint-resource-operation-id: getPendingTasksV1
+  responses:
+    '200':
+      description: Gives task details
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CertificationTask.yaml'
+    '400':
+      $ref: '../../shared/responses/400.yaml'
+    '401':
+      $ref: '../../shared/responses/401.yaml'
+    '403':
+      $ref: '../../shared/responses/403.yaml'
+    '404':
+      $ref: '../../shared/responses/404.yaml'
+    '429':
+      $ref: '../../shared/responses/429.yaml'
+    '500':
+      $ref: '../../shared/responses/500.yaml'

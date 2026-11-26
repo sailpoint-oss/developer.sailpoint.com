@@ -1,0 +1,58 @@
+type: object
+title: Lifecycle Action Request
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Lifecycle request identifier.
+    example: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+  tenantId:
+    type: string
+    description: Tenant identifier for the lifecycle request.
+    example: 3b6f2a1e-8c4d-4e9a-9f2b-7d5c1e0a6b38
+  statusType:
+    type: string
+    description: Type of request. Always `LIFECYCLE_ACTIONS_REQUEST` for lifecycle action requests.
+    example: LIFECYCLE_ACTIONS_REQUEST
+  requestedBy:
+    x-sailpoint-lint-ignore:
+      schema-references-must-use-id-names: The field is already released as requestedBy. Renaming it would break existing callers.
+    type: string
+    description: ID of the identity that submitted the request.
+    example: 2c9180858082150f0180893dbaf44201
+  targetType:
+    type: string
+    description: Type of machine identity the request applies to.
+    enum:
+      - AI_AGENT
+    example: AI_AGENT
+  targetId:
+    type: string
+    format: uuid
+    description: ID of the machine identity the request applies to.
+    example: 1c9c8e1f-2f5f-4f77-9f7e-5d37e4fb3ef0
+  operationType:
+    $ref: ./lifecycleaction.yaml
+  workflowId:
+    type: string
+    description: Identifier of the workflow that processes the request.
+    example: sp:resource-lifecycle:AI_AGENT:a1b2c3d4-e5f6-7890-abcd-ef1234567890
+  completed:
+    type: boolean
+    description: >-
+      Indicates whether the request has finished. A request is finished when its status is `COMPLETED`,
+      `REJECTED`, `FAILED`, or `CANCELED`.
+    default: false
+    example: false
+  details:
+    $ref: ./lifecycleactionrequestdetails.yaml
+  created:
+    type: string
+    format: date-time
+    description: Time when the lifecycle request was created (ISO-8601).
+    example: '2026-05-26T19:00:00Z'
+  modified:
+    type: string
+    format: date-time
+    description: Time when the lifecycle request was last modified (ISO-8601).
+    example: '2026-05-26T19:05:00Z'

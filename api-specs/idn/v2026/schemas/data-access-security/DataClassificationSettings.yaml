@@ -1,0 +1,15 @@
+allOf:
+  - $ref: ./BaseSettings.yaml
+    description: |
+      Inherits base settings for data classification configuration.
+      Fields:
+        isEnabled: Indicates whether the feature or configuration is enabled.
+          Example: true
+        clusterId: The identifier of the cluster associated with this configuration, if applicable.
+          Example: "cluster-001"
+  - type: object
+    description: |
+      Extend with additional data classification configuration properties as needed.
+    example:
+      isEnabled: true
+      clusterId: "cluster-001"

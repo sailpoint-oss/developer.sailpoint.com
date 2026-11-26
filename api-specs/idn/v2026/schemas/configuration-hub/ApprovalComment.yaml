@@ -1,0 +1,34 @@
+type: object
+title: Approval Comment
+required:
+  - comment
+  - timestamp
+  - user
+  - id
+  - changedToStatus
+properties:
+  comment:
+    type: string
+    description: Comment provided either by the approval requester or the approver.
+    example: "Approval comment"
+  timestamp:
+    type: string
+    format: 'date-time'
+    description: The time when this comment was provided.
+    example: "2021-05-11T22:23:16Z"
+  user:
+    type: string
+    description: Name of the user that provided this comment.
+    example: "user.name"
+  id:
+    type: string
+    description: Id of the user that provided this comment.
+    example: "549bf881-1ac4-4a64-9acf-6014e8a3a887"
+  changedToStatus:
+    type: string
+    description: Status transition of the draft.
+    enum:
+      - PENDING_APPROVAL
+      - APPROVED
+      - REJECTED
+    example: "PENDING_APPROVAL"

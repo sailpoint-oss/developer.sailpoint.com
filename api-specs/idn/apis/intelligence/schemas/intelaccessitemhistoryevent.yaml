@@ -1,0 +1,21 @@
+type: object
+required:
+  - eventType
+description: |
+  Access-item history event. Supported eventTypes are AccessItemAssociated, AccessItemRemoved,
+  and AccountStatusChanged.
+additionalProperties: true
+properties:
+  eventType:
+    type: string
+    enum:
+      - AccessItemAssociated
+      - AccessItemRemoved
+      - AccountStatusChanged
+    description: Type of access-item history event.
+    example: AccessItemRemoved
+  dateTime:
+    type: string
+    format: date-time
+    description: Event timestamp.
+    example: '2026-05-11T09:40:04.496Z'

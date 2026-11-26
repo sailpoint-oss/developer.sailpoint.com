@@ -1,0 +1,7 @@
+type: object
+properties:
+  NumberOfCalls:
+    type: integer
+    format: int64
+    description: Aggregated number of calls made to SailPoint APIs in a given timespan
+    example: 1000

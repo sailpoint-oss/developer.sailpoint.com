@@ -1,0 +1,26 @@
+type: object
+title: Human Account Subtype Create Request
+description: Request body to create a human account subtype for a source. The source ID comes from the path.
+required:
+  - technicalName
+  - displayName
+properties:
+  technicalName:
+    type: string
+    description: Technical name of the subtype.
+    example: contractor
+  displayName:
+    type: string
+    description: Display name of the subtype.
+    example: Contractor
+  description:
+    type: string
+    nullable: true
+    default: null
+    description: Description of the subtype.
+    example: Contractors with a limited account lifecycle
+  default:
+    type: boolean
+    default: false
+    description: Whether this subtype is the default human account subtype of the source.
+    example: false

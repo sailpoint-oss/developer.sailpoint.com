@@ -1,0 +1,60 @@
+get:
+  operationId: getRoleV2
+  tags:
+  - Roles
+  summary: Get a role
+  description: >-
+    This API returns a Role by its ID. The response includes the Role's effective privilege level in
+    `privilegeLevel.effective`, which is the highest effective privilege level among the entitlements assigned directly
+    to the Role and the entitlements included in the Role's access profiles.
+
+
+    A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a
+    token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated
+    to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: 'true'
+    schema:
+      type: string
+      default: 'true'
+    required: true
+  - in: path
+    name: id
+    required: true
+    x-sailpoint-resource-operation-id: listRolesV2
+    schema:
+      type: string
+    description: ID of the Role
+    example: 2c91808a7813090a017814121e121518
+  responses:
+    '200':
+      description: A Role
+      content:
+        application/json:
+          schema:
+            $ref: ../../roles/schemas/rolev2.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:role-unchecked:read
+    - idn:role-unchecked:manage
+    - idn:role-checked:manage
+    - idn:role-checked:read
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - ROLE_ADMIN
+  - ROLE_SUBADMIN

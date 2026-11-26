@@ -1,0 +1,121 @@
+allOf:
+  - $ref: '../BaseCommonDto.yaml'
+  - type: object
+    description: Entitlement object that represents entitlement
+    properties:
+      attribute:
+        description: Name of the entitlement attribute
+        type: string
+        example: authorizationType
+      uuid:
+        description: Unique entitlement identifier within the database
+        type: string
+        example: 6a099125e1614e4c9024bff6c6159f49
+      value:
+        description: Raw value of the entitlement
+        type: string
+        example: CN=Users,dc=sailpoint,dc=com
+      description:
+        description: Entitlment description
+        type: string
+        example: some entitlement description
+      sourceSchemaObjectType:
+        description: Schema objectType on the given application that maps to an Account Group
+        type: string
+        example: group
+      privileged:
+        description: Determines if this entitlement is privileged.
+        type: boolean
+        example: true
+      isGroup:
+        type: boolean
+        description: >-
+          True when this object is used to represent a group attribute, otherwise it represents an account attribute.
+          For the time being, the property is always true.
+        example: true
+      cloudGoverned:
+        description: Determines if this entitlement is governed in the cloud.
+        type: boolean
+        example: true
+      requestable:
+        description: Determines if this entitlement is requestable.
+        type: boolean
+        example: true
+      cloudEligible:
+        description: Determines if this entitlement is cloud eligible.
+        type: boolean
+        example: true
+      attributes:
+        description: Entitlement attributes
+        type: object
+        example: {
+          "cn": "Human Resources-bchun2",
+          "owner": "CN=Fritz.8349b2f31e67,OU=flatfileAD,dc=flatfile,dc=endtoend,dc=com",
+          "objectguid": "objectguidHuman-Resources-bchun2",
+          "description": "HR-desc",
+          "sysDescriptions": {
+            "en_US": "HR-desc"
+          },
+          "entitlementAggregated": "true"
+        }
+      source:
+        type: object
+        properties:
+          id:
+            type: string
+            description: Object reference id
+            example: 2b86153b97a94abc936c8a11b106aaf8
+          value:
+            type: string
+            description: Object reference name
+            example: accountant
+          type:
+            type: string
+            description: SOURCE (added because exists in Entitlement V3)
+            example: SOURCE
+      hash:
+        type: string
+        description: Read-only calculated hash value of an entitlement
+        example: 5c8b309fa18a2c76d7fbee2b9e00dba99e4c82de
+      directPermissions:
+        type: array
+        items:
+          $ref: './PermissionDTO.yaml'
+      inheritFrom:
+        type: array
+        description: List of parent entitlements
+        items:
+          type: string
+          example: [
+              a9ced5a52d284b83a7f5595873d35b4e
+          ]
+      segments:
+        type: array
+        description: List of entitlement segments
+        items:
+          type: string
+          example: [
+              students
+          ]
+      lastRefresh:
+        type: string
+        description: Last time the entitlement was refreshed
+        example: '2022-06-24T16:12:53.389386Z'
+      idnServiceApp:
+        type: string
+        description: IDN service application
+        example: AppName123
+      idnExceptional:
+        type: string
+        description: Informs whether an entitlement is a priviliged one.
+        example: PRIVILEGED
+      entitlementitlementAggregated:
+        type: string
+        description: Indicates whether an entitlement was aggregated
+        example: true
+      segmentStatus:
+        type: string
+        description: Segment status (GLOBAL/LOCAL)
+        example: GLOBAL
+      owner:
+        $ref: './OwnerReferenceDto.yaml'

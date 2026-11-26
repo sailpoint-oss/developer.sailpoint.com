@@ -1,0 +1,47 @@
+type: object
+title: Friction Submitted Data
+description: Data submitted for a friction step.
+properties:
+  justification:
+    type: string
+    maxLength: 2000
+    description: Justification text.
+    example: Current P1 requires activation to mitigate
+  bypass:
+    type: boolean
+    default: false
+    description: Whether this step was bypassed.
+    example: false
+  ticketId:
+    type: string
+    maxLength: 128
+    description: Ticketing system identifier.
+    example: SN-123
+  isValidTicket:
+    type: boolean
+    readOnly: true
+    default: false
+    description: Whether the ticket is valid. Set by the server.
+    example: true
+  attempts:
+    type: integer
+    format: int32
+    readOnly: true
+    description: Count of failed submissions for this step. The server sets this value and ignores it on PATCH.
+    example: 1
+  reauthSuccessful:
+    type: boolean
+    default: false
+    description: Whether reauthentication succeeded.
+    example: true
+  reauthDate:
+    type: string
+    description: Time of reauthentication.
+    pattern: '^$|^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2})?(\.\d+)?(Z|[+-]\d{2}(:?\d{2})?)?)?$'
+    example: '2026-05-08T18:40:00.000Z'
+  integrationDisabled:
+    type: boolean
+    readOnly: true
+    default: false
+    description: Whether the ticketing integration is disabled. Set by the server.
+    example: false

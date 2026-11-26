@@ -1,0 +1,13 @@
+x-sailpoint-lint-ignore:
+  path-parameters-must-not-be-named-type: Upstream list-capabilities route requires query parameter name type (mcp, tool, skill).
+name: type
+in: query
+required: true
+description: Which kind of linked capability to list. Must be `mcp`, `tool`, or `skill`.
+schema:
+  type: string
+  enum:
+    - mcp
+    - tool
+    - skill
+example: tool

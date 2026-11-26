@@ -1,0 +1,12 @@
+title: Machine Account Discovery Reason
+type: object
+description: A reason that machine account discovery can report, with its readable message.
+properties:
+  id:
+    type: string
+    description: Reason ID.
+    example: high-privilege-grant
+  message:
+    type: string
+    description: Readable message for the reason, in the requested language.
+    example: Account was granted high-privilege access.

@@ -1,0 +1,35 @@
+operationId: authSupportLoginGet
+tags:
+  - Auth Support Login
+summary: Get auth support login record by auth tenant
+description: >-
+  Fetch an auth support login record by an authorized auth tenant. 
+
+  Request will require the following security scope:
+  **sp:auth-support-login:read**
+
+parameters:
+  - in: path
+    name: authTenant
+    description: >-
+      The tenant providing support.
+    required: true
+    schema:
+      type: string
+responses:
+  "200":
+    description: auth support login response.
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/AuthSupportLoginResponse.yaml"
+  "400":
+    $ref: "../../../v3/responses/400.yaml"
+  "401":
+    $ref: "../../../v3/responses/401.yaml"
+  "403":
+    $ref: "../../../v3/responses/403.yaml"
+  "404":
+    $ref: "../../../v3/responses/404.yaml"
+  "500":
+    $ref: "../../../v3/responses/500.yaml"

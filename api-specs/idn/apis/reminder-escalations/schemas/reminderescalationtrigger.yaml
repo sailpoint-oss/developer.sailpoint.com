@@ -1,0 +1,52 @@
+type: object
+description: |
+  When an escalation fires. `triggerType` selects which fields apply.
+
+  * `ON_CRON` requires `cron` and exactly one of `beforeDeadLine` or `activeAfter`. `maxFirings` is optional.
+  * `AFTER_REMINDER_COUNT` requires `count` and `delay`. The ruleset must also contain at least one reminder.
+required:
+- triggerType
+properties:
+  triggerType:
+    type: string
+    enum:
+    - ON_CRON
+    - AFTER_REMINDER_COUNT
+    description: How this escalation decides when to fire.
+    example: AFTER_REMINDER_COUNT
+  cron:
+    type: string
+    default: ""
+    description: Five-field cron expression. Required when `triggerType` is `ON_CRON`.
+    example: "0 9 * * 1"
+  beforeDeadLine:
+    type: string
+    default: ""
+    description: ISO-8601 duration relative to the deadline. Used when `triggerType` is `ON_CRON`. Mutually exclusive with `activeAfter`.
+    example: P7D
+  activeAfter:
+    type: string
+    default: ""
+    description: ISO-8601 duration relative to workflow start. Used when `triggerType` is `ON_CRON`. Mutually exclusive with `beforeDeadLine`.
+    example: P14D
+  maxFirings:
+    type: integer
+    format: int32
+    minimum: 1
+    nullable: true
+    default: null
+    description: Maximum number of times an `ON_CRON` escalation fires. Null means no cap.
+    example: 3
+  count:
+    type: integer
+    format: int32
+    minimum: 1
+    nullable: true
+    default: null
+    description: Reminder count for the current assignee. Required when `triggerType` is `AFTER_REMINDER_COUNT`. Null when `triggerType` is `ON_CRON`.
+    example: 3
+  delay:
+    type: string
+    default: ""
+    description: ISO-8601 grace period before an `AFTER_REMINDER_COUNT` escalation fires.
+    example: PT12H

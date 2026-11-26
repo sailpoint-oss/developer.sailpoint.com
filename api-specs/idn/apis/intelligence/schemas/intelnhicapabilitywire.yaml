@@ -1,0 +1,30 @@
+type: object
+x-sailpoint-lint-ignore:
+  schema-property-names-must-not-be-type: Wire field name type distinguishes MCP, TOOL, and SKILL capabilities (Rule 410).
+required:
+  - id
+  - name
+  - type
+  - sourceName
+description: A capability linked to a non-human identity, such as an MCP server, tool, or skill.
+properties:
+  id:
+    type: string
+    description: Identifier of the linked capability.
+    example: 7c2a9e14-6b3f-4d18-9a27-0e5f8c1b4d63
+  name:
+    type: string
+    description: Display name of the capability. Empty string when the name is not available.
+    example: example inventory tool
+  type:
+    type: string
+    description: Kind of capability.
+    enum:
+      - MCP
+      - TOOL
+      - SKILL
+    example: TOOL
+  sourceName:
+    type: string
+    description: Name of the source where the capability was discovered. Empty string when not available.
+    example: Example Source

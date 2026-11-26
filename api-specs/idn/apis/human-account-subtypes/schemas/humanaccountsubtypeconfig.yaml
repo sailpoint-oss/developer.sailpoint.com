@@ -1,0 +1,47 @@
+type: object
+title: Human Account Subtype Config
+description: Account-create configuration of a human account subtype.
+properties:
+  subtypeId:
+    type: string
+    description: ID of the human account subtype this configuration belongs to.
+    example: 1419fc28-a8ed-4a07-9f5c-0cb5dfad6311
+    readOnly: true
+  humanAccountCreate:
+    type: object
+    description: Account-create settings for the human account subtype.
+    properties:
+      accountCreateEnabled:
+        type: boolean
+        default: false
+        description: Specifies if creation of human accounts is allowed for this subtype.
+        example: true
+      approvalRequired:
+        type: boolean
+        default: false
+        description: Specifies if approval is required for human account creation requests for this subtype.
+        example: true
+      approvalConfig:
+        type: object
+        description: Approval settings for human account creation requests.
+        properties:
+          approvers:
+            type: string
+            description: >-
+              Comma-separated approver types, for example `manager, sourceOwner`. Approval requests are assigned in
+              the order the approvers are listed.
+            example: manager, sourceOwner
+          comments:
+            type: string
+            enum:
+              - ALL
+              - APPROVAL
+              - REJECTION
+              - OFF
+            description: Comment configuration for the approval request.
+            example: ALL
+      formId:
+        type: string
+        nullable: true
+        description: ID of the form linked to the subtype.
+        example: 4f1bb61b-a0ab-4c0a-b9fb-20f44407b75a

@@ -1,0 +1,51 @@
+type: object
+nullable: true
+x-sailpoint-lint-ignore:
+  schema-property-names-must-be-camel-case: These field names belong to the external CLEAR1 system, whose APIs expect them in this exact format, so they cannot be changed to camelCase.
+properties:
+  first_name:
+    type: string
+    nullable: true
+    description: Name of the identity attribute mapped to the CLEAR1 first name attribute.
+  last_name:
+    type: string
+    nullable: true
+    description: Name of the identity attribute mapped to the CLEAR1 last name attribute.
+  dob:
+    type: string
+    nullable: true
+    description: Name of the identity attribute mapped to the CLEAR1 date of birth attribute.
+  email:
+    x-sailpoint-lint-ignore:
+      schema-email-properties-must-use-email-format: This field stores the name of the identity attribute mapped to the CLEAR1 email attribute, not an actual email address, so format - email does not apply.
+    type: string
+    nullable: true
+    description: Name of the identity attribute mapped to the CLEAR1 email address attribute.
+  phone:
+    type: string
+    nullable: true
+    description: Name of the identity attribute mapped to the CLEAR1 phone number attribute.
+  line1:
+    type: string
+    nullable: true
+    description: Name of the identity attribute mapped to the first line of the CLEAR1 street address attribute.
+  line2:
+    type: string
+    nullable: true
+    description: Name of the identity attribute mapped to the second line of the CLEAR1 street address attribute.
+  city:
+    type: string
+    nullable: true
+    description: Name of the identity attribute mapped to the CLEAR1 city attribute.
+  state:
+    type: string
+    nullable: true
+    description: Name of the identity attribute mapped to the CLEAR1 state attribute.
+  postal_code:
+    type: string
+    nullable: true
+    description: Name of the identity attribute mapped to the CLEAR1 postal code attribute.
+  country:
+    type: string
+    nullable: true
+    description: Name of the identity attribute mapped to the CLEAR1 country attribute.

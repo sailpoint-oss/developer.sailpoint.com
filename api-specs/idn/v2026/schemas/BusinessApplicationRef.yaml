@@ -1,0 +1,44 @@
+type: object
+title: Business Application Ref
+description: |-
+  Reference to a Business Application associated with a machine identity.
+  Available when Business Applications is enabled for the tenant.
+  At most one Business Application reference is supported per machine identity on create and patch.
+required:
+  - type
+  - id
+properties:
+  type:
+    type: string
+    description: Reference type. Must be `BUSINESS_APPLICATION`.
+    enum:
+      - BUSINESS_APPLICATION
+    example: BUSINESS_APPLICATION
+  id:
+    type: string
+    format: uuid
+    description: Existing Business Application id in the tenant.
+    example: 2ee5e239-e68c-4d69-93fb-6c7ce4576190
+  name:
+    type: string
+    nullable: true
+    description: |-
+      Business Application display name.
+      Ignored on write; responses are enriched from the Business Application.
+    example: Cursor
+  sanctionedStatus:
+    allOf:
+      - $ref: './SanctionedStatus.yaml'
+    readOnly: true
+    description: |-
+      Sanctioned status of the linked Business Application.
+      Ignored on write; responses are enriched from the Business Application.
+    example: SANCTIONED
+  correlationType:
+    allOf:
+      - $ref: './CorrelationType.yaml'
+    description: |-
+      Correlation type for this reference.
+      On write: omit or `MANUAL` (default). `AUTOMATIC` is rejected (`400`).
+      On response: may be `MANUAL` or `AUTOMATIC`.
+    example: MANUAL

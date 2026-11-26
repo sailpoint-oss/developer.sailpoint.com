@@ -1,0 +1,69 @@
+title: Capability
+type: object
+description: A capability, such as an MCP server or tool, discovered from a connected source.
+allOf:
+  - $ref: ../../shared/schemas/basecommondto.yaml
+  - type: object
+    properties:
+      description:
+        type: string
+        description: Description of the capability.
+        example: MCP server that exposes the ticketing tools
+      type:
+        type: string
+        description: The capability type. UNDEFINED is returned when the source does not report a known type.
+        enum:
+          - MCP
+          - TOOL
+          - SKILL
+          - PLUGIN
+          - PROCESS
+          - UNDEFINED
+        example: MCP
+      status:
+        type: string
+        description: The capability status reported by the source.
+        example: Active
+      nativeIdentity:
+        type: string
+        description: The capability's unique identifier on the source.
+        example: mcp-ticketing-01
+      environment:
+        type: string
+        description: The environment the capability belongs to.
+        example: production
+      source:
+        description: The source the capability was discovered from.
+        allOf:
+          - $ref: ../../shared/schemas/basereferencedto.yaml
+          - example:
+              id: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa
+              name: AI Agent Platform
+              type: SOURCE
+      resource:
+        description: The source resource the capability is derived from.
+        $ref: ./capabilityresource.yaml
+      datasetId:
+        type: string
+        description: The ID of the source dataset the capability was retrieved from.
+        example: 8886e5e3-63d0-462f-a195-d98da885b8dc
+      owners:
+        description: The owner configuration of the capability.
+        $ref: ./capabilityowners.yaml
+      attributes:
+        type: object
+        additionalProperties: true
+        description: A map of curated capability attributes.
+        example:
+          status: Active
+      connectorAttributes:
+        type: object
+        additionalProperties: true
+        description: A map of attributes sourced from the connector during aggregation.
+        example:
+          endpoint: https://mcp.example.com/ticketing
+      manuallyEdited:
+        type: boolean
+        description: Indicates if the capability has been manually edited.
+        default: false
+        example: true

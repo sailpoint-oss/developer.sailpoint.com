@@ -1,0 +1,34 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+    description: The unique identifier for the resource.
+    example: 1001
+  name:
+    type: string
+    nullable: true
+    description: The display name or label for the resource.
+    example: "Finance Shared Folder"
+  fullPath:
+    type: string
+    nullable: true
+    description: The full path to the resource within the system or application.
+    example: "/departments/finance/shared"
+  applicationId:
+    type: integer
+    format: int64
+    description: The unique identifier of the application to which this resource belongs.
+    example: 2001
+  type:
+    $ref: '../../schemas/data-access-security/BusinessServiceType.yaml'
+    description: The type of business service or resource.
+    example: 6
+  owners:
+    type: array
+    items:
+      type: string
+      format: uuid
+    nullable: true
+    description: A list of UUIDs representing the owners of the resource.
+    example: ["c1a2b3d4-e5f6-7890-abcd-1234567890ab", "d4e5f6a7-b8c9-0123-4567-89abcdef0123"]

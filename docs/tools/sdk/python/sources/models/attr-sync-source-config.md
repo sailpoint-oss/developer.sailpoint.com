@@ -1,0 +1,30 @@
+# AttrSyncSourceConfig
+
+# AttrSyncSourceConfig
+
+Specification of attribute sync configuration for a source
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**source** | [**AttrSyncSource**](attr-sync-source) |  | [required]
+**attributes** | [**[]AttrSyncSourceAttributeConfig**](attr-sync-source-attribute-config) | Attribute synchronization configuration for specific identity attributes in the context of a source | [required]
+\}
+
+## Example
+
+```python
+from sailpoint.sources.models.attr_sync_source_config import AttrSyncSourceConfig
+
+attr_sync_source_config = AttrSyncSourceConfig(
+source=sailpoint.sources.models.attr_sync_source.Attr Sync Source(
+                    type = 'SOURCE', 
+                    id = '2c9180835d191a86015d28455b4b232a', 
+                    name = 'HR Active Directory', ),
+attributes=[{"name":"email","displayName":"Email","enabled":true,"target":"mail"},{"name":"firstname","displayName":"First Name","enabled":false,"target":"givenName"}]
+)
+
+```
+[[Back to top]](#) 
+

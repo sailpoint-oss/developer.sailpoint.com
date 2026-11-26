@@ -1,0 +1,32 @@
+type: object
+title: AccountV2Source
+nullable: true
+description: The source this account belongs to.
+properties:
+  id:
+    type: string
+    description: The unique ID of the source.
+    example: 2c9180835d2e5168015d32f890ca1581
+    nullable: true
+  type:
+    type: string
+    description: The DTO type of the source.
+    enum:
+    - SOURCE
+    example: SOURCE
+    nullable: true
+  name:
+    type: string
+    description: The display name of the source.
+    example: Employees
+    nullable: true
+  authoritative:
+    type: boolean
+    description: Indicates if this account is from an authoritative source.
+    default: false
+    example: false
+  connectionType:
+    type: string
+    description: The connection type of the source this account is from.
+    example: direct
+    nullable: true

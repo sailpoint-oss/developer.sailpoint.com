@@ -1,0 +1,11 @@
+type: object
+description: Data needed to reassign a policy violation to a new owner.
+required:
+  - reassignTo
+properties:
+  reassignTo:
+    $ref: ./reassigninput.yaml
+  comments:
+    type: string
+    description: Optional comments explaining the reassignment.
+    example: "some comments about the reassignment"

@@ -1,0 +1,10 @@
+type: object
+properties:
+  dimensionIds:
+        description: List of IDs of Dimensions to be deleted.
+        type: array
+        items:
+          type: string
+        example: ["2c9180847812e0b1017817051919ecca","2c9180887812e0b201781e129f151816"]
+required:
+  - dimensionIds

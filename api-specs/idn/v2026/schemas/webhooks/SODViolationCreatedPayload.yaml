@@ -1,0 +1,73 @@
+type: object
+title: SOD Violation Created Payload
+description: JSON body delivered for the **SODViolationCreated** webhook.
+properties:
+  created:
+    type: string
+    format: date-time
+    description: When the violation record was created.
+    example: "2026-03-04T22:51:24.535433Z"
+  id:
+    type: string
+    description: Violation ID.
+    example: "230bb065e18641f9bd6985ea9cf2e1a4"
+  lastEvaluatedDate:
+    type: string
+    format: date-time
+    description: When the violation was last evaluated.
+    example: "2026-03-04T22:51:22.158Z"
+  level:
+    type: string
+    description: Violation severity level.
+    example: High
+  name:
+    type: string
+    description: Human-readable violation name.
+    example: "Violation for 01ea1d94-5db1-4444-a235-6f71c22b3449 - Target 2c9180888380236101838062022f00ea"
+  owner:
+    type: object
+    description: Owner of the violation (e.g. assigned identity).
+    properties:
+      id:
+        type: string
+        description: Owner ID.
+        example: "2c918088837fe14901838062029a04bf"
+      type:
+        type: string
+        description: DTO type of the owner reference.
+        example: IDENTITY
+        enum:
+          - IDENTITY
+          - GOVERNANCE_GROUP
+  policy:
+    type: object
+    description: SOD policy associated with the violation.
+    properties:
+      id:
+        type: string
+        description: Policy ID.
+        example: "01ea1d94-5db1-4444-a235-6f71c22b3449"
+      type:
+        type: string
+        description: Policy type (always **SOD** for this webhook).
+        enum:
+          - SOD
+        example: SOD
+  status:
+    type: string
+    description: Violation lifecycle status.
+    example: Open
+  target:
+    type: object
+    description: Identity or entity the violation applies to.
+    properties:
+      id:
+        type: string
+        description: Target ID.
+        example: "2c9180888380236101838062022f00ea"
+      type:
+        type: string
+        description: DTO type of the target reference.
+        enum:
+          - IDENTITY
+        example: IDENTITY

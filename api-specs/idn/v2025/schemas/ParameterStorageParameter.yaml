@@ -1,0 +1,54 @@
+description: A parameter that has been retrieved from the store.
+type: object
+required:
+  - id
+  - ownerId
+  - name
+  - publicFields
+properties:
+  id:
+    type: string
+    description: The ID of the reference
+    example: 58de858b-83d9-4563-9e15-7393594c684a
+  ownerId:
+    type: string
+    description: The ID of the user who owns the parameter.
+    example: c0b4568a4fe7458c434ee77d1fbt156b
+  type:
+    type: string
+    description: The type of the parameter. This cannot be changed after being set. Please see the types document for more information.
+    example: "1.1"
+  name:
+    type: string
+    description: The human-readable name of the parameter.
+    example: Credentials for server
+  primaryField:
+    type: string
+    description: The name of the primary field in the public fields.
+    example: "username"
+  publicFields:
+    type: object
+    description: The public fields stored for this parameter. See the types document for information about what can be stored.
+    example: '{"username": "username"}'
+  description:
+    type: string
+    description: Describe the parameter
+    example: Credentials for server.
+  lastModifiedAt:
+    type: string
+    description: ISO8606 format datetime of the last time any field of the parameter was changed.
+    format: datetime
+    example: 2025-09-16T12:47:08Z
+  lastModifiedBy:
+    type: string
+    description: The ID of the user who last modified the parameter. Empty when identity is not known.
+    example: c0b4568a4fe7458c434ee77d1fbt156b
+  privateFieldsLastModifiedAt:
+    type: string
+    format: datetime
+    description: ISO8606 format datetime of the time the secret fields were changed on the parameter.
+    example: 2025-09-16T12:47:08Z
+  privateFieldsLastModifiedBy:
+    type: string
+    description: The ID of the user who last modified the private fields. Empty when identity is not known.
+    example: c0b4568a4fe7458c434ee77d1fbt156b

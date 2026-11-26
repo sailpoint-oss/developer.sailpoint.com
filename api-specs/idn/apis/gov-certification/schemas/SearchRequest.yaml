@@ -1,0 +1,7 @@
+type: object
+description: Search Request
+properties:
+  queryString:
+    type: string
+    description: Query String
+    example: identity 2023

@@ -1,0 +1,23 @@
+type: object
+title: Subtype Target Ref
+description: Resolved target of a tiered subtype. Present on v2 responses; not accepted on create.
+properties:
+  type:
+    x-sailpoint-lint-ignore:
+      schema-property-names-must-not-be-type: The service returns this field as type. It distinguishes SOURCE and CONNECTOR targets.
+    type: string
+    description: DTO type of the target. `SOURCE` for source-tier rows; `CONNECTOR` for connector-tier rows.
+    enum:
+      - SOURCE
+      - CONNECTOR
+    example: CONNECTOR
+  id:
+    type: string
+    description: >-
+      Target identifier. Source id for `SOURCE`. Connector specification id or connector type for
+      `CONNECTOR`.
+    example: 65de7634-d315-482c-aad4-7fdbd1e42056
+  name:
+    type: string
+    description: Human-readable target name. Falls back to `id` when a display name is not available.
+    example: 15Five

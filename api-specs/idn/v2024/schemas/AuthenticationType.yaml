@@ -1,0 +1,6 @@
+description: type of authentication to use for the Service Desk integration.  Normally the values would be all caps, but they're not for backward compatibility.
+type: string
+example: Basic
+enum:
+  - Basic
+  - OAuth2

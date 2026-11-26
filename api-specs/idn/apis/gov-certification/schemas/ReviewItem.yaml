@@ -1,0 +1,49 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    description: The review item's ID
+    example: ef38f943-47e9-4562-b5bb-8424a56397d8
+  type:
+    $ref: './CertificationItemType.yaml'
+  completed:
+    type: boolean
+    description: Indicates whether the review item is complete
+    example: false
+    default: false
+  newAccess:
+    type: boolean
+    description: Indicates whether the review item is for new access to a source
+    example: false
+    default: false
+  decision:
+    $ref: './CertificationDecision.yaml'
+  proposedEndDate:
+    type: string
+    format: date-time
+    description: The end date proposed as part of decision to sunset a user's access
+    example: '2021-12-25T00:00:00.000Z'
+  comments:
+    type: string
+    description: Comments for this review item
+    example: This user is still fulfulling this role
+  reviewData:
+    $ref: './ReviewData.yaml'
+  certificationSubjectSummary:
+    $ref: './CertificationSubjectSummary.yaml'
+  actor:
+    $ref: './IdentityReference.yaml'
+  accountName:
+    type: string
+    description: The name of the account to which this access profile belongs
+    example: Alison Ferguson
+  sourceName:
+    type: string
+    description: The name of the source for which this access profile belongs
+    example: ODS-AD-Source
+  reauthRequired:
+    type: boolean
+    description: Indicates whether the review item requires a reauthentication for the approver
+    example: false
+    default: false

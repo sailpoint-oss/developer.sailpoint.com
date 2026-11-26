@@ -1,0 +1,45 @@
+openapi: 3.0.1
+info:
+  title: SailPoint Identity Security API - Human Account Subtypes
+  description: >-
+    Use these APIs to interact with the SailPoint Identity Security platform to achieve repeatable, automated processes with
+    greater scalability. We encourage you to join the SailPoint Developer Community forum at
+    https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v1
+  x-audience: external-public
+servers:
+  - url: https://{tenant}.api.identitynow.com
+    description: This is the production API server.
+    variables:
+      tenant:
+        default: sailpoint
+        description: This is the name of your tenant, typically your company's name.
+  - url: https://{apiUrl}
+    description: This is the versioned API server.
+    variables:
+      apiUrl:
+        default: sailpoint.api.identitynow.com
+        description: This is the api url of your tenant
+tags:
+  - name: Human Account Subtypes
+    description: |
+      Use these APIs to get, create, update, and delete human account subtypes for sources, and to get and update
+      the account-create configuration of a human account subtype. These APIs are experimental and require the
+      `X-SailPoint-Experimental` header.
+paths:
+  /accounts/v2/sources/{sourceId}/subtypes:
+    $ref: ./paths/accounts-v2-sources-by-sourceid-subtypes.yaml
+  /accounts/v2/sources/{sourceId}/subtypes/{subtypeId}:
+    $ref: ./paths/accounts-v2-sources-by-sourceid-subtypes-by-subtypeid.yaml
+  /accounts/v2/source-subtypes/{subtypeId}/human-config:
+    $ref: ./paths/accounts-v2-source-subtypes-by-subtypeid-human-config.yaml
+security:
+  - userAuth:
+      - sp:scopes:all

@@ -1,0 +1,678 @@
+## OpenAPI
+
+```yaml PUT /Users/{userId}
+openapi: 3.0.1
+info:
+  description: |
+    IdentityIQ REST Endpoint Interface Documentation for SCIM
+  version: '8.3'
+  title: IdentityIQ SCIM REST API
+servers:
+  - url: http://localhost:8080/identityiq/scim/v2
+    description: IdentityIQ SCIM server basepath and path to API.
+paths:
+  /Users/{userId}:
+    put:
+      description: The endpoint used to update a User resource. There are attributes marked as 'returned only by request', such as **roles**, which must be provided as part of the **attributes** query parameter in order to be included in the response.<br/><br/> In order for Lifecycle Events to have access to previous Identity values, a new IdentityArchive object is created and saved to the database. This feature is turned on by default and *could* have an impact on the overall performance of the SCIM update. It is not expected for the impact of this change to be noticeable, but in cases where it is, and when configured Lifecycle Events are not dependent on the previous Identity attributes, the creation of the IdentityArchive object during a SCIM update is configurable. By default, the IdentityArchive creation during a SCIM update is enabled. To disable the creation of the IdentityArchive object during SCIM updates, the following attribute can be set on the SystemConfiguration object:<br/><br/>**&lt;entry key="scimTriggerSnapshots" value="false"&gt;**
+      operationId: updateUser
+      security:
+        - basicAuth: []
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+            example: c7c7777c7ef77e77777ee77e7a1f0444
+          description: The id of User resource. If **lookupByName** is set to **true**, this path parameter should be set to the **userName** of the User.
+          required: true
+        - in: query
+          name: attributes
+          schema:
+            type: string
+          description: A comma-separated list of attributes to return in the response. This query parameter supersedes excludedAttributes, so providing the same attribute(s) to both will result in the attribute(s) being returned.
+        - in: query
+          name: excludedAttributes
+          schema:
+            type: string
+          description: A comma-separated list of attributes to exclude from the response. *Some attributes cannot be excluded.*
+        - in: query
+          name: lookupByName
+          schema:
+            type: boolean
+            example: false
+            default: false
+          description: 'A boolean value that determines if the User resource will be looked up by userName instead of userId (value in path parameter ''userId''). Setting this query parameter to true will cause the value pulled from the ''userId'' path parameter to be treated as a userName when searching for the resource.<br/><br/>**Example**: scim/v2/Users/**Mock.User**?**lookupByName=true**'
+      requestBody:
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              properties:
+                userName:
+                  description: Unique identifier for the User. Typically used to directly authenticate to the service provider. Each User MUST include a non-empty userName value. This identifier MUST be unique across the entire set of Users. This attribute cannot be changed.
+                  type: string
+                  example: Mock.User
+                name:
+                  description: The components of the User’s real name. Providers may return just the full name as a single string in the formatted sub-attribute, or they MAY return just the individual component attributes using the other sub-attributes, or they MAY return both. If both variants are returned, they SHOULD be describing the same name, with the formatted name indicating how the component attributes should be combined.
+                  properties:
+                    formatted:
+                      description: The full name, including all middle names, titles, and suffixes as appropriate, formatted for display.
+                      type: string
+                      example: Ms. Barbara J Jensen, III
+                    familyName:
+                      description: The family name of the User, or Last Name in most Western languages
+                      type: string
+                      example: Jensen
+                    givenName:
+                      description: The given name of the User, or First Name in most Western languages
+                      type: string
+                      example: Barbara
+                displayName:
+                  description: The name of the User, suitable for display to end-users. The name should be the full name of the User being described.
+                  type: string
+                  example: Barbara Jensen
+                userType:
+                  description: The type of the User, identifying the relationship between the organization and the User.
+                  type: string
+                  example: employee
+                active:
+                  description: A Boolean value indicating the User’s administrative status.
+                  type: boolean
+                  example: true
+                password:
+                  description: The User's case-sensitive cleartext password. This attribute is intended to be used as a means to specify an initial password when creating a new User or to reset an existing User's password. This attribute will never be returned in a response.
+                  type: string
+                emails:
+                  description: Email addresses for the user. The value SHOULD be canonicalized by the Service Provider, e.g., bjensen@example.com instead of bjensen@EXAMPLE.COM. Canonical Type values of work, home, and other.
+                  type: array
+                  items:
+                    properties:
+                      type:
+                        description: Type of email address (work, home, other).
+                        type: string
+                        example: work
+                      value:
+                        description: Canonicalized email address.
+                        type: string
+                        format: email
+                        example: Barbara.Jensen@example.com
+                      primary:
+                        description: A Boolean value indicating the primary e-mail address. The primary attribute value 'true' MUST appear no more than once.
+                        type: boolean
+                        example: 'true'
+                urn:ietf:params:scim:schemas:sailpoint:1.0:User:
+                  properties:
+                    capabilities:
+                      description: Capabilities assigned to this User.
+                      type: array
+                      items:
+                        type: string
+                      example: '["SystemAdministrator"]'
+                    administrator:
+                      description: The Administrator of the RPA or Service Account. This attribute is only applicable if the User type is RPA/Bots or Service.
+                      properties:
+                        displayName:
+                          description: The display name of the Administrator of RPA user or Service account.
+                          type: string
+                          example: Bob Smith
+                        value:
+                          description: The id of the SCIM resource representing the Administrator of RPA user or Service account.
+                          type: string
+                          example: c0a7777a7f74744d817e74fc12362c67O
+                        $ref:
+                          description: The URI of the SCIM resource representing the Administrator of RPA user or Service Account.
+                          type: string
+                          example: http://localhost:8080/iiq/scim/v2/Users/c0a7777a7f74744d817e74fc12362c67
+                    softwareVersion:
+                      description: The software version of the RPA/Bots.
+                      type: string
+                      example: '7.3'
+                    empId:
+                      description: Employee id associated with this User.
+                      type: string
+                      example: 1b2a3c
+                    dn:
+                      description: Distinguished name for this User.
+                      type: string
+                      example: cn=Bob Smith,ou=services
+                    region:
+                      description: The region this User is assigned to.
+                      type: string
+                      example: Americas
+                    regionOwner:
+                      description: The User who owns the region that this resource (User) belongs to.
+                      properties:
+                        displayName:
+                          description: Display name of the region owner.
+                          type: string
+                          example: Joe Smith
+                        value:
+                          description: The id of the region owner.
+                          type: string
+                          example: c0b4568a4fe7458c434ee77d1fbt156b
+                        $ref:
+                          description: URI reference of the region owner resource.
+                          type: string
+                          example: http://localhost:8080/iiq/scim/v2/Users/c0b4568a4fe7458c434ee77d1fbt156b
+                    location:
+                      description: The location this User is assigned to.
+                      type: string
+                      example: Singapore
+                    locationOwner:
+                      description: The User who owns the location that this resource (User) belongs to.
+                      type: object
+                      properties:
+                        displayName:
+                          description: Display name of the location owner.
+                          type: string
+                          example: Bob Smith
+                        value:
+                          description: The id of the location owner.
+                          type: string
+                          example: c0a7778b7ef71e79817ee74e6a1f0444
+                        $ref:
+                          description: URI reference to the location owner resource.
+                          type: string
+                          example: http://localhost:8080/iiq/scim/v2/Users/c0a7778b7ef71e79817ee74e6a1f0444
+                    Department:
+                      description: Department this User is assigned to.
+                      type: string
+                      example: Regional Operations
+                    costcenter:
+                      description: Cost centers this User is associated with.
+                      type: array
+                      items:
+                        type: string
+                      example:
+                        - CC01
+                        - DD02
+                    jobtitle:
+                      description: Job title given to this User.
+                      type: string
+                      example: Internal Audit Manager
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                  description: Enterprise User Schema. Contains the manager of the User.
+                  properties:
+                    manager:
+                      description: Manager of the user.
+                      properties:
+                        displayName:
+                          description: Display name of the manager.
+                          type: string
+                          example: Bob Smith
+                        value:
+                          description: The id of the manager.
+                          type: string
+                          example: c7a7347a7fe71e69077ee75f5d1f1237
+                        $ref:
+                          description: Reference to the manager resource.
+                          type: string
+                          example: http://localhost:8080/iiq/scim/v2/Users/c7a7347a7fe71e69077ee75f5d1f1237
+              required:
+                - userName
+          '*/*':
+            schema:
+              properties:
+                userName:
+                  description: Unique identifier for the User. Typically used to directly authenticate to the service provider. Each User MUST include a non-empty userName value. This identifier MUST be unique across the entire set of Users. This attribute cannot be changed.
+                  type: string
+                  example: Mock.User
+                name:
+                  description: The components of the User’s real name. Providers may return just the full name as a single string in the formatted sub-attribute, or they MAY return just the individual component attributes using the other sub-attributes, or they MAY return both. If both variants are returned, they SHOULD be describing the same name, with the formatted name indicating how the component attributes should be combined.
+                  properties:
+                    formatted:
+                      description: The full name, including all middle names, titles, and suffixes as appropriate, formatted for display.
+                      type: string
+                      example: Ms. Barbara J Jensen, III
+                    familyName:
+                      description: The family name of the User, or Last Name in most Western languages
+                      type: string
+                      example: Jensen
+                    givenName:
+                      description: The given name of the User, or First Name in most Western languages
+                      type: string
+                      example: Barbara
+                displayName:
+                  description: The name of the User, suitable for display to end-users. The name should be the full name of the User being described.
+                  type: string
+                  example: Barbara Jensen
+                userType:
+                  description: The type of the User, identifying the relationship between the organization and the User.
+                  type: string
+                  example: employee
+                active:
+                  description: A Boolean value indicating the User’s administrative status.
+                  type: boolean
+                  example: true
+                password:
+                  description: The User's case-sensitive cleartext password. This attribute is intended to be used as a means to specify an initial password when creating a new User or to reset an existing User's password. This attribute will never be returned in a response.
+                  type: string
+                emails:
+                  description: Email addresses for the user. The value SHOULD be canonicalized by the Service Provider, e.g., bjensen@example.com instead of bjensen@EXAMPLE.COM. Canonical Type values of work, home, and other.
+                  type: array
+                  items:
+                    properties:
+                      type:
+                        description: Type of email address (work, home, other).
+                        type: string
+                        example: work
+                      value:
+                        description: Canonicalized email address.
+                        type: string
+                        format: email
+                        example: Barbara.Jensen@example.com
+                      primary:
+                        description: A Boolean value indicating the primary e-mail address. The primary attribute value 'true' MUST appear no more than once.
+                        type: boolean
+                        example: 'true'
+                urn:ietf:params:scim:schemas:sailpoint:1.0:User:
+                  properties:
+                    capabilities:
+                      description: Capabilities assigned to this User.
+                      type: array
+                      items:
+                        type: string
+                      example: '["SystemAdministrator"]'
+                    administrator:
+                      description: The Administrator of the RPA or Service Account. This attribute is only applicable if the User type is RPA/Bots or Service.
+                      properties:
+                        displayName:
+                          description: The display name of the Administrator of RPA user or Service account.
+                          type: string
+                          example: Bob Smith
+                        value:
+                          description: The id of the SCIM resource representing the Administrator of RPA user or Service account.
+                          type: string
+                          example: c0a7777a7f74744d817e74fc12362c67O
+                        $ref:
+                          description: The URI of the SCIM resource representing the Administrator of RPA user or Service Account.
+                          type: string
+                          example: http://localhost:8080/iiq/scim/v2/Users/c0a7777a7f74744d817e74fc12362c67
+                    softwareVersion:
+                      description: The software version of the RPA/Bots.
+                      type: string
+                      example: '7.3'
+                    empId:
+                      description: Employee id associated with this User.
+                      type: string
+                      example: 1b2a3c
+                    dn:
+                      description: Distinguished name for this User.
+                      type: string
+                      example: cn=Bob Smith,ou=services
+                    region:
+                      description: The region this User is assigned to.
+                      type: string
+                      example: Americas
+                    regionOwner:
+                      description: The User who owns the region that this resource (User) belongs to.
+                      properties:
+                        displayName:
+                          description: Display name of the region owner.
+                          type: string
+                          example: Joe Smith
+                        value:
+                          description: The id of the region owner.
+                          type: string
+                          example: c0b4568a4fe7458c434ee77d1fbt156b
+                        $ref:
+                          description: URI reference of the region owner resource.
+                          type: string
+                          example: http://localhost:8080/iiq/scim/v2/Users/c0b4568a4fe7458c434ee77d1fbt156b
+                    location:
+                      description: The location this User is assigned to.
+                      type: string
+                      example: Singapore
+                    locationOwner:
+                      description: The User who owns the location that this resource (User) belongs to.
+                      type: object
+                      properties:
+                        displayName:
+                          description: Display name of the location owner.
+                          type: string
+                          example: Bob Smith
+                        value:
+                          description: The id of the location owner.
+                          type: string
+                          example: c0a7778b7ef71e79817ee74e6a1f0444
+                        $ref:
+                          description: URI reference to the location owner resource.
+                          type: string
+                          example: http://localhost:8080/iiq/scim/v2/Users/c0a7778b7ef71e79817ee74e6a1f0444
+                    Department:
+                      description: Department this User is assigned to.
+                      type: string
+                      example: Regional Operations
+                    costcenter:
+                      description: Cost centers this User is associated with.
+                      type: array
+                      items:
+                        type: string
+                      example:
+                        - CC01
+                        - DD02
+                    jobtitle:
+                      description: Job title given to this User.
+                      type: string
+                      example: Internal Audit Manager
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                  description: Enterprise User Schema. Contains the manager of the User.
+                  properties:
+                    manager:
+                      description: Manager of the user.
+                      properties:
+                        displayName:
+                          description: Display name of the manager.
+                          type: string
+                          example: Bob Smith
+                        value:
+                          description: The id of the manager.
+                          type: string
+                          example: c7a7347a7fe71e69077ee75f5d1f1237
+                        $ref:
+                          description: Reference to the manager resource.
+                          type: string
+                          example: http://localhost:8080/iiq/scim/v2/Users/c7a7347a7fe71e69077ee75f5d1f1237
+              required:
+                - userName
+      responses:
+        '200':
+          description: Updates an existing User and returns that User.
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    description: IdentityIQ id of the User.
+                    type: string
+                    example: c0b4568a4fe7458c434ee77d1fbt156b
+                  userName:
+                    description: Unique identifier for the User. Typically used to directly authenticate to the service provider. Each User MUST include a non-empty userName value. This identifier MUST be unique across the entire set of Users. Cannot be changed.
+                    type: string
+                    example: Mock.User
+                  name:
+                    description: The components of the User’s real name. Providers may return just the full name as a single string in the formatted sub-attribute, or they MAY return just the individual component attributes using the other sub-attributes, or they MAY return both. If both variants are returned, they SHOULD be describing the same name, with the formatted name indicating how the component attributes should be combined.
+                    properties:
+                      formatted:
+                        description: The full name, including all middle names, titles, and suffixes as appropriate, formatted for display.
+                        type: string
+                        example: Ms. Barbara J Jensen, III
+                      familyName:
+                        description: The family name of the User, or Last Name in most Western languages
+                        type: string
+                        example: Jensen
+                      givenName:
+                        description: The given name of the User, or First Name in most Western languages
+                        type: string
+                        example: Barbara
+                  displayName:
+                    description: The name of the User, suitable for display to end-users. The name should be the full name of the User being described.
+                    type: string
+                    example: Barbara Jensen
+                  userType:
+                    description: The type of the User, identifying the relationship between the organization and the User.
+                    type: string
+                    example: employee
+                  active:
+                    description: A Boolean value indicating the User’s administrative status.
+                    type: boolean
+                    example: true
+                  emails:
+                    description: Email addresses for the user. The value SHOULD be canonicalized by the Service Provider, e.g., bjensen@example.com instead of bjensen@EXAMPLE.COM. Canonical Type values of work, home, and other.
+                    type: array
+                    items:
+                      properties:
+                        type:
+                          description: Type of email address (work, home, other).
+                          type: string
+                          example: work
+                        value:
+                          description: Canonicalized email address.
+                          type: string
+                          format: email
+                          example: Barbara.Jensen@example.com
+                        primary:
+                          description: A Boolean value indicating the primary e-mail address. The primary attribute value 'true' MUST appear no more than once.
+                          type: boolean
+                          example: 'true'
+                  urn:ietf:params:scim:schemas:sailpoint:1.0:User:
+                    description: Additional attributes of the User.
+                    type: object
+                    properties:
+                      accounts:
+                        description: Simple representation of the Account (or Link) ResourceType.
+                        type: array
+                        items:
+                          properties:
+                            displayName:
+                              description: The display name of the Account.
+                              type: string
+                              example: Bob.Smith
+                            value:
+                              description: The id of the SCIM resource representing the Account.
+                              type: string
+                              example: c0a7778b7ef71e79817ee74e6a1f0444
+                            $ref:
+                              description: The URI of the SCIM resource representing the Account.
+                              type: string
+                              example: http://localhost:8080/iiq/scim/v2/Accounts/c0a7778b7ef71e79817ee74e6a1f0444
+                      entitlements:
+                        description: Entitlements of the User. Returned in response only if requested using the 'attributes' query parameter.
+                        type: array
+                        items:
+                          properties:
+                            value:
+                              description: The value of the Entitlement.
+                              type: string
+                              example: groupmbr
+                            display:
+                              description: The display name of the Entitlement.
+                              type: string
+                              example: HelpDesk
+                            type:
+                              description: The type of Entitlement (Entitlement, Permission, etc.).
+                              type: string
+                              example: Permission
+                            application:
+                              description: The name of the Application this Entitlement applies to.
+                              type: string
+                              example: ADMockApp
+                            accountName:
+                              description: The account this Entitlement was sourced from.
+                              type: string
+                              example: CN=Barbara Jensen,OU=Taipei,OU=Asia-Pacific,DC=example,DC=com
+                            $ref:
+                              description: The URI of the SCIM resource representing the Entitlement.
+                              type: string
+                              example: http://localhost:8080/iiq/scim/v2/Entitlements/c0a7777a7f74744d817e74fc12362c67
+                      roles:
+                        description: Roles of the User. Returned only if requested. Returned in response only if requested using the 'attributes' query parameter.
+                        type: array
+                        items:
+                          properties:
+                            value:
+                              description: The value of the Role.
+                              type: string
+                              example: detectedRoles
+                            display:
+                              description: The display name of the Role.
+                              type: string
+                              example: User - IT
+                            type:
+                              description: The type of Role (IT, Business, etc.).
+                              type: string
+                              example: it
+                            acquired:
+                              description: Indicates how this Role was acquired. Assigned or Detected.
+                              type: string
+                              example: Assigned
+                            application:
+                              description: The name of the Application where this Role came from.
+                              type: string
+                              example: Active_Directory
+                            accountName:
+                              description: The name of the Account this Role was sourced from.
+                              type: string
+                              example: CN=Barbara Jensen,OU=Taipei,OU=Asia-Pacific,DC=example,DC=com
+                            $ref:
+                              description: The URI of the SCIM resource representing the Role.
+                              type: string
+                              example: http://localhost:8080/iiq/scim/v2/Roles/c0a7777a7f74744d817e74fc12362c67
+                      capabilities:
+                        description: Capabilities assigned to this User.
+                        type: array
+                        items:
+                          type: string
+                        example: '["SystemAdministrator"]'
+                      riskScore:
+                        description: Composite Risk Score of this User.
+                        type: integer
+                        example: 125
+                      isManager:
+                        description: A Boolean value that determines if this User is a manager.
+                        type: boolean
+                        example: false
+                      administrator:
+                        description: The Administrator of the RPA or Service Account. This attribute is only applicable if the User type is RPA/Bots or Service.
+                        properties:
+                          displayName:
+                            description: The display name of the Administrator of RPA user or Service account.
+                            type: string
+                            example: Bob Smith
+                          value:
+                            description: The id of the SCIM resource representing the Administrator of RPA user or Service account.
+                            type: string
+                            example: c0a7777a7f74744d817e74fc12362c67O
+                          $ref:
+                            description: The URI of the SCIM resource representing the Administrator of RPA user or Service Account.
+                            type: string
+                            example: http://localhost:8080/iiq/scim/v2/Users/c0a7777a7f74744d817e74fc12362c67
+                      softwareVersion:
+                        description: The software version of the RPA/Bots.
+                        type: string
+                        example: '7.3'
+                      empId:
+                        description: Employee id associated with this User.
+                        type: string
+                        example: 1b2a3c
+                      dn:
+                        description: Distinguished name for this User.
+                        type: string
+                        example: cn=Bob Smith,ou=services
+                      region:
+                        description: The region this User is assigned to.
+                        type: string
+                        example: Americas
+                      regionOwner:
+                        description: The User who owns the region that this resource (User) belongs to.
+                        properties:
+                          displayName:
+                            description: Display name of the region owner.
+                            type: string
+                            example: Joe Smith
+                          value:
+                            description: The id of the region owner.
+                            type: string
+                            example: c0b4568a4fe7458c434ee77d1fbt156b
+                          $ref:
+                            description: URI reference of the region owner resource.
+                            type: string
+                            example: http://localhost:8080/iiq/scim/v2/Users/c0b4568a4fe7458c434ee77d1fbt156b
+                      location:
+                        description: The location this User is assigned to.
+                        type: string
+                        example: Singapore
+                      locationOwner:
+                        description: The User who owns the location that this resource (User) belongs to.
+                        type: object
+                        properties:
+                          displayName:
+                            description: Display name of the location owner.
+                            type: string
+                            example: Bob Smith
+                          value:
+                            description: The id of the location owner.
+                            type: string
+                            example: c0a7778b7ef71e79817ee74e6a1f0444
+                          $ref:
+                            description: URI reference to the location owner resource.
+                            type: string
+                            example: http://localhost:8080/iiq/scim/v2/Users/c0a7778b7ef71e79817ee74e6a1f0444
+                      Department:
+                        description: Department this User is assigned to.
+                        type: string
+                        example: Regional Operations
+                      costcenter:
+                        description: Cost centers this User is associated with.
+                        type: array
+                        items:
+                          type: string
+                        example:
+                          - CC01
+                          - DD02
+                      jobtitle:
+                        description: Job title given to this User.
+                        type: string
+                        example: Internal Audit Manager
+                      lastRefresh:
+                        description: Datetime representation of the last refresh for this User.
+                        type: string
+                        format: date-time
+                  urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                    description: Enterprise User Schema. Contains the manager of the User.
+                    properties:
+                      manager:
+                        description: Manager of the User.
+                        properties:
+                          displayName:
+                            description: Display name of the User's manager.
+                            type: string
+                            example: Bob Smith
+                          value:
+                            description: The id of the SCIM resource representing the User’s manager.
+                            type: string
+                            example: c7a7347a7fe71e69077ee75f5d1f1237
+                          $ref:
+                            description: The URI of the SCIM resource representing the User’s manager.
+                            type: string
+                            example: http://localhost:8080/iiq/scim/v2/Users/c7a7347a7fe71e69077ee75f5d1f1237
+                  meta:
+                    description: Metadata of the resource.
+                    properties:
+                      created:
+                        description: Datetime this resource was created.
+                        type: string
+                        format: date-time
+                        example: '2022-02-11T01:34:04.074-05:00'
+                      location:
+                        description: The location of the resource.
+                        type: string
+                        example: http://localhost:8080/iiq/scim/v2/Users/c0b4568a4fe7458c434ee77d1fbt156b
+                      lastModified:
+                        description: Datetime the resource was last modified.
+                        type: string
+                        format: date-time
+                        example: '2022-02-11T01:08:45.866-05:00'
+                      version:
+                        description: The version of the resource.
+                        type: string
+                        example: W"1644561244074"
+                      resourceType:
+                        description: The SCIM resource type.
+                        type: string
+                        example: User
+                  schemas:
+                    description: The schemas involved in the SCIM resource.
+                    type: array
+                    items:
+                      type: string
+                    example:
+                      - urn:ietf:params:scim:schemas:sailpoint:1.0:User
+                      - urn:ietf:params:scim:schemas:core:2.0:User
+                      - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+```

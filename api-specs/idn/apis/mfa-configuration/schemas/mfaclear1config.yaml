@@ -1,0 +1,32 @@
+type: object
+title: Mfa Clear1 Config
+description: >-
+  Configuration of the CLEAR1 MFA method. At least one of `knownUserKeyFlowConfig` or
+  `establishedIdentityFlowConfig` must be configured.
+properties:
+  mfaMethod:
+    type: string
+    description: Mfa method name
+    example: clear1
+  enabled:
+    type: boolean
+    description: If MFA method is enabled.
+    default: false
+    example: true
+  apiKey:
+    type: string
+    description: >-
+      The API key for authenticating requests to the CLEAR1 provider. This field is always required, regardless of
+      whether the MFA method is enabled. This value is masked in responses.
+    example: sk123Y3QlA5UqocYpdU3rEkzrK2D497O
+  knownUserKeyFlowConfig:
+    $ref: ./mfaclear1knownuserkeyflowconfig.yaml
+    nullable: true
+    description: Configuration of the CLEAR1 known user key flow.
+  establishedIdentityFlowConfig:
+    $ref: ./mfaclear1establishedidentityflowconfig.yaml
+    nullable: true
+    description: Configuration of the CLEAR1 established identity flow.
+required:
+  - mfaMethod
+  - apiKey

@@ -1,0 +1,19 @@
+type: object
+description: |
+  Reminder and escalation rules for one domain object type.
+  At least one of `reminders`, `escalations`, or `fallback` must be set.
+properties:
+  reminders:
+    type: array
+    default: []
+    description: Independent reminder schedules. Every entry must use the same predicate, either `beforeDeadLine` or `activeAfter`.
+    items:
+      $ref: './reminderescalationreminder.yaml'
+  escalations:
+    type: array
+    default: []
+    description: Independent escalations. Each entry has its own trigger.
+    items:
+      $ref: './reminderescalationescalation.yaml'
+  fallback:
+    $ref: './reminderescalationfallback.yaml'

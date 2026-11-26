@@ -1,0 +1,7 @@
+type: object
+title: Identity Snapshot Summary Response
+properties:
+  snapshot:
+    type: string
+    description: the date when the identity record was created
+    example: '2007-03-01T13:00:00.000Z'

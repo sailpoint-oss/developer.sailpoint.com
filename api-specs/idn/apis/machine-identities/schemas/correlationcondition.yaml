@@ -1,0 +1,36 @@
+type: object
+title: Correlation Condition
+description: A single condition expression within a correlation rule.
+required:
+  - leftAttributeName
+  - operatorType
+  - rightAttributeName
+  - ordinal
+properties:
+  id:
+    type: string
+    format: uuid
+    description: System-generated unique ID of the condition.
+    example: 1b2c3d4e-5f60-4a7b-8c9d-0e1f2a3b4c5d
+  leftAttributeName:
+    type: string
+    description: The left-hand attribute name of the condition.
+    example: manager
+  operatorType:
+    type: string
+    description: The comparison operator applied between the left and right attributes.
+    example: EQUALS
+  rightAttributeName:
+    type: string
+    description: The right-hand attribute name. Use an empty string when there is no RHS attribute.
+    example: owner
+  transform:
+    type: string
+    nullable: true
+    description: Optional transform applied before comparison.
+    example: toUpper
+  ordinal:
+    type: integer
+    format: int32
+    description: The position of this condition within the rule.
+    example: 0

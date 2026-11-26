@@ -1,0 +1,17 @@
+type: object
+description: Audit details for the reassignment configuration of an identity
+properties:
+  created:
+    type: string
+    description: Initial date and time when the record was created
+    format: 'date-time'
+    example: '2022-07-21T11:13:12.345Z'
+  createdBy:
+    $ref: 'Identity.yaml'
+  modified:
+    type: string
+    description: Last modified date and time for the record
+    format: 'date-time'
+    example: '2022-07-21T11:13:12.345Z'
+  modifiedBy:
+    $ref: 'Identity.yaml'

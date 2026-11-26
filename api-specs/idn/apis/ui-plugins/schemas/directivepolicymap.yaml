@@ -1,0 +1,13 @@
+type: object
+title: Directive Policy Map
+description: >-
+  Map of directive name to allowlist values. Used for CSP, Permissions-Policy,
+  and iframe-allow on create/update. Only platform allowlisted
+  directives/keywords are accepted (see UMS validators).
+additionalProperties:
+  type: array
+  items:
+    type: string
+example:
+  default-src:
+    - "'self'"

@@ -1,0 +1,63 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The id of the Access Profile
+    example: 2c91808a7190d06e01719938fcd20792
+  name:
+    type: string
+    description: Name of the Access Profile
+    example: Employee-database-read-write
+  description:
+    type: string
+    description: Information about the Access Profile
+    example: Collection of entitlements to read/write the employee database
+  privileged:
+    type: boolean
+    deprecated: true
+    description: >-
+      Deprecated. Replaced by effectivePrivilege (HIGH, MEDIUM, LOW, NONE).
+      Indicates if the access profile contains any entitlements that are privileged.
+      Retained for backward compatibility.
+    example: false
+    default: false
+  cloudGoverned:
+    type: boolean
+    description: True if the access profile is cloud governed.
+    example: false
+    default: false
+  endDate:
+    type: string
+    format: date-time
+    description: The date at which a user's access expires
+    example: '2021-12-25T00:00:00.000Z'
+  owner:
+    $ref: './IdentityReference.yaml'
+  sourceName:
+    type: string
+    description: The name of the source for which this entitlement belongs
+    example: ODS-AD-Source
+  sourceType:
+    type: string
+    description: The type of the source for which the entitlement belongs
+    example: Active Directory - Direct
+  sourceId:
+    type: string
+    description: The ID of the source for which the entitlement belongs
+    example: 78ca6be511cb41fbb86dba2fcca7780c
+  created:
+    type: string
+    description: Date the Access Profile was created.
+    format: date-time
+    example: '2021-01-01T22:32:58.104Z'
+  modified:
+    type: string
+    description: Date the Access Profile was last modified.
+    format: date-time
+    example: '2021-02-01T22:32:58.104Z'
+  entitlements:
+    type: array
+    description: A list of entitlement references associated to this access profile.
+    items:
+      $ref: './EntitlementReference.yaml'
+

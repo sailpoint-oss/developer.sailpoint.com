@@ -1,0 +1,9 @@
+description: Expected response to a valid request
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        synced_attribute:
+          type: object
+          $ref: '../schemas/GET/SyncedAttribute.yaml'

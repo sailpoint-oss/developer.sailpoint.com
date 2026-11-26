@@ -1,0 +1,39 @@
+type: object
+required:
+  - id
+  - name
+  - description
+  - lastReceivedAt
+  - status
+description: One factor that contributes to the non-human identity risk level.
+properties:
+  id:
+    type: string
+    description: Stable identifier for this factor.
+    example: human_owner_confirmed
+  name:
+    type: string
+    description: Short title of the factor.
+    example: No human owner confirmed
+  description:
+    type: string
+    description: Why this factor affects risk.
+    example: No attributed owner means weak accountability for access and remediation.
+  severityValue:
+    type: string
+    description: Severity of this factor. Omitted when not available.
+    enum:
+      - LOW
+      - MEDIUM
+      - HIGH
+      - CRITICAL
+    example: CRITICAL
+  lastReceivedAt:
+    type: string
+    format: date-time
+    description: When this factor was last observed.
+    example: '2026-10-10T16:45:29Z'
+  status:
+    type: string
+    description: State of the factor.
+    example: active

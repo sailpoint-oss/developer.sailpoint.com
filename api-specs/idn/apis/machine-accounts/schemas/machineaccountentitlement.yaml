@@ -1,0 +1,63 @@
+title: Machine Account Entitlement
+type: object
+description: An entitlement held by a machine account.
+allOf:
+- $ref: ../../shared/schemas/basecommondto.yaml
+- type: object
+  properties:
+    attribute:
+      type: string
+      description: The name of the account attribute that holds the entitlement.
+      example: memberOf
+    value:
+      type: string
+      description: The value of the entitlement.
+      example: CN=Administrators,CN=Builtin,DC=example,DC=com
+    description:
+      type: string
+      nullable: true
+      description: The description of the entitlement.
+      example: Members can fully administer the domain.
+    sourceSchemaObjectType:
+      type: string
+      description: The source schema object type of the entitlement.
+      example: group
+    privileged:
+      type: boolean
+      default: false
+      description: Indicates whether the entitlement is privileged.
+      example: true
+    cloudGoverned:
+      type: boolean
+      default: false
+      description: Indicates whether the entitlement is governed in the cloud.
+      example: false
+    requestable:
+      type: boolean
+      default: false
+      description: Indicates whether the entitlement can be requested.
+      example: true
+    attributes:
+      type: object
+      nullable: true
+      additionalProperties: true
+      description: Additional attributes of the entitlement.
+      example:
+        groupType: security
+    source:
+      description: The source the entitlement belongs to.
+      allOf:
+      - $ref: ../../shared/schemas/basereferencedto.yaml
+      example:
+        id: 8d3e0094e99445de98eef6c75e25jc04
+        type: SOURCE
+        name: Active Directory
+    owner:
+      description: The owner of the entitlement.
+      nullable: true
+      allOf:
+      - $ref: ../../shared/schemas/basereferencedto.yaml
+      example:
+        id: 2c918084660f45d6016617daa9210584
+        type: IDENTITY
+        name: Adam Kennedy

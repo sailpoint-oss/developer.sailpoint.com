@@ -1,0 +1,15 @@
+description: Previous certification.
+type: object
+properties:
+  certificationId:
+    type: string
+    format: uuid
+    description: ID of certification for review.
+    example: 7589a83c-ec4b-4f13-8ce5-6c1a5ef0756d
+  certificationDisplayName:
+    type: string
+    description: Display name of certification for review.
+    example: Manager Access for Michael Michaels
+  reviewer:
+    $ref: './CertificationReviewer.yaml'
+    description: Certification reviewer

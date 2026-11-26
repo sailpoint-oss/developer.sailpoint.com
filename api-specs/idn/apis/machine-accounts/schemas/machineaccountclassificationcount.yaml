@@ -1,0 +1,17 @@
+type: object
+title: Machine Account Classification Count
+description: The number of machine account candidates found by one classification method.
+properties:
+  classificationMethod:
+    type: string
+    description: The classification method that found the candidates.
+    enum:
+    - CRITERIA
+    - SOURCE
+    - DISCOVERY
+    example: CRITERIA
+  count:
+    type: integer
+    format: int32
+    description: The number of candidates found by this classification method.
+    example: 42

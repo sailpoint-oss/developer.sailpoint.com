@@ -1,0 +1,56 @@
+type: object
+title: Human Account Subtype
+description: A human account subtype of a source.
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Unique identifier for the subtype.
+    example: 38453251-6be2-5f8f-df93-5ce19e295838
+    readOnly: true
+  sourceId:
+    type: string
+    description: The ID of the source the subtype belongs to.
+    example: 6d0458373bec4b4b80460992b76016da
+    readOnly: true
+  technicalName:
+    type: string
+    description: Technical name of the subtype.
+    example: contractor
+  displayName:
+    type: string
+    description: Display name of the subtype.
+    example: Contractor
+  description:
+    type: string
+    nullable: true
+    description: Description of the subtype.
+    example: Contractors with a limited account lifecycle
+  entityType:
+    type: string
+    description: Entity type the subtype applies to. Human account subtypes apply to accounts.
+    example: ACCOUNT
+    readOnly: true
+  default:
+    type: boolean
+    default: false
+    description: Whether this subtype is the default human account subtype of the source.
+    example: false
+  systemManaged:
+    type: boolean
+    default: false
+    description: Indicates if the subtype is managed by the system. Read-only.
+    example: false
+    readOnly: true
+  created:
+    type: string
+    format: date-time
+    description: Creation timestamp.
+    example: '2026-11-20T10:15:30.123Z'
+    readOnly: true
+  modified:
+    type: string
+    format: date-time
+    description: Last modified timestamp.
+    example: '2026-11-20T10:15:30.123Z'
+    readOnly: true

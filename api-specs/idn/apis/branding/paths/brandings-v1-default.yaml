@@ -1,0 +1,27 @@
+delete:
+  operationId: deleteDefaultBrandingV1
+  tags:
+  - Branding
+  summary: Clear the default branding item
+  description: >-
+    This API endpoint clears the customizable properties of the default branding item. The default item is kept.
+  security:
+  - userAuth:
+    - idn:branding:manage
+  - applicationAuth:
+    - idn:branding:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  responses:
+    '204':
+      $ref: ../../shared/responses/204.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml

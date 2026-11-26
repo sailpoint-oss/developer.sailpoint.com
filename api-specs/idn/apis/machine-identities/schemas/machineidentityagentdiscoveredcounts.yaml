@@ -1,0 +1,14 @@
+allOf:
+  - $ref: ./machineidentitydiscoveredcounts.yaml
+  - type: object
+    title: Machine Identity Agent Discovered Counts
+    description: AI agents discovered within a recent time window, including the start of that window.
+    properties:
+      from:
+        type: string
+        format: date-time
+        nullable: true
+        description: >-
+          Start of the window, in UTC, and the exact cutoff used for `count`.
+          Identities created at or after this time are included.
+        example: '2026-10-17T09:58:52.985613Z'

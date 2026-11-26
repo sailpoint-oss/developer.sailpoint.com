@@ -1,0 +1,11 @@
+type: object
+title: Subtype With Target And Config
+description: >-
+  Tiered source subtype returned by the v2 list. `config` is included only when `includeConfigs`
+  is `true` and the subtype has a stored machine-account-create config.
+allOf:
+  - $ref: ./subtypewithtarget.yaml
+  - type: object
+    properties:
+      config:
+        $ref: ./machineaccountsubtypelistconfig.yaml

@@ -1,0 +1,17 @@
+type: object
+description: Identity who approved the access item request. 
+properties:
+  type:
+    type: string 
+    description: DTO type of identity who approved the access item request. 
+    enum: 
+      - IDENTITY
+    example: IDENTITY
+  id:
+    type: string
+    description: ID of identity who approved the access item request. 
+    example: 2c3780a46faadee4016fb4e018c20652
+  name:
+    type: string
+    description: Human-readable display name of identity who approved the access item request. 
+    example: Allen Albertson

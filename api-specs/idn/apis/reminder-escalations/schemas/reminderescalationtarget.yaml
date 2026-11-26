@@ -1,0 +1,24 @@
+type: object
+description: |
+  Escalation recipient. `identityId` is required for every `targetType` except `MANAGER_OF`, where it is optional.
+
+  * `MANAGER_OF` without `identityId` resolves the manager of each current assignee.
+  * `MANAGER_OF` with `identityId` resolves the manager of that identity.
+required:
+- targetType
+properties:
+  targetType:
+    type: string
+    enum:
+    - MANAGER_OF
+    - IDENTITY
+    - GOVERNANCE_GROUP
+    - ENTITLEMENT_OWNER
+    - SOURCE_OWNER
+    description: Kind of recipient this target resolves to.
+    example: MANAGER_OF
+  identityId:
+    type: string
+    default: ""
+    description: Identity the target applies to. Empty for a dynamic `MANAGER_OF` target.
+    example: id-admin-99

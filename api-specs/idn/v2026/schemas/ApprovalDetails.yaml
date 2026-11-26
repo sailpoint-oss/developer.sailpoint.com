@@ -1,0 +1,23 @@
+type: object
+title: Approval Details
+description: Contains comprehensive details about the approval process, including the approver's information, comments, decision date, serial order, and the current status of the approval request.
+properties:
+  approver:
+    $ref: './ApproverDto.yaml'
+  approverComments:
+    type: string
+    description: Comments added by approver while rejecting or approving the account deletion request.
+    example: Approving account deletion request due to long term inactivity of account.
+  decisionDate:
+    type: string
+    description: Decision date of approval rejected or approved.
+    format: date-time
+    readOnly: true
+    example: "2026-01-21T11:43:22.432Z"
+  serialOrder:
+    type: integer
+    example: 12345
+    format: int64
+    description: SerialOrder of approval details.
+  status:
+    $ref: ./AccountRequestPhaseState.yaml

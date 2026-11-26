@@ -1,0 +1,11 @@
+type: string
+title: Slot Type
+x-sailpoint-lint-ignore:
+  schema-enum-values-must-be-upper-snake-case: The service uses these lowercase values in requests and responses.
+description: How the App Shell renders plugins in this slot (Armada 2.0 patterns)
+enum:
+  - full-page
+  - embed
+  - aside
+  - popup
+example: full-page

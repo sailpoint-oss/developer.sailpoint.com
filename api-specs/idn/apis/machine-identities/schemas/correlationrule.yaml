@@ -1,0 +1,43 @@
+type: object
+title: Correlation Rule
+description: A single correlation rule within an ownership correlation config.
+required:
+  - priority
+  - defaultRule
+  - ruleType
+  - ruleAction
+  - conditionExpressions
+properties:
+  id:
+    type: string
+    format: uuid
+    description: >-
+      Omit for new rules (server mints a UUID). Send only when updating a rule that already exists on this
+      config (merge on PATCH). Unknown ids are rejected.
+    example: 9c1f0b6a-2f2e-4a2b-8b7c-1a2b3c4d5e6f
+  priority:
+    type: integer
+    format: int32
+    description: The evaluation priority of the rule. Lower values are evaluated first.
+    example: 1
+  defaultRule:
+    type: boolean
+    description: Whether this rule is the default rule for the config.
+    example: false
+  ruleType:
+    type: string
+    description: >-
+      The rule subject type. When either ruleType or ruleAction.type is GOVERNANCE_GROUP, both must be;
+      ruleType GOVERNANCE_GROUP is allowed only when the parent config type is OWNER_SECONDARY.
+    enum:
+      - IDENTITY
+      - ACCOUNT
+      - GOVERNANCE_GROUP
+    example: IDENTITY
+  ruleAction:
+    $ref: ./correlationruleaction.yaml
+  conditionExpressions:
+    type: array
+    description: The conditions that must match for this rule to apply.
+    items:
+      $ref: ./correlationcondition.yaml

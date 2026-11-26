@@ -1,0 +1,37 @@
+post:
+  x-sailpoint-lint-ignore:
+    path-bulk-operations-must-return-207: >-
+      sp-approvals bulkApproveApprovals writes 202 Accepted. The documented status must match the service (SailPoint Rule 152).
+  security:
+  - userAuth: [ sp:generic-approval-management:write ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - API
+  - idn:access-request-administrator
+  operationId: approveApprovalInBulk
+  tags:
+  - Approvals
+  summary: Post Bulk Approve Approvals
+  description: >-
+    Bulk Approves specified approval requests on behalf of the caller
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/BulkApproveRequestDTO.yaml'
+  responses:
+    '202':
+      $ref: '../responses/202.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

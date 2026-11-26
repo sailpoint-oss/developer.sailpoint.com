@@ -1,0 +1,15 @@
+post:
+  summary: Run profiles advanced search
+  operationId: searchAdvancedSearch
+  description: Run an advanced search for profiles, without saving the query
+  tags:
+    - advanced search
+  parameters:
+    - $ref: "../parameters/query/limit.yaml"
+    - $ref: "../parameters/query/offset.yaml"
+    - $ref: "../parameters/query/order.yaml"
+  requestBody:
+    $ref: "../requestBodies/POST/AdvancedSearch.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Profiles.yaml"

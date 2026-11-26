@@ -1,0 +1,9 @@
+type: object
+title: Subtype With Target
+description: Tiered source subtype as returned by v2 list, create, and patch. Get-by-id uses Subtype With Target Provisioning.
+allOf:
+  - $ref: ./sourcesubtypedtov2.yaml
+  - type: object
+    properties:
+      target:
+        $ref: ./subtypetargetref.yaml

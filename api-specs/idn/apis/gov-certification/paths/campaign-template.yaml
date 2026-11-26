@@ -1,0 +1,186 @@
+get:
+  operationId: getGovCertificationCampaignTemplateV1
+  tags:
+    - Next Generation Certification Campaigns
+  summary: Get a Campaign Template
+  description: Fetches a campaign template by ID. Required roles are ORG_ADMIN or CERT_ADMIN.
+  security:
+    - userAuth: [ idn:campaign-template:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+    - in: path
+      name: id
+      schema:
+        type: string
+        format: uuid
+      required: true
+      description: The desired campaign template's ID.
+      example: 2c918083-5d19-1a86-a15d-28455b4a2329
+      x-sailpoint-resource-operation-id: listCampaignTemplatesV1
+  responses:
+    '200':
+      description: The data for the campaign matching the given ID.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignTemplateGet.yaml'
+          examples:
+            Manager Review:
+              $ref: '../schemas/examples/CampaignTemplateManager.yaml'
+            Search Campaign:
+              $ref: '../schemas/examples/CampaignTemplateSearch.yaml'
+            Source Owner Campaign:
+              $ref: '../schemas/examples/CampaignTemplateSourceOwner.yaml'
+            Machine Accounts Campaign:
+              $ref: '../schemas/examples/CampaignTemplateMachineAccount.yaml'
+    '400':
+      $ref: '../../shared/responses/400.yaml'
+    '401':
+      $ref: '../../shared/responses/401.yaml'
+    '403':
+      $ref: '../../shared/responses/403.yaml'
+    '404':
+      $ref: '../../shared/responses/404.yaml'
+    '429':
+      $ref: '../../shared/responses/429.yaml'
+    '500':
+      $ref: '../../shared/responses/500.yaml'
+patch:
+  operationId: patchGovCertificationCampaignTemplateV1
+  tags:
+    - Next Generation Certification Campaigns
+  summary: Update a Campaign Template
+  description: Allows updating individual fields on a campaign template using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Required roles are ORG_ADMIN or CERT_ADMIN.
+  security:
+    - userAuth: [ idn:campaign-template:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+    - in: path
+      name: id
+      schema:
+        type: string
+        format: uuid
+      required: true
+      description: The ID of the campaign template being modified.
+      example: 2c918083-5d19-1a86-a15d-28455b4a2329
+      x-sailpoint-resource-operation-id: listCampaignTemplatesV1
+  requestBody:
+    required: true
+    description: |
+      A list of campaign template update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+      The following fields are patchable:
+      - name
+      - description
+      - campaignName
+      - campaignDescription
+      - remediatorRef
+      - reviewer (id and type only; name is resolved server-side)
+      - mandatoryCommentRequirement
+      - emailNotificationEnabled
+      - autoRevokeAllowed
+      - recommendationsEnabled
+      - sunsetCommentsRequired
+      - deadlineDuration
+      - filterRef
+      - searchBasedParams
+      - sourceIds
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../../shared/schemas/jsonpatchoperation.yaml'
+  responses:
+    '200':
+      description: >-
+        Indicates the PATCH operation succeeded, and returns the template's new representation.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignTemplateGet.yaml'
+          examples:
+            Manager Review:
+              $ref: '../schemas/examples/CampaignTemplateManager.yaml'
+            Search Campaign:
+              $ref: '../schemas/examples/CampaignTemplateSearch.yaml'
+            Source Owner Campaign:
+              $ref: '../schemas/examples/CampaignTemplateSourceOwner.yaml'
+            Machine Accounts Campaign:
+              $ref: '../schemas/examples/CampaignTemplateMachineAccount.yaml'
+    '400':
+      $ref: '../../shared/responses/400.yaml'
+    '401':
+      $ref: '../../shared/responses/401.yaml'
+    '403':
+      $ref: '../../shared/responses/403.yaml'
+    '404':
+      $ref: '../../shared/responses/404.yaml'
+    '429':
+      $ref: '../../shared/responses/429.yaml'
+    '500':
+      $ref: '../../shared/responses/500.yaml'
+delete:
+  operationId: deleteGovCertificationCampaignTemplateV1
+  tags:
+    - Next Generation Certification Campaigns
+  summary: Delete a Campaign Template
+  description: Deletes a campaign template by ID. Required roles are ORG_ADMIN or CERT_ADMIN.
+  security:
+    - userAuth: [ idn:campaign-template:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+    - in: path
+      name: id
+      schema:
+        type: string
+        format: uuid
+      required: true
+      description: The ID of the campaign template being deleted.
+      example: 2c918083-5d19-1a86-a15d-28455b4a2329
+      x-sailpoint-resource-operation-id: listCampaignTemplatesV1
+  responses:
+    '204':
+      $ref: '../../shared/responses/204.yaml'
+    '400':
+      $ref: '../../shared/responses/400.yaml'
+    '404':
+      $ref: '../../shared/responses/404.yaml'
+    '401':
+      $ref: '../../shared/responses/401.yaml'
+    '403':
+      $ref: '../../shared/responses/403.yaml'
+    '429':
+      $ref: '../../shared/responses/429.yaml'
+    '500':
+      $ref: '../../shared/responses/500.yaml'

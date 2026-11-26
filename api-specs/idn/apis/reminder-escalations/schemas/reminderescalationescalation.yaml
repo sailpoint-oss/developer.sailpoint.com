@@ -1,0 +1,18 @@
+type: object
+description: One escalation. Escalations in a ruleset are independent of each other.
+required:
+- trigger
+- targets
+- template
+properties:
+  trigger:
+    $ref: './reminderescalationtrigger.yaml'
+  targets:
+    type: array
+    minItems: 1
+    items:
+      $ref: './reminderescalationtarget.yaml'
+  template:
+    type: string
+    description: Notification template key.
+    example: cert-escalation-mgr

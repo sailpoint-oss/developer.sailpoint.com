@@ -1,0 +1,148 @@
+type: object
+title: SOD Violation Mitigated Payload
+description: JSON body delivered for the **SODViolationMitigated** webhook.
+properties:
+  appliedControls:
+    type: array
+    description: >-
+      Controls applied to mitigate the violation. For now this lists the currently active application(s).
+    items:
+      type: object
+      properties:
+        appliedDate:
+          type: string
+          format: date-time
+          description: When the control was applied.
+          example: "2026-03-05T22:51:24.535433Z"
+        applier:
+          type: object
+          description: Identity that applied the control.
+          properties:
+            id:
+              type: string
+              description: Applier ID.
+              example: "2c918088837fe14901838062029a04bf"
+            type:
+              type: string
+              description: DTO type of the applier reference.
+              example: IDENTITY
+              enum:
+                - IDENTITY
+        comments:
+          type: string
+          description: Optional comments from the applier.
+          nullable: true
+          example: "Applied compensating control to mitigate violation while awaiting access review."
+        control:
+          type: object
+          description: Reference to the compensating control definition.
+          properties:
+            id:
+              type: string
+              description: Control ID.
+              example: "01ea1d945db14444a2356f71c22b3449"
+            type:
+              type: string
+              description: Control type (always **COMPENSATING_CONTROL** for this webhook).
+              example: COMPENSATING_CONTROL
+              enum:
+                - COMPENSATING_CONTROL
+        expiration:
+          type: string
+          format: date-time
+          description: When this application of the control expires.
+          example: "2026-04-05T22:51:24.535433Z"
+        id:
+          type: string
+          description: ID of the control application record.
+          example: "230bb065e18641f9bd6985ea9cf2e1a4"
+        status:
+          $ref: '../schemas/violationappliedcontrolstatus.yaml'
+        violation:
+          type: string
+          description: ID of the violation this application belongs to.
+          example: "230bb065e18641f9bd6985ea9cf2e1a4"
+        workflowId:
+          type: string
+          description: Optional workflow correlation ID.
+          nullable: true
+          example: "2c918088837fe14901838062029a04bf"
+  created:
+    type: string
+    format: date-time
+    description: When the violation record was created.
+    example: "2026-03-04T22:51:24.535433Z"
+  expiration:
+    type: string
+    format: date-time
+    description: Violation-level expiration (may be a sentinel when not set).
+    example: "2026-04-04T22:51:24.535433Z"
+  id:
+    type: string
+    description: Violation ID.
+    example: "230bb065e18641f9bd6985ea9cf2e1a4"
+  lastEvaluatedDate:
+    type: string
+    format: date-time
+    description: When the violation was last evaluated.
+    example: "2026-03-05T22:51:22.158Z"
+  level:
+    type: string
+    description: Violation severity level.
+    example: High
+  modified:
+    type: string
+    format: date-time
+    description: When the violation was last modified.
+    example: "2026-03-05T22:51:24.535433Z"
+  name:
+    type: string
+    description: Human-readable violation name.
+    example: "Violation for 01ea1d94-5db1-4444-a235-6f71c22b3449 - Target 2c9180888380236101838062022f00ea"
+  owner:
+    type: object
+    description: Owner of the violation.
+    properties:
+      id:
+        type: string
+        description: Owner ID.
+        example: "2c918088837fe14901838062029a04bf"
+      type:
+        type: string
+        description: DTO type of the owner reference.
+        enum:
+          - IDENTITY
+          - GOVERNANCE_GROUP
+        example: IDENTITY
+  policy:
+    type: object
+    description: SOD policy associated with the violation.
+    properties:
+      id:
+        type: string
+        description: Policy ID.
+        example: "01ea1d94-5db1-4444-a235-6f71c22b3449"
+      type:
+        type: string
+        description: Policy type (always **SOD** for this webhook).
+        enum:
+          - SOD
+        example: SOD
+  status:
+    type: string
+    description: Violation lifecycle status after mitigation.
+    example: Mitigated
+  target:
+    type: object
+    description: Identity or entity the violation applies to.
+    properties:
+      id:
+        type: string
+        description: Target ID.
+        example: "2c9180888380236101838062022f00ea"
+      type:
+        type: string
+        description: DTO type of the target reference.
+        enum:
+          - IDENTITY
+        example: IDENTITY

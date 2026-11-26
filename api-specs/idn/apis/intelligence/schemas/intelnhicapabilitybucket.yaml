@@ -1,0 +1,21 @@
+type: object
+required:
+  - items
+description: First page of one capability kind on the non-human identity lookup.
+properties:
+  items:
+    type: array
+    description: Capabilities of this kind linked to the identity.
+    items:
+      $ref: ./intelnhicapabilitywire.yaml
+  totalCount:
+    type: integer
+    format: int32
+    minimum: 1
+    description: Total count for this kind. Omitted when items is empty.
+    example: 2
+  next:
+    type: string
+    format: uri
+    description: URL for the next page of this kind. Omitted when all rows fit on this page.
+    example: https://tenant.example.api.cloud.sailpoint.com/intelligence/v1/identities/2c91808874ff91550175097daaec161e/capabilities?type=tool&limit=10&offset=10&count=true

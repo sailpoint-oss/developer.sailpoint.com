@@ -1,0 +1,86 @@
+description: Request body for filtering roles by metadata and filter expression, including privilegeLevel.effective.
+type: object
+properties:
+  filters:
+    type: string
+    default: ""
+    description: >-
+      Filter results using the standard syntax described in [API Standard Collection
+      Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **id**: *eq, in*
+
+
+      **name**: *eq, in, sw, co*
+
+
+      **created**: *gt, lt, ge, le*
+
+
+      **modified**: *gt, lt, ge, le*
+
+
+      **type**: *eq, in*
+
+
+      **owner.id**: *eq, in*
+
+
+      **additionalOwners.id**: *eq, in*
+
+
+      **requestable**: *eq*
+
+
+      **dimensional**: *eq*
+
+
+      **source.id**: *eq, in*
+
+
+      **entitlement.id**: *eq, in*
+
+
+      **entitlement.name**: *eq, sw, co*
+
+
+      **accessProfile.id**: *eq, in*
+
+
+      **accessProfile.name**: *eq, sw, co*
+
+
+      **privilegeLevel.effective**: *eq, in*
+
+
+      Supported composite operators are *and, or*
+    example: privilegeLevel.effective in ("HIGH","MEDIUM")
+  ammKeyValues:
+    type: array
+    default: []
+    items:
+      type: object
+      required:
+        - attribute
+      properties:
+        attribute:
+          description: attribute key of a metadata. A blank value is rejected with a 400 error.
+          type: string
+          example: iscFederalClassifications
+        values:
+          description: A list of attribute key names to filter roles. If the values is empty, will only filter by attribute key.
+          type: array
+          default: []
+          items:
+            type: string
+            example: secret
+          example:
+            - secret
+    example:
+      - attribute: iscFederalClassifications
+        values:
+          - secret

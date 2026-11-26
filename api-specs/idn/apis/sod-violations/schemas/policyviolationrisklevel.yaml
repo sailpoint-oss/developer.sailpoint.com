@@ -1,0 +1,9 @@
+type: string
+description: The risk level assigned to a policy violation.
+enum:
+  - Low
+  - Medium
+  - High
+  - Critical
+example: High
+readOnly: true

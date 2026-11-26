@@ -1,0 +1,30 @@
+type: object
+title: Machine Accounts Summary
+description: >-
+  Counts of machine account candidates that are not yet linked to a machine identity, grouped by classification
+  method.
+properties:
+  human:
+    type: array
+    description: >-
+      Counts of candidates that are correlated to a human identity, with one entry each for the `CRITERIA`,
+      `SOURCE` and `DISCOVERY` classification methods.
+    items:
+      $ref: ./machineaccountclassificationcount.yaml
+    example:
+    - classificationMethod: CRITERIA
+      count: 42
+    - classificationMethod: SOURCE
+      count: 17
+    - classificationMethod: DISCOVERY
+      count: 8
+  uncorrelated:
+    type: array
+    description: >-
+      Counts of candidates that are not correlated to any identity. This list has one entry, for the `DISCOVERY`
+      classification method.
+    items:
+      $ref: ./machineaccountclassificationcount.yaml
+    example:
+    - classificationMethod: DISCOVERY
+      count: 5

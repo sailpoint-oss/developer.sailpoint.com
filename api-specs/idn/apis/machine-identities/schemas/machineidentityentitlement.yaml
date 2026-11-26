@@ -1,0 +1,39 @@
+allOf:
+  - $ref: ../../shared/schemas/basecommondto.yaml
+  - type: object
+    title: Machine Identity Entitlement
+    description: An entitlement held by a machine account that is linked to a machine identity.
+    properties:
+      accountId:
+        type: string
+        description: ID of the machine account that holds the entitlement.
+        example: 2c9180858082150f0180893dbaf44201
+      accountName:
+        type: string
+        description: Name of the machine account that holds the entitlement.
+        example: svc-batch-runner
+      attribute:
+        type: string
+        description: Name of the account attribute that contains the entitlement.
+        example: memberOf
+      value:
+        type: string
+        description: Value of the entitlement.
+        example: CN=Finance Readers,OU=Groups,DC=example,DC=com
+      description:
+        type: string
+        description: Description of the entitlement.
+        example: Read access to finance reports
+      cloudGoverned:
+        type: boolean
+        default: false
+        description: Indicates whether the entitlement is governed in the cloud.
+        example: false
+      source:
+        description: The source the entitlement comes from.
+        allOf:
+          - $ref: ../../shared/schemas/basereferencedto.yaml
+          - example:
+              id: 2c9180835d191a86015d28455b4a2329
+              name: Active Directory
+              type: SOURCE

@@ -1,0 +1,13 @@
+description: Runs on March 12 and December 5 at 1AM, every year.
+value:
+  type: ANNUALLY
+  hours:
+    type: LIST
+    values:
+      - '1'
+  days:
+    type: LIST
+    values:
+      - '--03-12'
+      - '--12-05'
+  timeZoneId: America/Chicago

@@ -1,0 +1,41 @@
+type: object
+title: Subtype Provisioning Policy
+description: >-
+  CREATE_MACHINE_ACCOUNT provisioning policy stored on a source subtype. Field-compatible with
+  source provisioning-policy documents.
+properties:
+  id:
+    type: string
+    format: uuid
+    default: ""
+    description: Unique identifier of the stored provisioning policy.
+    example: 54f626b4-c9d8-4f7e-b768-046c20583abb
+  subtypeId:
+    type: string
+    format: uuid
+    default: ""
+    description: Identifier of the subtype that owns this policy.
+    example: 43bdd144-4b17-4fce-a744-17c7fd3e717b
+  name:
+    type: string
+    nullable: true
+    default: null
+    description: Name of the provisioning policy.
+    example: Create Machine Account
+  description:
+    type: string
+    nullable: true
+    default: null
+    description: Description of the provisioning policy.
+    example: Fields used when creating a machine account for this subtype
+  usageType:
+    type: string
+    default: ""
+    description: Usage type of the policy. This API stores only `CREATE_MACHINE_ACCOUNT`.
+    example: CREATE_MACHINE_ACCOUNT
+  fields:
+    type: array
+    default: []
+    description: Fields in the provisioning policy. Field order is not semantically meaningful.
+    items:
+      $ref: ./fielddetailsdto.yaml

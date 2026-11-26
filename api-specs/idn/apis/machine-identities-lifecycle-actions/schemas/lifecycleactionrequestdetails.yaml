@@ -1,0 +1,60 @@
+type: object
+title: Lifecycle Action Request Details
+description: Details of the lifecycle request, including its status, approval, comments, and provisioning.
+properties:
+  status:
+    $ref: ./lifecyclestatus.yaml
+  action:
+    $ref: ./lifecycleaction.yaml
+  approver:
+    $ref: ./lifecycleapproverref.yaml
+  approvedAt:
+    type: string
+    format: date-time
+    description: Time when the request was approved (ISO-8601).
+    example: '2026-05-26T19:02:00Z'
+  canceller:
+    $ref: ./lifecyclerequesterref.yaml
+  canceledAt:
+    type: string
+    format: date-time
+    description: Time when the request was canceled (ISO-8601).
+    example: '2026-05-26T19:03:00Z'
+  cancelComment:
+    type: string
+    description: Comment provided when the request was canceled.
+    example: Cancelling - will resubmit after maintenance window
+  comments:
+    type: array
+    description: Comments on the lifecycle request, in the order they were added.
+    items:
+      $ref: ./lifecyclecomment.yaml
+  failurePhase:
+    type: string
+    description: Stage where the request failed, when applicable.
+    example: WORKFLOW_START
+  failureReason:
+    type: string
+    description: Failure reason for the lifecycle request, when applicable.
+    example: Operation can't be performed on AgentAlias when Agent is in Not Prepared state.
+  resource:
+    $ref: ./lifecycleresourcesummary.yaml
+  resourceOwners:
+    type: array
+    description: Owners of the machine identity at the time the request was submitted.
+    items:
+      $ref: ./lifecycleownerref.yaml
+  sourceOwner:
+    $ref: ./lifecycleownerref.yaml
+  requester:
+    $ref: ./lifecyclerequesterref.yaml
+  approvalRequestId:
+    type: string
+    description: ID of the approval request created for this lifecycle request.
+    example: a0220198-4b01-444b-8ac3-7a8a147a3791
+  approvalSettingsId:
+    type: string
+    description: ID of the approval settings used for the request.
+    example: 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa_aws:bedrock:agent-42
+  provisioning:
+    $ref: ./lifecycleprovisioning.yaml

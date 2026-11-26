@@ -1,0 +1,81 @@
+get:
+  operationId: listUiPluginSlotsV1
+  x-sailpoint-lint-ignore:
+    path-list-endpoints-must-support-pagination: The slot registry is a small static list, so the service does not paginate it.
+    path-list-operations-must-return-object: The service returns the slot registry as a top-level array.
+  tags:
+    - UI Plugins
+  summary: List UI plugin slots
+  description: >-
+    Returns the static slot registry (extension points the platform exposes).
+    `name` / `description` are localized via AtlasJS TranslateService.
+
+
+    Filtering uses API Standard Collection Parameters. `state` supports `eq`
+    with values `active`, `deprecated`, or `removed`. Example:
+    `filters=state eq "active"`.
+
+
+    Requires product license `idn:ui-plugins` or `idn:ui-plugins-author`
+    (404 if neither is present).
+  security:
+    - userAuth:
+        - idn:plugins-ui-slots:read
+    - applicationAuth:
+        - idn:plugins-ui-slots:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - name: filters
+      in: query
+      required: false
+      description: >-
+        Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **state**: *eq*
+      schema:
+        type: string
+      example: 'state eq "active"'
+    - name: allLangs
+      in: query
+      required: false
+      description: >-
+        When `true`, `name` and `description` are returned as full locale maps
+        instead of a single translated string.
+      schema:
+        type: boolean
+        default: false
+      example: false
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+  responses:
+    "200":
+      description: Slot registry entries
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/uipluginslot.yaml
+    "400":
+      $ref: ../../shared/responses/400.yaml
+    "401":
+      $ref: ../../shared/responses/401.yaml
+    "403":
+      $ref: ../../shared/responses/403.yaml
+    "404":
+      $ref: ../../shared/responses/404.yaml
+    "429":
+      $ref: ../../shared/responses/429.yaml
+    "500":
+      $ref: ../../shared/responses/500.yaml

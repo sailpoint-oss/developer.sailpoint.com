@@ -1,0 +1,8 @@
+name: workflow_id
+in: query
+description: Workflow ID for filtering
+required: false
+schema:
+  type: string
+  format: uuid
+  example: bba9cfb2-96c1-4acb-ac79-a21732527265

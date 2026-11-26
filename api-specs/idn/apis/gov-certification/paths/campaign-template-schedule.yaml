@@ -1,0 +1,165 @@
+get:
+  operationId: getGovCertificationCampaignTemplateScheduleV1
+  tags:
+    - Next Generation Certification Campaigns
+  summary: Get a Campaign Template Schedule
+  description: Fetches a schedule by a campaign template ID. Required roles are ORG_ADMIN or CERT_ADMIN.
+  security:
+    - userAuth: [ idn:campaign-template:read, sp:scheduled-action:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+    - in: path
+      name: id
+      schema:
+        type: string
+        format: uuid
+      required: true
+      description: The campaign template's ID for the desired campaign template schedule.
+      example: 2c918083-5d19-1a86-a15d-28455b4a2329
+      x-sailpoint-resource-operation-id: listCampaignTemplatesV1
+  responses:
+    '200':
+      description: The data for the schedule matching the given campaign template ID.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Schedule.yaml'
+          examples:
+            Monthly:
+              $ref: '../schemas/examples/ScheduleMonthly.yaml'
+            Once a year:
+              $ref: '../schemas/examples/ScheduleAnnually.yaml'
+            Quarterly:
+              $ref: '../schemas/examples/ScheduleQuarterly.yaml'
+            Yearly on Specific Days:
+              $ref: '../schemas/examples/ScheduleSpecificDays.yaml'
+            On a Specific Date:
+              $ref: '../schemas/examples/ScheduleSpecificDate.yaml'
+    '400':
+      $ref: '../../shared/responses/400.yaml'
+    '401':
+      $ref: '../../shared/responses/401.yaml'
+    '403':
+      $ref: '../../shared/responses/403.yaml'
+    '404':
+      $ref: '../../shared/responses/404.yaml'
+    '429':
+      $ref: '../../shared/responses/429.yaml'
+    '500':
+      $ref: '../../shared/responses/500.yaml'
+put:
+  operationId: setOrUpdateCampaignTemplateScheduleV1
+  tags:
+    - Next Generation Certification Campaigns
+  summary: Set a campaign template schedule
+  description: Creates or replaces the schedule for a campaign template. Send the full schedule in the request body. Required roles are ORG_ADMIN or CERT_ADMIN.
+  security:
+    - userAuth: [ idn:campaign-template:manage, sp:scheduled-action:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+    - in: path
+      name: id
+      schema:
+        type: string
+        format: uuid
+      required: true
+      description: The ID of the campaign template whose schedule is being modified or created.
+      example: 2c918083-5d19-1a86-a15d-28455b4a2329
+      x-sailpoint-resource-operation-id: listCampaignTemplatesV1
+  requestBody:
+    required: true
+    description: The data for the schedule for the given campaign template ID.
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Schedule.yaml'
+        examples:
+          Monthly:
+            $ref: '../schemas/examples/ScheduleMonthly.yaml'
+          Once a year:
+            $ref: '../schemas/examples/ScheduleAnnually.yaml'
+          Quarterly:
+            $ref: '../schemas/examples/ScheduleQuarterly.yaml'
+          Yearly on Specific Days:
+            $ref: '../schemas/examples/ScheduleSpecificDays.yaml'
+          On a Specific Date:
+            $ref: '../schemas/examples/ScheduleSpecificDate.yaml'
+  responses:
+    '204':
+      $ref: '../../shared/responses/204.yaml'
+    '400':
+      $ref: '../../shared/responses/400.yaml'
+    '401':
+      $ref: '../../shared/responses/401.yaml'
+    '403':
+      $ref: '../../shared/responses/403.yaml'
+    '404':
+      $ref: '../../shared/responses/404.yaml'
+    '429':
+      $ref: '../../shared/responses/429.yaml'
+    '500':
+      $ref: '../../shared/responses/500.yaml'
+delete:
+  operationId: deleteGovCertificationCampaignTemplateScheduleV1
+  tags:
+    - Next Generation Certification Campaigns
+  summary: Delete a Campaign Template Schedule
+  description: Deletes a schedule by campaign template ID. Required roles are ORG_ADMIN or CERT_ADMIN.
+  security:
+    - userAuth: [ idn:campaign-template:manage, sp:scheduled-action:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+    - in: path
+      name: id
+      schema:
+        type: string
+        format: uuid
+      required: true
+      description: The ID of the campaign template whose schedule is being deleted.
+      example: 2c918083-5d19-1a86-a15d-28455b4a2329
+      x-sailpoint-resource-operation-id: listCampaignTemplatesV1
+  responses:
+    '204':
+      $ref: '../../shared/responses/204.yaml'
+    '400':
+      $ref: '../../shared/responses/400.yaml'
+    '404':
+      $ref: '../../shared/responses/404.yaml'
+    '401':
+      $ref: '../../shared/responses/401.yaml'
+    '403':
+      $ref: '../../shared/responses/403.yaml'
+    '429':
+      $ref: '../../shared/responses/429.yaml'
+    '500':
+      $ref: '../../shared/responses/500.yaml'

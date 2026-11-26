@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The id for the entitlement
+    example: 2c918085718230600171993742c63558
+  name:
+    type: string
+    description: The name of the entitlement
+    example: 'CN=entitlement.bbb7c650'
+  description:
+    type: string
+    description: Information about the entitlement
+    example: Gives read/write access to the company database

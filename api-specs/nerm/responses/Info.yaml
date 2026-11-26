@@ -1,0 +1,9 @@
+description: "Info about the operation"
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        info:
+          description: A message confirming the operation
+          example: object deleted

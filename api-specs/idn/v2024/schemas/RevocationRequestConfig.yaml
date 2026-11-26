@@ -1,0 +1,7 @@
+type: object
+title: Revocation Request Config
+properties:
+  approvalSchemes:
+    type: array
+    items:
+      $ref: './ApprovalScheme.yaml'

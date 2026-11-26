@@ -1,0 +1,20 @@
+type: object
+nullable: true
+properties:
+  enabled:
+    type: boolean
+    description: If the known user key flow is enabled for the CLEAR1 MFA method.
+    default: false
+    example: true
+  projectId:
+    type: string
+    nullable: true
+    description: >-
+      The ID of the CLEAR1 project used for the known user key flow. This field is required if `enabled` is *true*.
+      It may be null if `enabled` is *false*.
+  identityAttribute:
+    type: string
+    nullable: true
+    description: >-
+      The name of the attribute used to map an Identity Security Cloud identity to the CLEAR1 user key. This field
+      is required if `enabled` is *true*. It may be null if `enabled` is *false*.

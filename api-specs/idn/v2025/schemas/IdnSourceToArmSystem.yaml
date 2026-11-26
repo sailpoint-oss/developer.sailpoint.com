@@ -1,0 +1,12 @@
+type: object
+title: IDN Source To ARM System
+description: A mapping from an IDN source id to an ARM system id.
+properties:
+  sourceId:
+    type: string
+    description: The IDN source id.
+    example: 2c91808c791a94e501792388b0d62659
+  systemId:
+    type: string
+    description: The ARM system id.
+    example: '1556'

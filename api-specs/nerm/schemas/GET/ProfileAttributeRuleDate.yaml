@@ -1,0 +1,44 @@
+type: object
+required:
+  - type
+  - condition_object_type
+  - value
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  uid:
+    type: string
+    readOnly: true
+  type:
+    type: string
+    enum: [ProfileAttributeRule]
+  condition_object_type:
+    type: string
+    enum: [DateAttribute]
+  condition_object_id:
+    type: string
+    format: uuid
+  secondary_attribute_type:
+    type: string
+    enum: [DateAttribute]
+  secondary_attribute_id:
+    type: string
+    format: uuid
+  comparison_operator:
+    type: string
+    enum: ['>', '<', 'after', 'before']
+  value:
+    type: string
+    enum: ['Today', '<uid>']
+  secondary_value:
+    type: string
+    enum: ['after', 'before']
+  tertiary_value:
+    type: string
+    example: 30
+
+
+
+

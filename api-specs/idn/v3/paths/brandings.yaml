@@ -1,0 +1,66 @@
+get:
+  operationId: getBrandingList
+  tags:
+    - Branding
+  summary: List of branding items
+  description: >-
+    This API endpoint returns a list of branding items.
+  security:
+    - userAuth: [idn:branding:read]
+    - applicationAuth: [idn:branding:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  responses:
+    '200':
+      description: A list of branding items.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/BrandingItem.yaml"
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+post:
+  operationId: createBrandingItem
+  tags:
+    - Branding
+  summary: Create a branding item
+  description: >-
+    This API endpoint creates a branding item.
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          $ref: '../schemas/BrandingItemCreate.yaml'
+  security:
+    - userAuth: [idn:branding:manage]
+    - applicationAuth: [idn:branding:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  responses:
+    '201':
+      description:  Branding item created
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/BrandingItem.yaml"
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

@@ -1,0 +1,10 @@
+description: Unauthorized - Returned if there is no authorization header, or if the JWT token is expired.
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        error:
+          description: A message describing the error
+          example: "JWT validation failed: JWT is expired"
+

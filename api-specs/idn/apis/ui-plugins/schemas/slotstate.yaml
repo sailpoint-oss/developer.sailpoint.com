@@ -1,0 +1,13 @@
+type: string
+title: Slot State
+x-sailpoint-lint-ignore:
+  schema-enum-values-must-be-upper-snake-case: The service uses these lowercase values in requests and responses.
+description: >-
+  - active: accepts new plugin registrations
+  - deprecated: still works; avoid for new plugins
+  - removed: no longer functions
+enum:
+  - active
+  - deprecated
+  - removed
+example: active

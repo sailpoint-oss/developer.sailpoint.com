@@ -1,0 +1,132 @@
+get:
+  summary: Get human subtype config
+  description: >-
+    Get the account-create configuration of a human account subtype by subtype ID. A subtype with no stored
+    configuration returns the default values.
+  operationId: getHumanAccountSubtypeConfigV2
+  tags:
+  - Human Account Subtypes
+  parameters:
+  - in: path
+    name: subtypeId
+    description: ID of the human account subtype.
+    required: true
+    x-sailpoint-resource-operation-id: listHumanAccountSubtypesV2
+    schema:
+      type: string
+    example: 38453251-6be2-5f8f-df93-5ce19e295838
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: 'true'
+    schema:
+      type: string
+      default: 'true'
+    required: true
+  responses:
+    '200':
+      description: Account-create configuration of the human account subtype.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/humanaccountsubtypeconfig.yaml
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:source-subtypes:read
+  - applicationAuth:
+    - idn:source-subtypes:read
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN
+patch:
+  summary: Update human subtype config
+  description: >-
+    Update the account-create configuration of a human account subtype. Only operations under `/humanAccountCreate`
+    are supported.
+  operationId: updateHumanAccountSubtypeConfigV2
+  tags:
+  - Human Account Subtypes
+  parameters:
+  - in: path
+    name: subtypeId
+    description: ID of the human account subtype.
+    required: true
+    x-sailpoint-resource-operation-id: listHumanAccountSubtypesV2
+    schema:
+      type: string
+    example: 38453251-6be2-5f8f-df93-5ce19e295838
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: 'true'
+    schema:
+      type: string
+      default: 'true'
+    required: true
+  requestBody:
+    required: true
+    description: JSON Patch operations under `/humanAccountCreate`, as defined by [RFC 6902](https://tools.ietf.org/html/rfc6902).
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../../shared/schemas/jsonpatchoperation.yaml
+        examples:
+          EnableAccountCreate:
+            value:
+            - op: replace
+              path: /humanAccountCreate/accountCreateEnabled
+              value: true
+  responses:
+    '200':
+      description: Updated account-create configuration of the human account subtype.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/humanaccountsubtypeconfig.yaml
+          examples:
+            HumanAccountSubtypeConfig:
+              value:
+                subtypeId: 38453251-6be2-5f8f-df93-5ce19e295838
+                humanAccountCreate:
+                  accountCreateEnabled: true
+                  approvalRequired: true
+                  approvalConfig:
+                    approvers: manager, sourceOwner
+                    comments: ALL
+                  formId: 4f1bb61b-a0ab-4c0a-b9fb-20f44407b75a
+    '400':
+      $ref: ../../shared/responses/400.yaml
+    '401':
+      $ref: ../../shared/responses/401.yaml
+    '403':
+      $ref: ../../shared/responses/403.yaml
+    '404':
+      $ref: ../../shared/responses/404.yaml
+    '429':
+      $ref: ../../shared/responses/429.yaml
+    '500':
+      $ref: ../../shared/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:source-subtypes:update
+  - applicationAuth:
+    - idn:source-subtypes:update
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_ADMIN
+  - SOURCE_SUBADMIN

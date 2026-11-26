@@ -1,0 +1,66 @@
+get:
+  operationId: getCertificationItemAccountDetailsV1
+  tags:
+    - Next Generation Certification Campaigns
+  summary: Certification Item Account Details
+  description: >-
+    Returns account details for a certification review item. Required roles are ORG_ADMIN or CERT_ADMIN. Reviewers for this certification can also call this API. It uses the Shelby Account API to fetch details.
+  security:
+    - userAuth: [ idn:campaign:read, idn:campaign:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: 'true'
+      schema:
+        type: string
+        default: 'true'
+      required: true
+    - in: path
+      name: certificationId
+      schema:
+        type: string
+        format: uuid
+      required: true
+      description: The certification ID
+      example: ef38f943-47e9-4562-b5bb-8424a56397d8
+      x-sailpoint-resource-operation-id: listCertificationsV1
+    - in: path
+      name: reviewItemId
+      schema:
+        type: string
+        format: uuid
+      required: true
+      description: The certification item ID
+      example: 2478b87b-f0d2-4585-b42d-45e4d580c5cf
+      x-sailpoint-resource-operation-id: listReviewItemsV1
+    - in: path
+      name: entitlementId
+      schema:
+        type: string
+      required: true
+      description: The entitlement ID
+      example: ef38f94347e94562b5bb8424a56397d8
+      x-sailpoint-resource-operation-id: listEntitlementsV1
+  responses:
+    '200':
+      description: Account details of particular certification review item
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/passthrough/AccountDetailsDto.yaml'
+    '400':
+      $ref: '../../shared/responses/400.yaml'
+    '401':
+      $ref: '../../shared/responses/401.yaml'
+    '403':
+      $ref: '../../shared/responses/403.yaml'
+    '404':
+      $ref: '../../shared/responses/404.yaml'
+    '429':
+      $ref: '../../shared/responses/429.yaml'
+    '500':
+      $ref: '../../shared/responses/500.yaml'

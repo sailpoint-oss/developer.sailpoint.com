@@ -1,0 +1,9 @@
+type: array
+items:
+  $ref: './ReassignmentTrailDTO.yaml'
+description: Reassignment trails that lead to self certification identity
+example: {
+  "previousOwner":"ef38f94347e94562b5bb8424a56397d8",
+  "newOwner": "ef38f94347e94562b5bb8424a56397a3",
+  "reassignmentType": "AUTOMATIC_REASSIGNMENT"
+  }

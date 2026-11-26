@@ -1,0 +1,11 @@
+type: object
+title: Subtype With Target Provisioning
+description: >-
+  Get-by-id response. Same as the list/create/patch model, except `target` includes
+  `supportsProvisioning`. List, create, and patch do not return that field.
+allOf:
+  - $ref: ./sourcesubtypedtov2.yaml
+  - type: object
+    properties:
+      target:
+        $ref: ./subtypetargetdto.yaml

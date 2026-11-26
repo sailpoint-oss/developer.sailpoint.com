@@ -1,0 +1,34 @@
+type: object
+properties:
+  appId:
+    type: string
+    description: The source app ID
+    example: fbf4f72280304f1a8bc808fc2a3bcf7b
+  appDisplayName:
+    type: string
+    description: The source app display name
+    example: AD source app
+  sourceAccount:
+    type: object
+    properties:
+      id:
+        type: string
+        description: The account ID
+        example: fbf4f72280304f1a8bc808fc2a3bcf7b
+      nativeIdentity:
+        type: string
+        description: The native identity of account
+        example: CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com
+      displayName:
+        type: string
+        description: The display name of account
+        example: Abby Smith
+      sourceId:
+        type: string
+        description: The source ID of account
+        example: 10efa58ea3954883b52bf74f489ce8f9
+      sourceDisplayName:
+        type: string
+        description: The source name of account
+        example: ODS-AD-SOURCE
+

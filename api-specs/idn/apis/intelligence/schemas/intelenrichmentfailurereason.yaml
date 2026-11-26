@@ -1,0 +1,6 @@
+type: string
+description: Machine-readable reason when a slice could not be loaded.
+enum:
+  - RESOURCE_NOT_FOUND
+  - UPSTREAM_UNAVAILABLE
+example: UPSTREAM_UNAVAILABLE

@@ -1,0 +1,20 @@
+type: object
+title: Entitlement State Snapshot Jit Detail
+description: A single JIT entitlement snapshot entry from the provisioning plan.
+properties:
+  applicationId:
+    type: string
+    description: Application id for the entitlement attribute (same as EntitlementStateSnapshot.applicationId).
+    example: 2c9180835d2e5168015d32f890ca1581
+  attributeName:
+    type: string
+    description: Account attribute name for the entitlement (EntitlementStateSnapshot.attributeName).
+    example: groups
+  attributeValues:
+    type: array
+    items:
+      type: string
+    description: Entitlement values for that attribute (EntitlementStateSnapshot.attributeValues).
+    example:
+      - CN=Engineering,OU=Groups,DC=example,DC=com
+additionalProperties: true

@@ -192,6 +192,9 @@ const config: Config = {
   ],
 
   customFields: {
+    EVENT_TRIGGER_TESTER_API_ENDPOINT:
+      process.env.EVENT_TRIGGER_TESTER_API_ENDPOINT ||
+      'https://7pg0igc0y3.execute-api.us-east-1.amazonaws.com',
     AUTH_USERNAME: process.env.AUTH_USERNAME || '',
     AUTH_PASSWORD: process.env.AUTH_PASSWORD || '',
     ENDPOINT_OVERRIDE: process.env.ENDPOINT_OVERRIDE || '',

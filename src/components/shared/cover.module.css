@@ -1,0 +1,13 @@
+/* The cover of a post or video without an image (PlainCover): the gradient of
+   the SailPoint blog title cards, deep blue at the top left to bright blue at
+   the bottom right. */
+.cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  /* The video pages set --br-cover-bg (videoTheme.module.css). */
+  background: var(
+    --br-cover-bg,
+    radial-gradient(ellipse at 100% 100%, rgb(0 113 206 / 60%), transparent 60%),
+    linear-gradient(135deg, #0a2a9a 0%, #0039b0 45%, #0062cc 80%, #0071d6 100%)
+  );
+}

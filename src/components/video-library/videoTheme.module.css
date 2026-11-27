@@ -1,0 +1,21 @@
+/*
+ * The video pages (/videos and /videos/<slug>) use the blog colors, except
+ * for the hero of the landing page and the banner at the top of a video page.
+ * Those use the footer colors of sailpoint.com ("inferno"): black, navy
+ * #011c48 and magenta #d60eb5.
+ *
+ * Put the class on the CommunityTheme element. It sets the hero tokens that
+ * landing.module.css reads and the banner token that styles.module.css
+ * reads. Every other token keeps its blog value.
+ */
+
+.videoTheme {
+  /* The same left-to-right flow as the blog hero: black at the left, navy,
+     then magenta at the right. */
+  --br-hero-bg:
+    radial-gradient(ellipse at 85% 0%, rgb(214 14 181 / 40%), transparent 55%),
+    linear-gradient(120deg, #000000 0%, #011c48 50%, #d60eb5 100%);
+  --br-hero-eyebrow: #f7b3ec;
+  /* The banner at the top of a video page: the hero colors, left to right. */
+  --br-bar-bg: linear-gradient(90deg, #000000 0%, #011c48 50%, #d60eb5 100%);
+}

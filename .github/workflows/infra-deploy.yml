@@ -137,6 +137,18 @@ jobs:
       - name: Install portal node modules
         run: npm ci
 
+      # The blog and video pages are built from Discourse topics
+      # (discourse-content-plugin.ts). The plugin keeps every topic it fetched in
+      # node_modules/.cache/discourse-content and fetches again only the topics
+      # that changed. `npm ci` deletes node_modules, so restore the cache after
+      # it. The key changes on every run, so each run saves its newer copy.
+      - name: Cache Discourse content
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.cache/discourse-content
+          key: discourse-content-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: discourse-content-
+
       # ---------------------------------------------------------------------------
       # Build each SDK from the portal's own API specs, sync reference docs and
       # code-example overlays into the portal workspace, and write category files.

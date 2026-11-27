@@ -1,10 +1,12 @@
 const {createApiPageMD} = require('./createApiPageMD');
 import clsx from 'clsx';
 import apiRedirectsPlugin from './api-redirects-plugin';
+import discourseContentPlugin from './discourse-content-plugin';
 import llmsGeneratedIndexPlugin from './llms-generated-index-plugin';
 
 const pluginConfig = [
   [apiRedirectsPlugin, {}],
+  [discourseContentPlugin, {}],
   [
     function disableExpensiveBundlerOptimizationPlugin() {
       return {
@@ -67,6 +69,7 @@ const pluginConfig = [
         if (existingPath.startsWith('/docs')) {
           return [existingPath.replace('/docs', '/idn')];
         }
+
         return undefined; // Return a falsy value: no redirect created
       },
     },

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Layout from '@theme/Layout';
 import styles from './filter.module.css';
-import BlogSidebar from '../../components/blog/BlogSidebar';
+import TagSidebar from '../../components/marketplace/TagSidebar';
 import MarketplaceCards from '../../components/marketplace/MarketplaceCards';
 import MarketplaceBanner from '../../components/marketplace/MarketplaceBanner';
 
@@ -36,7 +36,7 @@ const Workflows: React.FC = () => {
         <MarketplaceBanner />
         <div className={styles.container}>
           <div className={styles.filterContainer}>
-            <BlogSidebar filterCallback={handleClick} />
+            <TagSidebar filterCallback={handleClick} />
           </div>
           <div className={styles.cardContainer}>
             <MarketplaceCards filterCallback={filteredProduct} />

@@ -1,6 +1,6 @@
 import Layout from '@theme/Layout';
 import React, { useState } from 'react';
-import BlogSidebar from '../../components/blog/BlogSidebar';
+import TagSidebar from '../../components/marketplace/TagSidebar';
 import MarketplaceBanner from '../../components/marketplace/MarketplaceBanner';
 import MarketplaceCards from '../../components/marketplace/MarketplaceCards';
 import styles from './filter.module.css';
@@ -36,7 +36,7 @@ const SaasConnectorCustomizers: React.FC = () => {
         <MarketplaceBanner />
         <div className={styles.container}>
           <div className={styles.filterContainer}>
-            <BlogSidebar filterCallback={handleClick} isChecked={true} />
+            <TagSidebar filterCallback={handleClick} isChecked={true} />
           </div>
           <div className={styles.cardContainer}>
             <MarketplaceCards filterCallback={filteredProduct} />
